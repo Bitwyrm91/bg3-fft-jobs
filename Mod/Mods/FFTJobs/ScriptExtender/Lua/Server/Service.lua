@@ -18,6 +18,7 @@ function Service.New(deps)
     self.CharCombat = {} -- guid -> combatId of the fight it entered
     self.Orphans = {} -- guid -> true: acted in combat without an EnteredCombat (e.g. a save loaded mid-fight)
     self.TurnCasts = {} -- guid -> casts counted this turn
+    self.NotTrackable = {} -- guid -> true: checked, not a party member (NPCs cast spells and enter combat too)
     self.PollGeneration = 0
     self.OnOpenBoard = nil -- set by NetServer
     return self
@@ -78,6 +79,7 @@ function Service:OnResetCompleted()
 end
 
 function Service:StartGameplay()
+    self.NotTrackable = {}
     self:DiscoverParty()
     self:ReconcileAll(true)
     self:PollXP()
@@ -110,7 +112,11 @@ function Service:EnsureChar(guid)
     if char then
         return char
     end
+    if self.NotTrackable[guid] then
+        return nil
+    end
     if not self.Game:IsTrackable(guid) then
+        self.NotTrackable[guid] = true
         return nil
     end
     local startJob = self:StartingJob(guid)
@@ -509,6 +515,7 @@ function Service:OnCharacterJoinedParty(character)
         return
     end
     local guid = Util.Guid(character)
+    self.NotTrackable[guid] = nil -- a recruited NPC
     if self:EnsureChar(guid) then
         self:Reconcile(guid, true)
     end

@@ -292,6 +292,30 @@ function S.companion_joining_later_is_tracked(w, T)
     T.eq(svc.State:Get(KARLACH).Primary, "Squire")
 end
 
+function S.npcs_are_checked_once_and_recruits_still_join(w, T)
+    local svc = T.boot(w)
+    local GOBLIN = "66666666-6666-4666-8666-666666666666"
+    w.newChar(GOBLIN, { name = "Goblin", level = 2, player = false, party = false })
+    w.osiCalls = {}
+    local checks = 0
+    local original = Osi.IsSummon
+    Osi.IsSummon = function(g)
+        checks = checks + 1
+        return original(g)
+    end
+    w.chars[GOBLIN].inCombat = true
+    T.cast(w, GOBLIN, "Target_MainHandAttack")
+    T.cast(w, GOBLIN, "Target_MainHandAttack")
+    w.fire("EnteredCombat", "Goblin_" .. GOBLIN, "c1")
+    T.eq(checks, 1, "an NPC is checked once")
+    T.falsy(svc.State:Get(GOBLIN))
+    w.chars[GOBLIN].player = true
+    w.chars[GOBLIN].party = true
+    w.fire("CharacterJoinedParty", "Goblin_" .. GOBLIN)
+    T.truthy(svc.State:Get(GOBLIN), "recruited NPCs are tracked")
+    Osi.IsSummon = original
+end
+
 function S.reset_completed_reloads_saved_state(w, T)
     local svc = T.boot(w)
     svc:AddManualJP(T.TAV, 120, "Squire")
