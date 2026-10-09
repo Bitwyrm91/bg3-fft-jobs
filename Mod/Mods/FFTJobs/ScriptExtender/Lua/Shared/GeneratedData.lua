@@ -1200,7 +1200,7 @@ return {
       Order = 55,
       Description = "4d10 radiant damage to a creature within 18 m, no attack roll. Once per short rest.",
       Grants = {
-        Spells = { "Target_FFTJ_Holy" },
+        Spells = { "Projectile_FFTJ_Holy" },
       },
     },
     Regenerate = {

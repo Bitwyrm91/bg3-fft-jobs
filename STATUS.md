@@ -9,7 +9,7 @@ Handoff between sessions. Read this first, then `BRIEF.md` and `DESIGN.md`.
 - [x] 1. Research + `DESIGN.md` (SE/Osiris APIs verified against Norbyte's docs and the generated story header, TIC data with sources, JP formulas, persistence, layout, mod UUID `3db7be3e-9387-4678-b172-044acc7ff0c2`)
 - [x] 2. Data files: `data/fft_jobs.json` (all 20 TIC jobs with unlock rules, 6 implemented, 71 abilities with TIC JP costs and sources), `data/config_defaults.json` (JP config + presets), `data/strings.json`; `tools/build.py` generates `Shared/GeneratedData.lua`
 - [x] 3. Lua engine (`Mod/Mods/FFTJobs/ScriptExtender/Lua/`): JP from `CastedSpell`/`CombatEnded`/XP polling/`LongRestFinished` with spillover and camp share, job levels, unlocks, learning, primary/secondary/reaction/support/movement, grant diffing with `AddSpell`/`AddPassive`/`ApplyStatus`, JSON config + presets + 22 `!fft_*` console commands, ModVars persistence, telemetry, IMGUI Job Board (client) over NetChannels; `meta.lsx` + SE `Config.json`
-- [ ] 4. Stats + localization drafts
+- [x] 4. Stats + localization drafts: `stats_src/` templates (62 spells, 26 passives, 12 statuses) -> `Mod/Public/FFTJobs/Stats/Generated/Data/`, 180 English strings -> `Mod/Localization/English/FFTJobs.xml` (convert to .loca in Part B); `docs/vanilla_refs.md` lists every vanilla ID they rely on; `tools/validate_vanilla.py` checks them against the extracted game data
 - [ ] 5. Tests (Lua 5.4, mock Ext/Osi)
 - [ ] 6. Pacing simulator + preset tables
 - [ ] 7. `PLAYTEST.md` + final `STATUS.md` with the Part B checklist

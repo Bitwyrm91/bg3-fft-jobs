@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+  <content contentuid="h4997245bgb55eg51ddgabb4g2e58561960be" version="1">Ranged weapon attack that deals 1d4 extra damage.</content>
+  <content contentuid="hb22e902bgbba6g5091g88a4g4d2f36a6ad5e" version="1">Aim +1</content>
+  <content contentuid="ha72fd0d7gff28g5d1dg8c9agf4d69b10656d" version="1">Costs your action and bonus action. Ranged weapon attack that deals 4d10 extra damage. Once per short rest.</content>
+  <content contentuid="h304aa6ceg8330g5d1dg9ac7gfdbb60090c0e" version="1">Aim +10</content>
+  <content contentuid="h63959f3eg8c7eg58c8ga45agf2889ed72fb5" version="1">Ranged weapon attack that deals 1d6 extra damage.</content>
+  <content contentuid="h6eec1736g4386g5785g85f8g5c3dfdc4fb49" version="1">Aim +2</content>
+  <content contentuid="h87b3073dg4493g5b35gadb4g0d907e4311bd" version="1">Costs your action and bonus action. Ranged weapon attack that deals 8d10 extra damage. Once per long rest.</content>
+  <content contentuid="hfc381037g1ce0g5a81gb3b6gf2cf34cdabc2" version="1">Aim +20</content>
+  <content contentuid="h128971cag5643g5de2ga751ge47f42e15eb0" version="1">Ranged weapon attack that deals 1d8 extra damage.</content>
+  <content contentuid="h2edd2667g1381g5662gb88cg2e5b09b9cec2" version="1">Aim +3</content>
+  <content contentuid="hfbfef49bg4ccfg5563ga00fgb1ed9910204d" version="1">Ranged weapon attack that deals 2d6 extra damage.</content>
+  <content contentuid="hdd9f9a4cgb562g5f3fgaf6egd3ebfc0a286c" version="1">Aim +4</content>
+  <content contentuid="h8ad821b8g4d59g50cfga2a9gc0e13e658af3" version="1">Costs your action and bonus action. Ranged weapon attack that deals 2d8 extra damage.</content>
+  <content contentuid="h99cfbd4dg6194g5a8cg9a3bg3591bfe63b39" version="1">Aim +5</content>
+  <content contentuid="hfa0f97e8g640ag59a0g9ff1gdd6b22cd888a" version="1">Costs your action and bonus action. Ranged weapon attack that deals 3d8 extra damage. Once per short rest.</content>
+  <content contentuid="h89c80f25g4aa3g5eddgad68gf455002b3156" version="1">Aim +7</content>
+  <content contentuid="h22736c6age9acg5bbcg9816gdb469f5cfa96" version="1">End Poisoned. Thrown like Potion.</content>
+  <content contentuid="h132086eegaef6g5303gad84gae2746afa580" version="1">Antidote</content>
+  <content contentuid="hf379c5abg2c68g57a7g95b9gb14f41d97d44" version="1">Piercing damage you take is reduced by 3.</content>
+  <content contentuid="ha4f7181ag41dbg51bfgbb31g47ae8217ff82" version="1">Archer's Bane</content>
+  <content contentuid="h0b00536fg317dg57f1g9c68g300e73f19cdb" version="1">Revive a dead ally and heal it for 4d8. Once per long rest.</content>
+  <content contentuid="ha9726bcdgfad3g5ccbg9c39g521a69c18bc3" version="1">Arise</content>
+  <content contentuid="h3f0aa3dbg61fdg599bga2a2g297a302ae1b1" version="1">When you take damage, regain 1d4+2 HP. Once per turn.</content>
+  <content contentuid="h57c76934g2a19g5dd0gba4cg4341525da592" version="1">Auto-Potion</content>
+  <content contentuid="h9bc71ca4gd076g5b96ga3e0g5d84488f41b0" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
+  <content contentuid="hcf7bea1ag694fg5002ga908g6c29e90f8062" version="1">Blizzaga</content>
+  <content contentuid="h6b854859gb227g5984gbd41gdc6d96cd95cf" version="1">3d6 cold damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
+  <content contentuid="hbc93d37bg1565g504eg988fg51ca5925a76c" version="1">Blizzara</content>
+  <content contentuid="hb7c570e3g84adg570egab22gcc3bcc5bd077" version="1">1d8 cold damage to a creature within 18 m, no attack roll.</content>
+  <content contentuid="h19c3ad71gf0c5g586cg9984g70c2e026e1a2" version="1">Blizzard</content>
+  <content contentuid="hc7a5deceg9d9fg5c26ga3b8g7299e10e6f75" version="1">+2 to weapon attack rolls.</content>
+  <content contentuid="h12851168g1a13g5e9bga89fgd8b5abc18048" version="1">Concentration</content>
+  <content contentuid="h1a71ccd6g4cd9g5551g8786g12f72fa03ccc" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 1.5 m.</content>
+  <content contentuid="hbd3262cbgcf79g5852ga81fg1a3dcffe6fe4" version="1">Counter Tackle</content>
+  <content contentuid="hd61583b7gd790g5b6agae4bgeeae29f84943" version="1">Heal every creature in a 3 m radius for 2d8+3. Once per short rest.</content>
+  <content contentuid="hd7fc9da8g2d74g5a9egbdeeg882f15d2006a" version="1">Cura</content>
+  <content contentuid="h74a4f82fg6ebeg57aagaba4g065916b79e92" version="1">Heal every creature in a 4.5 m radius for 4d8+4. Once per long rest.</content>
+  <content contentuid="h65535f2fg7b5dg59ceg9e26g57bb753ac955" version="1">Curaga</content>
+  <content contentuid="heaf492b2ga3bbg5394g93fegcc003088a073" version="1">Heal a creature within 18 m for 1d8+3. Once per turn.</content>
+  <content contentuid="h4a9da558gdab3g595aga197gf633a880b245" version="1">Cure</content>
+  <content contentuid="h6c7a1987g31a9g5de5g8a14g6aa3a345cf40" version="1">8d10 necrotic damage to a creature within 18 m; Constitution save for half. Once per long rest.</content>
+  <content contentuid="h20430412g7126g548fg9730g2dc0dc6147c2" version="1">Death</content>
+  <content contentuid="h80d37df8g55bfg572aga785gee17068f477e" version="1">End Silenced. Thrown like Potion.</content>
+  <content contentuid="h85374d3ag6f46g5fabgb13cg8a809600d880" version="1">Echo Herbs</content>
+  <content contentuid="h98ed3d3fgbd55g52a0gaafbg498b0b700d0c" version="1">Fully heal the target and restore one level 2 spell slot. Once per long rest. Thrown like Potion.</content>
+  <content contentuid="hc4573fa0g31c7g595cg8b58g4fff783baae4" version="1">Elixir</content>
+  <content contentuid="h356de54bg8ed7g580dg9246g2a0f00a2cb05" version="1">Proficiency with handaxes, battleaxes and greataxes.</content>
+  <content contentuid="heb0a5ca0gc7a3g52e6gab3fgf461119ad816" version="1">Equip Axes</content>
+  <content contentuid="h106004ccgbf42g5cd5gb3ebg1aaef6a6da53" version="1">Proficiency with hand, light and heavy crossbows.</content>
+  <content contentuid="h3e1b7458g1aa8g5a13g9e7bg09cc2f77e502" version="1">Equip Crossbows</content>
+  <content contentuid="hef1bbb9eg3e9bg575fg8de6gb7124705f6c5" version="1">Proficiency with medium and heavy armour.</content>
+  <content contentuid="h11bbd2a8g7ff0g5d07g8118g63514886b481" version="1">Equip Heavy Armor</content>
+  <content contentuid="h090b1667g6448g50ccga605gb245c0dea7d6" version="1">Proficiency with shields.</content>
+  <content contentuid="hf3f5cb32g99e6g5ea8g8112g62ccae7685d5" version="1">Equip Shields</content>
+  <content contentuid="hb9abcb3ag64ecg5939gbb78g4d1b6de2af9b" version="1">Proficiency with shortswords, longswords and greatswords.</content>
+  <content contentuid="hbd2331aag3209g5645g9e25g38769d0bfce3" version="1">Equip Swords</content>
+  <content contentuid="h5e373741gbcf2g5eb1ga4abg82f06abd0447" version="1">End Poisoned, Blinded, Silenced and Frightened on a creature within 18 m. Once per turn.</content>
+  <content contentuid="hcb54b022g657dg593fg955eg5336817b0c73" version="1">Esuna</content>
+  <content contentuid="h1e8299bcgc2c3g5de8g99d9g101c68b4b004" version="1">The target regains one level 1 spell slot. Once per long rest. Thrown like Potion.</content>
+  <content contentuid="hbf1b6abfg1096g5ff5ga805g43dbdafac4c4" version="1">Ether</content>
+  <content contentuid="hf6449a81g7e3eg5616gbd9eg12a49047c6bf" version="1">Adds the Defend bonus action: +2 AC until your next turn.</content>
+  <content contentuid="h26d11a44g6754g5a4cgbfb0gf3b0b4a58057" version="1">Evasive Stance</content>
+  <content contentuid="h7be2072fg5de6g5df3ga4aagae31d8e5f460" version="1">End Blinded. Thrown like Potion.</content>
+  <content contentuid="h16d7460agbbd3g5e50g821bg4fb67c56510f" version="1">Eye Drops</content>
+  <content contentuid="h55a19410gb594g5f86gaa4fgf59bcc326e32" version="1">3d6 fire damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
+  <content contentuid="h82fbe68ag7394g5470g9bb4g2e8dbf0385e2" version="1">Fira</content>
+  <content contentuid="h8fe21821g5c72g5389gb8c2g8d515015f6ed" version="1">6d6 fire damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
+  <content contentuid="h0ac6aa0dg9548g5fdega19cgee57fee3fdf1" version="1">Firaga</content>
+  <content contentuid="h006ec71ag19fag5d7fg9e7fg463c3066d440" version="1">1d8 fire damage to a creature within 18 m, no attack roll.</content>
+  <content contentuid="h0703e513g7da3g50b4gb6b0gc4d0ac969c07" version="1">Fire</content>
+  <content contentuid="h43ae3dafg0cc1g554eg851dg0c71a616957d" version="1">10d10 force damage to a creature within 18 m, no attack roll. Once per long rest.</content>
+  <content contentuid="h3395e73cg831cg583ag88bdg460ea8267c5b" version="1">Flare</content>
+  <content contentuid="hfd53e168ga4edg50d0g86f9gbabab1eb621f" version="1">Bonus action. +1 to attack rolls and +1 damage for 10 turns.</content>
+  <content contentuid="had05ac22g7588g57aag9985ga600447820d8" version="1">Focus</content>
+  <content contentuid="h00bf611ag9ffbg5132gb29cg9fa9f5719e6d" version="1">Heal 4d4+4. Once per short rest. Thrown like Potion.</content>
+  <content contentuid="h2ad845aagbab5g53c1g879agf09cac09e3e1" version="1">Hi-Potion</content>
+  <content contentuid="hfee7f9c5gc881g5f89g99b8g191fd3ea6c1a" version="1">4d10 radiant damage to a creature within 18 m, no attack roll. Once per short rest.</content>
+  <content contentuid="hcd4a57f2g1325g55f4gbb3dg51702d8ba86c" version="1">Holy</content>
+  <content contentuid="h3c36efb8g46f9g5183gb087g0bcd82fc476a" version="1">Earn 50% more JP.</content>
+  <content contentuid="h472dd1e3g69feg5a34gbb87gc9330e40dd28" version="1">JP Boost</content>
+  <content contentuid="h76d11b9fg0bc1g5b93gb756g6c75722ec642" version="1">+3 m jump distance.</content>
+  <content contentuid="haaaccdbag65e7g5434gb59dg58d71287ae34" version="1">Jump +1</content>
+  <content contentuid="h7218403fgf688g57f1gb541gd9b301fb7c7b" version="1">+1 spell save DC and +1 to spell attack rolls.</content>
+  <content contentuid="h8f58a2a8ge351g5fa4g941eg76080b571603" version="1">Magick Boost</content>
+  <content contentuid="hc95b80eeg019dg5cd0ga828g98b30cbbc688" version="1">When a spell damages you, its caster takes 2d6 force damage.</content>
+  <content contentuid="hed9749cag51b5g5174g867bg16af19be0d02" version="1">Magick Counter</content>
+  <content contentuid="he7ee2cd9gc44ag53ddg92d1ga5d71ab4a181" version="1">+1 to all saving throws.</content>
+  <content contentuid="h78db1063g644eg5bb7g8381g2e72518bb518" version="1">Magick Defense Boost</content>
+  <content contentuid="hb714e206g10feg5503g9baeg87df8a75d709" version="1">+3 m movement speed.</content>
+  <content contentuid="he0a669afga60cg51begb1dcg39c96fde3aa2" version="1">Movement +1</content>
+  <content contentuid="h4ce1e541gae91g5abag9d00gd485952aca38" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2.</content>
+  <content contentuid="h767a6ba2g34a0g5ab4ga421g9217d79c3ca7" version="1">Parry</content>
+  <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion.</content>
+  <content contentuid="h0d97b2aegc290g5cdbgb478g11d37f703126" version="1">Phoenix Down</content>
+  <content contentuid="hfdb6e888g5d60g563fga4d6g40275d4bafa7" version="1">1d6 poison damage to a creature within 18 m; it is Poisoned for 2 turns unless it succeeds a Constitution save.</content>
+  <content contentuid="h81ce24b7g0c25g5bbbgb6bag1329e8eb68c0" version="1">Poison</content>
+  <content contentuid="h9c5ad605gc4c0g5badgaf8egfb8d789a921a" version="1">Heal 2d4+2. Touch range, or 9 m when thrown (Chemist primary job or Throw Items).</content>
+  <content contentuid="hdc38429ag507eg5684g9080g79d18940ac4b" version="1">Potion</content>
+  <content contentuid="h2f915be8gf318g53b8ga783gf54b0ee9000c" version="1">The target gets +2 AC for 5 turns. Once per turn.</content>
+  <content contentuid="he97c83c4g2db4g5c14gba78gebb36091d7d7" version="1">Protect</content>
+  <content contentuid="h6f8f7b02ge82fg5859gb7a8g223ee4defd4b" version="1">Revive a dead ally with 1 HP. Once per short rest.</content>
+  <content contentuid="h0bb0db5cg4a18g5070g8270g65bd5162ce55" version="1">Raise</content>
+  <content contentuid="hefd05e9eg70beg544cg936bg9ebb565ec2b7" version="1">The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn.</content>
+  <content contentuid="he94fec03g65ecg5dfaga674g0f5441824d27" version="1">Regen</content>
+  <content contentuid="hd42c1273ga1cbg5ebcgb0b3g26ffd5415a8f" version="1">When you take damage, you gain Regen for 3 turns (1d4+1 HP per turn) unless you already have it.</content>
+  <content contentuid="h8dda2a1dg02e3g5d8fgb59dg6f4e537bbc08" version="1">Regenerate</content>
+  <content contentuid="ha6a17edbg1948g58ccg8f97gbba4adf5be52" version="1">End Poisoned, Blinded, Silenced and Frightened. Once per short rest. Thrown like Potion.</content>
+  <content contentuid="h24dfac7cg8d71g5083gbd4ag15d8e5e491d2" version="1">Remedy</content>
+  <content contentuid="ha79d0332g5f2dg5d41gb738g98b036faa0c7" version="1">Melee weapon attack that deals no damage; on a hit the target has -2 AC for 3 turns.</content>
+  <content contentuid="h681c7400g34aeg57b6gbc44g41cda7205fab" version="1">Rend Armor</content>
+  <content contentuid="h6ca149aagb552g5b33g8955gfb09d42d5bec" version="1">Melee weapon attack that deals no damage; on a hit the target has -2 spell save DC and -2 to spell attack rolls for 3 turns.</content>
+  <content contentuid="hdd45b7cag3274g591ega770g66455ed028b3" version="1">Rend Magick</content>
+  <content contentuid="hce2cf63fgcb5eg58fcg8051ge953c8fa2a1d" version="1">Melee weapon attack that deals no damage; on a hit the target deals 2 less damage for 3 turns.</content>
+  <content contentuid="h9fb96979g8f83g53d7g927cg89bae0787080" version="1">Rend Power</content>
+  <content contentuid="h0464ec48g1c76g568cg9de3gbe5976e5dbb1" version="1">Melee weapon attack that deals no damage; on a hit the target has -3 m movement for 3 turns.</content>
+  <content contentuid="h1ae7cf6fgf919g537dg8816gbd0364326777" version="1">Rend Speed</content>
+  <content contentuid="hd40315a4g3c6dg5661g9ca0g7331681105f5" version="1">Melee weapon attack that deals no damage; on a hit the target has disadvantage on attack rolls for 2 turns.</content>
+  <content contentuid="hf58e2652ga999g5f4ag98e0g734323a86e63" version="1">Rend Weapon</content>
+  <content contentuid="hdcc3587egea0bg561eg9f3dg9d6ab06961e6" version="1">Death Ward: the next time the ally would drop to 0 HP, it drops to 1 HP instead. Once per long rest.</content>
+  <content contentuid="h71e8e3e2g2fdfg5017gbcf0gf0e0affac3ba" version="1">Reraise</content>
+  <content contentuid="h6a02edd4g776dg5ae4gbe92gb0a4ce3f3fc5" version="1">Melee weapon attack that also pushes the target 2 m.</content>
+  <content contentuid="h27771a9dg0fcag5396gbf7eg0846d874e966" version="1">Rush</content>
+  <content contentuid="ha9916fc8g295bg5fcbg980aga22476868438" version="1">Touch an ally to end Blinded, Poisoned and Silenced.</content>
+  <content contentuid="hc97a5f6ag22afg5394g97dcgc0d4c94cc049" version="1">Salve</content>
+  <content contentuid="h59cd2ee9g52bbg50e8ga5adgdd2843e65e7b" version="1">The target has advantage on saving throws against spells for 5 turns. Once per turn.</content>
+  <content contentuid="h3959f5deg7eecg515ega28ag9d26c6b424a8" version="1">Shell</content>
+  <content contentuid="h4e1f1c50g793bg5a22gbc73g78370fc48b84" version="1">When you take damage, gain +3 m movement for 2 turns.</content>
+  <content contentuid="h6ed4b882gb760g5933g88d3g7ade648bb995" version="1">Speed Surge</content>
+  <content contentuid="hf966add7g171eg5d96g90ffg3b8972c7ff78" version="1">Item abilities can be thrown up to 9 m with any job.</content>
+  <content contentuid="hf1409b06g9e4bg55deg82a9g34366ad91f2d" version="1">Throw Items</content>
+  <content contentuid="h0d126babg8e22g59aeg821bgb859bb091661" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 1 m push.</content>
+  <content contentuid="hf1a6958dg1c23g5653gad1ag356baa139a13" version="1">Throw Stone</content>
+  <content contentuid="hf6741b54gea73g5c2dgb225g82434b606136" version="1">6d6 lightning damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
+  <content contentuid="hb7a4d23dgc087g5c54g8997g15c61d572f33" version="1">Thundaga</content>
+  <content contentuid="ha286b905gba8dg5bfagad6fgba80a11851a4" version="1">3d6 lightning damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
+  <content contentuid="hb662163bg7866g5397gbba7gc56e5cd6d60f" version="1">Thundara</content>
+  <content contentuid="h9efa3e8agf1d7g5845gae50g44ca6a7615c6" version="1">1d8 lightning damage to a creature within 18 m, no attack roll.</content>
+  <content contentuid="h61b0b750g5244g5945g9d9eg6abb6b847a66" version="1">Thunder</content>
+  <content contentuid="h6c29a1c2g9a1cg55c5g8b91g304d10ec3c90" version="1">+2 to Perception (spot hidden items and traps).</content>
+  <content contentuid="h1bd79da5g4bffg5c41gbe76g2e287a7581e0" version="1">Treasure Hunter</content>
+  <content contentuid="h554f4f19g0c0fg5edega867gd1109de5f992" version="1">Heal 8d4+8. Once per long rest. Thrown like Potion.</content>
+  <content contentuid="h191dd1ecg0450g5e51g9b8bg32f1411f6c23" version="1">X-Potion</content>
+  <content contentuid="h95f76fb9g03c4g5b49gb5b7ge2e019021f67" version="1">Charged ranged shots. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h90e77463gaf6ag56f1gba4cg4fe5c741343c" version="1">Job: Archer</content>
+  <content contentuid="h250a0471g31c9g579fgaaf5g4400101c5845" version="1">Elemental attack magic. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h88ca7894g5b23g559ag9817g991a6b664362" version="1">Job: Black Mage</content>
+  <content contentuid="h32930831g3939g523ega2b3gb066b895d542" version="1">Item expert. Starting job. Throws items when it is the primary job. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h5a0e3fd8g4f51g51d1ga5f4g78bd01d0edcb" version="1">Job: Chemist</content>
+  <content contentuid="ha5976045gcbf7g5ef6g88feg9ba15413337c" version="1">Breaks the enemy's armor, weapon, speed and power. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hd73ae27cgd9e4g571fgbfe5g4c7a339f8bc3" version="1">Job: Knight</content>
+  <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hb65980b3g8531g5fc9gabddgdcd5912f7558" version="1">Job: Squire</content>
+  <content contentuid="h0e9f7479g515cg5cfegb38eg2dbe82726e7c" version="1">Healing, revival and protection. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hf12d1373g3fc7g5d45gb675g90d8be9f9bb8" version="1">Job: White Mage</content>
+  <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
+  <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
+  <content contentuid="ha4f203f8g9cfcg52e5g8f10ga73b48109897" version="1">Auto-Potion already triggered this turn.</content>
+  <content contentuid="hbbe1f996g1ed5g542bg9bedg0dd19af0cb4c" version="1">Auto-Potion Used</content>
+  <content contentuid="h58eb9c17gbfa2g5284gace0g36ab6c5bd644" version="1">+2 AC until your next turn.</content>
+  <content contentuid="hf229705fg5aecg55ebg9db3g1ae543b05c6e" version="1">Defending</content>
+  <content contentuid="hbc9d1ec1ga51eg5405gbaf4g810332f1f5aa" version="1">+1 to attack rolls and +1 damage.</content>
+  <content contentuid="h1906f6c3ge841g56d1g95b0g3c9d6bf606c1" version="1">Focus</content>
+  <content contentuid="hda2ce899ga8deg5eaaga615gdfd2f03e4ffb" version="1">+2 AC.</content>
+  <content contentuid="h0e16631cg257cg5438g9283g28c99ab90b53" version="1">Protect</content>
+  <content contentuid="ha74d551ega43cg57d2gbe33gfb71e9a106ee" version="1">Regains 1d4+1 HP at the start of each turn.</content>
+  <content contentuid="hc7f0fc95g3726g5c6ag80a5gcc4e7418ef7c" version="1">Regen</content>
+  <content contentuid="hc623f0b2g317ag5316g8ae7g498eff69c4e1" version="1">-2 AC.</content>
+  <content contentuid="h6abee5bbg37a2g54b4g98fag8200b0e8d8bb" version="1">Armor Rent</content>
+  <content contentuid="h727d993fgc8e2g5e3bgb4ddgee070d9a96ad" version="1">-2 spell save DC and -2 to spell attack rolls.</content>
+  <content contentuid="hea1b4349g4844g566bgbdfbgfcaa7ecbf074" version="1">Magick Rent</content>
+  <content contentuid="h927f19c2g2a36g5c88g943bg8f5d7da203a1" version="1">Deals 2 less damage.</content>
+  <content contentuid="h00cd11fdg3a2fg591ag98bcg907c163a20c8" version="1">Power Rent</content>
+  <content contentuid="h12538874gc08ag5445ga5a9gcdd631a8a4a4" version="1">-3 m movement.</content>
+  <content contentuid="h86488a39g5fd9g5f2eg854fg16d25368f47b" version="1">Speed Rent</content>
+  <content contentuid="h8839de6dga192g5051gaf85gb0d66be1bc2d" version="1">Disadvantage on attack rolls.</content>
+  <content contentuid="h9e72afe7g9617g5d02g884eg68e2d208d9a0" version="1">Weapon Rent</content>
+  <content contentuid="h4677c8c1g05f5g551bga058g133c6c8d3330" version="1">Advantage on saving throws against spells.</content>
+  <content contentuid="hf59dc2aeg0a58g57f7gbcf1g7067c6361a1b" version="1">Shell</content>
+  <content contentuid="h04f3c12cg2948g542ag9876gd0281fae51f5" version="1">+3 m movement.</content>
+  <content contentuid="hef5cc892g7ddfg50d1g9762gef2f15354b7b" version="1">Speed Surge</content>
+</contentList>
