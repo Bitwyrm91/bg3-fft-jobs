@@ -1,0 +1,24 @@
+# LF line endings in the repository and in every checkout (Windows with core.autocrlf=true too), so the
+# files on disk are byte-identical to what the build and the tests were run against.
+* text=auto eol=lf
+*.lua text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.xml text eol=lf
+*.lsx text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Game and binary formats: never touch.
+*.pak binary
+*.loca binary
+*.lsf binary
+*.lsb binary
+*.dds binary
+*.png binary
+*.zip binary

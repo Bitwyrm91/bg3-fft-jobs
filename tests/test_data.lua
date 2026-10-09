@@ -1,11 +1,13 @@
 -- Generated data vs. stats vs. localization, checked from Lua (the build also checks the first two).
 local S = {}
 
+-- Reads a text file with its line endings normalized: a Windows checkout with core.autocrlf=true has CRLF,
+-- and a trailing "\r" would break the line patterns below.
 local function read(path)
     local f = assert(io.open(path, "rb"))
     local s = f:read("a")
     f:close()
-    return s
+    return (s:gsub("\r", ""))
 end
 
 local function statsEntries(Mocks)

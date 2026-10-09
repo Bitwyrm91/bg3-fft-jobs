@@ -13,10 +13,14 @@ FFT data source: **The Ivalice Chronicles** (the user asked for the recent remak
 - [x] 3. Lua engine (`Mod/Mods/FFTJobs/ScriptExtender/Lua/`): JP from `CastedSpell`, `CombatEnded`, XP polling and `LongRestFinished`, with spillover and camp share; job levels, unlocks, learning; primary/secondary/reaction/support/movement; grant diffing with `AddSpell`/`AddPassive`/`ApplyStatus` that never removes what a character had before; JSON config + presets + 22 `!fft_*` console commands; ModVars persistence; telemetry log; IMGUI **Job Board** window over NetChannels; `meta.lsx` and SE `Config.json`.
 - [x] 4. Stats + localization drafts: `stats_src/` → `Mod/Public/FFTJobs/Stats/Generated/Data/` (62 spells, 26 passives, 12 statuses), 180 English strings in `Mod/Localization/English/FFTJobs.xml`. `docs/vanilla_refs.md` lists every vanilla ID they rely on; `tools/validate_vanilla.py` checks them against the extracted game data.
 - [x] 5. Tests: 79 Lua 5.4 tests in 7 suites (rules, config, engine events, save/load round trip, console commands, Job Board UI, data integrity) on a mock Ext/Osi (`tests/mocks.lua`). **Last run: 79 passed, 0 failed**, both with Lua 5.4.6 and with Python + lupa 2.8.
+  - Windows check by the desktop session (e6e1ddd, Windows 11, `core.autocrlf=true`): 78/79. The failure (`test_data :: every_localization_handle_exists`, "handles checked: 0") came from **CRLF line endings** in the checkout, not from path handling: the tests use a fixed file list, but a trailing `\r` broke the `data "..." "..."$` pattern. Reproduced in the cloud by converting a copy to CRLF. Fixed three ways:
+    - `tests/test_data.lua` now ignores CR;
+    - a new `.gitattributes` keeps LF in every checkout (verified: an `autocrlf=true` clone has 0 files with CR, 55 without it);
+    - `tools/run_tests.ps1` now finds a real Python: `$env:PYTHON`, then `py -3`, then a python3/python that is not the Microsoft Store stub, then `uv run`. Without a Lua 5.4 executable it uses lupa, through `uv run --with lupa` if needed. The script was tested with PowerShell 7.6 (Linux): all checks pass, the filter argument passes through, and a stale build or a failing test exits 1. The CRLF copy also passes with Lua, lupa and the script.
 - [x] 6. Pacing simulator `tools/pacing_sim.py` + preset tables (`DESIGN.md` section 14). **Classic** defaults: action JP ×0.5, XP share 0.15, victory 15 + 1/level, long rest 25, camp share 1/2, spillover 1/4. LOW estimate: every fighter masters 5 of the 6 jobs; TYPICAL: all 6 during Act 3; HIGH: all 6 by the end of Act 2.
 - [x] 7. `PLAYTEST.md` (for the user) and this file.
 
-Run every check: `tools/run_tests.sh` (Linux/Git Bash) or `powershell -File tools\run_tests.ps1` (Windows). It runs the build check, the Lua suites (a Lua 5.4 executable, or Python with `pip install lupa` when there is none) and the simulator self-test.
+Run every check: `tools/run_tests.sh` (Linux/Git Bash) or `powershell -ExecutionPolicy Bypass -File tools\run_tests.ps1` (Windows). It runs the build check, the Lua suites and the simulator self-test. The Lua suites use a Lua 5.4 executable if there is one; otherwise they run under Python + lupa, fetched by `uv run --with lupa` when it is not installed. Direct alternative on the user's PC: `uv run --no-project --python 3.12 --with lupa python tools/run_lua_tests.py`.
 
 ## Verified vs. unverified
 
@@ -38,7 +42,7 @@ Verified in the cloud:
 
 ## Part B checklist (local run on the user's PC)
 
-1. [ ] Pull and merge the branch into `main` (see above); run `tools\run_tests.ps1` (install Lua 5.4, or `uv pip install lupa`). Expect 79 passed.
+1. [ ] Pull and merge the branch into `main` (see above). A checkout made before `.gitattributes` existed still has CRLF files; refresh it once, but only when there are no local changes: `git rm -r --cached -q .` then `git reset --hard`. Run `powershell -ExecutionPolicy Bypass -File tools\run_tests.ps1` and expect 79 passed.
 2. [ ] Extract the vanilla data with LSLib: `Divine.exe -g bg3 -a extract-package -s "<BG3>\Data\Shared.pak" -d C:\Users\berus\GameModding\decomp\bg3\Shared`, then the same for `Gustav.pak` and the icon/GUI paks. Check the action names with `Divine.exe --help`.
 3. [ ] Run `python tools\validate_vanilla.py C:\Users\berus\GameModding\decomp\bg3`. It checks every vanilla ID (`docs/vanilla_refs.json`), every `data` key against `Modifiers.txt`, name clashes and icons. Fix `stats_src/*.txt` (follow the `// VALIDATE` notes and compare with the vanilla entries), then run `python tools\build.py`. Repeat the validator and the tests until both are clean. Record what changed here.
 4. [ ] Check unverified items 1-3 against the extracted data:
