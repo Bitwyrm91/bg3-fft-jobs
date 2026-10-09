@@ -40,21 +40,46 @@ Verified in the cloud:
 8. The Job Board: the IMGUI window and NetChannel calls in game, `Ext.Stats.Get(spell).UseCosts` being a string, and `ModuleUUID` at bootstrap.
 9. Multiplayer: untested, and the Job Board opens on every client.
 
+## FFT data to check against the installed game
+
+The user is installing FFT: The Ivalice Chronicles (2025-10-09). The FFT numbers in `data/fft_jobs.json` come from guides that disagree in places, and the game settles them. Cloud sessions cannot see the PC, so this needs a local session, or screenshots the user sends to a cloud session. **Never commit game files or extracted data**: only the corrected numbers, with the source changed to "TIC in-game" or "TIC game data" plus the game version.
+
+To check (value used now, with other values seen in guides in brackets):
+- **Squire:** Focus 300 (400) · Rush 80 (200) · Throw Stone 90 (10/100) · Salve 150 (50/250) · Counter Tackle 180 (200).
+- **Chemist:** Hi-Potion 200 (150) · Ether 300 (200) · Remedy 700 (300) · Phoenix Down 90 (200/300) · Treasure Hunter 100 (200).
+- **Knight:** Rend Armor 400 (200/300) · Rend Weapon 400 (300) · Parry 200 (400) · Equip Heavy Armor 500 (250) · Equip Swords 400 (250).
+- **Archer:** Aim +10 700 (400) · Aim +20 900 (500) · Equip Crossbows 350 (250/400) · Archer's Bane 450 (400) · the reaction: Speed Surge 900 or Adrenaline Rush 400.
+- **White Mage:** Curaga 450 (200/350) · Reraise 1000 (420/540) · Regen 350 (70/80) · Esuna 300 (150/400) · Regenerate 400 (200) · the support's name: Magick Defense Boost or Arcane Defense.
+- **Black Mage:** Firaga/Thundaga/Blizzaga 500 (300/400) · Magick Counter 800 (500) · the support's name: Magick Boost or Arcane Strength.
+- **Rules:**
+  - job level thresholds (Lv2 200, then 400 … Lv8 3000);
+  - the unlock tree (spot-check Monk = Knight 3, Geomancer = Monk 4, Mime);
+  - the JP-per-action constant (8 or 16);
+  - the Enhanced-mode +30%;
+  - JP Boost ×1.5 or ×2;
+  - spillover: 1/4, and whether it goes into locked jobs.
+
+How:
+- **In game (simplest).** The Job menu shows each ability's JP cost and each job's requirements. For the formula: in Enhanced mode, note the JP shown after a basic attack by a unit whose job level and character level are known, then again with JP Boost equipped. Compare with `8 + 2 × job level + floor(character level / 4)`, then ×1.3 and ×1.5.
+- **Game files (thorough).** Nenkai's FFT Mod Loader for Reloaded-II and the TIC table mods on Nexus suggest the community tools can read the ability and job tables. Extract them to `C:\Users\berus\GameModding\decomp\fft` (outside the repo) and compare with `data/fft_jobs.json`.
+- **After changes:** `python tools\build.py`, then the tests and `python tools\pacing_sim.py`. If mastery costs moved a lot, check the Classic preset still meets the target (LOW masters 4+ jobs).
+
 ## Part B checklist (local run on the user's PC)
 
 1. [ ] Pull and merge the branch into `main` (see above). A checkout made before `.gitattributes` existed still has CRLF files; refresh it once, but only when there are no local changes: `git rm -r --cached -q .` then `git reset --hard`. Run `powershell -ExecutionPolicy Bypass -File tools\run_tests.ps1` and expect 79 passed.
-2. [ ] Extract the vanilla data with LSLib: `Divine.exe -g bg3 -a extract-package -s "<BG3>\Data\Shared.pak" -d C:\Users\berus\GameModding\decomp\bg3\Shared`, then the same for `Gustav.pak` and the icon/GUI paks. Check the action names with `Divine.exe --help`.
-3. [ ] Run `python tools\validate_vanilla.py C:\Users\berus\GameModding\decomp\bg3`. It checks every vanilla ID (`docs/vanilla_refs.json`), every `data` key against `Modifiers.txt`, name clashes and icons. Fix `stats_src/*.txt` (follow the `// VALIDATE` notes and compare with the vanilla entries), then run `python tools\build.py`. Repeat the validator and the tests until both are clean. Record what changed here.
-4. [ ] Check unverified items 1-3 against the extracted data:
+2. [ ] If The Ivalice Chronicles is installed: check the FFT numbers in the section above and update `data/fft_jobs.json` (numbers and sources only, no game files). Record what changed here.
+3. [ ] Extract the vanilla data with LSLib: `Divine.exe -g bg3 -a extract-package -s "<BG3>\Data\Shared.pak" -d C:\Users\berus\GameModding\decomp\bg3\Shared`, then the same for `Gustav.pak` and the icon/GUI paks. Check the action names with `Divine.exe --help`.
+4. [ ] Run `python tools\validate_vanilla.py C:\Users\berus\GameModding\decomp\bg3`. It checks every vanilla ID (`docs/vanilla_refs.json`), every `data` key against `Modifiers.txt`, name clashes and icons. Fix `stats_src/*.txt` (follow the `// VALIDATE` notes and compare with the vanilla entries), then run `python tools\build.py`. Repeat the validator and the tests until both are clean. Record what changed here.
+5. [ ] Check unverified items 1-3 against the extracted data:
    - copy Revivify's own SpellProperties into `Target_FFTJ_Arise` and add the heal;
    - drop `IsConcentration` from the Protect/Shell flags;
    - pick better visual parents where an obvious one exists.
-5. [ ] Convert the strings: `Divine.exe -g bg3 -a convert-loca -s Mod\Localization\English\FFTJobs.xml -d Mod\Localization\English\FFTJobs.loca` (check the action name), and keep the `.loca` in the package.
-6. [ ] Package: `Divine.exe -g bg3 -a create-package -s Mod -d build\FFTJobs.pak` (check the flags; `build/` is git-ignored).
-7. [ ] Install the Script Extender (official Norbyte/bg3se release) and the pak. Enable the pak in `modsettings.lsx` (back it up first; follow the load-order field note) and write `uninstall.ps1`. Create `ScriptExtenderSettings.json` next to `bg3.exe` with `{"CreateConsole": true, "LogRuntime": true}`.
-8. [ ] Smoke test to the main menu only (do not play). In the SE console/log, look for `[FFTJobs]` lines and check there are no Lua errors and no stats errors for `FFTJ_` entries. The server side only loads with a game session, so at the main menu expect only the client side.
-9. [ ] Finish `PLAYTEST.md` (install details, anything that changed) and this file (done / not done / unverified).
-10. [ ] Update the memory files and send the final message, as `BRIEF.md` Part B says.
+6. [ ] Convert the strings: `Divine.exe -g bg3 -a convert-loca -s Mod\Localization\English\FFTJobs.xml -d Mod\Localization\English\FFTJobs.loca` (check the action name), and keep the `.loca` in the package.
+7. [ ] Package: `Divine.exe -g bg3 -a create-package -s Mod -d build\FFTJobs.pak` (check the flags; `build/` is git-ignored).
+8. [ ] Install the Script Extender (official Norbyte/bg3se release) and the pak. Enable the pak in `modsettings.lsx` (back it up first; follow the load-order field note) and write `uninstall.ps1`. Create `ScriptExtenderSettings.json` next to `bg3.exe` with `{"CreateConsole": true, "LogRuntime": true}`.
+9. [ ] Smoke test to the main menu only (do not play). In the SE console/log, look for `[FFTJobs]` lines and check there are no Lua errors and no stats errors for `FFTJ_` entries. The server side only loads with a game session, so at the main menu expect only the client side.
+10. [ ] Finish `PLAYTEST.md` (install details, anything that changed) and this file (done / not done / unverified).
+11. [ ] Update the memory files and send the final message, as `BRIEF.md` Part B says.
 
 ## Open questions for the user
 
