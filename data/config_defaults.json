@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "defaultPreset": "Classic",
+  "defaults": {
+    "JP": {
+      "GlobalMultiplier": 1.0,
+      "Action": {
+        "Base": 8,
+        "PerJobLevel": 2,
+        "CharLevelDivisor": 4,
+        "EnhancedBonus": 0.3,
+        "Multiplier": 1.0,
+        "BonusActionWeight": 1.0,
+        "CountOutOfCombat": false,
+        "RequireActionCost": true,
+        "MaxPerTurn": 0,
+        "ExcludeSpells": ["Projectile_Jump", "Shout_FFTJ_JobBoard"],
+        "ExcludePrefixes": []
+      },
+      "Spillover": {
+        "Share": 0.25,
+        "RequireUnlocked": false
+      },
+      "Victory": {
+        "Base": 20,
+        "PerCharLevel": 2
+      },
+      "XPShare": 0.15,
+      "Camp": {
+        "Share": 0.5
+      },
+      "LongRest": 25,
+      "Boost": {
+        "Multiplier": 1.5,
+        "Action": true,
+        "Victory": true,
+        "XP": true,
+        "LongRest": true
+      }
+    },
+    "JobLevels": {
+      "Thresholds": [200, 400, 700, 1100, 1600, 2200, 3000]
+    },
+    "Rules": {
+      "StartingUnlocked": ["Squire", "Chemist"],
+      "StartingJob": {
+        "Default": "Squire",
+        "ByClass": {
+          "Wizard": "Chemist",
+          "Sorcerer": "Chemist",
+          "Warlock": "Chemist",
+          "Cleric": "Chemist",
+          "Druid": "Chemist",
+          "Bard": "Chemist"
+        }
+      },
+      "ChangeJobOutOfCombatOnly": true,
+      "LearnOutOfCombatOnly": true,
+      "SlotsOutOfCombatOnly": true
+    },
+    "Notifications": {
+      "LevelUp": true,
+      "Unlock": true,
+      "Mastered": true,
+      "JPGain": false
+    },
+    "XPPollMs": 2000,
+    "Telemetry": {
+      "Enabled": true,
+      "File": "FFTJobs/telemetry.jsonl",
+      "MaxLines": 5000
+    },
+    "Debug": false
+  },
+  "presets": {
+    "Classic": {
+      "description": "Default. Tuned so that even a light playthrough masters 4+ jobs (see DESIGN.md, Pacing).",
+      "values": {}
+    },
+    "Fast": {
+      "description": "About 1.6x the JP of Classic. For short playthroughs or to try many jobs.",
+      "values": {"JP": {"Action": {"Multiplier": 1.5}, "XPShare": 0.25, "Victory": {"Base": 35, "PerCharLevel": 3}, "LongRest": 40}}
+    },
+    "Grindy": {
+      "description": "About 0.55x the JP of Classic. Closer to FFT's slow job mastery; most players will not master everything.",
+      "values": {"JP": {"Action": {"Multiplier": 0.75}, "XPShare": 0.08, "Victory": {"Base": 10, "PerCharLevel": 1}, "LongRest": 10}}
+    },
+    "PureFFT": {
+      "description": "Only FFT's own JP sources (per action, spillover, TIC +30%). Shows how slow FFT's numbers are in BG3's finite fights; not recommended for play.",
+      "values": {"JP": {"XPShare": 0, "Victory": {"Base": 0, "PerCharLevel": 0}, "LongRest": 0, "Camp": {"Share": 0}}}
+    }
+  },
+  "help": {
+    "JP.GlobalMultiplier": "Scales every JP source. Quick knob: !fft_mult 1.5",
+    "JP.Action.Base": "FFT formula constant: JP per action = Base + PerJobLevel x job level + floor(character level / CharLevelDivisor).",
+    "JP.Action.PerJobLevel": "FFT formula: JP per job level of the job in use.",
+    "JP.Action.CharLevelDivisor": "FFT formula: character level divisor (0 = ignore character level).",
+    "JP.Action.EnhancedBonus": "TIC Enhanced bonus on own action JP (0.3 = +30%). Not applied to spillover.",
+    "JP.Action.Multiplier": "BG3 pacing factor for action JP (and spillover).",
+    "JP.Action.BonusActionWeight": "Fraction of action JP for casts that only cost a bonus action.",
+    "JP.Action.CountOutOfCombat": "Also give action JP outside combat.",
+    "JP.Action.RequireActionCost": "Only casts that cost an action or bonus action earn JP (reactions and free casts do not).",
+    "JP.Action.MaxPerTurn": "Max casts per turn that earn JP (0 = no cap).",
+    "JP.Action.ExcludeSpells": "Spell IDs that never earn JP (e.g. the jump spell).",
+    "JP.Action.ExcludePrefixes": "Spell ID prefixes that never earn JP.",
+    "JP.Spillover.Share": "Share of an ally's action JP that every other party member in the same fight gets in that job (FFT: 0.25).",
+    "JP.Spillover.RequireUnlocked": "Spillover only into jobs the receiver has unlocked (TIC: false).",
+    "JP.Victory.Base": "JP per participant when a fight ends.",
+    "JP.Victory.PerCharLevel": "Extra victory JP per character level.",
+    "JP.XPShare": "JP per point of BG3 XP gained (quests, exploration, checks and combat all give XP).",
+    "JP.Camp.Share": "Party members who were not in a fight get this share of the participants' average JP.",
+    "JP.LongRest": "Training JP per long rest.",
+    "JP.Boost.Multiplier": "JP Boost support ability multiplier.",
+    "JP.Boost.Action": "JP Boost applies to action JP.",
+    "JP.Boost.Victory": "JP Boost applies to victory JP.",
+    "JP.Boost.XP": "JP Boost applies to XP-share JP.",
+    "JP.Boost.LongRest": "JP Boost applies to long-rest JP.",
+    "JobLevels.Thresholds": "Total JP earned in a job for job levels 2..8 (TIC/WotL: 200, 400, 700, 1100, 1600, 2200, 3000).",
+    "Rules.StartingUnlocked": "Jobs every character starts with.",
+    "Rules.StartingJob.Default": "Starting primary job for classes not listed in ByClass.",
+    "Rules.StartingJob.ByClass": "Starting primary job per BG3 class name.",
+    "Rules.ChangeJobOutOfCombatOnly": "Primary job can only change out of combat.",
+    "Rules.LearnOutOfCombatOnly": "Abilities can only be learned out of combat.",
+    "Rules.SlotsOutOfCombatOnly": "Secondary/reaction/support/movement can only change out of combat.",
+    "Notifications.LevelUp": "Show a notification on job level up.",
+    "Notifications.Unlock": "Show a notification when a job unlocks.",
+    "Notifications.Mastered": "Show a notification when a job is mastered.",
+    "Notifications.JPGain": "Print every JP gain to the console (noisy).",
+    "XPPollMs": "How often (game-time ms) XP is checked for the XP share.",
+    "Telemetry.Enabled": "Write per-fight and per-rest numbers to the telemetry file.",
+    "Telemetry.File": "Telemetry file, relative to the Script Extender folder.",
+    "Telemetry.MaxLines": "Oldest telemetry lines are dropped beyond this.",
+    "Debug": "Verbose logging."
+  }
+}

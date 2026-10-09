@@ -12,7 +12,7 @@ An overlay on BG3's own classes: classes, levels and subclasses stay as they are
 - four slots: **secondary skill set** (a job), **reaction**, **support**, **movement**;
 - abilities are real BG3 spells, passives and statuses, granted only while they are part of the primary job's skill set, the secondary skill set or a slot.
 
-MVP: six jobs (Squire, Chemist, Knight, Archer, White Mage, Black Mage), 70 abilities covering all four ability types. The other 14 generic jobs of the TIC tree are in the data with their unlock rules (`"implemented": false`), so adding one is data entry plus stats.
+MVP: six jobs (Squire, Chemist, Knight, Archer, White Mage, Black Mage), 71 abilities covering all four ability types. The other 14 generic jobs of the TIC tree are in the data with their unlock rules (`"implemented": false`), so adding one is data entry plus stats.
 
 FFT data comes from **Final Fantasy Tactics: The Ivalice Chronicles** (TIC, 2025), the user's choice. Where TIC numbers are not published, War of the Lions (WotL, 2007) values are used and marked.
 
