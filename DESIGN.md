@@ -239,7 +239,7 @@ Console commands (`who` = `host` (default), a party member's name or a GUID):
 ## 13. Telemetry
 
 `Script Extender\FFTJobs\telemetry.jsonl`, one JSON object per line, capped at `Telemetry.MaxLines`:
-- `"t":"combat"`: id, rounds, start/end clock, and per character: name, job, job level, character level, actions counted, JP by source (action, spillover, victory), XP gained during the fight;
+- `"t":"combat"`: id, rounds, start/finish clock, and per character: name, job, job level, character level, actions counted, JP by source (action, spillover, victory), XP gained during the fight;
 - `"t":"rest"`: per character since the previous long rest: XP gained, JP by source;
 - `"t":"session"`: preset and multiplier at load.
 
