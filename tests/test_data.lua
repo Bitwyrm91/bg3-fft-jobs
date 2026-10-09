@@ -1,0 +1,133 @@
+-- Generated data vs. stats vs. localization, checked from Lua (the build also checks the first two).
+local S = {}
+
+local function read(path)
+    local f = assert(io.open(path, "rb"))
+    local s = f:read("a")
+    f:close()
+    return s
+end
+
+local function statsEntries(Mocks)
+    local entries = {}
+    for _, file in ipairs({ "Spell_FFTJ.txt", "Passive_FFTJ.txt", "Status_FFTJ.txt" }) do
+        local text = read(Mocks.Root .. "/Mod/Public/FFTJobs/Stats/Generated/Data/" .. file)
+        local cur
+        for line in text:gmatch("[^\n]+") do
+            local name = line:match('^new entry "([^"]+)"')
+            if name then
+                cur = { name = name, data = {} }
+                entries[name] = cur
+            end
+            local typ = line:match('^type "([^"]+)"')
+            if typ and cur then
+                cur.type = typ
+            end
+            local k, v = line:match('^data "([^"]+)" "(.*)"$')
+            if k and cur then
+                cur.data[k] = v
+            end
+        end
+    end
+    return entries
+end
+
+function S.every_grant_has_a_stats_entry_of_the_right_type(w, T, Mocks)
+    local Data = Ext.Require("Shared/GeneratedData.lua")
+    local entries = statsEntries(Mocks)
+    local want = { Spells = "SpellData", Passives = "PassiveData", Statuses = "StatusData" }
+    local function check(grants, owner)
+        for kind, list in pairs(grants or {}) do
+            for _, id in ipairs(list) do
+                T.truthy(entries[id], owner .. " grants " .. id .. " which has no stats entry")
+                T.eq(entries[id].type, want[kind], id)
+            end
+        end
+    end
+    for id, ab in pairs(Data.Abilities) do
+        check(ab.Grants, id)
+        for _, v in ipairs(ab.Variants or {}) do
+            check(v.Grants, id .. " variant")
+        end
+    end
+    for id, job in pairs(Data.Jobs) do
+        if job.Implemented then
+            check(job.Innate, id)
+        end
+    end
+    T.eq(entries[Data.JobBoardSpell].type, "SpellData")
+end
+
+function S.every_localization_handle_exists(w, T, Mocks)
+    local entries = statsEntries(Mocks)
+    local xml = read(Mocks.Root .. "/Mod/Localization/English/FFTJobs.xml")
+    local handles = {}
+    for h in xml:gmatch('contentuid="([^"]+)"') do
+        handles[h] = true
+    end
+    local n = 0
+    for name, e in pairs(entries) do
+        for _, key in ipairs({ "DisplayName", "Description" }) do
+            local v = e.data[key]
+            if v then
+                local h = v:match("^(h[%x]+g[%x]+g[%x]+g[%x]+g[%x]+);1$")
+                T.truthy(h, name .. "." .. key .. " is not a handle;version: " .. v)
+                T.truthy(handles[h], name .. "." .. key .. " handle missing from FFTJobs.xml")
+                n = n + 1
+            end
+        end
+    end
+    T.truthy(n >= 150, "handles checked: " .. n)
+end
+
+function S.mvp_covers_every_ability_type(w, T)
+    local Data = Ext.Require("Shared/GeneratedData.lua")
+    local types = {}
+    for _, ab in pairs(Data.Abilities) do
+        types[ab.Type] = (types[ab.Type] or 0) + 1
+    end
+    T.truthy(types.Action > 0 and types.Reaction > 0 and types.Support > 0 and types.Movement > 0)
+end
+
+function S.mastery_totals_and_unlocks_match_design(w, T)
+    local Data = Ext.Require("Shared/GeneratedData.lua")
+    local expected = { Squire = 1470, Chemist = 3640, Knight = 2900, Archer = 5300, WhiteMage = 4670, BlackMage = 5200 }
+    for job, total in pairs(expected) do
+        local sum = 0
+        for _, aid in ipairs(Data.AbilitiesByJob[job]) do
+            sum = sum + Data.Abilities[aid].Cost
+            T.eq(Data.Abilities[aid].Job, job)
+        end
+        T.eq(sum, total, job .. " JP to master")
+    end
+    local function req(job)
+        local r = Data.Jobs[job].Unlock[1]
+        return r and (r.Job .. r.Level) or "start"
+    end
+    T.eq(req("Squire"), "start")
+    T.eq(req("Chemist"), "start")
+    T.eq(req("Knight"), "Squire2")
+    T.eq(req("Archer"), "Squire2")
+    T.eq(req("WhiteMage"), "Chemist2")
+    T.eq(req("BlackMage"), "Chemist2")
+    T.eq(#Data.Jobs.Mime.Unlock, 6, "the full TIC tree is in the data")
+    T.eq(#Data.JobOrder, 20)
+end
+
+function S.config_defaults_are_consistent(w, T)
+    local Data = Ext.Require("Shared/GeneratedData.lua")
+    local d = Data.ConfigDefaults
+    T.eq(#d.JobLevels.Thresholds, 7)
+    for i = 2, 7 do
+        T.truthy(d.JobLevels.Thresholds[i] > d.JobLevels.Thresholds[i - 1])
+    end
+    for _, j in ipairs(d.Rules.StartingUnlocked) do
+        T.truthy(Data.Jobs[j].Implemented, j)
+    end
+    T.truthy(Data.Presets[Data.DefaultPreset])
+    for _, name in ipairs(Data.PresetOrder) do
+        T.truthy(Data.Presets[name].Description ~= "", name .. " has a description")
+    end
+end
+
+return S

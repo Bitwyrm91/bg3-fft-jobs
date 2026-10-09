@@ -1,0 +1,123 @@
+-- SE console commands (!fft_*) as the player types them.
+local S = {}
+
+local function out(lines)
+    return table.concat(lines, "\n")
+end
+
+function S.help_lists_every_command(w, T)
+    T.boot(w)
+    local text = out(w.console("fft_help"))
+    for name in pairs(w.commands) do
+        T.contains(text, "!" .. name)
+    end
+    T.eq(#w.console("fft_help"), 1 + 22, "22 commands")
+end
+
+function S.party_and_status(w, T)
+    T.boot(w)
+    local party = out(w.console("fft_party"))
+    T.contains(party, "Tav: Squire Lv1")
+    T.contains(party, "Shadowheart: Chemist Lv1")
+    local status = out(w.console("fft_status", "shadow"))
+    T.contains(status, "Shadowheart: Chemist")
+    T.contains(status, "White Mage")
+    T.contains(status, "locked (needs Chemist Lv2)")
+    T.contains(out(w.console("fft_status", "nobody")), "No party member called nobody")
+end
+
+function S.job_learn_equip_by_name(w, T)
+    local svc = T.boot(w)
+    T.contains(out(w.console("fft_addjp", "700")), "Tav +700 JP in Squire")
+    T.contains(out(w.console("fft_learn", "Focus")), "Tav learned Focus")
+    T.contains(out(w.console("fft_learn", "JPBoost")), "Equip it in the support slot")
+    T.contains(out(w.console("fft_equip", "jpboost")), "support slot = JP Boost")
+    T.contains(out(w.console("fft_job", "knight")), "Tav is now a Knight")
+    T.contains(out(w.console("fft_secondary", "squire")), "secondary skill set Fundaments")
+    T.contains(out(w.console("fft_secondary", "none")), "secondary skill set cleared")
+    T.contains(out(w.console("fft_unequip", "support")), "support slot cleared")
+    T.contains(out(w.console("fft_job", "monk")), "Unknown job monk")
+    T.contains(out(w.console("fft_learn", "Meteor")), "Unknown ability Meteor")
+    T.contains(out(w.console("fft_learn", "Cure")), "Not done: White Mage is still locked")
+    T.eq(svc.State:Get(T.TAV).Primary, "Knight")
+end
+
+function S.addjp_parses_job_and_who(w, T)
+    local svc = T.boot(w)
+    w.console("fft_addjp", "120", "shadowheart")
+    T.eq(svc.State:Get(T.SHART).Jobs.Chemist.Earned, 120, "no job given: the primary job")
+    w.console("fft_addjp", "80", "blackmage", "shadowheart")
+    T.eq(svc.State:Get(T.SHART).Jobs.BlackMage.Earned, 80, "JP can be banked in a locked job")
+    T.contains(out(w.console("fft_addjp", "lots")), "Usage")
+end
+
+function S.tuning_commands_change_jp(w, T, Mocks)
+    local svc = T.boot(w)
+    T.contains(out(w.console("fft_mult", "2")), "JP.GlobalMultiplier = 2")
+    T.startCombat(w, "c1", { T.TAV })
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    T.eq(svc.State:Get(T.TAV).Jobs.Squire.Earned, 26, "13 * 2")
+    T.contains(out(w.console("fft_set", "JP.Action.EnhancedBonus", "0")), "JP.Action.EnhancedBonus = 0")
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    T.eq(svc.State:Get(T.TAV).Jobs.Squire.Earned, 46, "+ 10 * 2")
+    local saved = Mocks.Json.decode(w.files["FFTJobs/config.json"])
+    T.eq(saved.Overrides.JP.GlobalMultiplier, 2, "console changes are saved")
+    T.contains(out(w.console("fft_unset", "JP.GlobalMultiplier")), "back to the preset value")
+    T.contains(out(w.console("fft_preset", "grindy")), "preset Grindy")
+    T.contains(out(w.console("fft_preset", "easy")), "Unknown preset easy")
+    T.contains(out(w.console("fft_config")), "preset Grindy")
+    T.contains(out(w.console("fft_set")), "Usage")
+    T.contains(out(w.console("fft_set", "JP.Bogus", "1")), "Unknown setting")
+end
+
+function S.reload_reads_the_edited_file(w, T, Mocks)
+    local svc = T.boot(w)
+    local doc = Mocks.Json.decode(w.files["FFTJobs/config.json"])
+    doc.Overrides.JP.LongRest = 100
+    w.files["FFTJobs/config.json"] = Mocks.Json.encode(doc)
+    T.contains(out(w.console("fft_reload")), "loaded FFTJobs/config.json")
+    w.fire("LongRestFinished")
+    T.eq(svc.State:Get(T.TAV).Jobs.Squire.Earned, 100)
+end
+
+function S.reload_with_lower_thresholds_unlocks_jobs(w, T, Mocks)
+    local svc = T.boot(w)
+    w.console("fft_addjp", "150")
+    T.falsy(svc.State:Get(T.TAV).Unlocked.Knight)
+    local doc = Mocks.Json.decode(w.files["FFTJobs/config.json"])
+    doc.Overrides.JobLevels.Thresholds = { 100, 400, 700, 1100, 1600, 2200, 3000 }
+    w.files["FFTJobs/config.json"] = Mocks.Json.encode(doc)
+    w.console("fft_reload")
+    T.truthy(svc.State:Get(T.TAV).Unlocked.Knight)
+end
+
+function S.unlockall_reset_regrant(w, T)
+    local svc = T.boot(w)
+    T.contains(out(w.console("fft_unlockall", "astarion")), "every implemented job unlocked")
+    T.truthy(svc.State:Get(T.ASTA).Unlocked.BlackMage)
+    T.contains(out(w.console("fft_reset", "astarion")), "reset to a fresh Squire")
+    T.falsy(svc.State:Get(T.ASTA).Unlocked.BlackMage)
+    w.chars[T.TAV].spells.Shout_FFTJ_JobBoard = nil
+    T.contains(out(w.console("fft_regrant", "all")), "every party member")
+    T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JobBoard)
+end
+
+function S.telemetry_summary(w, T)
+    T.boot(w)
+    T.startCombat(w, "c1", { T.TAV, T.SHART })
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    T.endCombat(w, "c1", { T.TAV, T.SHART })
+    local text = out(w.console("fft_telemetry"))
+    T.contains(text, "1 fights")
+    T.contains(text, "Tav: 1 fights, 1 actions")
+    T.contains(text, "Astarion")
+end
+
+function S.board_command_opens_window(w, T)
+    T.boot(w)
+    T.contains(out(w.console("fft_board", "shadowheart")), "Job Board opened")
+    T.eq(#w.windows, 1)
+    T.truthy(w.windows[1].Open)
+end
+
+return S

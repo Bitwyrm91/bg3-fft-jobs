@@ -10,7 +10,7 @@ Handoff between sessions. Read this first, then `BRIEF.md` and `DESIGN.md`.
 - [x] 2. Data files: `data/fft_jobs.json` (all 20 TIC jobs with unlock rules, 6 implemented, 71 abilities with TIC JP costs and sources), `data/config_defaults.json` (JP config + presets), `data/strings.json`; `tools/build.py` generates `Shared/GeneratedData.lua`
 - [x] 3. Lua engine (`Mod/Mods/FFTJobs/ScriptExtender/Lua/`): JP from `CastedSpell`/`CombatEnded`/XP polling/`LongRestFinished` with spillover and camp share, job levels, unlocks, learning, primary/secondary/reaction/support/movement, grant diffing with `AddSpell`/`AddPassive`/`ApplyStatus`, JSON config + presets + 22 `!fft_*` console commands, ModVars persistence, telemetry, IMGUI Job Board (client) over NetChannels; `meta.lsx` + SE `Config.json`
 - [x] 4. Stats + localization drafts: `stats_src/` templates (62 spells, 26 passives, 12 statuses) -> `Mod/Public/FFTJobs/Stats/Generated/Data/`, 180 English strings -> `Mod/Localization/English/FFTJobs.xml` (convert to .loca in Part B); `docs/vanilla_refs.md` lists every vanilla ID they rely on; `tools/validate_vanilla.py` checks them against the extracted game data
-- [ ] 5. Tests (Lua 5.4, mock Ext/Osi)
+- [x] 5. Tests: 78 Lua 5.4 tests in 7 suites (rules, config, engine events, save/load round trip, console commands, Job Board UI, data integrity) on a mock Ext/Osi (`tests/mocks.lua`); `tools/run_tests.sh` (Linux) / `tools/run_tests.ps1` (Windows) run them all plus the build check. Last run: 78 passed, 0 failed (Lua 5.4.6)
 - [ ] 6. Pacing simulator + preset tables
 - [ ] 7. `PLAYTEST.md` + final `STATUS.md` with the Part B checklist
 
