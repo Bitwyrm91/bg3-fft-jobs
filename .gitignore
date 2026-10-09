@@ -1,0 +1,11 @@
+# Never commit game files or extracted data
+*.pak
+decomp/
+extracted/
+*.lsv
+# Build output and local junk
+build/
+dist/
+*.log
+.venv/
+__pycache__/
