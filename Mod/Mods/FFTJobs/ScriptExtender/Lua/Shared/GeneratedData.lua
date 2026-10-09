@@ -1413,7 +1413,7 @@ return {
         PerJobLevel = 2,
         CharLevelDivisor = 4,
         EnhancedBonus = 0.3,
-        Multiplier = 1.0,
+        Multiplier = 0.5,
         BonusActionWeight = 1.0,
         CountOutOfCombat = false,
         RequireActionCost = true,
@@ -1426,8 +1426,8 @@ return {
         RequireUnlocked = false,
       },
       Victory = {
-        Base = 20,
-        PerCharLevel = 2,
+        Base = 15,
+        PerCharLevel = 1,
       },
       XPShare = 0.15,
       Camp = {
@@ -1486,12 +1486,12 @@ return {
       Values = {
         JP = {
           Action = {
-            Multiplier = 1.5,
+            Multiplier = 0.8,
           },
-          XPShare = 0.25,
+          XPShare = 0.24,
           Victory = {
-            Base = 35,
-            PerCharLevel = 3,
+            Base = 25,
+            PerCharLevel = 2,
           },
           LongRest = 40,
         },
@@ -1502,11 +1502,11 @@ return {
       Values = {
         JP = {
           Action = {
-            Multiplier = 0.75,
+            Multiplier = 0.3,
           },
           XPShare = 0.08,
           Victory = {
-            Base = 10,
+            Base = 8,
             PerCharLevel = 1,
           },
           LongRest = 10,
@@ -1517,6 +1517,9 @@ return {
       Description = "Only FFT's own JP sources (per action, spillover, TIC +30%). Shows how slow FFT's numbers are in BG3's finite fights; not recommended for play.",
       Values = {
         JP = {
+          Action = {
+            Multiplier = 1.0,
+          },
           XPShare = 0,
           Victory = {
             Base = 0,

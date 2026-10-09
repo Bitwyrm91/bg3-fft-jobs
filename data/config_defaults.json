@@ -9,7 +9,7 @@
         "PerJobLevel": 2,
         "CharLevelDivisor": 4,
         "EnhancedBonus": 0.3,
-        "Multiplier": 1.0,
+        "Multiplier": 0.5,
         "BonusActionWeight": 1.0,
         "CountOutOfCombat": false,
         "RequireActionCost": true,
@@ -22,8 +22,8 @@
         "RequireUnlocked": false
       },
       "Victory": {
-        "Base": 20,
-        "PerCharLevel": 2
+        "Base": 15,
+        "PerCharLevel": 1
       },
       "XPShare": 0.15,
       "Camp": {
@@ -79,15 +79,15 @@
     },
     "Fast": {
       "description": "About 1.6x the JP of Classic. For short playthroughs or to try many jobs.",
-      "values": {"JP": {"Action": {"Multiplier": 1.5}, "XPShare": 0.25, "Victory": {"Base": 35, "PerCharLevel": 3}, "LongRest": 40}}
+      "values": {"JP": {"Action": {"Multiplier": 0.8}, "XPShare": 0.24, "Victory": {"Base": 25, "PerCharLevel": 2}, "LongRest": 40}}
     },
     "Grindy": {
       "description": "About 0.55x the JP of Classic. Closer to FFT's slow job mastery; most players will not master everything.",
-      "values": {"JP": {"Action": {"Multiplier": 0.75}, "XPShare": 0.08, "Victory": {"Base": 10, "PerCharLevel": 1}, "LongRest": 10}}
+      "values": {"JP": {"Action": {"Multiplier": 0.3}, "XPShare": 0.08, "Victory": {"Base": 8, "PerCharLevel": 1}, "LongRest": 10}}
     },
     "PureFFT": {
       "description": "Only FFT's own JP sources (per action, spillover, TIC +30%). Shows how slow FFT's numbers are in BG3's finite fights; not recommended for play.",
-      "values": {"JP": {"XPShare": 0, "Victory": {"Base": 0, "PerCharLevel": 0}, "LongRest": 0, "Camp": {"Share": 0}}}
+      "values": {"JP": {"Action": {"Multiplier": 1.0}, "XPShare": 0, "Victory": {"Base": 0, "PerCharLevel": 0}, "LongRest": 0, "Camp": {"Share": 0}}}
     }
   },
   "help": {
