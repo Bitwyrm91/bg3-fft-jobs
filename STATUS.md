@@ -60,14 +60,15 @@ To check (value used now, with other values seen in guides in brackets):
   - spillover: 1/4, and whether it goes into locked jobs.
 
 How:
+- **Unmodded game only.** The user may install TIC mods (2026-10-10). Mods that change JP or abilities (JP Boost for All, Global JP Boost, WotL Restoration, …) change these numbers: untick every mod but the loader in Reloaded-II before checking in game. To remove mods completely, the loader's README says to delete the `modded` files in the game's `data` folder.
 - **In game (simplest).** The Job menu shows each ability's JP cost and each job's requirements. For the formula: in Enhanced mode, note the JP shown after a basic attack by a unit whose job level and character level are known, then again with JP Boost equipped. Compare with `8 + 2 × job level + floor(character level / 4)`, then ×1.3 and ×1.5.
-- **Game files (thorough).** Nenkai's FFT Mod Loader for Reloaded-II and the TIC table mods on Nexus suggest the community tools can read the ability and job tables. Extract them to `C:\Users\berus\GameModding\decomp\fft` (outside the repo) and compare with `data/fft_jobs.json`.
+- **Game files (thorough).** If Nenkai's FFT Mod Loader for Reloaded-II is installed, its own folder (under Reloaded-II's `Mods` folder) has a `TableData` folder with the game's hard-coded tables as XML (`AbilityData.xml`, `JobCommandData.xml`, …), probably including the JP costs. FF16Tools extracts the other game files ([mod-making guide](https://nenkai.github.io/ffxvi-modding/modding/creating_mods_fft/)). Copy or extract to `C:\Users\berus\GameModding\decomp\fft` (outside the repo) and compare with `data/fft_jobs.json`.
 - **After changes:** `python tools\build.py`, then the tests and `python tools\pacing_sim.py`. If mastery costs moved a lot, check the Classic preset still meets the target (LOW masters 4+ jobs).
 
 ## Part B checklist (local run on the user's PC)
 
 1. [ ] Pull and merge the branch into `main` (see above). A checkout made before `.gitattributes` existed still has CRLF files; refresh it once, but only when there are no local changes: `git rm -r --cached -q .` then `git reset --hard`. Run `powershell -ExecutionPolicy Bypass -File tools\run_tests.ps1` and expect 79 passed.
-2. [ ] The Ivalice Chronicles is installed at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles`: check the FFT numbers in the section above and update `data/fft_jobs.json` (numbers and sources only, no game files). Record what changed here.
+2. [ ] The Ivalice Chronicles is installed at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles`: check the FFT numbers in the section above, with mods off, and update `data/fft_jobs.json` (numbers and sources only, no game files). Record what changed here.
 3. [ ] Extract the vanilla data with LSLib: `Divine.exe -g bg3 -a extract-package -s "<BG3>\Data\Shared.pak" -d C:\Users\berus\GameModding\decomp\bg3\Shared`, then the same for `Gustav.pak` and the icon/GUI paks. Check the action names with `Divine.exe --help`.
 4. [ ] Run `python tools\validate_vanilla.py C:\Users\berus\GameModding\decomp\bg3`. It checks every vanilla ID (`docs/vanilla_refs.json`), every `data` key against `Modifiers.txt`, name clashes and icons. Fix `stats_src/*.txt` (follow the `// VALIDATE` notes and compare with the vanilla entries), then run `python tools\build.py`. Repeat the validator and the tests until both are clean. Record what changed here.
 5. [ ] Check unverified items 1-3 against the extracted data:
