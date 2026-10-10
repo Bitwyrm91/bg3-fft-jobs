@@ -42,7 +42,7 @@ Verified in the cloud:
 
 ## FFT data to check against the installed game
 
-The user is installing FFT: The Ivalice Chronicles (2025-10-09). The FFT numbers in `data/fft_jobs.json` come from guides that disagree in places, and the game settles them. Cloud sessions cannot see the PC, so this needs a local session, or screenshots the user sends to a cloud session. **Never commit game files or extracted data**: only the corrected numbers, with the source changed to "TIC in-game" or "TIC game data" plus the game version.
+FFT: The Ivalice Chronicles is installed on the user's PC at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles` (user, 2026-10-10). The FFT numbers in `data/fft_jobs.json` come from guides that disagree in places, and the game settles them. Cloud sessions cannot see the PC, so this needs a local session, or screenshots the user sends to a cloud session. **Never commit game files or extracted data**: only the corrected numbers, with the source changed to "TIC in-game" or "TIC game data" plus the game version.
 
 To check (value used now, with other values seen in guides in brackets):
 - **Squire:** Focus 300 (400) · Rush 80 (200) · Throw Stone 90 (10/100) · Salve 150 (50/250) · Counter Tackle 180 (200).
@@ -67,7 +67,7 @@ How:
 ## Part B checklist (local run on the user's PC)
 
 1. [ ] Pull and merge the branch into `main` (see above). A checkout made before `.gitattributes` existed still has CRLF files; refresh it once, but only when there are no local changes: `git rm -r --cached -q .` then `git reset --hard`. Run `powershell -ExecutionPolicy Bypass -File tools\run_tests.ps1` and expect 79 passed.
-2. [ ] If The Ivalice Chronicles is installed: check the FFT numbers in the section above and update `data/fft_jobs.json` (numbers and sources only, no game files). Record what changed here.
+2. [ ] The Ivalice Chronicles is installed at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles`: check the FFT numbers in the section above and update `data/fft_jobs.json` (numbers and sources only, no game files). Record what changed here.
 3. [ ] Extract the vanilla data with LSLib: `Divine.exe -g bg3 -a extract-package -s "<BG3>\Data\Shared.pak" -d C:\Users\berus\GameModding\decomp\bg3\Shared`, then the same for `Gustav.pak` and the icon/GUI paks. Check the action names with `Divine.exe --help`.
 4. [ ] Run `python tools\validate_vanilla.py C:\Users\berus\GameModding\decomp\bg3`. It checks every vanilla ID (`docs/vanilla_refs.json`), every `data` key against `Modifiers.txt`, name clashes and icons. Fix `stats_src/*.txt` (follow the `// VALIDATE` notes and compare with the vanilla entries), then run `python tools\build.py`. Repeat the validator and the tests until both are clean. Record what changed here.
 5. [ ] Check unverified items 1-3 against the extracted data:

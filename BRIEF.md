@@ -9,7 +9,7 @@ Bring Final Fantasy Tactics' job system into Baldur's Gate 3 as a mod. The user 
 - Using a job earns Job Points (JP) for it; JP buys that job's abilities; job levels unlock new jobs.
 - FFT's slots: the primary job's skill set + ONE secondary skill set + ONE reaction + ONE support + ONE movement ability, each from any job the character has learned.
 - **Pacing (the user's main concern):** BG3 fights are finite (nothing respawns), unlike FFT where you can grind random battles. JP income must let a normal playthrough unlock and master jobs. Make the system WORK first, but every JP number must be easy to change later without touching code (JSON config + presets + console commands).
-- FFT itself is NOT installed and is not needed. Take FFT data (job tree, unlock requirements, JP thresholds, ability lists and costs) from reliable public references (FFT wiki / FAQs for the PS1 game and The Ivalice Chronicles remaster) and note the source in the data files.
+- FFT data (job tree, unlock requirements, JP thresholds, ability lists and costs) comes from The Ivalice Chronicles (the user's choice; reliable public references, sources noted in the data files). Since 2026-10-10 the game is installed on the user's PC at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles`: the local run checks the numbers against it (STATUS.md, "FFT data to check against the installed game"). Never copy FFT game files into the repo.
 - Be honest: anything not seen working inside the game is "unverified".
 
 ## Design (decided; refine the details in DESIGN.md)
@@ -59,6 +59,7 @@ Scope: stop when Part A is done. The user pays for this session with cloud credi
 - LSLib Divine.exe v1.20.4: C:\Users\berus\DOS2Modding\tools\lslib\Packed\Tools\Divine.exe (needs .NET 8: DOTNET_ROOT=C:\Users\berus\DOS2Modding\tools\dotnet8 on PATH). Use `-g bg3`. Check Norbyte/lslib's latest release; if a newer one is needed for the current BG3 patch, install it to C:\Users\berus\GameModding\tools\lslib-<version>.
 - BG3: C:\Program Files (x86)\Steam\steamapps\common\Baldurs Gate 3 (Steam app 1086940). On 2026-10-09: no Script Extender (no bin\DWrite.dll); %LOCALAPPDATA%\Larian Studios\Baldur's Gate 3 had no Mods folder, no PlayerProfiles\Public\modsettings.lsx and no saves (the game has probably never been started on this PC).
 - The user manages BG3 mods with **BG3 Mod Manager**: C:\Users\berus\GameModding\tools\BG3ModManager\BG3ModManager.exe (shortcut in Desktop\Claude Tools). When you enable this mod, keep every other mod already in modsettings.lsx, and tell the user to check it shows as active in BG3 Mod Manager.
+- **FFT: The Ivalice Chronicles** is installed at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles` (user, 2026-10-10). Use it for Part B step 2 in STATUS.md (FFT data check). Extracted FFT data goes to C:\Users\berus\GameModding\decomp\fft, never into the repo.
 - Read: C:\Users\berus\GameModding\repos\universal-modder\knowledge\games\baldur-s-gate-3\ (6 field notes, incl. stats/Osiris patches and load order by hand) and the universal-modder skills (mod-any-game; BG3 notes in references\engines\big-frameworks.md). Extracted vanilla data goes to C:\Users\berus\GameModding\decomp\bg3 (never into the repo).
 
 **Steps** (after each: commit, push, update STATUS.md, check usage)
