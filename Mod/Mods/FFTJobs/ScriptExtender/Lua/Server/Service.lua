@@ -214,16 +214,33 @@ function Service:ShareJP(guid, char, fromJob, amount, source, combatId)
     if share <= 0 then
         return
     end
-    local partyJobs
-    if cfg.JP.Shared.Scope == "PartyJobs" then
-        partyJobs = {}
-        for _, other in ipairs(self.State:Guids()) do
-            partyJobs[self.State:Get(other).Primary] = true
-        end
+    local fightJobs
+    if cfg.JP.Shared.Scope == "FightJobs" then
+        fightJobs = self:FightJobs(combatId)
     end
-    for _, target in ipairs(Rules.SharedTargets(self.Data, cfg, char, fromJob, partyJobs)) do
+    for _, target in ipairs(Rules.SharedTargets(self.Data, cfg, char, fromJob, fightJobs)) do
         self:AddJP(guid, target, share, "Shared", combatId)
     end
+end
+
+-- The jobs used in combat: the primary jobs of a running fight's participants; outside a fight, those of the
+-- party's latest fight (saved, empty before the first fight).
+function Service:FightJobs(combatId)
+    local set = {}
+    local rec = combatId and self.Combats[combatId]
+    if rec then
+        for guid in pairs(rec.Chars) do
+            local char = self.State:Get(guid)
+            if char then
+                set[char.Primary] = true
+            end
+        end
+        return set
+    end
+    for _, jobId in ipairs(self.State:Meta().LastFightJobs or {}) do
+        set[jobId] = true
+    end
+    return set
 end
 
 function Service:IsExcluded(spell)
@@ -411,6 +428,7 @@ function Service:OnCombatEnded(combatId)
         return
     end
     self.Combats[combatId] = { Id = combatId, Chars = participants } -- so victory JP is counted in the record
+    self.State:Meta().LastFightJobs = Util.SortedKeys(self:FightJobs(combatId))
     local cfg = self:Cfg()
     local jp = cfg.JP
     local guids = Util.SortedKeys(participants)

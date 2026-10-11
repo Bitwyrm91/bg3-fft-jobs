@@ -115,7 +115,7 @@ Fell Seal alone has 32+ classes and 200+ abilities. Together with FFT's 20 jobs,
 | Piece | From | Why it fits BG3 |
 |---|---|---|
 | Points mostly per fight and from XP, plus a smaller per-action share | both | BG3 has fewer, bigger fights, and its XP already reflects how hard they were. The current Classic preset already works this way. |
-| **Shared learning:** 15% of every gain also goes into all other classes | Fell Seal | Keeps 50+ classes from becoming a grind. **Done:** in the FFT mod since 2026-10-11 (`JP.Shared`, see `DESIGN.md` sections 6 and 7). |
+| **Shared learning:** 15% of every gain also goes into the other classes used in combat | Fell Seal | Keeps 50+ classes from becoming a grind. **Done:** in the FFT mod since 2026-10-11 (`JP.Shared`, `Scope` `FightJobs`, the user's choice; see `DESIGN.md` sections 6 and 7). |
 | Class level = abilities learned | Fell Seal | One rule for classes from both games, easy to read on the Job Board. FFT's JP thresholds stay available as a setting. |
 | Main class's passives always on, plus free passive slots, 1 reaction and 1 movement slot | both | BG3 has real reactions; FFT brings the movement slot. |
 | Mastery bonus for every class | Fell Seal | A small permanent reward for finishing a class, so finishing some classes matters without needing all of them. |
@@ -144,15 +144,23 @@ In Fell Seal, monsters are units with their own classes, and BG3 has no monster 
 2. **Monster arts** (like Final Fantasy's Blue Mage):
    - a monster class works only as the secondary skill set: your character uses that monster's abilities (a breath, a web, a charge) without changing shape;
    - optional twist: you learn a monster ability by being hit by it while that class is equipped.
-3. **Monster forms** (like Wild Shape):
-   - as the main class, a monster class turns you into that monster, with its abilities, and gives small perks in normal form;
-   - this fits Fell Seal's Werewolf and Vampire badge classes too.
+3. **Monster forms** (like Wild Shape). **Chosen by the user (2026-10-11).**
+   - With a monster class as the main class, your character can transform into that monster and use its skills while in that form, like the monsters in Fell Seal.
+   - Normal form keeps small perks.
+   - This fits Fell Seal's Werewolf and Vampire badge classes too.
 4. **Tamers:**
    - Beastmaster and Wrangler (DLC) summon a tamed monster, using BG3 summons;
    - its abilities come from the monster classes you have unlocked, and it gets stronger as that class levels.
 5. **Monster passives:** the simplest version. Monster classes are short (3-5 abilities), mostly passives and counters that any class can put in a free slot.
 
-Suggested order: 1 and 2 first (essences unlock monster classes, used as secondary skill sets); add 3 and 4 later if they are fun. To check when we get there: reading a defeated enemy's creature type with the Script Extender.
+**Plan (user, 2026-10-11): monster forms (3).**
+- Essence hunting (1) is a good way to unlock each form.
+- Ideas 2, 4 and 5 are optional extras.
+
+To check in the extracted BG3 data when we get there:
+- how Wild Shape and Polymorph define a form: the status, the creature it turns into, and which spells and passives the form keeps or gets;
+- which BG3 creatures can stand in for each Fell Seal monster;
+- reading a defeated enemy's creature type with the Script Extender.
 
 ## Questions for the user (when we get there)
 
@@ -165,7 +173,7 @@ Suggested order: 1 and 2 first (essences unlock monster classes, used as seconda
    - give each to a BG3 origin companion;
    - let anyone unlock them;
    - or skip them.
-6. **Monster classes:** which of the ideas above?
+6. **Monster classes:** answered: monster forms. Still open: how forms unlock (essences?).
 7. **MP:** same open question as for FFT.
 8. **Stats:** how Fell Seal stats and mastery bonuses map to BG3.
 

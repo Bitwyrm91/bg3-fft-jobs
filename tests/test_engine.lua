@@ -206,12 +206,27 @@ function S.spillover_and_console_jp_are_not_shared(w, T)
     T.eq(sum(svc, T, T.ASTA, "Chemist"), 0, "console JP does not share")
 end
 
-function S.shared_learning_party_jobs_scope(w, T)
-    local svc = T.boot(w, { extra = { JP = { Shared = { Share = 0.15, Scope = "PartyJobs" } } } })
-    w.chars[T.TAV].xp = 1500 -- the party uses Squire (Tav, Astarion) and Chemist (Shadowheart)
+function S.shared_learning_goes_into_jobs_used_in_combat(w, T)
+    local svc = T.boot(w, { extra = { JP = { Shared = { Share = 0.15, Scope = "FightJobs" } } } })
+    w.chars[T.TAV].xp = 1500
     w.runTimers()
-    T.eq(sum(svc, T, T.TAV, "Chemist"), 7)
-    T.eq(sum(svc, T, T.TAV, "Knight"), 0, "nobody uses Knight")
+    T.eq(sum(svc, T, T.TAV, "Squire"), 50)
+    T.eq(sum(svc, T, T.TAV, "Chemist"), 0, "no fight yet: no jobs to share into")
+    -- Tav (Squire) and Shadowheart (Chemist) fight; Astarion (Squire) waits in camp.
+    T.startCombat(w, "c1", { T.TAV, T.SHART })
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    T.endCombat(w, "c1", { T.TAV, T.SHART })
+    T.eq(sum(svc, T, T.TAV, "Chemist"), 7, "15% of 26 action + 26 victory JP = 7.8, into Shadowheart's job")
+    T.eq(sum(svc, T, T.SHART, "Squire"), 8, "5 spillover + 15% of 26 victory JP")
+    T.eq(sum(svc, T, T.ASTA, "Chemist"), 2, "camp share 19.5: 15% into the fight's other job")
+    for _, guid in ipairs({ T.TAV, T.SHART, T.ASTA }) do
+        T.eq(sum(svc, T, guid, "Knight"), 0, "nobody used Knight")
+    end
+    T.eq(table.concat(svc.State:Meta().LastFightJobs, ","), "Chemist,Squire", "saved for gains outside combat")
+    w.fire("LongRestFinished")
+    w.tick()
+    T.eq(sum(svc, T, T.TAV, "Chemist"), 11, "outside combat: the latest fight's jobs (7.8 + 3.75)")
 end
 
 function S.shared_jp_counts_toward_unlocks(w, T)

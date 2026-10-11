@@ -142,14 +142,14 @@ def shared_jp(jp, amount, source):
     return amount * sh["Share"]
 
 
-def shared_targets(jp, impl, from_job, unlocked, party_jobs):
-    """The jobs that get shared JP: every other implemented job (AllJobs) or only the party's jobs (PartyJobs)."""
+def shared_targets(jp, impl, from_job, unlocked, fight_jobs):
+    """The jobs that get shared JP: every other implemented job (AllJobs) or only the jobs used in the fight (FightJobs)."""
     sh = jp["Shared"]
     out = []
     for j in impl:
         if j == from_job:
             continue
-        if sh["Scope"] == "PartyJobs" and j not in party_jobs:
+        if sh["Scope"] != "AllJobs" and j not in fight_jobs:
             continue
         if sh["RequireUnlocked"] and j not in unlocked:
             continue
@@ -205,8 +205,9 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
         credit(c, j, amount, source)
         share = shared_jp(jp, amount, source)
         if share > 0:
-            party_jobs = {d.primary for d in party}
-            for t in shared_targets(jp, impl, j, c.unlocked, party_jobs):
+            # FightJobs: the fighters' jobs. Every JP gain in this model belongs to the current or the latest fight.
+            fight_jobs = {d.primary for d in party if d.active}
+            for t in shared_targets(jp, impl, j, c.unlocked, fight_jobs):
                 credit(c, t, share, "Shared")
 
     def mastered(c, j):
@@ -387,7 +388,7 @@ def selftest(jobs_doc, cfg_doc):
     ]
     sh = merge(cfg_doc["defaults"], {"JP": {"Shared": {"Share": 0.15, "Scope": "AllJobs", "RequireUnlocked": False}}})["JP"]
     impl = [j["id"] for j in jobs_doc["jobs"] if j.get("implemented")]
-    party_scope = merge(sh, {"Shared": {"Scope": "PartyJobs"}})
+    fight_scope = merge(sh, {"Shared": {"Scope": "FightJobs"}})
     unlocked_only = merge(sh, {"Shared": {"RequireUnlocked": True}})
     checks += [                                                # same cases as tests/test_rules.lua
         (shared_jp(sh, 100, "Action"), 15.0),
@@ -395,7 +396,8 @@ def selftest(jobs_doc, cfg_doc):
         (shared_jp(sh, 100, "Spill"), 0.0),
         (shared_jp(sh, 100, "Shared"), 0.0),
         (",".join(shared_targets(sh, impl, "Squire", {"Squire", "Chemist"}, set())), "Chemist,Knight,Archer,WhiteMage,BlackMage"),
-        (",".join(shared_targets(party_scope, impl, "Squire", {"Squire", "Chemist"}, {"Squire", "Knight"})), "Knight"),
+        (",".join(shared_targets(fight_scope, impl, "Squire", {"Squire", "Chemist"}, {"Squire", "Knight"})), "Knight"),
+        (",".join(shared_targets(fight_scope, impl, "Squire", {"Squire", "Chemist"}, set())), ""),
         (",".join(shared_targets(unlocked_only, impl, "Squire", {"Squire", "Chemist"}, set())), "Chemist"),
     ]
     ok = True

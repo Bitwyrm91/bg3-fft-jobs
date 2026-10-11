@@ -1427,7 +1427,7 @@ return {
       },
       Shared = {
         Share = 0.15,
-        Scope = "AllJobs",
+        Scope = "FightJobs",
         RequireUnlocked = false,
         Sources = {
           Action = true,
@@ -1490,7 +1490,7 @@ return {
   },
   Presets = {
     Classic = {
-      Description = "Default. Includes shared learning: 15% of every JP gain also goes into every other job. Even a light playthrough masters 4+ jobs (see DESIGN.md, Pacing).",
+      Description = "Default. Includes shared learning: 15% of every JP gain also goes into the other jobs the party used in combat. Even a light playthrough masters 4+ jobs (see DESIGN.md, Pacing).",
       Values = {},
     },
     Fast = {
@@ -1565,8 +1565,8 @@ return {
     ["JP.Action.ExcludePrefixes"] = "Spell ID prefixes that never earn JP.",
     ["JP.Spillover.Share"] = "Share of an ally's action JP that every other party member in the same fight gets in that job (FFT: 0.25).",
     ["JP.Spillover.RequireUnlocked"] = "Spillover only into jobs the receiver has unlocked (TIC: false).",
-    ["JP.Shared.Share"] = "Shared learning (Fell Seal rule): this share of every JP gain also goes into each of the character's other jobs (0.15 = 15%, 0 = off).",
-    ["JP.Shared.Scope"] = "AllJobs: every other job, locked ones included. PartyJobs: only the jobs someone in the party uses as primary (closer to Fell Seal).",
+    ["JP.Shared.Share"] = "Shared learning (Fell Seal rule): this share of every JP gain also goes into each of the character's other jobs that the party used in combat (see Scope; 0.15 = 15%, 0 = off).",
+    ["JP.Shared.Scope"] = "FightJobs (Fell Seal): the jobs of everyone in the current fight, or outside a fight, in the party's latest fight. AllJobs: every other job. Locked jobs are included either way.",
     ["JP.Shared.RequireUnlocked"] = "Shared JP only goes into jobs the character has unlocked (Fell Seal: false).",
     ["JP.Shared.Sources.Action"] = "Action JP is shared.",
     ["JP.Shared.Sources.Victory"] = "Victory JP is shared.",

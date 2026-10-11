@@ -140,10 +140,10 @@ function S.shared_learning_targets(w, T)
     local char = Rules.NewChar(Data, cfg, "Squire")
     T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage",
         "every other implemented job, locked ones included")
-    local party = T.cfg({ JP = { Shared = { Share = 0.15, Scope = "PartyJobs" } } })
-    T.eq(table.concat(Rules.SharedTargets(Data, party, char, "Squire", { Squire = true, Knight = true }), ","), "Knight",
-        "PartyJobs: only the jobs the party uses")
-    T.eq(#Rules.SharedTargets(Data, party, char, "Squire", nil), 0)
+    local fight = T.cfg({ JP = { Shared = { Share = 0.15, Scope = "FightJobs" } } })
+    T.eq(table.concat(Rules.SharedTargets(Data, fight, char, "Squire", { Squire = true, Knight = true }), ","), "Knight",
+        "FightJobs: only the jobs used in the fight")
+    T.eq(#Rules.SharedTargets(Data, fight, char, "Squire", nil), 0, "no fight yet")
     local unlocked = T.cfg({ JP = { Shared = { Share = 0.15, RequireUnlocked = true } } })
     T.eq(table.concat(Rules.SharedTargets(Data, unlocked, char, "Squire"), ","), "Chemist", "only unlocked jobs")
 end

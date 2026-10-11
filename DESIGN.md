@@ -140,7 +140,7 @@ Contested values (sources disagree): Squire's Focus/Throw Stone/Salve, Knight's 
 - **Variants**: an ability can grant a different spell when a condition holds. Chemist items grant a short-range spell normally and a thrown 9 m spell when Chemist is the primary job or Throw Items is the equipped support (FFT: Chemists throw items, other jobs need Throw Items).
 - **JP Boost**: the equipped support with `"effect": "JPBoost"` multiplies the character's own JP.
 - JP goes to the **primary job**, also for actions from the secondary skill set (FFT rule).
-- **Shared learning** (from Fell Seal: Arbiter's Mark, added at the user's request on 2026-10-11): 15% of every JP gain a character makes also goes into each of that character's other jobs, locked ones included. Fell Seal itself gives 15% of a battle's AP only to the classes used in that battle; here it covers every job by default (`Scope` `AllJobs`), and `PartyJobs` limits it to the jobs the party uses. Shared JP counts toward job levels, so it can unlock jobs. Spillover, console JP and shared JP itself are not shared again.
+- **Shared learning** (from Fell Seal: Arbiter's Mark, added at the user's request on 2026-10-11): 15% of every JP gain a character makes also goes into each of that character's other jobs that the party used in combat, locked ones included. During a fight these are the jobs of everyone in it; for gains outside a fight (quest XP, long rests, camp share) they are the jobs of the party's latest fight, saved in the state. This is Fell Seal's rule, where every unit gets 15% of a battle's AP in each class used in it. `Scope` `AllJobs` shares into every job instead. Shared JP counts toward job levels, so it can unlock jobs. Spillover, console JP and shared JP itself are not shared again.
 
 ## 7. JP sources and formulas
 
@@ -154,7 +154,7 @@ Every number below is a config value (section 12). `G` = global multiplier, `B` 
 | XP share | any XP gain (quests, exploration, checks, combat) | `xpGained × XPShare × B × G` | BG3 adaptation, ties JP to BG3's own pacing |
 | Camp share | `CombatEnded`, tracked characters who were not in the fight | `average own JP of the participants in this fight × Camp.Share × G` | BG3 adaptation |
 | Training | `LongRestFinished` | `LongRest × B × G` | BG3 adaptation |
-| Shared learning | every gain above except spillover (per source: `Shared.Sources`), into each of the character's **other** jobs: all of them (`Scope` `AllJobs`, default) or the jobs someone in the party uses as primary (`PartyJobs`); `RequireUnlocked` limits it to unlocked jobs | `gain × Shared.Share` (the gain already includes B and G) | Fell Seal: Arbiter's Mark's vicarious learning (15%), extended to every job |
+| Shared learning | every gain above except spillover (per source: `Shared.Sources`), into each of the character's **other** jobs used in combat: the jobs of everyone in the current fight, or outside a fight those of the party's latest fight (`Scope` `FightJobs`, default), or every job (`AllJobs`); `RequireUnlocked` limits it to unlocked jobs | `gain × Shared.Share` (the gain already includes B and G) | Fell Seal: Arbiter's Mark's vicarious learning (15% into each class used in the battle) |
 
 Fractions are kept per job (`frac`) so small amounts are not lost to rounding. `Action.MaxPerTurn` (0 = off) caps action JP per turn.
 
@@ -178,7 +178,7 @@ One mod variable, `State`, registered with `Ext.Vars.RegisterModVariable(ModuleU
 
 - In memory the engine owns a plain Lua table; after every change it writes `vars.State = state` (coalesced to once per tick). Writes to sub-tables do not mark a variable dirty, so the whole table is reassigned.
 - The state is read once per Lua session, after `SessionLoaded`. Events that arrive earlier are ignored, so an empty state never overwrites a saved one.
-- Schema (`schema = 1`): `chars[uuid] = {name, primary, secondary, reaction, support, movement, unlocked{job=true}, jobs[job] = {earned, unspent, frac, learned{ability=true}}, granted = {spells{}, passives{}, statuses{}}, lastXP, stats{...}}`. Keys are the 36-character UUID part of Osiris GUID strings.
+- Schema (`schema = 1`): `chars[uuid] = {name, primary, secondary, reaction, support, movement, unlocked{job=true}, jobs[job] = {earned, unspent, frac, learned{ability=true}}, granted = {spells{}, passives{}, statuses{}}, lastXP, stats{...}}`. Keys are the 36-character UUID part of Osiris GUID strings. `meta = {Disabled, LastFightJobs}`: the uninstall flag and the jobs used in the latest fight (for shared learning).
 - `!fft_uninstall` removes every granted spell/passive/status from every character before the mod is removed.
 
 ## 10. Mod layout and build
@@ -263,7 +263,7 @@ Console commands (`who` = `host` (default), a party member's name or a GUID):
 
 Sources for the estimates: BG3 XP table (L12 = 100,000; Wargamer/Gamer Guides; eip.gg lists slightly lower L6-11 values), Larian's 80 combat encounters in Early Access (≈ Act 1), player reports of levels per act (Steam forums: about L7 after a full Act 1, L10-11 after Act 2, L12 early in Act 3). A quarter of the casts are assumed to be bonus actions.
 
-**Presets** (everything else as in section 7: FFT formula `8 + 2 × job level + floor(level / 4)`, TIC +30% on own actions, spillover 1/4 also into locked jobs, JP Boost ×1.5, camp share 1/2, shared learning 15% into every other job):
+**Presets** (everything else as in section 7: FFT formula `8 + 2 × job level + floor(level / 4)`, TIC +30% on own actions, spillover 1/4 also into locked jobs, JP Boost ×1.5, camp share 1/2, shared learning 15% into the other jobs used in combat):
 
 | Preset | `Action.Multiplier` | `XPShare` | Victory | Long rest | Shared learning | Meant for |
 |---|---|---|---|---|---|---|
@@ -276,44 +276,44 @@ Sources for the estimates: BG3 XP table (L12 = 100,000; Wargamer/Gamer Guides; e
 
 | Preset | Estimate | JP per fighter | Fighters' jobs mastered by end of Act 1 / 2 / 3 | Camp members' jobs mastered | First mastery | JP vs full TIC tree unlock need |
 |---|---|---|---|---|---|---|
-| Classic | LOW | 36,822 | 1 / 3 / 6 | 5-5 | A1.13 | 2.1x |
-| Classic | TYPICAL | 57,834 | 1-2 / 6 / 6 | 6-6 | A1.10 | 3.3x |
-| Classic | HIGH | 91,346 | 5-6 / 6 / 6 | 6-6 | A1.8 | 5.2x |
-| Fast | LOW | 60,146 | 1-2 / 5-6 / 6 | 6-6 | A1.9 | 3.4x |
-| Fast | TYPICAL | 94,580 | 4-5 / 6 / 6 | 6-6 | A1.7 | 5.4x |
-| Fast | HIGH | 149,088 | 6 / 6 / 6 | 6-6 | A1.5 | 8.5x |
-| Grindy | LOW | 20,185 | 0-1 / 1-2 / 3-4 | 2-3 | A1.23 | 1.1x |
-| Grindy | TYPICAL | 32,239 | 1 / 3 / 6 | 4-4 | A1.17 | 1.8x |
-| Grindy | HIGH | 52,329 | 2-3 / 6 / 6 | 5-6 | A1.14 | 3.0x |
+| Classic | LOW | 26,981 | 1 / 2-3 / 6 | 5-5 | A1.13 | 1.5x |
+| Classic | TYPICAL | 41,692 | 1-2 / 5 / 6 | 6-6 | A1.10 | 2.4x |
+| Classic | HIGH | 66,037 | 4-5 / 6 / 6 | 6-6 | A1.8 | 3.8x |
+| Fast | LOW | 42,828 | 1-2 / 5 / 6 | 6-6 | A1.9 | 2.4x |
+| Fast | TYPICAL | 67,182 | 2-4 / 6 / 6 | 6-6 | A1.7 | 3.8x |
+| Fast | HIGH | 107,154 | 6 / 6 / 6 | 6-6 | A1.5 | 6.1x |
+| Grindy | LOW | 15,493 | 0-1 / 1-2 / 2-3 | 2-2 | A1.23 | 0.9x |
+| Grindy | TYPICAL | 23,948 | 1 / 2-3 / 5 | 2-4 | A1.17 | 1.4x |
+| Grindy | HIGH | 38,506 | 1-2 / 5 / 6 | 5-5 | A1.14 | 2.2x |
 | PureFFT | LOW | 12,763 | 0-1 / 1-2 / 1-2 | 0-0 | A1.17 | 0.7x |
 | PureFFT | TYPICAL | 32,017 | 1-2 / 3-4 / 6 | 0-0 | A1.12 | 1.8x |
 | PureFFT | HIGH | 74,437 | 5 / 6 / 6 | 0-0 | A1.8 | 4.2x |
 
-**Shared learning** (2026-10-11) is the biggest single source in Classic: about 40% of the JP, spread over the other jobs. With only the 6 MVP jobs it makes the test fast: every fighter masters all six by the end of Act 3 even in LOW, and by the end of Act 2 in TYPICAL. Without it (`--set JP.Shared.Share=0`) Classic gave LOW 1 / 2-3 / 5, TYPICAL 1-2 / 4 / 6, HIGH 3-4 / 6 / 6. `AllJobs` shares into every job, so the effect grows as jobs are added: re-tune once the other 14 FFT jobs are in (`PartyJobs` or a lower `Share` are the first knobs; at 10% Classic gives LOW 1 / 2-3 / 6, TYPICAL 1-2 / 5 / 6).
+**Shared learning** (2026-10-11) gives a fighter 13-19% of its JP, spread over the jobs the party uses (the model's fighters use four different jobs). With only the 6 MVP jobs the test is quick: every fighter masters all six by the end of Act 3 even in LOW. Without it (`--set JP.Shared.Share=0`) Classic gave LOW 1 / 2-3 / 5, TYPICAL 1-2 / 4 / 6, HIGH 3-4 / 6 / 6. With `Scope` `AllJobs` (every job gets 15%) it gives LOW 1 / 3 / 6, TYPICAL 1-2 / 6 / 6, HIGH 5-6 / 6 / 6, and that effect grows with every job added. Re-tune once the other 14 FFT jobs are in.
 
-**Why Classic looks like this.** FFT's own per-action JP (PureFFT) leaves a light BG3 playthrough with 1-2 mastered jobs and camp companions with none: BG3 has too few, finite fights. Classic halves action JP and adds an XP share, so progress follows BG3's own pacing (quests, exploration and skill checks give XP too) and the gap between a light and a completionist run shrinks from 5.8× to 2.5×. Where Classic's JP comes from (`--sources`):
+**Why Classic looks like this.** FFT's own per-action JP (PureFFT) leaves a light BG3 playthrough with 1-2 mastered jobs and camp companions with none: BG3 has too few, finite fights. Classic halves action JP and adds an XP share, so progress follows BG3's own pacing (quests, exploration and skill checks give XP too) and the gap between a light and a completionist run shrinks from 5.8× to 2.4×. Where Classic's JP comes from (`--sources`):
 
 | Estimate | Who | Action | Spillover | Victory | XP share | Camp share | Long rest | Shared learning | Total |
 |---|---|---|---|---|---|---|---|---|---|
-| LOW | fighter | 4,527 (12%) | 2,612 (7%) | 1,722 (5%) | 12,750 (35%) | 0 | 550 (1%) | 14,661 (40%) | 36,822 |
-| LOW | camp | 0 | 0 | 0 | 12,750 (44%) | 3,124 (11%) | 550 (2%) | 12,318 (43%) | 28,743 |
-| TYPICAL | fighter | 10,930 (19%) | 6,306 (11%) | 2,690 (5%) | 15,000 (26%) | 0 | 825 (1%) | 22,084 (38%) | 57,834 |
-| TYPICAL | camp | 0 | 0 | 0 | 15,000 (38%) | 6,810 (17%) | 825 (2%) | 16,976 (43%) | 39,611 |
-| HIGH | fighter | 24,187 (26%) | 13,954 (15%) | 3,937 (4%) | 15,000 (16%) | 0 | 1,100 (1%) | 33,168 (36%) | 91,346 |
-| HIGH | camp | 0 | 0 | 0 | 15,000 (28%) | 14,062 (27%) | 1,100 (2%) | 22,621 (43%) | 52,783 |
+| LOW | fighter | 4,303 (16%) | 2,482 (9%) | 1,722 (6%) | 12,750 (47%) | 0 | 550 (2%) | 5,173 (19%) | 26,981 |
+| LOW | camp | 0 | 0 | 0 | 12,750 (58%) | 3,013 (14%) | 550 (3%) | 5,610 (26%) | 21,922 |
+| TYPICAL | fighter | 10,573 (25%) | 6,100 (15%) | 2,690 (6%) | 15,000 (36%) | 0 | 825 (2%) | 6,505 (16%) | 41,692 |
+| TYPICAL | camp | 0 | 0 | 0 | 15,000 (52%) | 6,631 (23%) | 825 (3%) | 6,209 (22%) | 28,666 |
+| HIGH | fighter | 23,657 (36%) | 13,648 (21%) | 3,937 (6%) | 15,000 (23%) | 0 | 1,100 (2%) | 8,694 (13%) | 66,037 |
+| HIGH | camp | 0 | 0 | 0 | 15,000 (41%) | 13,797 (37%) | 1,100 (3%) | 7,135 (19%) | 37,032 |
 
-With JP Boost equipped as soon as it is learned (`--jp-boost`), Classic gives 50,700 / 80,500 / 127,300 JP per fighter (LOW / TYPICAL / HIGH).
+With JP Boost equipped as soon as it is learned (`--jp-boost`), Classic gives 35,300 / 55,900 / 88,800 JP per fighter (LOW / TYPICAL / HIGH).
 
 **When a typical player gets each job** (Classic, TYPICAL, `--detail TYPICAL`; "unlocked / **mastered**", A2.14 = Act 2, 14th fight of the act):
 
 | Character | Squire | Chemist | Knight | Archer | White Mage | Black Mage | JP total |
 |---|---|---|---|---|---|---|---|
-| Fighter | start / **A1.10** | start / **A2.10** | A1.2 / **A1.27** | A1.2 / **A2.4** | A1.6 / **A2.18** | A1.6 / **A2.26** | 57,655 |
-| Caster | start / **A2.3** | start / **A1.22** | A1.6 / **A2.16** | A1.6 / **A2.24** | A1.2 / **A2.13** | A1.2 / **A2.3** | 57,958 |
-| Healer | start / **A2.2** | start / **A1.22** | A1.6 / **A2.16** | A1.6 / **A2.13** | A1.2 / **A2.1** | A1.2 / **A2.25** | 57,934 |
-| Ranger | start / **A1.10** | start / **A2.4** | A1.2 / **A2.17** | A1.2 / **A1.39** | A1.6 / **A2.14** | A1.6 / **A2.26** | 57,788 |
-| Camp A (camp) | start / **A1.15** | start / **A2.25** | A1.3 / **A1.38** | A1.3 / **A2.16** | A1.13 / **A3.8** | A1.13 / **A3.22** | 39,611 |
-| Camp B (camp) | start / **A2.19** | start / **A1.33** | A1.13 / **A3.2** | A1.13 / **A3.18** | A1.3 / **A2.11** | A1.3 / **A2.27** | 39,611 |
+| Fighter | start / **A1.10** | start / **A2.13** | A1.2 / **A1.29** | A1.2 / **A2.6** | A1.6 / **A2.22** | A1.6 / **A3.5** | 41,728 |
+| Caster | start / **A2.20** | start / **A1.22** | A1.6 / **A2.27** | A1.6 / **A3.6** | A1.2 / **A2.17** | A1.2 / **A2.5** | 41,699 |
+| Healer | start / **A2.7** | start / **A1.22** | A1.6 / **A2.25** | A1.6 / **A2.18** | A1.2 / **A2.3** | A1.2 / **A3.7** | 41,663 |
+| Ranger | start / **A1.10** | start / **A2.7** | A1.2 / **A2.25** | A1.2 / **A1.41** | A1.6 / **A2.18** | A1.6 / **A3.7** | 41,679 |
+| Camp A (camp) | start / **A1.15** | start / **A2.29** | A1.3 / **A1.40** | A1.3 / **A2.17** | A1.13 / **A3.15** | A1.13 / **A3.33** | 28,741 |
+| Camp B (camp) | start / **A3.7** | start / **A1.34** | A2.5 / **A3.18** | A2.5 / **A3.34** | A1.3 / **A2.13** | A1.3 / **A3.2** | 28,590 |
 
 **Retuning.** Change the numbers in game (`!fft_set JP.XPShare 0.2`, `!fft_mult 1.3`, `!fft_preset Fast`) or in `config.json`; try them first with `python3 tools/pacing_sim.py --set JP.XPShare=0.2`. The engine logs every fight and long rest to `telemetry.jsonl` (`!fft_telemetry` sums it up): real actions per fight, JP by source and XP per act can then replace the estimates above. When jobs are added, mastering the MVP six gets relatively easier; re-run the simulator and lower `Action.Multiplier`/`XPShare` if the tree should take longer.
 
