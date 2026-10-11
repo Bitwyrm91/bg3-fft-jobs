@@ -225,6 +225,38 @@ function Rules.CampJP(jp, avgOwn)
     return (avgOwn or 0) * jp.Camp.Share
 end
 
+-- Shared learning (Fell Seal's vicarious learning, applied to every job at the user's request): part of each JP
+-- gain a character makes in a job also goes into the character's other jobs, locked ones included.
+-- JP source (as counted in telemetry) -> its key in JP.Shared.Sources. Spill, Manual and Shared itself never share.
+Rules.SharedSourceKey = { Action = "Action", Victory = "Victory", XP = "XP", Rest = "LongRest", Camp = "Camp" }
+Rules.SharedScopes = { "AllJobs", "PartyJobs" }
+
+-- JP each target job gets from a gain of amount (already multiplied) from source; 0 when that source does not share.
+function Rules.SharedJP(jp, amount, source)
+    local sh = jp.Shared
+    local key = Rules.SharedSourceKey[source]
+    if not key or not sh.Sources[key] or sh.Share <= 0 or type(amount) ~= "number" or amount ~= amount
+        or amount <= 0 or amount == math.huge then
+        return 0
+    end
+    return amount * sh.Share
+end
+
+-- The jobs that get shared JP from a gain in fromJob, in job order: every other implemented job (AllJobs), or only
+-- the jobs in partyJobs, a set of the party's primary jobs (PartyJobs).
+function Rules.SharedTargets(data, cfg, char, fromJob, partyJobs)
+    local sh = cfg.JP.Shared
+    local out = {}
+    for _, jobId in ipairs(data.JobOrder) do
+        if data.Jobs[jobId].Implemented and jobId ~= fromJob
+            and (sh.Scope ~= "PartyJobs" or (partyJobs ~= nil and partyJobs[jobId] == true))
+            and (not sh.RequireUnlocked or Rules.IsUnlocked(char, jobId)) then
+            out[#out + 1] = jobId
+        end
+    end
+    return out
+end
+
 ---------------------------------------------------------------- abilities and slots
 
 function Rules.IsLearned(char, abilityId)

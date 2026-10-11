@@ -22,7 +22,8 @@ Draft written in the cloud before the mod ever ran in the game. Monday's local r
   - every bit of XP you gain, from quests and exploration too;
   - each long rest;
   - party members waiting in camp get half of what the fighters earned;
-  - when an ally acts, everyone else in the fight gets 1/4 of that JP in the ally's job (FFT's "spillover").
+  - when an ally acts, everyone else in the fight gets 1/4 of that JP in the ally's job (FFT's "spillover");
+  - **shared learning** (a Fell Seal rule): whenever you earn JP, 15% of it also goes into each of your other jobs, even locked ones. It counts toward job levels, so it can unlock jobs too.
 - **Job levels** at 200 / 400 / 700 / 1,100 / 1,600 / 2,200 / 3,000 JP earned in the job.
 - **New jobs** unlock from job levels, as in The Ivalice Chronicles: Knight and Archer at Squire Lv2, White Mage and Black Mage at Chemist Lv2.
 - **Learning**: spend a job's JP on its abilities in the Job Board. Learned **actions** of your current job appear as spells. A **secondary** job adds its learned actions too. One learned **reaction**, one **support** and one **movement** ability can be equipped from any job.
@@ -54,11 +55,12 @@ All numbers can be changed without touching the mod:
 - **Presets:** `!fft_preset Fast` (about 1.6x), `!fft_preset Grindy` (about half), `!fft_preset Classic` (default).
 - **One knob for everything:** `!fft_mult 1.5` (50% more JP from every source), `!fft_mult 0.75` (25% less).
 - **One source:** `!fft_set JP.XPShare 0.2` (more JP from XP), `!fft_set JP.Action.Multiplier 0.8` (more JP per action), `!fft_set JP.Victory.Base 30`. Undo with `!fft_unset JP.XPShare`.
+- **Shared learning:** `!fft_set JP.Shared.Share 0.1` (10% instead of 15%), `!fft_set JP.Shared.Share 0` (off), `!fft_set JP.Shared.Scope PartyJobs` (only into jobs someone in your party is using, closer to Fell Seal).
 - `!fft_config` shows every current value.
 
 Changes are saved to `%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\Script Extender\FFTJobs\config.json`. You can also edit that file and type `!fft_reload`. `config.reference.json` in the same folder lists every setting with a short explanation.
 
-With the default (Classic) numbers, the simulator estimates that each party member masters about 5 of the 6 jobs in a light playthrough and all 6 in a normal one, during Act 3.
+With the default (Classic) numbers, the simulator estimates that each party member masters all 6 jobs by the end of Act 3 in a light playthrough and by the end of Act 2 in a normal one. That is quick on purpose for this 6-job test; the numbers get re-tuned when the other 14 jobs are added.
 
 ## What to report
 

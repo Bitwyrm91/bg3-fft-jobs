@@ -181,6 +181,48 @@ function S.jp_boost_multiplies_own_jp(w, T)
     T.truthy(w.chars[T.TAV].passives.FFTJ_JPBoost)
 end
 
+local SHARED = { JP = { Shared = { Share = 0.15 } } }
+
+function S.shared_learning_feeds_every_other_job(w, T)
+    local svc = T.boot(w, { extra = SHARED })
+    w.chars[T.TAV].xp = 1500
+    w.runTimers()
+    T.eq(sum(svc, T, T.TAV, "Squire"), 50, "500 XP * 0.1")
+    for _, job in ipairs({ "Chemist", "Knight", "Archer", "WhiteMage", "BlackMage" }) do
+        T.eq(sum(svc, T, T.TAV, job), 7, job .. ": 15% of 50 = 7.5, locked jobs included")
+    end
+    T.eq(svc.State:Get(T.TAV).Stats.JP.Shared, 35)
+    T.eq(sum(svc, T, T.SHART, "Knight"), 0, "only the earner's own jobs")
+end
+
+function S.spillover_and_console_jp_are_not_shared(w, T)
+    local svc = T.boot(w, { extra = SHARED })
+    T.startCombat(w, "c1", { T.TAV, T.SHART })
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    T.eq(sum(svc, T, T.TAV, "Knight"), 1, "15% of 13 = 1.95")
+    T.eq(sum(svc, T, T.SHART, "Squire"), 2, "spillover 2.5")
+    T.eq(sum(svc, T, T.SHART, "Knight"), 0, "spillover does not share")
+    svc:AddManualJP(T.ASTA, 100, "Squire")
+    T.eq(sum(svc, T, T.ASTA, "Chemist"), 0, "console JP does not share")
+end
+
+function S.shared_learning_party_jobs_scope(w, T)
+    local svc = T.boot(w, { extra = { JP = { Shared = { Share = 0.15, Scope = "PartyJobs" } } } })
+    w.chars[T.TAV].xp = 1500 -- the party uses Squire (Tav, Astarion) and Chemist (Shadowheart)
+    w.runTimers()
+    T.eq(sum(svc, T, T.TAV, "Chemist"), 7)
+    T.eq(sum(svc, T, T.TAV, "Knight"), 0, "nobody uses Knight")
+end
+
+function S.shared_jp_counts_toward_unlocks(w, T)
+    local svc = T.boot(w, { extra = SHARED })
+    w.chars[T.SHART].xp = 1000 + 13400 -- 1340 JP as a Chemist, 15% = 201 in Squire
+    w.runTimers()
+    T.eq(sum(svc, T, T.SHART, "Squire"), 201)
+    T.truthy(svc.State:Get(T.SHART).Unlocked.Knight, "Squire Lv2 from shared JP unlocks Knight")
+    T.contains(w.notifications, "Shadowheart unlocked the Knight job!")
+end
+
 function S.level_up_and_unlock_notifications(w, T)
     local svc = T.boot(w)
     svc:AddManualJP(T.TAV, 200, "Squire")

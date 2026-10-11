@@ -129,6 +129,34 @@ def char_level(xp):
     return lv
 
 
+# JP source (as counted in telemetry) -> its key in JP.Shared.Sources. Spill, Manual and Shared itself never share.
+SHARED_SOURCE_KEY = {"Action": "Action", "Victory": "Victory", "XP": "XP", "Rest": "LongRest", "Camp": "Camp"}
+
+
+def shared_jp(jp, amount, source):
+    """Shared learning: the part of a character's own JP gain that also goes into each of its other jobs."""
+    sh = jp["Shared"]
+    key = SHARED_SOURCE_KEY.get(source)
+    if sh["Share"] <= 0 or key is None or not sh["Sources"].get(key, False):
+        return 0.0
+    return amount * sh["Share"]
+
+
+def shared_targets(jp, impl, from_job, unlocked, party_jobs):
+    """The jobs that get shared JP: every other implemented job (AllJobs) or only the party's jobs (PartyJobs)."""
+    sh = jp["Shared"]
+    out = []
+    for j in impl:
+        if j == from_job:
+            continue
+        if sh["Scope"] == "PartyJobs" and j not in party_jobs:
+            continue
+        if sh["RequireUnlocked"] and j not in unlocked:
+            continue
+        out.append(j)
+    return out
+
+
 # ---------------------------------------------------------------- simulation
 
 class Char:
@@ -167,11 +195,19 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
     def level_of(c, j):
         return job_level(c.earned[j], th)
 
-    def add(c, j, amount, source):
+    def credit(c, j, amount, source):
         c.earned[j] += amount
         c.unspent[j] += amount
         c.total += amount
         c.sources[source] = c.sources.get(source, 0.0) + amount
+
+    def add(c, j, amount, source):
+        credit(c, j, amount, source)
+        share = shared_jp(jp, amount, source)
+        if share > 0:
+            party_jobs = {d.primary for d in party}
+            for t in shared_targets(jp, impl, j, c.unlocked, party_jobs):
+                credit(c, t, share, "Shared")
 
     def mastered(c, j):
         return all(a in c.learned for a in by_job[j])
@@ -313,7 +349,7 @@ def print_detail(jobs_doc, cfg, estimate, jp_boost, markdown):
 
 
 def print_sources(jobs_doc, cfg_doc, presets, sets, jp_boost, markdown):
-    order = ["Action", "Spill", "Victory", "XP", "Camp", "Rest"]
+    order = ["Action", "Spill", "Victory", "XP", "Camp", "Rest", "Shared"]
     head = ["Preset", "Estimate", "Who"] + order + ["Total"]
     if markdown:
         print("| " + " | ".join(head) + " |")
@@ -348,6 +384,19 @@ def selftest(jobs_doc, cfg_doc):
         (job_level(3000, [200, 400, 700, 1100, 1600, 2200, 3000]), 8),
         (char_level(6500), 5),
         (char_level(100000), 12),
+    ]
+    sh = merge(cfg_doc["defaults"], {"JP": {"Shared": {"Share": 0.15, "Scope": "AllJobs", "RequireUnlocked": False}}})["JP"]
+    impl = [j["id"] for j in jobs_doc["jobs"] if j.get("implemented")]
+    party_scope = merge(sh, {"Shared": {"Scope": "PartyJobs"}})
+    unlocked_only = merge(sh, {"Shared": {"RequireUnlocked": True}})
+    checks += [                                                # same cases as tests/test_rules.lua
+        (shared_jp(sh, 100, "Action"), 15.0),
+        (shared_jp(sh, 100, "Rest"), 15.0),
+        (shared_jp(sh, 100, "Spill"), 0.0),
+        (shared_jp(sh, 100, "Shared"), 0.0),
+        (",".join(shared_targets(sh, impl, "Squire", {"Squire", "Chemist"}, set())), "Chemist,Knight,Archer,WhiteMage,BlackMage"),
+        (",".join(shared_targets(party_scope, impl, "Squire", {"Squire", "Chemist"}, {"Squire", "Knight"})), "Knight"),
+        (",".join(shared_targets(unlocked_only, impl, "Squire", {"Squire", "Chemist"}, set())), "Chemist"),
     ]
     ok = True
     for got, want in checks:

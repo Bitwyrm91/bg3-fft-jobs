@@ -1,5 +1,6 @@
 -- JP config: defaults (GeneratedData) <- preset <- overrides from config.json in the Script Extender folder.
 local Util = Ext.Require("Shared/Util.lua")
+local Rules = Ext.Require("Server/Rules.lua")
 
 local Config = {}
 Config.__index = Config
@@ -89,6 +90,19 @@ function Config:Recompute()
         warnings[#warnings + 1] = "JobLevels.Thresholds must be 7 increasing numbers; using the default"
         values.JobLevels.Thresholds = Util.DeepCopy(data.ConfigDefaults.JobLevels.Thresholds)
     end
+    local shared = values.JP.Shared
+    local scope
+    for _, s in ipairs(Rules.SharedScopes) do
+        if Util.Normalize(s) == Util.Normalize(shared.Scope) then
+            scope = s
+        end
+    end
+    if not scope then
+        scope = data.ConfigDefaults.JP.Shared.Scope
+        warnings[#warnings + 1] = string.format("JP.Shared.Scope must be %s; using %s",
+            table.concat(Rules.SharedScopes, " or "), scope)
+    end
+    shared.Scope = scope
     self.Values = values
     for _, w in ipairs(warnings) do
         if self.Log then

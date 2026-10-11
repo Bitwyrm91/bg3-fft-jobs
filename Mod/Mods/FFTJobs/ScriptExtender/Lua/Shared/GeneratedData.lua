@@ -1425,6 +1425,18 @@ return {
         Share = 0.25,
         RequireUnlocked = false,
       },
+      Shared = {
+        Share = 0.15,
+        Scope = "AllJobs",
+        RequireUnlocked = false,
+        Sources = {
+          Action = true,
+          Victory = true,
+          XP = true,
+          LongRest = true,
+          Camp = true,
+        },
+      },
       Victory = {
         Base = 15,
         PerCharLevel = 1,
@@ -1478,7 +1490,7 @@ return {
   },
   Presets = {
     Classic = {
-      Description = "Default. Tuned so that even a light playthrough masters 4+ jobs (see DESIGN.md, Pacing).",
+      Description = "Default. Includes shared learning: 15% of every JP gain also goes into every other job. Even a light playthrough masters 4+ jobs (see DESIGN.md, Pacing).",
       Values = {},
     },
     Fast = {
@@ -1514,7 +1526,7 @@ return {
       },
     },
     PureFFT = {
-      Description = "Only FFT's own JP sources (per action, spillover, TIC +30%). Shows how slow FFT's numbers are in BG3's finite fights; not recommended for play.",
+      Description = "Only FFT's own JP sources (per action, spillover, TIC +30%; no shared learning). Shows how slow FFT's numbers are in BG3's finite fights; not recommended for play.",
       Values = {
         JP = {
           Action = {
@@ -1527,6 +1539,9 @@ return {
           },
           LongRest = 0,
           Camp = {
+            Share = 0,
+          },
+          Shared = {
             Share = 0,
           },
         },
@@ -1550,6 +1565,14 @@ return {
     ["JP.Action.ExcludePrefixes"] = "Spell ID prefixes that never earn JP.",
     ["JP.Spillover.Share"] = "Share of an ally's action JP that every other party member in the same fight gets in that job (FFT: 0.25).",
     ["JP.Spillover.RequireUnlocked"] = "Spillover only into jobs the receiver has unlocked (TIC: false).",
+    ["JP.Shared.Share"] = "Shared learning (Fell Seal rule): this share of every JP gain also goes into each of the character's other jobs (0.15 = 15%, 0 = off).",
+    ["JP.Shared.Scope"] = "AllJobs: every other job, locked ones included. PartyJobs: only the jobs someone in the party uses as primary (closer to Fell Seal).",
+    ["JP.Shared.RequireUnlocked"] = "Shared JP only goes into jobs the character has unlocked (Fell Seal: false).",
+    ["JP.Shared.Sources.Action"] = "Action JP is shared.",
+    ["JP.Shared.Sources.Victory"] = "Victory JP is shared.",
+    ["JP.Shared.Sources.XP"] = "XP-share JP is shared.",
+    ["JP.Shared.Sources.LongRest"] = "Long-rest JP is shared.",
+    ["JP.Shared.Sources.Camp"] = "Camp-share JP is shared.",
     ["JP.Victory.Base"] = "JP per participant when a fight ends.",
     ["JP.Victory.PerCharLevel"] = "Extra victory JP per character level.",
     ["JP.XPShare"] = "JP per point of BG3 XP gained (quests, exploration, checks and combat all give XP).",

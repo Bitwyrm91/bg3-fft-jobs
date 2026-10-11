@@ -71,6 +71,9 @@ T.PINNED = {
         Action = { Base = 8, PerJobLevel = 2, CharLevelDivisor = 4, EnhancedBonus = 0.3, Multiplier = 1.0,
             BonusActionWeight = 0.5, CountOutOfCombat = false, RequireActionCost = true, MaxPerTurn = 0 },
         Spillover = { Share = 0.25, RequireUnlocked = false },
+        -- Off here so each suite checks one source at a time; the shared-learning tests switch it on.
+        Shared = { Share = 0, Scope = "AllJobs", RequireUnlocked = false,
+            Sources = { Action = true, Victory = true, XP = true, LongRest = true, Camp = true } },
         Victory = { Base = 20, PerCharLevel = 2 },
         XPShare = 0.1,
         Camp = { Share = 0.5 },

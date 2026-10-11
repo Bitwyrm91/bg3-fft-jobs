@@ -116,6 +116,38 @@ function S.jp_formulas(w, T)
     T.near(Rules.ActionFormula(noChar, 1, 12), 10)
 end
 
+function S.shared_learning_amounts(w, T)
+    local Rules = setup()
+    local jp = T.cfg({ JP = { Shared = { Share = 0.15 } } }).JP
+    T.near(Rules.SharedJP(jp, 100, "Action"), 15)
+    T.near(Rules.SharedJP(jp, 100, "Victory"), 15)
+    T.near(Rules.SharedJP(jp, 100, "XP"), 15)
+    T.near(Rules.SharedJP(jp, 100, "Rest"), 15, 1e-9, "source Rest is Sources.LongRest")
+    T.near(Rules.SharedJP(jp, 100, "Camp"), 15)
+    T.eq(Rules.SharedJP(jp, 100, "Spill"), 0, "spillover is not shared")
+    T.eq(Rules.SharedJP(jp, 100, "Manual"), 0, "console JP is not shared")
+    T.eq(Rules.SharedJP(jp, 100, "Shared"), 0, "shared JP does not share again")
+    T.eq(Rules.SharedJP(jp, -5, "Action"), 0)
+    T.eq(Rules.SharedJP(jp, 0 / 0, "Action"), 0)
+    local noXP = T.cfg({ JP = { Shared = { Share = 0.15, Sources = { XP = false } } } }).JP
+    T.eq(Rules.SharedJP(noXP, 100, "XP"), 0, "a source can be left out")
+    T.eq(Rules.SharedJP(T.cfg().JP, 100, "Action"), 0, "Share 0 turns it off")
+end
+
+function S.shared_learning_targets(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg({ JP = { Shared = { Share = 0.15 } } })
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage",
+        "every other implemented job, locked ones included")
+    local party = T.cfg({ JP = { Shared = { Share = 0.15, Scope = "PartyJobs" } } })
+    T.eq(table.concat(Rules.SharedTargets(Data, party, char, "Squire", { Squire = true, Knight = true }), ","), "Knight",
+        "PartyJobs: only the jobs the party uses")
+    T.eq(#Rules.SharedTargets(Data, party, char, "Squire", nil), 0)
+    local unlocked = T.cfg({ JP = { Shared = { Share = 0.15, RequireUnlocked = true } } })
+    T.eq(table.concat(Rules.SharedTargets(Data, unlocked, char, "Squire"), ","), "Chemist", "only unlocked jobs")
+end
+
 function S.learning_costs_and_errors(w, T)
     local Rules, Data = setup()
     local cfg = T.cfg()

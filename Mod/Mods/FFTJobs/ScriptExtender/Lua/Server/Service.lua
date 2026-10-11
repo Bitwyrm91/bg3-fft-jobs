@@ -200,7 +200,30 @@ function Service:AddJP(guid, jobId, amount, source, combatId)
             self:Notify(guid, string.format("%s unlocked the %s job!", char.Name, self.Data.Jobs[unlocked].Name))
         end
     end
+    if job and job.Implemented then
+        self:ShareJP(guid, char, jobId, amount, source, combatId)
+    end
     return res
+end
+
+-- Shared learning: part of a JP gain also goes into the character's other jobs (Rules.SharedTargets). The shared
+-- JP is counted as source "Shared", which does not share again.
+function Service:ShareJP(guid, char, fromJob, amount, source, combatId)
+    local cfg = self:Cfg()
+    local share = Rules.SharedJP(cfg.JP, amount, source)
+    if share <= 0 then
+        return
+    end
+    local partyJobs
+    if cfg.JP.Shared.Scope == "PartyJobs" then
+        partyJobs = {}
+        for _, other in ipairs(self.State:Guids()) do
+            partyJobs[self.State:Get(other).Primary] = true
+        end
+    end
+    for _, target in ipairs(Rules.SharedTargets(self.Data, cfg, char, fromJob, partyJobs)) do
+        self:AddJP(guid, target, share, "Shared", combatId)
+    end
 end
 
 function Service:IsExcluded(spell)
