@@ -1,13 +1,13 @@
 # Fell Seal: Arbiter's Mark: research for a later BG3 pack
 
-Research only (cloud session, 2026-10-11). **Not part of Part B: nothing here gets built yet.**
+Research and design ideas (cloud session, 2026-10-11). **Not part of Part B: nothing here gets built yet**, except shared learning, which is already in the FFT mod.
 
 Roadmap (user, 2026-10-11):
 1. Test the 6 FFT jobs in BG3.
 2. Add the other 14 FFT jobs.
 3. Then bring in Fell Seal: Arbiter's Mark (6 Eyes Studio, 2019) and its classes.
 
-The user owns Fell Seal on their PC. Cloud sessions can't read it, so a local run must check the numbers below against the game (see "Data check").
+The user owns Fell Seal on their PC (Steam). Cloud sessions can't read it, so a local run must check the numbers below against the game (see "Data check").
 
 Sources are community wikis, guides and forum posts, listed at the end. A few values disagree; they are marked **(check)**. The cloud network blocks these sites, so everything came through web search.
 
@@ -108,36 +108,66 @@ These come from the wiki and forums; check them in the game.
 
 Fell Seal's stats (HP, MP, ATK, DEF, MND, RES, SPD …) need a mapping to BG3, like FFT's.
 
-## What the engine would need (later)
+## Engine plan: one hybrid rule set (recommended)
 
-The engine is data-driven, so most of Fell Seal is data. These parts need code:
-1. **One rule set at a time.** Pick FFT or Fell Seal per save in the config, each with its own data file, IDs and point pools. Recommended over running both at once.
-2. **Level mode "abilities learned":** class level = number of abilities learned, instead of point thresholds.
-3. **AP sources:**
-   - per-battle AP (the victory source already exists);
-   - lower AP when the party out-levels the enemies (BG3 has enemy levels);
-   - a "big fight" multiplier;
-   - a camp share;
-   - the vicarious rule (15% of base AP into each class used in the fight). This is new; FFT's spillover is per action.
-4. **Slots with counts:** 2 automatic main-class passives, 2 free passives and 1 counter, replacing FFT's 1 reaction, 1 support and 1 movement.
-5. **Mastery grants:** a permanent passive per mastered class.
-6. **Equipment by main class:** BG3 proficiencies through the class's built-in passive (FFT jobs already have one).
-7. **Badge unlocks:** an item requirement (how badges are found in BG3 is open, see below).
+Fell Seal alone has 32+ classes and 200+ abilities. Together with FFT's 20 jobs, that is far too much to level the FFT way in one BG3 playthrough. So the plan is one set of rules for every class from both games, taking from each what fits BG3 best:
+
+| Piece | From | Why it fits BG3 |
+|---|---|---|
+| Points mostly per fight and from XP, plus a smaller per-action share | both | BG3 has fewer, bigger fights, and its XP already reflects how hard they were. The current Classic preset already works this way. |
+| **Shared learning:** 15% of every gain also goes into all other classes | Fell Seal | Keeps 50+ classes from becoming a grind. **Done:** in the FFT mod since 2026-10-11 (`JP.Shared`, see `DESIGN.md` sections 6 and 7). |
+| Class level = abilities learned | Fell Seal | One rule for classes from both games, easy to read on the Job Board. FFT's JP thresholds stay available as a setting. |
+| Main class's passives always on, plus free passive slots, 1 reaction and 1 movement slot | both | BG3 has real reactions; FFT brings the movement slot. |
+| Mastery bonus for every class | Fell Seal | A small permanent reward for finishing a class, so finishing some classes matters without needing all of them. |
+| **Class packs** switched on or off per save: FFT, Fell Seal basic, badge, story, DLC, monsters | new | Choose how long the class list is; test one pack at a time. |
+| **Party-wide unlocks** (option) | new | Unlocking a class once unlocks it for the whole party: the biggest cut in grind when there are many classes. |
+| About 6-8 abilities per class | new | Fewer spells on the hotbar, less JP to master, less to build: keep each class's best abilities. |
+| Look-alike classes merged or linked | new | Knight/Knight, Archer/Ranger, White Mage/Mender, Black Mage/Wizard, Thief/Scoundrel, Samurai/Samurai, Ninja/Assassin, Mime/Spymaster: either one class with abilities from both games, or two classes that share more JP with each other. |
+
+Engine work still needed (later):
+- level mode "abilities learned";
+- slots with counts and automatic class passives;
+- mastery grants;
+- class packs and party-wide unlocks;
+- badge requirements (items);
+- merged or linked classes.
+
+Equipment by main class works through each class's built-in passive, as for FFT jobs.
+
+## Monster classes: ideas
+
+In Fell Seal, monsters are units with their own classes, and BG3 has no monster party members. Ways to let normal BG3 characters use them:
+
+1. **Essence hunting** (closest to Fell Seal, where most monster classes unlock with 5 essences):
+   - defeating BG3 creatures of a family gives an essence, and 5 essences unlock that monster class for anyone;
+   - each Fell Seal monster family maps to a BG3 creature type, e.g. Arpia to harpies, Cadaver and Mummified to undead, Draekon and Bulldrake to drakes. The full list comes from the game files.
+2. **Monster arts** (like Final Fantasy's Blue Mage):
+   - a monster class works only as the secondary skill set: your character uses that monster's abilities (a breath, a web, a charge) without changing shape;
+   - optional twist: you learn a monster ability by being hit by it while that class is equipped.
+3. **Monster forms** (like Wild Shape):
+   - as the main class, a monster class turns you into that monster, with its abilities, and gives small perks in normal form;
+   - this fits Fell Seal's Werewolf and Vampire badge classes too.
+4. **Tamers:**
+   - Beastmaster and Wrangler (DLC) summon a tamed monster, using BG3 summons;
+   - its abilities come from the monster classes you have unlocked, and it gets stronger as that class levels.
+5. **Monster passives:** the simplest version. Monster classes are short (3-5 abilities), mostly passives and counters that any class can put in a free slot.
+
+Suggested order: 1 and 2 first (essences unlock monster classes, used as secondary skill sets); add 3 and 4 later if they are fun. To check when we get there: reading a defeated enemy's creature type with the Script Extender.
 
 ## Questions for the user (when we get there)
 
-1. One system per save (recommended), or FFT and Fell Seal at the same time?
-2. **Badge classes:** find or craft crests in BG3, buy them from a vendor, or just require higher class levels?
-3. **Story classes:**
+1. **Hybrid rules:** is the plan above OK?
+   - Should FFT jobs keep FFT's JP thresholds, or should everything level by "abilities learned"?
+2. **Party-wide unlocks:** on or off by default?
+3. **Look-alike classes:** merge them, or keep both and link them?
+4. **Badge classes:** find or craft crests in BG3, buy them from a vendor, or just require higher class levels?
+5. **Story classes:**
    - give each to a BG3 origin companion;
    - let anyone unlock them;
    - or skip them.
-4. **DLC:**
-   - Samurai is easy.
-   - Beastmaster and Wrangler could become summon-based classes, since BG3 has no monster recruiting.
-   - Monster classes would be skipped.
-5. **MP:** same open question as for FFT.
-6. **Stats:** how Fell Seal stats and mastery bonuses map to BG3.
+6. **Monster classes:** which of the ideas above?
+7. **MP:** same open question as for FFT.
+8. **Stats:** how Fell Seal stats and mastery bonuses map to BG3.
 
 ## Data check (local run on the user's PC)
 
@@ -149,7 +179,7 @@ Like FFT, the numbers above come from guides and get checked against the install
 - the mastery bonuses;
 - the AP rules.
 
-**Where it is (community reports, confirm locally):** Fell Seal is a Unity game with plain-text data.
+**Where it is (community reports, confirm locally):** Fell Seal is a Unity game with plain-text data. It is installed through Steam (user, 2026-10-11): Steam → Fell Seal: Arbiter's Mark → Manage → Browse local files opens the game folder.
 - **Data files:** `Jobs.xml` (classes) and `Abilities.xml` (every active, passive and counter, for every class and monster) are in the game's StreamingAssets folder.
 - **Copies:** `Documents\Fell Seal\customdata_examples\` has copies of the default files; it appears once the game has run.
 - **Text:** in language files such as `abilities.txt`.
