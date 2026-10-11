@@ -6,6 +6,12 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
 
+## Roadmap (user, 2026-10-11)
+
+1. Test the 6 FFT jobs in BG3: Part B below.
+2. Then add the other 14 FFT jobs.
+3. Then Fell Seal: Arbiter's Mark and its classes. The research is in `docs/FELLSEAL.md`. Not part of Part B: don't start it.
+
 ## Part A (cloud, 2026-10-09): done
 
 - [x] 1. Research + `DESIGN.md`: SE/Osiris APIs verified (section 2 says how), TIC data with sources, JP formulas, persistence, layout. Mod UUID **`3db7be3e-9387-4678-b172-044acc7ff0c2`** (never change it).
