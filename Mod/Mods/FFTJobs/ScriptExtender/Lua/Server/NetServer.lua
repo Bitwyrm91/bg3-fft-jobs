@@ -33,6 +33,9 @@ function NetServer.Handle(svc, req)
     else
         ok, msg = false, "Unknown request " .. tostring(op)
     end
+    if msg ~= nil and op ~= nil and op ~= "View" then
+        svc.Log.Info("Job Board: " .. (ok and "" or "not done: ") .. tostring(msg)) -- the playtest log shows each click
+    end
     return { Ok = ok, Message = msg, View = View.Build(svc, guid) }
 end
 

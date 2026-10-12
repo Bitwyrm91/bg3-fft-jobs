@@ -156,9 +156,56 @@ function Service:Reconcile(guid, repair)
     else
         desired = Rules.DesiredGrants(self.Data, char, self:Cfg())
     end
-    if Grants.Apply(self.Game, guid, char, desired, repair) then
+    local changed, added, removed = Grants.Apply(self.Game, guid, char, desired, repair)
+    if changed then
         self.State:MarkDirty()
+        -- logged, so a playtest log shows what each choice gave the character
+        local parts = {}
+        if #added > 0 then
+            parts[#parts + 1] = "added " .. table.concat(added, ", ")
+        end
+        if #removed > 0 then
+            parts[#parts + 1] = "removed " .. table.concat(removed, ", ")
+        end
+        self.Log.Info(string.format("%s: %s", char.Name or guid, table.concat(parts, "; ")))
     end
+end
+
+-- Learned action abilities of a job (usable while it is the primary or secondary job).
+function Service:LearnedActions(char, jobId)
+    local n = 0
+    for _, aid in ipairs(self.Data.AbilitiesByJob[jobId] or {}) do
+        if self.Data.Abilities[aid].Type == "Action" and Rules.IsLearned(char, aid) then
+            n = n + 1
+        end
+    end
+    return n
+end
+
+local function usableText(n)
+    if n == 0 then
+        return ""
+    end
+    return string.format(", %d learned action%s usable", n, n == 1 and "" or "s")
+end
+
+-- Debugging (!fft_grants): what the jobs should grant right now, and whether the game reports it on the character.
+function Service:DescribeGrants(guid)
+    local char = self.State:Get(guid)
+    local data = self.Data
+    local lines = { string.format("%s: job %s, secondary %s", char.Name, data.Jobs[char.Primary].Name,
+        char.Secondary and data.Jobs[char.Secondary].Name or "-") }
+    local desired = self:IsDisabled() and { Spells = {}, Passives = {}, Statuses = {} }
+        or Rules.DesiredGrants(data, char, self:Cfg())
+    for _, kind in ipairs(Grants.Kinds) do
+        for _, id in ipairs(Util.SortedKeys(desired[kind])) do
+            local owned = char.Granted[kind] and char.Granted[kind][id]
+            lines[#lines + 1] = string.format("  %s %s: %s%s", kind, id,
+                self.Game:Has(kind, guid, id) and "in game" or "MISSING in game",
+                owned and "" or " (not added by the mod)")
+        end
+    end
+    return lines
 end
 
 function Service:ReconcileAll(repair)
@@ -611,7 +658,8 @@ function Service:SetPrimary(guid, jobId)
     end
     self.State:MarkDirty()
     self:Reconcile(guid, false)
-    return true, string.format("%s is now a %s", char.Name, self.Data.Jobs[jobId].Name)
+    return true, string.format("%s is now a %s%s", char.Name, self.Data.Jobs[jobId].Name,
+        usableText(self:LearnedActions(char, jobId)))
 end
 
 function Service:SetSecondary(guid, jobId)
@@ -633,7 +681,8 @@ function Service:SetSecondary(guid, jobId)
         return true, char.Name .. ": secondary skill set cleared"
     end
     local job = self.Data.Jobs[jobId]
-    return true, string.format("%s: secondary skill set %s (%s)", char.Name, job.Skillset, job.Name)
+    return true, string.format("%s: secondary skill set %s (%s)%s", char.Name, job.Skillset, job.Name,
+        usableText(self:LearnedActions(char, jobId)))
 end
 
 function Service:Learn(guid, abilityId)
@@ -662,6 +711,10 @@ function Service:Learn(guid, abilityId)
     end
     if ab.Type ~= "Action" then
         msg = msg .. string.format(". Equip it in the %s slot to use it.", string.lower(ab.Type))
+    elseif ab.Job == char.Primary or ab.Job == char.Secondary then
+        msg = msg .. string.format(". Added to %s's spells.", char.Name)
+    else
+        msg = msg .. string.format(". To use it, make %s %s's job or secondary.", job.Name, char.Name)
     end
     return true, msg
 end

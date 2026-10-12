@@ -6,9 +6,11 @@ local Grants = {}
 
 Grants.Kinds = { "Spells", "Passives", "Statuses" }
 
--- repair = true also re-adds owned grants the character lost (respec, old saves). Returns changed (bool).
+-- repair = true also re-adds owned grants the character lost (respec, old saves). Returns changed (bool) and the
+-- lists of ids added and removed (repairs are not listed).
 function Grants.Apply(game, guid, char, desired, repair)
     local changed = false
+    local added, removed = {}, {}
     char.Granted = char.Granted or {}
     for _, kind in ipairs(Grants.Kinds) do
         local owned = char.Granted[kind] or {}
@@ -20,6 +22,7 @@ function Grants.Apply(game, guid, char, desired, repair)
                 game:Remove(kind, guid, id)
                 owned[id] = nil
                 changed = true
+                removed[#removed + 1] = id
             end
         end
         for _, id in ipairs(Util.SortedKeys(want)) do
@@ -28,13 +31,14 @@ function Grants.Apply(game, guid, char, desired, repair)
                     game:Add(kind, guid, id)
                     owned[id] = true
                     changed = true
+                    added[#added + 1] = id
                 end
             elseif repair and not game:Has(kind, guid, id) then
                 game:Add(kind, guid, id)
             end
         end
     end
-    return changed
+    return changed, added, removed
 end
 
 function Grants.RemoveAll(game, guid, char)

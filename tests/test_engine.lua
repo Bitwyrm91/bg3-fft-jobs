@@ -263,6 +263,16 @@ function S.grants_follow_learning_and_job_changes(w, T)
     T.truthy(tav.spells.Shout_FFTJ_JobBoard, "the Job Board spell always stays")
 end
 
+function S.grant_changes_are_logged(w, T)
+    local svc = T.boot(w)
+    T.contains(w.prints, "Tav: added Shout_FFTJ_JPTraining, Shout_FFTJ_JobBoard, FFTJ_Job_Squire")
+    svc:AddManualJP(T.TAV, 300, "Squire")
+    T.truthy(svc:Learn(T.TAV, "Focus"))
+    T.contains(w.prints, "Tav: added Shout_FFTJ_Focus")
+    T.truthy(svc:SetPrimary(T.TAV, "Knight"))
+    T.contains(w.prints, "Tav: added FFTJ_Job_Knight; removed Shout_FFTJ_Focus, FFTJ_Job_Squire")
+end
+
 function S.support_and_movement_slots_grant_passives(w, T)
     local svc = T.boot(w)
     local tav = w.chars[T.TAV]

@@ -90,7 +90,8 @@ function Game:IsTrackable(guid)
     return self:IsPlayer(guid) or self:IsPartyMember(guid) or self:HasPartyMemberComponent(guid)
 end
 
--- Every party member the game lists: DB_IsPlayer (Osiris) and entities with a PartyMember component.
+-- Every party member the game lists: DB_Players (Osiris) and entities with a PartyMember component.
+-- (DB_IsPlayer, from the DOS2-era helper list, does not exist in BG3: seen in game 2026-10-12.)
 function Game:PartyMembers()
     local seen, list = {}, {}
     local function add(raw)
@@ -100,8 +101,8 @@ function Game:PartyMembers()
             list[#list + 1] = g
         end
     end
-    local rows = self:Try("DB_IsPlayer", function()
-        return Osi.DB_IsPlayer:Get(nil)
+    local rows = self:Try("DB_Players", function()
+        return Osi.DB_Players:Get(nil)
     end)
     for _, row in ipairs(rows or {}) do
         add(row[1])

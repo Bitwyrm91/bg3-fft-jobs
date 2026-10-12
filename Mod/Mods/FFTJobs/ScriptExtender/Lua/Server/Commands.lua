@@ -229,6 +229,14 @@ def("fft_regrant", "[who|all]  re-apply the spells/passives the jobs grant", fun
     return { "Grants re-applied for " .. svc.State:Get(guid).Name }
 end)
 
+def("fft_grants", "[who]  what the jobs grant now and whether the game has it (debugging)", function(svc, args)
+    local guid, err = who(svc, args[1])
+    if not guid then
+        return { err }
+    end
+    return svc:DescribeGrants(guid)
+end)
+
 def("fft_reset", "[who]  reset a character's jobs and JP", function(svc, args)
     local guid, err = who(svc, args[1])
     if not guid then

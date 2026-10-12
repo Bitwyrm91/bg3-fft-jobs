@@ -343,7 +343,7 @@ function Mocks.Install()
         ShowNotification = function(g, text)
             world.notifications[#world.notifications + 1] = text
         end,
-        DB_IsPlayer = {
+        DB_Players = {
             Get = function(self, filter)
                 local rows = {}
                 for guid, c in pairs(world.chars) do

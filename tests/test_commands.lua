@@ -11,7 +11,7 @@ function S.help_lists_every_command(w, T)
     for name in pairs(w.commands) do
         T.contains(text, "!" .. name)
     end
-    T.eq(#w.console("fft_help"), 1 + 23, "23 commands")
+    T.eq(#w.console("fft_help"), 1 + 24, "24 commands")
 end
 
 function S.party_and_status(w, T)
@@ -100,6 +100,29 @@ function S.unlockall_reset_regrant(w, T)
     w.chars[T.TAV].spells.Shout_FFTJ_JobBoard = nil
     T.contains(out(w.console("fft_regrant", "all")), "every party member")
     T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JobBoard)
+end
+
+function S.grants_command_reports_game_state(w, T)
+    T.boot(w)
+    w.console("fft_addjp", "300")
+    w.console("fft_learn", "Focus")
+    local text = out(w.console("fft_grants"))
+    T.contains(text, "Tav: job Squire, secondary -")
+    T.contains(text, "Spells Shout_FFTJ_Focus: in game")
+    T.contains(text, "Passives FFTJ_Job_Squire: in game")
+    w.chars[T.TAV].spells.Shout_FFTJ_Focus = nil -- e.g. dropped by the game
+    T.contains(out(w.console("fft_grants")), "Spells Shout_FFTJ_Focus: MISSING in game")
+end
+
+function S.learning_says_how_to_use_it(w, T)
+    T.boot(w)
+    w.console("fft_addjp", "300", "squire", "shadowheart")
+    T.contains(out(w.console("fft_learn", "Focus", "shadowheart")), "To use it, make Squire Shadowheart's job or secondary")
+    T.contains(out(w.console("fft_secondary", "squire", "shadowheart")), "(Squire), 1 learned action usable")
+    w.console("fft_addjp", "300")
+    T.contains(out(w.console("fft_learn", "Focus")), "Added to Tav's spells")
+    T.contains(out(w.console("fft_job", "chemist")), "Tav is now a Chemist")
+    T.contains(out(w.console("fft_job", "squire")), "Tav is now a Squire, 1 learned action usable")
 end
 
 function S.train_command(w, T)

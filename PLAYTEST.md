@@ -1,6 +1,10 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 after the local install. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.2, which adds the **JP Training** test spell below) and its entry at the end of your load order. Checked at the main menu: the mod loads, its script starts without errors and all 100 of its spells, passives and statuses are in the game. **Nothing has been tried in an actual game yet**: that part is yours.
+Updated 2026-10-12. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.3: the **JP Training** test spell below, plus clearer ability status on the Job Board and a fuller log) and its entry at the end of your load order.
+
+**First game (2026-10-12):** the mod loaded, found your party, JP Training and learning on the Job Board worked. **Open problem:** learned Squire skills didn't show up. Version 1.0.0.3 logs every Job Board click and everything the mod gives each character, so the next game shows where it goes wrong (see "Where learned abilities show up").
+
+**Tip:** test in a separate save (Explorer or Balanced), not an Honour Mode run. Honour Mode has a single save that can't be reloaded, so anything the test mod does to your characters stays in that run.
 
 ## What you need
 
@@ -32,6 +36,12 @@ Each cast shows one summary message; the level-ups and unlocks are listed in the
 - More per cast: `!fft_set Test.JPPerCast 3000`.
 - When you're done testing: `!fft_set Test.Tools false` removes the spell; `!fft_unset Test.Tools` brings it back.
 - Training JP is logged as its own source (`Test`), so it doesn't skew the pace numbers in `!fft_telemetry`. For a real pace test, start a fresh save or `!fft_reset` the character first.
+
+## Where learned abilities show up
+
+- **Actions** (Focus, Rush, Potion, Cure, ...) are added to the character's spells only while their job is the character's **job** or **secondary** (Job Board: **Set job** or **Secondary** on the job's row). The Job Board's status column says "Learned, in the spells" when they are, and "make this job the job or secondary" when they aren't.
+- **Reaction, support and movement** abilities do nothing until you click **Equip** next to them. Most are passives, so they show on the character sheet, not the hotbar.
+- **Can't find them?** Type `!fft_grants` in the console (or `!fft_grants laezel` for someone else). It lists every spell and passive the character's jobs should give and says **in game** or **MISSING in game** for each. Claude can read the result from the log, so you don't need to copy it.
 
 ## How it works
 
@@ -66,6 +76,7 @@ Type these in the Script Extender console (`who` = a party member's name, e.g. `
 | `!fft_addjp 500 [job] [who]` | add JP (for testing) |
 | `!fft_unlockall [who]` | unlock every job (for testing) |
 | `!fft_train [amount]` | JP Training: every party member gets JP in each unlocked job (for testing) |
+| `!fft_grants [who]` | what the character's jobs give right now, and whether the game has each one (for bug reports) |
 | `!fft_telemetry` | JP and XP totals logged so far |
 
 ## Changing how fast JP comes

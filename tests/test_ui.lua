@@ -86,6 +86,28 @@ function S.view_model_content(w, T)
     T.eq(View.Build(svc, "nobody").Selected, v.Chars[1].Guid, "unknown selection falls back to the first")
 end
 
+function S.view_marks_abilities_in_use(w, T)
+    local svc = T.boot(w)
+    local _, View = setup()
+    svc:AddManualJP(T.SHART, 600, "Squire")
+    T.truthy(svc:Learn(T.SHART, "Focus"))
+    T.truthy(svc:Learn(T.SHART, "CounterTackle"))
+    local function ab(id)
+        for _, a in ipairs(View.Build(svc, T.SHART).Char.Abilities.Squire) do
+            if a.Id == id then
+                return a
+            end
+        end
+    end
+    T.falsy(ab("Focus").Active, "Squire is neither Shadowheart's job nor her secondary")
+    T.falsy(ab("CounterTackle").Active, "learned but not equipped")
+    T.falsy(ab("Rush").Active, "not learned")
+    T.truthy(svc:SetSecondary(T.SHART, "Squire"))
+    T.truthy(svc:Equip(T.SHART, "CounterTackle"))
+    T.truthy(ab("Focus").Active)
+    T.truthy(ab("CounterTackle").Active)
+end
+
 function S.job_board_spell_opens_window_without_jp(w, T, Mocks)
     local svc = T.boot(w)
     T.startCombat(w, "c1", { T.TAV })
@@ -110,6 +132,8 @@ function S.clicking_learn_and_equip(w, T, Mocks)
     learn.OnClick(learn)
     T.truthy(svc.State:Get(T.TAV).Jobs.Squire.Learned.CounterTackle)
     T.contains(texts(Mocks, win), "Tav learned Counter Tackle")
+    T.contains(texts(Mocks, win), "Learned: equip it to use it")
+    T.contains(w.prints, "Job Board: Tav learned Counter Tackle", "board clicks are logged")
     local equip = findButton(Mocks, win, "Equip##equipCounterTackle")
     T.truthy(equip, "the row now offers Equip")
     equip.OnClick(equip)

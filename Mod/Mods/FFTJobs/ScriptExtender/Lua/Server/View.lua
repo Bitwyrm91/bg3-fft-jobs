@@ -61,10 +61,14 @@ function View.Char(svc, guid)
                 local ab = data.Abilities[aid]
                 local learned = Rules.IsLearned(char, aid)
                 local canLearn, reason = Rules.CanLearn(data, char, aid)
+                local equipped = ab.Type ~= "Action" and char[ab.Type] == aid
                 list[#list + 1] = {
                     Id = aid, Name = ab.Name, Type = ab.Type, Cost = ab.Cost, Description = ab.Description,
                     Learned = learned, CanLearn = canLearn, Reason = (not canLearn and not learned) and reason or nil,
-                    Equipped = ab.Type ~= "Action" and char[ab.Type] == aid,
+                    Equipped = equipped,
+                    -- granted right now: actions of the primary/secondary job, equipped reaction/support/movement
+                    Active = learned and (equipped or (ab.Type == "Action"
+                        and (char.Primary == jobId or char.Secondary == jobId))),
                 }
             end
             v.Abilities[jobId] = list

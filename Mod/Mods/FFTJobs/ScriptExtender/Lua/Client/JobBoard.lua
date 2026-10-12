@@ -187,6 +187,8 @@ function JobBoard:Render(view)
         end
     end
     root:AddSeparatorText("Abilities: " .. jobName)
+    root:AddText("Learned actions are usable while their job is the job or the secondary. Reaction, support and "
+        .. "movement abilities work once equipped (most are passives, not hotbar spells).")
     local abilities = root:AddTable("FFTJ_Abilities", 5)
     abilities.ShowHeader = true
     for _, h in ipairs({ "Ability", "Type", "JP", "Status", "" }) do
@@ -201,8 +203,10 @@ function JobBoard:Render(view)
         local status
         if a.Equipped then
             status = "Learned, equipped"
+        elseif a.Learned and a.Type == "Action" then
+            status = a.Active and "Learned, in the spells" or "Learned: make this job the job or secondary to use it"
         elseif a.Learned then
-            status = "Learned"
+            status = "Learned: equip it to use it"
         elseif a.CanLearn then
             status = "Can learn"
         else
