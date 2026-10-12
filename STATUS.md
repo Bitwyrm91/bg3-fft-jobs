@@ -16,6 +16,8 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **1.0.0.5 (2026-10-12, installed 14:12 with the game closed; committed locally only: the user said "forget github unless i say", so never push without being asked):** new Rush icon; spell looks matched to their element (DESIGN section 8, "The look comes from the using parent"): Thundara/Thundaga/Blizzaga/Death are `Target_` spells now (renamed; saves swap the old grant for the new one on load through `Grants.Apply`); Throw Stone is a rock throw and no longer a spell; Fira/Firaga explode at their own radius (ExplodeRadius); Job Board tooltips start indented past BG3's large cursor (user's screenshot: it hid the first word); `tools/vanilla_spell.py` shows vanilla spells through their `using` chain. 96 tests pass, `validate_vanilla.py` OK (27 references). **Check in game:** each new look, Blizzara needs a creature target (Ice Knife's projectile), Death refuses undead and constructs, a target killed by Flare leaves a body. If an icon shows as a blank/white square: the atlas or its texture bank is not picked up (compare with vanilla `Public/SharedDev/Content/UI/[PAK]_UI/_merged.lsf`); if only tooltips lack the picture: the `Public/Game/GUI/Assets/Tooltips/Icons/*.DDS` (BC3 under a DX10 header, vanilla is BC7) are not read.
 
+**NEXT: phase 2, decided with the user on 2026-10-12. Read `docs/PHASE2.md`** (every FFT job from every version, Fell Seal rules, the Soul Collector monster job; build order and ground rules: no icons for now, no GitHub push unless asked, preserve usage).
+
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
 
 ## Roadmap (user, 2026-10-11)
