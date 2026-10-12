@@ -1,8 +1,8 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.3: the **JP Training** test spell below, plus clearer ability status on the Job Board and a fuller log) and its entry at the end of your load order.
+Updated 2026-10-12. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.4: **every ability has its own painted icon**, plus the **JP Training** test spell below, the ability status on the Job Board and a fuller log) and its entry at the end of your load order.
 
-**First game (2026-10-12):** the mod loaded, found your party, JP Training and learning on the Job Board worked. **Open problem:** learned Squire skills didn't show up. Version 1.0.0.3 logs every Job Board click and everything the mod gives each character, so the next game shows where it goes wrong (see "Where learned abilities show up").
+**First games (2026-10-12):** the mod loaded, found your party, and JP Training, learning on the Job Board and the granted skills all worked. The "missing" Squire skills were on the hotbar all along, but wore borrowed vanilla icons (Focus looked exactly like the Job Board). Since 1.0.0.4 every ability, job and buff has its own icon, with a background colour per job: Squire amber, Chemist green, Knight blue, Archer forest green, White Mage pale gold, Black Mage indigo.
 
 **Tip:** test in a separate save (Explorer or Balanced), not an Honour Mode run. Honour Mode has a single save that can't be reloaded, so anything the test mod does to your characters stays in that run.
 
@@ -113,7 +113,7 @@ With the default (Classic) numbers, the simulator estimates that each party memb
 
 ## Known gaps in this first version
 
-- Many abilities borrow the look of vanilla spells (Throw Stone flies like Fire Bolt, item abilities look like healing spells).
+- Many abilities borrow their animation and effects from vanilla spells (Throw Stone flies like Fire Bolt, item abilities look like healing spells). Their icons are their own since 1.0.0.4.
 - Abilities cost actions and cooldowns, not MP or real items.
 - Reactions trigger automatically when you are hit; there is no reaction prompt.
 - The numbers are a first draft based on estimates; your playtest is what tunes them.

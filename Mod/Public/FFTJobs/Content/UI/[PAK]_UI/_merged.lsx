@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />
+	<region id="TextureBank">
+		<node id="TextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Height" type="int32" value="1024" />
+					<attribute id="ID" type="FixedString" value="a50b0d6d-ffd1-512c-95bf-a8134c2b162c" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="Icons_FFTJobs" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="SourceFile" type="LSString" value="Public/FFTJobs/Assets/Textures/Icons/Icons_FFTJobs.dds" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="Icons_FFTJobs" />
+					<attribute id="Type" type="int32" value="1" />
+					<attribute id="Width" type="int32" value="1024" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

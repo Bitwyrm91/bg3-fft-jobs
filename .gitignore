@@ -9,3 +9,5 @@ dist/
 *.log
 .venv/
 __pycache__/
+# Raw 512 px pictures from tools/generate_icon_art.ps1 (art/icons keeps the 380 px copies)
+art/_ai_raw/

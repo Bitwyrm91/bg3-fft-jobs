@@ -82,6 +82,35 @@ function S.every_localization_handle_exists(w, T, Mocks)
     T.truthy(n >= 150, "handles checked: " .. n)
 end
 
+-- Our icons (FFTJ_Icon_<key>) must be in the generated atlas, and every atlas entry must have its picture.
+function S.every_custom_icon_is_in_the_atlas(w, T, Mocks)
+    local f = io.open(Mocks.Root .. "/Mod/Public/FFTJobs/GUI/Icons_FFTJobs.lsx", "rb")
+    if not f then
+        return -- no art yet: every entry keeps its borrowed vanilla icon
+    end
+    local lsx = f:read("a"):gsub("\r", "")
+    f:close()
+    local atlas, n = {}, 0
+    for key in lsx:gmatch('id="MapKey" type="FixedString" value="FFTJ_Icon_([^"]+)"') do
+        atlas[key] = true
+        n = n + 1
+        local pic = io.open(Mocks.Root .. "/art/icons/" .. key .. ".jpg", "rb")
+            or io.open(Mocks.Root .. "/art/icons/" .. key .. ".png", "rb")
+        T.truthy(pic, "atlas entry " .. key .. " has no art/icons picture")
+        pic:close()
+    end
+    T.truthy(n > 0, "atlas lists no icons")
+    local used = 0
+    for name, e in pairs(statsEntries(Mocks)) do
+        local key = (e.data.Icon or ""):match("^FFTJ_Icon_(.+)$")
+        if key then
+            T.truthy(atlas[key], name .. " uses icon FFTJ_Icon_" .. key .. ", which is not in the atlas")
+            used = used + 1
+        end
+    end
+    T.truthy(used > 0, "no stats entry uses a custom icon")
+end
+
 function S.mvp_covers_every_ability_type(w, T)
     local Data = Ext.Require("Shared/GeneratedData.lua")
     local types = {}

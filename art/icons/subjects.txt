@@ -1,0 +1,94 @@
+# Icon art for the FFT Job System: one line per icon, <key>|<subject>. tools\generate_icon_art.ps1 paints each subject
+# (style line in that script) and saves art\icons\<key>.jpg (380 px). tools\build.py gives a stats entry the icon
+# FFTJ_Icon_<key> when that picture exists: <key> = the ability id from data\fft_jobs.json (its spells, passives and the
+# statuses they apply), Job_<JobId> for the job marker passives, JobBoard, JPTraining.
+# Background colour per job, so a skill's job shows at a glance: Squire amber, Chemist mossy green, Knight royal blue,
+# Archer forest green, White Mage pale gold, Black Mage deep indigo.
+# Write what should be in the picture: the model ignores "no ..." and draws app tiles when told "icon", "frame", "border".
+# Optional third field: a badge drawn on the picture (the Aim tiers get their number: four archers look alike at 64 px).
+
+JobBoard|an open leather-bound tome of job crests with glowing golden emblems of a sword, a bow, a potion flask and a magic staff around a compass rose, warm candlelight, parchment brown background
+JPTraining|a straw and wood training dummy struck by a glowing golden blow, bright sparks of golden experience light rising, warm amber background
+Job_Squire|a simple bronze helmet resting on a round wooden buckler with a short sword, warm amber background
+Job_Chemist|a leather satchel overflowing with corked potion bottles of green and blue liquid, mossy green background
+Job_Knight|a polished silver knight's helmet with a blue plume in front of a kite shield, royal blue background
+Job_Archer|a longbow crossed with a quiver of fletched arrows, golden leaves, forest green background
+Job_WhiteMage|a white hooded robe with red triangle trim beside a golden healing staff glowing with soft light, pale gold background
+Job_BlackMage|a wide-brimmed pointed straw wizard hat over a dark shadowed face with two glowing yellow eyes, deep indigo background
+
+Focus|an armoured gauntlet clenched into a fist glowing with golden inner energy and a rising aura, warm amber background
+Rush|a round wooden shield rushing forward with golden speed lines and a long trail of dust, warm amber background
+ThrowStone|a hand hurling a rough grey stone that flies forward with motion streaks, warm amber background
+Salve|a small round clay jar of glistening green herbal ointment with fresh green leaves, warm amber background
+CounterTackle|a stocky fighter in leather armour bowling an attacker over with a shoulder tackle, warm amber background
+EquipAxes|a bearded battle axe crossed with a hand axe, gleaming steel blades, warm amber background
+EvasiveStance|a fighter crouched low behind a raised round shield as a sword glances off it, warm amber background
+JPBoost|a glowing golden star rising out of a pile of shining gold coins, warm amber background
+Movement1|a leather boot with small golden wings at the heel striding forward, warm amber background
+
+Potion|a small round glass flask of glowing blue healing potion with a cork stopper, mossy green background
+HiPotion|a larger ornate glass flask of glowing bright green healing potion with sparkles, mossy green background
+XPotion|a tall crystal flask of radiant golden healing liquid bursting with light, mossy green background
+Ether|a slender glass vial of swirling violet liquid full of tiny stars, mossy green background
+Elixir|a jewelled golden flask overflowing with rainbow coloured light, mossy green background
+Antidote|a green glass vial with a small snake coiled around it and a falling drop, mossy green background
+EyeDrops|a tiny glass dropper releasing a glowing blue drop above a wide open eye, mossy green background
+EchoHerbs|a bundle of pale blue herbs tied with twine giving off soft sound ripples, mossy green background
+Remedy|an open wooden apothecary box filled with small glowing vials and dried herbs, mossy green background
+PhoenixDown|a single radiant red and gold phoenix feather glowing with embers, mossy green background
+AutoPotion|a corked potion bottle popping open by itself with healing liquid splashing upward, mossy green background
+ThrowItems|a hand tossing a spinning potion bottle high into the air, mossy green background
+TreasureHunter|a brass magnifying glass over an open treasure chest full of gleaming coins, mossy green background
+
+RendArmor|a sword blade cracking a steel breastplate with shards of metal flying, royal blue background
+RendWeapon|a sword blade shattering into flying steel fragments above its broken hilt, royal blue background
+RendSpeed|a sword slashing across an armoured leg greave with a trail of dust, royal blue background
+RendPower|a sword breaking a red glowing aura around a raised armoured fist, royal blue background
+RendMagick|a sword cutting through a glowing blue circle of magic runes and breaking it apart, royal blue background
+Parry|two steel swords clashing in a bright parry with a burst of sparks, royal blue background
+EquipHeavyArmor|a full suit of polished silver plate armour standing upright, royal blue background
+EquipShields|a large polished kite shield with a silver cross emblem, royal blue background
+EquipSwords|a longsword and a shortsword crossed point down, royal blue background
+
+Aim1|a longbow drawn with one arrow aimed along a single glowing sight line, forest green background|+1
+Aim2|a longbow drawn with two glowing golden rings around the arrowhead, forest green background|+2
+Aim3|a longbow drawn tight with three glowing golden rings around the arrowhead, forest green background|+3
+Aim4|a longbow at full draw with four bright golden rings and wind spiralling around the arrow, forest green background|+4
+Aim5|a glowing arrow on a drawn bow in front of a large golden crosshair, forest green background|+5
+Aim7|an arrow wrapped in swirling white wind leaving a bow string, forest green background|+7
+Aim10|a blazing arrow of golden light streaking forward, forest green background|+10
+Aim20|a huge radiant arrow piercing the centre of a bullseye in an explosion of light, forest green background|+20
+SpeedSurge|a hooded archer dashing sideways in a blur of green wind, forest green background
+ArchersBane|an arrow breaking in half against a raised leather forearm guard, splinters flying, forest green background
+EquipCrossbows|a heavy wooden crossbow loaded with a steel bolt, forest green background
+Concentration|a narrowed archer's eye with a glowing golden crosshair reflected in it, forest green background
+Jump1|a lightly armoured figure leaping high along a long curved arc of light, forest green background
+
+Cure|soft white and green healing sparkles rising from two cupped hands, pale gold background
+Cura|a ring of healing light with gentle green sparkles spreading outward, pale gold background
+Curaga|a great radiant circle of healing light with rising sparkles and white feathers, pale gold background
+Raise|a beam of warm golden light lifting a fallen figure upward, pale gold background
+Arise|a brilliant pillar of white and gold light surrounded by angel feathers, pale gold background
+Reraise|a glowing golden halo floating above an ornate hourglass, pale gold background
+Regen|a sprouting green leaf circled by a gently glowing spiral of light, pale gold background
+Protect|a translucent golden dome of light with a hexagon pattern, pale gold background
+Shell|a translucent blue sphere of light covered in swirling runes, pale gold background
+Esuna|a white dove made of light spreading its wings as dark motes of sickness scatter away, pale gold background
+Holy|a blinding white starburst of holy light with radiant beams, pale gold background
+Regenerate|a glowing heart wrapped in a vine of fresh green leaves, pale gold background
+MagickDefenseBoost|a glowing white rune of warding hovering above an open palm, pale gold background
+
+Fire|close-up of one blazing fireball hovering above an outstretched open hand, deep indigo background
+Fira|a large roaring ball of fire, deep indigo background
+Firaga|a towering pillar of fire erupting from the ground, deep indigo background
+Thunder|a single bolt of yellow lightning striking down, deep indigo background
+Thundara|several branching bolts of lightning striking at once, deep indigo background
+Thundaga|a huge storm cloud unleashing a torrent of lightning, deep indigo background
+Blizzard|a single sharp shard of ice wreathed in frost, deep indigo background
+Blizzara|a cluster of large ice crystals bursting outward, deep indigo background
+Blizzaga|a towering wall of jagged ice spikes erupting from the ground, deep indigo background
+Poison|a swirling cloud of green toxic gas with bubbles, deep indigo background
+Death|a pale floating skull with a dark scythe in violet mist, deep indigo background
+Flare|a dazzling sphere of white-hot light exploding outward, deep indigo background
+MagickCounter|a crackling violet bolt of magic bouncing back off a mirror-like ward, deep indigo background
+MagickBoost|a glowing violet crystal orb radiating arcane power, deep indigo background

@@ -19,9 +19,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.3"
+MOD_VERSION = "1.0.0.4"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
+# Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
+# files are made by tools\make_icons.ps1 when packaging.
+ICON_PREFIX = "FFTJ_Icon_"
+ATLAS_NAME = "Icons_FFTJobs"
+ATLAS_SIZE = 1024
+ATLAS_CELL = 64
 ABILITY_TYPES = ("Action", "Reaction", "Support", "Movement")
 GRANT_KINDS = ("spells", "passives", "statuses")
 SLOT_OF_TYPE = {"Reaction": "reaction", "Support": "support", "Movement": "movement"}
@@ -33,6 +39,9 @@ STATS_OUT = ROOT / "Mod" / "Public" / MOD_FOLDER / "Stats" / "Generated" / "Data
 LOCA_OUT = ROOT / "Mod" / "Localization" / "English" / f"{MOD_FOLDER}.xml"
 REFS_MD = ROOT / "docs" / "vanilla_refs.md"
 REFS_JSON = ROOT / "docs" / "vanilla_refs.json"
+ART_DIR = ROOT / "art" / "icons"
+ATLAS_LSX = ROOT / "Mod" / "Public" / MOD_FOLDER / "GUI" / f"{ATLAS_NAME}.lsx"
+TEXTURE_BANK = ROOT / "Mod" / "Public" / MOD_FOLDER / "Content" / "UI" / "[PAK]_UI" / "_merged.lsx"
 
 
 class BuildError(Exception):
@@ -307,6 +316,133 @@ def status_refs(value):
     return refs
 
 
+# ---------------------------------------------------------------- icons
+
+def art_keys():
+    """Keys that have a picture (.jpg, or .png) in art/icons, sorted (the atlas order)."""
+    if not ART_DIR.is_dir():
+        return []
+    return sorted({p.stem for ext in ("*.jpg", "*.png") for p in ART_DIR.glob(ext)})
+
+
+def icon_keys(jobs_doc, entries):
+    """Stats entry name -> icon key: the ability that grants it (variants included), Job_<JobId> for the job marker
+    passives, JobBoard / JPTraining, and for a status the ability whose entries apply it (abilities in data order,
+    so an action wins over the passive that reuses its status, e.g. Regen over Regenerate)."""
+    keys = {JOB_BOARD_SPELL: "JobBoard", TRAINING_SPELL: "JPTraining"}
+    for j in jobs_doc["jobs"]:
+        if j.get("implemented"):
+            for pid in j.get("innate", {}).get("passives", []):
+                keys.setdefault(pid, "Job_" + j["id"])
+    granted = []
+    for a in jobs_doc["abilities"]:
+        for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])]:
+            for kind in GRANT_KINDS:
+                for sid in g.get(kind, []):
+                    keys.setdefault(sid, a["id"])
+                    granted.append((sid, a["id"]))
+    by_name = {e["name"]: e for e in entries}
+    for sid, aid in granted:
+        for _, value in by_name.get(sid, {}).get("data", []):
+            for st in status_refs(value):
+                keys.setdefault(st, aid)
+    return keys
+
+
+def inject_icons(text, keys, art):
+    """Gives every entry whose icon key has a picture `data "Icon" "FFTJ_Icon_<key>"` (replacing a borrowed vanilla
+    icon, or added after its type/using lines)."""
+    out = []
+    pending = None  # icon still to add for the current entry
+
+    def flush():
+        nonlocal pending
+        if pending:
+            # after the type/using header lines of the entry
+            i = len(out)
+            while i > 0 and not out[i - 1].startswith(("new entry", "type ", "using ")):
+                i -= 1
+            out.insert(i, f'data "Icon" "{pending}"')
+            pending = None
+
+    for line in text.split("\n"):
+        m = ENTRY_RE.match(line)
+        if m:
+            flush()
+            key = keys.get(m.group(1))
+            pending = ICON_PREFIX + key if key in art else None
+        elif pending and line.startswith('data "Icon" '):
+            line = f'data "Icon" "{pending}"'
+            pending = None
+        elif line == "" and pending:
+            flush()
+        out.append(line)
+    flush()
+    return "\n".join(out)
+
+
+def atlas_uv(index):
+    """UVs of atlas cell index (row-major), half a pixel inside the cell like vanilla."""
+    per_row = ATLAS_SIZE // ATLAS_CELL
+    x, y = (index % per_row) * ATLAS_CELL, (index // per_row) * ATLAS_CELL
+    s = float(ATLAS_SIZE)
+    return (x + 0.5) / s, (x + ATLAS_CELL - 0.5) / s, (y + 0.5) / s, (y + ATLAS_CELL - 0.5) / s
+
+
+def atlas_uuid():
+    return str(uuid.uuid5(NS, "atlas:" + ATLAS_NAME))
+
+
+def build_atlas_lsx(art):
+    if len(art) > (ATLAS_SIZE // ATLAS_CELL) ** 2:
+        raise BuildError(f"{len(art)} icons do not fit a {ATLAS_SIZE} px atlas")
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>', "<save>",
+             '    <version major="4" minor="6" revision="0" build="700"/>',
+             '    <region id="IconUVList">', '        <node id="root">', "            <children>"]
+    for i, key in enumerate(art):
+        u1, u2, v1, v2 = atlas_uv(i)
+        lines += ['                <node id="IconUV">',
+                  f'                    <attribute id="MapKey" type="FixedString" value="{ICON_PREFIX}{key}"/>',
+                  f'                    <attribute id="U1" type="float" value="{u1:.8f}"/>',
+                  f'                    <attribute id="U2" type="float" value="{u2:.8f}"/>',
+                  f'                    <attribute id="V1" type="float" value="{v1:.8f}"/>',
+                  f'                    <attribute id="V2" type="float" value="{v2:.8f}"/>',
+                  "                </node>"]
+    lines += ["            </children>", "        </node>", "    </region>",
+              '    <region id="TextureAtlasInfo">', '        <node id="root">', "            <children>",
+              '                <node id="TextureAtlasIconSize">',
+              f'                    <attribute id="Height" type="int32" value="{ATLAS_CELL}"/>',
+              f'                    <attribute id="Width" type="int32" value="{ATLAS_CELL}"/>',
+              "                </node>",
+              '                <node id="TextureAtlasPath">',
+              f'                    <attribute id="Path" type="string" value="Assets/Textures/Icons/{ATLAS_NAME}.dds"/>',
+              f'                    <attribute id="UUID" type="FixedString" value="{atlas_uuid()}"/>',
+              "                </node>",
+              '                <node id="TextureAtlasTextureSize">',
+              f'                    <attribute id="Height" type="int32" value="{ATLAS_SIZE}"/>',
+              f'                    <attribute id="Width" type="int32" value="{ATLAS_SIZE}"/>',
+              "                </node>",
+              "            </children>", "        </node>", "    </region>", "</save>"]
+    return "\n".join(lines) + "\n"
+
+
+def build_texture_bank():
+    """The atlas texture's resource (vanilla: Public/SharedDev/Content/UI/[PAK]_UI/_merged.lsf); packaging converts
+    this .lsx to .lsf."""
+    attrs = [("Depth", "int32", "1"), ("Height", "int32", str(ATLAS_SIZE)), ("ID", "FixedString", atlas_uuid()),
+             ("Localized", "bool", "False"), ("Name", "LSString", ATLAS_NAME), ("SRGB", "bool", "False"),
+             ("SourceFile", "LSString", f"Public/{MOD_FOLDER}/Assets/Textures/Icons/{ATLAS_NAME}.dds"),
+             ("Streaming", "bool", "True"), ("Template", "FixedString", ATLAS_NAME), ("Type", "int32", "1"),
+             ("Width", "int32", str(ATLAS_SIZE))]
+    lines = ['<?xml version="1.0" encoding="utf-8"?>', "<save>",
+             '\t<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />',
+             '\t<region id="TextureBank">', '\t\t<node id="TextureBank">', "\t\t\t<children>",
+             '\t\t\t\t<node id="Resource">']
+    lines += [f'\t\t\t\t\t<attribute id="{a}" type="{t}" value="{v}" />' for a, t, v in attrs]
+    lines += ["\t\t\t\t</node>", "\t\t\t</children>", "\t\t</node>", "\t</region>", "</save>"]
+    return "\n".join(lines) + "\n"
+
+
 def build_stats(jobs_doc, strings_doc):
     table = string_table(jobs_doc, strings_doc)
     used = set()
@@ -341,6 +477,13 @@ def build_stats(jobs_doc, strings_doc):
             raise BuildError(f"{src.name}: unresolved placeholder")
         outputs[STATS_OUT / src.name] = out
         entries += parse_stats(out, src.name)
+    art = set(art_keys())
+    if art:
+        keys = icon_keys(jobs_doc, entries)
+        entries = []
+        for path in list(outputs):
+            outputs[path] = inject_icons(outputs[path], keys, art)
+            entries += parse_stats(outputs[path], path.name)
     return outputs, table, used, entries
 
 
@@ -378,11 +521,15 @@ def check_stats(jobs_doc, entries):
     def add(ref, kind, where):
         refs.setdefault((ref, kind), set()).add(where)
 
+    art = set(art_keys())
     for e in entries:
         if e["using"] and e["using"] not in defined:
             add(e["using"], "using parent (" + (e["type"] or "?") + ")", e["name"])
         for key, value in e["data"]:
-            if key == "Icon" and value:
+            if key == "Icon" and value.startswith(ICON_PREFIX):
+                if value[len(ICON_PREFIX):] not in art:
+                    errors.append(f"{e['name']}: icon {value} has no picture in art/icons")
+            elif key == "Icon" and value:
                 add(value, "icon", e["name"])
             for st in status_refs(value):
                 if st not in defined:
@@ -436,6 +583,10 @@ def main(argv):
         md, js = refs_outputs(refs)
         outputs[REFS_MD] = md
         outputs[REFS_JSON] = js
+        art = art_keys()
+        if art:
+            outputs[ATLAS_LSX] = build_atlas_lsx(art)
+            outputs[TEXTURE_BANK] = build_texture_bank()
 
     stale = []
     for path, content in outputs.items():
@@ -456,7 +607,7 @@ def main(argv):
     n_ab = len(jobs_doc["abilities"])
     n_impl = sum(1 for j in jobs_doc["jobs"] if j.get("implemented"))
     print(f"built {len(outputs)} files: {n_impl} implemented jobs, {n_ab} abilities, "
-          f"{len(entries)} stats entries, {len(used)} strings")
+          f"{len(entries)} stats entries, {len(used)} strings, {len(art_keys())} icons")
     return 0
 
 
