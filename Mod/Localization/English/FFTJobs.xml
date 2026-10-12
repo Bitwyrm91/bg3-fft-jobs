@@ -34,9 +34,9 @@
   <content contentuid="h12851168g1a13g5e9bga89fgd8b5abc18048" version="1">Concentration</content>
   <content contentuid="h1a71ccd6g4cd9g5551g8786g12f72fa03ccc" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 1.5 m.</content>
   <content contentuid="hbd3262cbgcf79g5852ga81fg1a3dcffe6fe4" version="1">Counter Tackle</content>
-  <content contentuid="hd61583b7gd790g5b6agae4bgeeae29f84943" version="1">Heal every creature in a 3 m radius for 2d8+3. Once per short rest.</content>
+  <content contentuid="hd61583b7gd790g5b6agae4bgeeae29f84943" version="1">Heal up to 3 allies for 2d8+3. Once per short rest.</content>
   <content contentuid="hd7fc9da8g2d74g5a9egbdeeg882f15d2006a" version="1">Cura</content>
-  <content contentuid="h74a4f82fg6ebeg57aagaba4g065916b79e92" version="1">Heal every creature in a 4.5 m radius for 4d8+4. Once per long rest.</content>
+  <content contentuid="h74a4f82fg6ebeg57aagaba4g065916b79e92" version="1">Heal up to 4 allies for 4d8+4. Once per long rest.</content>
   <content contentuid="h65535f2fg7b5dg59ceg9e26g57bb753ac955" version="1">Curaga</content>
   <content contentuid="heaf492b2ga3bbg5394g93fegcc003088a073" version="1">Heal a creature within 18 m for 1d8+3. Once per turn.</content>
   <content contentuid="h4a9da558gdab3g595aga197gf633a880b245" version="1">Cure</content>

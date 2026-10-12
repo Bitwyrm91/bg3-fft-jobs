@@ -1,19 +1,5 @@
 [
   {
-    "id": "PassiveFeature_Alert",
-    "kind": "icon",
-    "usedBy": [
-      "FFTJ_TreasureHunter"
-    ]
-  },
-  {
-    "id": "PassiveFeature_Athlete",
-    "kind": "icon",
-    "usedBy": [
-      "FFTJ_Jump1"
-    ]
-  },
-  {
     "id": "PassiveFeature_FightingStyle_Archery",
     "kind": "icon",
     "usedBy": [
@@ -63,20 +49,34 @@
     ]
   },
   {
-    "id": "PassiveFeature_Lucky",
+    "id": "PassiveFeature_Lucky_RollAdditionalDie",
     "kind": "icon",
     "usedBy": [
       "FFTJ_JPBoost"
     ]
   },
   {
-    "id": "PassiveFeature_Mobile",
+    "id": "PassiveFeature_Mobile_DashAcrossDifficultTerrain",
     "kind": "icon",
     "usedBy": [
       "FFTJ_Movement1",
       "FFTJ_REND_SPEED",
       "FFTJ_SPEED_SURGE",
       "FFTJ_SpeedSurge"
+    ]
+  },
+  {
+    "id": "PassiveFeature_Observant_Bonuses",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_TreasureHunter"
+    ]
+  },
+  {
+    "id": "PassiveFeature_RemarkableAthlete_Jump",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Jump1"
     ]
   },
   {
@@ -106,6 +106,13 @@
       "Target_FFTJ_Esuna",
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Salve"
+    ]
+  },
+  {
+    "id": "RESURRECTING",
+    "kind": "status",
+    "usedBy": [
+      "Teleportation_FFTJ_Arise"
     ]
   },
   {
@@ -199,6 +206,14 @@
     ]
   },
   {
+    "id": "Target_CureWounds_Mass",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Cura",
+      "Target_FFTJ_Curaga"
+    ]
+  },
+  {
     "id": "Target_DeathWard",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -230,28 +245,20 @@
     ]
   },
   {
-    "id": "Target_MassCureWounds",
-    "kind": "using parent (SpellData)",
-    "usedBy": [
-      "Target_FFTJ_Cura",
-      "Target_FFTJ_Curaga"
-    ]
-  },
-  {
-    "id": "Target_Revivify",
-    "kind": "using parent (SpellData)",
-    "usedBy": [
-      "Target_FFTJ_Arise",
-      "Target_FFTJ_PhoenixDown",
-      "Target_FFTJ_Raise"
-    ]
-  },
-  {
     "id": "Target_ShieldOfFaith",
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Protect",
       "Target_FFTJ_Shell"
+    ]
+  },
+  {
+    "id": "Teleportation_Revivify",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Teleportation_FFTJ_Arise",
+      "Teleportation_FFTJ_PhoenixDown",
+      "Teleportation_FFTJ_Raise"
     ]
   }
 ]

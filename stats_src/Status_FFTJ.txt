@@ -1,5 +1,6 @@
 // FFT Job System - statuses applied by the job abilities. DRAFT.
-// TO VALIDATE IN PART B: icons, boost syntax (RollBonus roll types, ActionResource with a negative amount),
+// Checked against vanilla 2026-10-12: icons, RollBonus roll types, ActionResource(Movement,-3,0) (vanilla uses it).
+// UNVERIFIED IN GAME:
 // TickType/TickFunctors for Regen, StackId behaviour.
 
 new entry "FFTJ_FOCUS"
@@ -43,7 +44,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{str:status.FFTJ_REND_SPEED.name}}"
 data "Description" "{{str:status.FFTJ_REND_SPEED.desc}}"
-data "Icon" "PassiveFeature_Mobile"
+data "Icon" "PassiveFeature_Mobile_DashAcrossDifficultTerrain"
 data "StackId" "FFTJ_REND_SPEED"
 data "Boosts" "ActionResource(Movement,-3,0)"
 
@@ -80,7 +81,7 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "{{str:status.FFTJ_SPEED_SURGE.name}}"
 data "Description" "{{str:status.FFTJ_SPEED_SURGE.desc}}"
-data "Icon" "PassiveFeature_Mobile"
+data "Icon" "PassiveFeature_Mobile_DashAcrossDifficultTerrain"
 data "StackId" "FFTJ_SPEED_SURGE"
 data "Boosts" "ActionResource(Movement,3,0)"
 
@@ -110,4 +111,4 @@ data "DisplayName" "{{str:status.FFTJ_SHELL.name}}"
 data "Description" "{{str:status.FFTJ_SHELL.desc}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StackId" "FFTJ_SHELL"
-data "Boosts" "SpellResistance(Advantage)"
+data "Boosts" "IF(HasSpellFlag(SpellFlags.Spell)):Advantage(AllSavingThrows)"

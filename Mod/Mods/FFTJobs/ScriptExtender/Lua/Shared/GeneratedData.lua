@@ -750,7 +750,7 @@ return {
       Order = 19,
       Description = "Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion.",
       Grants = {
-        Spells = { "Target_FFTJ_PhoenixDown" },
+        Spells = { "Teleportation_FFTJ_PhoenixDown" },
       },
       Variants = {
         {
@@ -765,7 +765,7 @@ return {
             },
           },
           Grants = {
-            Spells = { "Target_FFTJ_PhoenixDown_Throw" },
+            Spells = { "Teleportation_FFTJ_PhoenixDown_Throw" },
           },
         },
       },
@@ -1090,7 +1090,7 @@ return {
       Name = "Cura",
       Cost = 180,
       Order = 46,
-      Description = "Heal every creature in a 3 m radius for 2d8+3. Once per short rest.",
+      Description = "Heal up to 3 allies for 2d8+3. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Cura" },
       },
@@ -1102,7 +1102,7 @@ return {
       Name = "Curaga",
       Cost = 450,
       Order = 47,
-      Description = "Heal every creature in a 4.5 m radius for 4d8+4. Once per long rest.",
+      Description = "Heal up to 4 allies for 4d8+4. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Curaga" },
       },
@@ -1116,7 +1116,7 @@ return {
       Order = 48,
       Description = "Revive a dead ally with 1 HP. Once per short rest.",
       Grants = {
-        Spells = { "Target_FFTJ_Raise" },
+        Spells = { "Teleportation_FFTJ_Raise" },
       },
     },
     Arise = {
@@ -1128,7 +1128,7 @@ return {
       Order = 49,
       Description = "Revive a dead ally and heal it for 4d8. Once per long rest.",
       Grants = {
-        Spells = { "Target_FFTJ_Arise" },
+        Spells = { "Teleportation_FFTJ_Arise" },
       },
     },
     Reraise = {

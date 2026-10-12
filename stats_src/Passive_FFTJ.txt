@@ -1,5 +1,5 @@
 // FFT Job System - passives (reaction, support and movement abilities, current-job markers). DRAFT.
-// TO VALIDATE IN PART B: icon names, proficiency group names, boost syntax, and the OnDamaged functors
+// Checked against vanilla 2026-10-12: icon names, boost and functor names. UNVERIFIED IN GAME: the OnDamaged functors
 // (who the functor targets in the OnDamaged context; model them on vanilla Fire Shield / Armour of Agathys
 // / Hellish Rebuke statuses and passives).
 
@@ -78,7 +78,7 @@ new entry "FFTJ_SpeedSurge"
 type "PassiveData"
 data "DisplayName" "{{name:SpeedSurge}}"
 data "Description" "{{desc:SpeedSurge}}"
-data "Icon" "PassiveFeature_Mobile"
+data "Icon" "PassiveFeature_Mobile_DashAcrossDifficultTerrain"
 data "StatsFunctorContext" "OnDamaged"
 data "StatsFunctors" "ApplyStatus(SELF,FFTJ_SPEED_SURGE,100,2)"
 
@@ -121,7 +121,7 @@ new entry "FFTJ_JPBoost"
 type "PassiveData"
 data "DisplayName" "{{name:JPBoost}}"
 data "Description" "{{desc:JPBoost}}"
-data "Icon" "PassiveFeature_Lucky"
+data "Icon" "PassiveFeature_Lucky_RollAdditionalDie"
 data "Properties" "Highlighted"
 
 // Effect handled by the engine (thrown item variants): marker only.
@@ -186,19 +186,19 @@ new entry "FFTJ_Movement1"
 type "PassiveData"
 data "DisplayName" "{{name:Movement1}}"
 data "Description" "{{desc:Movement1}}"
-data "Icon" "PassiveFeature_Mobile"
+data "Icon" "PassiveFeature_Mobile_DashAcrossDifficultTerrain"
 data "Boosts" "ActionResource(Movement,3,0)"
 
 new entry "FFTJ_TreasureHunter"
 type "PassiveData"
 data "DisplayName" "{{name:TreasureHunter}}"
 data "Description" "{{desc:TreasureHunter}}"
-data "Icon" "PassiveFeature_Alert"
+data "Icon" "PassiveFeature_Observant_Bonuses"
 data "Boosts" "Skill(Perception,2)"
 
 new entry "FFTJ_Jump1"
 type "PassiveData"
 data "DisplayName" "{{name:Jump1}}"
 data "Description" "{{desc:Jump1}}"
-data "Icon" "PassiveFeature_Athlete"
+data "Icon" "PassiveFeature_RemarkableAthlete_Jump"
 data "Boosts" "JumpMaxDistanceBonus(3)"
