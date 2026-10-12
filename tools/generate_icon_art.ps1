@@ -2,8 +2,9 @@
 # Divinity mods) from art\icons\subjects.txt. Each picture is made at 512 px (kept in art\_ai_raw, not in git) and
 # saved at 380 px, the tooltip size, as art\icons\<key>.jpg (quality 95: a sixth of the PNG size in git; the game gets
 # DDS files anyway). Keys that already have a picture are skipped unless -Force.
-# A third field on a subjects line is a badge drawn on the picture (e.g. "+5" on Aim +5): the tiers of one ability
-# look alike at 64 px.
+# Extra fields on a subjects line: a badge drawn on the picture (e.g. "+5" on Aim +5: the tiers of one ability look
+# alike at 64 px), and seed=N for a picture kept from another seed (used unless -Seed is given). Painting needs the GPU
+# memory BG3 uses: with the game running most runs fail at once ("failed: <key>"), so paint with the game closed.
 #   powershell -ExecutionPolicy Bypass -File tools\generate_icon_art.ps1
 #   powershell -ExecutionPolicy Bypass -File tools\generate_icon_art.ps1 -Only "Focus,Rush" -Force -Seed 12
 #   powershell -ExecutionPolicy Bypass -File tools\generate_icon_art.ps1 -BadgeOnly   (redo pictures from art\_ai_raw)
@@ -28,13 +29,19 @@ $style = "Digital painting, fantasy game spell artwork in a medieval storybook s
     "dramatic lighting, one bold focal subject in the centre. Subject:"
 $subjects = [ordered]@{}
 $badges = @{}
+$seeds = @{}
 foreach ($line in [IO.File]::ReadAllLines((Join-Path $art "subjects.txt"))) {
     if ($line.Trim() -eq "" -or $line.StartsWith("#")) { continue }
-    $parts = $line -split "\|", 3
+    $parts = $line -split "\|"
     $k = $parts[0].Trim()
     $subjects[$k] = $parts[1].Trim()
-    if ($parts.Count -gt 2 -and $parts[2].Trim()) { $badges[$k] = $parts[2].Trim() }
+    # extra fields: "seed=N" (the seed that made the kept picture), anything else is the badge
+    foreach ($extra in @($parts | Select-Object -Skip 2)) {
+        $x = $extra.Trim()
+        if ($x -match '^seed=(\d+)$') { $seeds[$k] = [int]$Matches[1] } elseif ($x) { $badges[$k] = $x }
+    }
 }
+$seedGiven = $PSBoundParameters.ContainsKey("Seed")
 $want = @($Only -split "," | ForEach-Object { $_.Trim() } | Where-Object { $_ })
 
 # Resizes to $size and draws the badge (warm gold text with a dark outline) in the bottom-right corner.
@@ -97,7 +104,8 @@ foreach ($k in $todo) {
     if (Test-Path $rawFile) { Remove-Item $rawFile }
     & "$Sd\bin\sd-cli.exe" --diffusion-model "$Sd\models\z_image_turbo-Q8_0.gguf" --vae "$Sd\models\ae.safetensors" `
         --llm "$Sd\models\Qwen3-4B-Instruct-2507-Q8_0.gguf" -p "$style $($subjects[$k])" --cfg-scale 1.0 --diffusion-fa `
-        -H 512 -W 512 --steps 8 --seed $Seed -o $rawFile 2>&1 | Out-Null
+        -H 512 -W 512 --steps 8 --seed $(if (-not $seedGiven -and $seeds.ContainsKey($k)) { $seeds[$k] } else { $Seed }) `
+        -o $rawFile 2>&1 | Out-Null
     $ok = Test-Path $rawFile
     if ($ok) { Save-Icon $rawFile (Join-Path $art "$k.jpg") 380 $badges[$k] } else { $failed += $k }
     "{0}/{1} {2} ok={3} t={4}s" -f $n, $todo.Count, $k, $ok, [math]::Round($clock.Elapsed.TotalSeconds)

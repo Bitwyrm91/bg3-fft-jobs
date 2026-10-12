@@ -10,6 +10,14 @@
     ]
   },
   {
+    "id": "BURNING",
+    "kind": "status",
+    "usedBy": [
+      "Projectile_FFTJ_Blizzara",
+      "Target_FFTJ_Blizzaga"
+    ]
+  },
+  {
     "id": "FRIGHTENED",
     "kind": "status",
     "usedBy": [
@@ -53,26 +61,39 @@
     ]
   },
   {
+    "id": "Projectile_ChromaticOrb_Poison",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_Poison"
+    ]
+  },
+  {
+    "id": "Projectile_Disintegrate",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_Flare"
+    ]
+  },
+  {
+    "id": "Projectile_FOR_GnomeGoblin_ThrowRock",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowStone"
+    ]
+  },
+  {
     "id": "Projectile_FireBolt",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Death",
-      "Projectile_FFTJ_Fire",
-      "Projectile_FFTJ_Flare",
-      "Projectile_FFTJ_Poison",
-      "Projectile_FFTJ_ThrowStone"
+      "Projectile_FFTJ_Fire"
     ]
   },
   {
     "id": "Projectile_Fireball",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Blizzaga",
-      "Projectile_FFTJ_Blizzara",
       "Projectile_FFTJ_Fira",
-      "Projectile_FFTJ_Firaga",
-      "Projectile_FFTJ_Thundaga",
-      "Projectile_FFTJ_Thundara"
+      "Projectile_FFTJ_Firaga"
     ]
   },
   {
@@ -80,6 +101,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Projectile_FFTJ_Holy"
+    ]
+  },
+  {
+    "id": "Projectile_IceKnife",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_Blizzara"
     ]
   },
   {
@@ -114,6 +142,21 @@
     ]
   },
   {
+    "id": "Target_Blight",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Death"
+    ]
+  },
+  {
+    "id": "Target_CallLightning_LightningBolt",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Thundaga",
+      "Target_FFTJ_Thundara"
+    ]
+  },
+  {
     "id": "Target_CureWounds",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -139,6 +182,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Reraise"
+    ]
+  },
+  {
+    "id": "Target_IceStorm",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Blizzaga"
     ]
   },
   {

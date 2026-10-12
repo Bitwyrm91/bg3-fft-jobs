@@ -40,7 +40,7 @@
   <content contentuid="h65535f2fg7b5dg59ceg9e26g57bb753ac955" version="1">Curaga</content>
   <content contentuid="heaf492b2ga3bbg5394g93fegcc003088a073" version="1">Heal a creature within 18 m for 1d8+3. Once per turn.</content>
   <content contentuid="h4a9da558gdab3g595aga197gf633a880b245" version="1">Cure</content>
-  <content contentuid="h6c7a1987g31a9g5de5g8a14g6aa3a345cf40" version="1">8d10 necrotic damage to a creature within 18 m; Constitution save for half. Once per long rest.</content>
+  <content contentuid="h6c7a1987g31a9g5de5g8a14g6aa3a345cf40" version="1">8d10 necrotic damage to a creature within 18 m; Constitution save for half. Undead and constructs cannot be targeted. Once per long rest.</content>
   <content contentuid="h20430412g7126g548fg9730g2dc0dc6147c2" version="1">Death</content>
   <content contentuid="h80d37df8g55bfg572aga785gee17068f477e" version="1">End Silenced. Thrown like Potion.</content>
   <content contentuid="h85374d3ag6f46g5fabgb13cg8a809600d880" version="1">Echo Herbs</content>

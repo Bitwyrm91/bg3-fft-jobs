@@ -68,9 +68,13 @@ local function button(parent, label, id, sameLine, onClick)
     return b
 end
 
+-- IMGUI opens a tooltip just right of the mouse position, sized for a small cursor; BG3's large cursor then covers
+-- the first word (user's screenshot, 2026-10-12). The indent starts the text clear of the cursor.
+local TOOLTIP_INDENT = string.rep(" ", 7)
+
 local function addTooltip(widget, text)
     pcall(function()
-        widget:Tooltip():AddText(text)
+        widget:Tooltip():AddText(TOOLTIP_INDENT .. text)
     end)
 end
 

@@ -108,6 +108,18 @@ function S.view_marks_abilities_in_use(w, T)
     T.truthy(ab("CounterTackle").Active)
 end
 
+function S.tooltips_start_clear_of_the_cursor(w, T, Mocks)
+    T.boot(w)
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local names = Mocks.FindWidgets(w.windows[1], function(x)
+        return x.Kind == "Text" and x.Label == "Focus" and x.TooltipWidget ~= nil
+    end)
+    T.truthy(names[1], "the Focus row has a tooltip")
+    local tip = names[1].TooltipWidget.Children[1].Label
+    T.truthy(tip:match("^      +%S"), "indented past BG3's large cursor: [" .. tip .. "]")
+    T.contains(tip, "+1 to attack rolls")
+end
+
 function S.job_board_spell_opens_window_without_jp(w, T, Mocks)
     local svc = T.boot(w)
     T.startCombat(w, "c1", { T.TAV })

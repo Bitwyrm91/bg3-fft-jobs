@@ -5,7 +5,8 @@
 # Background colour per job, so a skill's job shows at a glance: Squire amber, Chemist mossy green, Knight royal blue,
 # Archer forest green, White Mage pale gold, Black Mage deep indigo.
 # Write what should be in the picture: the model ignores "no ..." and draws app tiles when told "icon", "frame", "border".
-# Optional third field: a badge drawn on the picture (the Aim tiers get their number: four archers look alike at 64 px).
+# Optional extra fields: a badge drawn on the picture (the Aim tiers get their number: four archers look alike at 64 px),
+# and seed=N when the kept picture came from another seed than the default 11.
 
 JobBoard|an open leather-bound tome of job crests with glowing golden emblems of a sword, a bow, a potion flask and a magic staff around a compass rose, warm candlelight, parchment brown background
 JPTraining|a straw and wood training dummy struck by a glowing golden blow, bright sparks of golden experience light rising, warm amber background
@@ -17,7 +18,7 @@ Job_WhiteMage|a white hooded robe with red triangle trim beside a golden healing
 Job_BlackMage|a wide-brimmed pointed straw wizard hat over a dark shadowed face with two glowing yellow eyes, deep indigo background
 
 Focus|an armoured gauntlet clenched into a fist glowing with golden inner energy and a rising aura, warm amber background
-Rush|a round wooden shield rushing forward with golden speed lines and a long trail of dust, warm amber background
+Rush|a sword thrust lunging forward with golden speed lines and a burst of dust as the blow knocks an armoured enemy backward, warm amber background|seed=13
 ThrowStone|a hand hurling a rough grey stone that flies forward with motion streaks, warm amber background
 Salve|a small round clay jar of glistening green herbal ointment with fresh green leaves, warm amber background
 CounterTackle|a stocky fighter in leather armour bowling an attacker over with a shoulder tackle, warm amber background
