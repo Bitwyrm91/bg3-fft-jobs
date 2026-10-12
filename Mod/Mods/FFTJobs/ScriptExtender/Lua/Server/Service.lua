@@ -129,27 +129,22 @@ function Service:EnsureChar(guid)
     char.LastXP = self.Game:TotalXP(guid)
     self.State:Set(guid, char)
     self.Log.Info(string.format("now tracking %s (starting job %s)", char.Name, self.Data.Jobs[startJob].Name))
-    self:SyncParty() -- a new member gets the party's badges and (party-wide unlocks) its jobs
+    self:SyncParty() -- a new member gets the party's badges
     self:Reconcile(guid, false)
     return char
 end
 
--- Fell Seal party rules (Rules.SyncParty): badges and, while Rules.PartyWideUnlocks is on, unlocked jobs reach every
--- tracked character. Returns the {Guid, Job} pairs it unlocked.
+-- The party's shared state (Rules.SyncParty): badges reach every tracked character, and jobs anyone unlocked show
+-- as unlocked by the party on every Job Board. Returns the job ids new to the party.
 function Service:SyncParty()
-    local added = Rules.SyncParty(self.Data, self:Cfg(), self.State:Chars(), self.State:Meta())
+    local known = Rules.SyncParty(self.Data, self.State:Chars(), self.State:Meta())
     self.State:MarkDirty()
-    local names = {}
-    for _, p in ipairs(added) do
-        local list = names[p.Job] or {}
-        names[p.Job] = list
-        list[#list + 1] = self.State:Get(p.Guid).Name or p.Guid
-    end
-    for _, jobId in ipairs(Util.SortedKeys(names)) do
-        self.Log.Info(string.format("party-wide unlock: %s for %s", self.Data.Jobs[jobId].Name,
-            table.concat(names[jobId], ", ")))
-    end
-    return added
+    return known
+end
+
+-- Where an ability of this type goes: "the reaction slot" or "a passive slot".
+local function slotHint(abilityType)
+    return abilityType == "Reaction" and "the reaction slot" or "a passive slot"
 end
 
 function Service:DiscoverParty()
@@ -267,8 +262,7 @@ function Service:AddJP(guid, jobId, amount, source, combatId)
     end
     for _, unlocked in ipairs(res.Unlocked) do
         if cfg.Notifications.Unlock then
-            self:Notify(guid, string.format("%s unlocked the %s job%s!", char.Name, self.Data.Jobs[unlocked].Name,
-                cfg.Rules.PartyWideUnlocks and " for the whole party" or ""))
+            self:Notify(guid, string.format("%s unlocked the %s job!", char.Name, self.Data.Jobs[unlocked].Name))
         end
     end
     if #res.Unlocked > 0 then
@@ -736,10 +730,10 @@ function Service:Learn(guid, abilityId)
         end
     end
     if ab.Type ~= "Action" and Rules.IsAlwaysOn(self.Data, cfg, char, abilityId) then
-        msg = msg .. string.format(". It works without a slot while %s is the job; with other jobs, equip it in the %s slot.",
-            job.Name, string.lower(ab.Type))
+        msg = msg .. string.format(". It works without a slot while %s is the job; with other jobs, equip it in %s.",
+            job.Name, slotHint(ab.Type))
     elseif ab.Type ~= "Action" then
-        msg = msg .. string.format(". Equip it in the %s slot to use it.", string.lower(ab.Type))
+        msg = msg .. string.format(". Equip it in %s to use it.", slotHint(ab.Type))
     elseif ab.Job == char.Primary or ab.Job == char.Secondary then
         msg = msg .. string.format(". Added to %s's spells.", char.Name)
     else
@@ -748,7 +742,8 @@ function Service:Learn(guid, abilityId)
     return true, msg
 end
 
-function Service:Equip(guid, abilityId)
+-- slot (optional): "reaction", "1" or "2" (Rules.SlotName); otherwise the first free slot of the right kind.
+function Service:Equip(guid, abilityId, slot)
     local char, err = self:CheckChar(guid)
     if not char then
         return false, err
@@ -757,13 +752,13 @@ function Service:Equip(guid, abilityId)
     if block then
         return false, block
     end
-    local ok, e, slot = Rules.Equip(self.Data, char, abilityId)
+    local ok, e, s = Rules.Equip(self.Data, char, abilityId, slot)
     if not ok then
         return false, e
     end
     self.State:MarkDirty()
     self:Reconcile(guid, false)
-    return true, string.format("%s: %s slot = %s", char.Name, string.lower(slot), self.Data.Abilities[abilityId].Name)
+    return true, string.format("%s: %s slot = %s", char.Name, Rules.SlotLabels[s], self.Data.Abilities[abilityId].Name)
 end
 
 function Service:Unequip(guid, slot)
@@ -781,7 +776,7 @@ function Service:Unequip(guid, slot)
     end
     self.State:MarkDirty()
     self:Reconcile(guid, false)
-    return true, string.format("%s: %s slot cleared", char.Name, string.lower(s))
+    return true, string.format("%s: %s slot cleared", char.Name, Rules.SlotLabels[s])
 end
 
 function Service:AddManualJP(guid, amount, jobId)
@@ -811,7 +806,6 @@ function Service:UnlockAll(guid)
     self.State:MarkDirty()
     self:SyncParty()
     return true, char.Name .. ": every implemented job unlocked"
-        .. (self:Cfg().Rules.PartyWideUnlocks and " (for the whole party)" or "")
 end
 
 -- The party found a badge (later dropped by bosses; !fft_badge for testing). Returns ok, message.
@@ -830,14 +824,18 @@ function Service:AddBadge(badgeId, finder)
         return true, "The party already has the " .. name
     end
     local parts = { "The party found the " .. name }
-    local seen = {}
+    local names, order = {}, {}
     for _, p in ipairs(info.Unlocked) do
-        if not seen[p.Job] then
-            seen[p.Job] = true
-            local who = self.State:Get(p.Guid).Name or p.Guid
-            parts[#parts + 1] = string.format("%s unlocked the %s job%s", who, self.Data.Jobs[p.Job].Name,
-                cfg.Rules.PartyWideUnlocks and " for the whole party" or "")
+        if not names[p.Job] then
+            names[p.Job] = {}
+            order[#order + 1] = p.Job
         end
+        local list = names[p.Job]
+        list[#list + 1] = self.State:Get(p.Guid).Name or p.Guid
+    end
+    for _, jobId in ipairs(order) do
+        parts[#parts + 1] = string.format("%s unlocked the %s job", table.concat(names[jobId], ", "),
+            self.Data.Jobs[jobId].Name)
     end
     local msg = table.concat(parts, ". ") .. "!"
     local target = finder or self.Game:HostCharacter()
@@ -989,9 +987,9 @@ function Service:SummaryLine(guid)
     local data = self.Data
     local js = char.Jobs[char.Primary] or {}
     local secondary = char.Secondary and data.Jobs[char.Secondary] and data.Jobs[char.Secondary].Skillset or "-"
-    return string.format("%s: %s Lv%d (%s JP to spend) | Secondary %s | Reaction %s | Support %s | Movement %s",
+    return string.format("%s: %s Lv%d (%s JP to spend) | Secondary %s | Reaction %s | Passive 1 %s | Passive 2 %s",
         char.Name, data.Jobs[char.Primary].Name, Rules.GetJobLevel(cfg, char, char.Primary), Util.Num(js.Unspent or 0),
-        secondary, slotText(data, char, "Reaction"), slotText(data, char, "Support"), slotText(data, char, "Movement"))
+        secondary, slotText(data, char, "Reaction"), slotText(data, char, "Passive1"), slotText(data, char, "Passive2"))
 end
 
 function Service:Describe(guid)

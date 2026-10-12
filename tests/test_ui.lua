@@ -114,7 +114,8 @@ function S.view_shows_fell_seal_rules(w, T, Mocks)
     svc:AddManualJP(T.TAV, 5000, "Squire")
     T.truthy(svc:Learn(T.TAV, "JPBoost"))
     local view = View.Build(svc, T.TAV).Char
-    T.truthy(view.PartyWide)
+    T.eq(view.Passive1, nil)
+    T.truthy(view.PassiveFree)
     T.eq(table.concat(view.AlwaysOnTypes, ","), "Support,Movement")
     local jpBoost
     for _, a in ipairs(view.Abilities.Squire) do
@@ -130,7 +131,7 @@ function S.view_shows_fell_seal_rules(w, T, Mocks)
     local win = w.windows[1]
     local text = texts(Mocks, win)
     T.contains(text, "Mastered: +5 maximum hit points.")
-    T.contains(text, "Unlocked jobs are shared by the whole party")
+    T.contains(text, "A job someone in the party unlocked shows for everyone")
     T.contains(text, "Learned support and movement abilities of your job work without a slot")
     T.contains(text, "Learned, always on while this is your job")
     T.falsy(findButton(Mocks, win, "Equip##equipJPBoost"), "no Equip button for an always-on ability")

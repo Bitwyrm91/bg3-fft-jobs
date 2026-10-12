@@ -8,7 +8,9 @@ JobBoard.__index = JobBoard
 JobBoard.RequestChannel = "FFTJ_Board"
 JobBoard.OpenChannel = "FFTJ_Open"
 
-local SLOTS = { "Reaction", "Support", "Movement" }
+-- Fell Seal slots: one reaction slot, two free passive slots (support or movement abilities).
+local SLOTS = { "Reaction", "Passive1", "Passive2" }
+local SLOT_LABELS = { Reaction = "Reaction", Passive1 = "Passive 1", Passive2 = "Passive 2" }
 
 function JobBoard.New(imgui, request, log)
     local self = setmetatable({}, JobBoard)
@@ -120,7 +122,7 @@ function JobBoard:Render(view)
         Util.Num(c.Primary.Unspent), Util.Num(c.Primary.Earned), c.JPBoost and " JP Boost on." or ""))
     local slotParts = { "Secondary: " .. (c.Secondary and (c.Secondary.Skillset .. " (" .. c.Secondary.Name .. ")") or "-") }
     for _, slot in ipairs(SLOTS) do
-        slotParts[#slotParts + 1] = slot .. ": " .. (c[slot] and c[slot].Name or "-")
+        slotParts[#slotParts + 1] = SLOT_LABELS[slot] .. ": " .. (c[slot] and c[slot].Name or "-")
     end
     root:AddText(table.concat(slotParts, "   "))
     if c.InCombat then
@@ -133,17 +135,15 @@ function JobBoard:Render(view)
     end
     for i, slot in ipairs(SLOTS) do
         if c[slot] then
-            button(root, "Unequip " .. string.lower(slot), "unequip" .. slot, i > 1 or c.Secondary ~= nil, function()
+            button(root, "Unequip " .. string.lower(SLOT_LABELS[slot]), "unequip" .. slot, i > 1 or c.Secondary ~= nil, function()
                 self:Send("Unequip", { Slot = slot })
             end)
         end
     end
 
     root:AddSeparatorText("Jobs")
-    if c.PartyWide then
-        root:AddText("Unlocked jobs are shared by the whole party; JP and job levels are per character. "
-            .. "Hover a job for its equipment and mastery perk.")
-    end
+    root:AddText("A job someone in the party unlocked shows for everyone, but each character needs its own job levels "
+        .. "to learn from it or take it. Hover a job for its equipment and mastery perk.")
     local jobs = root:AddTable("FFTJ_Jobs", 5)
     jobs.ShowHeader = true
     for _, h in ipairs({ "Job", "Level", "JP (spend / earned)", "Status", "" }) do
@@ -172,8 +172,10 @@ function JobBoard:Render(view)
         row:AddCell():AddText(Util.Num(j.Unspent) .. " / " .. Util.Num(j.Earned)
             .. (j.NextAt and ("  (Lv" .. (j.Level + 1) .. " at " .. Util.Num(j.NextAt) .. ")") or ""))
         local status
-        if not j.Unlocked then
-            status = "Locked: needs " .. j.Requirements
+        if not j.Unlocked and j.PartyUnlocked then
+            status = "Unlocked by the party; needs " .. (j.Missing or j.Requirements)
+        elseif not j.Unlocked then
+            status = "Locked: needs " .. (j.Missing or j.Requirements)
         elseif j.Mastered then
             status = j.MasteryPerk and ("Mastered: " .. j.Mastery) or "Mastered"
         else
@@ -205,8 +207,9 @@ function JobBoard:Render(view)
         end
     end
     root:AddSeparatorText("Abilities: " .. jobName)
-    local help = "Learned actions are usable while their job is the job or the secondary. Reaction, support and "
-        .. "movement abilities work once equipped (most are passives, not hotbar spells)."
+    local help = "Learned actions are usable while their job is the job or the secondary. A reaction goes in the "
+        .. "reaction slot; support and movement abilities go in either of the two passive slots (most are passives, "
+        .. "not hotbar spells)."
     if c.AlwaysOnTypes and #c.AlwaysOnTypes > 0 then
         help = help .. " Learned " .. string.lower(table.concat(c.AlwaysOnTypes, " and ")) .. " abilities of your "
             .. "job work without a slot, so the slots stay free for other jobs' abilities."
@@ -225,9 +228,9 @@ function JobBoard:Render(view)
         row:AddCell():AddText(Util.Num(a.Cost))
         local status
         if a.Equipped and a.AlwaysOn then
-            status = "Learned, equipped (works without the slot while this is your job)"
+            status = "Learned, in " .. a.SlotLabel .. " (works without the slot while this is your job)"
         elseif a.Equipped then
-            status = "Learned, equipped"
+            status = "Learned, in " .. a.SlotLabel
         elseif a.AlwaysOn then
             status = "Learned, always on while this is your job"
         elseif a.Learned and a.Type == "Action" then
@@ -247,12 +250,21 @@ function JobBoard:Render(view)
                 self:Send("Learn", { Ability = a.Id })
             end)
         elseif a.Learned and a.Type ~= "Action" and not a.Equipped and not a.AlwaysOn then
-            button(cell, "Equip", "equip" .. a.Id, false, function()
-                self:Send("Equip", { Ability = a.Id })
-            end)
+            if a.Type == "Reaction" or c.PassiveFree then
+                button(cell, "Equip", "equip" .. a.Id, false, function()
+                    self:Send("Equip", { Ability = a.Id })
+                end)
+            else
+                -- both passive slots are full: pick the one to replace
+                for n = 1, 2 do
+                    button(cell, "Replace " .. n, "equip" .. n .. a.Id, n > 1, function()
+                        self:Send("Equip", { Ability = a.Id, Slot = tostring(n) })
+                    end)
+                end
+            end
         elseif a.Equipped then
             button(cell, "Unequip", "unequip" .. a.Id, false, function()
-                self:Send("Unequip", { Slot = a.Type })
+                self:Send("Unequip", { Slot = a.Slot })
             end)
         end
     end

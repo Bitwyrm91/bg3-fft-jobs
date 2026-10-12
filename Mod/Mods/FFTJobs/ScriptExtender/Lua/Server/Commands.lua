@@ -106,19 +106,23 @@ def("fft_learn", "<ability> [who]  learn an ability (write names without spaces:
     return result(svc:Learn(guid, aid))
 end)
 
-def("fft_equip", "<ability> [who]  put a learned reaction/support/movement ability in its slot", function(svc, args)
+def("fft_equip", "<ability> [1|2] [who]  put a learned ability in its slot (reaction, or passive slot 1/2)", function(svc, args)
     local aid = Rules.FindAbility(svc.Data, args[1])
     if not aid then
         return { "Unknown ability " .. tostring(args[1]) }
     end
-    local guid, err = who(svc, args[2])
+    local slot, whoArg = nil, args[2]
+    if args[2] == "1" or args[2] == "2" then
+        slot, whoArg = args[2], args[3]
+    end
+    local guid, err = who(svc, whoArg)
     if not guid then
         return { err }
     end
-    return result(svc:Equip(guid, aid))
+    return result(svc:Equip(guid, aid, slot))
 end)
 
-def("fft_unequip", "<reaction|support|movement> [who]  clear a slot", function(svc, args)
+def("fft_unequip", "<reaction|1|2> [who]  clear a slot (1 and 2 are the passive slots)", function(svc, args)
     local guid, err = who(svc, args[2])
     if not guid then
         return { err }

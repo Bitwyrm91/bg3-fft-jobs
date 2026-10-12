@@ -27,7 +27,7 @@ function NetServer.Handle(svc, req)
     elseif op == "Learn" then
         ok, msg = svc:Learn(guid, req.Ability)
     elseif op == "Equip" then
-        ok, msg = svc:Equip(guid, req.Ability)
+        ok, msg = svc:Equip(guid, req.Ability, req.Slot)
     elseif op == "Unequip" then
         ok, msg = svc:Unequip(guid, req.Slot)
     else

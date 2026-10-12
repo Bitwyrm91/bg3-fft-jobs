@@ -26,10 +26,14 @@ The user's decisions of 2026-10-12 (a long Q&A in the coordinator chat) and the 
 6. **Job levels keep FFT's JP thresholds.** The user's view: in practice it comes out the same as Fell Seal's "1 level per ability learned". Job level gives no power by itself; it drives unlocks and adds 2 JP per action per level.
 7. **Fell Seal mix, all four ideas chosen ("I love it"):**
    - **Mastery bonus:** mastering a job gives a small **themed** permanent perk that stacks and stays after switching jobs. Examples: Squire +5 max HP, Knight +1 to Constitution saves, Archer +1 m range. One perk per job: noticeable, never game-breaking.
-   - **Main job's passives always on:** support and movement abilities learned in the main job work without a slot; the 3 FFT slots stay for other jobs' abilities. My default: reactions still need the reaction slot.
-   - **Party-wide unlocks:** unlocking a job once unlocks it for the whole party; JP and levels stay per character.
+   - **Main job's passives always on:** support and movement abilities learned in the main job work without a slot. **Reactions need the reaction slot** (user, 2026-10-12: as in Fell Seal, where counters always need the counter slot).
+   - **Slots, Fell Seal style (user, 2026-10-12):** 1 reaction slot + **2 free passive slots** that take any support or movement ability (replaces FFT's support + movement slots).
+   - **Party unlocks, revised (user, 2026-10-12: "make sure there are job level requirements for the character using it"; chose "see it, wait for levels"):** a job one character unlocks shows as unlocked by the party on everyone's Job Board, with what each character still needs. Learning its abilities and taking it as job or secondary need the character's **own** job levels (FFT / Fell Seal rule). JP from spillover and shared learning keeps collecting in it.
    - **Equipment:** the main job grants its own proficiencies (Knight: heavy armour + shields while Knight is the main job); FFT's "Equip X" supports carry a proficiency to other jobs.
    - Already in: shared learning (15%, the jobs used in combat).
+   - **Magic cost (user, 2026-10-12):** keep cooldowns, no MP bar.
+   - **Thief (user, 2026-10-12):** Steal takes **real loot** from enemies (gold, the item itself; Steal Heart charms); quest and story items can't be stolen.
+   - **Badges (user, 2026-10-12):** one per boss, found once for the **whole party**; each character still needs the special job's job levels.
 8. **Later Fell Seal phase:** keep the look-alike classes as separate jobs but **link** them (JP earned in one also feeds its twin, about 50%). **Never two jobs with one name:** rename the Fell Seal one (Knight → Defender, etc.).
 
 ### The Soul Collector (the monster job; user's name)

@@ -28,11 +28,11 @@ function View.Char(svc, guid)
             Id = char.Secondary, Name = data.Jobs[char.Secondary].Name, Skillset = data.Jobs[char.Secondary].Skillset,
         } or nil,
         Reaction = abilityRef(data, char.Reaction),
-        Support = abilityRef(data, char.Support),
-        Movement = abilityRef(data, char.Movement),
+        Passive1 = abilityRef(data, char.Passive1),
+        Passive2 = abilityRef(data, char.Passive2),
+        PassiveFree = char.Passive1 == nil or char.Passive2 == nil,
         JPBoost = Rules.HasJPBoost(data, char, cfg),
         AlwaysOnTypes = Util.DeepCopy(cfg.Rules.MainJobAlwaysOn or {}),
-        PartyWide = cfg.Rules.PartyWideUnlocks == true,
         InCombat = inCombat,
         Locked = {
             Job = cfg.Rules.ChangeJobOutOfCombatOnly and inCombat,
@@ -57,6 +57,9 @@ function View.Char(svc, guid)
                 Total = #data.AbilitiesByJob[jobId],
                 IsPrimary = char.Primary == jobId, IsSecondary = char.Secondary == jobId,
                 Requirements = Rules.RequirementText(data, jobId),
+                -- unlocked by someone in the party: shown to everyone, but this character needs its own levels
+                PartyUnlocked = Rules.IsPartyUnlocked(svc.State:Meta(), jobId),
+                Missing = not unlocked and Rules.MissingText(data, cfg, char, jobId) or nil,
                 Equip = job.Equip ~= "" and job.Equip or nil,
                 Mastery = job.Mastery and job.Mastery.Description or nil,
                 MasteryPerk = Rules.HasMasteryPerk(data, cfg, char, jobId),
@@ -66,12 +69,14 @@ function View.Char(svc, guid)
                 local ab = data.Abilities[aid]
                 local learned = Rules.IsLearned(char, aid)
                 local canLearn, reason = Rules.CanLearn(data, char, aid)
-                local equipped = ab.Type ~= "Action" and char[ab.Type] == aid
+                local slot = ab.Type ~= "Action" and Rules.SlotOf(char, aid) or nil
+                local equipped = slot ~= nil
                 local alwaysOn = Rules.IsAlwaysOn(data, cfg, char, aid)
                 list[#list + 1] = {
                     Id = aid, Name = ab.Name, Type = ab.Type, Cost = ab.Cost, Description = ab.Description,
                     Learned = learned, CanLearn = canLearn, Reason = (not canLearn and not learned) and reason or nil,
-                    Equipped = equipped, AlwaysOn = alwaysOn,
+                    Equipped = equipped, Slot = slot, SlotLabel = slot and Rules.SlotLabels[slot] or nil,
+                    AlwaysOn = alwaysOn,
                     -- granted right now: actions of the primary/secondary job, equipped reaction/support/movement,
                     -- the main job's always-on ones
                     Active = learned and (equipped or alwaysOn or (ab.Type == "Action"

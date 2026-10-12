@@ -220,16 +220,6 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
                 c.unlocked.add(j)
                 c.unlocked_at[j] = when
 
-    def share_unlocks(when):
-        # Rules.PartyWideUnlocks (Fell Seal rule): one member's unlock is the whole party's
-        if not cfg["Rules"].get("PartyWideUnlocks"):
-            return
-        every = set().union(*(c.unlocked for c in party))
-        for c in party:
-            for j in every - c.unlocked:
-                c.unlocked.add(j)
-                c.unlocked_at[j] = when
-
     def settle(c, when):
         for j in impl:
             if j not in c.unlocked:
@@ -285,8 +275,6 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
                     add(c, c.primary, rest_jp(jp, c.boost), "Rest")
             for c in party:
                 unlock(c, when)
-            share_unlocks(when)
-            for c in party:
                 settle(c, when)
     return party, fight_no
 

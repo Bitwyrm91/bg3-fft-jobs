@@ -4,7 +4,15 @@ local Util = Ext.Require("Shared/Util.lua")
 
 local Rules = {}
 
-Rules.Slots = { "Reaction", "Support", "Movement" }
+-- Fell Seal slots (user's choice, 2026-10-12): one reaction slot and two free passive slots that take any support or
+-- movement ability. The slot name is the field of the character table that holds the equipped ability id.
+Rules.Slots = { "Reaction", "Passive1", "Passive2" }
+Rules.SlotTypes = {
+    Reaction = { Reaction = true },
+    Passive1 = { Support = true, Movement = true },
+    Passive2 = { Support = true, Movement = true },
+}
+Rules.SlotLabels = { Reaction = "reaction", Passive1 = "passive 1", Passive2 = "passive 2" }
 local GRANT_KINDS = { "Spells", "Passives", "Statuses" }
 
 function Rules.NewStats()
@@ -47,6 +55,16 @@ function Rules.Normalize(char)
     char.Unlocked = char.Unlocked or {}
     char.Badges = char.Badges or {}
     char.Jobs = char.Jobs or {}
+    -- saves from 1.0.0.5 and older: FFT's support and movement slots become the two passive slots
+    for _, old in ipairs({ "Support", "Movement" }) do
+        local id = char[old]
+        char[old] = nil
+        if id ~= nil and char.Passive1 == nil then
+            char.Passive1 = id
+        elseif id ~= nil and char.Passive2 == nil then
+            char.Passive2 = id
+        end
+    end
     for _, js in pairs(char.Jobs) do
         js.Earned = js.Earned or 0
         js.Unspent = js.Unspent or 0
@@ -173,24 +191,15 @@ function Rules.UnlockAll(data, char)
     end
 end
 
--- Fell Seal rules for the party. chars = {guid = char}; party = the saved Meta table, which keeps the badges the
--- party found (Badges) and, while Rules.PartyWideUnlocks is on, every job anyone unlocked (PartyUnlocked).
--- Badges always reach every character; unlocked jobs too while the rule is on (JP and job levels stay per
--- character). Returns the {Guid, Job} pairs unlocked this way, in GUID and job order.
-function Rules.SyncParty(data, cfg, chars, party)
+-- The party's shared state. chars = {guid = char}; party = the saved Meta table with the badges the party found
+-- (Badges: found once, they serve everyone) and every job some member has unlocked (PartyUnlocked). A job in
+-- PartyUnlocked shows as unlocked by the party on everyone's Job Board, but each character still needs its own job
+-- levels to learn from it or take it (the user's rule, 2026-10-12). Copies the badges into every character and
+-- returns the job ids the party had not unlocked before, sorted.
+function Rules.SyncParty(data, chars, party)
     party.Badges = party.Badges or {}
     party.PartyUnlocked = party.PartyUnlocked or {}
-    local share = cfg.Rules.PartyWideUnlocks
-    if share then
-        for _, char in pairs(chars) do
-            for jobId, on in pairs(char.Unlocked or {}) do
-                if on == true and data.Jobs[jobId] and data.Jobs[jobId].Implemented then
-                    party.PartyUnlocked[jobId] = true
-                end
-            end
-        end
-    end
-    local added = {}
+    local known = {}
     for _, guid in ipairs(Util.SortedKeys(chars)) do
         local char = chars[guid]
         char.Badges = char.Badges or {}
@@ -199,36 +208,53 @@ function Rules.SyncParty(data, cfg, chars, party)
                 char.Badges[badgeId] = true
             end
         end
-        if share then
-            for _, jobId in ipairs(data.JobOrder) do
-                if party.PartyUnlocked[jobId] and data.Jobs[jobId].Implemented and not Rules.IsUnlocked(char, jobId) then
-                    char.Unlocked[jobId] = true
-                    Rules.EnsureJob(char, jobId)
-                    added[#added + 1] = { Guid = guid, Job = jobId }
-                end
+        for jobId, on in pairs(char.Unlocked or {}) do
+            if on == true and data.Jobs[jobId] and data.Jobs[jobId].Implemented and not party.PartyUnlocked[jobId] then
+                party.PartyUnlocked[jobId] = true
+                known[#known + 1] = jobId
             end
         end
     end
-    return added
+    table.sort(known)
+    return known
 end
 
--- The party found a badge (Fell Seal: a crest that opens a special job, alongside job levels). Every character
--- gets it, and every job whose requirements it completes unlocks. Returns ok, error,
--- {Already = bool, Unlocked = {{Guid, Job}} (met the requirements), Shared = {{Guid, Job}} (party-wide copies)}.
+function Rules.IsPartyUnlocked(party, jobId)
+    return party ~= nil and party.PartyUnlocked ~= nil and party.PartyUnlocked[jobId] == true
+end
+
+-- What a character still needs for a job, with its own levels: "Squire Lv2 (has Lv1), Holy Knight Badge".
+function Rules.MissingText(data, cfg, char, jobId)
+    local _, missing = Rules.RequirementsMet(data, cfg, char, jobId)
+    local parts = {}
+    for _, m in ipairs(missing) do
+        if m.Badge then
+            parts[#parts + 1] = Rules.BadgeName(data, m.Badge)
+        else
+            local rj = data.Jobs[m.Job]
+            parts[#parts + 1] = string.format("%s Lv%d (has Lv%d)", rj and rj.Name or m.Job, m.Level, m.Have)
+        end
+    end
+    return table.concat(parts, ", ")
+end
+
+-- The party found a badge (Fell Seal: a crest that opens a special job, alongside job levels). It serves every
+-- character (the user's choice); each one whose job levels are already there unlocks the job now. Returns ok,
+-- error, {Already = bool, Unlocked = {{Guid, Job}}}.
 function Rules.AddBadge(data, cfg, chars, party, badgeId)
     if not (data.Badges and data.Badges[badgeId]) then
         return false, "Unknown badge " .. tostring(badgeId)
     end
     party.Badges = party.Badges or {}
-    local info = { Already = party.Badges[badgeId] == true, Unlocked = {}, Shared = {} }
+    local info = { Already = party.Badges[badgeId] == true, Unlocked = {} }
     party.Badges[badgeId] = true
-    Rules.SyncParty(data, cfg, chars, party)
+    Rules.SyncParty(data, chars, party)
     for _, guid in ipairs(Util.SortedKeys(chars)) do
         for _, jobId in ipairs(Rules.CheckUnlocks(data, cfg, chars[guid])) do
             info.Unlocked[#info.Unlocked + 1] = { Guid = guid, Job = jobId }
         end
     end
-    info.Shared = Rules.SyncParty(data, cfg, chars, party)
+    Rules.SyncParty(data, chars, party)
     return true, nil, info
 end
 
@@ -442,8 +468,34 @@ function Rules.SetSecondary(data, char, jobId)
     return true
 end
 
--- Puts a learned reaction/support/movement ability in its slot. Returns ok, error, slot.
-function Rules.Equip(data, char, abilityId)
+-- The slot that holds an ability, or nil.
+function Rules.SlotOf(char, abilityId)
+    for _, s in ipairs(Rules.Slots) do
+        if char[s] == abilityId then
+            return s
+        end
+    end
+    return nil
+end
+
+-- Slot from user input: "reaction", "passive 1" / "1" / "p1", "passive 2" / "2" / "p2" (or a slot name).
+local SLOT_ALIASES = { ["1"] = "Passive1", p1 = "Passive1", slot1 = "Passive1",
+    ["2"] = "Passive2", p2 = "Passive2", slot2 = "Passive2" }
+
+function Rules.SlotName(slot)
+    local n = Util.Normalize(slot)
+    for _, s in ipairs(Rules.Slots) do
+        if Util.Normalize(s) == n then
+            return s
+        end
+    end
+    return SLOT_ALIASES[n]
+end
+
+-- Puts a learned reaction/support/movement ability in a slot that takes its type: slot (optional) names one,
+-- otherwise the first empty one. The reaction slot is replaced; with both passive slots full a slot must be named.
+-- An ability moves rather than sitting in two slots. Returns ok, error, slot.
+function Rules.Equip(data, char, abilityId, slot)
     local ab = data.Abilities[abilityId]
     if not ab then
         return false, "Unknown ability " .. tostring(abilityId)
@@ -454,24 +506,41 @@ function Rules.Equip(data, char, abilityId)
     if not Rules.IsLearned(char, abilityId) then
         return false, ab.Name .. " is not learned yet"
     end
-    char[ab.Type] = abilityId
-    return true, nil, ab.Type
-end
-
-function Rules.SlotName(slot)
-    local n = Util.Normalize(slot)
-    for _, s in ipairs(Rules.Slots) do
-        if Util.Normalize(s) == n then
-            return s
+    if slot ~= nil then
+        local s = Rules.SlotName(slot)
+        if not s then
+            return false, "Unknown slot " .. tostring(slot) .. " (reaction, 1 or 2)"
+        end
+        if not Rules.SlotTypes[s][ab.Type] then
+            return false, string.format("%s is a %s ability: it does not go in the %s slot", ab.Name,
+                string.lower(ab.Type), Rules.SlotLabels[s])
+        end
+        slot = s
+    else
+        for _, s in ipairs(Rules.Slots) do
+            if Rules.SlotTypes[s][ab.Type] and (char[s] == nil or char[s] == abilityId) then
+                slot = s
+                break
+            end
+        end
+        if not slot and ab.Type == "Reaction" then
+            slot = "Reaction"
+        elseif not slot then
+            return false, "Both passive slots are full: unequip one first or name the slot to replace (1 or 2)"
         end
     end
-    return nil
+    local current = Rules.SlotOf(char, abilityId)
+    if current and current ~= slot then
+        char[current] = nil
+    end
+    char[slot] = abilityId
+    return true, nil, slot
 end
 
 function Rules.Unequip(char, slot)
     local s = Rules.SlotName(slot)
     if not s then
-        return false, "Unknown slot " .. tostring(slot) .. " (reaction, support or movement)"
+        return false, "Unknown slot " .. tostring(slot) .. " (reaction, 1 or 2)"
     end
     char[s] = nil
     return true, nil, s
@@ -500,7 +569,7 @@ function Rules.ActivePassives(data, char, cfg)
     local out, seen = {}, {}
     for _, slot in ipairs(Rules.Slots) do
         local ab = char[slot] and data.Abilities[char[slot]]
-        if ab and ab.Type == slot and Rules.IsLearned(char, ab.Id) then
+        if ab and Rules.SlotTypes[slot][ab.Type] and Rules.IsLearned(char, ab.Id) and not seen[ab.Id] then
             out[#out + 1] = ab.Id
             seen[ab.Id] = true
         end
