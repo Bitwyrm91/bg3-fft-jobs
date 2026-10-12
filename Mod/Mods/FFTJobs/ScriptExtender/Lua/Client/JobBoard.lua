@@ -20,40 +20,42 @@ local GRID_COLUMNS = 4
 local WRAP = 760 -- px: long texts wrap here instead of running off the window
 local TIP_WRAP = 460
 
--- Colours (RGBA 0..1). Tiles: mastered gold, your job bright azure, unlocked teal, locked slate, not built yet dark.
+-- Colours (RGBA 0..1). The game draws IMGUI colours much brighter than the values (user's screenshot of 1.0.0.9:
+-- 0.66/0.50/0.14 came out bright yellow), so these are set darker than they look.
+-- Tiles: mastered gold, your job blue, unlocked teal, locked slate, not built yet near black.
 local TILE = {
-    Mastered = { 0.66, 0.50, 0.14, 1 },
-    Job = { 0.22, 0.47, 0.88, 1 },
-    Unlocked = { 0.15, 0.44, 0.36, 1 },
-    Locked = { 0.27, 0.29, 0.36, 1 },
-    Soon = { 0.10, 0.11, 0.17, 1 },
+    Mastered = { 0.36, 0.26, 0.05, 1 },
+    Job = { 0.09, 0.20, 0.44, 1 },
+    Unlocked = { 0.05, 0.20, 0.15, 1 },
+    Locked = { 0.13, 0.14, 0.18, 1 },
+    Soon = { 0.04, 0.04, 0.07, 1 },
 }
 local TEXT = {
-    Good = { 0.55, 0.88, 0.55, 1 },
-    Note = { 0.95, 0.82, 0.45, 1 },
-    Dim = { 0.62, 0.64, 0.72, 1 },
-    Bad = { 0.95, 0.55, 0.50, 1 },
-    Gold = { 0.93, 0.80, 0.45, 1 },
+    Good = { 0.40, 0.72, 0.40, 1 },
+    Note = { 0.78, 0.62, 0.26, 1 },
+    Dim = { 0.50, 0.52, 0.60, 1 },
+    Bad = { 0.80, 0.38, 0.33, 1 },
+    Gold = { 0.74, 0.58, 0.24, 1 },
 }
 -- FFT's menus: deep blue panels, gold trim, white text. Set on the window, so every widget inside inherits it.
 local THEME = {
-    WindowBg = { 0.05, 0.08, 0.20, 0.97 },
-    TitleBg = { 0.09, 0.14, 0.36, 1 },
-    TitleBgActive = { 0.11, 0.18, 0.45, 1 },
-    TitleBgCollapsed = { 0.09, 0.14, 0.36, 1 },
-    Border = { 0.80, 0.67, 0.33, 1 },
-    Separator = { 0.80, 0.67, 0.33, 0.85 },
-    Header = { 0.13, 0.21, 0.50, 1 },
-    HeaderHovered = { 0.19, 0.29, 0.62, 1 },
-    HeaderActive = { 0.24, 0.35, 0.70, 1 },
-    TableHeaderBg = { 0.11, 0.18, 0.44, 1 },
-    TableRowBgAlt = { 0.07, 0.11, 0.26, 1 },
-    Button = { 0.15, 0.24, 0.54, 1 },
-    ButtonHovered = { 0.23, 0.34, 0.68, 1 },
-    ButtonActive = { 0.29, 0.41, 0.78, 1 },
-    FrameBg = { 0.03, 0.05, 0.13, 1 },
-    PlotHistogram = { 0.84, 0.69, 0.30, 1 },
-    Text = { 0.96, 0.95, 0.90, 1 },
+    WindowBg = { 0.015, 0.03, 0.09, 0.97 },
+    TitleBg = { 0.04, 0.07, 0.20, 1 },
+    TitleBgActive = { 0.05, 0.09, 0.25, 1 },
+    TitleBgCollapsed = { 0.04, 0.07, 0.20, 1 },
+    Border = { 0.60, 0.46, 0.18, 1 },
+    Separator = { 0.60, 0.46, 0.18, 0.85 },
+    Header = { 0.05, 0.09, 0.24, 1 },
+    HeaderHovered = { 0.08, 0.13, 0.33, 1 },
+    HeaderActive = { 0.10, 0.16, 0.40, 1 },
+    TableHeaderBg = { 0.04, 0.08, 0.21, 1 },
+    TableRowBgAlt = { 0.03, 0.05, 0.13, 1 },
+    Button = { 0.06, 0.11, 0.29, 1 },
+    ButtonHovered = { 0.10, 0.17, 0.40, 1 },
+    ButtonActive = { 0.13, 0.21, 0.48, 1 },
+    FrameBg = { 0.02, 0.03, 0.08, 1 },
+    PlotHistogram = { 0.60, 0.46, 0.15, 1 },
+    Text = { 0.92, 0.90, 0.84, 1 },
 }
 
 function JobBoard.New(imgui, request, log)
@@ -152,8 +154,8 @@ end
 
 local function tint(b, color)
     style(b, "Button", color)
-    style(b, "ButtonHovered", { color[1] + 0.12, color[2] + 0.12, color[3] + 0.12, 1 })
-    style(b, "ButtonActive", { color[1] + 0.2, color[2] + 0.2, color[3] + 0.2, 1 })
+    style(b, "ButtonHovered", { color[1] * 1.4 + 0.03, color[2] * 1.4 + 0.03, color[3] * 1.4 + 0.03, 1 })
+    style(b, "ButtonActive", { color[1] * 1.7 + 0.05, color[2] * 1.7 + 0.05, color[3] * 1.7 + 0.05, 1 })
 end
 
 -- IMGUI opens a tooltip just right of the mouse position, sized for a small cursor; BG3's large cursor then covers
@@ -334,15 +336,13 @@ function JobBoard:RenderGrid(root, c)
         local lines = tileTooltip(j)
         -- the job's emblem as a picture button, dimmed while the job is locked or not built yet
         local img
-        if j.Emblem then
-            local ok, w = pcall(function()
-                return cell:AddImageButton("##emblem" .. j.Id, j.Emblem, { 44, 44 })
-            end)
-            img = ok and w or nil
-        end
+        local ok, w = pcall(function()
+            return cell:AddImageButton("##emblem" .. j.Id, j.Emblem or "FFTJ_Icon_JobBoard", { 44, 44 })
+        end)
+        img = ok and w or nil
         if img then
             img.OnClick = select
-            if not j.Unlocked then
+            if not j.Unlocked or not j.Emblem then
                 pcall(function()
                     img.Tint = j.Built and { 0.55, 0.55, 0.6, 1 } or { 0.3, 0.3, 0.34, 1 }
                 end)

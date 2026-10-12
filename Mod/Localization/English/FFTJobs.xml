@@ -70,6 +70,8 @@
   <content contentuid="hf06e8b2dg38e8g54bfgabbdg82f6eab3dc45" version="1">Disbelief</content>
   <content contentuid="h56a8cd99g58c9g52cbga38eg78f3b1bc3fe4" version="1">Unarmed strike at a pressure point: on a hit, the creature makes a Constitution save (your Strength/Dexterity DC) or is Doomed, and dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
   <content contentuid="h6ac7d984g29b1g5662gb29fg6c846f9e6147" version="1">Doom Fist</content>
+  <content contentuid="h8e7fed3ege96eg5d37gbd09g4cd7fde69efb" version="1">When a weapon attack damages you, you gain Death Ward (the next blow that would drop you to 0 HP leaves you at 1 instead; FFT gives Reraise). Once per long rest.</content>
+  <content contentuid="h2ac33475g2b71g59eagb4f7gfe1128366c69" version="1">Dragonheart</content>
   <content contentuid="h80d37df8g55bfg572aga785gee17068f477e" version="1">End Silenced. Thrown like Potion.</content>
   <content contentuid="h85374d3ag6f46g5fabgb13cg8a809600d880" version="1">Echo Herbs</content>
   <content contentuid="h98ed3d3fgbd55g52a0gaafbg498b0b700d0c" version="1">Fully heal the target and restore one level 2 spell slot. Once per long rest. Thrown like Potion.</content>
@@ -82,6 +84,8 @@
   <content contentuid="h3e1b7458g1aa8g5a13g9e7bg09cc2f77e502" version="1">Equip Crossbows</content>
   <content contentuid="hef1bbb9eg3e9bg575fg8de6gb7124705f6c5" version="1">Proficiency with medium and heavy armour.</content>
   <content contentuid="h11bbd2a8g7ff0g5d07g8118g63514886b481" version="1">Equip Heavy Armor</content>
+  <content contentuid="hd91f8d14ga5d9g50f9gbc5bgda388cbd1f6d" version="1">Proficiency with spears, pikes, glaives, halberds and tridents, whatever your job.</content>
+  <content contentuid="h4f2e2193g883eg5214gb2e2g2dc0eeae660a" version="1">Equip Polearms</content>
   <content contentuid="h090b1667g6448g50ccga605gb245c0dea7d6" version="1">Proficiency with shields.</content>
   <content contentuid="hf3f5cb32g99e6g5ea8g8112g62ccae7685d5" version="1">Equip Shields</content>
   <content contentuid="hb9abcb3ag64ecg5939gbb78g4d1b6de2af9b" version="1">Proficiency with shortswords, longswords and greatswords.</content>
@@ -128,6 +132,18 @@
   <content contentuid="h2ad845aagbab5g53c1g879agf09cac09e3e1" version="1">Hi-Potion</content>
   <content contentuid="hfee7f9c5gc881g5f89g99b8g191fd3ea6c1a" version="1">4d10 radiant damage to a creature within 18 m, no attack roll. Once per short rest.</content>
   <content contentuid="hcd4a57f2g1325g55f4gbb3dg51702d8ba86c" version="1">Holy</content>
+  <content contentuid="h0bd76b65g960eg596aga5a0g6293ccf08315" version="1">Jump: leap up to 6 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
+  <content contentuid="hb49829dcg8676g5877g9b53gf5492595bb77" version="1">Horizontal Jump +1</content>
+  <content contentuid="hbed1861dgd83ag58adga765g27290d55e0e8" version="1">Jump: leap up to 7.5 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
+  <content contentuid="h42f675fbgfb58g524ega5a0g692c3f193662" version="1">Horizontal Jump +2</content>
+  <content contentuid="h6642cf21ge8eag5a58gb5ebgfe4bda96dfa2" version="1">Jump: leap up to 9 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
+  <content contentuid="h26a0466eg27b2g5994g8226gb903b7edee09" version="1">Horizontal Jump +3</content>
+  <content contentuid="hc75bbc9eg9483g5a7bg9a32g348043716c80" version="1">Jump: leap up to 12 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
+  <content contentuid="h51dbb51fg8717g5c06g9754g4dd091bff8dc" version="1">Horizontal Jump +4</content>
+  <content contentuid="h1c571433g80adg5c31gb52dg629c6dc43208" version="1">Jump: leap up to 18 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
+  <content contentuid="h1c9e8fc9g8e8eg5e47g9c2cgb2d0e6cc2dd8" version="1">Horizontal Jump +7</content>
+  <content contentuid="hca2f7e6cg8ef2g5adag9ceegc426c4da007a" version="1">Jump 6 m farther and take no falling damage.</content>
+  <content contentuid="h1b4c2335gc07dg5cebg87f7g3577b92b09f5" version="1">Ignore Elevation</content>
   <content contentuid="h8b3e5d32g7ebeg5963gbf6bg4a4f5a128663" version="1">You ignore difficult terrain (mud, water, ice, webs).</content>
   <content contentuid="h4bf6ddf6g6d26g538cga097g1abc011de6fb" version="1">Ignore Weather</content>
   <content contentuid="h69ef04b6gc8aag515fg9ab8g4c129fd2daf3" version="1">An enemy within 18 m makes a Strength save or can't move for 2 turns (it can still act; it repeats the save each turn).</content>
@@ -262,6 +278,20 @@
   <content contentuid="hf70fde6cg26adg5fe0g8793g963827b35256" version="1">Trepidation</content>
   <content contentuid="haff10204g21cbg56b1g8968g322da59c548d" version="1">A creature within 18 m makes a Constitution save or is Blinded for 2 turns (it repeats the save each turn).</content>
   <content contentuid="h896df1f0gdfd1g5d91g8ff7gd0cf27b397e9" version="1">Umbra</content>
+  <content contentuid="h88d6e99cgbf9bg5a4egae54g858f5b385fa6" version="1">Your Jump lands harder: 1d4 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
+  <content contentuid="h407332e6g5f27g539fg9d4dge0c59928dbcc" version="1">Vertical Jump ±2</content>
+  <content contentuid="h2916d30ag2751g5b8ag8cefg8403f017e4fb" version="1">Your Jump lands harder: 1d6 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
+  <content contentuid="h349d2d88gcf52g5a76gbe10gb88d543b9df2" version="1">Vertical Jump ±3</content>
+  <content contentuid="h4a674bbag5f93g5224g98d0g762d00818f1f" version="1">Your Jump lands harder: 1d8 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
+  <content contentuid="h7e6a1813g7f54g5378g83a1gbff368f06648" version="1">Vertical Jump ±4</content>
+  <content contentuid="h5303c57bga64dg5ffdg9c33g3ee4a720b5c2" version="1">Your Jump lands harder: 1d10 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
+  <content contentuid="hc867ebaag096dg5cfdga034gc3c9d59415a2" version="1">Vertical Jump ±5</content>
+  <content contentuid="h51613c9agf9c1g53a5g9a34ge00f001f0a86" version="1">Your Jump lands harder: 2d6 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
+  <content contentuid="h372c9cb9g05aag56c9g8f48g75ab0415ce79" version="1">Vertical Jump ±6</content>
+  <content contentuid="h2f5fbdedg6038g5581g8bf0gfdf64245fc25" version="1">Your Jump lands harder: 2d8 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
+  <content contentuid="h1ef73830gbb4eg5e24ga54agc3e252fe433a" version="1">Vertical Jump ±7</content>
+  <content contentuid="hbee16707ge555g5173ga238gd860d6287a25" version="1">Your Jump lands harder: 2d10 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
+  <content contentuid="h32a9a769g9a8eg5b0dg96c0g02c3283621bd" version="1">Vertical Jump ±8</content>
   <content contentuid="h6e493f4ag4c73g5a68g85a2g6ab47c8f9b8f" version="1">When a weapon attack damages you, you take the Defending stance: +2 AC until your next turn. Once per turn.</content>
   <content contentuid="h91769c6dg98b2g53dbg9434geb130914f2ed" version="1">Vigilance</content>
   <content contentuid="h554f4f19g0c0fg5edega867gd1109de5f992" version="1">Heal 8d4+8. Once per long rest. Thrown like Potion.</content>
@@ -278,6 +308,10 @@
   <content contentuid="ha0878788g1539g50aaga105g9011b9bad5f0" version="1">Chemist Mastery</content>
   <content contentuid="h32930831g3939g523ega2b3gb066b895d542" version="1">Item expert. Starting job. Throws items when it is the primary job. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h5a0e3fd8g4f51g51d1ga5f4g78bd01d0edcb" version="1">Job: Chemist</content>
+  <content contentuid="he588a050g93a9g5344ga4d0g182e16af033a" version="1">Jump 3 m farther. Earned by mastering Dragoon; kept after changing jobs.</content>
+  <content contentuid="h0e9db50ega9bfg5c6fgb895gd11d0d98189a" version="1">Dragoon Mastery</content>
+  <content contentuid="h3d0ed583g1caeg5f41gac3egbe1cb3b48be5" version="1">Leaps on enemies with a polearm: Jump's reach and landing power grow with Horizontal and Vertical Jump. Equipment: spears, pikes, glaives, halberds, tridents, shields, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="habfde28ega5b4g50c8g9054gd515a04e37ac" version="1">Job: Dragoon</content>
   <content contentuid="he46e1c0eg203ag5d11gbe49g52cb0b7d9e57" version="1">+1 to Constitution saving throws. Earned by mastering Knight; kept after changing jobs.</content>
   <content contentuid="hc4543261gc46fg5ff9ga03eg10c496d2e1f3" version="1">Knight Mastery</content>
   <content contentuid="ha5976045gcbf7g5ef6g88feg9ba15413337c" version="1">Breaks the enemy's armor, weapon, speed and power. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

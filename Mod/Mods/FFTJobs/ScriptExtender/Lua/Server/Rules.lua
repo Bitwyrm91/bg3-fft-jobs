@@ -605,6 +605,10 @@ local function condMatches(data, char, cond, active)
     if cond.PrimaryJob and char.Primary == cond.PrimaryJob then
         return true
     end
+    -- another ability learned, e.g. a better Jump tier: FFT applies only the highest one
+    if cond.Learned and Rules.IsLearned(char, cond.Learned) then
+        return true
+    end
     if cond.EquippedEffect and activeEffect(data, active, cond.EquippedEffect) then
         return true
     end

@@ -15,6 +15,13 @@
     ]
   },
   {
+    "id": "Action_Monster_Minotaur_Jump",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_VerticalJump2"
+    ]
+  },
+  {
     "id": "PassiveFeature_FightingStyle_Archery",
     "kind": "icon",
     "usedBy": [
@@ -27,6 +34,13 @@
     "usedBy": [
       "FFTJ_DefenseBoost",
       "FFTJ_Vigilance"
+    ]
+  },
+  {
+    "id": "PassiveFeature_FightingStyle_GreatWeaponFighting",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_EquipPolearms"
     ]
   },
   {
@@ -59,6 +73,7 @@
     "id": "PassiveFeature_RemarkableAthlete_Jump",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_IgnoreElevation",
       "FFTJ_Jump2"
     ]
   },
@@ -75,6 +90,13 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_CriticalRecoverHP"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_DeathWard",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Dragonheart"
     ]
   },
   {
@@ -222,6 +244,13 @@
     ]
   },
   {
+    "id": "DEATH_WARD",
+    "kind": "status",
+    "usedBy": [
+      "FFTJ_Dragonheart"
+    ]
+  },
+  {
     "id": "FREEDOM_OF_MOVEMENT",
     "kind": "status",
     "usedBy": [
@@ -288,6 +317,7 @@
     "id": "PRONE",
     "kind": "status",
     "usedBy": [
+      "Projectile_FFTJ_JumpLanding",
       "Zone_FFTJ_Shockwave"
     ]
   },
@@ -499,6 +529,20 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Projectile_FFTJ_Blizzara"
+    ]
+  },
+  {
+    "id": "Projectile_Jump_Knockdown_AOE",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_JumpLanding"
+    ]
+  },
+  {
+    "id": "Projectile_MAG_Barbarian_BrutalLeap",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_Jump1"
     ]
   },
   {

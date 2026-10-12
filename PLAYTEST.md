@@ -1,6 +1,11 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.9**: a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.10**: the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.10: Dragoon, softer Job Board colours
+
+- **Dragoon** (phase 2 batch 2, first job; unlock: Thief Lv4). **Horizontal Jump** gives a **Jump** spell (your choice: leap and strike now): leap to a spot up to 6 m away (7.5 / 9 / 12 / 18 m with the higher tiers; only your best tier shows) and land on the enemies around it: weapon damage and prone unless they pass a Dexterity save. **Vertical Jump** tiers add landing damage (+1d4 up to +2d10; only the best counts). **Dragonheart** gives Death Ward when a weapon hits you (once per long rest), **Equip Polearms**, **Ignore Elevation** (jump 6 m farther, no falling damage). Mastery: jump 3 m farther. Jump abilities work while Dragoon is your job or secondary.
+- **Job Board colours** toned down: the game draws them much brighter than set, so gold tiles came out bright yellow with unreadable labels. Mime's tile shows the Job Board picture until its emblem is painted.
 
 ## New in 1.0.0.9: Job Board colours and job emblems
 

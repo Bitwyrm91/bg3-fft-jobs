@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.9"
+MOD_VERSION = "1.0.0.10"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -136,7 +136,9 @@ def validate(jobs_doc, config_doc, strings_doc):
                         errors.append(f"ability {a['id']}: variant condition on unknown job {val}")
                     elif key == "equippedEffect" and not any(x.get("effect") == val for x in jobs_doc["abilities"]):
                         errors.append(f"ability {a['id']}: variant condition on unknown effect {val}")
-                    elif key not in ("primaryJob", "equippedEffect", "equipped"):
+                    elif key == "learned" and val not in ab_ids:
+                        errors.append(f"ability {a['id']}: variant condition on unknown ability {val}")
+                    elif key not in ("primaryJob", "equippedEffect", "equipped", "learned"):
                         errors.append(f"ability {a['id']}: unknown variant condition {key}")
     defaults = config_doc["defaults"]
     for jid in defaults["Rules"]["StartingUnlocked"]:

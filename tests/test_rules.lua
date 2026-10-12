@@ -138,7 +138,7 @@ function S.shared_learning_targets(w, T)
     local Rules, Data = setup()
     local cfg = T.cfg({ JP = { Shared = { Share = 0.15 } } })
     local char = Rules.NewChar(Data, cfg, "Squire")
-    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage,Monk,Thief,TimeMage,Mystic",
+    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage,Monk,Thief,TimeMage,Mystic,Dragoon",
         "every other implemented job, locked ones included")
     local fight = T.cfg({ JP = { Shared = { Share = 0.15, Scope = "FightJobs" } } })
     T.eq(table.concat(Rules.SharedTargets(Data, fight, char, "Squire", { Squire = true, Knight = true }), ","), "Knight",
@@ -328,6 +328,27 @@ function S.normalize_fills_old_saves(w, T)
     T.eq(char.Stats.Actions, 0)
     T.eq(type(char.SinceRest.JP), "table")
     T.eq(type(char.Badges), "table")
+end
+
+function S.only_the_best_jump_tier_is_granted(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    char.Unlocked.Dragoon = true
+    char.Primary = "Dragoon"
+    Rules.AddJP(Data, cfg, char, "Dragoon", 9000)
+    T.truthy(Rules.Learn(Data, char, "HorizontalJump1"))
+    T.truthy(Rules.Learn(Data, char, "VerticalJump2"))
+    local d = Rules.DesiredGrants(Data, char, cfg)
+    T.truthy(d.Spells.Projectile_FFTJ_Jump1)
+    T.truthy(d.Passives.FFTJ_VerticalJump2)
+    T.truthy(Rules.Learn(Data, char, "HorizontalJump3"))
+    T.truthy(Rules.Learn(Data, char, "VerticalJump5"))
+    d = Rules.DesiredGrants(Data, char, cfg)
+    T.falsy(d.Spells.Projectile_FFTJ_Jump1, "a better Horizontal Jump replaces it")
+    T.truthy(d.Spells.Projectile_FFTJ_Jump3)
+    T.falsy(d.Passives.FFTJ_VerticalJump2)
+    T.truthy(d.Passives.FFTJ_VerticalJump5, "only the highest Vertical Jump counts, as in FFT")
 end
 
 function S.slot_names_from_text(w, T)
