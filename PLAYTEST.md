@@ -1,6 +1,6 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.4: **every ability has its own painted icon**, plus the **JP Training** test spell below, the ability status on the Job Board and a fuller log) and its entry at the end of your load order.
+Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.6**: the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
 
 **First games (2026-10-12):** the mod loaded, found your party, and JP Training, learning on the Job Board and the granted skills all worked. The "missing" Squire skills were on the hotbar all along, but wore borrowed vanilla icons (Focus looked exactly like the Job Board). Since 1.0.0.4 every ability, job and buff has its own icon, with a background colour per job: Squire amber, Chemist green, Knight blue, Archer forest green, White Mage pale gold, Black Mage indigo.
 
