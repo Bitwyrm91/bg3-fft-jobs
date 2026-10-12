@@ -89,6 +89,7 @@ function View.Char(svc, guid)
             Missing = not unlocked and Rules.MissingText(data, cfg, char, jobId) or nil,
             IsPrimary = char.Primary == jobId, IsSecondary = char.Secondary == jobId,
             Description = job.Description,
+            Emblem = job.Emblem,
         }
         if job.Implemented then
             local js = char.Jobs[jobId] or {}

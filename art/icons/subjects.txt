@@ -3,7 +3,9 @@
 # FFTJ_Icon_<key> when that picture exists: <key> = the ability id from data\fft_jobs.json (its spells, passives and the
 # statuses they apply), Job_<JobId> for the job marker passives, JobBoard, JPTraining.
 # Background colour per job, so a skill's job shows at a glance: Squire amber, Chemist mossy green, Knight royal blue,
-# Archer forest green, White Mage pale gold, Black Mage deep indigo.
+# Archer forest green, White Mage pale gold, Black Mage deep indigo; phase 2 emblems: Monk saffron, Thief teal, Time
+# Mage lavender, Mystic magenta, Geomancer olive, Dragoon crimson, Summoner turquoise, Orator burgundy, Samurai
+# vermilion, Ninja slate, Arithmetician copper, Bard rose, Dancer coral, Mime pearl grey.
 # Write what should be in the picture: the model ignores "no ..." and draws app tiles when told "icon", "frame", "border".
 # Optional extra fields: a badge drawn on the picture (the Aim tiers get their number: four archers look alike at 64 px),
 # and seed=N when the kept picture came from another seed than the default 11.
@@ -16,6 +18,20 @@ Job_Knight|a polished silver knight's helmet with a blue plume in front of a kit
 Job_Archer|a longbow crossed with a quiver of fletched arrows, golden leaves, forest green background
 Job_WhiteMage|a white hooded robe with red triangle trim beside a golden healing staff glowing with soft light, pale gold background
 Job_BlackMage|a wide-brimmed pointed straw wizard hat over a dark shadowed face with two glowing yellow eyes, deep indigo background
+Job_Monk|a pair of cloth-wrapped martial arts fists clenched in front of a bronze temple bell, saffron orange background
+Job_Thief|a dark hooded thief's half mask resting on a curved dagger beside a small leather purse spilling gold coins, dusky teal background
+Job_TimeMage|an ornate golden hourglass wrapped in floating clock hands and starlight, lavender purple background
+Job_Mystic|a crystal orb glowing with a swirling violet eye, cradled in hands draped with beads and charms, deep magenta background
+Job_Geomancer|a stone-bladed axe planted in mossy rock with a swirl of wind, water and leaves around it, olive earth background
+Job_Dragoon|a dragon-crested steel helmet above a long lance pointing upward with a flutter of red pennant, crimson red background
+Job_Summoner|a horned summoner's staff with a glowing summoning circle and the silhouette of a great dragon spirit rising, turquoise background
+Job_Orator|an unrolled scroll with a gilded quill and a ribbon seal, a speaker's pointing hand above it, burgundy background
+Job_Samurai|a sheathed katana with a red silk cord in front of a single cherry blossom branch, vermilion background
+Job_Ninja|a black ninja blade crossed with two throwing stars under a crescent moon, dark slate background
+Job_Arithmetician|an open floating book with glowing numbers and geometric figures rising from its pages, copper bronze background
+Job_Bard|a golden harp with musical notes drifting from its strings, rose pink background
+Job_Dancer|two flowing silk ribbons swirling around a painted dancer's fan, coral background
+Job_Mime|a white theatrical half mask facing its own mirror reflection, pearl grey background
 
 Focus|an armoured gauntlet clenched into a fist glowing with golden inner energy and a rising aura, warm amber background
 Rush|a sword thrust lunging forward with golden speed lines and a burst of dust as the blow knocks an armoured enemy backward, warm amber background|seed=13

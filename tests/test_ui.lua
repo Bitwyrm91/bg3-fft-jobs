@@ -151,6 +151,20 @@ function S.view_shows_fell_seal_rules(w, T, Mocks)
     T.contains(texts(Mocks, win), "Coming in a later update. Unlock: Monk Lv4.")
 end
 
+function S.board_has_fft_colours_and_job_emblems(w, T, Mocks)
+    T.boot(w)
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local win = w.windows[1]
+    T.truthy(win.StyleColors and win.StyleColors.WindowBg, "the window gets FFT's blue")
+    local emblem = Mocks.FindWidgets(win, function(x)
+        return x.Kind == "ImageButton" and x.Label == "##emblemSquire"
+    end)[1]
+    T.truthy(emblem, "the Squire tile shows its emblem")
+    local tile = findButton(Mocks, win, "Squire Lv1##tileSquire")
+    T.truthy(tile.StyleColors and tile.StyleColors.Button, "tiles are coloured by state")
+    T.truthy(tile.SameLine, "the label sits next to the emblem")
+end
+
 function S.tooltips_start_clear_of_the_cursor(w, T, Mocks)
     T.boot(w)
     T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
@@ -187,7 +201,7 @@ function S.clicking_learn_and_equip(w, T, Mocks)
     learn.OnClick(learn)
     T.truthy(svc.State:Get(T.TAV).Jobs.Squire.Learned.CounterTackle)
     T.contains(texts(Mocks, win), "Tav learned Counter Tackle")
-    T.contains(texts(Mocks, win), "Learned: equip it")
+    T.contains(texts(Mocks, win), "Learned")
     T.contains(w.prints, "Job Board: Tav learned Counter Tackle", "board clicks are logged")
     local equip = findButton(Mocks, win, "Equip##equipCounterTackle")
     T.truthy(equip, "the row now offers Equip")

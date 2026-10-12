@@ -1,9 +1,10 @@
 -- The Job Board window (SE IMGUI, client side). It only displays the view the server sends and forwards
 -- button clicks as requests; all rules run on the server.
 -- Layout (the user's choice, 2026-10-12): the character, a grid of every FFT job as coloured tiles, and the
--- selected job's details and abilities below. Widget names from the SE's IMGUI objects (AddTable, AddIcon,
--- AddProgressBar, AddCollapsingHeader, SetStyleColor, TextWrapPos); styling calls are protected, so an SE
--- without one of them still shows the board.
+-- selected job's details and abilities below, in FFT's blue menu colours. Widget names from the SE's IMGUI objects
+-- (AddTable, AddIcon, AddImageButton, AddProgressBar, AddCollapsingHeader, TextWrapPos). Colours: SetColor in the
+-- installed SE v33 (seen in its DLL), SetStyleColor in newer ones; both are tried. Styling calls are protected, so an
+-- SE without one of them still shows the board.
 local Util = Ext.Require("Shared/Util.lua")
 
 local JobBoard = {}
@@ -19,19 +20,40 @@ local GRID_COLUMNS = 4
 local WRAP = 760 -- px: long texts wrap here instead of running off the window
 local TIP_WRAP = 460
 
--- Colours (RGBA 0..1). Tiles: mastered gold, the job blue, unlocked green, locked grey, not built yet dark.
+-- Colours (RGBA 0..1). Tiles: mastered gold, your job bright azure, unlocked teal, locked slate, not built yet dark.
 local TILE = {
-    Mastered = { 0.62, 0.47, 0.12, 1 },
-    Job = { 0.20, 0.38, 0.70, 1 },
-    Unlocked = { 0.18, 0.42, 0.22, 1 },
-    Locked = { 0.30, 0.30, 0.30, 1 },
-    Soon = { 0.13, 0.13, 0.13, 1 },
+    Mastered = { 0.66, 0.50, 0.14, 1 },
+    Job = { 0.22, 0.47, 0.88, 1 },
+    Unlocked = { 0.15, 0.44, 0.36, 1 },
+    Locked = { 0.27, 0.29, 0.36, 1 },
+    Soon = { 0.10, 0.11, 0.17, 1 },
 }
 local TEXT = {
     Good = { 0.55, 0.88, 0.55, 1 },
     Note = { 0.95, 0.82, 0.45, 1 },
-    Dim = { 0.62, 0.62, 0.62, 1 },
+    Dim = { 0.62, 0.64, 0.72, 1 },
     Bad = { 0.95, 0.55, 0.50, 1 },
+    Gold = { 0.93, 0.80, 0.45, 1 },
+}
+-- FFT's menus: deep blue panels, gold trim, white text. Set on the window, so every widget inside inherits it.
+local THEME = {
+    WindowBg = { 0.05, 0.08, 0.20, 0.97 },
+    TitleBg = { 0.09, 0.14, 0.36, 1 },
+    TitleBgActive = { 0.11, 0.18, 0.45, 1 },
+    TitleBgCollapsed = { 0.09, 0.14, 0.36, 1 },
+    Border = { 0.80, 0.67, 0.33, 1 },
+    Separator = { 0.80, 0.67, 0.33, 0.85 },
+    Header = { 0.13, 0.21, 0.50, 1 },
+    HeaderHovered = { 0.19, 0.29, 0.62, 1 },
+    HeaderActive = { 0.24, 0.35, 0.70, 1 },
+    TableHeaderBg = { 0.11, 0.18, 0.44, 1 },
+    TableRowBgAlt = { 0.07, 0.11, 0.26, 1 },
+    Button = { 0.15, 0.24, 0.54, 1 },
+    ButtonHovered = { 0.23, 0.34, 0.68, 1 },
+    ButtonActive = { 0.29, 0.41, 0.78, 1 },
+    FrameBg = { 0.03, 0.05, 0.13, 1 },
+    PlotHistogram = { 0.84, 0.69, 0.30, 1 },
+    Text = { 0.96, 0.95, 0.90, 1 },
 }
 
 function JobBoard.New(imgui, request, log)
@@ -52,8 +74,11 @@ function JobBoard:EnsureWindow()
         self.Window = self.IMGUI.NewWindow("FFT Job Board")
         self.Window.Closeable = true
         pcall(function()
-            self.Window:SetSize({ 980, 800 }, "FirstUseEver")
+            self.Window:SetSize({ 980, 820 }, "FirstUseEver")
         end)
+        for name, color in pairs(THEME) do
+            JobBoard.Style(self.Window, name, color)
+        end
     end
     return self.Window
 end
@@ -86,11 +111,17 @@ function JobBoard:Send(op, fields)
     end)
 end
 
-local function style(widget, kind, color)
-    pcall(function()
-        widget:SetStyleColor(kind, color)
-    end)
+-- SetColor (SE v33) or SetStyleColor (newer SE).
+function JobBoard.Style(widget, kind, color)
+    if not pcall(function()
+        widget:SetColor(kind, color)
+    end) then
+        pcall(function()
+            widget:SetStyleColor(kind, color)
+        end)
+    end
 end
+local style = JobBoard.Style
 
 local function wrap(widget, px)
     pcall(function()
@@ -213,9 +244,9 @@ local function abilityStatus(a)
         if a.Active then
             return "In your spells", TEXT.Good
         end
-        return "Learned: make the job your job or secondary", TEXT.Note
+        return "Learned", TEXT.Note
     elseif a.Learned then
-        return "Learned: equip it", TEXT.Note
+        return "Learned", TEXT.Note
     elseif a.CanLearn then
         return "Can learn", nil
     end
@@ -242,7 +273,7 @@ function JobBoard:RenderHeader(root, view, c)
     if not c then
         return
     end
-    root:AddSeparatorText(c.Name)
+    style(root:AddSeparatorText(c.Name), "Text", TEXT.Gold)
     text(root, string.format("%s, job level %d - %s JP to spend%s", c.Primary.Name, c.Primary.Level,
         Util.Num(c.Primary.Unspent), c.JPBoost and " (JP Boost on)" or ""))
     -- slots, each with a small clear button
@@ -283,12 +314,12 @@ function JobBoard:RenderHeader(root, view, c)
     text(help, "A job someone in the party unlocked shows for everyone, but each character needs its own job levels "
         .. "to learn from it or take it. Mastering a job (every ability learned) gives a small permanent perk.", nil,
         WRAP)
-    text(help, "Tiles: blue = your job, gold = mastered (*), green = unlocked, grey = locked, dark = coming in a later "
-        .. "update. Hover a tile or an ability for details.", nil, WRAP)
+    text(help, "Tiles: bright blue = your job, gold = mastered (*), teal = unlocked, grey = locked, dark = coming in a "
+        .. "later update. Hover a tile or an ability for details.", nil, WRAP)
 end
 
 function JobBoard:RenderGrid(root, c)
-    root:AddSeparatorText("Jobs")
+    style(root:AddSeparatorText("Jobs"), "Text", TEXT.Gold)
     local grid = root:AddTable("FFTJ_Grid", GRID_COLUMNS)
     local row
     for i, j in ipairs(c.Jobs) do
@@ -296,20 +327,40 @@ function JobBoard:RenderGrid(root, c)
             row = grid:AddRow()
         end
         local cell = row:AddCell()
-        local b = button(cell, tileLabel(j), "tile" .. j.Id, false, function()
+        local function select()
             self.SelectedJob = j.Id
             self:Render(self.View)
-        end)
-        tint(b, tileColor(j))
-        if j.Id == self.SelectedJob then
-            style(b, "Text", { 1, 0.92, 0.55, 1 })
         end
-        addTooltip(b, tileTooltip(j))
+        local lines = tileTooltip(j)
+        -- the job's emblem as a picture button, dimmed while the job is locked or not built yet
+        local img
+        if j.Emblem then
+            local ok, w = pcall(function()
+                return cell:AddImageButton("##emblem" .. j.Id, j.Emblem, { 44, 44 })
+            end)
+            img = ok and w or nil
+        end
+        if img then
+            img.OnClick = select
+            if not j.Unlocked then
+                pcall(function()
+                    img.Tint = j.Built and { 0.55, 0.55, 0.6, 1 } or { 0.3, 0.3, 0.34, 1 }
+                end)
+            end
+            addTooltip(img, lines)
+        end
+        local b = button(cell, tileLabel(j), "tile" .. j.Id, img ~= nil, select)
+        tint(b, tileColor(j))
+        if j.Id == (self.SelectedJob or c.Primary.Id) then
+            style(b, "Text", TEXT.Gold)
+            style(b, "Border", TEXT.Gold)
+        end
+        addTooltip(b, lines)
     end
 end
 
 function JobBoard:RenderJob(root, c, j)
-    root:AddSeparatorText(j.Name .. (j.Skillset ~= "" and (" - " .. j.Skillset) or ""))
+    style(root:AddSeparatorText(j.Name .. (j.Skillset ~= "" and (" - " .. j.Skillset) or "")), "Text", TEXT.Gold)
     if j.Description and j.Description ~= "" then
         text(root, j.Description, TEXT.Dim, WRAP)
     end
@@ -328,13 +379,20 @@ function JobBoard:RenderJob(root, c, j)
             status = status .. " - your secondary"
         end
         text(root, status)
-        pcall(function()
-            local bar = root:AddProgressBar()
-            bar.Value = j.Progress or 1
-            bar.Overlay = j.NextAt and string.format("Level %d at %s JP earned (%s now)", j.Level + 1,
-                Util.Num(j.NextAt), Util.Num(j.Earned)) or "Top level"
-            bar.Size = { 520, 0 }
-        end)
+        if j.NextAt then
+            pcall(function()
+                local bar = root:AddProgressBar()
+                bar.Value = j.Progress or 0
+                bar.Overlay = string.format("Level %d at %s JP earned (%s now)", j.Level + 1, Util.Num(j.NextAt),
+                    Util.Num(j.Earned))
+                bar.Size = { 520, 0 }
+                style(bar, "PlotHistogram", THEME.PlotHistogram)
+                style(bar, "FrameBg", THEME.FrameBg)
+                style(bar, "Text", { 1, 1, 1, 1 })
+            end)
+        else
+            text(root, "Top job level reached.", TEXT.Dim)
+        end
         if not j.IsPrimary then
             button(root, "Make job", "job" .. j.Id, false, function()
                 self:Send("SetPrimary", { Job = j.Id })

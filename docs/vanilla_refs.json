@@ -10,10 +10,7 @@
     "id": "Action_Monk_FlurryOfBlows",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Brawler",
       "FFTJ_Counter",
-      "FFTJ_Job_Monk",
-      "FFTJ_Mastery_Monk",
       "Interrupt_FFTJ_Counter"
     ]
   },
@@ -45,10 +42,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_IgnoreWeather",
-      "FFTJ_Job_Thief",
       "FFTJ_Lifefont",
       "FFTJ_Manafont",
-      "FFTJ_Mastery_Thief",
       "FFTJ_Movement2"
     ]
   },
@@ -109,14 +104,6 @@
     ]
   },
   {
-    "id": "Spell_Enchantment_Confusion",
-    "kind": "icon",
-    "usedBy": [
-      "FFTJ_Job_Mystic",
-      "FFTJ_Mastery_Mystic"
-    ]
-  },
-  {
     "id": "Spell_Enchantment_HoldMonster",
     "kind": "icon",
     "usedBy": [
@@ -141,8 +128,6 @@
     "id": "Spell_Transmutation_Haste",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Job_TimeMage",
-      "FFTJ_Mastery_TimeMage",
       "FFTJ_SWIFTSPELL",
       "FFTJ_Swiftspell"
     ]

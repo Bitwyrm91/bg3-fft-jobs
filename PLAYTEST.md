@@ -1,6 +1,14 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.8**: a new Job Board layout, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.9**: a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.9: Job Board colours and job emblems
+
+Your feedback on 1.0.0.8: better to use, but still plain; "Learned" rows were too wordy. Now:
+- **FFT's menu colours:** deep blue window, gold trim and headings. (1.0.0.8 asked for colours with a name your Script Extender version doesn't use, so none showed.)
+- **A painted emblem on every job tile** (19 of 20 jobs; the 13 new ones were painted on your GPU in the same storybook style; Mime's failed because the GPU ran out of memory and comes later). Locked and coming-soon jobs are dimmed. Tile colours: bright blue = your job, gold = mastered, teal = unlocked, grey = locked, dark = coming soon.
+- Learned abilities just say **Learned**; ones in use say "In your spells", "In passive 1" or "Always on".
+- The level bar is gold and only shows below the top level.
 
 ## New in 1.0.0.8: a friendlier Job Board
 

@@ -101,6 +101,11 @@ local function newWidget(kind, label)
         self.StyleColors = self.StyleColors or {}
         self.StyleColors[name] = color
     end
+    w.SetColor = w.SetStyleColor -- SE v33's name
+    function w:SetStyle(name, a, b)
+        self.StyleVars = self.StyleVars or {}
+        self.StyleVars[name] = { a, b }
+    end
     function w:SetStyleVar(name, a, b)
         self.StyleVars = self.StyleVars or {}
         self.StyleVars[name] = { a, b }
