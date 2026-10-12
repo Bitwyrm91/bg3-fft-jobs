@@ -1,12 +1,16 @@
 # Playtesting the FFT job system
 
-Draft written in the cloud before the mod ever ran in the game. Monday's local run installs it and fills in anything that changes.
+Updated 2026-10-12 after the local install. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.1) and its entry at the end of your load order. Checked at the main menu: the mod loads, its script starts without errors and all 100 of its spells, passives and statuses are in the game. **Nothing has been tried in an actual game yet**: that part is yours.
 
 ## What you need
 
-- BG3 with the **Script Extender** installed (Monday's run installs it).
-- **FFT Job System** active in BG3 Mod Manager.
-- Optional but useful: the Script Extender console. Monday's run turns it on (`"CreateConsole": true` in `ScriptExtenderSettings.json` next to the game's `bg3.exe`). A second window then opens next to the game; click into it and press **Enter** to type a command such as `!fft_help`.
+- Start BG3 as usual (Steam or the Larian launcher). The main menu should say "Script Extender v32 loaded" in the bottom left.
+- **FFT Job System** should show as active in BG3 Mod Manager. If you change your load order there, keep it in the list.
+- The Script Extender console opens as a second window next to the game (`"CreateConsole": true` in `ScriptExtenderSettings.json` in the game's `bin` folder). Click into it and press **Enter** to type a command such as `!fft_help`. Set `CreateConsole` to `false` there if the window bothers you.
+
+### If the mod (or any mod) suddenly stops loading
+
+BG3 has a crash check: while it loads mods it creates the folder `%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\ModCrashSanityCheck`, and deletes it once the **main menu** appears. If the game closes or crashes before that (even on the "Press any key" screen), the folder stays and the next start quietly drops every mod. Fix: with the game closed, delete that folder (BG3 Mod Manager also has a button for it), or run `tools\install.ps1` again, which removes it.
 
 ## Getting started
 
@@ -70,6 +74,16 @@ With the default (Classic) numbers, the simulator estimates that each party memb
 4. Any `[FFTJobs] ERROR` or `WARNING` lines in the console.
 5. If you can, attach `telemetry.jsonl` from the same folder as `config.json`. It records JP and XP per fight, which helps tune the numbers.
 
+## Changes made while installing (2026-10-12)
+
+- **Cura / Curaga** heal up to 3 / 4 allies you pick (BG3 has no area heal of that kind to build on), not everyone in a radius.
+- **Raise, Arise, Phoenix Down** work like BG3's Revivify (target a dead ally). Arise also heals 4d8.
+- **Elixir** heals to full HP.
+- **Shell** gives advantage on saving throws against spells (BG3's Magic Resistance boost).
+- **Protect / Shell** no longer need concentration.
+- Chemist **items** are not spells: Silence and Counterspell don't stop them.
+- Every JP cost and unlock rule was checked against the game data of your installed FFT: The Ivalice Chronicles (vanilla Enhanced, no mods). They all matched.
+
 ## Known gaps in this first version
 
 - Many abilities borrow the look of vanilla spells (Throw Stone flies like Fire Bolt, item abilities look like healing spells).
@@ -81,3 +95,9 @@ With the default (Classic) numbers, the simulator estimates that each party memb
 ## Removing the mod
 
 Type `!fft_uninstall` (it removes every spell and passive the jobs gave), save, then disable the mod in BG3 Mod Manager. `!fft_enable` turns it back on if you change your mind.
+
+To take it off the PC completely (game closed), run this in the project folder `C:\Users\berus\GameModding\projects\bg3-fft-jobs`: `powershell -ExecutionPolicy Bypass -File tools\uninstall.ps1`. Add `-RemoveScriptExtender` to also remove the Script Extender. Backups of your load order are in `%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\FFTJobs-backups`.
+
+## Rebuilding after a change (for later sessions)
+
+`tools\run_tests.ps1`, then `tools\package.ps1`, then `tools\install.ps1` (game closed; each with `powershell -ExecutionPolicy Bypass -File`).

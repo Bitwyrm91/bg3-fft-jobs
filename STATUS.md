@@ -2,7 +2,9 @@
 
 Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.md`.
 
-**Where the work is:** branch **`claude/game-modding-research-setup-qgn88h`** on GitHub (Bitwyrm91/bg3-fft-jobs). It is **not merged into `main`**: the cloud session only pushes to its own branch and did not open a pull request. Part B step 1: `git fetch origin`, then `git checkout main`, `git merge origin/claude/game-modding-research-setup-qgn88h`, and push.
+**Where the work is:** `main` (the cloud branch `claude/game-modding-research-setup-qgn88h` was merged on 2026-10-12).
+
+**State (2026-10-12, local run):** Part B is done up to the in-game playtest. Built, installed and enabled on the user's PC; at the main menu the mod loads, its client script runs without errors and all 100 stats entries are in the game. **Not seen in an actual game yet** (no save loaded, nothing cast): the server side, JP, the Job Board, every ability. Next: the user's playtest (`PLAYTEST.md`), then fix what they report, then the other 14 jobs.
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
 
@@ -51,6 +53,14 @@ Verified in the cloud:
 
 FFT: The Ivalice Chronicles is installed on the user's PC at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles` (user, 2026-10-10). The FFT numbers in `data/fft_jobs.json` come from guides that disagree in places, and the game settles them. Cloud sessions cannot see the PC, so this needs a local session, or screenshots the user sends to a cloud session. **Never commit game files or extracted data**: only the corrected numbers, with the source changed to "TIC in-game" or "TIC game data" plus the game version.
 
+**Result (2026-10-12, local run): every JP cost and every unlock rule already matched the game.** Read from the vanilla Enhanced nex tables (`Ability`: cost = `JpCost1 + 256 × JpCost2`; `GeneralJob`: `RequiredJobExp`, `RequiredJobIds`/`RequiredJobLevels`, keys 0-19 in the classic job order) with FF16Tools 1.13.3 (`C:\Users\berus\GameModding\tools\ff16tools-1.13.3`), from `data\enhanced\0004.pac` and `0004.en.pac` only, extracted to `C:\Users\berus\GameModding\decomp\fft\enhanced` (no modded pack, no `Reloaded\Mods`, FFT never launched, the mod setup untouched). `tools/check_fft_data.py <sqlite> [--apply]` repeats the check and tagged every entry with the source `tic_game_data`. Details:
+- all 71 abilities + 17 left-out abilities: 0 differences (the guide values in the list below were already the game's);
+- unlock tree for all 20 jobs: 0 differences;
+- job level thresholds: the game table is `[0, 100, 200, 400, 700, 1100, 1600, 2200, 3000]` (index = job level), so Lv2..Lv8 = ours; it also has Lv1 = 100, which the mod does not use;
+- spillover: the game's own guide text (`GuidePage` 3006) says every other ally on the field earns a quarter of the JP in the acting unit's job; it does not say whether that includes locked jobs;
+- **not found in the tables** (they live in the game's code): the JP-per-action constant (8 or 16), the Enhanced +30% and the JP Boost multiplier. Still unverified; checking them needs the in-game method below or reverse engineering `FFT_enhanced.exe`.
+- Side effect, fixed: FF16Tools' `list-files` writes `<pack>_files.txt` next to the pack, i.e. into the game's `data\enhanced` folder. The 7 lists were moved out to `decomp\fft\filelists`; use `unpack-all -o` instead.
+
 To check (value used now, with other values seen in guides in brackets):
 - **Squire:** Focus 300 (400) · Rush 80 (200) · Throw Stone 90 (10/100) · Salve 150 (50/250) · Counter Tackle 180 (200).
 - **Chemist:** Hi-Potion 200 (150) · Ether 300 (200) · Remedy 700 (300) · Phoenix Down 90 (200/300) · Treasure Hunter 100 (200).
@@ -74,20 +84,28 @@ How:
 
 ## Part B checklist (local run on the user's PC)
 
-1. [ ] Pull and merge the branch into `main` (see above). A checkout made before `.gitattributes` existed still has CRLF files; refresh it once, but only when there are no local changes: `git rm -r --cached -q .` then `git reset --hard`. Run `powershell -ExecutionPolicy Bypass -File tools\run_tests.ps1` and expect 86 passed.
-2. [ ] The Ivalice Chronicles is installed at `C:\Games\FINAL FANTASY TACTICS - The Ivalice Chronicles`: check the FFT numbers in the section above with every FFT mod excluded (see there), and update `data/fft_jobs.json` (numbers and sources only, no game files). Record what changed here.
-3. [ ] Extract the vanilla data with LSLib: `Divine.exe -g bg3 -a extract-package -s "<BG3>\Data\Shared.pak" -d C:\Users\berus\GameModding\decomp\bg3\Shared`, then the same for `Gustav.pak` and the icon/GUI paks. Check the action names with `Divine.exe --help`.
-4. [ ] Run `python tools\validate_vanilla.py C:\Users\berus\GameModding\decomp\bg3`. It checks every vanilla ID (`docs/vanilla_refs.json`), every `data` key against `Modifiers.txt`, name clashes and icons. Fix `stats_src/*.txt` (follow the `// VALIDATE` notes and compare with the vanilla entries), then run `python tools\build.py`. Repeat the validator and the tests until both are clean. Record what changed here.
-5. [ ] Check unverified items 1-3 against the extracted data:
-   - copy Revivify's own SpellProperties into `Target_FFTJ_Arise` and add the heal;
-   - drop `IsConcentration` from the Protect/Shell flags;
-   - pick better visual parents where an obvious one exists.
-6. [ ] Convert the strings: `Divine.exe -g bg3 -a convert-loca -s Mod\Localization\English\FFTJobs.xml -d Mod\Localization\English\FFTJobs.loca` (check the action name), and keep the `.loca` in the package.
-7. [ ] Package: `Divine.exe -g bg3 -a create-package -s Mod -d build\FFTJobs.pak` (check the flags; `build/` is git-ignored).
-8. [ ] Install the Script Extender (official Norbyte/bg3se release) and the pak. Enable the pak in `modsettings.lsx` (back it up first; follow the load-order field note) and write `uninstall.ps1`. Create `ScriptExtenderSettings.json` next to `bg3.exe` with `{"CreateConsole": true, "LogRuntime": true}`.
-9. [ ] Smoke test to the main menu only (do not play). In the SE console/log, look for `[FFTJobs]` lines and check there are no Lua errors and no stats errors for `FFTJ_` entries. The server side only loads with a game session, so at the main menu expect only the client side.
-10. [ ] Finish `PLAYTEST.md` (install details, anything that changed) and this file (done / not done / unverified).
-11. [ ] Update the memory files and send the final message, as `BRIEF.md` Part B says.
+Done in one local run on 2026-10-12 (Opus 5.5; weekly usage 3% → about 8%; no continuation runs were needed or created).
+
+1. [x] Merged the cloud branch into `main` and pushed. The clone had no CRLF files after the merge, so no refresh was needed. `tools\run_tests.ps1`: 86 passed, build check and simulator self-test OK (also after every change below).
+2. [x] FFT data: see "Result" above. Nothing changed but the source tags.
+3. [x] Extracted with LSLib Divine 1.20.4 (still the latest release) from Shared, Gustav, GustavX, Patch8_HotFix9, Patch8_HotFix10: only `Stats/Generated`, GUI `.lsx` atlases and meta files (`-x <regex> --use-regex`), to `C:\Users\berus\GameModding\decomp\bg3`. The game is v4.76.31.656 (launcher 4.1.1.7631656).
+4. [x] `validate_vanilla.py`: 6 problems at first, now `OK: 26 vanilla references and 100 entries checked`. Fixed:
+   - `Target_MassCureWounds` does not exist: Cura/Curaga use `Target_CureWounds_Mass`, which picks up to N allies (`AmountOfTargets` 3/4). No Target-type area heal exists in vanilla, so the descriptions now say "up to 3/4 allies".
+   - `Target_Revivify` does not exist: vanilla Revivify is `Teleportation_Revivify` (SpellType Teleportation, revives through `OriginSpellProperties` inherited from `Teleportation_Resurrection`). Raise, Arise, Phoenix Down (+ `_Throw`) were renamed `Teleportation_FFTJ_*` (grants in `data/fft_jobs.json` updated); Arise copies the parent's `OriginSpellProperties` and adds `RegainHitPoints(4d8)` after the revive.
+   - Icons: `PassiveFeature_Alert/Athlete/Lucky/Mobile` do not exist; now `PassiveFeature_Observant_Bonuses`, `PassiveFeature_RemarkableAthlete_Jump`, `PassiveFeature_Lucky_RollAdditionalDie`, `PassiveFeature_Mobile_DashAcrossDifficultTerrain`.
+   - A new check (run inline, not yet a script): every functor/boost name in our stats (27) occurs in vanilla stats, and every value we use for Cooldown, SpellType, StatusType, TickType, SpellFlags, StatusPropertyFlags, StackType etc. occurs in vanilla. Argument forms compared by hand: `Force(2)`, `RestoreResource(SpellSlot,1,n)`, `ActionResource(Movement,-3,0)`, `DamageReduction(Type,Flat,n)`, `JumpMaxDistanceBonus(3)`, `Skill(Perception,2)`, `RollBonus(MeleeSpellAttack|RangedSpellAttack|MeleeWeaponAttack|Attack,n)` all have vanilla twins. Changed: `SpellResistance(Advantage)` (vanilla only uses Resistant/Immune) → Magic Resistance's `IF(HasSpellFlag(SpellFlags.Spell)):Advantage(AllSavingThrows)` on Shell; Elixir `RegainHitPoints(1000)` → `RegainHitPoints(MaxHP)`.
+5. [x] Protect/Shell: Shield of Faith's flags minus `IsConcentration`. Chemist items: the parents' flags minus `IsSpell` and verbal/somatic components (thrown versions also minus `IsMelee`). Visual parents left as they are (Throw Stone still flies like Fire Bolt).
+6. [x] Strings → `.loca` in the package (`tools\package.ps1`; Divine needs absolute paths).
+7. [x] `tools\package.ps1` → `build\FFTJobs.pak` (lz4, 86 KB): `Mods/FFTJobs/{meta.lsx, ScriptExtender/...}`, `Public/FFTJobs/Stats/Generated/Data/*.txt`, `Localization/English/FFTJobs.loca`.
+8. [x] `tools\install.ps1` (backs up first, records what it installed in `FFTJobs-backups\FFTJobs-install.json`) and `tools\uninstall.ps1` (`-RemoveScriptExtender` optional). Installed: Script Extender v32 (`BG3SE-Updater-20260621.zip`, SHA-256 2b451d04…ac25a matches the release digest; `bin\DWrite.dll`; it downloaded `BG3ScriptExtender.dll` 32.0.0.0 on first start), `bin\ScriptExtenderSettings.json` (`CreateConsole`, `LogRuntime`), `Mods\FFTJobs.pak`, and the entry at the end of **both** `PlayerProfiles\Public\modsettings.lsx` (the one the game reads: verified by marking GustavX's version) and `<user>\Public\modsettings.lsx` (a copy BG3 Mod Manager 1.0.12.9 keeps). No other mods were installed; GustavX stays first. `meta.lsx` now uses the community form (`LSWString` for Author/Description/Folder/Tags, `GMTemplate`), version **1.0.0.1**.
+9. [x] **Smoke test passed at the main menu** (DX11 build, the user's default; started with `steam.exe -applaunch 1086940 --skip-launcher`, because starting `bin\bg3.exe` directly hands over to Steam and the Larian launcher): SE log shows `'FFT Job System': SE v30; flags: Lua`, `Loading bootstrap script: Mods/FFTJobs/ScriptExtender/Lua/BootstrapClient.lua`, `[FFTJobs] client side loaded ...`, no errors. Through the SE client console: `Ext.Mod.IsModLoaded(<uuid>)` = true, load order 14 modules, and `Ext.Stats` has all our entries (SpellData 62, PassiveData 26, StatusData 12) with the expected parents and values (Arise: Teleportation / Teleportation_Revivify / OncePerRest; Cura: Target_CureWounds_Mass, 3 targets; Shell boost; Potion flags without IsSpell). The server side was not started (no save loaded).
+   - **Gotcha that cost most of the run:** the first four launches silently dropped the mod (in-game `Settings.Mods` = GustavX only, file untouched). Cause: `%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\ModCrashSanityCheck`. The game creates it while loading mods and deletes it when the main menu appears; I closed the game by PID on the title screen ("Press any key"), the folder stayed, and every following start dropped all mods. Neither `meta.lsx` nor the modsettings content was the cause (the `meta.lsx` change was kept anyway). `install.ps1` now deletes an empty leftover folder; `PLAYTEST.md` tells the user. For future smoke tests: press a key to reach the main menu before closing, close with `CloseMainWindow()`, and delete the folder if it remains.
+   - Side note: `ModuleUUID`-based checks from the console work in the client context (`client` command); typing into the console was done with `WriteConsoleInput` (no focus change).
+10. [x] `PLAYTEST.md` and this file updated.
+11. [x] Memory updated; final message sent.
+
+### Still unverified (needs a real game)
+Everything in "Verified vs. unverified" items 1-2 and 4-9 above, except what the smoke test showed: the stats parse and inherit as intended, and the client bootstrap runs. In particular: the server bootstrap and all JP events, the Job Board window and NetChannels, `AddSpell` on non-casters (ability modifier/DC), revive spells actually reviving through `AddSpell`-granted Teleportation spells, the OnDamaged reactions, `Osi.ShowNotification`, party discovery, and the JP formula constants (FFT side).
 
 ## Open questions for the user
 

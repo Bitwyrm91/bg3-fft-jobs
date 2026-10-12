@@ -98,6 +98,15 @@ foreach ($settings in $settingsFiles) {
     if ($found.Count -ne 1) { throw "modsettings.lsx check failed ($($found.Count) entries); restore it from $backup" }
 }
 
+# The game creates ModCrashSanityCheck while it loads mods and deletes it once the main menu is reached. If the
+# game is closed or crashes before that (even on the title screen), the folder stays and the NEXT start quietly
+# drops every mod from the load order. BG3 Mod Manager 1.0.12.3+ has a button that deletes it; do the same.
+$sanity = Join-Path $user "ModCrashSanityCheck"
+if ((Test-Path $sanity) -and -not (Get-ChildItem $sanity -Force)) {
+    if (Get-Process bg3, bg3_dx11 -ErrorAction SilentlyContinue) { Write-Warning "BG3 is running: close it, then run this again" }
+    else { Remove-Item $sanity; Write-Host "removed leftover $sanity (it makes the game drop all mods)" }
+}
+
 $state.lastBackup = $backup
 $state.gameDir = $GameDir
 $state | ConvertTo-Json | Set-Content -Encoding utf8 $statePath
