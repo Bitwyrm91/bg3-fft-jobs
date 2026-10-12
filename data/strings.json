@@ -5,6 +5,8 @@
     "JobBoard.Name": "Job Board",
     "JobBoard.Desc": "Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.",
     "JobPassive.Desc": "Current FFT job. Change it on the Job Board.",
+    "Training.Name": "JP Training (test)",
+    "Training.Desc": "Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.",
 
     "status.FFTJ_FOCUS.name": "Focus",
     "status.FFTJ_FOCUS.desc": "+1 to attack rolls and +1 damage.",

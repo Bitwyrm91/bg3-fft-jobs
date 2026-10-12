@@ -14,7 +14,7 @@
         "CountOutOfCombat": false,
         "RequireActionCost": true,
         "MaxPerTurn": 0,
-        "ExcludeSpells": ["Projectile_Jump", "Shout_FFTJ_JobBoard"],
+        "ExcludeSpells": ["Projectile_Jump", "Shout_FFTJ_JobBoard", "Shout_FFTJ_JPTraining"],
         "ExcludePrefixes": []
       },
       "Spillover": {
@@ -75,6 +75,10 @@
       "Enabled": true,
       "File": "FFTJobs/telemetry.jsonl",
       "MaxLines": 5000
+    },
+    "Test": {
+      "Tools": true,
+      "JPPerCast": 1000
     },
     "Debug": false
   },
@@ -144,6 +148,8 @@
     "Telemetry.Enabled": "Write per-fight and per-rest numbers to the telemetry file.",
     "Telemetry.File": "Telemetry file, relative to the Script Extender folder.",
     "Telemetry.MaxLines": "Oldest telemetry lines are dropped beyond this.",
+    "Test.Tools": "Testing tool: every party member gets the free JP Training spell (same as !fft_train). false removes it.",
+    "Test.JPPerCast": "JP that one JP Training cast gives every party member in each job they have unlocked.",
     "Debug": "Verbose logging."
   }
 }

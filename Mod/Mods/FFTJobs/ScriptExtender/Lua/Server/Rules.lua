@@ -439,8 +439,9 @@ function Rules.GrantsFor(data, char, ab)
     return ab.Grants
 end
 
--- Everything the mod should currently grant: {Spells = set, Passives = set, Statuses = set}.
-function Rules.DesiredGrants(data, char)
+-- Everything the mod should currently grant: {Spells = set, Passives = set, Statuses = set}. cfg (optional) adds
+-- the testing tools while Test.Tools is on.
+function Rules.DesiredGrants(data, char, cfg)
     local desired = { Spells = {}, Passives = {}, Statuses = {} }
     local function add(grants)
         for _, kind in ipairs(GRANT_KINDS) do
@@ -451,6 +452,9 @@ function Rules.DesiredGrants(data, char)
     end
     if data.JobBoardSpell then
         desired.Spells[data.JobBoardSpell] = true
+    end
+    if data.TrainingSpell and cfg and cfg.Test and cfg.Test.Tools then
+        desired.Spells[data.TrainingSpell] = true
     end
     local primary = data.Jobs[char.Primary]
     if primary then

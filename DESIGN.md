@@ -209,6 +209,7 @@ Localization handles are derived from the mod UUID and the string key (UUID v5),
 
 - **Job Board window** (SE IMGUI, client): opened by casting the **Job Board** spell (`Shout_FFTJ_JobBoard`, granted to every tracked character, free) or with `!fft_board`. One row of buttons per party member; for the selected character: current job and slots, a jobs table (level, JP, unlock requirements, set primary/secondary) and the selected job's abilities (cost, learn, equip/unequip). Every button sends a request to the server over a NetChannel; the server applies the rules and replies with the new view.
 - **Console commands** (section 12) do everything the window does, plus tuning.
+- **JP Training (test)** spell (`Shout_FFTJ_JPTraining`, free, granted while config `Test.Tools` is true; added 2026-10-12 for the playtest): every tracked party member gets `Test.JPPerCast` (1,000) JP in each job unlocked before the cast, as source `Test` (never shared, not in combat telemetry). Level-up and unlock notices only go to the console; the caster gets one summary notification. `!fft_train [amount]` does the same.
 
 A hotkey is not used: the key-input event's name differs between the SE doc and ExtIdeHelpers, so it is left for Part B to confirm.
 
@@ -233,6 +234,7 @@ Console commands (`who` = `host` (default), a party member's name or a GUID):
 | `!fft_learn <ability> [who]` / `!fft_equip <ability> [who]` / `!fft_unequip <reaction\|support\|movement> [who]` | learn / slot abilities |
 | `!fft_addjp <amount> [job] [who]` | add JP (default: primary job) |
 | `!fft_unlockall [who]` | unlock every implemented job (testing) |
+| `!fft_train [amount]` | JP Training: every party member gets JP in each unlocked job (testing) |
 | `!fft_preset <name>` / `!fft_mult <x>` / `!fft_set <key.path> <value>` / `!fft_config` | tuning |
 | `!fft_reload` | reload `config.json` |
 | `!fft_reset [who]` / `!fft_regrant [who]` / `!fft_uninstall` | reset a character / re-apply grants / remove all grants |

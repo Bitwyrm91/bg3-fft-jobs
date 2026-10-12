@@ -6,6 +6,8 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **State (2026-10-12, local run):** Part B is done up to the in-game playtest. Built, installed and enabled on the user's PC; at the main menu the mod loads, its client script runs without errors and all 100 stats entries are in the game. **Not seen in an actual game yet** (no save loaded, nothing cast): the server side, JP, the Job Board, every ability. Next: the user's playtest (`PLAYTEST.md`), then fix what they report, then the other 14 jobs.
 
+**Version 1.0.0.2 (2026-10-12, user's request "something that gives me a bunch of job points so I can test without fighting everything"):** a free **JP Training (test)** spell (`Shout_FFTJ_JPTraining`, Inspiring Leader icon) and `!fft_train [amount]`: every party member gets `Test.JPPerCast` (1,000) JP in each job unlocked before the cast; config `Test.Tools` (true) hides it when false. 90 tests pass, `validate_vanilla.py` OK (27 references, 101 entries), packaged and installed (both modsettings copies at version 1.0.0.2). Not smoke-tested at the menu: the only new stats entry is a copy of the Job Board one (which loaded fine) plus a vanilla icon.
+
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
 
 ## Roadmap (user, 2026-10-11)

@@ -156,6 +156,8 @@
   <content contentuid="hf12d1373g3fc7g5d45gb675g90d8be9f9bb8" version="1">Job: White Mage</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
+  <content contentuid="hed88a027gf2b3g5541gbd6agd477f35f7c9e" version="1">Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.</content>
+  <content contentuid="h188b0598gbe93g5c5dga252g5838ca4c297a" version="1">JP Training (test)</content>
   <content contentuid="ha4f203f8g9cfcg52e5g8f10ga73b48109897" version="1">Auto-Potion already triggered this turn.</content>
   <content contentuid="hbbe1f996g1ed5g542bg9bedg0dd19af0cb4c" version="1">Auto-Potion Used</content>
   <content contentuid="h58eb9c17gbfa2g5284gace0g36ab6c5bd644" version="1">+2 AC until your next turn.</content>

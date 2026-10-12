@@ -402,4 +402,43 @@ function S.errors_in_handlers_do_not_escape(w, T)
     T.contains(w.prints, "handler bug")
 end
 
+function S.jp_training_spell_trains_the_party(w, T)
+    local svc = T.boot(w)
+    T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JPTraining, "testing tool granted by default")
+    local before = #w.notifications
+    T.cast(w, T.TAV, "Shout_FFTJ_JPTraining")
+    T.eq(sum(svc, T, T.TAV, "Squire"), 1000)
+    T.eq(sum(svc, T, T.TAV, "Chemist"), 1000)
+    T.eq(sum(svc, T, T.SHART, "Chemist"), 1000, "the whole party, not only the caster")
+    T.eq(sum(svc, T, T.TAV, "Knight"), 0, "jobs locked before the cast get nothing yet")
+    T.truthy(svc.State:Get(T.TAV).Unlocked.Knight, "Squire Lv4 unlocks Knight")
+    T.eq(#w.notifications, before + 1, "one summary instead of a notice per level and unlock")
+    T.contains(w.notifications[#w.notifications],
+        "+1000 JP in every unlocked job for 3 party members, 12 new jobs unlocked")
+    T.cast(w, T.SHART, "Shout_FFTJ_JPTraining")
+    T.eq(sum(svc, T, T.TAV, "Knight"), 1000, "jobs unlocked by the last cast train on the next")
+    T.eq(sum(svc, T, T.TAV, "Squire"), 2000)
+    T.eq(svc.State:Get(T.TAV).Stats.JP.Test, 8000, "2 jobs, then 6")
+    T.startCombat(w, "c1", { T.TAV })
+    T.cast(w, T.TAV, "Shout_FFTJ_JPTraining")
+    T.eq(sum(svc, T, T.TAV, "Squire"), 3000, "no action JP on top of the training")
+end
+
+function S.jp_training_is_not_shared(w, T)
+    local svc = T.boot(w, { extra = SHARED })
+    T.cast(w, T.TAV, "Shout_FFTJ_JPTraining")
+    T.eq(sum(svc, T, T.TAV, "Knight"), 0, "training JP does not share into other jobs")
+end
+
+function S.testing_tools_can_be_turned_off(w, T)
+    local svc = T.boot(w)
+    w.console("fft_set", "Test.Tools", "false")
+    T.falsy(w.chars[T.TAV].spells.Shout_FFTJ_JPTraining, "removed at once")
+    T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JobBoard)
+    T.cast(w, T.TAV, "Shout_FFTJ_JPTraining") -- e.g. still on a hotbar
+    T.eq(sum(svc, T, T.TAV, "Squire"), 0)
+    w.console("fft_unset", "Test.Tools")
+    T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JPTraining, "back with the default")
+end
+
 return S

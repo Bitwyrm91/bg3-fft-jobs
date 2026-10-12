@@ -22,6 +22,13 @@ local function result(ok, msg)
     return { (ok and "" or "Not done: ") .. tostring(msg) }
 end
 
+-- Grants depend on the config too (Test.Tools), so a config change is applied to every party member at once.
+local function regrant(svc)
+    if svc.Ready then
+        svc:ReconcileAll(false)
+    end
+end
+
 def("fft_help", "list the commands", function()
     local out = { "FFT job system commands (who = host, a party member's name, or a GUID):" }
     for _, h in ipairs(HELP) do
@@ -141,6 +148,17 @@ def("fft_unlockall", "[who]  unlock every implemented job (testing)", function(s
     return result(svc:UnlockAll(guid))
 end)
 
+def("fft_train", "[amount]  every party member gets JP in each unlocked job (testing; default Test.JPPerCast)", function(svc, args)
+    local amount
+    if args[1] then
+        amount = tonumber(args[1])
+        if not amount then
+            return { "Usage: !fft_train [amount]" }
+        end
+    end
+    return result(svc:TrainParty(nil, amount))
+end)
+
 def("fft_preset", "<name>  switch preset (Classic, Fast, Grindy, PureFFT)", function(svc, args)
     return result(svc.Config:SetPreset(args[1]))
 end)
@@ -154,11 +172,15 @@ def("fft_set", "<key.path> <value>  change any setting, e.g. !fft_set JP.XPShare
         return { "Usage: !fft_set <key.path> <value>; keys are listed in config.reference.json" }
     end
     local value = table.concat(args, " ", 2)
-    return result(svc.Config:SetOverride(args[1], value))
+    local ok, msg = svc.Config:SetOverride(args[1], value)
+    regrant(svc)
+    return result(ok, msg)
 end)
 
 def("fft_unset", "<key.path>  drop an override (back to the preset value)", function(svc, args)
-    return result(svc.Config:ClearOverride(args[1]))
+    local ok, msg = svc.Config:ClearOverride(args[1])
+    regrant(svc)
+    return result(ok, msg)
 end)
 
 def("fft_config", "show the preset and every JP setting", function(svc)
@@ -187,6 +209,7 @@ def("fft_reload", "reload config.json", function(svc)
             end
         end
     end
+    regrant(svc)
     return result(ok, msg)
 end)
 

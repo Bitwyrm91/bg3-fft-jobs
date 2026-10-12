@@ -11,7 +11,7 @@ function S.help_lists_every_command(w, T)
     for name in pairs(w.commands) do
         T.contains(text, "!" .. name)
     end
-    T.eq(#w.console("fft_help"), 1 + 22, "22 commands")
+    T.eq(#w.console("fft_help"), 1 + 23, "23 commands")
 end
 
 function S.party_and_status(w, T)
@@ -100,6 +100,20 @@ function S.unlockall_reset_regrant(w, T)
     w.chars[T.TAV].spells.Shout_FFTJ_JobBoard = nil
     T.contains(out(w.console("fft_regrant", "all")), "every party member")
     T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JobBoard)
+end
+
+function S.train_command(w, T)
+    local svc = T.boot(w)
+    T.contains(out(w.console("fft_train")), "+1000 JP in every unlocked job for 3 party members")
+    T.eq(svc.State:Get(T.ASTA).Jobs.Squire.Earned, 1000)
+    w.console("fft_train", "250")
+    T.eq(svc.State:Get(T.ASTA).Jobs.Squire.Earned, 1250)
+    T.eq(svc.State:Get(T.ASTA).Jobs.Knight.Earned, 250, "Knight was unlocked by the first call")
+    T.contains(out(w.console("fft_train", "lots")), "Usage")
+    T.contains(out(w.console("fft_train", "0")), "Not done: Amount must be a positive number")
+    T.contains(out(w.console("fft_set", "Test.JPPerCast", "50")), "Test.JPPerCast = 50")
+    w.console("fft_train")
+    T.eq(svc.State:Get(T.ASTA).Jobs.Squire.Earned, 1300)
 end
 
 function S.telemetry_summary(w, T)

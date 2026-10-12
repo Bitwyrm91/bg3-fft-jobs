@@ -20,6 +20,23 @@ data "TooltipDamageList" ""
 data "DisplayName" "{{str:JobBoard.Name}}"
 data "Description" "{{str:JobBoard.Desc}}"
 
+// ---------------------------------------------------------------- JP Training (testing tool)
+// The same free self-cast; the server gives the party JP on CastedSpell (Service:TrainParty). Granted while the
+// config's Test.Tools is true. Icon: vanilla Inspiring Leader (Shout_InspiringLeader), so it differs from the board.
+new entry "Shout_FFTJ_JPTraining"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_SecondWind"
+data "Level" "0"
+data "UseCosts" ""
+data "Cooldown" ""
+data "TargetConditions" "Self()"
+data "SpellProperties" ""
+data "TooltipDamageList" ""
+data "Icon" "Action_InspiringLeader"
+data "DisplayName" "{{str:Training.Name}}"
+data "Description" "{{str:Training.Desc}}"
+
 // ---------------------------------------------------------------- Squire (Fundaments)
 new entry "Shout_FFTJ_Focus"
 type "SpellData"

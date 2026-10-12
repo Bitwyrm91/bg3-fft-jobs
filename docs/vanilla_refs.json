@@ -1,5 +1,12 @@
 [
   {
+    "id": "Action_InspiringLeader",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_JPTraining"
+    ]
+  },
+  {
     "id": "PassiveFeature_FightingStyle_Archery",
     "kind": "icon",
     "usedBy": [
@@ -189,6 +196,7 @@
     "usedBy": [
       "Shout_FFTJ_Defend",
       "Shout_FFTJ_Focus",
+      "Shout_FFTJ_JPTraining",
       "Shout_FFTJ_JobBoard"
     ]
   },

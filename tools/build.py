@@ -19,8 +19,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.1"
+MOD_VERSION = "1.0.0.2"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
+TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 ABILITY_TYPES = ("Action", "Reaction", "Support", "Movement")
 GRANT_KINDS = ("spells", "passives", "statuses")
 SLOT_OF_TYPE = {"Reaction": "reaction", "Support": "support", "Movement": "movement"}
@@ -200,6 +201,7 @@ def build_lua(jobs_doc, config_doc):
         "ModUUID": MOD_UUID,
         "ModVersion": MOD_VERSION,
         "JobBoardSpell": JOB_BOARD_SPELL,
+        "TrainingSpell": TRAINING_SPELL,
         "AbilityTypes": list(ABILITY_TYPES),
         "SlotOfType": SLOT_OF_TYPE,
         "Jobs": jobs,
@@ -351,7 +353,7 @@ def check_stats(jobs_doc, entries):
         defined[e["name"]] = e
         if not e["type"]:
             errors.append(f"{e['name']}: no type")
-    wanted = {JOB_BOARD_SPELL: "SpellData"}
+    wanted = {JOB_BOARD_SPELL: "SpellData", TRAINING_SPELL: "SpellData"}
     for a in jobs_doc["abilities"]:
         for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])]:
             for sid in g.get("spells", []):

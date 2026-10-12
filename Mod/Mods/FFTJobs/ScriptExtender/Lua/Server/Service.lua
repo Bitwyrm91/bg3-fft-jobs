@@ -32,9 +32,12 @@ function Service:IsDisabled()
     return self.State:IsLoaded() and self.State:Meta().Disabled == true
 end
 
+-- While Quiet (JP Training), notifications only go to the console.
 function Service:Notify(guid, text)
     self.Log.Info(text)
-    self.Game:Notify(guid, text)
+    if not self.Quiet then
+        self.Game:Notify(guid, text)
+    end
 end
 
 ---------------------------------------------------------------- lifecycle
@@ -151,7 +154,7 @@ function Service:Reconcile(guid, repair)
     if self:IsDisabled() then
         desired = { Spells = {}, Passives = {}, Statuses = {} }
     else
-        desired = Rules.DesiredGrants(self.Data, char)
+        desired = Rules.DesiredGrants(self.Data, char, self:Cfg())
     end
     if Grants.Apply(self.Game, guid, char, desired, repair) then
         self.State:MarkDirty()
@@ -303,6 +306,17 @@ function Service:OnCastedSpell(caster, spell)
     local guid = Util.Guid(caster)
     if spell == self.Data.JobBoardSpell then
         self:OpenBoard(guid)
+        return
+    end
+    if spell == self.Data.TrainingSpell then
+        if not self:Cfg().Test.Tools then
+            self.Log.Info("JP Training is turned off (Test.Tools = false)")
+            return
+        end
+        local ok, msg = self:TrainParty(guid)
+        if not ok then
+            self.Log.Warn("JP Training: " .. msg)
+        end
         return
     end
     local char = self.State:Get(guid) or self:EnsureChar(guid)
@@ -714,6 +728,54 @@ function Service:UnlockAll(guid)
     Rules.UnlockAll(self.Data, char)
     self.State:MarkDirty()
     return true, char.Name .. ": every implemented job unlocked"
+end
+
+-- Testing tool (JP Training spell, !fft_train): every party member gets amount JP (default Test.JPPerCast) in each
+-- job unlocked before the call; jobs it unlocks get JP from the next call. Level-up and unlock notices only go to
+-- the console; caster (optional) gets one summary notification. Returns ok, message.
+function Service:TrainParty(caster, amount)
+    if not self.Ready then
+        return false, "The job system has not loaded yet"
+    end
+    if self:IsDisabled() then
+        return false, "JP is paused (!fft_enable to resume)"
+    end
+    amount = amount or self:Cfg().Test.JPPerCast
+    if type(amount) ~= "number" or amount ~= amount or amount <= 0 or amount == math.huge then
+        return false, "Amount must be a positive number"
+    end
+    self:DiscoverParty()
+    local guids = self.State:Guids()
+    local unlocks = 0
+    self.Quiet = true
+    local ok, err = pcall(function()
+        for _, guid in ipairs(guids) do
+            local char = self.State:Get(guid)
+            local jobs = {}
+            for _, jobId in ipairs(self.Data.JobOrder) do
+                if self.Data.Jobs[jobId].Implemented and Rules.IsUnlocked(char, jobId) then
+                    jobs[#jobs + 1] = jobId
+                end
+            end
+            for _, jobId in ipairs(jobs) do
+                local res = self:AddJP(guid, jobId, amount, "Test", nil)
+                unlocks = unlocks + (res and #res.Unlocked or 0)
+            end
+        end
+    end)
+    self.Quiet = false
+    if not ok then
+        error(err, 0)
+    end
+    local msg = string.format("JP Training: +%s JP in every unlocked job for %d party member%s", Util.Num(amount),
+        #guids, #guids == 1 and "" or "s")
+    if unlocks > 0 then
+        msg = msg .. string.format(", %d new job%s unlocked", unlocks, unlocks == 1 and "" or "s")
+    end
+    if caster then
+        self:Notify(caster, msg)
+    end
+    return true, msg
 end
 
 function Service:ResetChar(guid)

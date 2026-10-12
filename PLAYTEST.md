@@ -1,6 +1,6 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 after the local install. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.1) and its entry at the end of your load order. Checked at the main menu: the mod loads, its script starts without errors and all 100 of its spells, passives and statuses are in the game. **Nothing has been tried in an actual game yet**: that part is yours.
+Updated 2026-10-12 after the local install. **Already installed on your PC:** the Script Extender v32, the mod (`Mods\FFTJobs.pak`, version 1.0.0.2, which adds the **JP Training** test spell below) and its entry at the end of your load order. Checked at the main menu: the mod loads, its script starts without errors and all 100 of its spells, passives and statuses are in the game. **Nothing has been tried in an actual game yet**: that part is yours.
 
 ## What you need
 
@@ -17,6 +17,21 @@ BG3 has a crash check: while it loads mods it creates the folder `%LOCALAPPDATA%
 1. Start a new game or load a save. Your party is picked up automatically when the level loads.
 2. Every party member gets a free **Job Board** spell. Cast it to open the Job Board window. If it is not on your hotbar, look in the spell list, or type `!fft_board` in the console.
 3. Starting jobs: **Squire** for martial classes, **Chemist** for spellcasters (Wizard, Sorcerer, Warlock, Cleric, Druid, Bard). Everyone starts with both unlocked.
+
+## Testing without grinding: JP Training
+
+Every party member also gets a free **JP Training (test)** spell (the Inspiring Leader icon). Each cast gives **every party member 1,000 JP in each job they have unlocked**. Jobs that a cast unlocks get JP from the next cast:
+
+- **1 cast:** Squire and Chemist reach job level 4, and Knight, Archer, White Mage and Black Mage unlock.
+- **3 casts:** every job is at least level 6.
+- **About 7 casts:** enough JP to learn every ability in every job (Archer's are the most expensive, 5,300 JP in all).
+
+Each cast shows one summary message; the level-ups and unlocks are listed in the console. Then open the **Job Board** to learn abilities, switch jobs and fill the slots.
+
+- Console version: `!fft_train` (same as one cast) or `!fft_train 5000` (a bigger batch).
+- More per cast: `!fft_set Test.JPPerCast 3000`.
+- When you're done testing: `!fft_set Test.Tools false` removes the spell; `!fft_unset Test.Tools` brings it back.
+- Training JP is logged as its own source (`Test`), so it doesn't skew the pace numbers in `!fft_telemetry`. For a real pace test, start a fresh save or `!fft_reset` the character first.
 
 ## How it works
 
@@ -50,6 +65,7 @@ Type these in the Script Extender console (`who` = a party member's name, e.g. `
 | `!fft_equip JPBoost [who]` / `!fft_unequip support [who]` | equip or clear a reaction/support/movement slot |
 | `!fft_addjp 500 [job] [who]` | add JP (for testing) |
 | `!fft_unlockall [who]` | unlock every job (for testing) |
+| `!fft_train [amount]` | JP Training: every party member gets JP in each unlocked job (for testing) |
 | `!fft_telemetry` | JP and XP totals logged so far |
 
 ## Changing how fast JP comes
