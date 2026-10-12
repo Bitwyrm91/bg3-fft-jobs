@@ -16,3 +16,5 @@ local Log = Ext.Require("Shared/Log.lua")
 local JobBoard = Ext.Require("Client/JobBoard.lua")
 
 FFTJ = { Board = JobBoard.Setup(MOD_UUID, Log) }
+
+Log.Info("client side loaded; open the Job Board with its spell (server side loads with a save)")
