@@ -8,21 +8,22 @@ param([switch]$RemoveScriptExtender)
 $ErrorActionPreference = "Stop"
 $uuid = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 $user = Join-Path $env:LOCALAPPDATA "Larian Studios\Baldur's Gate 3"
-$settings = Join-Path $user "PlayerProfiles\Public\modsettings.lsx"
 $backups = Join-Path $user "FFTJobs-backups"
 $statePath = Join-Path $backups "FFTJobs-install.json"
 
-if (Test-Path $settings) {
+foreach ($settings in @((Join-Path $user "PlayerProfiles\Public\modsettings.lsx"), (Join-Path $user "Public\modsettings.lsx"))) {
+    if (-not (Test-Path $settings)) { continue }
+    $rel = $settings.Substring($user.Length + 1)
     $backup = Join-Path $backups ("uninstall-" + (Get-Date -Format "yyyyMMdd-HHmmss"))
-    New-Item -ItemType Directory -Force $backup | Out-Null
-    Copy-Item $settings (Join-Path $backup "modsettings.lsx")
+    New-Item -ItemType Directory -Force (Split-Path (Join-Path $backup $rel)) | Out-Null
+    Copy-Item $settings (Join-Path $backup $rel)
     [xml]$doc = Get-Content $settings -Raw
     $nodes = $doc.SelectNodes("//node[@id='ModuleShortDesc'][attribute[@id='UUID' and @value='$uuid']]")
     foreach ($n in @($nodes)) { [void]$n.ParentNode.RemoveChild($n) }
     $ws = New-Object System.Xml.XmlWriterSettings
     $ws.Indent = $true; $ws.Encoding = New-Object System.Text.UTF8Encoding($false)
     $w = [System.Xml.XmlWriter]::Create($settings, $ws); $doc.Save($w); $w.Close()
-    Write-Host "modsettings.lsx: removed $($nodes.Count) entry(ies); backup in $backup"
+    Write-Host "${settings}: removed $($nodes.Count) entry(ies); backup in $backup"
 }
 
 $pak = Join-Path $user "Mods\FFTJobs.pak"

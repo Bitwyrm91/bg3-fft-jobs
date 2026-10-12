@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.0"
+MOD_VERSION = "1.0.0.1"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 ABILITY_TYPES = ("Action", "Reaction", "Support", "Movement")
 GRANT_KINDS = ("spells", "passives", "statuses")

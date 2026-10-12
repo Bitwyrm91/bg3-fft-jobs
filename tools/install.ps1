@@ -1,6 +1,7 @@
 # Install the FFT Job System into BG3 (run tools\package.ps1 first).
 # - copies build\FFTJobs.pak into %LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\Mods
-# - adds the mod at the end of modsettings.lsx (keeps every other entry; backup first)
+# - adds the mod at the end of modsettings.lsx, in the profile and in <user>\Public if that copy exists
+#   (keeps every other entry; backup first)
 # - installs the Script Extender's DWrite.dll into the game's bin folder if it is missing (-ScriptExtenderDll)
 # - writes bin\ScriptExtenderSettings.json (console + log) if there is none
 # What it changed is recorded in FFTJobs-install.json next to the backups, so tools\uninstall.ps1 can undo it.
@@ -16,15 +17,21 @@ if (-not (Test-Path $pak)) { throw "build\FFTJobs.pak not found: run tools\packa
 
 $user = Join-Path $env:LOCALAPPDATA "Larian Studios\Baldur's Gate 3"
 $mods = Join-Path $user "Mods"
-$settings = Join-Path $user "PlayerProfiles\Public\modsettings.lsx"
+# The profile's file is the documented one; BG3 Mod Manager 1.0.12.9 also keeps a copy in <user>\Public.
+$settingsFiles = @((Join-Path $user "PlayerProfiles\Public\modsettings.lsx"), (Join-Path $user "Public\modsettings.lsx")) |
+    Where-Object { Test-Path $_ }
 $bin = Join-Path $GameDir "bin"
-if (-not (Test-Path $settings)) { throw "modsettings.lsx not found: start BG3 once to the main menu, then run this again" }
+if (-not $settingsFiles) { throw "modsettings.lsx not found: start BG3 once to the main menu, then run this again" }
 
 $stamp = Get-Date -Format "yyyyMMdd-HHmmss"
 $backups = Join-Path $user "FFTJobs-backups"
 $backup = Join-Path $backups $stamp
 New-Item -ItemType Directory -Force $backup | Out-Null
-Copy-Item $settings (Join-Path $backup "modsettings.lsx")
+foreach ($f in $settingsFiles) {
+    $rel = $f.Substring($user.Length + 1)
+    New-Item -ItemType Directory -Force (Split-Path (Join-Path $backup $rel)) | Out-Null
+    Copy-Item $f (Join-Path $backup $rel)
+}
 
 $statePath = Join-Path $backups "FFTJobs-install.json"
 $state = @{ installedScriptExtender = $false; installedSESettings = $false }
@@ -60,34 +67,36 @@ $info = $meta.SelectSingleNode("//node[@id='ModuleInfo']")
 function MetaAttr($id) { $info.SelectSingleNode("attribute[@id='$id']").value }
 $uuid = MetaAttr "UUID"; $folder = MetaAttr "Folder"; $name = MetaAttr "Name"; $version = MetaAttr "Version64"
 
-[xml]$doc = Get-Content $settings -Raw
-$modsNode = $doc.SelectSingleNode("/save/region[@id='ModuleSettings']/node[@id='root']/children/node[@id='Mods']")
-if ($null -eq $modsNode) { throw "unexpected modsettings.lsx layout (no /root/Mods node); nothing changed" }
-$children = $modsNode.SelectSingleNode("children")
-if ($null -eq $children) { $children = $doc.CreateElement("children"); [void]$modsNode.AppendChild($children) }
-$existing = $children.SelectSingleNode("node[@id='ModuleShortDesc'][attribute[@id='UUID' and @value='$uuid']]")
-if ($existing) {
-    $existing.SelectSingleNode("attribute[@id='Version64']").value = $version
-    $existing.SelectSingleNode("attribute[@id='Folder']").value = $folder
-    Write-Host "modsettings.lsx: already listed, version updated"
-} else {
-    $node = $doc.CreateElement("node"); $node.SetAttribute("id", "ModuleShortDesc")
-    foreach ($a in @(@("Folder","LSString",$folder), @("MD5","LSString",""), @("Name","LSString",$name),
-                     @("PublishHandle","uint64","0"), @("UUID","guid",$uuid), @("Version64","int64",$version))) {
-        $e = $doc.CreateElement("attribute"); $e.SetAttribute("id",$a[0]); $e.SetAttribute("type",$a[1]); $e.SetAttribute("value",$a[2])
-        [void]$node.AppendChild($e)
+foreach ($settings in $settingsFiles) {
+    [xml]$doc = Get-Content $settings -Raw
+    $modsNode = $doc.SelectSingleNode("/save/region[@id='ModuleSettings']/node[@id='root']/children/node[@id='Mods']")
+    if ($null -eq $modsNode) { throw "unexpected modsettings.lsx layout (no /root/Mods node); nothing changed" }
+    $children = $modsNode.SelectSingleNode("children")
+    if ($null -eq $children) { $children = $doc.CreateElement("children"); [void]$modsNode.AppendChild($children) }
+    $existing = $children.SelectSingleNode("node[@id='ModuleShortDesc'][attribute[@id='UUID' and @value='$uuid']]")
+    if ($existing) {
+        $existing.SelectSingleNode("attribute[@id='Version64']").value = $version
+        $existing.SelectSingleNode("attribute[@id='Folder']").value = $folder
+        Write-Host "${settings}: already listed, version updated"
+    } else {
+        $node = $doc.CreateElement("node"); $node.SetAttribute("id", "ModuleShortDesc")
+        foreach ($a in @(@("Folder","LSString",$folder), @("MD5","LSString",""), @("Name","LSString",$name),
+                         @("PublishHandle","uint64","0"), @("UUID","guid",$uuid), @("Version64","int64",$version))) {
+            $e = $doc.CreateElement("attribute"); $e.SetAttribute("id",$a[0]); $e.SetAttribute("type",$a[1]); $e.SetAttribute("value",$a[2])
+            [void]$node.AppendChild($e)
+        }
+        [void]$children.AppendChild($node)
+        Write-Host "${settings}: added $name at the end of the load order"
     }
-    [void]$children.AppendChild($node)
-    Write-Host "modsettings.lsx: added $name at the end of the load order"
-}
-$ws = New-Object System.Xml.XmlWriterSettings
-$ws.Indent = $true; $ws.Encoding = New-Object System.Text.UTF8Encoding($false)
-$w = [System.Xml.XmlWriter]::Create($settings, $ws); $doc.Save($w); $w.Close()
+    $ws = New-Object System.Xml.XmlWriterSettings
+    $ws.Indent = $true; $ws.Encoding = New-Object System.Text.UTF8Encoding($false)
+    $w = [System.Xml.XmlWriter]::Create($settings, $ws); $doc.Save($w); $w.Close()
 
-# check what we wrote
-[xml]$check = Get-Content $settings -Raw
-$found = $check.SelectNodes("/save/region/node[@id='root']/children/node[@id='Mods']/children/node[@id='ModuleShortDesc'][attribute[@id='UUID' and @value='$uuid']]")
-if ($found.Count -ne 1) { throw "modsettings.lsx check failed ($($found.Count) entries); restore $backup\modsettings.lsx" }
+    # check what we wrote
+    [xml]$check = Get-Content $settings -Raw
+    $found = $check.SelectNodes("/save/region/node[@id='root']/children/node[@id='Mods']/children/node[@id='ModuleShortDesc'][attribute[@id='UUID' and @value='$uuid']]")
+    if ($found.Count -ne 1) { throw "modsettings.lsx check failed ($($found.Count) entries); restore it from $backup" }
+}
 
 $state.lastBackup = $backup
 $state.gameDir = $GameDir
