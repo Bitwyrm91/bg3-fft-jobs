@@ -49,9 +49,18 @@ The user's decisions of 2026-10-12 (a long Q&A in the coordinator chat) and the 
 18. **Marker:** a status on enemies whose type the party has already devoured (e.g. "Soul Known").
 19. **Models:** each FFT form uses a fitting BG3 creature model for now; real models later.
 
+### Enemies get jobs too (user: "the new fun shouldn't be limited to only players")
+20. **Humanoid enemies** (goblins, drow, duergar, bandits, cultists, …) get **jobs like players do**, chosen to fit the enemy: a goblin brute is a Squire or Thief, never a Black Mage; a goblin archer an Archer; a priestess a White Mage.
+21. **Monsters** keep their BG3 skills **and** get a fitting **FFT monster class** (the monster skills of their FFT family, from the same mapping table as the Soul Collector). A monster never gets a human job (a Chocobo-like enemy is never a Squire).
+22. **Strength: like a player.** An enemy's kit is what a player of the same level would have with that job or monster class. **Bosses get extra special stuff** on top (e.g. an advanced or special job, signature abilities).
+    - Keep it configurable (off / lighter / as designed). This makes fights noticeably harder.
+23. **Visible:** a marker status on each enemy ("Job: Archer", "Monster: Chocobo") so the player can plan, as FFT shows every unit's job.
+24. **Comes last**, after the Soul Collector (the user's choice).
+    - Check early whether BG3's AI uses spells added with `AddSpell` (it should; verify on one enemy before building it all).
+
 ### Order and place
-20. **Order:** all the jobs first (14 TIC, then Dark Knight + Onion Knight, then special jobs with badges), **then** the Soul Collector.
-21. **Where:** a fresh local session (this file is its brief).
+25. **Order:** all the jobs first (14 TIC, then Dark Knight + Onion Knight, then special jobs with badges), **then** the Soul Collector, **then** enemy jobs.
+26. **Where:** a fresh local session (this file is its brief).
 
 ## Build plan (each batch: data → stats → Lua → tests → package → install → the user tests)
 
@@ -63,6 +72,10 @@ The user's decisions of 2026-10-12 (a long Q&A in the coordinator chat) and the 
    - research BG3 shapeshifting in the extracted data (Wild Shape statuses, shapeshift rules, how a form's stats and spells are set, level scaling) and reading a dead enemy's type/template with SE;
    - then Devour Soul, the Soul Codex (Job Board section + transform list), forms with charges, essences, the marker, the nautiloid chest and its camp-chest fallback;
    - the mapping table goes to the user first.
+6. **Enemy jobs** (items 20-24):
+   - assign a job (humanoids) or an FFT monster class (monsters) per enemy template/type when combat starts or the level loads, scaled like a player of the enemy's level; bosses get extras;
+   - add the marker status and a config switch;
+   - first check that the AI uses added spells.
 
 ## Open details (defaults above; the user can change them)
 - Do the main job's reactions also work without the slot? (Default: no.)
