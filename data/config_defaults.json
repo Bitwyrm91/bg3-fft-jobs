@@ -72,6 +72,14 @@
       "Mastered": true,
       "JPGain": false
     },
+    "Abilities": {
+      "StealGilPerLevel": 10,
+      "StealEXPPerLevel": 10,
+      "PoachGoldPerLevel": 5,
+      "GilSnapperShare": 1.0,
+      "GravityShare": 0.25,
+      "GravigaShare": 0.5
+    },
     "XPPollMs": 2000,
     "Telemetry": {
       "Enabled": true,
@@ -148,6 +156,12 @@
     "Notifications.Unlock": "Show a notification when a job unlocks.",
     "Notifications.Mastered": "Show a notification when a job is mastered.",
     "Notifications.JPGain": "Print every JP gain to the console (noisy).",
+    "Abilities.StealGilPerLevel": "Steal Gil: gold per level of the robbed creature.",
+    "Abilities.StealEXPPerLevel": "Steal EXP: experience per level of the robbed creature.",
+    "Abilities.PoachGoldPerLevel": "Poach: trophy gold per level of the poached creature.",
+    "Abilities.GilSnapperShare": "Gil Snapper: gold per point of damage taken.",
+    "Abilities.GravityShare": "Gravity: share of the target's maximum HP taken (FFT: 0.25).",
+    "Abilities.GravigaShare": "Graviga: share of the target's maximum HP taken (FFT: 0.5).",
     "XPPollMs": "How often (game-time ms) XP is checked for the XP share.",
     "Telemetry.Enabled": "Write per-fight and per-rest numbers to the telemetry file.",
     "Telemetry.File": "Telemetry file, relative to the Script Extender folder.",

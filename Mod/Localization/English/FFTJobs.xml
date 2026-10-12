@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentList>
+  <content contentuid="h7105ca0bgad34g5755g9a5fg77dba673cbdb" version="1">When a spell damages you, you regain a level 1 spell slot. Once per short rest.</content>
+  <content contentuid="hc7df1ac9gdc9dg5682gb746gcaed40976949" version="1">Absorb MP</content>
   <content contentuid="h4997245bgb55eg51ddgabb4g2e58561960be" version="1">Ranged weapon attack that deals 1d4 extra damage.</content>
   <content contentuid="hb22e902bgbba6g5091g88a4g4d2f36a6ad5e" version="1">Aim +1</content>
   <content contentuid="ha72fd0d7gff28g5d1dg8c9agf4d69b10656d" version="1">Costs your action and bonus action. Ranged weapon attack that deals 4d10 extra damage. Once per short rest.</content>
@@ -22,30 +24,58 @@
   <content contentuid="ha4f7181ag41dbg51bfgbb31g47ae8217ff82" version="1">Archer's Bane</content>
   <content contentuid="h0b00536fg317dg57f1g9c68g300e73f19cdb" version="1">Revive a dead ally and heal it for 4d8. Once per long rest.</content>
   <content contentuid="ha9726bcdgfad3g5ccbg9c39g521a69c18bc3" version="1">Arise</content>
+  <content contentuid="h6540f982g23dbg506egab76g671df63a9a4d" version="1">Hurl your fighting spirit at a creature up to 9 m away: ranged unarmed attack roll, 1d10 + your unarmed attack modifier force damage.</content>
+  <content contentuid="h9f6353begc21eg52abga631gbb0f8d6864f4" version="1">Aurablast</content>
   <content contentuid="h3f0aa3dbg61fdg599bga2a2g297a302ae1b1" version="1">When you take damage, regain 1d4+2 HP. Once per turn.</content>
   <content contentuid="h57c76934g2a19g5dd0gba4cg4341525da592" version="1">Auto-Potion</content>
+  <content contentuid="h9717a9f6gc29bg53e2gb8fag5b471499a289" version="1">A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, but -2 to saving throws (strengthen an ally's magic, or soften an enemy). Once per short rest.</content>
+  <content contentuid="h132d66fagc2d9g57dcga812g3f742bbf79d4" version="1">Belief</content>
   <content contentuid="h9bc71ca4gd076g5b96ga3e0g5d84488f41b0" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
   <content contentuid="hcf7bea1ag694fg5002ga908g6c29e90f8062" version="1">Blizzaga</content>
   <content contentuid="h6b854859gb227g5984gbd41gdc6d96cd95cf" version="1">3d6 cold damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
   <content contentuid="hbc93d37bg1565g504eg988fg51ca5925a76c" version="1">Blizzara</content>
   <content contentuid="hb7c570e3g84adg570egab22gcc3bcc5bd077" version="1">1d8 cold damage to a creature within 18 m, no attack roll.</content>
   <content contentuid="h19c3ad71gf0c5g586cg9984g70c2e026e1a2" version="1">Blizzard</content>
+  <content contentuid="h71bbbd65gebe5g52eegba2eg32d2622e81a7" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage. Always on while Monk is your job.</content>
+  <content contentuid="h3a07239cgf1a1g5492g92a5g3ae451b18faf" version="1">Brawler</content>
+  <content contentuid="hc2226df6gf9edg5b9fg9ff8g336deff7e3ae" version="1">You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.</content>
+  <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
   <content contentuid="hc7a5deceg9d9fg5c26ga3b8g7299e10e6f75" version="1">+2 to weapon attack rolls.</content>
   <content contentuid="h12851168g1a13g5e9bga89fgd8b5abc18048" version="1">Concentration</content>
+  <content contentuid="hccf20ed1ge441g5467g9471gccacd7211e04" version="1">A creature within 18 m makes a Constitution save or turns Undead for 3 turns: it can't regain hit points and is vulnerable to radiant damage. Once per short rest.</content>
+  <content contentuid="hc0ea8c26g2145g5732g988fg99e79b387267" version="1">Corruption</content>
+  <content contentuid="h5082bc81g7cbeg57d4g8169gbdf203426a8c" version="1">Reaction: when an enemy hits you with a melee attack, strike back with your weapon or fists.</content>
+  <content contentuid="h62cad20fgade6g548eg8eb2g259d19ec905f" version="1">Counter</content>
   <content contentuid="h1a71ccd6g4cd9g5551g8786g12f72fa03ccc" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 1.5 m.</content>
   <content contentuid="hbd3262cbgcf79g5852ga81fg1a3dcffe6fe4" version="1">Counter Tackle</content>
+  <content contentuid="hbedbfb92g2b67g52d0g973bg74805f008b74" version="1">When damage leaves you at 20% of your hit points or less, you get an extra action on your next turn. Once per short rest.</content>
+  <content contentuid="h8a22b598g75afg57f6g87afg0cc5c5e0fcb0" version="1">Critical: Quick</content>
+  <content contentuid="h40a1faefg40acg579ega585g6796fc9cb7f6" version="1">When damage leaves you at 20% of your hit points or less, you regain half your maximum hit points. Once per long rest.</content>
+  <content contentuid="h7f1c4995ge642g57adgbd42g2508eee55eae" version="1">Critical: Recover HP</content>
   <content contentuid="hd61583b7gd790g5b6agae4bgeeae29f84943" version="1">Heal up to 3 allies for 2d8+3. Once per short rest.</content>
   <content contentuid="hd7fc9da8g2d74g5a9egbdeeg882f15d2006a" version="1">Cura</content>
   <content contentuid="h74a4f82fg6ebeg57aagaba4g065916b79e92" version="1">Heal up to 4 allies for 4d8+4. Once per long rest.</content>
   <content contentuid="h65535f2fg7b5dg59ceg9e26g57bb753ac955" version="1">Curaga</content>
   <content contentuid="heaf492b2ga3bbg5394g93fegcc003088a073" version="1">Heal a creature within 18 m for 1d8+3. Once per turn.</content>
   <content contentuid="h4a9da558gdab3g595aga197gf633a880b245" version="1">Cure</content>
+  <content contentuid="hcbe7b8e0g4b4fg52a6g853bg83d7a1dbbc4c" version="1">Spin and strike every enemy within 2 m: an unarmed attack roll against each, 1d8 + your unarmed attack modifier bludgeoning on a hit. FFT also hits allies; here only enemies.</content>
+  <content contentuid="h0da6eaaeg23d9g5a40g95f7ge8dcb356bd2b" version="1">Cyclone</content>
   <content contentuid="h6c7a1987g31a9g5de5g8a14g6aa3a345cf40" version="1">8d10 necrotic damage to a creature within 18 m; Constitution save for half. Undead and constructs cannot be targeted. Once per long rest.</content>
   <content contentuid="h20430412g7126g548fg9730g2dc0dc6147c2" version="1">Death</content>
+  <content contentuid="h9bd22111g2e96g5e0ag9eb9gfb673ea2978c" version="1">+1 AC.</content>
+  <content contentuid="h59669fd4gc2f7g5c91gb191gd8e8ffbcb29d" version="1">Defense Boost</content>
+  <content contentuid="h4025f7cag367ag5cadgb845g6dd7d81a5f3f" version="1">A creature within 18 m makes a Wisdom save or is Confused for 2 turns (it repeats the save each turn). Once per short rest.</content>
+  <content contentuid="h95130a0cgbf48g50ccgb611g2852154be8f0" version="1">Delirium</content>
+  <content contentuid="h5e211384g2836g5e05g88c5g0bb5b88e1361" version="1">A creature within 18 m makes a Wisdom save or becomes an Atheist for 2 turns: it can't cast spells and has advantage on saving throws against spells. Once per short rest.</content>
+  <content contentuid="hf06e8b2dg38e8g54bfgabbdg82f6eab3dc45" version="1">Disbelief</content>
+  <content contentuid="h56a8cd99g58c9g52cbga38eg78f3b1bc3fe4" version="1">Unarmed strike at a pressure point: on a hit, the creature makes a Constitution save (your Strength/Dexterity DC) or is Doomed, and dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
+  <content contentuid="h6ac7d984g29b1g5662gb29fg6c846f9e6147" version="1">Doom Fist</content>
   <content contentuid="h80d37df8g55bfg572aga785gee17068f477e" version="1">End Silenced. Thrown like Potion.</content>
   <content contentuid="h85374d3ag6f46g5fabgb13cg8a809600d880" version="1">Echo Herbs</content>
   <content contentuid="h98ed3d3fgbd55g52a0gaafbg498b0b700d0c" version="1">Fully heal the target and restore one level 2 spell slot. Once per long rest. Thrown like Potion.</content>
   <content contentuid="hc4573fa0g31c7g595cg8b58g4fff783baae4" version="1">Elixir</content>
+  <content contentuid="h81583962g6187g5e4eg8892g3c91f3248aec" version="1">Drain a creature within 18 m: it makes a Wisdom save or takes 1d10 psychic damage, and you regain a level 1 spell slot (FFT absorbs MP). Once per short rest.</content>
+  <content contentuid="h6330ab3fg8ecbg565fg9865gd921f40a75dc" version="1">Empowerment</content>
   <content contentuid="h356de54bg8ed7g580dg9246g2a0f00a2cb05" version="1">Proficiency with handaxes, battleaxes and greataxes.</content>
   <content contentuid="heb0a5ca0gc7a3g52e6gab3fgf461119ad816" version="1">Equip Axes</content>
   <content contentuid="h106004ccgbf42g5cd5gb3ebg1aaef6a6da53" version="1">Proficiency with hand, light and heavy crossbows.</content>
@@ -64,44 +94,98 @@
   <content contentuid="h26d11a44g6754g5a4cgbfb0gf3b0b4a58057" version="1">Evasive Stance</content>
   <content contentuid="h7be2072fg5de6g5df3ga4aagae31d8e5f460" version="1">End Blinded. Thrown like Potion.</content>
   <content contentuid="h16d7460agbbd3g5e50g821bg4fb67c56510f" version="1">Eye Drops</content>
+  <content contentuid="h94fb2c2dg83ccg5c4fgbf16gd1943aaa8623" version="1">A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: it can't cast spells, deals 2 more damage and has -2 AC. Once per short rest.</content>
+  <content contentuid="hc4cf26ddg0919g52f0g93c7ge30825ff9fab" version="1">Fervor</content>
   <content contentuid="h55a19410gb594g5f86gaa4fgf59bcc326e32" version="1">3d6 fire damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
   <content contentuid="h82fbe68ag7394g5470g9bb4g2e8dbf0385e2" version="1">Fira</content>
   <content contentuid="h8fe21821g5c72g5389gb8c2g8d515015f6ed" version="1">6d6 fire damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
   <content contentuid="h0ac6aa0dg9548g5fdega19cgee57fee3fdf1" version="1">Firaga</content>
   <content contentuid="h006ec71ag19fag5d7fg9e7fg463c3066d440" version="1">1d8 fire damage to a creature within 18 m, no attack roll.</content>
   <content contentuid="h0703e513g7da3g50b4gb6b0gc4d0ac969c07" version="1">Fire</content>
+  <content contentuid="h9da2fcf4gd058g56bdg9a8fg835787f3ecde" version="1">Reaction: when an enemy moves into your melee reach, attack it first (like Polearm Master, with any weapon or fists). BG3 cannot cancel the enemy's own attack.</content>
+  <content contentuid="h29d1397bg424bg5940g8797g51d1b7df565d" version="1">First Strike</content>
   <content contentuid="h43ae3dafg0cc1g554eg851dg0c71a616957d" version="1">10d10 force damage to a creature within 18 m, no attack roll. Once per long rest.</content>
   <content contentuid="h3395e73cg831cg583ag88bdg460ea8267c5b" version="1">Flare</content>
+  <content contentuid="h2ef2eb8fgb1b6g500fga48eg0c4321355753" version="1">An ally within 18 m floats for 3 turns: it can't be knocked prone and ignores difficult terrain.</content>
+  <content contentuid="h78199735gd636g5767g8939ga7a6735c212a" version="1">Float</content>
   <content contentuid="hfd53e168ga4edg50d0g86f9gbabab1eb621f" version="1">Bonus action. +1 to attack rolls and +1 damage for 10 turns.</content>
   <content contentuid="had05ac22g7588g57aag9985ga600447820d8" version="1">Focus</content>
+  <content contentuid="h6b8996c9gdb72g583ag8499g7489704b4f74" version="1">When you take damage, you gain that much gold.</content>
+  <content contentuid="hbd201c8fgb6cbg5498g895dg3d98366281a2" version="1">Gil Snapper</content>
+  <content contentuid="hc2198841g93cfg5d7bg94c4ge34ea94d7737" version="1">Creatures within 3 m of a point up to 18 m away make a Constitution save or lose half of their maximum hit points (force). Bosses are immune. Once per long rest.</content>
+  <content contentuid="ha1f14ed6gff9bg5a53g81fdgb151345dfe26" version="1">Graviga</content>
+  <content contentuid="h67c8d632g2860g5d17g91a2gb9780a057845" version="1">Creatures within 2 m of a point up to 18 m away make a Constitution save or lose a quarter of their maximum hit points (force). Bosses are immune. Once per short rest.</content>
+  <content contentuid="h0f5f83dfg282eg5c3bgbdebg0504d5dbe4a8" version="1">Gravity</content>
+  <content contentuid="hab2b6c61g8abfg5901g99d6gc875f0c0eebc" version="1">Strip a creature within 18 m of its blessings: Haste, Bless, Aid, Heroism, Shield of Faith, Barkskin, Stoneskin, Blur, Protection from Evil and Good, Freedom of Movement, Sanctuary, Longstrider, Invisibility, and this mod's Protect, Shell, Regen, Focus, Faith, Reflect, Float and Quick. Once per short rest.</content>
+  <content contentuid="heeed14fcg5ac7g573bgba98gd214ae6b7a07" version="1">Harmony</content>
+  <content contentuid="hbf01e01dg4fc2g5eb9g9dccga0ee2ee1befc" version="1">An ally within 18 m is Hasted for 3 turns (BG3's Haste: an extra action, +2 AC, more movement, then a turn of lethargy). No concentration. Once per short rest.</content>
+  <content contentuid="h9530d2bag5e56g5278gbf2ag7e9da7bc62d7" version="1">Haste</content>
+  <content contentuid="h130947d1g9a1fg5507gb107g2f57dfa9691f" version="1">Every ally within 4 m of a point up to 18 m away is Hasted for 3 turns (as Haste). Once per long rest.</content>
+  <content contentuid="h9fc3a09eg9e80g5832gb2aeg3ade5ccf983e" version="1">Hasteja</content>
+  <content contentuid="he5224064g4b7dg5334gaa74gec34f4645568" version="1">A creature within 18 m makes a Wisdom save or is Disabled for 1 turn: no actions or bonus actions (it can still move).</content>
+  <content contentuid="h4fc67ecegc077g53f0gad22g1bb6a149822a" version="1">Hesitation</content>
   <content contentuid="h00bf611ag9ffbg5132gb29cg9fa9f5719e6d" version="1">Heal 4d4+4. Once per short rest. Thrown like Potion.</content>
   <content contentuid="h2ad845aagbab5g53c1g879agf09cac09e3e1" version="1">Hi-Potion</content>
   <content contentuid="hfee7f9c5gc881g5f89g99b8g191fd3ea6c1a" version="1">4d10 radiant damage to a creature within 18 m, no attack roll. Once per short rest.</content>
   <content contentuid="hcd4a57f2g1325g55f4gbb3dg51702d8ba86c" version="1">Holy</content>
+  <content contentuid="h8b3e5d32g7ebeg5963gbf6bg4a4f5a128663" version="1">You ignore difficult terrain (mud, water, ice, webs).</content>
+  <content contentuid="h4bf6ddf6g6d26g538cga097g1abc011de6fb" version="1">Ignore Weather</content>
+  <content contentuid="h69ef04b6gc8aag515fg9ab8g4c129fd2daf3" version="1">An enemy within 18 m makes a Strength save or can't move for 2 turns (it can still act; it repeats the save each turn).</content>
+  <content contentuid="hb76229abg33f1g5fecg9ff4ga5310282ecc5" version="1">Immobilize</content>
+  <content contentuid="he001283fg7cedg5f02g812bg8c076d0e5a68" version="1">A creature within 18 m makes a Constitution save or is Petrified for 2 turns (incapacitated, resistant to all damage). Bosses are immune. Once per long rest.</content>
+  <content contentuid="hfb1b5ccdgeab5g5b92gbb9bg3f0a6414cae4" version="1">Induration</content>
+  <content contentuid="h5bb05789g8476g5214g9062gf08e8b0be839" version="1">Ranged spell attack against a creature within 18 m: 3d6 necrotic damage, and you regain half the damage dealt. Once per short rest.</content>
+  <content contentuid="hb4d99739g1740g5458ga973g2c016a679d77" version="1">Invigoration</content>
   <content contentuid="h3c36efb8g46f9g5183gb087g0bcd82fc476a" version="1">Earn 50% more JP.</content>
   <content contentuid="h472dd1e3g69feg5a34gbb87gc9330e40dd28" version="1">JP Boost</content>
   <content contentuid="h76d11b9fg0bc1g5b93gb756g6c75722ec642" version="1">+3 m jump distance.</content>
   <content contentuid="haaaccdbag65e7g5434gb59dg58d71287ae34" version="1">Jump +1</content>
+  <content contentuid="hd87c107dge1e0g57e5gaff0gd0cf14496519" version="1">Jump 6 m farther.</content>
+  <content contentuid="h1da5b1fcgb221g5fadg8565g4e9b4dad6e8e" version="1">Jump +2</content>
+  <content contentuid="h5d017481g8ffbg5eebgb4fdgefb197d262ca" version="1">You always float: you can't be knocked prone and you ignore difficult terrain.</content>
+  <content contentuid="h1bf70ff7g2fdag57b8g95acg3a81ede5a37c" version="1">Levitate</content>
+  <content contentuid="ha47f129dg6738g5a52g9c25gad41e44e09c3" version="1">When you move, regain 1d6 hit points. Once per turn.</content>
+  <content contentuid="h0e9f34efgecb8g5607g8adcg3cf24ccc8fb9" version="1">Lifefont</content>
   <content contentuid="h7218403fgf688g57f1gb541gd9b301fb7c7b" version="1">+1 spell save DC and +1 to spell attack rolls.</content>
   <content contentuid="h8f58a2a8ge351g5fa4g941eg76080b571603" version="1">Magick Boost</content>
   <content contentuid="hc95b80eeg019dg5cd0ga828g98b30cbbc688" version="1">When a spell damages you, its caster takes 2d6 force damage.</content>
   <content contentuid="hed9749cag51b5g5174g867bg16af19be0d02" version="1">Magick Counter</content>
   <content contentuid="he7ee2cd9gc44ag53ddg92d1ga5d71ab4a181" version="1">+1 to all saving throws.</content>
   <content contentuid="h78db1063g644eg5bb7g8381g2e72518bb518" version="1">Magick Defense Boost</content>
+  <content contentuid="h408b3178g0699g5c23g97f8ga8c801e307e5" version="1">Reaction: when you would take damage, spend a level 1 spell slot to reduce it by 3d8 (FFT takes the damage from MP).</content>
+  <content contentuid="hfb584fd7g7be0g5e80ga4b1g75cd82936252" version="1">Mana Shield</content>
+  <content contentuid="ha0f661e8g13c4g5dbbgae52gb323b5fcf264" version="1">When you move, you regain a level 1 spell slot. Once per short rest.</content>
+  <content contentuid="h7af2ccd5g924fg526eg9709g1e21c454bf15" version="1">Manafont</content>
+  <content contentuid="h6137c09ag23c4g5dd5g8830gfb220392c107" version="1">A meteor smashes into a point up to 18 m away: creatures within 5 m take 5d8 bludgeoning and 5d8 fire damage (Dexterity save for half). Once per long rest.</content>
+  <content contentuid="h8e2ed264gd49dg552egb637g46ea9ab55e5c" version="1">Meteor</content>
   <content contentuid="hb714e206g10feg5503g9baeg87df8a75d709" version="1">+3 m movement speed.</content>
   <content contentuid="he0a669afga60cg51begb1dcg39c96fde3aa2" version="1">Movement +1</content>
+  <content contentuid="hd5040b7cg2ad1g540ag83efgbfff8a8cc65e" version="1">+6 m movement speed.</content>
+  <content contentuid="h8d5a38d6g28d4g5de4gbb7dg404b0afec80d" version="1">Movement +2</content>
   <content contentuid="h4ce1e541gae91g5abag9d00gd485952aca38" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2.</content>
   <content contentuid="h767a6ba2g34a0g5ab4ga421g9217d79c3ca7" version="1">Parry</content>
   <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion.</content>
   <content contentuid="h0d97b2aegc290g5cdbgb478g11d37f703126" version="1">Phoenix Down</content>
+  <content contentuid="h721fdff2g9cdcg5e92g9c4ag0671a774b54b" version="1">When a beast or monster (not a humanoid) you hit with a weapon this turn dies, you take a trophy worth 5 times its level in gold.</content>
+  <content contentuid="hd482b6f7g690cg58ecg8ae4g02853068352c" version="1">Poach</content>
   <content contentuid="hfdb6e888g5d60g563fga4d6g40275d4bafa7" version="1">1d6 poison damage to a creature within 18 m; it is Poisoned for 2 turns unless it succeeds a Constitution save.</content>
   <content contentuid="h81ce24b7g0c25g5bbbgb6bag1329e8eb68c0" version="1">Poison</content>
   <content contentuid="h9c5ad605gc4c0g5badgaf8egfb8d789a921a" version="1">Heal 2d4+2. Touch range, or 9 m when thrown (Chemist primary job or Throw Items).</content>
   <content contentuid="hdc38429ag507eg5684g9080g79d18940ac4b" version="1">Potion</content>
   <content contentuid="h2f915be8gf318g53b8ga783gf54b0ee9000c" version="1">The target gets +2 AC for 5 turns. Once per turn.</content>
   <content contentuid="he97c83c4g2db4g5c14gba78gebb36091d7d7" version="1">Protect</content>
+  <content contentuid="h830fa253gcc68g586fg89c8g3334782b53ce" version="1">Two quick unarmed strikes at a creature in melee range: each hit deals 1d6 + your unarmed attack modifier bludgeoning.</content>
+  <content contentuid="h4e9feef4gfa78g5d78g8111g566013ac3575" version="1">Pummel</content>
+  <content contentuid="hb696e4ddgb758g5b43ga6fdg0286d5b83d91" version="1">You and allies within 3 m are cured of blindness, poison, disease, paralysis, silence, sleep, confusion, fear and charm. Once per short rest.</content>
+  <content contentuid="haca588adg3f7fg505dg9d72g9c74f3418e64" version="1">Purification</content>
+  <content contentuid="hffda8bd3g52f2g53c5gbfb3g8dfb7a685254" version="1">Another ally within 18 m gets an extra action on its next turn (BG3 cannot give it a turn right away). Once per long rest.</content>
+  <content contentuid="hd156b48dgc6feg5683gb844g4e56f0d45de4" version="1">Quick</content>
+  <content contentuid="h386e9ac6g17fcg5e90g8dacgbd808ec8a6fc" version="1">A creature within 18 m makes a Wisdom save or is Silenced for 2 turns (no spells with a verbal component). Once per short rest.</content>
+  <content contentuid="h42d3a08ag373eg5262g9831g5b72ca08dd2c" version="1">Quiescence</content>
   <content contentuid="h6f8f7b02ge82fg5859gb7a8g223ee4defd4b" version="1">Revive a dead ally with 1 HP. Once per short rest.</content>
   <content contentuid="h0bb0db5cg4a18g5070g8270g65bd5162ce55" version="1">Raise</content>
+  <content contentuid="h3d6e9f1bgee98g51a1g8473g8cd1bd401c8e" version="1">An ally within 18 m is shielded for 3 turns: it takes half damage from spells, and a caster whose spell damages it takes 2d6 force damage. BG3 cannot bounce the spell itself. Once per short rest.</content>
+  <content contentuid="h077a5e35gc1e4g5a01gb3d0gfadcbaad7b02" version="1">Reflect</content>
   <content contentuid="hefd05e9eg70beg544cg936bg9ebb565ec2b7" version="1">The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn.</content>
   <content contentuid="he94fec03g65ecg5dfaga674g0f5441824d27" version="1">Regen</content>
   <content contentuid="hd42c1273ga1cbg5ebcgb0b3g26ffd5415a8f" version="1">When you take damage, you gain Regen for 3 turns (1d4+1 HP per turn) unless you already have it.</content>
@@ -118,16 +202,50 @@
   <content contentuid="h1ae7cf6fgf919g537dg8816gbd0364326777" version="1">Rend Speed</content>
   <content contentuid="hd40315a4g3c6dg5661g9ca0g7331681105f5" version="1">Melee weapon attack that deals no damage; on a hit the target has disadvantage on attack rolls for 2 turns.</content>
   <content contentuid="hf58e2652ga999g5f4ag98e0g734323a86e63" version="1">Rend Weapon</content>
+  <content contentuid="hfe753f71g2c5ag5e5fg8385g03c542bd04e9" version="1">A creature within 18 m makes a Wisdom save or falls Asleep for 2 turns (it wakes when damaged). Once per short rest.</content>
+  <content contentuid="hdd033428g43a5g5074gbc18gcf2feadc9009" version="1">Repose</content>
   <content contentuid="hdcc3587egea0bg561eg9f3dg9d6ab06961e6" version="1">Death Ward: the next time the ally would drop to 0 HP, it drops to 1 HP instead. Once per long rest.</content>
   <content contentuid="h71e8e3e2g2fdfg5017gbcf0gf0e0affac3ba" version="1">Reraise</content>
+  <content contentuid="h0989f318g3adbg5418g93c8g0b8754d22878" version="1">With a battle cry, bring a dead ally in melee range back to life with 2d8 hit points. Once per short rest.</content>
+  <content contentuid="h80eefe59ge1b3g5eacgbbfeg21e56d55ea01" version="1">Revive</content>
   <content contentuid="h6a02edd4g776dg5ae4gbe92gb0a4ce3f3fc5" version="1">Melee weapon attack that also pushes the target 2 m.</content>
   <content contentuid="h27771a9dg0fcag5396gbf7eg0846d874e966" version="1">Rush</content>
   <content contentuid="ha9916fc8g295bg5fcbg980aga22476868438" version="1">Touch an ally to end Blinded, Poisoned and Silenced.</content>
   <content contentuid="hc97a5f6ag22afg5394g97dcgc0d4c94cc049" version="1">Salve</content>
   <content contentuid="h59cd2ee9g52bbg50e8ga5adgdd2843e65e7b" version="1">The target has advantage on saving throws against spells for 5 turns. Once per turn.</content>
   <content contentuid="h3959f5deg7eecg515ega28ag9d26c6b424a8" version="1">Shell</content>
+  <content contentuid="h9e6374eegd003g5644gacccg14acc1cfda61" version="1">A shockwave tears through the ground in a 12 m line: creatures in it make a Dexterity save (your Strength/Dexterity DC), taking 3d8 bludgeoning and falling prone on a failure, half damage on a success. Once per short rest.</content>
+  <content contentuid="h59e6389bgf275g564cgb4a7gfd85d3e1ed40" version="1">Shockwave</content>
+  <content contentuid="h33941a53g3784g5485gaf11ga685858c5209" version="1">An enemy within 18 m makes a Wisdom save or is Slowed for 3 turns (BG3's Slow: -2 AC and Dexterity saves, half movement, no reactions; it repeats the save each turn). Once per short rest.</content>
+  <content contentuid="h6c6f3f5dg095dg5990g9d77g52a1addcee69" version="1">Slow</content>
+  <content contentuid="he51e52aag246ag52d9g8287gb787766b3e0b" version="1">Every enemy within 4 m of a point up to 18 m away makes a Wisdom save or is Slowed for 3 turns (as Slow). Once per long rest.</content>
+  <content contentuid="h054094cag6411g5034g9138g8e1e1bb00af3" version="1">Slowja</content>
   <content contentuid="h4e1f1c50g793bg5a22gbc73g78370fc48b84" version="1">When you take damage, gain +3 m movement for 2 turns.</content>
   <content contentuid="h6ed4b882gb760g5933g88d3g7ade648bb995" version="1">Speed Surge</content>
+  <content contentuid="hec74be21g4b44g5308g9ef3g68f860b2e411" version="1">Melee attack roll; on a hit you take one of the enemy's accessories (amulet, ring, cloak, gloves or boots) into your inventory. Quest and story items can't be stolen.</content>
+  <content contentuid="h21e14c70g2c3dg5250g9287g37138115da20" version="1">Steal Accessory</content>
+  <content contentuid="h3c5d99eeg8417g56bcgb8dcgc6584c448d97" version="1">Melee attack roll; on a hit you take the enemy's body armour into your inventory. Quest and story items can't be stolen. Once per short rest.</content>
+  <content contentuid="h806fc0b1g5afag52c0g94b3g2a88815fd754" version="1">Steal Armor</content>
+  <content contentuid="h6b20ff37gf23eg5a26ga204ga4d8cda48243" version="1">Melee attack roll; on a hit you gain experience: 10 times the creature's level (BG3 creatures don't lose any). Each creature can be robbed of experience once.</content>
+  <content contentuid="h5e1116e3g9863g5277g930bg1d3604731b1b" version="1">Steal EXP</content>
+  <content contentuid="haf41f7f1g73aeg5045g9a44g2fc4e809da98" version="1">Melee attack roll; on a hit you pocket gold: 10 times the creature's level. Each creature can be robbed of gold once.</content>
+  <content contentuid="h711e7cf4g7c8bg5896ga22dg4f883d82d2e0" version="1">Steal Gil</content>
+  <content contentuid="hed42bb3bgedf3g5f45g97acgf1dbcb617bfe" version="1">A creature up to 9 m away makes a Wisdom save (your Strength/Dexterity DC) or is Charmed for 2 turns: it can't harm you. Once per short rest.</content>
+  <content contentuid="he395f513gb322g5ebdg8a17g2c5064cf7fbf" version="1">Steal Heart</content>
+  <content contentuid="h4e65d546ga9aeg595fg922fg68c8a5dee138" version="1">Melee attack roll; on a hit you take the enemy's headwear into your inventory. Quest and story items can't be stolen.</content>
+  <content contentuid="h3e039709g6c1dg505bg9073g7b2baac7fdbd" version="1">Steal Helm</content>
+  <content contentuid="ha2cffe9fg35e9g574eg8528g74deb59df6a8" version="1">Melee attack roll; on a hit you take the enemy's shield into your inventory. Quest and story items can't be stolen.</content>
+  <content contentuid="h86f311a6g3633g5d01g8333gc9fce938d19a" version="1">Steal Shield</content>
+  <content contentuid="hdf05d90cgca96g5b8agabd8g0ff8eace27fa" version="1">Melee attack roll; on a hit you take the enemy's main weapon (melee first, otherwise ranged) into your inventory. Quest and story items can't be stolen. Once per short rest.</content>
+  <content contentuid="h31b83b39g0d27g5b8dga7dag38e9f54139cd" version="1">Steal Weapon</content>
+  <content contentuid="hce3d751cg6d36g532fgb690g9ca1c198687c" version="1">Thrown weapons and objects deal no damage to you: you catch them (the caught item is not kept).</content>
+  <content contentuid="h0a4eb5f6gc584g5a82gbc12g258574632e81" version="1">Sticky Fingers</content>
+  <content contentuid="hf16ab5ebgffc1g5577gb70bg7da9106c2c03" version="1">An enemy within 18 m makes a Wisdom save or is Stopped for 2 turns: it can't move or act, and melee hits on it are critical (it repeats the save each turn). Bosses are immune. Once per short rest.</content>
+  <content contentuid="hc2b529e5g1e94g55bag9a4dgcfdd6e55faeb" version="1">Stop</content>
+  <content contentuid="h8bfd65f2gf91ag581fg9540g6c24b3bbf48d" version="1">+2 to initiative, and in each fight the first spell you cast that costs an action costs a bonus action instead (FFT casts faster).</content>
+  <content contentuid="h5ae275f6g03a1g5943g9af2gb05f39747b15" version="1">Swiftspell</content>
+  <content contentuid="h23fec4c9g22ceg5ea4g9a38g5de61cf286d6" version="1">Bonus action, once per turn: teleport to a spot you can see up to 9 m away (Misty Step without a spell slot).</content>
+  <content contentuid="h74f64dd9ga0ffg596bg8316g8bbd25ebbf7d" version="1">Teleport</content>
   <content contentuid="hf966add7g171eg5d96g90ffg3b8972c7ff78" version="1">Item abilities can be thrown up to 9 m with any job.</content>
   <content contentuid="hf1409b06g9e4bg55deg82a9g34366ad91f2d" version="1">Throw Items</content>
   <content contentuid="h0d126babg8e22g59aeg821bgb859bb091661" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 1 m push.</content>
@@ -140,6 +258,12 @@
   <content contentuid="h61b0b750g5244g5945g9d9eg6abb6b847a66" version="1">Thunder</content>
   <content contentuid="h6c29a1c2g9a1cg55c5g8b91g304d10ec3c90" version="1">+2 to Perception (spot hidden items and traps).</content>
   <content contentuid="h1bd79da5g4bffg5c41gbe76g2e287a7581e0" version="1">Treasure Hunter</content>
+  <content contentuid="h0a96a934g87f8g529cga2fcg82cb690c3b32" version="1">A creature within 18 m makes a Wisdom save or is Frightened of you for 2 turns (FFT lowers Bravery).</content>
+  <content contentuid="hf70fde6cg26adg5fe0g8793g963827b35256" version="1">Trepidation</content>
+  <content contentuid="haff10204g21cbg56b1g8968g322da59c548d" version="1">A creature within 18 m makes a Constitution save or is Blinded for 2 turns (it repeats the save each turn).</content>
+  <content contentuid="h896df1f0gdfd1g5d91g8ff7gd0cf27b397e9" version="1">Umbra</content>
+  <content contentuid="h6e493f4ag4c73g5a68g85a2g6ab47c8f9b8f" version="1">When a weapon attack damages you, you take the Defending stance: +2 AC until your next turn. Once per turn.</content>
+  <content contentuid="h91769c6dg98b2g53dbg9434geb130914f2ed" version="1">Vigilance</content>
   <content contentuid="h554f4f19g0c0fg5edega867gd1109de5f992" version="1">Heal 8d4+8. Once per long rest. Thrown like Potion.</content>
   <content contentuid="h191dd1ecg0450g5e51g9b8bg32f1411f6c23" version="1">X-Potion</content>
   <content contentuid="h6528f541gc9c4g5206gab41g94edaf845a58" version="1">+1 to ranged weapon attack rolls. Earned by mastering Archer; kept after changing jobs.</content>
@@ -158,10 +282,26 @@
   <content contentuid="hc4543261gc46fg5ff9ga03eg10c496d2e1f3" version="1">Knight Mastery</content>
   <content contentuid="ha5976045gcbf7g5ef6g88feg9ba15413337c" version="1">Breaks the enemy's armor, weapon, speed and power. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hd73ae27cgd9e4g571fgbfe5g4c7a339f8bc3" version="1">Job: Knight</content>
+  <content contentuid="h33504989gedbfg5244gac96g0a89c9731163" version="1">Unarmed strikes deal 1d4 more damage. Earned by mastering Monk; kept after changing jobs.</content>
+  <content contentuid="h3b04dddfg8affg5790gbb33g0ce4ba74368b" version="1">Monk Mastery</content>
+  <content contentuid="h105a60a9g54abg5460gb839g66224908a2f5" version="1">Fights with bare fists (Brawler is always on); martial arts, healing and revival. Equipment: light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h94ac4639g69a8g5f33g8c4agbd0051ca5137" version="1">Job: Monk</content>
+  <content contentuid="h09168a44g7ad3g57f5gbac6gff705d19dcfc" version="1">+1 to your spell save DC. Earned by mastering Mystic; kept after changing jobs.</content>
+  <content contentuid="h725dd9d1g0434g596egb017g56997cab1387" version="1">Mystic Mastery</content>
+  <content contentuid="hd40c9e23g1711g5dd5ga1d0gf1255fa7713c" version="1">Afflicts mind and body: blindness, silence, sleep, confusion, stone, drains. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="haec3b93eg1bc4g57e9gbd3bg8ff7e0b309e0" version="1">Job: Mystic</content>
   <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hb65980b3g8531g5fc9gabddgdcd5912f7558" version="1">Job: Squire</content>
+  <content contentuid="hdc74e132g0947g5589g9641g71de5297e4f8" version="1">+2 to initiative. Earned by mastering Thief; kept after changing jobs.</content>
+  <content contentuid="hd70bd43dg81b1g5ffbg91d2g4a4e45962fb1" version="1">Thief Mastery</content>
+  <content contentuid="he5b20481g3e51g51afg9d5age3ea488efaf6" version="1">Steals gold, experience, hearts and the gear off an enemy's back. Equipment: daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hd45d522dg5cf9g5356g8c85gf37ece4560e9" version="1">Job: Thief</content>
+  <content contentuid="h5812a7a5g9a5cg5289g8c08g38ed0d431efe" version="1">+1.5 m movement. Earned by mastering Time Mage; kept after changing jobs.</content>
+  <content contentuid="hfd15723eg0330g5044g9239g1adb741c4b73" version="1">Time Mage Mastery</content>
+  <content contentuid="h4fcd4c2cgf475g50bcg9e3eg7a1d7301c987" version="1">Bends time and space: Haste, Slow, Stop, Gravity and Meteor. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h58fbcf39g2855g50a8g8afbgc2779c740ddf" version="1">Job: Time Mage</content>
   <content contentuid="hefb7927agda13g5f64g92d4g30d9823f66c2" version="1">+1 to Wisdom saving throws. Earned by mastering White Mage; kept after changing jobs.</content>
   <content contentuid="h1062f6bfg6495g5f8aga4d9g041b98c04646" version="1">White Mage Mastery</content>
   <content contentuid="h0e9f7479g515cg5cfegb38eg2dbe82726e7c" version="1">Healing, revival and protection. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -170,14 +310,32 @@
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
   <content contentuid="hed88a027gf2b3g5541gbd6agd477f35f7c9e" version="1">Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.</content>
   <content contentuid="h188b0598gbe93g5c5dga252g5838ca4c297a" version="1">JP Training (test)</content>
+  <content contentuid="had726a2agfb25g5d1cg885ag9d4186f2fdd0" version="1">Can't cast spells; advantage on saving throws against spells.</content>
+  <content contentuid="h321a4ad3gb0b5g5e21g8f0fga5411f5e76b2" version="1">Atheist</content>
   <content contentuid="ha4f203f8g9cfcg52e5g8f10ga73b48109897" version="1">Auto-Potion already triggered this turn.</content>
   <content contentuid="hbbe1f996g1ed5g542bg9bedg0dd19af0cb4c" version="1">Auto-Potion Used</content>
+  <content contentuid="h04b312e1g4bbcg5006gb557g32ea4053ee82" version="1">Can't cast spells; deals 2 more damage; -2 AC.</content>
+  <content contentuid="h9b4d070bgc3ecg5722ga438gf8f1063905be" version="1">Berserk</content>
   <content contentuid="h58eb9c17gbfa2g5284gace0g36ab6c5bd644" version="1">+2 AC until your next turn.</content>
   <content contentuid="hf229705fg5aecg55ebg9db3g1ae543b05c6e" version="1">Defending</content>
+  <content contentuid="h3a11a39ag6777g5a2agae86g19402ab61a13" version="1">Can't take actions or bonus actions, but can move.</content>
+  <content contentuid="h21039a26g7fcag5c46ga0a5g1c0150c0992a" version="1">Disable</content>
+  <content contentuid="ha1c6016fg3636g5e8egb8c7g83cdde138cec" version="1">Dies when Doom runs out.</content>
+  <content contentuid="h23f5fa97g219dg5379gaf75g66a2c6c34882" version="1">Doom</content>
+  <content contentuid="he84f9e13gf0eeg5f79g8e6bgaaaf065f7b2b" version="1">+2 to spell attack rolls and spell save DC, -2 to saving throws.</content>
+  <content contentuid="hd15c1a84g87b3g5f40gb8b0gd700b124f9a3" version="1">Faith</content>
+  <content contentuid="h6accde44g3a90g56b3g9d0dg562abafea258" version="1">Can't be knocked prone and ignores difficult terrain.</content>
+  <content contentuid="hcb7b2dd1g82f2g5b6cg870egc2b547e6a33e" version="1">Float</content>
   <content contentuid="hbc9d1ec1ga51eg5405gbaf4g810332f1f5aa" version="1">+1 to attack rolls and +1 damage.</content>
   <content contentuid="h1906f6c3ge841g56d1g95b0g3c9d6bf606c1" version="1">Focus</content>
+  <content contentuid="h2c97c5f0g60f7g5b47gbfc7g4197ec4003d7" version="1">Can't move, but can still act. Repeats the Strength save each turn.</content>
+  <content contentuid="hefcc5bdega8a1g50ccg9014gec0e6196f422" version="1">Immobilize</content>
   <content contentuid="hda2ce899ga8deg5eaaga615gdfd2f03e4ffb" version="1">+2 AC.</content>
   <content contentuid="h0e16631cg257cg5438g9283g28c99ab90b53" version="1">Protect</content>
+  <content contentuid="h16db5dabg9690g57f7g8d7eg6e3f19cc1fba" version="1">An extra action this turn.</content>
+  <content contentuid="ha183378fgffc3g59e7gb20cg27f7ed9a1b03" version="1">Quick</content>
+  <content contentuid="h2a74ea10gc6aag5254ga07eg695bb9a4e113" version="1">Takes half damage from spells; a caster whose spell deals damage takes 2d6 force damage.</content>
+  <content contentuid="hba70dbc2g2079g55b9g9348g7bbda09ce6ff" version="1">Reflect</content>
   <content contentuid="ha74d551ega43cg57d2gbe33gfb71e9a106ee" version="1">Regains 1d4+1 HP at the start of each turn.</content>
   <content contentuid="hc7f0fc95g3726g5c6ag80a5gcc4e7418ef7c" version="1">Regen</content>
   <content contentuid="hc623f0b2g317ag5316g8ae7g498eff69c4e1" version="1">-2 AC.</content>
@@ -194,4 +352,12 @@
   <content contentuid="hf59dc2aeg0a58g57f7gbcf1g7067c6361a1b" version="1">Shell</content>
   <content contentuid="h04f3c12cg2948g542ag9876gd0281fae51f5" version="1">+3 m movement.</content>
   <content contentuid="hef5cc892g7ddfg50d1g9762gef2f15354b7b" version="1">Speed Surge</content>
+  <content contentuid="h78ba7c7eg2383g5f16g914fgaed64b794074" version="1">Petrified: incapacitated and resistant to all damage.</content>
+  <content contentuid="h70739040g7725g5808g9391g633ddb19a3e1" version="1">Stone</content>
+  <content contentuid="h71f52b98g29d9g53e2g934ag37da2f90cadb" version="1">Frozen in time: can't move or act; melee hits are critical. Repeats the Wisdom save each turn.</content>
+  <content contentuid="h4d9c9a90g2469g56b8gbe17g69a307d9c623" version="1">Stop</content>
+  <content contentuid="h1b5242a7gd130g5bc1g9800g8b27e64a7774" version="1">The next spell that costs an action costs a bonus action instead.</content>
+  <content contentuid="h4a65bd4bgce9cg530egb345g55acab570243" version="1">Swiftspell</content>
+  <content contentuid="he63564cagebefg5ac4g96c1g0534831cb2d1" version="1">Can't regain hit points; vulnerable to radiant damage.</content>
+  <content contentuid="h3376eb1fg0cdbg5ed9gbe2ag62cc8adf62c9" version="1">Undead</content>
 </contentList>

@@ -23,11 +23,13 @@ local function subscribable(world, name)
     return ev
 end
 
--- Characters: guid -> {name, level, xp, class, player, summon, party, inCombat, dead, spells{}, passives{}, statuses{}}
+-- Characters: guid -> {name, level, xp, class, player, summon, party, inCombat, dead, spells{}, passives{}, statuses{},
+-- equipment{slot = item guid}, inventory{item guids}, gold, boss, hp, maxHp}
 function Mocks.NewChar(world, guid, fields)
     local c = {
         name = "Char", level = 1, xp = 0, class = "Fighter", player = true, summon = false, party = true,
         inCombat = false, dead = false, spells = {}, passives = {}, statuses = {},
+        equipment = {}, inventory = {}, gold = 0, boss = false, hp = 20, maxHp = 20,
     }
     for k, v in pairs(fields or {}) do
         c[k] = v
@@ -114,6 +116,7 @@ function Mocks.Install()
         chars = {}, files = {}, prints = {}, notifications = {}, timers = {}, ticks = {}, listeners = {},
         events = {}, commands = {}, stats = {}, loca = {}, modVars = {}, classUuids = {},
         serverChannels = {}, clientChannels = {}, windows = {}, host = nil, osiCalls = {}, side = "server",
+        items = {}, itemStats = {},
     }
     local cache = {}
 
@@ -199,11 +202,16 @@ function Mocks.Install()
         end,
         Entity = {
             Get = function(guid)
+                local item = world.items[guid]
+                if item then
+                    return { Data = { StatsId = item.stats } }
+                end
                 local c = world.chars[guid]
                 if not c then
                     return nil
                 end
                 return {
+                    Health = { Hp = c.hp, MaxHp = c.maxHp },
                     Experience = { TotalExperience = c.xp },
                     Classes = { Classes = { { ClassUUID = "class-" .. c.class } } },
                     DisplayName = { Name = { Get = function()
@@ -227,6 +235,9 @@ function Mocks.Install()
         },
         Stats = {
             Get = function(id)
+                if world.itemStats[id] then
+                    return world.itemStats[id]
+                end
                 local costs = world.stats[id]
                 return costs and { UseCosts = costs } or nil
             end,
@@ -343,6 +354,40 @@ function Mocks.Install()
         ShowNotification = function(g, text)
             world.notifications[#world.notifications + 1] = text
         end,
+        GetEquippedItem = function(g, slot)
+            return char(g).equipment[slot]
+        end,
+        Unequip = function(g, item)
+            rec("Unequip", g, item)
+            for slot, it in pairs(char(g).equipment) do
+                if it == item then
+                    char(g).equipment[slot] = nil
+                end
+            end
+        end,
+        ToInventory = function(item, g, amount, notify, clearOwner)
+            rec("ToInventory", item, g)
+            local inv = char(g).inventory
+            inv[#inv + 1] = item
+        end,
+        IsStoryItem = function(item)
+            return b(world.items[item] and world.items[item].story)
+        end,
+        AddGold = function(g, amount)
+            rec("AddGold", g, amount)
+            char(g).gold = char(g).gold + amount
+        end,
+        AddExplorationExperience = function(g, amount)
+            rec("AddExplorationExperience", g, amount)
+            char(g).xp = char(g).xp + amount
+        end,
+        IsBoss = function(g)
+            return b(char(g).boss)
+        end,
+        ApplyDamage = function(g, amount, damageType, source)
+            rec("ApplyDamage", g, amount, damageType, source)
+            char(g).hp = char(g).hp - amount
+        end,
         DB_Players = {
             Get = function(self, filter)
                 local rows = {}
@@ -418,6 +463,17 @@ function Mocks.Install()
 
     function world.newChar(guid, fields)
         return Mocks.NewChar(world, guid, fields)
+    end
+
+    -- Items: guid -> {name, stats (stats entry name), story}; equip one with world.chars[g].equipment[slot] = guid.
+    function world.newItem(guid, fields)
+        local item = { name = "Item", stats = nil, story = false }
+        for k, v in pairs(fields or {}) do
+            item[k] = v
+        end
+        world.items[guid] = item
+        world.loca["h_" .. guid] = item.name
+        return item
     end
 
     return world

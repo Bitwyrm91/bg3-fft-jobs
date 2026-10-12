@@ -15,6 +15,10 @@ Events.Osiris = {
     { "LeveledUp", 1, "OnLeveledUp" },
     { "CharacterJoinedParty", 1, "OnCharacterJoinedParty" },
     { "LevelGameplayStarted", 2, "OnLevelGameplayStarted" },
+    -- job ability effects (Effects.lua); arities from LaughingLeader's generated Osi.Events.lua (2026-10-12)
+    { "StatusApplied", 4, "OnStatusApplied" },
+    { "AttackedBy", 7, "OnAttackedBy" },
+    { "KilledBy", 4, "OnKilledBy" },
 }
 
 function Events.Register(svc, log)

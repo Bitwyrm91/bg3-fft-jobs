@@ -39,7 +39,8 @@ def read(path):
 
 
 def index_stats(files):
-    entries = {}
+    """Entry name -> type, and the set of status groups (SG_*) named in vanilla StatusGroups fields."""
+    entries, groups = {}, set()
     for f in files:
         cur = None
         for line in read(f).splitlines():
@@ -51,7 +52,10 @@ def index_stats(files):
             m = TYPE.match(line)
             if m and cur:
                 entries[cur] = m.group(1)
-    return entries
+            m = DATA.match(line)
+            if m and m.group(1) == "StatusGroups":
+                groups.update(g.strip() for g in line.split('"')[3].split(";") if g.strip())
+    return entries, groups
 
 
 def index_modifiers(files):
@@ -110,7 +114,7 @@ def main(argv):
         for p in r.rglob("*.lsx"):
             if "gui" in [x.lower() for x in p.parts] or "icons" in p.name.lower():
                 lsx_files.append(p)
-    vanilla = index_stats(stats_files)
+    vanilla, status_groups = index_stats(stats_files)
     modifiers = index_modifiers(modifier_files)
     icons = set()
     for f in lsx_files:
@@ -135,6 +139,8 @@ def main(argv):
             elif have != want:
                 problems.append(f"using parent {rid} is {have}, expected {want}")
         elif kind == "status":
+            if rid in status_groups and rid not in vanilla:
+                continue  # a status group, e.g. RemoveStatus(SG_Poisoned) as vanilla Lesser Restoration does
             if rid not in vanilla:
                 problems.append(f"status {rid} does not exist (used by {', '.join(ref['usedBy'])})")
             elif vanilla[rid] != "StatusData":

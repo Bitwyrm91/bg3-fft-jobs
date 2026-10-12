@@ -1,6 +1,18 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.6**: the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.7**: four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.7: Monk, Thief, Time Mage, Mystic (phase 2, step 2, batch 1)
+
+Every ability of the four jobs, with the TIC JP costs. New abilities wear borrowed vanilla icons for now. To reach them fast: cast **JP Training three times** (Squire/Chemist Lv5 → Knight, Archer, White Mage, Black Mage unlock; their Lv5 → Monk, Thief, Time Mage, Mystic unlock; the third cast pays for abilities). Each character unlocks with its own levels.
+
+Worth trying, because the game decides whether they work:
+- **Thief, Steal Weapon / Armor / Helm / Shield / Accessory:** on a hit, the enemy's item should land in your inventory and leave its body (a notice says what was stolen). Quest items stay. **Steal Gil** / **Steal EXP** give gold / experience (10 × the enemy's level), once per enemy.
+- **Gil Snapper** (gold when hurt), **Poach** (gold when a monster you hit this turn dies), **Sticky Fingers** (thrown things do no damage).
+- **Monk:** **Counter** and **First Strike** should ask "use your reaction?" like Riposte or Polearm Master. **Doom Fist** kills the target when Doom runs out after 3 turns (bosses are immune: a notice says so). **Chakra** and **Purification** work in combat. **Lifefont** heals a little when you move. Monk always has **Brawler** (stronger fists).
+- **Time Mage:** **Gravity / Graviga** take a quarter / half of an enemy's maximum HP (bosses immune). **Stop** freezes an enemy; **Quick** gives an ally an extra action next turn; **Swiftspell** makes your first spell in each fight a bonus action; **Mana Shield** asks to spend a level 1 spell slot to cut damage; **Teleport** is a free Misty Step each turn.
+- **Mystic:** status spells (blind, silence, sleep, confusion, berserk, stone, undead, atheist, fear), **Harmony** strips buffs, **Absorb MP** / **Manafont** give back a level 1 spell slot.
+- Anything that does nothing, or a tooltip that looks wrong: tell me which ability. The SE console log shows each steal and Gravity hit.
 
 **First games (2026-10-12):** the mod loaded, found your party, and JP Training, learning on the Job Board and the granted skills all worked. The "missing" Squire skills were on the hotbar all along, but wore borrowed vanilla icons (Focus looked exactly like the Job Board). Since 1.0.0.4 every ability, job and buff has its own icon, with a background colour per job: Squire amber, Chemist green, Knight blue, Archer forest green, White Mage pale gold, Black Mage indigo.
 

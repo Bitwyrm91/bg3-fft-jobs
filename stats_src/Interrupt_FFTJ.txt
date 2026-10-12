@@ -1,0 +1,49 @@
+// FFT Job System - reactions as BG3 interrupts (the reaction prompt), unlocked by the reaction passives
+// (UnlockInterrupt). Modelled on vanilla interrupts, checked against the extracted stats on 2026-10-12.
+// UNVERIFIED IN GAME.
+
+// Counter (Monk): after an enemy's melee hit, attack it back. Hellish Rebuke's trigger (OnCastHit + IsHit) with
+// Sentinel's attack (UseAttack(OBSERVER_SOURCE)).
+new entry "Interrupt_FFTJ_Counter"
+type "InterruptData"
+data "DisplayName" "{{name:Counter}}"
+data "Description" "{{desc:Counter}}"
+data "Icon" "Action_Monk_FlurryOfBlows"
+data "InterruptContext" "OnCastHit"
+data "InterruptContextScope" "Self"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and IsMeleeAttack() and IsHit() and HasFunctor(StatsFunctorType.DealDamage) and not AnyEntityIsItem() and HasLastAttackTriggered() and not DistanceToEntityGreaterThan(2, context.ObserverPosition, context.Source)"
+data "Properties" "UseAttack(OBSERVER_SOURCE)"
+data "Cost" "ReactionActionPoint:1"
+data "InterruptDefaultValue" "Ask;Enabled"
+
+// First Strike (Monk): an enemy entering melee reach is attacked first. Polearm Master's interrupt without its
+// reach-weapon requirement.
+new entry "Interrupt_FFTJ_FirstStrike"
+type "InterruptData"
+data "DisplayName" "{{name:FirstStrike}}"
+data "Description" "{{desc:FirstStrike}}"
+data "Icon" "PassiveFeature_PolearmMaster_AttackOfOpportunity"
+data "InterruptContext" "OnEnterAttackRange"
+data "InterruptContextScope" "Self"
+data "Container" "YesNoDecision"
+data "Conditions" "Self(context.Source,context.Observer) and IsAbleToReact(context.Observer) and Enemy() and not WieldingWeapon('Ammunition', false, false, context.Source) and not HasStatus('SNEAKING',context.Target) and not HasStatus('SG_Ignore_AOO',context.Target) and not AnyEntityIsItem()"
+data "Properties" "UseAttack()"
+data "Cost" "ReactionActionPoint:1"
+data "Stack" "AttackOfOpportunity"
+data "InterruptDefaultValue" "Ask;Enabled"
+
+// Mana Shield (Time Mage): spend a level 1 spell slot to cut incoming damage. Deflect Missiles' OnPreDamage
+// AdjustRoll, for any damage.
+new entry "Interrupt_FFTJ_ManaShield"
+type "InterruptData"
+data "DisplayName" "{{name:ManaShield}}"
+data "Description" "{{desc:ManaShield}}"
+data "Icon" "Spell_Abjuration_GlobeOfInvulnerability"
+data "InterruptContext" "OnPreDamage"
+data "InterruptContextScope" "Self"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and not AnyEntityIsItem()"
+data "Properties" "AdjustRoll(OBSERVER_OBSERVER,-(3d8))"
+data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:1"
+data "InterruptDefaultValue" "Ask;Enabled"

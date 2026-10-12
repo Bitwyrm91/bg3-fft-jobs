@@ -2,6 +2,7 @@
 local Util = Ext.Require("Shared/Util.lua")
 local Rules = Ext.Require("Server/Rules.lua")
 local Grants = Ext.Require("Server/Grants.lua")
+local Effects = Ext.Require("Server/Effects.lua")
 
 local Service = {}
 Service.__index = Service
@@ -20,6 +21,7 @@ function Service.New(deps)
     self.TurnCasts = {} -- guid -> casts counted this turn
     self.NotTrackable = {} -- guid -> true: checked, not a party member (NPCs cast spells and enter combat too)
     self.PollGeneration = 0
+    self.PoachMarks = {} -- creature guid -> the poacher who hit it this turn (Effects.lua)
     self.OnOpenBoard = nil -- set by NetServer
     return self
 end
@@ -628,6 +630,28 @@ function Service:OnLeveledUp(character)
     end
     self:PollXP()
     self:Reconcile(Util.Guid(character), true)
+end
+
+---------------------------------------------------------------- job ability effects (Effects.lua)
+
+-- Osiris StatusApplied fires for every status in the game: only this mod's markers go further.
+function Service:OnStatusApplied(object, status, causee)
+    if not self.Ready or self:IsDisabled() or not Effects.Handles(status) then
+        return
+    end
+    Effects.OnStatusApplied(self, Util.Guid(object), status, Util.Guid(causee))
+end
+
+function Service:OnAttackedBy(defender, attackerOwner, attacker, damageType, damageAmount)
+    if self.Ready and not self:IsDisabled() then
+        Effects.OnAttackedBy(self, Util.Guid(defender), damageAmount)
+    end
+end
+
+function Service:OnKilledBy(defender)
+    if self.Ready and not self:IsDisabled() then
+        Effects.OnKilledBy(self, Util.Guid(defender))
+    end
 end
 
 function Service:OnCharacterJoinedParty(character)

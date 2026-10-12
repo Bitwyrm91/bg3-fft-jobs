@@ -400,7 +400,7 @@ def selftest(jobs_doc, cfg_doc):
         (shared_jp(sh, 100, "Rest"), 15.0),
         (shared_jp(sh, 100, "Spill"), 0.0),
         (shared_jp(sh, 100, "Shared"), 0.0),
-        (",".join(shared_targets(sh, impl, "Squire", {"Squire", "Chemist"}, set())), "Chemist,Knight,Archer,WhiteMage,BlackMage"),
+        (",".join(shared_targets(sh, impl, "Squire", {"Squire", "Chemist"}, set())), ",".join(j for j in impl if j != "Squire")),
         (",".join(shared_targets(fight_scope, impl, "Squire", {"Squire", "Chemist"}, {"Squire", "Knight"})), "Knight"),
         (",".join(shared_targets(fight_scope, impl, "Squire", {"Squire", "Chemist"}, set())), ""),
         (",".join(shared_targets(unlocked_only, impl, "Squire", {"Squire", "Chemist"}, set())), "Chemist"),

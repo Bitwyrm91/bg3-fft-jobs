@@ -70,7 +70,7 @@ function S.view_model_content(w, T)
     T.eq(v.Chars[1].Name, "Astarion", "sorted by name")
     T.eq(v.Selected, T.SHART)
     local jobs = v.Char.Jobs
-    T.eq(#jobs, 6)
+    T.eq(#jobs, 10)
     T.eq(jobs[1].Id, "Squire")
     T.eq(jobs[5].Id, "WhiteMage")
     T.falsy(jobs[5].Unlocked)

@@ -1,5 +1,196 @@
 [
   {
+    "id": "Action_Barbarian_Rage",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_BERSERK"
+    ]
+  },
+  {
+    "id": "Action_Monk_FlurryOfBlows",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Brawler",
+      "FFTJ_Counter",
+      "FFTJ_Job_Monk",
+      "FFTJ_Mastery_Monk",
+      "Interrupt_FFTJ_Counter"
+    ]
+  },
+  {
+    "id": "PassiveFeature_FightingStyle_Archery",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Poach"
+    ]
+  },
+  {
+    "id": "PassiveFeature_FightingStyle_Defense",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_DefenseBoost",
+      "FFTJ_Vigilance"
+    ]
+  },
+  {
+    "id": "PassiveFeature_Lucky_RollAdditionalDie",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_GilSnapper",
+      "FFTJ_StickyFingers"
+    ]
+  },
+  {
+    "id": "PassiveFeature_Mobile_DashAcrossDifficultTerrain",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_IgnoreWeather",
+      "FFTJ_Job_Thief",
+      "FFTJ_Lifefont",
+      "FFTJ_Manafont",
+      "FFTJ_Mastery_Thief",
+      "FFTJ_Movement2"
+    ]
+  },
+  {
+    "id": "PassiveFeature_PolearmMaster_AttackOfOpportunity",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_FirstStrike",
+      "Interrupt_FFTJ_FirstStrike"
+    ]
+  },
+  {
+    "id": "PassiveFeature_RemarkableAthlete_Jump",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Jump2"
+    ]
+  },
+  {
+    "id": "Skill_Fighter_ActionSurge",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_CriticalQuick",
+      "Target_FFTJ_Quick"
+    ]
+  },
+  {
+    "id": "Skill_Fighter_SecondWind",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_CriticalRecoverHP"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_GlobeOfInvulnerability",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_AbsorbMP",
+      "FFTJ_ManaShield",
+      "FFTJ_REFLECT",
+      "FFTJ_Reflect_Counter",
+      "Interrupt_FFTJ_ManaShield",
+      "Target_FFTJ_Reflect"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_Bless",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_FAITH"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_CalmEmotions",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_ATHEIST"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_Confusion",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Job_Mystic",
+      "FFTJ_Mastery_Mystic"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_HoldMonster",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_STOP"
+    ]
+  },
+  {
+    "id": "Spell_Illusion_Silence",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Quiescence"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_ChillTouch",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_UNDEAD"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_Haste",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Job_TimeMage",
+      "FFTJ_Mastery_TimeMage",
+      "FFTJ_SWIFTSPELL",
+      "FFTJ_Swiftspell"
+    ]
+  },
+  {
+    "id": "Status_Stunned",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_DISABLE"
+    ]
+  },
+  {
+    "id": "statIcons_Ensnared",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_IMMOBILIZE"
+    ]
+  },
+  {
+    "id": "statIcons_Levitating",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_FLOAT",
+      "FFTJ_Levitate"
+    ]
+  },
+  {
+    "id": "AID",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "BARKSKIN",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "BLESS",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
     "id": "BLINDED",
     "kind": "status",
     "usedBy": [
@@ -7,6 +198,20 @@
       "Target_FFTJ_EyeDrops",
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Salve"
+    ]
+  },
+  {
+    "id": "BLINDNESS",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Umbra"
+    ]
+  },
+  {
+    "id": "BLUR",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
     ]
   },
   {
@@ -18,11 +223,69 @@
     ]
   },
   {
+    "id": "CHARMED",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_StealHeart"
+    ]
+  },
+  {
+    "id": "CONFUSION",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Delirium"
+    ]
+  },
+  {
+    "id": "FREEDOM_OF_MOVEMENT",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
     "id": "FRIGHTENED",
     "kind": "status",
     "usedBy": [
       "Target_FFTJ_Esuna",
-      "Target_FFTJ_Remedy"
+      "Target_FFTJ_Remedy",
+      "Target_FFTJ_Trepidation"
+    ]
+  },
+  {
+    "id": "GREATER_INVISIBILITY",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "HASTE",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony",
+      "Target_FFTJ_Haste"
+    ]
+  },
+  {
+    "id": "HEROISM",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "INVISIBILITY",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "LONGSTRIDER",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
     ]
   },
   {
@@ -37,20 +300,163 @@
     ]
   },
   {
+    "id": "PRONE",
+    "kind": "status",
+    "usedBy": [
+      "Zone_FFTJ_Shockwave"
+    ]
+  },
+  {
+    "id": "PROTECTION_FROM_EVIL_AND_GOOD",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
     "id": "RESURRECTING",
     "kind": "status",
     "usedBy": [
-      "Teleportation_FFTJ_Arise"
+      "Teleportation_FFTJ_Arise",
+      "Teleportation_FFTJ_Revive"
+    ]
+  },
+  {
+    "id": "SANCTUARY",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "SAVED_AGAINST_HOSTILE_SPELL",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Corruption",
+      "Target_FFTJ_Disbelief",
+      "Target_FFTJ_Empowerment",
+      "Target_FFTJ_Fervor",
+      "Target_FFTJ_Induration",
+      "Target_FFTJ_Quiescence",
+      "Target_FFTJ_Repose",
+      "Target_FFTJ_Trepidation"
+    ]
+  },
+  {
+    "id": "SG_Blinded",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Charmed",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Confused",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Disease",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Frightened",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Ignore_AOO",
+    "kind": "status",
+    "usedBy": [
+      "Interrupt_FFTJ_FirstStrike"
+    ]
+  },
+  {
+    "id": "SG_Paralyzed",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Poisoned",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Sleeping",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
+    "id": "SG_Unconscious",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Repose"
+    ]
+  },
+  {
+    "id": "SHIELD_OF_FAITH",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
     ]
   },
   {
     "id": "SILENCED",
     "kind": "status",
     "usedBy": [
+      "Shout_FFTJ_Purification",
       "Target_FFTJ_EchoHerbs",
       "Target_FFTJ_Esuna",
+      "Target_FFTJ_Quiescence",
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Salve"
+    ]
+  },
+  {
+    "id": "SLEEP",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Repose"
+    ]
+  },
+  {
+    "id": "SLOW",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Slow"
+    ]
+  },
+  {
+    "id": "SNEAKING",
+    "kind": "status",
+    "usedBy": [
+      "Interrupt_FFTJ_FirstStrike"
+    ]
+  },
+  {
+    "id": "STONESKIN",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
     ]
   },
   {
@@ -132,6 +538,14 @@
     ]
   },
   {
+    "id": "Shout_PrayerOfHealing",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Shout_FFTJ_Chakra",
+      "Shout_FFTJ_Purification"
+    ]
+  },
+  {
     "id": "Shout_SecondWind",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -142,10 +556,38 @@
     ]
   },
   {
+    "id": "Shout_Whirlwind",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Shout_FFTJ_Cyclone"
+    ]
+  },
+  {
+    "id": "Target_Bane",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Quiescence"
+    ]
+  },
+  {
+    "id": "Target_BestowCurse",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Disbelief"
+    ]
+  },
+  {
     "id": "Target_Blight",
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Death"
+    ]
+  },
+  {
+    "id": "Target_Blindness",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Umbra"
     ]
   },
   {
@@ -154,6 +596,34 @@
     "usedBy": [
       "Target_FFTJ_Thundaga",
       "Target_FFTJ_Thundara"
+    ]
+  },
+  {
+    "id": "Target_CharmPerson",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_StealHeart"
+    ]
+  },
+  {
+    "id": "Target_Confusion",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Delirium"
+    ]
+  },
+  {
+    "id": "Target_Contagion_SlimyDoom",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Corruption"
+    ]
+  },
+  {
+    "id": "Target_CrownOfMadness",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Fervor"
     ]
   },
   {
@@ -185,6 +655,90 @@
     ]
   },
   {
+    "id": "Target_DispelMagic",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "Target_DissonantWhispers",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Empowerment"
+    ]
+  },
+  {
+    "id": "Target_Entangle",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Immobilize"
+    ]
+  },
+  {
+    "id": "Target_FistOfUnbrokenAir",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Aurablast"
+    ]
+  },
+  {
+    "id": "Target_FlameStrike",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Meteor"
+    ]
+  },
+  {
+    "id": "Target_FleshToStone",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Induration"
+    ]
+  },
+  {
+    "id": "Target_FlurryOfBlows",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Pummel"
+    ]
+  },
+  {
+    "id": "Target_Haste",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Haste"
+    ]
+  },
+  {
+    "id": "Target_Heroism",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Belief"
+    ]
+  },
+  {
+    "id": "Target_Hex",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Trepidation"
+    ]
+  },
+  {
+    "id": "Target_HoldMonster",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Stop"
+    ]
+  },
+  {
+    "id": "Target_HoldPerson",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Hesitation"
+    ]
+  },
+  {
     "id": "Target_IceStorm",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -204,6 +758,20 @@
     ]
   },
   {
+    "id": "Target_Levitate",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Float"
+    ]
+  },
+  {
+    "id": "Target_MF_BlackHole",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Gravity"
+    ]
+  },
+  {
     "id": "Target_MainHandAttack",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -212,7 +780,15 @@
       "Target_FFTJ_RendPower",
       "Target_FFTJ_RendSpeed",
       "Target_FFTJ_RendWeapon",
-      "Target_FFTJ_Rush"
+      "Target_FFTJ_Rush",
+      "Target_FFTJ_StealGil"
+    ]
+  },
+  {
+    "id": "Target_MistyStep",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Teleport"
     ]
   },
   {
@@ -220,7 +796,36 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Protect",
+      "Target_FFTJ_Reflect",
       "Target_FFTJ_Shell"
+    ]
+  },
+  {
+    "id": "Target_Sleep",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Repose"
+    ]
+  },
+  {
+    "id": "Target_Slow",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Slow"
+    ]
+  },
+  {
+    "id": "Target_StunningStrike_Unarmed",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_DoomFist"
+    ]
+  },
+  {
+    "id": "Target_VampiricTouch",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Invigoration"
     ]
   },
   {
@@ -229,7 +834,43 @@
     "usedBy": [
       "Teleportation_FFTJ_Arise",
       "Teleportation_FFTJ_PhoenixDown",
-      "Teleportation_FFTJ_Raise"
+      "Teleportation_FFTJ_Raise",
+      "Teleportation_FFTJ_Revive"
+    ]
+  },
+  {
+    "id": "Zone_GustOfWind_Monk",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Zone_FFTJ_Shockwave"
+    ]
+  },
+  {
+    "id": "ACTION_SURGE",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_QUICK"
+    ]
+  },
+  {
+    "id": "HOLD_PERSON",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_STOP"
+    ]
+  },
+  {
+    "id": "LOW_BHAALTEMPLE_MARKEDFORMURDER",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_DOOM"
+    ]
+  },
+  {
+    "id": "PETRIFIED",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_STONE"
     ]
   }
 ]

@@ -258,4 +258,83 @@ function Game:Notify(guid, text)
     end)
 end
 
+---------------------------------------------------------------- job ability effects (Effects.lua)
+-- Osiris names and arities from LaughingLeader's generated Osi.lua (2026-10-12). UNVERIFIED IN GAME: the slot
+-- names ("Helmet", "Breast", "Melee Main Weapon", ...), the item stats lookup in IsShield, Health.MaxHp.
+
+function Game:EquippedItem(guid, slot)
+    local item = self:Try("GetEquippedItem", function()
+        return Osi.GetEquippedItem(guid, slot)
+    end)
+    return (type(item) == "string" and item ~= "") and item or nil
+end
+
+-- true/false from the item's stats (a shield is an Armor entry), nil when they can't be read.
+function Game:IsShield(item)
+    local e = self:Entity(item)
+    local statsId = e and self:Try("item stats id", function()
+        return e.Data and e.Data.StatsId
+    end)
+    if type(statsId) ~= "string" or statsId == "" then
+        return nil
+    end
+    local list = self:Try("item stats type", function()
+        local stat = Ext.Stats.Get(statsId, nil, false)
+        return stat and stat.ModifierList
+    end)
+    if type(list) ~= "string" then
+        return nil
+    end
+    return list == "Armor"
+end
+
+function Game:IsStoryItem(item)
+    return isTrue(self:Try("IsStoryItem", function()
+        return Osi.IsStoryItem(item)
+    end))
+end
+
+function Game:Unequip(guid, item)
+    self:Try("Unequip", function()
+        Osi.Unequip(guid, item)
+    end)
+end
+
+function Game:ToInventory(item, guid)
+    self:Try("ToInventory", function()
+        Osi.ToInventory(item, guid, 1, 1, 1)
+    end)
+end
+
+function Game:AddGold(guid, amount)
+    self:Try("AddGold", function()
+        Osi.AddGold(guid, amount)
+    end)
+end
+
+function Game:AddExplorationXP(guid, amount)
+    self:Try("AddExplorationExperience", function()
+        Osi.AddExplorationExperience(guid, amount)
+    end)
+end
+
+function Game:IsBoss(guid)
+    return isTrue(self:Try("IsBoss", function()
+        return Osi.IsBoss(guid)
+    end))
+end
+
+function Game:MaxHP(guid)
+    local e = self:Entity(guid)
+    return e and self:Try("Health component", function()
+        return e.Health and e.Health.MaxHp
+    end)
+end
+
+function Game:ApplyDamage(guid, amount, damageType, source)
+    self:Try("ApplyDamage", function()
+        Osi.ApplyDamage(guid, amount, damageType, source or guid)
+    end)
+end
+
 return Game
