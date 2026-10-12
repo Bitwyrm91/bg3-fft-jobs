@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.7"
+MOD_VERSION = "1.0.0.8"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -247,6 +247,8 @@ def build_lua(jobs_doc, config_doc):
         }
         if a.get("effect"):
             entry["Effect"] = a["effect"]
+        if a.get("fft"):
+            entry["Fft"] = a["fft"]
         if a.get("variants"):
             entry["Variants"] = [{
                 "When": {"AnyOf": [{k[0].upper() + k[1:]: val for k, val in c.items()} for c in v["when"]["anyOf"]]},

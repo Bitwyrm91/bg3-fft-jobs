@@ -1,6 +1,10 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.7**: four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.8**: a new Job Board layout, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.8: a friendlier Job Board
+
+Your feedback (2026-10-12): new jobs seemed impossible to unlock, and the window was hard to read. The board now shows **all 20 FFT jobs as a grid of coloured tiles**: blue = your job, gold = mastered (*), green = unlocked, grey = locked, dark = **coming in a later update** (Geomancer, Dragoon, ... are not built yet; their tile says what will unlock them). Click a tile for that job's details below: level bar, JP, Make job / Make secondary, equipment, mastery perk, and its abilities with icons and short coloured statuses. Hover a tile or an ability for the full text. The long explanations sit in a closed "How jobs work" section. Tell me what still feels awkward.
 
 ## New in 1.0.0.7: Monk, Thief, Time Mage, Mystic (phase 2, step 2, batch 1)
 

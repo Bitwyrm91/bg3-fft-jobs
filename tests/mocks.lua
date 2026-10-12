@@ -97,6 +97,17 @@ local function newWidget(kind, label)
         self.TooltipWidget = t
         return t
     end
+    function w:SetStyleColor(name, color)
+        self.StyleColors = self.StyleColors or {}
+        self.StyleColors[name] = color
+    end
+    function w:SetStyleVar(name, a, b)
+        self.StyleVars = self.StyleVars or {}
+        self.StyleVars[name] = { a, b }
+    end
+    function w:SetSize(size, cond)
+        self.Size = size
+    end
     return w
 end
 

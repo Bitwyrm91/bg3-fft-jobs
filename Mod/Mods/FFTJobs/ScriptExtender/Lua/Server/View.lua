@@ -9,6 +9,40 @@ local function abilityRef(data, id)
     return ab and { Id = ab.Id, Name = ab.Name } or nil
 end
 
+-- The first spell/passive/status a grant list names (its icon stands for the ability or job).
+local function firstGrant(grants)
+    for _, kind in ipairs({ "Spells", "Passives", "Statuses" }) do
+        local list = grants and grants[kind]
+        if list and list[1] then
+            return list[1]
+        end
+    end
+    return nil
+end
+
+-- Share of the way from the current job level's threshold to the next (1 at the top level).
+local function levelProgress(earned, th)
+    local level = Rules.JobLevel(earned, th)
+    local prev = th[level - 1] or 0
+    local nextAt = th[level]
+    if not nextAt then
+        return 1, prev, nil
+    end
+    return math.max(0, math.min(1, (earned - prev) / (nextAt - prev))), prev, nextAt
+end
+
+-- A short status for the ability table; the full reason stays in Reason.
+local function shortReason(data, char, ab, js)
+    if not Rules.IsUnlocked(char, ab.Job) then
+        return "Job locked"
+    end
+    local have = js and js.Unspent or 0
+    if have < ab.Cost then
+        return string.format("Needs %s JP (have %s)", Util.Num(ab.Cost), Util.Num(have))
+    end
+    return nil
+end
+
 function View.Char(svc, guid)
     local data = svc.Data
     local cfg = svc:Cfg()
@@ -42,28 +76,37 @@ function View.Char(svc, guid)
         Jobs = {},
         Abilities = {},
     }
+    -- every FFT job in the data, the ones not built yet included ("coming soon" on the board)
     for _, jobId in ipairs(data.JobOrder) do
         local job = data.Jobs[jobId]
+        local unlocked = job.Implemented and Rules.IsUnlocked(char, jobId)
+        local entry = {
+            Id = jobId, Name = job.Name, Skillset = job.Skillset, Built = job.Implemented == true,
+            Unlocked = unlocked == true,
+            Requirements = Rules.RequirementText(data, jobId),
+            -- unlocked by someone in the party: shown to everyone, but this character needs its own levels
+            PartyUnlocked = Rules.IsPartyUnlocked(svc.State:Meta(), jobId),
+            Missing = not unlocked and Rules.MissingText(data, cfg, char, jobId) or nil,
+            IsPrimary = char.Primary == jobId, IsSecondary = char.Secondary == jobId,
+            Description = job.Description,
+        }
         if job.Implemented then
             local js = char.Jobs[jobId] or {}
             local earned = js.Earned or 0
-            local unlocked = Rules.IsUnlocked(char, jobId)
-            v.Jobs[#v.Jobs + 1] = {
-                Id = jobId, Name = job.Name, Skillset = job.Skillset, Unlocked = unlocked,
-                Level = Rules.JobLevel(earned, th), Earned = earned, Unspent = js.Unspent or 0,
-                NextAt = Rules.NextThreshold(earned, th),
-                Mastered = Rules.IsMastered(data, char, jobId),
-                LearnedCount = Rules.LearnedCount(data, char, jobId),
-                Total = #data.AbilitiesByJob[jobId],
-                IsPrimary = char.Primary == jobId, IsSecondary = char.Secondary == jobId,
-                Requirements = Rules.RequirementText(data, jobId),
-                -- unlocked by someone in the party: shown to everyone, but this character needs its own levels
-                PartyUnlocked = Rules.IsPartyUnlocked(svc.State:Meta(), jobId),
-                Missing = not unlocked and Rules.MissingText(data, cfg, char, jobId) or nil,
-                Equip = job.Equip ~= "" and job.Equip or nil,
-                Mastery = job.Mastery and job.Mastery.Description or nil,
-                MasteryPerk = Rules.HasMasteryPerk(data, cfg, char, jobId),
-            }
+            local progress, prevAt, nextAt = levelProgress(earned, th)
+            entry.Level = Rules.JobLevel(earned, th)
+            entry.Earned = earned
+            entry.Unspent = js.Unspent or 0
+            entry.NextAt = nextAt
+            entry.PrevAt = prevAt
+            entry.Progress = progress
+            entry.Mastered = Rules.IsMastered(data, char, jobId)
+            entry.LearnedCount = Rules.LearnedCount(data, char, jobId)
+            entry.Total = #data.AbilitiesByJob[jobId]
+            entry.Equip = job.Equip ~= "" and job.Equip or nil
+            entry.Mastery = job.Mastery and job.Mastery.Description or nil
+            entry.MasteryPerk = Rules.HasMasteryPerk(data, cfg, char, jobId)
+            entry.Icon = svc.Game:StatIcon(firstGrant(job.Innate))
             local list = {}
             for _, aid in ipairs(data.AbilitiesByJob[jobId]) do
                 local ab = data.Abilities[aid]
@@ -74,7 +117,10 @@ function View.Char(svc, guid)
                 local alwaysOn = Rules.IsAlwaysOn(data, cfg, char, aid)
                 list[#list + 1] = {
                     Id = aid, Name = ab.Name, Type = ab.Type, Cost = ab.Cost, Description = ab.Description,
+                    Fft = ab.Fft,
+                    Icon = svc.Game:StatIcon(firstGrant(ab.Grants)),
                     Learned = learned, CanLearn = canLearn, Reason = (not canLearn and not learned) and reason or nil,
+                    ShortReason = (not canLearn and not learned) and shortReason(data, char, ab, js) or nil,
                     Equipped = equipped, Slot = slot, SlotLabel = slot and Rules.SlotLabels[slot] or nil,
                     AlwaysOn = alwaysOn,
                     -- granted right now: actions of the primary/secondary job, equipped reaction/support/movement,
@@ -85,6 +131,7 @@ function View.Char(svc, guid)
             end
             v.Abilities[jobId] = list
         end
+        v.Jobs[#v.Jobs + 1] = entry
     end
     return v
 end

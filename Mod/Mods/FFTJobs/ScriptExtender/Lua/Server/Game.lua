@@ -10,6 +10,7 @@ function Game.New(log)
     self.Log = log
     self.Failed = {}
     self.CostCache = {}
+    self.IconCache = {}
     return self
 end
 
@@ -200,6 +201,23 @@ function Game:SpellCostKind(spellId)
     end
     self.CostCache[spellId] = kind
     return kind or nil
+end
+
+-- The icon of a spell/passive/status stats entry (resolved through its using chain by the game), or nil.
+function Game:StatIcon(statId)
+    if type(statId) ~= "string" then
+        return nil
+    end
+    local cached = self.IconCache[statId]
+    if cached ~= nil then
+        return cached or nil
+    end
+    local icon = self:Try("Ext.Stats.Get icon", function()
+        local stat = Ext.Stats.Get(statId, nil, false)
+        return stat and stat.Icon
+    end)
+    self.IconCache[statId] = (type(icon) == "string" and icon ~= "") and icon or false
+    return self.IconCache[statId] or nil
 end
 
 ---------------------------------------------------------------- grants

@@ -745,25 +745,26 @@ function Service:Learn(guid, abilityId)
     local ab = self.Data.Abilities[abilityId]
     local job = self.Data.Jobs[ab.Job]
     local cfg = self:Cfg()
-    local msg = string.format("%s learned %s (%s)", char.Name, ab.Name, job.Name)
+    -- whole sentences, joined with spaces (a perk text ends with its own full stop)
+    local parts = { string.format("%s learned %s (%s).", char.Name, ab.Name, job.Name) }
+    if ab.Type ~= "Action" and Rules.IsAlwaysOn(self.Data, cfg, char, abilityId) then
+        parts[#parts + 1] = string.format("It works without a slot while %s is the job; with other jobs, equip it in %s.",
+            job.Name, slotHint(ab.Type))
+    elseif ab.Type ~= "Action" then
+        parts[#parts + 1] = string.format("Equip it in %s to use it.", slotHint(ab.Type))
+    elseif ab.Job == char.Primary or ab.Job == char.Secondary then
+        parts[#parts + 1] = string.format("Added to %s's spells.", char.Name)
+    else
+        parts[#parts + 1] = string.format("To use it, make %s %s's job or secondary.", job.Name, char.Name)
+    end
     if info.Mastered then
         local perk = Rules.HasMasteryPerk(self.Data, cfg, char, ab.Job) and job.Mastery.Description or nil
-        msg = msg .. ". " .. job.Name .. " mastered!" .. (perk and (" Mastery perk, kept for good: " .. perk) or "")
+        parts[#parts + 1] = job.Name .. " mastered!" .. (perk and (" Mastery perk, kept for good: " .. perk) or "")
         if cfg.Notifications.Mastered then
             self:Notify(guid, string.format("%s mastered %s!%s", char.Name, job.Name, perk and (" " .. perk) or ""))
         end
     end
-    if ab.Type ~= "Action" and Rules.IsAlwaysOn(self.Data, cfg, char, abilityId) then
-        msg = msg .. string.format(". It works without a slot while %s is the job; with other jobs, equip it in %s.",
-            job.Name, slotHint(ab.Type))
-    elseif ab.Type ~= "Action" then
-        msg = msg .. string.format(". Equip it in %s to use it.", slotHint(ab.Type))
-    elseif ab.Job == char.Primary or ab.Job == char.Secondary then
-        msg = msg .. string.format(". Added to %s's spells.", char.Name)
-    else
-        msg = msg .. string.format(". To use it, make %s %s's job or secondary.", job.Name, char.Name)
-    end
-    return true, msg
+    return true, table.concat(parts, " ")
 end
 
 -- slot (optional): "reaction", "1" or "2" (Rules.SlotName); otherwise the first free slot of the right kind.
