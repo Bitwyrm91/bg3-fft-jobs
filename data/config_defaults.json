@@ -62,7 +62,10 @@
       },
       "ChangeJobOutOfCombatOnly": true,
       "LearnOutOfCombatOnly": true,
-      "SlotsOutOfCombatOnly": true
+      "SlotsOutOfCombatOnly": true,
+      "PartyWideUnlocks": true,
+      "MainJobAlwaysOn": ["Support", "Movement"],
+      "MasteryPerks": true
     },
     "Notifications": {
       "LevelUp": true,
@@ -140,6 +143,9 @@
     "Rules.ChangeJobOutOfCombatOnly": "Primary job can only change out of combat.",
     "Rules.LearnOutOfCombatOnly": "Abilities can only be learned out of combat.",
     "Rules.SlotsOutOfCombatOnly": "Secondary/reaction/support/movement can only change out of combat.",
+    "Rules.PartyWideUnlocks": "Fell Seal rule: a job one party member unlocks (or a badge the party finds) unlocks it for the whole party. JP and job levels stay per character.",
+    "Rules.MainJobAlwaysOn": "Fell Seal rule: learned abilities of these types from the main job work without a slot (Support, Movement, Reaction; [] = off). The slots stay free for other jobs' abilities.",
+    "Rules.MasteryPerks": "Fell Seal rule: mastering a job (every ability learned) gives its small permanent perk, kept after changing jobs.",
     "Notifications.LevelUp": "Show a notification on job level up.",
     "Notifications.Unlock": "Show a notification when a job unlocks.",
     "Notifications.Mastered": "Show a notification when a job is mastered.",

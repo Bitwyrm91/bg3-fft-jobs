@@ -148,6 +148,26 @@ def("fft_unlockall", "[who]  unlock every implemented job (testing)", function(s
     return result(svc:UnlockAll(guid))
 end)
 
+def("fft_badge", "<badge|list>  give the party a badge (testing; special jobs need one plus job levels)", function(svc, args)
+    local data = svc.Data
+    if not args[1] or string.lower(args[1]) == "list" then
+        local out = {}
+        for _, id in ipairs(data.BadgeOrder or {}) do
+            out[#out + 1] = string.format("  %s: %s", id, data.Badges[id].Description)
+        end
+        if #out == 0 then
+            return { "No badges yet: the special jobs that need them come later" }
+        end
+        table.insert(out, 1, "Badges (!fft_badge <id>):")
+        return out
+    end
+    local id = Rules.FindBadge(data, table.concat(args, " "))
+    if not id then
+        return { "Unknown badge " .. table.concat(args, " ") .. " (see !fft_badge list)" }
+    end
+    return result(svc:AddBadge(id))
+end)
+
 def("fft_train", "[amount]  every party member gets JP in each unlocked job (testing; default Test.JPPerCast)", function(svc, args)
     local amount
     if args[1] then

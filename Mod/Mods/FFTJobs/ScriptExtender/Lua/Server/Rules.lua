@@ -26,6 +26,7 @@ function Rules.NewChar(data, cfg, startJob)
     local char = {
         Primary = startJob,
         Unlocked = {},
+        Badges = {},
         Jobs = {},
         Granted = { Spells = {}, Passives = {}, Statuses = {} },
         Stats = Rules.NewStats(),
@@ -44,6 +45,7 @@ end
 -- Fills in fields missing from older saves; returns the same table.
 function Rules.Normalize(char)
     char.Unlocked = char.Unlocked or {}
+    char.Badges = char.Badges or {}
     char.Jobs = char.Jobs or {}
     for _, js in pairs(char.Jobs) do
         js.Earned = js.Earned or 0
@@ -99,7 +101,17 @@ function Rules.IsUnlocked(char, jobId)
     return char.Unlocked ~= nil and char.Unlocked[jobId] == true
 end
 
--- Returns met (bool) and the list of requirements still missing ({Job, Level, Have}).
+-- Badges belong to the party (Rules.AddBadge); Rules.SyncParty copies them into every character.
+function Rules.HasBadge(char, badgeId)
+    return char.Badges ~= nil and char.Badges[badgeId] == true
+end
+
+function Rules.BadgeName(data, badgeId)
+    local badge = data.Badges and data.Badges[badgeId]
+    return badge and badge.Name or tostring(badgeId)
+end
+
+-- Returns met (bool) and the list of requirements still missing ({Job, Level, Have} or {Badge}).
 function Rules.RequirementsMet(data, cfg, char, jobId)
     local job = data.Jobs[jobId]
     local missing = {}
@@ -107,9 +119,15 @@ function Rules.RequirementsMet(data, cfg, char, jobId)
         return false, missing
     end
     for _, req in ipairs(job.Unlock) do
-        local have = Rules.GetJobLevel(cfg, char, req.Job)
-        if have < req.Level then
-            missing[#missing + 1] = { Job = req.Job, Level = req.Level, Have = have }
+        if req.Badge then
+            if not Rules.HasBadge(char, req.Badge) then
+                missing[#missing + 1] = { Badge = req.Badge }
+            end
+        else
+            local have = Rules.GetJobLevel(cfg, char, req.Job)
+            if have < req.Level then
+                missing[#missing + 1] = { Job = req.Job, Level = req.Level, Have = have }
+            end
         end
     end
     return #missing == 0, missing
@@ -122,8 +140,12 @@ function Rules.RequirementText(data, jobId)
     end
     local parts = {}
     for _, req in ipairs(job.Unlock) do
-        local rj = data.Jobs[req.Job]
-        parts[#parts + 1] = string.format("%s Lv%d", rj and rj.Name or req.Job, req.Level)
+        if req.Badge then
+            parts[#parts + 1] = Rules.BadgeName(data, req.Badge)
+        else
+            local rj = data.Jobs[req.Job]
+            parts[#parts + 1] = string.format("%s Lv%d", rj and rj.Name or req.Job, req.Level)
+        end
     end
     return table.concat(parts, ", ")
 end
@@ -149,6 +171,65 @@ function Rules.UnlockAll(data, char)
             Rules.EnsureJob(char, jobId)
         end
     end
+end
+
+-- Fell Seal rules for the party. chars = {guid = char}; party = the saved Meta table, which keeps the badges the
+-- party found (Badges) and, while Rules.PartyWideUnlocks is on, every job anyone unlocked (PartyUnlocked).
+-- Badges always reach every character; unlocked jobs too while the rule is on (JP and job levels stay per
+-- character). Returns the {Guid, Job} pairs unlocked this way, in GUID and job order.
+function Rules.SyncParty(data, cfg, chars, party)
+    party.Badges = party.Badges or {}
+    party.PartyUnlocked = party.PartyUnlocked or {}
+    local share = cfg.Rules.PartyWideUnlocks
+    if share then
+        for _, char in pairs(chars) do
+            for jobId, on in pairs(char.Unlocked or {}) do
+                if on == true and data.Jobs[jobId] and data.Jobs[jobId].Implemented then
+                    party.PartyUnlocked[jobId] = true
+                end
+            end
+        end
+    end
+    local added = {}
+    for _, guid in ipairs(Util.SortedKeys(chars)) do
+        local char = chars[guid]
+        char.Badges = char.Badges or {}
+        for badgeId, on in pairs(party.Badges) do
+            if on == true then
+                char.Badges[badgeId] = true
+            end
+        end
+        if share then
+            for _, jobId in ipairs(data.JobOrder) do
+                if party.PartyUnlocked[jobId] and data.Jobs[jobId].Implemented and not Rules.IsUnlocked(char, jobId) then
+                    char.Unlocked[jobId] = true
+                    Rules.EnsureJob(char, jobId)
+                    added[#added + 1] = { Guid = guid, Job = jobId }
+                end
+            end
+        end
+    end
+    return added
+end
+
+-- The party found a badge (Fell Seal: a crest that opens a special job, alongside job levels). Every character
+-- gets it, and every job whose requirements it completes unlocks. Returns ok, error,
+-- {Already = bool, Unlocked = {{Guid, Job}} (met the requirements), Shared = {{Guid, Job}} (party-wide copies)}.
+function Rules.AddBadge(data, cfg, chars, party, badgeId)
+    if not (data.Badges and data.Badges[badgeId]) then
+        return false, "Unknown badge " .. tostring(badgeId)
+    end
+    party.Badges = party.Badges or {}
+    local info = { Already = party.Badges[badgeId] == true, Unlocked = {}, Shared = {} }
+    party.Badges[badgeId] = true
+    Rules.SyncParty(data, cfg, chars, party)
+    for _, guid in ipairs(Util.SortedKeys(chars)) do
+        for _, jobId in ipairs(Rules.CheckUnlocks(data, cfg, chars[guid])) do
+            info.Unlocked[#info.Unlocked + 1] = { Guid = guid, Job = jobId }
+        end
+    end
+    info.Shared = Rules.SyncParty(data, cfg, chars, party)
+    return true, nil, info
 end
 
 ---------------------------------------------------------------- JP
@@ -396,30 +477,71 @@ function Rules.Unequip(char, slot)
     return true, nil, s
 end
 
-function Rules.EquippedEffect(data, char, effect)
+-- The ability types of the main job that work without a slot (Rules.MainJobAlwaysOn), as a set.
+local function alwaysOnTypes(cfg)
+    local set = {}
+    for _, t in ipairs(cfg and cfg.Rules and cfg.Rules.MainJobAlwaysOn or {}) do
+        set[t] = true
+    end
+    return set
+end
+
+-- Fell Seal rule: a learned reaction/support/movement ability of the main job works without a slot when its type
+-- is in Rules.MainJobAlwaysOn.
+function Rules.IsAlwaysOn(data, cfg, char, abilityId)
+    local ab = data.Abilities[abilityId]
+    return ab ~= nil and ab.Type ~= "Action" and ab.Job == char.Primary and alwaysOnTypes(cfg)[ab.Type] == true
+        and Rules.IsLearned(char, abilityId)
+end
+
+-- The reaction/support/movement abilities in effect, as a list of ids: the slots, then the main job's always-on
+-- ones (cfg nil: the slots only).
+function Rules.ActivePassives(data, char, cfg)
+    local out, seen = {}, {}
     for _, slot in ipairs(Rules.Slots) do
         local ab = char[slot] and data.Abilities[char[slot]]
-        if ab and ab.Effect == effect and Rules.IsLearned(char, ab.Id) then
+        if ab and ab.Type == slot and Rules.IsLearned(char, ab.Id) then
+            out[#out + 1] = ab.Id
+            seen[ab.Id] = true
+        end
+    end
+    for _, aid in ipairs(data.AbilitiesByJob[char.Primary] or {}) do
+        if not seen[aid] and Rules.IsAlwaysOn(data, cfg, char, aid) then
+            out[#out + 1] = aid
+            seen[aid] = true
+        end
+    end
+    return out
+end
+
+local function activeEffect(data, active, effect)
+    for _, aid in ipairs(active) do
+        if data.Abilities[aid].Effect == effect then
             return true
         end
     end
     return false
 end
 
-function Rules.HasJPBoost(data, char)
-    return Rules.EquippedEffect(data, char, "JPBoost")
+-- An engine-handled effect (JP Boost, Throw Items) is on: equipped, or always on through the main job.
+function Rules.EquippedEffect(data, char, effect, cfg)
+    return activeEffect(data, Rules.ActivePassives(data, char, cfg), effect)
 end
 
-local function condMatches(data, char, cond)
+function Rules.HasJPBoost(data, char, cfg)
+    return Rules.EquippedEffect(data, char, "JPBoost", cfg)
+end
+
+local function condMatches(data, char, cond, active)
     if cond.PrimaryJob and char.Primary == cond.PrimaryJob then
         return true
     end
-    if cond.EquippedEffect and Rules.EquippedEffect(data, char, cond.EquippedEffect) then
+    if cond.EquippedEffect and activeEffect(data, active, cond.EquippedEffect) then
         return true
     end
     if cond.Equipped then
-        for _, slot in ipairs(Rules.Slots) do
-            if char[slot] == cond.Equipped then
+        for _, aid in ipairs(active) do
+            if aid == cond.Equipped then
                 return true
             end
         end
@@ -428,10 +550,12 @@ local function condMatches(data, char, cond)
 end
 
 -- The grants of an ability for this character: the first variant whose condition holds, else the default.
-function Rules.GrantsFor(data, char, ab)
+-- active (optional) = Rules.ActivePassives(data, char, cfg), passed in when already computed.
+function Rules.GrantsFor(data, char, ab, cfg, active)
+    active = active or Rules.ActivePassives(data, char, cfg)
     for _, v in ipairs(ab.Variants or {}) do
         for _, cond in ipairs(v.When.AnyOf or {}) do
-            if condMatches(data, char, cond) then
+            if condMatches(data, char, cond, active) then
                 return v.Grants
             end
         end
@@ -439,8 +563,15 @@ function Rules.GrantsFor(data, char, ab)
     return ab.Grants
 end
 
+-- Mastery perks are on (Rules.MasteryPerks) and this job's perk is earned.
+function Rules.HasMasteryPerk(data, cfg, char, jobId)
+    local job = data.Jobs[jobId]
+    return cfg ~= nil and cfg.Rules.MasteryPerks == true and job ~= nil and job.Implemented and job.Mastery ~= nil
+        and Rules.IsMastered(data, char, jobId)
+end
+
 -- Everything the mod should currently grant: {Spells = set, Passives = set, Statuses = set}. cfg (optional) adds
--- the testing tools while Test.Tools is on.
+-- the Fell Seal rules (main job's always-on abilities, mastery perks) and the testing tools while Test.Tools is on.
 function Rules.DesiredGrants(data, char, cfg)
     local desired = { Spells = {}, Passives = {}, Statuses = {} }
     local function add(grants)
@@ -460,11 +591,12 @@ function Rules.DesiredGrants(data, char, cfg)
     if primary then
         add(primary.Innate)
     end
+    local active = Rules.ActivePassives(data, char, cfg)
     local function addLearnedActions(jobId)
         for _, aid in ipairs(data.AbilitiesByJob[jobId] or {}) do
             local ab = data.Abilities[aid]
             if ab.Type == "Action" and Rules.IsLearned(char, aid) then
-                add(Rules.GrantsFor(data, char, ab))
+                add(Rules.GrantsFor(data, char, ab, cfg, active))
             end
         end
     end
@@ -472,10 +604,12 @@ function Rules.DesiredGrants(data, char, cfg)
     if char.Secondary and char.Secondary ~= char.Primary then
         addLearnedActions(char.Secondary)
     end
-    for _, slot in ipairs(Rules.Slots) do
-        local ab = char[slot] and data.Abilities[char[slot]]
-        if ab and ab.Type == slot and Rules.IsLearned(char, ab.Id) then
-            add(Rules.GrantsFor(data, char, ab))
+    for _, aid in ipairs(active) do
+        add(Rules.GrantsFor(data, char, data.Abilities[aid], cfg, active))
+    end
+    for _, jobId in ipairs(data.JobOrder) do
+        if Rules.HasMasteryPerk(data, cfg, char, jobId) then
+            add(data.Jobs[jobId].Mastery.Grants)
         end
     end
     return desired
@@ -512,6 +646,19 @@ function Rules.FindAbility(data, text)
         local ab = data.Abilities[aid]
         if Util.Normalize(aid) == n or Util.Normalize(ab.Name) == n then
             return aid
+        end
+    end
+    return nil
+end
+
+function Rules.FindBadge(data, text)
+    local n = Util.Normalize(text)
+    if n == "" then
+        return nil
+    end
+    for _, id in ipairs(data.BadgeOrder or {}) do
+        if Util.Normalize(id) == n or Util.Normalize(data.Badges[id].Name) == n then
+            return id
         end
     end
     return nil

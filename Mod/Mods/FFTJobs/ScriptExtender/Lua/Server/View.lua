@@ -30,7 +30,9 @@ function View.Char(svc, guid)
         Reaction = abilityRef(data, char.Reaction),
         Support = abilityRef(data, char.Support),
         Movement = abilityRef(data, char.Movement),
-        JPBoost = Rules.HasJPBoost(data, char),
+        JPBoost = Rules.HasJPBoost(data, char, cfg),
+        AlwaysOnTypes = Util.DeepCopy(cfg.Rules.MainJobAlwaysOn or {}),
+        PartyWide = cfg.Rules.PartyWideUnlocks == true,
         InCombat = inCombat,
         Locked = {
             Job = cfg.Rules.ChangeJobOutOfCombatOnly and inCombat,
@@ -55,6 +57,9 @@ function View.Char(svc, guid)
                 Total = #data.AbilitiesByJob[jobId],
                 IsPrimary = char.Primary == jobId, IsSecondary = char.Secondary == jobId,
                 Requirements = Rules.RequirementText(data, jobId),
+                Equip = job.Equip ~= "" and job.Equip or nil,
+                Mastery = job.Mastery and job.Mastery.Description or nil,
+                MasteryPerk = Rules.HasMasteryPerk(data, cfg, char, jobId),
             }
             local list = {}
             for _, aid in ipairs(data.AbilitiesByJob[jobId]) do
@@ -62,12 +67,14 @@ function View.Char(svc, guid)
                 local learned = Rules.IsLearned(char, aid)
                 local canLearn, reason = Rules.CanLearn(data, char, aid)
                 local equipped = ab.Type ~= "Action" and char[ab.Type] == aid
+                local alwaysOn = Rules.IsAlwaysOn(data, cfg, char, aid)
                 list[#list + 1] = {
                     Id = aid, Name = ab.Name, Type = ab.Type, Cost = ab.Cost, Description = ab.Description,
                     Learned = learned, CanLearn = canLearn, Reason = (not canLearn and not learned) and reason or nil,
-                    Equipped = equipped,
-                    -- granted right now: actions of the primary/secondary job, equipped reaction/support/movement
-                    Active = learned and (equipped or (ab.Type == "Action"
+                    Equipped = equipped, AlwaysOn = alwaysOn,
+                    -- granted right now: actions of the primary/secondary job, equipped reaction/support/movement,
+                    -- the main job's always-on ones
+                    Active = learned and (equipped or alwaysOn or (ab.Type == "Action"
                         and (char.Primary == jobId or char.Secondary == jobId))),
                 }
             end

@@ -58,6 +58,7 @@ function Service:OnSessionLoaded()
             self.State:MarkDirty()
         end
     end
+    self:SyncParty()
     self.Telemetry:Write({
         t = "session", clock = self.Clock(), version = self.Data.ModVersion, preset = self.Config.Preset,
         mult = cfg.JP.GlobalMultiplier, chars = Util.Count(self.State:Chars()),
@@ -128,8 +129,27 @@ function Service:EnsureChar(guid)
     char.LastXP = self.Game:TotalXP(guid)
     self.State:Set(guid, char)
     self.Log.Info(string.format("now tracking %s (starting job %s)", char.Name, self.Data.Jobs[startJob].Name))
+    self:SyncParty() -- a new member gets the party's badges and (party-wide unlocks) its jobs
     self:Reconcile(guid, false)
     return char
+end
+
+-- Fell Seal party rules (Rules.SyncParty): badges and, while Rules.PartyWideUnlocks is on, unlocked jobs reach every
+-- tracked character. Returns the {Guid, Job} pairs it unlocked.
+function Service:SyncParty()
+    local added = Rules.SyncParty(self.Data, self:Cfg(), self.State:Chars(), self.State:Meta())
+    self.State:MarkDirty()
+    local names = {}
+    for _, p in ipairs(added) do
+        local list = names[p.Job] or {}
+        names[p.Job] = list
+        list[#list + 1] = self.State:Get(p.Guid).Name or p.Guid
+    end
+    for _, jobId in ipairs(Util.SortedKeys(names)) do
+        self.Log.Info(string.format("party-wide unlock: %s for %s", self.Data.Jobs[jobId].Name,
+            table.concat(names[jobId], ", ")))
+    end
+    return added
 end
 
 function Service:DiscoverParty()
@@ -247,8 +267,12 @@ function Service:AddJP(guid, jobId, amount, source, combatId)
     end
     for _, unlocked in ipairs(res.Unlocked) do
         if cfg.Notifications.Unlock then
-            self:Notify(guid, string.format("%s unlocked the %s job!", char.Name, self.Data.Jobs[unlocked].Name))
+            self:Notify(guid, string.format("%s unlocked the %s job%s!", char.Name, self.Data.Jobs[unlocked].Name,
+                cfg.Rules.PartyWideUnlocks and " for the whole party" or ""))
         end
+    end
+    if #res.Unlocked > 0 then
+        self:SyncParty()
     end
     if job and job.Implemented then
         self:ShareJP(guid, char, jobId, amount, source, combatId)
@@ -396,7 +420,7 @@ function Service:OnCastedSpell(caster, spell)
     end
     local jobId = char.Primary
     local own, spill = Rules.ActionJP(jp, Rules.GetJobLevel(cfg, char, jobId), self.Game:CharLevel(guid), weight,
-        Rules.HasJPBoost(self.Data, char))
+        Rules.HasJPBoost(self.Data, char, self:Cfg()))
     char.Stats.Actions = char.Stats.Actions + 1
     char.SinceRest.Actions = char.SinceRest.Actions + 1
     local rec = combatId and self.Combats[combatId]
@@ -499,7 +523,7 @@ function Service:OnCombatEnded(combatId)
         if char then
             if not self.Game:IsDead(guid) then
                 self:AddJP(guid, char.Primary,
-                    Rules.VictoryJP(jp, self.Game:CharLevel(guid), Rules.HasJPBoost(self.Data, char)), "Victory", combatId)
+                    Rules.VictoryJP(jp, self.Game:CharLevel(guid), Rules.HasJPBoost(self.Data, char, self:Cfg())), "Victory", combatId)
             end
             char.Stats.Combats = char.Stats.Combats + 1
             char.SinceRest.Combats = char.SinceRest.Combats + 1
@@ -561,7 +585,7 @@ function Service:PollXP()
                 char.LastXP = xp
                 char.Stats.XP = char.Stats.XP + delta
                 char.SinceRest.XP = char.SinceRest.XP + delta
-                self:AddJP(guid, char.Primary, Rules.XPJP(jp, delta, Rules.HasJPBoost(self.Data, char)), "XP",
+                self:AddJP(guid, char.Primary, Rules.XPJP(jp, delta, Rules.HasJPBoost(self.Data, char, self:Cfg())), "XP",
                     self.CharCombat[guid])
                 self.State:MarkDirty()
             end
@@ -591,7 +615,7 @@ function Service:OnLongRestFinished()
     local chars = {}
     for _, guid in ipairs(self.State:Guids()) do
         local char = self.State:Get(guid)
-        self:AddJP(guid, char.Primary, Rules.RestJP(jp, Rules.HasJPBoost(self.Data, char)), "Rest", nil)
+        self:AddJP(guid, char.Primary, Rules.RestJP(jp, Rules.HasJPBoost(self.Data, char, self:Cfg())), "Rest", nil)
         local s = char.SinceRest
         chars[guid] = {
             name = char.Name, job = char.Primary, lvl = self.Game:CharLevel(guid), xp = s.XP,
@@ -702,14 +726,19 @@ function Service:Learn(guid, abilityId)
     self:Reconcile(guid, false)
     local ab = self.Data.Abilities[abilityId]
     local job = self.Data.Jobs[ab.Job]
+    local cfg = self:Cfg()
     local msg = string.format("%s learned %s (%s)", char.Name, ab.Name, job.Name)
     if info.Mastered then
-        msg = msg .. ". " .. job.Name .. " mastered!"
-        if self:Cfg().Notifications.Mastered then
-            self:Notify(guid, string.format("%s mastered %s!", char.Name, job.Name))
+        local perk = Rules.HasMasteryPerk(self.Data, cfg, char, ab.Job) and job.Mastery.Description or nil
+        msg = msg .. ". " .. job.Name .. " mastered!" .. (perk and (" Mastery perk, kept for good: " .. perk) or "")
+        if cfg.Notifications.Mastered then
+            self:Notify(guid, string.format("%s mastered %s!%s", char.Name, job.Name, perk and (" " .. perk) or ""))
         end
     end
-    if ab.Type ~= "Action" then
+    if ab.Type ~= "Action" and Rules.IsAlwaysOn(self.Data, cfg, char, abilityId) then
+        msg = msg .. string.format(". It works without a slot while %s is the job; with other jobs, equip it in the %s slot.",
+            job.Name, string.lower(ab.Type))
+    elseif ab.Type ~= "Action" then
         msg = msg .. string.format(". Equip it in the %s slot to use it.", string.lower(ab.Type))
     elseif ab.Job == char.Primary or ab.Job == char.Secondary then
         msg = msg .. string.format(". Added to %s's spells.", char.Name)
@@ -780,7 +809,44 @@ function Service:UnlockAll(guid)
     end
     Rules.UnlockAll(self.Data, char)
     self.State:MarkDirty()
+    self:SyncParty()
     return true, char.Name .. ": every implemented job unlocked"
+        .. (self:Cfg().Rules.PartyWideUnlocks and " (for the whole party)" or "")
+end
+
+-- The party found a badge (later dropped by bosses; !fft_badge for testing). Returns ok, message.
+function Service:AddBadge(badgeId, finder)
+    if not self.Ready then
+        return false, "The job system has not loaded yet"
+    end
+    local cfg = self:Cfg()
+    local ok, err, info = Rules.AddBadge(self.Data, cfg, self.State:Chars(), self.State:Meta(), badgeId)
+    if not ok then
+        return false, err
+    end
+    self.State:MarkDirty()
+    local name = Rules.BadgeName(self.Data, badgeId)
+    if info.Already then
+        return true, "The party already has the " .. name
+    end
+    local parts = { "The party found the " .. name }
+    local seen = {}
+    for _, p in ipairs(info.Unlocked) do
+        if not seen[p.Job] then
+            seen[p.Job] = true
+            local who = self.State:Get(p.Guid).Name or p.Guid
+            parts[#parts + 1] = string.format("%s unlocked the %s job%s", who, self.Data.Jobs[p.Job].Name,
+                cfg.Rules.PartyWideUnlocks and " for the whole party" or "")
+        end
+    end
+    local msg = table.concat(parts, ". ") .. "!"
+    local target = finder or self.Game:HostCharacter()
+    if target and cfg.Notifications.Unlock then
+        self:Notify(target, msg)
+    else
+        self.Log.Info(msg)
+    end
+    return true, msg
 end
 
 -- Testing tool (JP Training spell, !fft_train): every party member gets amount JP (default Test.JPPerCast) in each
@@ -799,18 +865,24 @@ function Service:TrainParty(caster, amount)
     end
     self:DiscoverParty()
     local guids = self.State:Guids()
+    -- the jobs are listed for everyone first: with party-wide unlocks, a job unlocked during this cast reaches the
+    -- others at once, and it should get JP from the next cast for them too
+    local plan = {}
+    for _, guid in ipairs(guids) do
+        local char = self.State:Get(guid)
+        local jobs = {}
+        for _, jobId in ipairs(self.Data.JobOrder) do
+            if self.Data.Jobs[jobId].Implemented and Rules.IsUnlocked(char, jobId) then
+                jobs[#jobs + 1] = jobId
+            end
+        end
+        plan[guid] = jobs
+    end
     local unlocks = 0
     self.Quiet = true
     local ok, err = pcall(function()
         for _, guid in ipairs(guids) do
-            local char = self.State:Get(guid)
-            local jobs = {}
-            for _, jobId in ipairs(self.Data.JobOrder) do
-                if self.Data.Jobs[jobId].Implemented and Rules.IsUnlocked(char, jobId) then
-                    jobs[#jobs + 1] = jobId
-                end
-            end
-            for _, jobId in ipairs(jobs) do
+            for _, jobId in ipairs(plan[guid]) do
                 local res = self:AddJP(guid, jobId, amount, "Test", nil)
                 unlocks = unlocks + (res and #res.Unlocked or 0)
             end
@@ -944,7 +1016,8 @@ function Service:Describe(guid)
             if not unlocked then
                 status = "locked (needs " .. Rules.RequirementText(data, jobId) .. ")"
             elseif Rules.IsMastered(data, char, jobId) then
-                status = "MASTERED"
+                status = "MASTERED" .. (Rules.HasMasteryPerk(data, cfg, char, jobId)
+                    and (" (perk: " .. job.Mastery.Description .. ")") or "")
             else
                 status = string.format("%d/%d learned", #learned, #data.AbilitiesByJob[jobId])
             end
@@ -953,6 +1026,15 @@ function Service:Describe(guid)
                 next and (" (next level at " .. Util.Num(next) .. ")") or "", status,
                 #learned > 0 and (": " .. table.concat(learned, ", ")) or "")
         end
+    end
+    local badges = {}
+    for _, id in ipairs(data.BadgeOrder or {}) do
+        if Rules.HasBadge(char, id) then
+            badges[#badges + 1] = Rules.BadgeName(data, id)
+        end
+    end
+    if #badges > 0 then
+        lines[#lines + 1] = "  Badges: " .. table.concat(badges, ", ")
     end
     return lines
 end

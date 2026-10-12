@@ -11,7 +11,7 @@ function S.help_lists_every_command(w, T)
     for name in pairs(w.commands) do
         T.contains(text, "!" .. name)
     end
-    T.eq(#w.console("fft_help"), 1 + 24, "24 commands")
+    T.eq(#w.console("fft_help"), 1 + 25, "25 commands")
 end
 
 function S.party_and_status(w, T)
@@ -30,7 +30,7 @@ function S.job_learn_equip_by_name(w, T)
     local svc = T.boot(w)
     T.contains(out(w.console("fft_addjp", "700")), "Tav +700 JP in Squire")
     T.contains(out(w.console("fft_learn", "Focus")), "Tav learned Focus")
-    T.contains(out(w.console("fft_learn", "JPBoost")), "Equip it in the support slot")
+    T.contains(out(w.console("fft_learn", "JPBoost")), "It works without a slot while Squire is the job")
     T.contains(out(w.console("fft_equip", "jpboost")), "support slot = JP Boost")
     T.contains(out(w.console("fft_job", "knight")), "Tav is now a Knight")
     T.contains(out(w.console("fft_secondary", "squire")), "secondary skill set Fundaments")
@@ -93,13 +93,30 @@ end
 
 function S.unlockall_reset_regrant(w, T)
     local svc = T.boot(w)
-    T.contains(out(w.console("fft_unlockall", "astarion")), "every implemented job unlocked")
+    T.contains(out(w.console("fft_unlockall", "astarion")), "every implemented job unlocked (for the whole party)")
     T.truthy(svc.State:Get(T.ASTA).Unlocked.BlackMage)
+    T.truthy(svc.State:Get(T.TAV).Unlocked.BlackMage, "party-wide unlocks")
+    w.console("fft_addjp", "300", "squire", "astarion")
     T.contains(out(w.console("fft_reset", "astarion")), "reset to a fresh Squire")
-    T.falsy(svc.State:Get(T.ASTA).Unlocked.BlackMage)
+    T.eq(svc.State:Get(T.ASTA).Jobs.Squire.Earned, 0, "JP is gone")
+    T.truthy(svc.State:Get(T.ASTA).Unlocked.BlackMage, "the party's unlocks stay")
     w.chars[T.TAV].spells.Shout_FFTJ_JobBoard = nil
     T.contains(out(w.console("fft_regrant", "all")), "every party member")
     T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JobBoard)
+end
+
+function S.reset_without_party_wide_unlocks(w, T)
+    local svc = T.boot(w, { extra = { Rules = { PartyWideUnlocks = false } } })
+    T.contains(out(w.console("fft_unlockall", "astarion")), "every implemented job unlocked")
+    T.falsy(svc.State:Get(T.TAV).Unlocked.BlackMage)
+    w.console("fft_reset", "astarion")
+    T.falsy(svc.State:Get(T.ASTA).Unlocked.BlackMage)
+end
+
+function S.badge_command(w, T)
+    T.boot(w)
+    T.contains(out(w.console("fft_badge", "list")), "No badges yet")
+    T.contains(out(w.console("fft_badge", "crown")), "Unknown badge crown")
 end
 
 function S.grants_command_reports_game_state(w, T)

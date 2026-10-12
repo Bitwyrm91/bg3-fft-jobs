@@ -142,17 +142,29 @@
   <content contentuid="h1bd79da5g4bffg5c41gbe76g2e287a7581e0" version="1">Treasure Hunter</content>
   <content contentuid="h554f4f19g0c0fg5edega867gd1109de5f992" version="1">Heal 8d4+8. Once per long rest. Thrown like Potion.</content>
   <content contentuid="h191dd1ecg0450g5e51g9b8bg32f1411f6c23" version="1">X-Potion</content>
-  <content contentuid="h95f76fb9g03c4g5b49gb5b7ge2e019021f67" version="1">Charged ranged shots. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h6528f541gc9c4g5206gab41g94edaf845a58" version="1">+1 to ranged weapon attack rolls. Earned by mastering Archer; kept after changing jobs.</content>
+  <content contentuid="h21cb58aeg98d9g5708gb314gdf8aef30c801" version="1">Archer Mastery</content>
+  <content contentuid="h95f76fb9g03c4g5b49gb5b7ge2e019021f67" version="1">Charged ranged shots. Equipment: shortbows, longbows, hand crossbows, light crossbows, heavy crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h90e77463gaf6ag56f1gba4cg4fe5c741343c" version="1">Job: Archer</content>
-  <content contentuid="h250a0471g31c9g579fgaaf5g4400101c5845" version="1">Elemental attack magic. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h96936b0eg0d00g5d42g8fa5gcc53705b17ba" version="1">+1 to spell attack rolls. Earned by mastering Black Mage; kept after changing jobs.</content>
+  <content contentuid="h831bacd4ge31fg5083ga84fg3e657fdd6495" version="1">Black Mage Mastery</content>
+  <content contentuid="h250a0471g31c9g579fgaaf5g4400101c5845" version="1">Elemental attack magic. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h88ca7894g5b23g559ag9817g991a6b664362" version="1">Job: Black Mage</content>
-  <content contentuid="h32930831g3939g523ega2b3gb066b895d542" version="1">Item expert. Starting job. Throws items when it is the primary job. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hab415239gb40eg5f56g9ee1g4536cd3ab754" version="1">Resistant to poison damage. Earned by mastering Chemist; kept after changing jobs.</content>
+  <content contentuid="ha0878788g1539g50aaga105g9011b9bad5f0" version="1">Chemist Mastery</content>
+  <content contentuid="h32930831g3939g523ega2b3gb066b895d542" version="1">Item expert. Starting job. Throws items when it is the primary job. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h5a0e3fd8g4f51g51d1ga5f4g78bd01d0edcb" version="1">Job: Chemist</content>
-  <content contentuid="ha5976045gcbf7g5ef6g88feg9ba15413337c" version="1">Breaks the enemy's armor, weapon, speed and power. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="he46e1c0eg203ag5d11gbe49g52cb0b7d9e57" version="1">+1 to Constitution saving throws. Earned by mastering Knight; kept after changing jobs.</content>
+  <content contentuid="hc4543261gc46fg5ff9ga03eg10c496d2e1f3" version="1">Knight Mastery</content>
+  <content contentuid="ha5976045gcbf7g5ef6g88feg9ba15413337c" version="1">Breaks the enemy's armor, weapon, speed and power. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hd73ae27cgd9e4g571fgbfe5g4c7a339f8bc3" version="1">Job: Knight</content>
-  <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
+  <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
+  <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hb65980b3g8531g5fc9gabddgdcd5912f7558" version="1">Job: Squire</content>
-  <content contentuid="h0e9f7479g515cg5cfegb38eg2dbe82726e7c" version="1">Healing, revival and protection. Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hefb7927agda13g5f64g92d4g30d9823f66c2" version="1">+1 to Wisdom saving throws. Earned by mastering White Mage; kept after changing jobs.</content>
+  <content contentuid="h1062f6bfg6495g5f8aga4d9g041b98c04646" version="1">White Mage Mastery</content>
+  <content contentuid="h0e9f7479g515cg5cfegb38eg2dbe82726e7c" version="1">Healing, revival and protection. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hf12d1373g3fc7g5d45gb675g90d8be9f9bb8" version="1">Job: White Mage</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>

@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.5"
+MOD_VERSION = "1.0.0.6"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -31,6 +31,20 @@ ATLAS_CELL = 64
 ABILITY_TYPES = ("Action", "Reaction", "Support", "Movement")
 GRANT_KINDS = ("spells", "passives", "statuses")
 SLOT_OF_TYPE = {"Reaction": "reaction", "Support": "support", "Movement": "movement"}
+# A job's "equip" list: BG3 proficiency groups (every one occurs in a vanilla Proficiency() boost) -> English text.
+# The main job grants them through its marker passive ({{prof:<JobId>}} in stats_src).
+PROFICIENCIES = {
+    "Daggers": "daggers", "Shortswords": "shortswords", "Longswords": "longswords", "Greatswords": "greatswords",
+    "Rapiers": "rapiers", "Scimitars": "scimitars", "Handaxes": "handaxes", "Battleaxes": "battleaxes",
+    "Greataxes": "greataxes", "Flails": "flails", "Morningstars": "morningstars", "Maces": "maces", "Clubs": "clubs",
+    "Greatclubs": "greatclubs", "LightHammers": "light hammers", "Warhammers": "warhammers", "Mauls": "mauls",
+    "Warpicks": "war picks", "Quarterstaffs": "quarterstaffs", "Spears": "spears", "Pikes": "pikes",
+    "Glaives": "glaives", "Halberds": "halberds", "Tridents": "tridents", "Javelins": "javelins",
+    "Sickles": "sickles", "Shortbows": "shortbows", "Longbows": "longbows", "HandCrossbows": "hand crossbows",
+    "LightCrossbows": "light crossbows", "HeavyCrossbows": "heavy crossbows", "MartialWeapons": "martial weapons",
+    "LightArmor": "light armour", "MediumArmor": "medium armour", "HeavyArmor": "heavy armour",
+    "Shields": "shields", "MusicalInstrument": "musical instruments",
+}
 
 DATA_DIR = ROOT / "data"
 STATS_SRC = ROOT / "stats_src"
@@ -62,14 +76,36 @@ def validate(jobs_doc, config_doc, strings_doc):
     if len(job_ids) != len(set(job_ids)):
         errors.append("duplicate job id")
     job_by_id = {j["id"]: j for j in jobs}
+    badge_ids = [b["id"] for b in jobs_doc.get("badges", [])]
+    if len(badge_ids) != len(set(badge_ids)):
+        errors.append("duplicate badge id")
+    for b in jobs_doc.get("badges", []):
+        if not b.get("name") or not b.get("description"):
+            errors.append(f"badge {b['id']}: needs a name and a description")
     for j in jobs:
         for req in j.get("unlock", []):
+            if "badge" in req:
+                if req["badge"] not in badge_ids:
+                    errors.append(f"job {j['id']}: unknown badge {req['badge']}")
+                continue
             if req["job"] not in job_by_id:
                 errors.append(f"job {j['id']}: unknown required job {req['job']}")
             if not (1 <= req["level"] <= 8):
                 errors.append(f"job {j['id']}: required level {req['level']} out of range")
             if j.get("implemented") and not job_by_id.get(req["job"], {}).get("implemented"):
                 errors.append(f"job {j['id']} is implemented but requires unimplemented job {req['job']}")
+        for p in j.get("equip", []):
+            if p not in PROFICIENCIES:
+                errors.append(f"job {j['id']}: unknown proficiency {p} (see PROFICIENCIES in tools/build.py)")
+        mastery = j.get("mastery")
+        if mastery:
+            if not mastery.get("description"):
+                errors.append(f"job {j['id']}: mastery perk without a description")
+            for kind in mastery:
+                if kind not in GRANT_KINDS and kind != "description":
+                    errors.append(f"job {j['id']}: bad mastery grant kind {kind}")
+        if j.get("implemented") and not mastery:
+            errors.append(f"job {j['id']} is implemented but has no mastery perk")
     ab_ids = set()
     for a in jobs_doc["abilities"]:
         aid = a["id"]
@@ -177,16 +213,30 @@ def to_lua(v, indent=0):
     raise BuildError(f"cannot convert {type(v)} to Lua")
 
 
+def equip_text(job):
+    """English list of a job's main-job proficiencies ("" when it has none)."""
+    return ", ".join(PROFICIENCIES[p] for p in job.get("equip", []))
+
+
 def build_lua(jobs_doc, config_doc):
     jobs = {}
     for i, j in enumerate(jobs_doc["jobs"]):
         jobs[j["id"]] = {
             "Id": j["id"], "Name": j["name"], "Skillset": j.get("skillset", ""),
             "Implemented": bool(j.get("implemented")), "Order": i + 1,
-            "Unlock": [{"Job": r["job"], "Level": r["level"]} for r in j.get("unlock", [])],
+            "Unlock": [{"Badge": r["badge"]} if "badge" in r else {"Job": r["job"], "Level": r["level"]}
+                       for r in j.get("unlock", [])],
             "Innate": {k.capitalize(): v for k, v in j.get("innate", {}).items()},
+            "Equip": equip_text(j),
             "Description": j.get("description", ""),
         }
+        if j.get("mastery"):
+            jobs[j["id"]]["Mastery"] = {
+                "Description": j["mastery"]["description"],
+                "Grants": {k.capitalize(): v for k, v in j["mastery"].items() if k in GRANT_KINDS},
+            }
+    badges = {b["id"]: {"Id": b["id"], "Name": b["name"], "Description": b["description"]}
+              for b in jobs_doc.get("badges", [])}
     abilities = {}
     by_job = {j["id"]: [] for j in jobs_doc["jobs"] if j.get("implemented")}
     for i, a in enumerate(jobs_doc["abilities"]):
@@ -218,6 +268,8 @@ def build_lua(jobs_doc, config_doc):
         "Abilities": abilities,
         "AbilityOrder": [a["id"] for a in jobs_doc["abilities"]],
         "AbilitiesByJob": by_job,
+        "Badges": badges,
+        "BadgeOrder": [b["id"] for b in jobs_doc.get("badges", [])],
         "ConfigDefaults": config_doc["defaults"],
         "Presets": presets,
         "PresetOrder": list(config_doc["presets"].keys()),
@@ -246,16 +298,25 @@ def string_table(jobs_doc, strings_doc):
     board = strings_doc["strings"]["JobPassive.Desc"]
     for j in jobs_doc["jobs"]:
         if j.get("implemented"):
+            equip = equip_text(j)
+            equip = f" Equipment: {equip} (proficiency while this is your job)." if equip else ""
             table[f"job.{j['id']}.passive_name"] = f"Job: {j['name']}"
-            table[f"job.{j['id']}.passive_desc"] = f"{j.get('description', '')} {board}".strip()
+            table[f"job.{j['id']}.passive_desc"] = f"{j.get('description', '')}{equip} {board}".strip()
+            if j.get("mastery"):
+                table[f"job.{j['id']}.mastery_name"] = f"{j['name']} Mastery"
+                table[f"job.{j['id']}.mastery_desc"] = (f"{j['mastery']['description']} Earned by mastering "
+                                                        f"{j['name']}; kept after changing jobs.")
     for k, v in strings_doc["strings"].items():
         table[f"str.{k}"] = v
     return table
 
 
-PLACEHOLDER = re.compile(r"\{\{(name|desc|jobname|jobdesc|str):([^}]+)\}\}")
+PLACEHOLDER = re.compile(r"\{\{(name|desc|jobname|jobdesc|masteryname|masterydesc|str):([^}]+)\}\}")
 KEY_OF = {"name": "ability.{}.name", "desc": "ability.{}.desc", "jobname": "job.{}.passive_name",
-          "jobdesc": "job.{}.passive_desc", "str": "str.{}"}
+          "jobdesc": "job.{}.passive_desc", "masteryname": "job.{}.mastery_name",
+          "masterydesc": "job.{}.mastery_desc", "str": "str.{}"}
+# {{prof:<JobId>}} -> the job's equip list as Proficiency() boosts (plain stats text, not a string handle).
+PROF_PLACEHOLDER = re.compile(r"\{\{prof:([^}]+)\}\}")
 
 
 def xml_escape(s):
@@ -332,7 +393,7 @@ def icon_keys(jobs_doc, entries):
     keys = {JOB_BOARD_SPELL: "JobBoard", TRAINING_SPELL: "JPTraining"}
     for j in jobs_doc["jobs"]:
         if j.get("implemented"):
-            for pid in j.get("innate", {}).get("passives", []):
+            for pid in j.get("innate", {}).get("passives", []) + j.get("mastery", {}).get("passives", []):
                 keys.setdefault(pid, "Job_" + j["id"])
     granted = []
     for a in jobs_doc["abilities"]:
@@ -450,6 +511,7 @@ def build_stats(jobs_doc, strings_doc):
     entries = []
     if not STATS_SRC.is_dir():
         return outputs, table, used, entries
+    job_by_id = {j["id"]: j for j in jobs_doc["jobs"]}
     for src in sorted(STATS_SRC.glob("*.txt")):
 
         def repl(m):
@@ -458,6 +520,12 @@ def build_stats(jobs_doc, strings_doc):
                 raise BuildError(f"{src.name}: unknown string {m.group(0)}")
             used.add(key)
             return handle_for(key) + ";1"
+
+        def prof(m):
+            job = job_by_id.get(m.group(1))
+            if not job or not job.get("equip"):
+                raise BuildError(f"{src.name}: {m.group(0)}: no such job or it has no equip list")
+            return ";".join(f"Proficiency({p})" for p in job["equip"])
 
         # Comments stay in stats_src only: the generated file holds plain stats lines (the game's parser
         # is not known to accept comments), with one blank line between entries.
@@ -469,7 +537,7 @@ def build_stats(jobs_doc, strings_doc):
             if line.startswith("new entry") and lines and lines[-1] != "":
                 lines.append("")
             if line or (lines and lines[-1] != ""):
-                lines.append(PLACEHOLDER.sub(repl, line))
+                lines.append(PLACEHOLDER.sub(repl, PROF_PLACEHOLDER.sub(prof, line)))
         while lines and lines[-1] == "":
             lines.pop()
         out = "\n".join(lines) + "\n"
@@ -509,6 +577,9 @@ def check_stats(jobs_doc, entries):
         if j.get("implemented"):
             for pid in j.get("innate", {}).get("passives", []):
                 wanted[pid] = "PassiveData"
+            for kind, typ in (("spells", "SpellData"), ("passives", "PassiveData"), ("statuses", "StatusData")):
+                for sid in j.get("mastery", {}).get(kind, []):
+                    wanted[sid] = typ
     for sid, typ in wanted.items():
         if "FFTJ" not in sid:
             continue

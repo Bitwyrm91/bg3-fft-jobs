@@ -213,11 +213,24 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
     def mastered(c, j):
         return all(a in c.learned for a in by_job[j])
 
-    def settle(c, when):
+    def unlock(c, when):
+        # badge requirements are left out: the simulated party is assumed to have found every badge
         for j in impl:
-            if j not in c.unlocked and all(level_of(c, r["job"]) >= r["level"] for r in unlock_rules[j]):
+            if j not in c.unlocked and all(level_of(c, r["job"]) >= r["level"] for r in unlock_rules[j] if "job" in r):
                 c.unlocked.add(j)
                 c.unlocked_at[j] = when
+
+    def share_unlocks(when):
+        # Rules.PartyWideUnlocks (Fell Seal rule): one member's unlock is the whole party's
+        if not cfg["Rules"].get("PartyWideUnlocks"):
+            return
+        every = set().union(*(c.unlocked for c in party))
+        for c in party:
+            for j in every - c.unlocked:
+                c.unlocked.add(j)
+                c.unlocked_at[j] = when
+
+    def settle(c, when):
         for j in impl:
             if j not in c.unlocked:
                 continue
@@ -271,6 +284,9 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
                 for c in party:
                     add(c, c.primary, rest_jp(jp, c.boost), "Rest")
             for c in party:
+                unlock(c, when)
+            share_unlocks(when)
+            for c in party:
                 settle(c, when)
     return party, fight_no
 
@@ -283,7 +299,8 @@ def full_tree_requirement(jobs_doc, th):
     need = {}
     for j in jobs_doc["jobs"]:
         for r in j.get("unlock", []):
-            need[r["job"]] = max(need.get(r["job"], 1), r["level"])
+            if "job" in r:
+                need[r["job"]] = max(need.get(r["job"], 1), r["level"])
     return sum(th[lv - 2] for lv in need.values() if lv >= 2), need
 
 

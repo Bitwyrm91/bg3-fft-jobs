@@ -140,6 +140,10 @@ function JobBoard:Render(view)
     end
 
     root:AddSeparatorText("Jobs")
+    if c.PartyWide then
+        root:AddText("Unlocked jobs are shared by the whole party; JP and job levels are per character. "
+            .. "Hover a job for its equipment and mastery perk.")
+    end
     local jobs = root:AddTable("FFTJ_Jobs", 5)
     jobs.ShowHeader = true
     for _, h in ipairs({ "Job", "Level", "JP (spend / earned)", "Status", "" }) do
@@ -153,7 +157,17 @@ function JobBoard:Render(view)
         elseif j.IsSecondary then
             name = name .. " (secondary)"
         end
-        row:AddCell():AddText(name)
+        local nameText = row:AddCell():AddText(name)
+        local info = {}
+        if j.Equip then
+            info[#info + 1] = "Equipment while it is your job: " .. j.Equip .. "."
+        end
+        if j.Mastery then
+            info[#info + 1] = "Mastery perk (all abilities learned, kept for good): " .. j.Mastery
+        end
+        if #info > 0 then
+            addTooltip(nameText, table.concat(info, "\n" .. TOOLTIP_INDENT))
+        end
         row:AddCell():AddText(j.Unlocked and tostring(j.Level) or "-")
         row:AddCell():AddText(Util.Num(j.Unspent) .. " / " .. Util.Num(j.Earned)
             .. (j.NextAt and ("  (Lv" .. (j.Level + 1) .. " at " .. Util.Num(j.NextAt) .. ")") or ""))
@@ -161,7 +175,7 @@ function JobBoard:Render(view)
         if not j.Unlocked then
             status = "Locked: needs " .. j.Requirements
         elseif j.Mastered then
-            status = "Mastered"
+            status = j.MasteryPerk and ("Mastered: " .. j.Mastery) or "Mastered"
         else
             status = string.format("%d/%d learned", j.LearnedCount, j.Total)
         end
@@ -191,8 +205,13 @@ function JobBoard:Render(view)
         end
     end
     root:AddSeparatorText("Abilities: " .. jobName)
-    root:AddText("Learned actions are usable while their job is the job or the secondary. Reaction, support and "
-        .. "movement abilities work once equipped (most are passives, not hotbar spells).")
+    local help = "Learned actions are usable while their job is the job or the secondary. Reaction, support and "
+        .. "movement abilities work once equipped (most are passives, not hotbar spells)."
+    if c.AlwaysOnTypes and #c.AlwaysOnTypes > 0 then
+        help = help .. " Learned " .. string.lower(table.concat(c.AlwaysOnTypes, " and ")) .. " abilities of your "
+            .. "job work without a slot, so the slots stay free for other jobs' abilities."
+    end
+    root:AddText(help)
     local abilities = root:AddTable("FFTJ_Abilities", 5)
     abilities.ShowHeader = true
     for _, h in ipairs({ "Ability", "Type", "JP", "Status", "" }) do
@@ -205,8 +224,12 @@ function JobBoard:Render(view)
         row:AddCell():AddText(a.Type)
         row:AddCell():AddText(Util.Num(a.Cost))
         local status
-        if a.Equipped then
+        if a.Equipped and a.AlwaysOn then
+            status = "Learned, equipped (works without the slot while this is your job)"
+        elseif a.Equipped then
             status = "Learned, equipped"
+        elseif a.AlwaysOn then
+            status = "Learned, always on while this is your job"
         elseif a.Learned and a.Type == "Action" then
             status = a.Active and "Learned, in the spells" or "Learned: make this job the job or secondary to use it"
         elseif a.Learned then
@@ -223,7 +246,7 @@ function JobBoard:Render(view)
             button(cell, "Learn", "learn" .. a.Id, false, function()
                 self:Send("Learn", { Ability = a.Id })
             end)
-        elseif a.Learned and a.Type ~= "Action" and not a.Equipped then
+        elseif a.Learned and a.Type ~= "Action" and not a.Equipped and not a.AlwaysOn then
             button(cell, "Equip", "equip" .. a.Id, false, function()
                 self:Send("Equip", { Ability = a.Id })
             end)

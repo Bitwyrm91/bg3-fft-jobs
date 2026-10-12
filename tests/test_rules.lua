@@ -307,6 +307,119 @@ function S.normalize_fills_old_saves(w, T)
     T.eq(type(char.Granted.Statuses), "table")
     T.eq(char.Stats.Actions, 0)
     T.eq(type(char.SinceRest.JP), "table")
+    T.eq(type(char.Badges), "table")
+end
+
+---------------------------------------------------------------- Fell Seal rules (phase 2)
+
+function S.main_job_support_and_movement_are_always_on(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    Rules.AddJP(Data, cfg, char, "Squire", 2000)
+    for _, aid in ipairs({ "JPBoost", "Movement1", "CounterTackle" }) do
+        T.truthy(Rules.Learn(Data, char, aid))
+    end
+    local d = Rules.DesiredGrants(Data, char, cfg)
+    T.eq(T.keys(d.Passives), "FFTJ_JPBoost,FFTJ_Job_Squire,FFTJ_Movement1", "reactions still need their slot")
+    T.truthy(Rules.HasJPBoost(Data, char, cfg))
+    T.truthy(Rules.IsAlwaysOn(Data, cfg, char, "JPBoost"))
+    T.falsy(Rules.IsAlwaysOn(Data, cfg, char, "CounterTackle"))
+    T.falsy(Rules.HasJPBoost(Data, char), "without the config: slots only")
+    Rules.SetPrimary(Data, char, "Knight")
+    T.falsy(Rules.HasJPBoost(Data, char, cfg), "another main job")
+    T.eq(T.keys(Rules.DesiredGrants(Data, char, cfg).Passives), "FFTJ_Job_Knight")
+    local all = T.cfg({ Rules = { MainJobAlwaysOn = { "Support", "Movement", "Reaction" } } })
+    Rules.SetPrimary(Data, char, "Squire")
+    T.truthy(Rules.DesiredGrants(Data, char, all).Passives.FFTJ_CounterTackle)
+    local off = T.cfg({ Rules = { MainJobAlwaysOn = {} } })
+    T.eq(T.keys(Rules.DesiredGrants(Data, char, off).Passives), "FFTJ_Job_Squire")
+end
+
+function S.always_on_and_slot_are_not_granted_twice(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    Rules.AddJP(Data, cfg, char, "Squire", 2000)
+    T.truthy(Rules.Learn(Data, char, "JPBoost"))
+    T.truthy(Rules.Equip(Data, char, "JPBoost"))
+    T.eq(#Rules.ActivePassives(Data, char, cfg), 1)
+end
+
+function S.mastery_perk_follows_mastery(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    Rules.AddJP(Data, cfg, char, "Squire", 200) -- unlocks Archer
+    Rules.AddJP(Data, cfg, char, "Archer", 9000)
+    for _, aid in ipairs(Data.AbilitiesByJob.Archer) do
+        T.falsy(Rules.DesiredGrants(Data, char, cfg).Passives.FFTJ_Mastery_Archer)
+        T.truthy(Rules.Learn(Data, char, aid))
+    end
+    T.truthy(Rules.IsMastered(Data, char, "Archer"))
+    T.truthy(Rules.DesiredGrants(Data, char, cfg).Passives.FFTJ_Mastery_Archer, "granted while Squire is the job")
+    T.truthy(Rules.HasMasteryPerk(Data, cfg, char, "Archer"))
+    T.falsy(Rules.DesiredGrants(Data, char, T.cfg({ Rules = { MasteryPerks = false } })).Passives.FFTJ_Mastery_Archer)
+    T.falsy(Rules.DesiredGrants(Data, char).Passives.FFTJ_Mastery_Archer, "without the config: off")
+end
+
+-- Data with a made-up special job: Holy Knight needs the Holy Knight Badge and Knight Lv3.
+local function badgeData(Data)
+    local Util = Ext.Require("Shared/Util.lua")
+    local d = Util.DeepCopy(Data)
+    d.Jobs.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight", Implemented = true, Order = #d.JobOrder + 1,
+        Unlock = { { Badge = "HolyKnight" }, { Job = "Knight", Level = 3 } }, Innate = {}, Equip = "" }
+    d.JobOrder[#d.JobOrder + 1] = "HolyKnight"
+    d.AbilitiesByJob.HolyKnight = {}
+    d.Badges.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight Badge", Description = "test" }
+    d.BadgeOrder[#d.BadgeOrder + 1] = "HolyKnight"
+    return d
+end
+
+function S.badge_requirements(w, T)
+    local Rules, Data = setup()
+    local data = badgeData(Data)
+    local cfg = T.cfg()
+    T.eq(Rules.RequirementText(data, "HolyKnight"), "Holy Knight Badge, Knight Lv3")
+    local a = Rules.NewChar(data, cfg, "Squire")
+    local b = Rules.NewChar(data, cfg, "Squire")
+    local chars, party = { A = a, B = b }, {}
+    Rules.AddJP(data, cfg, a, "Squire", 200)
+    Rules.AddJP(data, cfg, a, "Knight", 400)
+    local met, missing = Rules.RequirementsMet(data, cfg, a, "HolyKnight")
+    T.falsy(met)
+    T.eq(missing[1].Badge, "HolyKnight")
+    T.falsy(Rules.AddBadge(data, cfg, chars, party, "Crown"), "unknown badge")
+    local ok, err, info = Rules.AddBadge(data, cfg, chars, party, "HolyKnight")
+    T.truthy(ok, err)
+    T.eq(info.Unlocked[1].Guid, "A")
+    T.eq(info.Unlocked[1].Job, "HolyKnight")
+    T.eq(info.Shared[#info.Shared].Guid, "B", "party-wide: B gets it too")
+    T.truthy(Rules.IsUnlocked(b, "HolyKnight"))
+    T.truthy(Rules.HasBadge(b, "HolyKnight"))
+    T.truthy(select(3, Rules.AddBadge(data, cfg, chars, party, "HolyKnight")).Already)
+    T.eq(Rules.FindBadge(data, "holy knight badge"), "HolyKnight")
+end
+
+function S.sync_party_shares_unlocks_and_badges(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local a = Rules.NewChar(Data, cfg, "Squire")
+    local b = Rules.NewChar(Data, cfg, "Chemist")
+    local chars, party = { A = a, B = b }, { Badges = { Crest = true } }
+    Rules.AddJP(Data, cfg, a, "Squire", 200)
+    local added = Rules.SyncParty(Data, cfg, chars, party)
+    T.eq(#added, 2, "Knight and Archer for B")
+    T.eq(added[1].Guid, "B")
+    T.truthy(Rules.IsUnlocked(b, "Archer"))
+    T.truthy(party.PartyUnlocked.Knight)
+    T.truthy(b.Badges.Crest)
+    T.eq(#Rules.SyncParty(Data, cfg, chars, party), 0, "nothing new the second time")
+    local c = Rules.NewChar(Data, cfg, "Squire")
+    local off = T.cfg({ Rules = { PartyWideUnlocks = false } })
+    T.eq(#Rules.SyncParty(Data, off, { C = c }, party), 0)
+    T.falsy(Rules.IsUnlocked(c, "Knight"), "off: unlocks stay per character")
+    T.truthy(c.Badges.Crest, "badges always belong to the party")
 end
 
 return S

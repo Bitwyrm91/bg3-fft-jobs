@@ -55,9 +55,27 @@ function S.every_grant_has_a_stats_entry_of_the_right_type(w, T, Mocks)
     for id, job in pairs(Data.Jobs) do
         if job.Implemented then
             check(job.Innate, id)
+            check(job.Mastery and job.Mastery.Grants, id .. " mastery")
         end
     end
     T.eq(entries[Data.JobBoardSpell].type, "SpellData")
+end
+
+-- Fell Seal rules: every job has its main-job equipment (on its marker passive) and a mastery perk.
+function S.every_job_has_equipment_and_a_mastery_perk(w, T, Mocks)
+    local Data = Ext.Require("Shared/GeneratedData.lua")
+    local entries = statsEntries(Mocks)
+    for _, id in ipairs(Data.JobOrder) do
+        local job = Data.Jobs[id]
+        if job.Implemented then
+            T.truthy(job.Equip ~= "", id .. " has an equip list")
+            local marker = entries[job.Innate.Passives[1]]
+            T.contains(marker.data.Boosts or "", "Proficiency(", id .. " marker passive grants proficiencies")
+            T.truthy(job.Mastery and job.Mastery.Description ~= "", id .. " has a mastery perk")
+            local perk = entries[job.Mastery.Grants.Passives[1]]
+            T.truthy(perk.data.Boosts and perk.data.Boosts ~= "", id .. " mastery passive has boosts")
+        end
+    end
 end
 
 function S.every_localization_handle_exists(w, T, Mocks)

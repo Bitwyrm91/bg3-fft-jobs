@@ -6,6 +6,15 @@ Updated 2026-10-12. **Already installed on your PC:** the Script Extender v32, t
 
 **Tip:** test in a separate save (Explorer or Balanced), not an Honour Mode run. Honour Mode has a single save that can't be reloaded, so anything the test mod does to your characters stays in that run.
 
+## New in 1.0.0.6: the Fell Seal rules (phase 2, step 1)
+
+What to try (JP Training makes it quick):
+1. **Party-wide unlocks:** cast JP Training once, then open the Job Board on another party member: Knight, Archer, White Mage and Black Mage are unlocked for everyone, even those who never played Squire or Chemist. JP and job levels stay per character. One notice per unlock ("... unlocked the Knight job for the whole party!").
+2. **The main job's support and movement abilities need no slot.** As a Squire, learn JP Boost or Move +1: the Job Board says "Learned, always on while this is your job", the character sheet shows the passive, and the support slot stays free for another job's support. Change job and they need a slot again. Reactions still need the reaction slot (tell me if you want those always on too).
+3. **Equipment by main job.** Each job's passive on the character sheet ("Job: Knight") now lists its equipment and gives the proficiency while it is the main job: for example, a Wizard who becomes a Knight can wear heavy armour and use a shield without penalties. Hover a job's name on the Job Board to see its equipment and mastery perk.
+4. **Mastery perks.** Learn every ability of a job: you get a small permanent passive ("Squire Mastery: +5 maximum hit points") that stays after changing jobs and stacks with other jobs' perks. Squire +5 max HP, Chemist poison resistance, Knight +1 Constitution saves, Archer +1 to ranged weapon attacks (BG3 has no "+1 m range" bonus), White Mage +1 Wisdom saves, Black Mage +1 spell attacks.
+5. Every rule can be switched off in `config.json` or the console, e.g. `!fft_set Rules.PartyWideUnlocks false`, `!fft_set Rules.MasteryPerks false`.
+
 ## What you need
 
 - Start BG3 as usual (Steam or the Larian launcher). The main menu should say "Script Extender v32 loaded" in the bottom left.

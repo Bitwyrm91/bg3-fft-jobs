@@ -3,13 +3,16 @@
 // (who the functor targets in the OnDamaged context; model them on vanilla Fire Shield / Armour of Agathys
 // / Hellish Rebuke statuses and passives).
 
-// ---------------------------------------------------------------- current job markers (no effect yet)
+// ---------------------------------------------------------------- current job markers
+// The main job's equipment (Fell Seal rule): {{prof:<Job>}} becomes the job's "equip" list from data/fft_jobs.json
+// as Proficiency() boosts. FFT's "Equip X" supports carry one of them to other jobs.
 new entry "FFTJ_Job_Squire"
 type "PassiveData"
 data "DisplayName" "{{jobname:Squire}}"
 data "Description" "{{jobdesc:Squire}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "Properties" "Highlighted"
+data "Boosts" "{{prof:Squire}}"
 
 new entry "FFTJ_Job_Chemist"
 type "PassiveData"
@@ -17,6 +20,7 @@ data "DisplayName" "{{jobname:Chemist}}"
 data "Description" "{{jobdesc:Chemist}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "Properties" "Highlighted"
+data "Boosts" "{{prof:Chemist}}"
 
 new entry "FFTJ_Job_Knight"
 type "PassiveData"
@@ -24,6 +28,7 @@ data "DisplayName" "{{jobname:Knight}}"
 data "Description" "{{jobdesc:Knight}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "Properties" "Highlighted"
+data "Boosts" "{{prof:Knight}}"
 
 new entry "FFTJ_Job_Archer"
 type "PassiveData"
@@ -31,6 +36,7 @@ data "DisplayName" "{{jobname:Archer}}"
 data "Description" "{{jobdesc:Archer}}"
 data "Icon" "PassiveFeature_FightingStyle_Archery"
 data "Properties" "Highlighted"
+data "Boosts" "{{prof:Archer}}"
 
 new entry "FFTJ_Job_WhiteMage"
 type "PassiveData"
@@ -38,6 +44,7 @@ data "DisplayName" "{{jobname:WhiteMage}}"
 data "Description" "{{jobdesc:WhiteMage}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "Properties" "Highlighted"
+data "Boosts" "{{prof:WhiteMage}}"
 
 new entry "FFTJ_Job_BlackMage"
 type "PassiveData"
@@ -45,6 +52,58 @@ data "DisplayName" "{{jobname:BlackMage}}"
 data "Description" "{{jobdesc:BlackMage}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "Properties" "Highlighted"
+data "Boosts" "{{prof:BlackMage}}"
+
+// ---------------------------------------------------------------- mastery perks (Fell Seal rule)
+// Granted for good once every ability of the job is learned; they stack. The text is the job's "mastery"
+// description in data/fft_jobs.json: keep both in step. Boost forms all occur in vanilla stats.
+new entry "FFTJ_Mastery_Squire"
+type "PassiveData"
+data "DisplayName" "{{masteryname:Squire}}"
+data "Description" "{{masterydesc:Squire}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "IncreaseMaxHP(5)"
+
+new entry "FFTJ_Mastery_Chemist"
+type "PassiveData"
+data "DisplayName" "{{masteryname:Chemist}}"
+data "Description" "{{masterydesc:Chemist}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "Resistance(Poison,Resistant)"
+
+new entry "FFTJ_Mastery_Knight"
+type "PassiveData"
+data "DisplayName" "{{masteryname:Knight}}"
+data "Description" "{{masterydesc:Knight}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "RollBonus(SavingThrow,1,Constitution)"
+
+new entry "FFTJ_Mastery_Archer"
+type "PassiveData"
+data "DisplayName" "{{masteryname:Archer}}"
+data "Description" "{{masterydesc:Archer}}"
+data "Icon" "PassiveFeature_FightingStyle_Archery"
+data "Properties" "Highlighted"
+data "Boosts" "RollBonus(RangedWeaponAttack,1)"
+
+new entry "FFTJ_Mastery_WhiteMage"
+type "PassiveData"
+data "DisplayName" "{{masteryname:WhiteMage}}"
+data "Description" "{{masterydesc:WhiteMage}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "RollBonus(SavingThrow,1,Wisdom)"
+
+new entry "FFTJ_Mastery_BlackMage"
+type "PassiveData"
+data "DisplayName" "{{masteryname:BlackMage}}"
+data "Description" "{{masterydesc:BlackMage}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "RollBonus(MeleeSpellAttack,1);RollBonus(RangedSpellAttack,1)"
 
 // ---------------------------------------------------------------- reactions
 // Melee hit -> attacker takes 1d4 bludgeoning and is pushed 1.5 m.

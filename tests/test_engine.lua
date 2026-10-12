@@ -44,7 +44,8 @@ function S.action_jp_and_spillover(w, T)
 end
 
 function S.spillover_can_require_unlocked_job(w, T)
-    local svc = T.boot(w, { extra = { JP = { Spillover = { RequireUnlocked = true } } } })
+    local svc = T.boot(w, { extra = { JP = { Spillover = { RequireUnlocked = true } },
+        Rules = { PartyWideUnlocks = false } } })
     svc:AddManualJP(T.TAV, 200, "Squire") -- unlocks Knight for Tav only
     svc:SetPrimary(T.TAV, "Knight")
     T.startCombat(w, "c1", { T.TAV, T.SHART })
@@ -235,15 +236,148 @@ function S.shared_jp_counts_toward_unlocks(w, T)
     w.runTimers()
     T.eq(sum(svc, T, T.SHART, "Squire"), 201)
     T.truthy(svc.State:Get(T.SHART).Unlocked.Knight, "Squire Lv2 from shared JP unlocks Knight")
-    T.contains(w.notifications, "Shadowheart unlocked the Knight job!")
+    T.contains(w.notifications, "Shadowheart unlocked the Knight job for the whole party!")
 end
 
 function S.level_up_and_unlock_notifications(w, T)
     local svc = T.boot(w)
     svc:AddManualJP(T.TAV, 200, "Squire")
     T.contains(w.notifications, "Tav: Squire is now job level 2")
+    T.contains(w.notifications, "Tav unlocked the Knight job for the whole party!")
+    T.contains(w.notifications, "Tav unlocked the Archer job for the whole party!")
+end
+
+---------------------------------------------------------------- Fell Seal rules (phase 2)
+
+function S.party_wide_unlocks_reach_everyone(w, T)
+    local svc = T.boot(w)
+    local before = #w.notifications
+    svc:AddManualJP(T.TAV, 200, "Squire")
+    T.truthy(svc.State:Get(T.SHART).Unlocked.Knight, "one member's unlock is the party's")
+    T.truthy(svc.State:Get(T.ASTA).Unlocked.Archer)
+    T.eq(T.job(svc, T.SHART, "Squire").Earned, 0, "JP stays per character")
+    T.eq(#w.notifications, before + 3, "level-up + 2 unlocks, not one per member")
+    T.contains(w.prints, "party-wide unlock: Knight for Shadowheart, Astarion")
+    T.truthy(svc:SetPrimary(T.ASTA, "Archer"), "a member who never played Squire can take the job")
+    T.truthy(svc.State:Meta().PartyUnlocked.Archer, "saved for members who join later")
+end
+
+function S.party_wide_unlocks_can_be_turned_off(w, T)
+    local svc = T.boot(w, { extra = { Rules = { PartyWideUnlocks = false } } })
+    svc:AddManualJP(T.TAV, 200, "Squire")
     T.contains(w.notifications, "Tav unlocked the Knight job!")
-    T.contains(w.notifications, "Tav unlocked the Archer job!")
+    T.falsy(svc.State:Get(T.SHART).Unlocked.Knight)
+    T.falsy(svc:SetPrimary(T.SHART, "Knight"))
+end
+
+function S.companion_joining_later_gets_party_unlocks(w, T)
+    local svc = T.boot(w)
+    svc:AddManualJP(T.TAV, 200, "Chemist")
+    local gale = "55555555-5555-4555-8555-555555555555"
+    w.newChar(gale, { name = "Gale", level = 3, xp = 1000, class = "Wizard" })
+    w.fire("CharacterJoinedParty", "S_Player_" .. gale)
+    T.truthy(svc.State:Get(gale).Unlocked.WhiteMage)
+    T.truthy(svc.State:Get(gale).Unlocked.BlackMage)
+    T.falsy(svc.State:Get(gale).Unlocked.Knight)
+end
+
+function S.main_job_support_and_movement_work_without_a_slot(w, T)
+    local svc = T.boot(w)
+    local tav = w.chars[T.TAV]
+    svc:AddManualJP(T.TAV, 1000, "Squire")
+    T.truthy(svc:Learn(T.TAV, "JPBoost"))
+    T.truthy(svc:Learn(T.TAV, "Movement1"))
+    T.truthy(svc:Learn(T.TAV, "CounterTackle"))
+    T.truthy(tav.passives.FFTJ_JPBoost, "the main job's support needs no slot")
+    T.truthy(tav.passives.FFTJ_Movement1, "nor its movement ability")
+    T.falsy(tav.passives.FFTJ_CounterTackle, "reactions still need the reaction slot (default)")
+    local char = svc.State:Get(T.TAV)
+    T.eq(char.Support, nil, "the support slot stays free")
+    T.startCombat(w, "c1", { T.TAV })
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    T.eq(T.job(svc, T.TAV, "Squire").Earned, 1000 + 31, "JP Boost works from the job: (8 + 2 x Lv4) * 1.3 * 1.5")
+    T.endCombat(w, "c1", { T.TAV })
+    T.truthy(svc:SetPrimary(T.TAV, "Knight"))
+    T.falsy(tav.passives.FFTJ_JPBoost, "another job: back to the slots")
+    T.truthy(svc:Equip(T.TAV, "JPBoost"))
+    T.truthy(tav.passives.FFTJ_JPBoost)
+end
+
+function S.main_job_reactions_can_be_always_on_too(w, T)
+    local svc = T.boot(w, { extra = { Rules = { MainJobAlwaysOn = { "Support", "Movement", "Reaction" } } } })
+    svc:AddManualJP(T.TAV, 300, "Squire")
+    T.truthy(svc:Learn(T.TAV, "CounterTackle"))
+    T.truthy(w.chars[T.TAV].passives.FFTJ_CounterTackle)
+end
+
+function S.mastery_perk_is_granted_and_kept(w, T)
+    local svc = T.boot(w)
+    local tav = w.chars[T.TAV]
+    svc:AddManualJP(T.TAV, 5000, "Squire")
+    local last
+    for _, aid in ipairs(svc.Data.AbilitiesByJob.Squire) do
+        T.falsy(tav.passives.FFTJ_Mastery_Squire, "no perk before the last ability")
+        local ok, msg = svc:Learn(T.TAV, aid)
+        T.truthy(ok, msg)
+        last = msg
+    end
+    T.contains(last, "Squire mastered! Mastery perk, kept for good: +5 maximum hit points.")
+    T.contains(w.notifications, "Tav mastered Squire! +5 maximum hit points.")
+    T.truthy(tav.passives.FFTJ_Mastery_Squire)
+    T.truthy(svc:SetPrimary(T.TAV, "Archer"))
+    T.truthy(tav.passives.FFTJ_Mastery_Squire, "kept after changing jobs")
+    T.falsy(w.chars[T.SHART].passives.FFTJ_Mastery_Squire, "per character")
+end
+
+function S.mastery_perks_can_be_turned_off(w, T)
+    local svc = T.boot(w, { extra = { Rules = { MasteryPerks = false } } })
+    svc:AddManualJP(T.TAV, 5000, "Squire")
+    for _, aid in ipairs(svc.Data.AbilitiesByJob.Squire) do
+        svc:Learn(T.TAV, aid)
+    end
+    T.falsy(w.chars[T.TAV].passives.FFTJ_Mastery_Squire)
+end
+
+-- A made-up special job for the badge tests: Holy Knight, needs the Holy Knight Badge and Knight Lv3.
+local function addBadgeJob()
+    local Data = Ext.Require("Shared/GeneratedData.lua")
+    Data.Jobs.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight", Skillset = "Holy Sword", Implemented = true,
+        Order = #Data.JobOrder + 1, Unlock = { { Badge = "HolyKnight" }, { Job = "Knight", Level = 3 } },
+        Innate = {}, Equip = "", Description = "test job" }
+    Data.JobOrder[#Data.JobOrder + 1] = "HolyKnight"
+    Data.AbilitiesByJob.HolyKnight = {}
+    Data.Badges.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight Badge", Description = "test badge" }
+    Data.BadgeOrder[#Data.BadgeOrder + 1] = "HolyKnight"
+end
+
+function S.badge_and_job_levels_unlock_a_special_job(w, T)
+    addBadgeJob()
+    local svc = T.boot(w)
+    svc:AddManualJP(T.TAV, 200, "Squire")
+    svc:AddManualJP(T.TAV, 400, "Knight")
+    T.falsy(svc.State:Get(T.TAV).Unlocked.HolyKnight, "Knight Lv3 alone is not enough")
+    local ok, msg = svc:AddBadge("HolyKnight")
+    T.truthy(ok, msg)
+    T.contains(msg, "The party found the Holy Knight Badge. Tav unlocked the Holy Knight job for the whole party!")
+    T.truthy(svc.State:Get(T.SHART).Unlocked.HolyKnight)
+    T.truthy(svc.State:Get(T.SHART).Badges.HolyKnight)
+    T.contains(select(2, svc:AddBadge("HolyKnight")), "already has")
+    local gale = "55555555-5555-4555-8555-555555555555"
+    w.newChar(gale, { name = "Gale", level = 3, xp = 1000, class = "Wizard" })
+    w.fire("CharacterJoinedParty", "S_Player_" .. gale)
+    T.truthy(svc.State:Get(gale).Badges.HolyKnight, "a later member gets the party's badges")
+end
+
+function S.badge_first_then_job_levels(w, T)
+    addBadgeJob()
+    local svc = T.boot(w, { extra = { Rules = { PartyWideUnlocks = false } } })
+    T.truthy(svc:AddBadge("HolyKnight"))
+    T.falsy(svc.State:Get(T.SHART).Unlocked.HolyKnight)
+    svc:AddManualJP(T.SHART, 200, "Squire")
+    svc:AddManualJP(T.SHART, 400, "Knight")
+    T.truthy(svc.State:Get(T.SHART).Unlocked.HolyKnight, "the badge counts once the levels are there")
+    T.falsy(svc.State:Get(T.TAV).Unlocked.HolyKnight, "per character with party-wide unlocks off")
+    T.contains(w.notifications, "Shadowheart unlocked the Holy Knight job!")
 end
 
 function S.grants_follow_learning_and_job_changes(w, T)
@@ -274,7 +408,7 @@ function S.grant_changes_are_logged(w, T)
 end
 
 function S.support_and_movement_slots_grant_passives(w, T)
-    local svc = T.boot(w)
+    local svc = T.boot(w, { extra = { Rules = { MainJobAlwaysOn = {} } } }) -- slots only, as before phase 2
     local tav = w.chars[T.TAV]
     svc:AddManualJP(T.TAV, 600, "Squire")
     T.truthy(svc:Learn(T.TAV, "Movement1"))
@@ -424,7 +558,8 @@ function S.jp_training_spell_trains_the_party(w, T)
     T.truthy(svc.State:Get(T.TAV).Unlocked.Knight, "Squire Lv4 unlocks Knight")
     T.eq(#w.notifications, before + 1, "one summary instead of a notice per level and unlock")
     T.contains(w.notifications[#w.notifications],
-        "+1000 JP in every unlocked job for 3 party members, 12 new jobs unlocked")
+        "+1000 JP in every unlocked job for 3 party members, 4 new jobs unlocked")
+    T.eq(sum(svc, T, T.SHART, "Knight"), 0, "a job Tav unlocked this cast waits for the next one for everyone")
     T.cast(w, T.SHART, "Shout_FFTJ_JPTraining")
     T.eq(sum(svc, T, T.TAV, "Knight"), 1000, "jobs unlocked by the last cast train on the next")
     T.eq(sum(svc, T, T.TAV, "Squire"), 2000)

@@ -108,6 +108,40 @@ function S.view_marks_abilities_in_use(w, T)
     T.truthy(ab("CounterTackle").Active)
 end
 
+function S.view_shows_fell_seal_rules(w, T, Mocks)
+    local svc = T.boot(w)
+    local _, View = setup()
+    svc:AddManualJP(T.TAV, 5000, "Squire")
+    T.truthy(svc:Learn(T.TAV, "JPBoost"))
+    local view = View.Build(svc, T.TAV).Char
+    T.truthy(view.PartyWide)
+    T.eq(table.concat(view.AlwaysOnTypes, ","), "Support,Movement")
+    local jpBoost
+    for _, a in ipairs(view.Abilities.Squire) do
+        if a.Id == "JPBoost" then
+            jpBoost = a
+        end
+    end
+    T.truthy(jpBoost.AlwaysOn and jpBoost.Active, "the main job's support is on without a slot")
+    for _, aid in ipairs(svc.Data.AbilitiesByJob.Squire) do
+        svc:Learn(T.TAV, aid)
+    end
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local win = w.windows[1]
+    local text = texts(Mocks, win)
+    T.contains(text, "Mastered: +5 maximum hit points.")
+    T.contains(text, "Unlocked jobs are shared by the whole party")
+    T.contains(text, "Learned support and movement abilities of your job work without a slot")
+    T.contains(text, "Learned, always on while this is your job")
+    T.falsy(findButton(Mocks, win, "Equip##equipJPBoost"), "no Equip button for an always-on ability")
+    local knight = Mocks.FindWidgets(win, function(x)
+        return x.Kind == "Text" and x.Label == "Knight" and x.TooltipWidget ~= nil
+    end)[1]
+    T.truthy(knight, "the Knight row has a tooltip")
+    T.contains(knight.TooltipWidget.Children[1].Label, "heavy armour, shields")
+    T.contains(knight.TooltipWidget.Children[1].Label, "Constitution saving throws")
+end
+
 function S.tooltips_start_clear_of_the_cursor(w, T, Mocks)
     T.boot(w)
     T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
