@@ -48,6 +48,8 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **1.0.0.20 (2026-10-13, scheduled run; installed 03:16 with the game closed, not seen in game): Onion Knight** (War of the Lions; Squire Lv6 + Chemist Lv6; `group` `WotL`; no abilities, mastered at job level 8 like the Mime). Two engine features: job `levelGrants` (passives the main job gives by its job level, highest tier reached: `FFTJ_OnionKnight_5` = +1 AC, +1 attack; `FFTJ_OnionKnight_8` = +2 all abilities, +2 AC, +2 attack) and `noSlots` (`Rules.BlocksSlots`: while it is the main job, ActivePassives is empty and the secondary grants nothing; config `Rules.OnionKnightBlocksSlots`, default true). Equipment: simple + martial weapons, all armour, shields (new proficiency key `SimpleWeapons`). Mastery perk +1 AC. 135 tests, validate OK (643 entries), FFT check 0 differences. Phase 2 step 3 (WotL jobs) done.
 
+**Special jobs: proposal written, NOT built (2026-10-13, scheduled run): `docs/SPECIAL_JOBS.md`** = the boss → badge table for the 17 special jobs (checked against the TIC tables `Job-en` / `JobCommand-en`: TIC calls Worker 8's job Automaton (WotL Steel Giant); Sky Pirate and Game Hunter are WotL only), proposed job levels, 7 more TIC special jobs to choose from, 5 open questions. The user approves before building.
+
 **NEXT: phase 2, decided with the user on 2026-10-12. Read `docs/PHASE2.md`** (every FFT job from every version, Fell Seal rules, the Soul Collector monster job; build order and ground rules: no icons for now, no GitHub push unless asked, preserve usage).
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
