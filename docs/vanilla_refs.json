@@ -31,6 +31,7 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_Soldier",
+      "FFTJ_Mastery_SwordSaint",
       "Zone_FFTJ_CrossSlash",
       "Zone_FFTJ_Omnislash"
     ]
@@ -317,6 +318,7 @@
       "FFTJ_Job_Skyseer",
       "FFTJ_Job_Soldier",
       "FFTJ_Job_SteelGiant",
+      "FFTJ_Job_SwordSaint",
       "FFTJ_Job_Templar",
       "FFTJ_Mastery_OnionKnight",
       "FFTJ_OnionKnight_5",

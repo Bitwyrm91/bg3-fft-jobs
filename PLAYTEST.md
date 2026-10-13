@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.38**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.39**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.39: Sword Saint (special job 17 of 17: all special jobs built)
+
+- **Sword Saint** (Orlandeau's job): needs the **Sword Saint Badge** (Sarevok Anchev, the Murder Tribunal) plus **Knight Lv8** and **Samurai Lv8**.
+- **Swordplay**, as in TIC: every sword technique: the Holy Knight's five Holy Sword strikes, the Divine Knight's four Crush strikes and the Fell Knight's Shadowblade and Duskblade (the same strikes and costs, learned again here). Main-job equipment: every sword, all armour, shields. Mastery: +1 to melee weapon attack rolls.
+- **All 17 special jobs are in.** Fastest way to try them: `!fft_badge <id>` (or `!fft_badge list`) plus JP Training for the job levels.
 
 ## New in 1.0.0.38: Dragonkin (special job 16 of 17)
 
