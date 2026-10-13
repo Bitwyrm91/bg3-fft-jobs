@@ -30,6 +30,8 @@
   <content contentuid="h57c76934g2a19g5dd0gba4cg4341525da592" version="1">Auto-Potion</content>
   <content contentuid="h9895cab5gc69cg566dgbf36g4282693bb62b" version="1">Mega Flare: enemies within 5 m of a point up to 18 m away take 8d8 force damage (Dexterity save for half). Allies are spared. Once per long rest.</content>
   <content contentuid="h2435ec00g86cfg5941g8df2g03e4944d28ae" version="1">Bahamut</content>
+  <content contentuid="h27a9875dgc61ag543ag9cb1g1f196ebbf6b7" version="1">You can Speak with Animals at will. Always on while Orator is your job. (FFT: talk skills work on monsters; here they always do.)</content>
+  <content contentuid="hb5f8cdfdg8552g5d00ga3f4gbd7aa80e15c5" version="1">Beast Tongue</content>
   <content contentuid="h9717a9f6gc29bg53e2gb8fag5b471499a289" version="1">A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, but -2 to saving throws (strengthen an ally's magic, or soften an enemy). Once per short rest.</content>
   <content contentuid="h132d66fagc2d9g57dcga812g3f742bbf79d4" version="1">Belief</content>
   <content contentuid="h9bc71ca4gd076g5b96ga3e0g5d84488f41b0" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
@@ -46,6 +48,8 @@
   <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
   <content contentuid="hc7a5deceg9d9fg5c26ga3b8g7299e10e6f75" version="1">+2 to weapon attack rolls.</content>
   <content contentuid="h12851168g1a13g5e9bga89fgd8b5abc18048" version="1">Concentration</content>
+  <content contentuid="h41a57c74g97c0g5536g87f5g914ba2e8d421" version="1">A creature within 18 m makes a Constitution save or is Doomed: it dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
+  <content contentuid="h60cf1b00gd469g5d82gb2bdg2a17f15e951a" version="1">Condemn</content>
   <content contentuid="hccf20ed1ge441g5467g9471gccacd7211e04" version="1">A creature within 18 m makes a Constitution save or turns Undead for 3 turns: it can't regain hit points and is vulnerable to radiant damage. Once per short rest.</content>
   <content contentuid="hc0ea8c26g2145g5732g988fg99e79b387267" version="1">Corruption</content>
   <content contentuid="h5082bc81g7cbeg57d4g8169gbdf203426a8c" version="1">Reaction: when an enemy hits you with a melee attack, strike back with your weapon or fists.</content>
@@ -72,6 +76,8 @@
   <content contentuid="h20430412g7126g548fg9730g2dc0dc6147c2" version="1">Death</content>
   <content contentuid="h9bd22111g2e96g5e0ag9eb9gfb673ea2978c" version="1">+1 AC.</content>
   <content contentuid="h59669fd4gc2f7g5c91gb191gd8e8ffbcb29d" version="1">Defense Boost</content>
+  <content contentuid="ha1ddbc45g3edeg57c4gaa2fg2667811d6490" version="1">A foe within 9 m makes a Wisdom save or hands over gold: 10 times its level (once per creature, shared with Steal Gil).</content>
+  <content contentuid="h4fea4523g035cg5264gac58ge4b497cee2e1" version="1">Defraud</content>
   <content contentuid="h4025f7cag367ag5cadgb845g6dd7d81a5f3f" version="1">A creature within 18 m makes a Wisdom save or is Confused for 2 turns (it repeats the save each turn). Once per short rest.</content>
   <content contentuid="h95130a0cgbf48g50ccgb611g2852154be8f0" version="1">Delirium</content>
   <content contentuid="h5e211384g2836g5e05g88c5g0bb5b88e1361" version="1">A creature within 18 m makes a Wisdom save or becomes an Atheist for 2 turns: it can't cast spells and has advantage on saving throws against spells. Once per short rest.</content>
@@ -80,16 +86,24 @@
   <content contentuid="h6ac7d984g29b1g5662gb29fg6c846f9e6147" version="1">Doom Fist</content>
   <content contentuid="h8e7fed3ege96eg5d37gbd09g4cd7fde69efb" version="1">When a weapon attack damages you, you gain Death Ward (the next blow that would drop you to 0 HP leaves you at 1 instead; FFT gives Reraise). Once per long rest.</content>
   <content contentuid="h2ac33475g2b71g59eagb4f7gfe1128366c69" version="1">Dragonheart</content>
+  <content contentuid="h211f263cg916ag5f1eg818dgdbca21ab39b9" version="1">Advantage on Wisdom saving throws (most talk skills and charms aim at Wisdom).</content>
+  <content contentuid="hfc97151bg5353g544cg9af1g36488b3d2e08" version="1">Earplugs</content>
   <content contentuid="h80d37df8g55bfg572aga785gee17068f477e" version="1">End Silenced. Thrown like Potion.</content>
   <content contentuid="h85374d3ag6f46g5fabgb13cg8a809600d880" version="1">Echo Herbs</content>
   <content contentuid="h98ed3d3fgbd55g52a0gaafbg498b0b700d0c" version="1">Fully heal the target and restore one level 2 spell slot. Once per long rest. Thrown like Potion.</content>
   <content contentuid="hc4573fa0g31c7g595cg8b58g4fff783baae4" version="1">Elixir</content>
   <content contentuid="h81583962g6187g5e4eg8892g3c91f3248aec" version="1">Drain a creature within 18 m: it makes a Wisdom save or takes 1d10 psychic damage, and you regain a level 1 spell slot (FFT absorbs MP). Once per short rest.</content>
   <content contentuid="h6330ab3fg8ecbg565fg9865gd921f40a75dc" version="1">Empowerment</content>
+  <content contentuid="he56fcfcag5b20g5c9agb80eg1c8bde0ca33f" version="1">A creature within 18 m makes a Wisdom save or becomes an Atheist for 2 turns: no spells, advantage on saving throws against spells.</content>
+  <content contentuid="h2a964487g47b8g5bc2g8c3eg3deaad9d3b36" version="1">Enlighten</content>
+  <content contentuid="hda4dcb17g51cag54a5g9293ge3c34eb51a0d" version="1">A foe within 18 m makes a Wisdom save or switches sides for 2 turns (4 with Tame), fighting for you on its own. Bosses are immune. Once per short rest.</content>
+  <content contentuid="h9c942235g335bg59fegadefg2e03a3c2dfb8" version="1">Entice</content>
   <content contentuid="h356de54bg8ed7g580dg9246g2a0f00a2cb05" version="1">Proficiency with handaxes, battleaxes and greataxes.</content>
   <content contentuid="heb0a5ca0gc7a3g52e6gab3fgf461119ad816" version="1">Equip Axes</content>
   <content contentuid="h106004ccgbf42g5cd5gb3ebg1aaef6a6da53" version="1">Proficiency with hand, light and heavy crossbows.</content>
   <content contentuid="h3e1b7458g1aa8g5a13g9e7bg09cc2f77e502" version="1">Equip Crossbows</content>
+  <content contentuid="hd51f0f9agfd83g5592g9b3dg2e1cd0837ea3" version="1">Proficiency with hand crossbows and light crossbows (BG3 has no guns), whatever your job.</content>
+  <content contentuid="hca58d2c8g1294g5b8aga7a0gba51dc3ae632" version="1">Equip Guns</content>
   <content contentuid="hef1bbb9eg3e9bg575fg8de6gb7124705f6c5" version="1">Proficiency with medium and heavy armour.</content>
   <content contentuid="h11bbd2a8g7ff0g5d07g8118g63514886b481" version="1">Equip Heavy Armor</content>
   <content contentuid="hd91f8d14ga5d9g50f9gbc5bgda388cbd1f6d" version="1">Proficiency with spears, pikes, glaives, halberds and tridents, whatever your job.</content>
@@ -166,6 +180,10 @@
   <content contentuid="hb76229abg33f1g5fecg9ff4ga5310282ecc5" version="1">Immobilize</content>
   <content contentuid="he001283fg7cedg5f02g812bg8c076d0e5a68" version="1">A creature within 18 m makes a Constitution save or is Petrified for 2 turns (incapacitated, resistant to all damage). Bosses are immune. Once per long rest.</content>
   <content contentuid="hfb1b5ccdgeab5g5b92gbb9bg3f0a6414cae4" version="1">Induration</content>
+  <content contentuid="h382c1c8bg0f9dg5010g968ageb08f10563b0" version="1">A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: no spells, 2 more damage, -2 AC. Once per short rest.</content>
+  <content contentuid="ha04c98e7g3320g5e70gbdd8gba5831f38154" version="1">Insult</content>
+  <content contentuid="hf9bcabc8gb250g506ega6f1gd905a0549e70" version="1">A foe within 18 m makes a Charisma save or is Baned for 3 turns (-1d4 to attack rolls and saving throws; FFT lowers Bravery).</content>
+  <content contentuid="h87d9c452g821cg58ddg9f18g688043c6e566" version="1">Intimidate</content>
   <content contentuid="h5bb05789g8476g5214g9062gf08e8b0be839" version="1">Ranged spell attack against a creature within 18 m: 3d6 necrotic damage, and you regain half the damage dealt. Once per short rest.</content>
   <content contentuid="hb4d99739g1740g5458ga973g2c016a679d77" version="1">Invigoration</content>
   <content contentuid="h3c36efb8g46f9g5183gb087g0bcd82fc476a" version="1">Earn 50% more JP.</content>
@@ -194,6 +212,8 @@
   <content contentuid="h7af2ccd5g924fg526eg9709g1e21c454bf15" version="1">Manafont</content>
   <content contentuid="h6137c09ag23c4g5dd5g8830gfb220392c107" version="1">A meteor smashes into a point up to 18 m away: creatures within 5 m take 5d8 bludgeoning and 5d8 fire damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="h8e2ed264gd49dg552egb637g46ea9ab55e5c" version="1">Meteor</content>
+  <content contentuid="hb9f4496agc7bdg51b3g9061g1af6ab08bb65" version="1">A dull lecture: enemies within 3 m of a point up to 18 m away make a Wisdom save or fall Asleep for 2 turns (they wake when damaged). Allies are spared. Once per short rest.</content>
+  <content contentuid="h97669d19g0289g58a8g8409g6f142a1ca00d" version="1">Mimic Darlavon</content>
   <content contentuid="h614742begf9b5g5dd9gacaeg57cdfcb0584f" version="1">Up to 4 allies within 18 m regain 2d8 hit points. Once per short rest.</content>
   <content contentuid="h321ba59agd6a3g5694g950dgd7c91d880ca6" version="1">Moogle</content>
   <content contentuid="hb714e206g10feg5503g9baeg87df8a75d709" version="1">+3 m movement speed.</content>
@@ -212,6 +232,10 @@
   <content contentuid="h81ce24b7g0c25g5bbbgb6bag1329e8eb68c0" version="1">Poison</content>
   <content contentuid="h9c5ad605gc4c0g5badgaf8egfb8d789a921a" version="1">Heal 2d4+2. Touch range, or 9 m when thrown (Chemist primary job or Throw Items).</content>
   <content contentuid="hdc38429ag507eg5684g9080g79d18940ac4b" version="1">Potion</content>
+  <content contentuid="hdd8f8841gfc3bg5d0fg91d8gfda8a2a22a5d" version="1">An ally within 18 m is Blessed for 3 turns (+1d4 to attack rolls and saving throws; FFT raises Bravery).</content>
+  <content contentuid="hbd6429b3g2ef9g5788gae6dg5a9a387c6dbf" version="1">Praise</content>
+  <content contentuid="h2b3c19c2g808eg5929g9687g85e60a214cf2" version="1">A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, -2 to saving throws.</content>
+  <content contentuid="h704b4926ge971g5267ga3edg5b5c00120164" version="1">Preach</content>
   <content contentuid="h2f915be8gf318g53b8ga783gf54b0ee9000c" version="1">The target gets +2 AC for 5 turns. Once per turn.</content>
   <content contentuid="he97c83c4g2db4g5c14gba78gebb36091d7d7" version="1">Protect</content>
   <content contentuid="h830fa253gcc68g586fg89c8g3334782b53ce" version="1">Two quick unarmed strikes at a creature in melee range: each hit deals 1d6 + your unarmed attack modifier bludgeoning.</content>
@@ -268,6 +292,8 @@
   <content contentuid="h054094cag6411g5034g9138g8e1e1bb00af3" version="1">Slowja</content>
   <content contentuid="h4e1f1c50g793bg5a22gbc73g78370fc48b84" version="1">When you take damage, gain +3 m movement for 2 turns.</content>
   <content contentuid="h6ed4b882gb760g5933g88d3g7ade648bb995" version="1">Speed Surge</content>
+  <content contentuid="h0a2ae977gc4e7g5202g8f94g3a3b19eb4d72" version="1">A creature within 18 m makes a Wisdom save or loses its actions and bonus actions next turn (it can still move; FFT resets its CT). Once per short rest.</content>
+  <content contentuid="hbafbc7f7g2feag5784g93fag878b946305b9" version="1">Stall</content>
   <content contentuid="hec74be21g4b44g5308g9ef3g68f860b2e411" version="1">Melee attack roll; on a hit you take one of the enemy's accessories (amulet, ring, cloak, gloves or boots) into your inventory. Quest and story items can't be stolen.</content>
   <content contentuid="h21e14c70g2c3dg5250g9287g37138115da20" version="1">Steal Accessory</content>
   <content contentuid="h3c5d99eeg8417g56bcgb8dcgc6584c448d97" version="1">Melee attack roll; on a hit you take the enemy's body armour into your inventory. Quest and story items can't be stolen. Once per short rest.</content>
@@ -292,6 +318,8 @@
   <content contentuid="h5ae275f6g03a1g5943g9af2gb05f39747b15" version="1">Swiftspell</content>
   <content contentuid="hea984cd0gf88eg59b8gb880g94b76e75f297" version="1">Enemies within 3 m of a point up to 18 m away take 3d6 thunder damage and are Silenced for 2 turns (Constitution save for half, no silence). Allies are spared. Once per short rest.</content>
   <content contentuid="h4f44496cgb533g5d95ga9bfg3a3b8b0755c4" version="1">Sylph</content>
+  <content contentuid="h9da699c7g1b11g58c6g9b63gb6dac7e5bc0d" version="1">Gives the Tame action: a beast or monster (not a humanoid) at 25% of its hit points or less makes a Wisdom save or fights for you for the rest of the fight. Bosses are immune. Once per short rest. Entice also lasts 4 turns.</content>
+  <content contentuid="h5550abbeg99cag55fbgb238g5b921d61ffde" version="1">Tame</content>
   <content contentuid="h23fec4c9g22ceg5ea4g9a38g5de61cf286d6" version="1">Bonus action, once per turn: teleport to a spot you can see up to 9 m away (Misty Step without a spell slot).</content>
   <content contentuid="h74f64dd9ga0ffg596bg8316g8bbd25ebbf7d" version="1">Teleport</content>
   <content contentuid="hf966add7g171eg5d96g90ffg3b8972c7ff78" version="1">Item abilities can be thrown up to 9 m with any job.</content>
@@ -358,6 +386,10 @@
   <content contentuid="h725dd9d1g0434g596egb017g56997cab1387" version="1">Mystic Mastery</content>
   <content contentuid="hd40c9e23g1711g5dd5ga1d0gf1255fa7713c" version="1">Afflicts mind and body: blindness, silence, sleep, confusion, stone, drains. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="haec3b93eg1bc4g57e9gbd3bg8ff7e0b309e0" version="1">Job: Mystic</content>
+  <content contentuid="h3c34a56egf438g5c42gb205g1340e1e94322" version="1">+2 to Persuasion, Deception and Intimidation checks. Earned by mastering Orator; kept after changing jobs.</content>
+  <content contentuid="hb2acc83bgf81fg5829gbbc1g37901130fa0b" version="1">Orator Mastery</content>
+  <content contentuid="ha0ba8523gcbf6g590egbde3g24b62899052b" version="1">Talks foes into switching sides, sleeping, raging or dying; Beast Tongue is always on. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h7984f2d6ge108g5205gb8eege6aa1b6e71c3" version="1">Job: Orator</content>
   <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -394,6 +426,8 @@
   <content contentuid="h21039a26g7fcag5c46ga0a5g1c0150c0992a" version="1">Disable</content>
   <content contentuid="ha1c6016fg3636g5e8egb8c7g83cdde138cec" version="1">Dies when Doom runs out.</content>
   <content contentuid="h23f5fa97g219dg5379gaf75g66a2c6c34882" version="1">Doom</content>
+  <content contentuid="h8ba8dfcfg6fd0g5516gb932gc4c132d07dd9" version="1">Talked into switching sides: fights for the Orator's party on its own until this runs out.</content>
+  <content contentuid="h88aa1109g5e5eg50f6g9981g18cb0eb3ce25" version="1">Enticed</content>
   <content contentuid="he84f9e13gf0eeg5f79g8e6bgaaaf065f7b2b" version="1">+2 to spell attack rolls and spell save DC, -2 to saving throws.</content>
   <content contentuid="hd15c1a84g87b3g5f40gb8b0gd700b124f9a3" version="1">Faith</content>
   <content contentuid="h6accde44g3a90g56b3g9d0dg562abafea258" version="1">Can't be knocked prone and ignores difficult terrain.</content>
@@ -432,6 +466,8 @@
   <content contentuid="h4d9c9a90g2469g56b8gbe17g69a307d9c623" version="1">Stop</content>
   <content contentuid="h1b5242a7gd130g5bc1g9800g8b27e64a7774" version="1">The next spell that costs an action costs a bonus action instead.</content>
   <content contentuid="h4a65bd4bgce9cg530egb345g55acab570243" version="1">Swiftspell</content>
+  <content contentuid="hbf7fe01cg328fg57bbg8c48gc79d9e80ce56" version="1">Tamed by an Orator: fights for the Orator's party on its own until this runs out.</content>
+  <content contentuid="h44938cb4gb504g590dg9054gb2843eb9a0d8" version="1">Tamed</content>
   <content contentuid="he63564cagebefg5ac4g96c1g0534831cb2d1" version="1">Can't regain hit points; vulnerable to radiant damage.</content>
   <content contentuid="h3376eb1fg0cdbg5ed9gbe2ag62cc8adf62c9" version="1">Undead</content>
 </contentList>

@@ -60,6 +60,11 @@
     "status.FFTJ_STONE.name": "Stone",
     "status.FFTJ_STONE.desc": "Petrified: incapacitated and resistant to all damage.",
     "status.FFTJ_GOLEM.name": "Golem",
-    "status.FFTJ_GOLEM.desc": "15 temporary hit points from the Golem's shield."
+    "status.FFTJ_GOLEM.desc": "15 temporary hit points from the Golem's shield.",
+
+    "status.FFTJ_ENTICED.name": "Enticed",
+    "status.FFTJ_ENTICED.desc": "Talked into switching sides: fights for the Orator's party on its own until this runs out.",
+    "status.FFTJ_TAMED.name": "Tamed",
+    "status.FFTJ_TAMED.desc": "Tamed by an Orator: fights for the Orator's party on its own until this runs out."
   }
 }

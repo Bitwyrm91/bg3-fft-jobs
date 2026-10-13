@@ -21,7 +21,9 @@ Effects.StealOnce = { FFTJ_STEAL_GIL = "Gil", FFTJ_STEAL_EXP = "EXP" }
 -- Gravity marker -> the config key of the share of maximum HP it takes.
 Effects.Gravity = { FFTJ_GRAVITY = "GravityShare", FFTJ_GRAVIGA = "GravigaShare" }
 -- Statuses FFT bosses are immune to: the script lifts them off a boss right away.
-Effects.BossImmune = { FFTJ_DOOM = true, FFTJ_STOP = true, FFTJ_STONE = true }
+Effects.BossImmune = {
+    FFTJ_DOOM = true, FFTJ_STOP = true, FFTJ_STONE = true, FFTJ_ENTICED = true, FFTJ_TAMED = true,
+}
 
 -- Cheap test for the StatusApplied event, which fires for every status in the game.
 function Effects.Handles(status)

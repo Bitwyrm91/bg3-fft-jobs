@@ -78,6 +78,13 @@
     ]
   },
   {
+    "id": "PassiveFeature_ThoughtShield_PsychicResistance",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Earplugs"
+    ]
+  },
+  {
     "id": "Skill_Fighter_ActionSurge",
     "kind": "icon",
     "usedBy": [
@@ -121,17 +128,48 @@
     ]
   },
   {
+    "id": "Spell_Divination_Guidance",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Preach"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_Bane",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Intimidate"
+    ]
+  },
+  {
     "id": "Spell_Enchantment_Bless",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_FAITH"
+      "FFTJ_FAITH",
+      "Target_FFTJ_Praise"
     ]
   },
   {
     "id": "Spell_Enchantment_CalmEmotions",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_ATHEIST"
+      "FFTJ_ATHEIST",
+      "Target_FFTJ_Enlighten"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_DominateBeast",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_TAMED",
+      "FFTJ_Tame"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_Friends",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Defraud"
     ]
   },
   {
@@ -142,10 +180,31 @@
     ]
   },
   {
+    "id": "Spell_Enchantment_Sleep",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_MimicDarlavon"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_ViciousMockery",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Insult"
+    ]
+  },
+  {
     "id": "Spell_Illusion_Silence",
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Quiescence"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_BestowCurse_DebuffAbility",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Condemn"
     ]
   },
   {
@@ -161,6 +220,13 @@
     "usedBy": [
       "FFTJ_SWIFTSPELL",
       "FFTJ_Swiftspell"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_Slow",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Stall"
     ]
   },
   {
@@ -193,6 +259,13 @@
     ]
   },
   {
+    "id": "BANE",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Intimidate"
+    ]
+  },
+  {
     "id": "BARKSKIN",
     "kind": "status",
     "usedBy": [
@@ -203,7 +276,8 @@
     "id": "BLESS",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Target_FFTJ_Praise"
     ]
   },
   {
@@ -312,6 +386,13 @@
     ]
   },
   {
+    "id": "PETPAL",
+    "kind": "status",
+    "usedBy": [
+      "Shout_FFTJ_BeastTongue"
+    ]
+  },
+  {
     "id": "POISONED",
     "kind": "status",
     "usedBy": [
@@ -362,8 +443,10 @@
       "Target_FFTJ_Empowerment",
       "Target_FFTJ_Fervor",
       "Target_FFTJ_Induration",
+      "Target_FFTJ_MimicDarlavon",
       "Target_FFTJ_Quiescence",
       "Target_FFTJ_Repose",
+      "Target_FFTJ_Stall",
       "Target_FFTJ_Trepidation"
     ]
   },
@@ -434,6 +517,7 @@
     "id": "SG_Unconscious",
     "kind": "status",
     "usedBy": [
+      "Target_FFTJ_MimicDarlavon",
       "Target_FFTJ_Repose"
     ]
   },
@@ -461,6 +545,7 @@
     "id": "SLEEP",
     "kind": "status",
     "usedBy": [
+      "Target_FFTJ_MimicDarlavon",
       "Target_FFTJ_Repose"
     ]
   },
@@ -610,6 +695,13 @@
     ]
   },
   {
+    "id": "Shout_SpeakWithAnimals_Barbarian",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Shout_FFTJ_BeastTongue"
+    ]
+  },
+  {
     "id": "Shout_Whirlwind",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -726,6 +818,20 @@
     ]
   },
   {
+    "id": "Target_DominateBeast",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Tame"
+    ]
+  },
+  {
+    "id": "Target_DominatePerson",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Entice"
+    ]
+  },
+  {
     "id": "Target_Entangle",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -772,7 +878,8 @@
     "id": "Target_Heroism",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Target_FFTJ_Belief"
+      "Target_FFTJ_Belief",
+      "Target_FFTJ_Praise"
     ]
   },
   {
@@ -794,6 +901,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Hesitation"
+    ]
+  },
+  {
+    "id": "Target_HypnoticPattern",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_MimicDarlavon"
     ]
   },
   {
@@ -895,6 +1009,13 @@
     ]
   },
   {
+    "id": "Target_ViciousMockery",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Stall"
+    ]
+  },
+  {
     "id": "Teleportation_Revivify",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -916,6 +1037,13 @@
     "kind": "using parent (StatusData)",
     "usedBy": [
       "FFTJ_QUICK"
+    ]
+  },
+  {
+    "id": "DOMINATE_PERSON",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_ENTICED"
     ]
   },
   {

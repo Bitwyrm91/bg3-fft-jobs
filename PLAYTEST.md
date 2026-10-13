@@ -2,6 +2,11 @@
 
 Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.11**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
 
+## New in 1.0.0.12: Orator
+
+- **Orator** (unlock: Mystic Lv3): talk skills that need no weapon, range 18 m. **Entice** (your choice): a foe that fails a Wisdom save **switches sides for 2 turns and fights for you on its own** (4 turns with **Tame** equipped; bosses immune, a notice says so). **Tame** (support) also gives a Tame action: a beast or monster at 25% HP or less fights for you for the rest of the fight. **Stall** takes away a creature's actions next turn; **Praise** blesses an ally; **Intimidate** banes a foe; **Preach** / **Enlighten** give Faith / Atheist; **Condemn** dooms (dies after 3 turns, once per long rest); **Defraud** steals gold from 9 m (shared with Steal Gil); **Insult** sends a creature berserk; **Mimic Darlavon** puts the enemies around a point to sleep. **Earplugs** (reaction): advantage on Wisdom saves. **Equip Guns**: hand and light crossbows for any job. **Beast Tongue**: Speak with Animals at will, always on for Orators. Mastery: +2 to Persuasion, Deception and Intimidation.
+- Worth checking: an Enticed or Tamed enemy should act on its own turn and attack its old friends, then turn back when it runs out.
+
 ## New in 1.0.0.11: Summoner
 
 - **Summoner** (unlock: Time Mage Lv3): 15 espers as big area spells that **spare your allies** (your choice): Shiva (cold), Ramuh (lightning), Ifrit (fire), Titan (earth, knocks prone), Sylph (thunder + silence), then once per long rest Bahamut (8d8 force), Odin (6d10 slashing), Leviathan (bludgeoning + soaked), Salamander (6d8 fire), Lich (necrotic), Cyclops (7d10). Moogle and Faerie heal up to 4 / 6 allies; Golem gives your group 15 temporary HP; Carbuncle gives them Reflect. **Critical: Recover MP** refills your level 1 spell slots when you're nearly down; **Halve MP** gives back a level 1 and a level 2 slot after each short rest. Mastery: +1 to Intelligence and Charisma saves.

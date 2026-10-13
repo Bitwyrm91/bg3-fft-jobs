@@ -1,6 +1,6 @@
 # Phase 2, batch 2: design notes for the next session
 
-Done: **Dragoon** (v1.0.0.10). Left: **Summoner**, **Orator**, **Geomancer**. The user's decisions are in `docs/PHASE2.md`
+Done: **Dragoon** (v1.0.0.10), **Summoner** (v1.0.0.11), **Orator** (v1.0.0.12). Left: **Geomancer**. The user's decisions are in `docs/PHASE2.md`
 (item 7, "Batch 2"). Build each job like batch 1 (`STATUS.md`): costs from the TIC game table (all match the RPGSite
 lists below), effects from the game's `Ability-en` descriptions, vanilla parents, tests, build, validate, install only
 with BG3 closed, commit after each job, no GPU image generation without asking.
@@ -38,7 +38,7 @@ target allies only. Range 18 m. Magick: Constitution/Dexterity saves against `So
 - Check before writing: Target_Shatter / Target_IceStorm / Target_FlameStrike lend IsConcentration? (Ice Storm and
   Flame Strike no; check Shatter), their surfaces (clear SpellProperties), `AoEConditions` where present (Black Hole).
 
-## Orator (user: Entice = the enemy fights for you on its own for 2 turns; bosses immune)
+## Orator (user: Entice = the enemy fights for you on its own for 2 turns; bosses immune) (BUILT in v1.0.0.12)
 
 Research first: a vanilla status that switches a creature to the caster's side under AI control for N turns
 (candidates: DOMINATE_PERSON / Dominate Beast statuses, "Command", MADNESS-style AiArchetypeOverride, faction-change

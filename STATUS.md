@@ -28,6 +28,8 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **1.0.0.11 (2026-10-12 late):** **Summoner** built from docs/BATCH2_DESIGN.md (17 abilities, TIC costs 0 diffs; espers spare allies via TargetConditions + AoEConditions; Golem = FFTJ_GOLEM TemporaryHP(15); Halve MP on OnShortRest). 126 tests, validate OK. Next: Orator, Geomancer (research pointers in docs/BATCH2_DESIGN.md).
 
+**1.0.0.12 (2026-10-12 night):** **Orator** (14 abilities, TIC costs 0 diffs). Entice/Tame = FFTJ_ENTICED / FFTJ_TAMED `using DOMINATE_PERSON` (FactionOverride(Source) + LoseControl, no save-on-damage), 2 turns (4 with Tame equipped, grant variant equippedEffect Tame), Tame 10 turns on a non-humanoid at <=25% HP; both in Effects.BossImmune. Talk skills on Vicious Mockery / Heroism / Hypnotic Pattern (Mimic Darlavon) parents with SourceSpellDC saves; Defraud reuses the FFTJ_STEAL_GIL marker. Beast Tongue = Shout_FFTJ_BeastTongue (wraps Shout_SpeakWithAnimals_Barbarian). 126 tests, validate OK. Next: Geomancer (terrain decides; research first).
+
 **NEXT: phase 2, decided with the user on 2026-10-12. Read `docs/PHASE2.md`** (every FFT job from every version, Fell Seal rules, the Soul Collector monster job; build order and ground rules: no icons for now, no GitHub push unless asked, preserve usage).
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
