@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.33**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.34**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.34: Holy Knight (special job 12 of 17; all Act 2 badges done)
+
+- **Holy Knight** (Agrias's job): needs the **Holy Knight Badge** (Ketheric Thorm, the Act 2 finale; his Myrkul form counts too) plus **Knight Lv6** and **White Mage Lv5**.
+- **Holy Sword**, as in TIC: holy energy that flies from your blade (melee weapon attack against each foe in the line): **Judgment Blade** (100 JP, 6 m: + 1d8 radiant, Con save or Stopped 1 turn), **Cleansing Strike** (400, 6 m: + 2d8 radiant, Con save or Doomed; once per long rest), **Northswain's Strike** (500, 6 m: + 4d8 radiant; FFT's instant KO left out so scripted boss fights can't break), **Hallowed Bolt** (700, 9 m: + 2d8 radiant + 2d8 lightning, Wis save or Silenced), **Divine Ruination** (800, 9 m: + 3d8 radiant, Wis save or Confused). Saves are against your manoeuvre DC; the others once per short rest.
+- Main-job equipment: swords, greatswords, all armour, shields. Mastery: you can't be frightened.
 
 ## New in 1.0.0.33: Soldier (special job 11 of 17)
 

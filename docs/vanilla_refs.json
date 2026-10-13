@@ -44,6 +44,15 @@
     ]
   },
   {
+    "id": "Action_DivineStrike_Radiant_Ranged",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_CleansingStrike",
+      "Zone_FFTJ_JudgmentBlade",
+      "Zone_FFTJ_NorthswainsStrike"
+    ]
+  },
+  {
     "id": "Action_Flurry",
     "kind": "icon",
     "usedBy": [
@@ -127,6 +136,13 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Quicksand"
+    ]
+  },
+  {
+    "id": "Action_Paladin_AuraOfCourage",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_HolyKnight"
     ]
   },
   {
@@ -273,6 +289,7 @@
       "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_GameHunter",
+      "FFTJ_Job_HolyKnight",
       "FFTJ_Job_Netherseer",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Job_SkyPirate",
@@ -632,6 +649,13 @@
     ]
   },
   {
+    "id": "Spell_Evocation_Daylight",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_DivineRuination"
+    ]
+  },
+  {
     "id": "Spell_Evocation_DestructiveWave",
     "kind": "icon",
     "usedBy": [
@@ -701,7 +725,8 @@
     "usedBy": [
       "FFTJ_Mastery_Skyseer",
       "Projectile_FFTJ_HeavensWrath",
-      "Projectile_FFTJ_HellsWrath"
+      "Projectile_FFTJ_HellsWrath",
+      "Zone_FFTJ_HallowedBolt"
     ]
   },
   {
@@ -963,6 +988,7 @@
       "Shout_FFTJ_Muramasa",
       "Target_FFTJ_Delirium",
       "Target_FFTJ_Tremor",
+      "Zone_FFTJ_DivineRuination",
       "Zone_FFTJ_SpellbladeConfuse"
     ]
   },
@@ -1235,6 +1261,7 @@
       "Target_FFTJ_Salve",
       "Target_FFTJ_Snowstorm",
       "Target_FFTJ_Sylph",
+      "Zone_FFTJ_HallowedBolt",
       "Zone_FFTJ_SpellbladeSilence"
     ]
   },

@@ -120,6 +120,9 @@
   <content contentuid="hf405f68eg2132g5d3cg9f22gbd6cb98151d3" version="1">A ring of blue flame: enemies within 5 m of you take 8d6 fire damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="hbcdd520dg4d51g500cga5bdgd720d5d3bfa2" version="1">Echo: Chirijiraden</content>
   <content contentuid="h46468f30g3a55g5a17g883egd43de417d94d" version="1">Chirijiraden</content>
+  <content contentuid="hcaca9780g86fcg5231gbf4eg8083ba10c63f" version="1">Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 radiant, and the target makes a Constitution save or is Doomed (it falls when the count ends; bosses shrug it off). Once per long rest.</content>
+  <content contentuid="h13043800ga0e6g56cag8543g4710d7205c04" version="1">Echo: Cleansing Strike</content>
+  <content contentuid="hbed14b3ag2c74g58f5gbe20gb450e8b63ff1" version="1">Cleansing Strike</content>
   <content contentuid="h59a22f43g17ffg5b0fgbe82gfe12513d8b3e" version="1">Heal yourself and every ally within 9 m for 5d8+5. Once per long rest.</content>
   <content contentuid="h8cdfeafeg06cdg571agb0f2g2d7340b82e0d" version="1">Echo: Curaja</content>
   <content contentuid="h187d99eegdbd2g54f6g87d0gac1d5124c6f5" version="1">Curaja</content>
@@ -224,6 +227,9 @@
   <content contentuid="h8fcbbe4bg07d1g5e8dg9a1fgc96ba6b45aac" version="1">Ranged weapon attack against a creature within 18 m: 4d8 force damage. Recoil: half the damage dealt. Once per short rest.</content>
   <content contentuid="h547f4f7dg600fg502bgbb94g12809a416bd5" version="1">Echo: Dispose</content>
   <content contentuid="hcbe143f2gaa5bg5cf0ga237gc4db85c048d3" version="1">Dispose</content>
+  <content contentuid="h84189597g7fa5g5ee8g8085gc11ec08573aa" version="1">Holy energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 3d8 radiant, and the target makes a Wisdom save or is Confused for 2 turns. Once per short rest.</content>
+  <content contentuid="hf510bd63g5cc6g525ega677gc362330057ae" version="1">Echo: Divine Ruination</content>
+  <content contentuid="ha5b0bb4egbafbg546egb15bg89a0662514d2" version="1">Divine Ruination</content>
   <content contentuid="hc4201480gfa21g5ac8g9cf2g6fc7455ed309" version="1">4 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 bludgeoning (earth) damage each. Once per long rest.</content>
   <content contentuid="h7ff57b6eg754dg5a8fg9070g7ed7577809db" version="1">Echo: Divinity</content>
   <content contentuid="hd226c64egf5e8g561agbbdcgeec71aab2df5" version="1">Divinity</content>
@@ -347,6 +353,9 @@
   <content contentuid="h0f5f83dfg282eg5c3bgbdebg0504d5dbe4a8" version="1">Gravity</content>
   <content contentuid="h55cd1ca6g33f2g5c6bgbba7g51bf1834d85d" version="1">+20% maximum hit points.</content>
   <content contentuid="hcf75ae3cg77c3g5210gbadbgb6a7c84e66f5" version="1">HP Boost</content>
+  <content contentuid="h3140ba57gdd50g5039gae46g7f3b12f808d2" version="1">Holy energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 radiant + 2d8 lightning, and the target makes a Wisdom save or is Silenced for 2 turns. Once per short rest.</content>
+  <content contentuid="h7758abbcgcef9g5de9gb829g214d3ee4964e" version="1">Echo: Hallowed Bolt</content>
+  <content contentuid="h7b47f1d4g2f6dg5aefg8dddg6c348d88f71d" version="1">Hallowed Bolt</content>
   <content contentuid="hf4cb1db3g5560g59e8g9c0egf2f3c7ea4e40" version="1">When you finish a short rest, you regain one level 1 and one level 2 spell slot (FFT halves MP costs).</content>
   <content contentuid="h18ec0829g0adbg55a9gaa5eg802a5e484483" version="1">Halve MP</content>
   <content contentuid="hd9e9bccfg35b4g5fe8g8fecg70a6b6de431d" version="1">Arithmeticks: Harmony</content>
@@ -431,6 +440,9 @@
   <content contentuid="hb4d99739g1740g5458ga973g2c016a679d77" version="1">Invigoration</content>
   <content contentuid="h3c36efb8g46f9g5183gb087g0bcd82fc476a" version="1">Earn 50% more JP.</content>
   <content contentuid="h472dd1e3g69feg5a34gbb87gc9330e40dd28" version="1">JP Boost</content>
+  <content contentuid="hd4d55c9dg202ag5b8dg91eeg78ac6b22c1ce" version="1">Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 radiant, and the target makes a Constitution save or is Stopped for 1 turn (bosses shrug it off). Once per short rest.</content>
+  <content contentuid="h9730a324gb11fg5e16g8e76g10e4f89586d2" version="1">Echo: Judgment Blade</content>
+  <content contentuid="hfa1c2bd9gafd6g508cga702gc924ea2dda07" version="1">Judgment Blade</content>
   <content contentuid="h76d11b9fg0bc1g5b93gb756g6c75722ec642" version="1">+3 m jump distance.</content>
   <content contentuid="haaaccdbag65e7g5434gb59dg58d71287ae34" version="1">Jump +1</content>
   <content contentuid="hd87c107dge1e0g57e5gaff0gd0cf14496519" version="1">Jump 6 m farther.</content>
@@ -539,6 +551,9 @@
   <content contentuid="hd39ac5f2gd5dcg5dfeg9ac8g7190b5e8d0c6" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 cold (water) damage each. Once per short rest.</content>
   <content contentuid="h2deb9aeagafcfg5016gae2bgc8b4bd916dc7" version="1">Echo: Nether Maelstrom</content>
   <content contentuid="h4114aadag678fg5710ga4e6g18915082a57e" version="1">Nether Maelstrom</content>
+  <content contentuid="h727f479dg9e50g5afega55egdfb0a0a0815d" version="1">Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 4d8 radiant (FFT's chance of instant KO is left out: it could end scripted boss fights). Once per short rest.</content>
+  <content contentuid="hdc8444b0ga075g5bdcg8182g0ec216f193f1" version="1">Echo: Northswain's Strike</content>
+  <content contentuid="h2889787fg2a28g59beg888bge77151bc2675" version="1">Northswain's Strike</content>
   <content contentuid="h52980888gd4e4g5569gb857g115b93dfdf17" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest.</content>
   <content contentuid="h2ac54054g103dg5d0cgba15g8950483d884a" version="1">Echo: Odin</content>
   <content contentuid="h2dbc5174g0820g506fg9a13gece64772e997" version="1">Odin</content>
@@ -993,6 +1008,10 @@
   <content contentuid="hc37f351dg3f78g55c8gad94g81db8673e095" version="1">Geomancer Mastery</content>
   <content contentuid="h561baee6g8476g5ae0ga3e7g7fad2b5582f2" version="1">Turns the ground under your feet into a weapon: each Geomancy skill works only on its own terrain (plain ground, sunlight, shadow, water, ice, fire, mud, vines, grease). Equipment: shortswords, longswords, handaxes, battleaxes, shields, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h96115a3fg07b8g528dg9dcagb7ce16e085ef" version="1">Job: Geomancer</content>
+  <content contentuid="h2d817bb6g41feg5162g8835gd347df67512a" version="1">You can't be frightened. Earned by mastering Holy Knight; kept after changing jobs.</content>
+  <content contentuid="hd3968504gee4cg51acgaca3gfb08a9d8429a" version="1">Holy Knight Mastery</content>
+  <content contentuid="h817c4bccg06b3g5928g9407g06278e1625a6" version="1">Agrias's job. Holy Sword: holy energy that flies 6-9 m from your blade, smiting foes with radiant damage and Stop, Doom, Silence or Confusion. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="ha458437fg2c93g5f80gb51bg8a3cc6338708" version="1">Job: Holy Knight</content>
   <content contentuid="he46e1c0eg203ag5d11gbe49g52cb0b7d9e57" version="1">+1 to Constitution saving throws. Earned by mastering Knight; kept after changing jobs.</content>
   <content contentuid="hc4543261gc46fg5ff9ga03eg10c496d2e1f3" version="1">Knight Mastery</content>
   <content contentuid="ha5976045gcbf7g5ef6g88feg9ba15413337c" version="1">Breaks the enemy's armor, weapon, speed and power. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
