@@ -80,6 +80,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         Effects.GravityHit(svc, source, target, Effects.Gravity[status])
     elseif status == "FFTJ_CHEM_MIXUP" then
         Effects.ChemicalMixup(svc, source, target)
+    elseif status == "FFTJ_CHEM_BURNS" then
+        Effects.ChemicalBurns(svc, source, target)
     elseif status == "FFTJ_POACH_MARK" and source then
         svc.PoachMarks[target] = source
     end
@@ -173,36 +175,122 @@ function Effects.GravityHit(svc, caster, target, shareKey)
         damage, name(svc, target)))
 end
 
--- Chemical Mixup (Chemist): a random element, damage that scales like a cantrip, and the matching effect.
+-- Chemical Mixup / Chemical Burns (Chemist, custom abilities): four afflictions, each with its damage kind. The
+-- effects are vanilla statuses without a StackType (Overwrite), so applying one again sets its new duration.
 Effects.Mixup = {
     { Type = "Fire", Status = "BURNING", Word = "fire" },
     { Type = "Acid", Status = "ACID", Word = "acid" },
     { Type = "Poison", Status = "POISONED", Word = "poison" },
     { Type = "Slashing", Status = "BLEEDING", Word = "glass shards" },
 }
+Effects.Roll = math.random -- tests swap it for a fixed roll
 
-function Effects.ChemicalMixup(svc, caster, target, roll)
-    roll = roll or math.random
-    local cfg = svc:Cfg().Abilities
-    local pick = Effects.Mixup[roll(#Effects.Mixup)]
-    local level = (caster and svc.Game:CharLevel(caster)) or 1
+local function mixupDice(svc, caster)
+    local level = caster and svc.Game:CharLevel(caster)
     local dice = 1
-    for _, at in ipairs(cfg.MixupDiceLevels or {}) do
+    for _, at in ipairs(svc:Cfg().Abilities.MixupDiceLevels or {}) do
         if type(level) == "number" and level >= at then
             dice = dice + 1
         end
     end
-    local damage = 0
+    return dice
+end
+
+local function rollDamage(svc, dice)
+    local total = 0
     for _ = 1, dice do
-        damage = damage + roll(cfg.MixupDie or 4)
+        total = total + Effects.Roll(svc:Cfg().Abilities.MixupDie or 4)
     end
-    svc.Game:ApplyDamage(target, damage, pick.Type, caster)
+    return total
+end
+
+-- The afflictions a creature has: { [index in Effects.Mixup] = turns left (-1 = no end) }, and how many.
+local function afflictions(svc, target)
+    local has, n = {}, 0
+    for i, a in ipairs(Effects.Mixup) do
+        if svc.Game:HasStatus(target, a.Status) then
+            has[i] = svc.Game:StatusTurns(target, a.Status) or 1
+            n = n + 1
+        end
+    end
+    return has, n
+end
+
+local function afflict(svc, target, status, turns, source)
     svc.Game:Try("ApplyStatus", function()
-        Osi.ApplyStatus(target, pick.Status, 6 * (cfg.MixupStatusTurns or 2), 1, caster or target)
+        Osi.ApplyStatus(target, status, 6 * turns, 1, source or target)
     end)
-    svc.Log.Info(string.format("Chemical Mixup: %s, %d %s damage to %s", pick.Word, damage, pick.Type,
-        name(svc, target)))
+end
+
+function Effects.ChemicalMixup(svc, caster, target)
+    local cfg = svc:Cfg().Abilities
+    local has, n = afflictions(svc, target)
+    local dice, pick, extra = mixupDice(svc, caster), nil, ""
+    if n < #Effects.Mixup then
+        local missing = {}
+        for i = 1, #Effects.Mixup do
+            if not has[i] then
+                missing[#missing + 1] = i
+            end
+        end
+        pick = Effects.Mixup[missing[Effects.Roll(#missing)]]
+    else
+        -- all four already: one more damage die, and the shortest effect lasts longer
+        pick = Effects.Mixup[Effects.Roll(#Effects.Mixup)]
+        dice = dice + (cfg.MixupFullExtraDice or 1)
+        local low
+        for i, turns in pairs(has) do
+            if turns >= 0 and (not low or turns < has[low]) then
+                low = i
+            end
+        end
+        if low then
+            afflict(svc, target, Effects.Mixup[low].Status, has[low] + (cfg.MixupFullExtendTurns or 2), caster)
+            extra = ", " .. Effects.Mixup[low].Status .. " lengthened"
+        end
+    end
+    local damage = rollDamage(svc, dice)
+    svc.Game:ApplyDamage(target, damage, pick.Type, caster)
+    if n < #Effects.Mixup then
+        afflict(svc, target, pick.Status, cfg.MixupStatusTurns or 2, caster)
+    end
+    svc.Log.Info(string.format("Chemical Mixup: %s, %d %s damage to %s%s", pick.Word, damage, pick.Type,
+        name(svc, target), extra))
     return pick, damage
+end
+
+function Effects.ChemicalBurns(svc, caster, target)
+    local cfg = svc:Cfg().Abilities
+    local has, n = afflictions(svc, target)
+    local dice, total = mixupDice(svc, caster), 0
+    for i, turns in pairs(has) do
+        local a = Effects.Mixup[i]
+        local damage = rollDamage(svc, dice)
+        total = total + damage
+        svc.Game:ApplyDamage(target, damage, a.Type, caster)
+        if turns >= 0 then
+            afflict(svc, target, a.Status, turns + (cfg.BurnsExtendTurns or 2), caster)
+        end
+    end
+    local spread = 0
+    if n == #Effects.Mixup then
+        -- all four: the target explodes and spreads them to enemies close by
+        local radius = cfg.BurnsExplodeRadius or 3
+        for _, other in ipairs(svc.Game:AllCharacters()) do
+            local d = other ~= target and svc.Game:Distance(target, other)
+            if d and d <= radius and not svc.Game:IsDead(other) and not svc.State:Get(other)
+                and (not caster or svc.Game:IsEnemy(caster, other)) then
+                for _, a in ipairs(Effects.Mixup) do
+                    afflict(svc, other, a.Status, cfg.BurnsExplodeTurns or 2, caster)
+                end
+                spread = spread + 1
+            end
+        end
+        tell(svc, caster, string.format("%s explodes in chemical fire!", name(svc, target)))
+    end
+    svc.Log.Info(string.format("Chemical Burns: %d effects on %s, %d damage, spread to %d", n, name(svc, target),
+        total, spread))
+    return n, total, spread
 end
 
 -- Osiris CastedSpell (once per cast, unlike a status on every target): the Dark Knight's HP sacrifice.

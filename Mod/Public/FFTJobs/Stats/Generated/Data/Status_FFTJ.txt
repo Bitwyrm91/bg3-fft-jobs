@@ -675,3 +675,13 @@ new entry "FFTJ_CHEM_MIXUP"
 type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
+
+new entry "FFTJ_CHEM_BURNS"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_CHEM_BURNS_CD"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"

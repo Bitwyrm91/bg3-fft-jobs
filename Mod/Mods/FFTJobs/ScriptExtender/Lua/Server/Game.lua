@@ -452,6 +452,25 @@ function Game:Distance(a, b)
     return math.sqrt((ax - bx) ^ 2 + (ay - by) ^ 2 + (az - bz) ^ 2)
 end
 
+function Game:HasStatus(guid, status)
+    return self:Try("HasActiveStatus", function()
+        return Osi.HasActiveStatus(guid, status)
+    end) == 1
+end
+
+-- Turns left on a status (-1: no end, e.g. while standing in a surface; nil: unknown).
+function Game:StatusTurns(guid, status)
+    return tonumber(self:Try("GetStatusTurns", function()
+        return Osi.GetStatusTurns(guid, status)
+    end))
+end
+
+function Game:IsEnemy(a, b)
+    return self:Try("IsEnemy", function()
+        return Osi.IsEnemy(a, b)
+    end) == 1
+end
+
 function Game:Hitpoints(guid)
     return self:Try("GetHitpoints", function()
         return Osi.GetHitpoints(guid)

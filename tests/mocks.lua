@@ -340,6 +340,14 @@ function Mocks.Install()
         ApplyStatus = function(g, s, duration, force, source)
             rec("ApplyStatus", g, s, duration)
             char(g).statuses[s] = true
+            char(g).statusTurns = char(g).statusTurns or {}
+            char(g).statusTurns[s] = (duration and duration > 0) and math.floor(duration / 6) or -1
+        end,
+        GetStatusTurns = function(g, s)
+            return (char(g).statusTurns or {})[s] or -1
+        end,
+        IsEnemy = function(x, y)
+            return b(char(x).party ~= char(y).party)
         end,
         RemoveStatus = function(g, s)
             rec("RemoveStatus", g, s)

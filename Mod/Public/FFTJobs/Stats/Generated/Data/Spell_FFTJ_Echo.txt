@@ -173,6 +173,13 @@ using "Projectile_FFTJ_ChemicalMixup"
 data "Cooldown" ""
 data "DisplayName" "h902f9270g1fd9g570fga5e6g7c1dda488355;1"
 
+new entry "Projectile_FFTJ_ChemicalBurns_Echo"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_FFTJ_ChemicalBurns"
+data "Cooldown" ""
+data "DisplayName" "hd12dd931g6f70g53d6g95e3g2a6ff17f75d2;1"
+
 new entry "Target_FFTJ_RendArmor_Echo"
 type "SpellData"
 data "SpellType" "Target"

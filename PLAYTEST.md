@@ -1,6 +1,11 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.49**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.50**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.50: Chemical Burns, smarter Chemical Mixup (Chemist)
+
+- **Chemical Burns** (250 JP, 3-turn recharge): only on an enemy with Burning/Acid/Poisoned/Bleeding; each one lasts 2 more turns and hits at once (1d4 of its kind each, cantrip scaling). All four: it explodes and gives all four to enemies within 3 m.
+- **Chemical Mixup** now adds an effect the target does not have yet; on a target with all four it rolls one more die and lengthens the shortest effect by 2 turns.
 
 ## New in 1.0.0.49: Chemical Mixup (Chemist)
 

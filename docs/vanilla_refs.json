@@ -2031,6 +2031,13 @@
     ]
   },
   {
+    "id": "ACID",
+    "kind": "status",
+    "usedBy": [
+      "Projectile_FFTJ_ChemicalBurns"
+    ]
+  },
+  {
     "id": "AID",
     "kind": "status",
     "usedBy": [
@@ -2057,6 +2064,7 @@
     "id": "BLEEDING",
     "kind": "status",
     "usedBy": [
+      "Projectile_FFTJ_ChemicalBurns",
       "Target_FFTJ_Soul_HookRend",
       "Target_FFTJ_Soul_TalonRake",
       "Target_FFTJ_Soul_ThornLash"
@@ -2113,6 +2121,7 @@
     "kind": "status",
     "usedBy": [
       "Projectile_FFTJ_Blizzara",
+      "Projectile_FFTJ_ChemicalBurns",
       "Shout_FFTJ_Soul_LavaBurst",
       "Shout_FFTJ_Soul_Spark",
       "Target_FFTJ_Blizzaga",
@@ -2237,6 +2246,7 @@
     "usedBy": [
       "FFTJ_DANCE_FORBIDDEN_FX",
       "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_ChemicalBurns",
       "Projectile_FFTJ_CorporealVoid",
       "Projectile_FFTJ_Poison",
       "Shout_FFTJ_Soul_SporeCloud",

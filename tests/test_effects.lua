@@ -92,6 +92,75 @@ function S.steal_gil_and_exp_once_per_creature(w, T)
     T.truthy(svc.State:Meta().Robbed[GOB].EXP, "saved")
 end
 
+local function afflicted(w, guid, turns)
+    for status, t in pairs(turns) do
+        w.chars[guid].statuses[status] = true
+        w.chars[guid].statusTurns = w.chars[guid].statusTurns or {}
+        w.chars[guid].statusTurns[status] = t
+    end
+end
+
+local function fixedRoll(T)
+    local Effects = Ext.Require("Server/Effects.lua")
+    Effects.Roll = function(n)
+        return n -- the highest face: deterministic
+    end
+    return Effects
+end
+
+function S.chemical_mixup_adds_an_effect_the_target_lacks(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 1
+    local gob = enemy(w)
+    afflicted(w, GOB, { BURNING = 2, ACID = 2, POISONED = 2 })
+    applied(w, GOB, "FFTJ_CHEM_MIXUP", T.TAV)
+    T.truthy(gob.statuses.BLEEDING, "the only one missing")
+    T.eq(gob.statusTurns.BLEEDING, 2)
+    T.eq(gob.hp, 36, "1d4 at level 1, highest roll")
+end
+
+function S.chemical_mixup_on_all_four_rolls_more_and_lengthens_the_shortest(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 1
+    local gob = enemy(w)
+    afflicted(w, GOB, { BURNING = 3, ACID = 1, POISONED = 2, BLEEDING = 2 })
+    applied(w, GOB, "FFTJ_CHEM_MIXUP", T.TAV)
+    T.eq(gob.hp, 32, "two dice of 4")
+    T.eq(gob.statusTurns.ACID, 3, "the shortest gets 2 more turns")
+    T.eq(gob.statusTurns.BURNING, 3, "the others stay")
+end
+
+function S.chemical_burns_lengthens_and_strikes_each_effect(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 1
+    local gob = enemy(w)
+    afflicted(w, GOB, { BURNING = 2, BLEEDING = 1 })
+    applied(w, GOB, "FFTJ_CHEM_BURNS", T.TAV)
+    T.eq(gob.hp, 32, "4 fire + 4 slashing")
+    T.eq(gob.statusTurns.BURNING, 4)
+    T.eq(gob.statusTurns.BLEEDING, 3)
+    T.eq(gob.statuses.ACID, nil, "adds nothing new")
+end
+
+function S.chemical_burns_on_all_four_explodes_onto_nearby_enemies(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    local gob = enemy(w)
+    local near = w.newChar("88888888-8888-4888-8888-888888888888", { name = "Goblin 2", party = false, x = 2, hp = 20, maxHp = 20 })
+    local far = w.newChar("99999999-9999-4999-8999-999999999999", { name = "Goblin 3", party = false, x = 10, hp = 20, maxHp = 20 })
+    afflicted(w, GOB, { BURNING = 2, ACID = 2, POISONED = 2, BLEEDING = 2 })
+    applied(w, GOB, "FFTJ_CHEM_BURNS", T.TAV)
+    for _, st in ipairs({ "BURNING", "ACID", "POISONED", "BLEEDING" }) do
+        T.truthy(near.statuses[st], "near enemy gets " .. st)
+        T.eq(far.statuses[st], nil, "far enemy untouched")
+        T.eq(w.chars[T.TAV].statuses[st], nil, "the thrower is not an enemy")
+    end
+    T.contains(w.notifications, "Goblin explodes in chemical fire!")
+end
+
 function S.gravity_takes_a_share_of_max_hp(w, T)
     T.boot(w)
     local gob = enemy(w)
