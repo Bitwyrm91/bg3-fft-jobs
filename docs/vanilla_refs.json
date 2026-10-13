@@ -36,6 +36,16 @@
     ]
   },
   {
+    "id": "Action_CripplingShot",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_Machinist",
+      "Projectile_FFTJ_ArmShot",
+      "Projectile_FFTJ_LegShot",
+      "Projectile_FFTJ_SealEvil"
+    ]
+  },
+  {
     "id": "Action_DisarmingAttack_Melee",
     "kind": "icon",
     "usedBy": [
@@ -290,6 +300,7 @@
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_GameHunter",
       "FFTJ_Job_HolyKnight",
+      "FFTJ_Job_Machinist",
       "FFTJ_Job_Netherseer",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Job_SkyPirate",
@@ -1313,6 +1324,7 @@
     "id": "ColossusSlayer",
     "kind": "using parent (PassiveData)",
     "usedBy": [
+      "FFTJ_EngineeredShots",
       "FFTJ_MonsterHunter"
     ]
   },
@@ -1444,7 +1456,10 @@
       "Projectile_FFTJ_Aim3",
       "Projectile_FFTJ_Aim4",
       "Projectile_FFTJ_Aim5",
-      "Projectile_FFTJ_Aim7"
+      "Projectile_FFTJ_Aim7",
+      "Projectile_FFTJ_ArmShot",
+      "Projectile_FFTJ_LegShot",
+      "Projectile_FFTJ_SealEvil"
     ]
   },
   {

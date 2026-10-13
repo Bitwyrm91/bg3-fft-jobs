@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.34**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.35**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.35: Machinist (special job 13 of 17)
+
+- **Machinist** (Mustadio's job): needs the **Machinist Badge** (Lord Enver Gortash, Wyrm's Rock) plus **Archer Lv6** and **Chemist Lv5**.
+- **Aimed Shot**, as in TIC (ranged weapon attacks; FFT's guns become crossbows and bows): **Leg Shot** (200 JP: Str save or Immobilized 2 turns), **Arm Shot** (300: Con save or Disabled 1 turn, once per short rest), **Seal Evil** (200: an undead target, or one turned Undead, makes a Con save or is Stone for 2 turns; once per short rest). Saves against your manoeuvre DC.
+- While Machinist is your job: **Engineered Shots**, +1d4 damage on ranged weapon hits. Main-job equipment: crossbows, shortbows, light and medium armour. Mastery: +2 to Investigation.
 
 ## New in 1.0.0.34: Holy Knight (special job 12 of 17; all Act 2 badges done)
 

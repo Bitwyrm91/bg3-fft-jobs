@@ -47,6 +47,9 @@
   <content contentuid="h0b00536fg317dg57f1g9c68g300e73f19cdb" version="1">Revive a dead ally and heal it for 4d8. Once per long rest.</content>
   <content contentuid="h0eba2b88g7197g5c6cg9dddg5728f9aa7f78" version="1">Echo: Arise</content>
   <content contentuid="ha9726bcdgfad3g5ccbg9c39g521a69c18bc3" version="1">Arise</content>
+  <content contentuid="hd61063e0g97b0g543bg9f4egc298845ab557" version="1">Ranged weapon attack at the arms: your weapon's damage, and the target makes a Constitution save against your manoeuvre DC or is Disabled for 1 turn (no actions or bonus actions). Once per short rest.</content>
+  <content contentuid="h7fc4c5eag521bg5958gb2b2gd350e4b747b4" version="1">Echo: Arm Shot</content>
+  <content contentuid="h86e5f9f1g20efg5eecg9e57g03e9d8d509c8" version="1">Arm Shot</content>
   <content contentuid="h5a8b259fg9e3bg524agbed6g67871a6b7327" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d10 force, and 4d10 more force if the target is below half its hit points (FFT: damage grows with the HP it has lost). Once per short rest.</content>
   <content contentuid="hb4d087fdg9728g5c5agafffg7deca31de93d" version="1">Echo: Ascension</content>
   <content contentuid="h76e67b28gd4c9g55f8g8bc9g4e14e2102579" version="1">Ascension</content>
@@ -463,6 +466,9 @@
   <content contentuid="he072ccd1g3a3cg5332gae3eg0a7c6ed43bf5" version="1">Last Waltz</content>
   <content contentuid="h9b1702c2g9a61g5bc0g8f52gc5bdd41c5634" version="1">Walk on lava: it doesn't set you ablaze or slow you.</content>
   <content contentuid="h5f557ba6g81eeg5f4agb347g7a86843b9057" version="1">Lavawalking</content>
+  <content contentuid="hd0e65eceg47bbg52fcgb58cg2152afc38285" version="1">Ranged weapon attack at the legs: your weapon's damage, and the target makes a Strength save against your manoeuvre DC or is Immobilized for 2 turns.</content>
+  <content contentuid="hab0a25a2gbb31g599eg8b93g399fa09e0a36" version="1">Echo: Leg Shot</content>
+  <content contentuid="h29d01334g7a0ag5062g8fb4g59e4462547f5" version="1">Leg Shot</content>
   <content contentuid="h00bfb176g5b90g5a40g93ffg7922596ed4be" version="1">A tidal wave: enemies within 5 m of a point up to 18 m away take 5d8 bludgeoning damage and are soaked (Wet: weak to cold and lightning; Dexterity save for half, not wet). Allies are spared. Once per long rest.</content>
   <content contentuid="hbe2a60dfgf951g55a8g94edg8d2bb793362c" version="1">Echo: Leviathan</content>
   <content contentuid="h5d227254gca24g56e8g815dg4ef57e2e6f84" version="1">Leviathan</content>
@@ -699,6 +705,9 @@
   <content contentuid="h4026287dgdaa5g5012g83a5g7b98b5d5f388" version="1">Melee weapon attack that heals you for half the damage it deals.</content>
   <content contentuid="h4488bb70g9886g5f3bgb581gb5ca17c50254" version="1">Echo: Sanguine Sword</content>
   <content contentuid="hfdbb5e21g6055g58e1gb536g388b4bd78974" version="1">Sanguine Sword</content>
+  <content contentuid="hb2b36ea4g27a0g5263ga1f1g4d73abe03739" version="1">Ranged weapon attack at the cursed soul: your weapon's damage, and an undead target (or one turned Undead) makes a Constitution save against your manoeuvre DC or is turned to Stone for 2 turns (bosses shrug it off). Once per short rest.</content>
+  <content contentuid="hbb8beaecg2b15g539dgaacfg52c569ca9ae1" version="1">Echo: Seal Evil</content>
+  <content contentuid="hb06811d5g5dd3g5ca6g9ae5gcc26cab9512b" version="1">Seal Evil</content>
   <content contentuid="hfa75defeg68d9g5772gae29ge40b9dd41ac1" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get back a level 1 spell slot (once each per song). Once per short rest.</content>
   <content contentuid="he195886ege0a2g5110gbc5dgac59615e31c5" version="1">Echo: Seraph Song</content>
   <content contentuid="h94888e4fg83c8g5ca0ga1a9gfaaeb9b4d391" version="1">Seraph Song</content>
@@ -1016,6 +1025,10 @@
   <content contentuid="hc4543261gc46fg5ff9ga03eg10c496d2e1f3" version="1">Knight Mastery</content>
   <content contentuid="ha5976045gcbf7g5ef6g88feg9ba15413337c" version="1">Breaks the enemy's armor, weapon, speed and power. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hd73ae27cgd9e4g571fgbfe5g4c7a339f8bc3" version="1">Job: Knight</content>
+  <content contentuid="h25b93a35g3864g5a96gaa4cg4589722854bd" version="1">+2 to Investigation checks. Earned by mastering Machinist; kept after changing jobs.</content>
+  <content contentuid="hd71f8de1g2899g52e6g8871g5e84b883a9b5" version="1">Machinist Mastery</content>
+  <content contentuid="hfb32ac1dg3323g5466gb0b4g1b429dac843a" version="1">Mustadio's job. Aimed Shot: ranged shots at the legs (Immobilize), the arms (Disable) or the cursed soul of the undead (Stone). FFT's guns become crossbows and bows. While Machinist is your job your ranged weapon hits deal +1d4 damage (Engineered Shots). Equipment: hand crossbows, light crossbows, heavy crossbows, shortbows, light armour, medium armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h15f129cfg1e4cg56c4g91b6g4a6a81f0a013" version="1">Job: Machinist</content>
   <content contentuid="h24c3238dg845cg5be8g8512gd17489966ab1" version="1">+1 to all saving throws. (The Mime has no abilities to learn: it is mastered at job level 8.) Earned by mastering Mime; kept after changing jobs.</content>
   <content contentuid="h845e7998gdec5g59b5g8035ga713a812a367" version="1">Mime Mastery</content>
   <content contentuid="hb2a4afc1g431dg5b10g8849g34c591d9d335" version="1">Mimics the party. Echo: at the start of your turn in a fight you get a copy of the last job ability an ally used since your previous turn, usable once this turn and free of its cooldown. Concentration (+2 to weapon attack rolls), Brawler (stronger unarmed strikes) and Beastmaster (allied beasts and summons within 6 m get +1 to attack rolls and damage) are always on. Current FFT job. Change it on the Job Board.</content>
@@ -1090,6 +1103,8 @@
   <content contentuid="hf12d1373g3fc7g5d45gb675g90d8be9f9bb8" version="1">Job: White Mage</content>
   <content contentuid="h60a54324g3a68g5608g837bg2c8ae321bcfc" version="1">Allied beasts, familiars and summons within 6 m of you get +1 to attack rolls and +1 damage. (FFT: gives nearby monsters a hidden ability.)</content>
   <content contentuid="h5ada1bd3g8e0cg5349g8541g76ea85ca6c18" version="1">Beastmaster</content>
+  <content contentuid="hb8a9afeegfa2bg5999gb3fag3ae17ba5a273" version="1">While Machinist is your job, your ranged weapon hits deal 1d4 extra damage.</content>
+  <content contentuid="h5842d491g6cfcg54d9g8140g4be6608c4e04" version="1">Engineered Shots</content>
   <content contentuid="h0883af88g0d37g5edfg9eccg14067755391d" version="1">While Cleric is your job, every spell you cast that restores hit points restores 1d6 more.</content>
   <content contentuid="h2d2df22age88cg5dd7g8c19g9e4ce6bf69ac" version="1">Holy Magicks</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>

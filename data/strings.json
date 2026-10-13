@@ -2,6 +2,8 @@
   "schema": 1,
   "note": "Extra English strings used by stats_src templates as {{str:KEY}}. Ability names/descriptions come from fft_jobs.json ({{name:ID}}, {{desc:ID}}), job passive texts from the job list ({{jobname:ID}}, {{jobdesc:ID}}).",
   "strings": {
+    "EngineeredShots.Name": "Engineered Shots",
+    "EngineeredShots.Desc": "While Machinist is your job, your ranged weapon hits deal 1d4 extra damage.",
     "MonsterHunter.Name": "Monster Hunter",
     "MonsterHunter.Desc": "While Game Hunter is your job, your weapon hits deal 1d6 extra damage to creatures that aren't humanoid.",
     "StarReading.Name": "Star Reading",
