@@ -41,6 +41,7 @@ function Bosses.Give(svc, badgeId, how)
     end
     local reason = (how == "Spared" and (badge.SparedText or "") ~= "") and badge.SparedText
         or string.format(REASONS[how], badge.Boss)
+    reason = reason:gsub("^%l", string.upper) -- "The Flind is defeated."
     svc.Log.Info(string.format("boss badge %s: %s (%s)", badgeId, badge.Boss, how))
     svc:AddBadge(badgeId, nil, reason)
     return true

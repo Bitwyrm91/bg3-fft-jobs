@@ -126,6 +126,17 @@ function Rules.HasBadge(char, badgeId)
     return char.Badges ~= nil and char.Badges[badgeId] == true
 end
 
+-- How many badges the party holds (every badge is copied into each character by Rules.SyncParty).
+function Rules.BadgeCount(char)
+    local n = 0
+    for _, on in pairs(char.Badges or {}) do
+        if on == true then
+            n = n + 1
+        end
+    end
+    return n
+end
+
 function Rules.BadgeName(data, badgeId)
     local badge = data.Badges and data.Badges[badgeId]
     return badge and badge.Name or tostring(badgeId)
@@ -140,9 +151,10 @@ function Rules.BadgeLabel(data, badgeId)
     return Rules.BadgeName(data, badgeId)
 end
 
--- Returns met (bool) and the list of requirements still missing ({Job, Level, Have}, {Job, Mastered}, {Kills, Have}
--- or {Badge}). Mastered: every ability of the job learned (War of the Lions' Dark Knight); Kills: enemies the
--- character has defeated (Service:CountKill).
+-- Returns met (bool) and the list of requirements still missing ({Job, Level, Have}, {Job, Mastered}, {Kills, Have},
+-- {Badge} or {Badges, Have}). Mastered: every ability of the job learned (War of the Lions' Dark Knight); Kills:
+-- enemies the character has defeated (Service:CountKill); Badges: how many badges the party has found (the Gallant
+-- Knight, the user's rule 2026-10-13).
 function Rules.RequirementsMet(data, cfg, char, jobId)
     local job = data.Jobs[jobId]
     local missing = {}
@@ -158,6 +170,11 @@ function Rules.RequirementsMet(data, cfg, char, jobId)
             local have = char.Kills or 0
             if have < req.Kills then
                 missing[#missing + 1] = { Kills = req.Kills, Have = have }
+            end
+        elseif req.Badges then
+            local have = Rules.BadgeCount(char)
+            if have < req.Badges then
+                missing[#missing + 1] = { Badges = req.Badges, Have = have }
             end
         elseif req.Mastered then
             if not Rules.IsMastered(data, char, req.Job, cfg) then
@@ -184,6 +201,8 @@ function Rules.RequirementText(data, jobId)
             parts[#parts + 1] = Rules.BadgeLabel(data, req.Badge)
         elseif req.Kills then
             parts[#parts + 1] = string.format("%d enemies defeated", req.Kills)
+        elseif req.Badges then
+            parts[#parts + 1] = string.format("any %d badges found", req.Badges)
         else
             local rj = data.Jobs[req.Job]
             parts[#parts + 1] = req.Mastered and string.format("%s mastered", rj and rj.Name or req.Job)
@@ -257,6 +276,8 @@ function Rules.MissingText(data, cfg, char, jobId)
             parts[#parts + 1] = Rules.BadgeLabel(data, m.Badge)
         elseif m.Kills then
             parts[#parts + 1] = string.format("%d enemies defeated (has %d)", m.Kills, m.Have)
+        elseif m.Badges then
+            parts[#parts + 1] = string.format("any %d badges found (the party has %d)", m.Badges, m.Have)
         elseif m.Mastered then
             local rj = data.Jobs[m.Job]
             parts[#parts + 1] = string.format("%s mastered", rj and rj.Name or m.Job)

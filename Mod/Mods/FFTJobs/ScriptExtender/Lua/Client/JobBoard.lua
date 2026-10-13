@@ -332,7 +332,7 @@ function JobBoard:RenderGrid(root, c)
     end
     self:RenderTiles(root, "Jobs", "FFTJ_Grid", main, c)
     if #special > 0 then
-        self:RenderTiles(root, "Special jobs: each needs a boss's badge", "FFTJ_GridSpecial", special, c)
+        self:RenderTiles(root, "Special jobs: badges from bosses + job levels", "FFTJ_GridSpecial", special, c)
     end
 end
 

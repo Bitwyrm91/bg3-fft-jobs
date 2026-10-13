@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.40**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.41**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.41: badges for 7 more special jobs (jobs not built yet)
+
+- Seven more TIC special jobs are on the Job Board as "soon" tiles: **Gallant Knight**, Celebrant, Nightblade, Sorcerer, White Knight, Assassin, Rune Knight. Their abilities come later; their badges already drop.
+- New badges: **Celebrant** (Malus Thorm, Act 2), **Nightblade** (Kar'niss, Act 2), **Sorcerer** (Lorroakan), **White Knight** (Raphael), **Assassin** (Orin the Red), **Rune Knight** (the Steel Watch Titan), all Act 3. `!fft_badge list` shows them.
+- **Gallant Knight** needs no boss: Squire mastered and any 5 badges found.
+- Boss notifications start with a capital letter now ("The Flind is defeated.").
 
 ## New in 1.0.0.40: safer start-up
 

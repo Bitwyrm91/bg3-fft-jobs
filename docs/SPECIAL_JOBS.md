@@ -114,8 +114,8 @@ data (`Mods/Gustav*/{Globals,Levels}/<level>/Characters/_merged.lsf`, converted 
 For the 7 extra jobs later: S_GLO_Orin bf24e0ec-a3a6-4905-bd2d-45dc8edf8101, S_GLO_Monitor ("Raphael")
 f65becd6-5cd7-4c88-b85e-6dd06b60f7b8, S_LOW_Lorroakan a9d4b71d-b0ef-429e-8210-6dc8be986ee9, S_TWN_Hospital_Surgeon
 ("Malus Thorm") e58b8b34-038b-4858-b817-c2a8096a9381, S_SCL_Drider ("Kar'niss") aa59ce01-3d2e-42e8-a539-c07e0ea292ab,
-S_TWN_Distillery_Brewer ("Thisobald Thorm") 4d9e3db3-9a78-4f4b-8101-1dd73c0f3be5; the Steel Watch Titan is not found
-yet.
+S_TWN_Distillery_Brewer ("Thisobald Thorm") 4d9e3db3-9a78-4f4b-8101-1dd73c0f3be5; the Steel Watch Titan = S_LOW_SteelWatcher_Prototype
+51db791d-4378-448a-86ba-3e3ae2748db6 (archetype `act3_LOW_SteelWatcher_Titan`, `CTY_Main_A`, the Steel Watch Foundry).
 
 How "defeated" is read: the vanilla story keeps `DB_Defeated` (`Mods/Shared/Story/RawFiles/Goals/__AAA_FirstGoal.txt`:
 dead, knocked out, surrendered, petrified, banished, iron-flasked, dominated then released; saved with the game). The
@@ -129,3 +129,25 @@ story goals were extracted to `C:\Users\berus\GameModding\decomp\bg3\story`.
   `unlock: [{"badge": ...}, {"job": ..., "level": ...}]` and `group` `Special` (outside the pacing target, like WotL).
 - Abilities: TIC tables (`Ability`, cost = `JpCost1 + 256 × JpCost2`, names in `Ability-en`); WotL guides for Sky
   Pirate and Game Hunter.
+
+## The 7 extra TIC special jobs (user's answers 2026-10-13, second session; badges built in 1.0.0.41)
+
+| Job (FFT character) | TIC skillset | Unlock | Boss character (GUID) |
+|---|---|---|---|
+| **Gallant Knight** (Ramza) | Mettle | **Squire mastered + any 5 badges** (no boss; new unlock kind `{"badges": N}`) | - |
+| **Celebrant** (Zalmo) | Priest Magicks | badge + White Mage Lv5, Orator Lv4 | Malus Thorm, Act 2 (e58b8b34-...) |
+| **Nightblade** (Barich) | Arts of War | badge + Knight Lv6, Archer Lv4 | Kar'niss, Act 2 (aa59ce01-...) |
+| **Sorcerer** (Kletian) | Magick Arts | badge + Black Mage Lv7, Time Mage Lv6 | Lorroakan, Act 3 (a9d4b71d-...) |
+| **White Knight** (Wiegraf) | Holy Sword | badge + Knight Lv7, Monk Lv5 | Raphael, Act 3 (f65becd6-...) |
+| **Assassin** (Celia, Lede) | Subdual Arts | badge + Ninja Lv6, Mystic Lv5 | Orin the Red, Act 3 (bf24e0ec-...) |
+| **Rune Knight** | Swordsmanship | badge + Knight Lv8, Black Mage Lv5 | **the Steel Watch Titan**, Act 3 (51db791d-...) |
+
+Answers: Gallant Knight = Squire mastered + 5 badges (Orin stays the Assassin's boss); Rune Knight = the Steel Watch
+Titan (after the Holy Knight, as its skills combine Holy Sword and Unyielding Blade); job levels as proposed; the copy
+jobs (White Knight, Nightblade, Rune Knight) share the existing spells and get an innate trait and mastery perk of their
+own. Act spread with these: 8 / 6 / 9 boss badges.
+
+**Not built yet (user, 2026-10-13):** the work stops at ~90% of the weekly limit, so the user asked for a playtestable
+early game (Act 1) and the Soul Collector first. The 7 jobs are on the board as "soon" tiles with their badges and
+requirements; build them later the same way as the 17 (TIC `Ability-en`: Mettle 150-154 plus the Squire's four;
+Subdual Arts 181-183 and probably 185-195; Magick Arts 202-233; check each set on Caves of Narshe's IC character pages).

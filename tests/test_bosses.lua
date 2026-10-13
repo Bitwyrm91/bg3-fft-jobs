@@ -10,6 +10,8 @@ local FLIND = "34464430-fed8-4f50-86d5-bd35846920a0"
 local YURGIR = "1dc8091d-2af6-4d33-9268-998ef266d19c"
 local KETHERIC_AVATAR = "9061c1d3-5965-4251-9c07-bcebe53d0660"
 local GORTASH = "b878a854-f790-4999-95c4-3f20f00f65ac"
+local TITAN = "51db791d-4378-448a-86ba-3e3ae2748db6"
+local RAPHAEL = "f65becd6-5cd7-4c88-b85e-6dd06b60f7b8"
 
 local function boss(w, guid, name)
     w.newChar(guid, { name = name, level = 5, player = false, party = false, boss = true })
@@ -161,7 +163,7 @@ function S.special_jobs_have_their_own_section_on_the_board(w, T, Mocks)
     T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
     local win = w.windows[1]
     local found = Mocks.FindWidgets(win, function(x)
-        return x.Kind == "SeparatorText" and x.Label == "Special jobs: each needs a boss's badge"
+        return x.Kind == "SeparatorText" and x.Label == "Special jobs: badges from bosses + job levels"
     end)
     T.eq(#found, 1)
     local tile
@@ -206,6 +208,7 @@ end
 -- Every built special job: its badge and job levels unlock it; as the job, every ability can be learned and is granted.
 function S.every_built_special_job_unlocks_learns_and_grants(w, T)
     local svc = T.boot(w)
+    local Rules = Ext.Require("Server/Rules.lua")
     local data = svc.Data
     local built = 0
     for _, jobId in ipairs(data.JobOrder) do
@@ -215,17 +218,30 @@ function S.every_built_special_job_unlocks_learns_and_grants(w, T)
             local guid = "77777777-7777-4777-8777-" .. string.format("%012d", built)
             w.newChar(guid, { name = "Tester" .. built, level = 6, class = "Fighter" })
             w.fire("CharacterJoinedParty", "S_Player_" .. guid)
+            local badge, count
             for _, req in ipairs(job.Unlock) do
                 if req.Job then
-                    svc:AddManualJP(guid, 3000, req.Job)
+                    svc:AddManualJP(guid, req.Mastered and 20000 or 3000, req.Job)
+                    if req.Mastered then
+                        for _, aid in ipairs(data.AbilitiesByJob[req.Job]) do
+                            svc:Learn(guid, aid)
+                        end
+                    end
                 end
+                badge = badge or req.Badge
+                count = count or req.Badges
             end
-            local badge = job.Unlock[1].Badge
-            if not svc.State:Meta().Badges[badge] then -- (Zhalk's comes with Act 1, where the test boots)
+            if badge and not svc.State:Meta().Badges[badge] then -- (Zhalk's comes with Act 1, where the test boots)
                 T.falsy(svc.State:Get(guid).Unlocked[jobId], jobId .. " needs its badge")
             end
-            T.truthy(svc:AddBadge(badge))
-            T.truthy(svc.State:Get(guid).Unlocked[jobId], jobId .. ": badge + levels unlock it")
+            for _, b in ipairs(badge and { badge } or data.BadgeOrder) do -- a badge count: any badges
+                if svc.State:Get(guid).Unlocked[jobId] then
+                    break
+                end
+                T.truthy(svc:AddBadge(b))
+            end
+            T.truthy(count == nil or Rules.BadgeCount(svc.State:Get(guid)) >= count, jobId .. ": badge count")
+            T.truthy(svc.State:Get(guid).Unlocked[jobId], jobId .. ": badges + levels unlock it")
             T.truthy(svc:SetPrimary(guid, jobId))
             svc:AddManualJP(guid, 20000, jobId)
             for _, aid in ipairs(data.AbilitiesByJob[jobId]) do
@@ -245,6 +261,46 @@ function S.every_built_special_job_unlocks_learns_and_grants(w, T)
         end
     end
     T.truthy(built >= 1, "at least one special job is built")
+end
+
+-- The 7 extra TIC special jobs (2026-10-13): six boss badges and the Gallant Knight's badge count.
+function S.the_steel_watch_titan_drops_the_rune_knight_badge(w, T)
+    local svc = T.boot(w)
+    w.fire("Died", boss(w, TITAN, "Steel Watch Titan"))
+    T.truthy(badges(svc).RuneKnight)
+    T.contains(w.notifications, "The Steel Watch Titan is defeated. The party found the Rune Knight Badge!")
+end
+
+function S.raphael_spared_gives_the_white_knight_badge_at_the_last_act(w, T)
+    local svc = bootIn(w, T, "CTY_Main_A")
+    boss(w, RAPHAEL, "Raphael")
+    w.fire("DialogActorJoined", "Raphael_Deal", 10, "S_Boss_" .. RAPHAEL, 0)
+    w.fire("DialogActorJoined", "Raphael_Deal", 10, "S_Player_" .. T.TAV, 1)
+    T.falsy(badges(svc).WhiteKnight, "a talk is not a badge")
+    w.fire("LevelGameplayStarted", "END_Main", 0)
+    T.truthy(badges(svc).WhiteKnight, "met and left alive: the badge comes with the next act")
+end
+
+function S.gallant_knight_needs_squire_mastered_and_five_badges(w, T)
+    local svc = T.boot(w)
+    local Rules = Ext.Require("Server/Rules.lua")
+    svc.Data.Jobs.GallantKnight.Implemented = true -- (until it is built: the rule is what this test checks)
+    T.eq(Rules.RequirementText(svc.Data, "GallantKnight"), "Squire mastered, any 5 badges found")
+    svc:AddManualJP(T.TAV, 20000, "Squire")
+    for _, aid in ipairs(svc.Data.AbilitiesByJob.Squire) do
+        svc:Learn(T.TAV, aid)
+    end
+    local tav = svc.State:Get(T.TAV)
+    for _, b in ipairs({ "Cleric", "FellKnight", "DivineKnight", "Templar", "SteelGiant" }) do
+        if Rules.BadgeCount(tav) < 4 then -- (Zhalk's comes with the Act 1 boot)
+            T.truthy(svc:AddBadge(b))
+        end
+    end
+    T.falsy(tav.Unlocked.GallantKnight, "four badges are not enough")
+    T.eq(Rules.MissingText(svc.Data, svc:Cfg(), tav, "GallantKnight"), "any 5 badges found (the party has 4)")
+    T.truthy(svc:AddBadge("Netherseer"))
+    T.truthy(tav.Unlocked.GallantKnight, "Squire mastered + 5 badges")
+    T.falsy(svc.State:Get(T.SHART).Unlocked.GallantKnight, "Shadowheart has not mastered Squire")
 end
 
 return S
