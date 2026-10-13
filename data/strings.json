@@ -70,6 +70,25 @@
     "status.FFTJ_TOAD.name": "Toad",
     "status.FFTJ_TOAD.desc": "Turned into a harmless critter by Geomancy (FFT's Toad; BG3 has sheep, not toads) until this ends.",
     "status.FFTJ_VANISH.name": "Vanish",
-    "status.FFTJ_VANISH.desc": "Invisible: attacking or casting a spell ends it; being hit does not."
+    "status.FFTJ_VANISH.desc": "Invisible: attacking or casting a spell ends it; being hit does not.",
+
+    "status.FFTJ_SONG_SERAPH_FX.desc": "Got back a level 1 spell slot from the song.",
+    "status.FFTJ_SONG_LIFE_FX.desc": "Regains 1d4 hit points at the start of each turn while the song lasts.",
+    "status.FFTJ_SONG_ROUSING_FX.desc": "+3 m movement while the song lasts.",
+    "status.FFTJ_SONG_BATTLE_FX.desc": "+1 to attack rolls and +1 damage while the song lasts.",
+    "status.FFTJ_SONG_REFRAIN_FX.desc": "+1 to spell attack rolls and spell save DC while the song lasts.",
+    "status.FFTJ_SONG_NAMELESS_FX.desc": "Blessed: +1d4 to attack rolls and saving throws while the song lasts.",
+    "status.FFTJ_DANCE_WITCH_FX.desc": "-2 to spell save DC and spell attack rolls while the dance lasts.",
+    "status.FFTJ_DANCE_MINUET_FX.desc": "Takes 1d4 psychic damage at the start of each turn while the dance lasts.",
+    "status.FFTJ_DANCE_SLOW_FX.desc": "-3 m movement while the dance lasts.",
+    "status.FFTJ_DANCE_POLKA_FX.desc": "Deals 2 less damage while the dance lasts.",
+    "status.FFTJ_DANCE_FROLIC_FX.desc": "Disadvantage on Intelligence, Wisdom and Charisma saving throws while the dance lasts.",
+    "status.FFTJ_DANCE_FORBIDDEN_FX.desc": "At the start of each turn: a 1 in 10 chance each of being Blinded, Silenced, Poisoned or Slowed.",
+    "status.FFTJ_MAGICK_SURGE.name": "Magick Surge",
+    "status.FFTJ_MAGICK_SURGE.desc": "+1 to spell attack rolls and spell save DC.",
+    "status.FFTJ_STRENGTH_SURGE.name": "Strength Surge",
+    "status.FFTJ_STRENGTH_SURGE.desc": "+2 damage with weapon attacks.",
+    "status.FFTJ_BRAVERY_SURGE.name": "Bravery Surge",
+    "status.FFTJ_BRAVERY_SURGE.desc": "+1 to attack rolls."
   }
 }

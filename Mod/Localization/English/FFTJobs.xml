@@ -36,6 +36,8 @@
   <content contentuid="h57c76934g2a19g5dd0gba4cg4341525da592" version="1">Auto-Potion</content>
   <content contentuid="h9895cab5gc69cg566dgbf36g4282693bb62b" version="1">Mega Flare: enemies within 5 m of a point up to 18 m away take 8d8 force damage (Dexterity save for half). Allies are spared. Once per long rest.</content>
   <content contentuid="h2435ec00g86cfg5941g8df2g03e4944d28ae" version="1">Bahamut</content>
+  <content contentuid="h2ee116c3gdc78g5aa3ga403g95e5d3a5bd3b" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +1 to attack rolls and +1 damage.</content>
+  <content contentuid="hbd85e644g3ba2g52b6gafc9gab689baea5da" version="1">Battle Chant</content>
   <content contentuid="h27a9875dgc61ag543ag9cb1g1f196ebbf6b7" version="1">You can Speak with Animals at will. Always on while Orator is your job. (FFT: talk skills work on monsters; here they always do.)</content>
   <content contentuid="hb5f8cdfdg8552g5d00ga3f4gbd7aa80e15c5" version="1">Beast Tongue</content>
   <content contentuid="h9717a9f6gc29bg53e2gb8fag5b471499a289" version="1">A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, but -2 to saving throws (strengthen an ally's magic, or soften an enemy). Once per short rest.</content>
@@ -50,6 +52,8 @@
   <content contentuid="h19c3ad71gf0c5g586cg9984g70c2e026e1a2" version="1">Blizzard</content>
   <content contentuid="h2f1d6714gb0aeg5148g91b4g9b3ba6b04fde" version="1">When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest.</content>
   <content contentuid="hfd486fcag6401g5831g8fb0g531fb96a1c73" version="1">Bonecrusher</content>
+  <content contentuid="h19b50a7fg9a32g5dd5gaf00gf0a862d4b25b" version="1">When a weapon attack hits you, you get +1 to attack rolls for 10 turns.</content>
+  <content contentuid="hb05081c1g37c9g5d25gbab3gab5e5f187e95" version="1">Bravery Surge</content>
   <content contentuid="h71bbbd65gebe5g52eegba2eg32d2622e81a7" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage. Always on while Monk is your job.</content>
   <content contentuid="h3a07239cgf1a1g5492g92a5g3ae451b18faf" version="1">Brawler</content>
   <content contentuid="h7fa0a2a3g15d6g5d3dg874bga064bbde3d05" version="1">You and allies within 6 m gain Reflect for 3 turns. Once per long rest.</content>
@@ -142,8 +146,12 @@
   <content contentuid="h16d7460agbbd3g5e50g821bg4fb67c56510f" version="1">Eye Drops</content>
   <content contentuid="h088b000dg7ff4g5923g8346ga938b8cff9d8" version="1">Up to 6 allies within 18 m regain 4d8 hit points. Once per short rest.</content>
   <content contentuid="ha86a86bdgbda1g5876g896fgd801aaf52a8b" version="1">Faerie</content>
+  <content contentuid="haac4b87ag2060g5e32g81aagf8ff12e92a93" version="1">When a spell damages you, you gain Faith for 3 turns (+2 to spell attack rolls and spell save DC, -2 to saving throws).</content>
+  <content contentuid="hcb231a93g145eg558cgbb39g5c549384d7cc" version="1">Faith Surge</content>
   <content contentuid="h94fb2c2dg83ccg5c4fgbf16gd1943aaa8623" version="1">A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: it can't cast spells, deals 2 more damage and has -2 AC. Once per short rest.</content>
   <content contentuid="hc4cf26ddg0919g52f0g93c7ge30825ff9fab" version="1">Fervor</content>
+  <content contentuid="h16f66d58g903dg5a8eg9520g415b7273b17c" version="1">The ultimate song: allies within 9 m of you get an extra action on their next turn (Quick). Once per long rest.</content>
+  <content contentuid="hf048b216g66bdg541bgbaffg2ce5baaf9330" version="1">Finale</content>
   <content contentuid="h55a19410gb594g5f86gaa4fgf59bcc326e32" version="1">3d6 fire damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
   <content contentuid="h82fbe68ag7394g5470g9bb4g2e8dbf0385e2" version="1">Fira</content>
   <content contentuid="h8fe21821g5c72g5389gb8c2g8d515015f6ed" version="1">6d6 fire damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
@@ -156,8 +164,12 @@
   <content contentuid="h3395e73cg831cg583ag88bdg460ea8267c5b" version="1">Flare</content>
   <content contentuid="h2ef2eb8fgb1b6g500fga48eg0c4321355753" version="1">An ally within 18 m floats for 3 turns: it can't be knocked prone and ignores difficult terrain.</content>
   <content contentuid="h78199735gd636g5767g8939ga7a6735c212a" version="1">Float</content>
+  <content contentuid="hf825a665g6c9eg5a35g97e4gdc826e02eb5a" version="1">Gives the Fly action: fly to a spot up to 18 m away; it uses half that distance of movement.</content>
+  <content contentuid="hab3b0219g33dfg5da4ga003g545cccca93e2" version="1">Fly</content>
   <content contentuid="hfd53e168ga4edg50d0g86f9gbabab1eb621f" version="1">Bonus action. +1 to attack rolls and +1 damage for 10 turns.</content>
   <content contentuid="had05ac22g7588g57aag9985ga600447820d8" version="1">Focus</content>
+  <content contentuid="h7ba1be19g210ag52f2gaf94g8f643071636c" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have, at the start of each of their turns, a 1 in 10 chance each of being Blinded, Silenced, Poisoned or Slowed for 1 turn.</content>
+  <content contentuid="h5f0833a0gdf44g5a38gb597geb7b789f9906" version="1">Forbidden Dance</content>
   <content contentuid="h6b8996c9gdb72g583ag8499g7489704b4f74" version="1">When you take damage, you gain that much gold.</content>
   <content contentuid="hbd201c8fgb6cbg5498g895dg3d98366281a2" version="1">Gil Snapper</content>
   <content contentuid="hfb8bec52gfb6dg57b5g9830g1fc844c301dc" version="1">You and allies within 6 m gain 15 temporary hit points (FFT's Golem blocks physical damage). Once per long rest.</content>
@@ -174,6 +186,8 @@
   <content contentuid="h9530d2bag5e56g5278gbf2ag7e9da7bc62d7" version="1">Haste</content>
   <content contentuid="h130947d1g9a1fg5507gb107g2f57dfa9691f" version="1">Every ally within 4 m of a point up to 18 m away is Hasted for 3 turns (as Haste). Once per long rest.</content>
   <content contentuid="h9fc3a09eg9e80g5832gb2aeg3ade5ccf983e" version="1">Hasteja</content>
+  <content contentuid="h44887906g8d53g57c7g9c46g66df40cb4b46" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have disadvantage on Intelligence, Wisdom and Charisma saving throws.</content>
+  <content contentuid="h9045a704gec6cg59b4gb5fdga51efa89d8f5" version="1">Heathen Frolic</content>
   <content contentuid="he5224064g4b7dg5334gaa74gec34f4645568" version="1">A creature within 18 m makes a Wisdom save or is Disabled for 1 turn: no actions or bonus actions (it can still move).</content>
   <content contentuid="h4fc67ecegc077g53f0gad22g1bb6a149822a" version="1">Hesitation</content>
   <content contentuid="h00bf611ag9ffbg5132gb29cg9fa9f5719e6d" version="1">Heal 4d4+4. Once per short rest. Thrown like Potion.</content>
@@ -214,12 +228,16 @@
   <content contentuid="haaaccdbag65e7g5434gb59dg58d71287ae34" version="1">Jump +1</content>
   <content contentuid="hd87c107dge1e0g57e5gaff0gd0cf14496519" version="1">Jump 6 m farther.</content>
   <content contentuid="h1da5b1fcgb221g5fadg8565g4e9b4dad6e8e" version="1">Jump +2</content>
+  <content contentuid="h59f1de8eg8f9fg5669g86ddg4d5bb2f8313c" version="1">Jump 4.5 m farther.</content>
+  <content contentuid="h33a27c31g4dccg5500gb8dcg34bb81a12e07" version="1">Jump +3</content>
   <content contentuid="hdf4ed653g5ceeg5d57ga332g585793a08036" version="1">Enemies in a 12 m line from you take 6d8 slashing damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="h9efdf3fcg0be9g591fg83a8gc7bfe8bf63a2" version="1">Kiku-ichimonji</content>
   <content contentuid="h5d2efae0ga343g52efg8469gf774dc9f7470" version="1">You and allies within 3 m of you gain Protect (+2 AC) and Shell (advantage on saves against spells) for 3 turns. Once per short rest.</content>
   <content contentuid="he2ec234cge451g51d8g83ebg4728cd181fa4" version="1">Kiyomori</content>
   <content contentuid="h028eb348gabbbg5c00gac86gc52c30ac0115" version="1">Enemies within 3 m of you take 3d6 necrotic damage (Constitution save for half). Once per short rest.</content>
   <content contentuid="h7b43b592g7087g5b47g9ef8g7711dd0e79bb" version="1">Kotetsu</content>
+  <content contentuid="hae3f7e07g314eg5f68g87f6geaa1354bc255" version="1">The ultimate dance: enemies within 9 m of you make a Wisdom save or lose their actions and bonus actions next turn (Disable). Once per long rest.</content>
+  <content contentuid="he072ccd1g3a3cg5332gae3eg0a7c6ed43bf5" version="1">Last Waltz</content>
   <content contentuid="h9b1702c2g9a61g5bc0g8f52gc5bdd41c5634" version="1">Walk on lava: it doesn't set you ablaze or slow you.</content>
   <content contentuid="h5f557ba6g81eeg5f4agb347g7a86843b9057" version="1">Lavawalking</content>
   <content contentuid="h00bfb176g5b90g5a40g93ffg7922596ed4be" version="1">A tidal wave: enemies within 5 m of a point up to 18 m away take 5d8 bludgeoning damage and are soaked (Wet: weak to cold and lightning; Dexterity save for half, not wet). Allies are spared. Once per long rest.</content>
@@ -230,12 +248,18 @@
   <content contentuid="hef5b730bgc0e9g5ff1ga030g2ce416f8e2b0" version="1">Lich</content>
   <content contentuid="ha47f129dg6738g5a52g9c25gad41e44e09c3" version="1">When you move, regain 1d6 hit points. Once per turn.</content>
   <content contentuid="h0e9f34efgecb8g5607g8adcg3cf24ccc8fb9" version="1">Lifefont</content>
+  <content contentuid="he6cb11c3g2e10g5589gab85gff3f597ce83a" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you regain 1d4 hit points at the start of each of their turns. Once per short rest.</content>
+  <content contentuid="he3b93df5g5e79g5f31g99edgb23795787907" version="1">Life's Anthem</content>
   <content contentuid="h7218403fgf688g57f1gb541gd9b301fb7c7b" version="1">+1 spell save DC and +1 to spell attack rolls.</content>
   <content contentuid="h8f58a2a8ge351g5fa4g941eg76080b571603" version="1">Magick Boost</content>
   <content contentuid="hc95b80eeg019dg5cd0ga828g98b30cbbc688" version="1">When a spell damages you, its caster takes 2d6 force damage.</content>
   <content contentuid="hed9749cag51b5g5174g867bg16af19be0d02" version="1">Magick Counter</content>
   <content contentuid="he7ee2cd9gc44ag53ddg92d1ga5d71ab4a181" version="1">+1 to all saving throws.</content>
   <content contentuid="h78db1063g644eg5bb7g8381g2e72518bb518" version="1">Magick Defense Boost</content>
+  <content contentuid="hb2a3ab35gd425g5e26gb8b6gff32a801e8d4" version="1">When you take damage, you get +1 to spell attack rolls and spell save DC for 10 turns.</content>
+  <content contentuid="h0f87c861gcf1fg5683gb125g40fd11ab26cf" version="1">Magick Surge</content>
+  <content contentuid="h831c3bf0g0f2ag5586gae41gc1e683bbc003" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +1 to spell attack rolls and spell save DC.</content>
+  <content contentuid="h13406d40g4f43g536fgaacdgaaa3fc964f60" version="1">Magickal Refrain</content>
   <content contentuid="hcefa27adg2358g52bfg9674g8d17c947b4e1" version="1">Only while you stand in fire or lava. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 10 chance of being struck down at the end of its next turn (Doom 1; bosses are immune).</content>
   <content contentuid="h8bb7a393g2b3eg51f7g919bg93ca3849ce68" version="1">Magma Surge</content>
   <content contentuid="h408b3178g0699g5c23g97f8ga8c801e307e5" version="1">Reaction: when you would take damage, spend a level 1 spell slot to reduce it by 3d8 (FFT takes the damage from MP).</content>
@@ -248,16 +272,22 @@
   <content contentuid="h8e2ed264gd49dg552egb637g46ea9ab55e5c" version="1">Meteor</content>
   <content contentuid="hb9f4496agc7bdg51b3g9061g1af6ab08bb65" version="1">A dull lecture: enemies within 3 m of a point up to 18 m away make a Wisdom save or fall Asleep for 2 turns (they wake when damaged). Allies are spared. Once per short rest.</content>
   <content contentuid="h97669d19g0289g58a8g8409g6f142a1ca00d" version="1">Mimic Darlavon</content>
+  <content contentuid="hf8b6e660g1f1ag5bb8ga128g18423b315ad0" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you take 1d4 psychic damage at the start of each of their turns.</content>
+  <content contentuid="h2fd22e5ag7704g5140ga7d4g7f31309b1694" version="1">Mincing Minuet</content>
   <content contentuid="h614742begf9b5g5dd9gacaeg57cdfcb0584f" version="1">Up to 4 allies within 18 m regain 2d8 hit points. Once per short rest.</content>
   <content contentuid="h321ba59agd6a3g5694g950dgd7c91d880ca6" version="1">Moogle</content>
   <content contentuid="hb714e206g10feg5503g9baeg87df8a75d709" version="1">+3 m movement speed.</content>
   <content contentuid="he0a669afga60cg51begb1dcg39c96fde3aa2" version="1">Movement +1</content>
   <content contentuid="hd5040b7cg2ad1g540ag83efgbfff8a8cc65e" version="1">+6 m movement speed.</content>
   <content contentuid="h8d5a38d6g28d4g5de4gbb7dg404b0afec80d" version="1">Movement +2</content>
+  <content contentuid="h2dc5448egfd25g5702g9cc7g51500793d074" version="1">+4.5 m movement.</content>
+  <content contentuid="h3f153b4ega1e3g504dgaf66g345de950e318" version="1">Movement +3</content>
   <content contentuid="h7b1846c0g40d5g57e7g8fc0ge6c6a67c89c7" version="1">Enemies within 3 m of you take 4d8 necrotic damage. On a failed Wisdom save they are Confused for 2 turns, with a 1 in 10 chance of Doom (bosses are immune); on a success they take half. Once per long rest.</content>
   <content contentuid="h5d2ebff9g097dg5189g8ee0g099883b519bb" version="1">Muramasa</content>
   <content contentuid="h6ecd1490g5da3g5b9cga598g1afb22f570ae" version="1">You and allies within 3 m of you regain 2d8 hit points. Once per short rest.</content>
   <content contentuid="h1aa2db41gfbbdg55a8ga5edg0ca32a57c96f" version="1">Murasame</content>
+  <content contentuid="h30db24b7gda5fg5aa7gba6egaa07539efc71" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you are Blessed (+1d4 to attack rolls and saving throws).</content>
+  <content contentuid="hc58b302cg3228g5c49g914bg6c21c10f6623" version="1">Nameless Song</content>
   <content contentuid="h15de29c1ga795g5483gbb65gea574ed08eb2" version="1">When a weapon attack hits you, the ground strikes back: the attacker takes 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11). Once per turn.</content>
   <content contentuid="h9f1958bdgea93g5d8cga106ga04382c8bfa2" version="1">Nature's Wrath</content>
   <content contentuid="h52980888gd4e4g5569gb857g115b93dfdf17" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest.</content>
@@ -270,6 +300,8 @@
   <content contentuid="hd482b6f7g690cg58ecg8ae4g02853068352c" version="1">Poach</content>
   <content contentuid="hfdb6e888g5d60g563fga4d6g40275d4bafa7" version="1">1d6 poison damage to a creature within 18 m; it is Poisoned for 2 turns unless it succeeds a Constitution save.</content>
   <content contentuid="h81ce24b7g0c25g5bbbgb6bag1329e8eb68c0" version="1">Poison</content>
+  <content contentuid="hbb8e08fbg3685g5798g84d8g9e09899daa0c" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you deal 2 less damage.</content>
+  <content contentuid="h5bd099fbg84cag5382g8b15ge4826d51e246" version="1">Polka</content>
   <content contentuid="h9c5ad605gc4c0g5badgaf8egfb8d789a921a" version="1">Heal 2d4+2. Touch range, or 9 m when thrown (Chemist primary job or Throw Items).</content>
   <content contentuid="hdc38429ag507eg5684g9080g79d18940ac4b" version="1">Potion</content>
   <content contentuid="hdd8f8841gfc3bg5d0fg91d8gfda8a2a22a5d" version="1">An ally within 18 m is Blessed for 3 turns (+1d4 to attack rolls and saving throws; FFT raises Bravery).</content>
@@ -318,6 +350,8 @@
   <content contentuid="h71e8e3e2g2fdfg5017gbcf0gf0e0affac3ba" version="1">Reraise</content>
   <content contentuid="h0989f318g3adbg5418g93c8g0b8754d22878" version="1">With a battle cry, bring a dead ally in melee range back to life with 2d8 hit points. Once per short rest.</content>
   <content contentuid="h80eefe59ge1b3g5eacgbbfeg21e56d55ea01" version="1">Revive</content>
+  <content contentuid="h3bb6e9e6ga331g5da2g8d3dg0382296f8d60" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +3 m movement.</content>
+  <content contentuid="h7a8434fcg7ca4g5c17gb06cg157e9af314e8" version="1">Rousing Melody</content>
   <content contentuid="h6a02edd4g776dg5ae4gbe92gb0a4ce3f3fc5" version="1">Melee weapon attack that also pushes the target 2 m.</content>
   <content contentuid="h27771a9dg0fcag5396gbf7eg0846d874e966" version="1">Rush</content>
   <content contentuid="h848bed46gc1e4g5aa9g889ag747c33a43f34" version="1">Enemies within 5 m of a point up to 18 m away take 6d8 fire damage (Dexterity save for half). Allies are spared. Once per long rest.</content>
@@ -326,6 +360,8 @@
   <content contentuid="hc97a5f6ag22afg5394g97dcgc0d4c94cc049" version="1">Salve</content>
   <content contentuid="h72ec2eebgda89g561bgb356g05a50b7c574c" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Blinded for 2 turns.</content>
   <content contentuid="h2faf27cegb2a9g5674gb142gf7c1a042be4f" version="1">Sandstorm</content>
+  <content contentuid="hfa75defeg68d9g5772gae29ge40b9dd41ac1" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get back a level 1 spell slot (once each per song). Once per short rest.</content>
+  <content contentuid="h94888e4fg83c8g5ca0ga1a9gfaaeb9b4d391" version="1">Seraph Song</content>
   <content contentuid="h59cd2ee9g52bbg50e8ga5adgdd2843e65e7b" version="1">The target has advantage on saving throws against spells for 5 turns. Once per turn.</content>
   <content contentuid="h3959f5deg7eecg515ega28ag9d26c6b424a8" version="1">Shell</content>
   <content contentuid="h20814256g9a8dg5005ga9b0gecb10ea5e0b8" version="1">When an attack hits you, use your reaction to take half damage (like Uncanny Dodge; switch it on or off on your passives bar).</content>
@@ -338,6 +374,8 @@
   <content contentuid="h108b7b00g31b6g520dg874bgfa34b31c6bea" version="1">Sinkhole</content>
   <content contentuid="h33941a53g3784g5485gaf11ga685858c5209" version="1">An enemy within 18 m makes a Wisdom save or is Slowed for 3 turns (BG3's Slow: -2 AC and Dexterity saves, half movement, no reactions; it repeats the save each turn). Once per short rest.</content>
   <content contentuid="h6c6f3f5dg095dg5990g9d77g52a1addcee69" version="1">Slow</content>
+  <content contentuid="h739d7496g2ecbg5ae3g9c89g64a69c147fc1" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have 3 m less movement.</content>
+  <content contentuid="h3503a99dge7e7g57cbgb7b6gfaf0e2970997" version="1">Slow Dance</content>
   <content contentuid="he51e52aag246ag52d9g8287gb787766b3e0b" version="1">Every enemy within 4 m of a point up to 18 m away makes a Wisdom save or is Slowed for 3 turns (as Slow). Once per long rest.</content>
   <content contentuid="h054094cag6411g5034g9138g8e1e1bb00af3" version="1">Slowja</content>
   <content contentuid="h8a28f77fg2903g5df4g80ccgbc1d0867b103" version="1">Only while you stand on ice. Enemies within 2 m of a point up to 18 m away take 1d6 cold damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Silenced for 2 turns.</content>
@@ -366,6 +404,8 @@
   <content contentuid="h0a4eb5f6gc584g5a82gbc12g258574632e81" version="1">Sticky Fingers</content>
   <content contentuid="hf16ab5ebgffc1g5577gb70bg7da9106c2c03" version="1">An enemy within 18 m makes a Wisdom save or is Stopped for 2 turns: it can't move or act, and melee hits on it are critical (it repeats the save each turn). Bosses are immune. Once per short rest.</content>
   <content contentuid="hc2b529e5g1e94g55bag9a4dgcfdd6e55faeb" version="1">Stop</content>
+  <content contentuid="hb03c3d86g0669g50eeg9676g1a9b013b559c" version="1">When you take damage, you deal +2 damage with weapon attacks for 10 turns.</content>
+  <content contentuid="h0a7e73c5gfe9ag5f05gb644g537f854a37ec" version="1">Strength Surge</content>
   <content contentuid="h8bfd65f2gf91ag581fg9540g6c24b3bbf48d" version="1">+2 to initiative, and in each fight the first spell you cast that costs an action costs a bonus action instead (FFT casts faster).</content>
   <content contentuid="h5ae275f6g03a1g5943g9af2gb05f39747b15" version="1">Swiftspell</content>
   <content contentuid="hbdffe073ga187g55d4gb182g668a79285398" version="1">Deep water doesn't slow you.</content>
@@ -450,12 +490,18 @@
   <content contentuid="h85d9dfecgb94fg565fg9a7dg87829aa281e0" version="1">Wind Blast</content>
   <content contentuid="h4c5186e4ga775g5d54g8fbeg2e9449967069" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 4 chance of being Disabled (no actions) for 1 turn.</content>
   <content contentuid="h09721384gd337g535bgb4cfg4b8fea1b05fb" version="1">Wind Slash</content>
+  <content contentuid="h4dfaec73g114dg5457g86eeg77992cf49ed7" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you get -2 to spell save DC and spell attack rolls (FFT drains MP).</content>
+  <content contentuid="h367ea07dgc5d6g5fc3g851dg8320ab557b44" version="1">Witch Hunt</content>
   <content contentuid="h554f4f19g0c0fg5edega867gd1109de5f992" version="1">Heal 8d4+8. Once per long rest. Thrown like Potion.</content>
   <content contentuid="h191dd1ecg0450g5e51g9b8bg32f1411f6c23" version="1">X-Potion</content>
   <content contentuid="h6528f541gc9c4g5206gab41g94edaf845a58" version="1">+1 to ranged weapon attack rolls. Earned by mastering Archer; kept after changing jobs.</content>
   <content contentuid="h21cb58aeg98d9g5708gb314gdf8aef30c801" version="1">Archer Mastery</content>
   <content contentuid="h95f76fb9g03c4g5b49gb5b7ge2e019021f67" version="1">Charged ranged shots. Equipment: shortbows, longbows, hand crossbows, light crossbows, heavy crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h90e77463gaf6ag56f1gba4cg4fe5c741343c" version="1">Job: Archer</content>
+  <content contentuid="h842a167fgb060g58b0g8711g87923a648318" version="1">+2 to Performance and Persuasion checks. Earned by mastering Bard; kept after changing jobs.</content>
+  <content contentuid="h3fb1c813g7609g58adga6e5gb253aac93ceb" version="1">Bard Mastery</content>
+  <content contentuid="he00f9383gfb4ag5500ga8c8g755c75d4e876" version="1">Sings for the party: songs that wrap your allies in healing, speed, strength or magick while you keep singing. Equipment: musical instruments, daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h37c5f474gccd8g5b0bg9040gbd664bbe9b4c" version="1">Job: Bard</content>
   <content contentuid="h96936b0eg0d00g5d42g8fa5gcc53705b17ba" version="1">+1 to spell attack rolls. Earned by mastering Black Mage; kept after changing jobs.</content>
   <content contentuid="h831bacd4ge31fg5083ga84fg3e657fdd6495" version="1">Black Mage Mastery</content>
   <content contentuid="h250a0471g31c9g579fgaaf5g4400101c5845" version="1">Elemental attack magic. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -464,6 +510,10 @@
   <content contentuid="ha0878788g1539g50aaga105g9011b9bad5f0" version="1">Chemist Mastery</content>
   <content contentuid="h32930831g3939g523ega2b3gb066b895d542" version="1">Item expert. Starting job. Throws items when it is the primary job. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h5a0e3fd8g4f51g51d1ga5f4g78bd01d0edcb" version="1">Job: Chemist</content>
+  <content contentuid="ha617f576g51f0g598bg9b02gbd56ddac55cb" version="1">Advantage on Acrobatics checks. Earned by mastering Dancer; kept after changing jobs.</content>
+  <content contentuid="ha1c6c7abgb73ag52c2gb1f6gc64d39775291" version="1">Dancer Mastery</content>
+  <content contentuid="h386ef383g8148g5e2bgb176g15aba4ddd92c" version="1">Dances against the enemy: dances that slow, weaken, curse or wound every foe around you while you keep dancing. Equipment: daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h80bb1dcag9a2eg59a8g952cg4d16a9d03a24" version="1">Job: Dancer</content>
   <content contentuid="he588a050g93a9g5344ga4d0g182e16af033a" version="1">Jump 3 m farther. Earned by mastering Dragoon; kept after changing jobs.</content>
   <content contentuid="h0e9db50ega9bfg5c6fgb895gd11d0d98189a" version="1">Dragoon Mastery</content>
   <content contentuid="h3d0ed583g1caeg5f41gac3egbe1cb3b48be5" version="1">Leaps on enemies with a polearm: Jump's reach and landing power grow with Horizontal and Vertical Jump. Equipment: spears, pikes, glaives, halberds, tridents, shields, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -526,6 +576,14 @@
   <content contentuid="hbbe1f996g1ed5g542bg9bedg0dd19af0cb4c" version="1">Auto-Potion Used</content>
   <content contentuid="h04b312e1g4bbcg5006gb557g32ea4053ee82" version="1">Can't cast spells; deals 2 more damage; -2 AC.</content>
   <content contentuid="h9b4d070bgc3ecg5722ga438gf8f1063905be" version="1">Berserk</content>
+  <content contentuid="h8e19df2aga343g5182g98bcgd135eecf8550" version="1">+1 to attack rolls.</content>
+  <content contentuid="h21c0628bgf118g5056gb057g3bece934a5a0" version="1">Bravery Surge</content>
+  <content contentuid="he7566c3cg79b7g5445gbf18g886356d85112" version="1">At the start of each turn: a 1 in 10 chance each of being Blinded, Silenced, Poisoned or Slowed.</content>
+  <content contentuid="h7ee591c9g4362g5f6egbf09gef56fd504293" version="1">Disadvantage on Intelligence, Wisdom and Charisma saving throws while the dance lasts.</content>
+  <content contentuid="hf821aadbg44aeg5e86g950bg30f84b8e3180" version="1">Takes 1d4 psychic damage at the start of each turn while the dance lasts.</content>
+  <content contentuid="h14a721b3g5594g5bbeg89f8g7013d1b1ca96" version="1">Deals 2 less damage while the dance lasts.</content>
+  <content contentuid="hc1253137ge71fg5e37g96e4g622a10dec09d" version="1">-3 m movement while the dance lasts.</content>
+  <content contentuid="h69bc740dg4df0g5054gacb2g47d6b166cee9" version="1">-2 to spell save DC and spell attack rolls while the dance lasts.</content>
   <content contentuid="h58eb9c17gbfa2g5284gace0g36ab6c5bd644" version="1">+2 AC until your next turn.</content>
   <content contentuid="hf229705fg5aecg55ebg9db3g1ae543b05c6e" version="1">Defending</content>
   <content contentuid="h3a11a39ag6777g5a2agae86g19402ab61a13" version="1">Can't take actions or bonus actions, but can move.</content>
@@ -544,6 +602,8 @@
   <content contentuid="he5083c5ag3cd4g56bcg804dgc1c90f6d0b93" version="1">Golem</content>
   <content contentuid="h2c97c5f0g60f7g5b47gbfc7g4197ec4003d7" version="1">Can't move, but can still act. Repeats the Strength save each turn.</content>
   <content contentuid="hefcc5bdega8a1g50ccg9014gec0e6196f422" version="1">Immobilize</content>
+  <content contentuid="h4af99c3aga873g5183ga3fdgcd2551826c5a" version="1">+1 to spell attack rolls and spell save DC.</content>
+  <content contentuid="hdaed2399geb66g539eg97eeg6e5a29019fb3" version="1">Magick Surge</content>
   <content contentuid="hda2ce899ga8deg5eaaga615gdfd2f03e4ffb" version="1">+2 AC.</content>
   <content contentuid="h0e16631cg257cg5438g9283g28c99ab90b53" version="1">Protect</content>
   <content contentuid="h16db5dabg9690g57f7g8d7eg6e3f19cc1fba" version="1">An extra action this turn.</content>
@@ -564,12 +624,20 @@
   <content contentuid="h9e72afe7g9617g5d02g884eg68e2d208d9a0" version="1">Weapon Rent</content>
   <content contentuid="h4677c8c1g05f5g551bga058g133c6c8d3330" version="1">Advantage on saving throws against spells.</content>
   <content contentuid="hf59dc2aeg0a58g57f7gbcf1g7067c6361a1b" version="1">Shell</content>
+  <content contentuid="hf1e92448gaffbg5d30g8e00g5e130bfb3116" version="1">+1 to attack rolls and +1 damage while the song lasts.</content>
+  <content contentuid="h7315e8c0g24f7g58d7gbfd0gd760a76f6bed" version="1">Regains 1d4 hit points at the start of each turn while the song lasts.</content>
+  <content contentuid="h655c7758g2793g554ag9c73g21c37ffa6d15" version="1">Blessed: +1d4 to attack rolls and saving throws while the song lasts.</content>
+  <content contentuid="h6fe01358g66a3g5a98ga222gc32b47d649b5" version="1">+1 to spell attack rolls and spell save DC while the song lasts.</content>
+  <content contentuid="h4ef14823ga0edg553agb8ddg0f4772349dcb" version="1">+3 m movement while the song lasts.</content>
+  <content contentuid="h6ce851e9g7bcag5f56g8bccg036fea276a45" version="1">Got back a level 1 spell slot from the song.</content>
   <content contentuid="h04f3c12cg2948g542ag9876gd0281fae51f5" version="1">+3 m movement.</content>
   <content contentuid="hef5cc892g7ddfg50d1g9762gef2f15354b7b" version="1">Speed Surge</content>
   <content contentuid="h78ba7c7eg2383g5f16g914fgaed64b794074" version="1">Petrified: incapacitated and resistant to all damage.</content>
   <content contentuid="h70739040g7725g5808g9391g633ddb19a3e1" version="1">Stone</content>
   <content contentuid="h71f52b98g29d9g53e2g934ag37da2f90cadb" version="1">Frozen in time: can't move or act; melee hits are critical. Repeats the Wisdom save each turn.</content>
   <content contentuid="h4d9c9a90g2469g56b8gbe17g69a307d9c623" version="1">Stop</content>
+  <content contentuid="h830af21eg7a1fg5c34ga309g333619ff5fb3" version="1">+2 damage with weapon attacks.</content>
+  <content contentuid="h7d0197bfgc40cg5a15g849agba3e459335e8" version="1">Strength Surge</content>
   <content contentuid="h1b5242a7gd130g5bc1g9800g8b27e64a7774" version="1">The next spell that costs an action costs a bonus action instead.</content>
   <content contentuid="h4a65bd4bgce9cg530egb345g55acab570243" version="1">Swiftspell</content>
   <content contentuid="hbf7fe01cg328fg57bbg8c48gc79d9e80ce56" version="1">Tamed by an Orator: fights for the Orator's party on its own until this runs out.</content>

@@ -3,7 +3,27 @@
     "id": "Action_Barbarian_Rage",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_BERSERK"
+      "FFTJ_BERSERK",
+      "FFTJ_BRAVERY_SURGE",
+      "FFTJ_BraverySurge",
+      "FFTJ_FaithSurge",
+      "FFTJ_MAGICK_SURGE",
+      "FFTJ_MagickSurge",
+      "FFTJ_SONG_BATTLE",
+      "FFTJ_SONG_BATTLE_FX",
+      "FFTJ_STRENGTH_SURGE",
+      "FFTJ_StrengthSurge",
+      "Shout_FFTJ_BattleChant"
+    ]
+  },
+  {
+    "id": "Action_Bard_SongOfRest",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SONG_SERAPH",
+      "FFTJ_SONG_SERAPH_FX",
+      "Shout_FFTJ_Finale",
+      "Shout_FFTJ_SeraphSong"
     ]
   },
   {
@@ -18,7 +38,12 @@
     "id": "Action_Monk_StepOfTheWind_Dash",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Reflexes"
+      "FFTJ_JumpPlus3",
+      "FFTJ_MovementPlus3",
+      "FFTJ_Reflexes",
+      "FFTJ_SONG_ROUSING",
+      "FFTJ_SONG_ROUSING_FX",
+      "Shout_FFTJ_RousingMelody"
     ]
   },
   {
@@ -302,6 +327,9 @@
     "id": "Spell_Divination_Guidance",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_SONG_REFRAIN",
+      "FFTJ_SONG_REFRAIN_FX",
+      "Shout_FFTJ_MagickalRefrain",
       "Target_FFTJ_Preach"
     ]
   },
@@ -309,6 +337,9 @@
     "id": "Spell_Enchantment_Bane",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_DANCE_POLKA",
+      "FFTJ_DANCE_POLKA_FX",
+      "Shout_FFTJ_Polka",
       "Target_FFTJ_Intimidate"
     ]
   },
@@ -317,6 +348,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_FAITH",
+      "FFTJ_SONG_NAMELESS",
+      "FFTJ_SONG_NAMELESS_FX",
+      "Shout_FFTJ_NamelessSong",
       "Target_FFTJ_Praise"
     ]
   },
@@ -332,7 +366,20 @@
     "id": "Spell_Enchantment_Confusion",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_DANCE_FROLIC",
+      "FFTJ_DANCE_FROLIC_FX",
+      "Shout_FFTJ_HeathenFrolic",
       "Shout_FFTJ_Muramasa"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_CrownOfMadness",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_DANCE_FORBIDDEN",
+      "FFTJ_DANCE_FORBIDDEN_FX",
+      "Shout_FFTJ_ForbiddenDance",
+      "Shout_FFTJ_LastWaltz"
     ]
   },
   {
@@ -368,6 +415,9 @@
     "id": "Spell_Enchantment_ViciousMockery",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_DANCE_MINUET",
+      "FFTJ_DANCE_MINUET_FX",
+      "Shout_FFTJ_MincingMinuet",
       "Target_FFTJ_Insult"
     ]
   },
@@ -393,6 +443,15 @@
     ]
   },
   {
+    "id": "Spell_Evocation_MassHealingWord",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SONG_LIFE",
+      "FFTJ_SONG_LIFE_FX",
+      "Shout_FFTJ_LifesAnthem"
+    ]
+  },
+  {
     "id": "Spell_Illusion_Invisibility",
     "kind": "icon",
     "usedBy": [
@@ -403,7 +462,10 @@
     "id": "Spell_Illusion_Silence",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_DANCE_WITCH",
+      "FFTJ_DANCE_WITCH_FX",
       "Shout_FFTJ_BizenOsafune",
+      "Shout_FFTJ_WitchHunt",
       "Target_FFTJ_Quiescence"
     ]
   },
@@ -448,6 +510,9 @@
     "id": "Spell_Transmutation_Slow",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_DANCE_SLOW",
+      "FFTJ_DANCE_SLOW_FX",
+      "Shout_FFTJ_SlowDance",
       "Target_FFTJ_Stall"
     ]
   },
@@ -534,6 +599,7 @@
     "id": "BLINDED",
     "kind": "status",
     "usedBy": [
+      "FFTJ_DANCE_FORBIDDEN_FX",
       "Target_FFTJ_Esuna",
       "Target_FFTJ_EyeDrops",
       "Target_FFTJ_Remedy",
@@ -650,6 +716,7 @@
     "id": "POISONED",
     "kind": "status",
     "usedBy": [
+      "FFTJ_DANCE_FORBIDDEN_FX",
       "Projectile_FFTJ_Poison",
       "Target_FFTJ_Antidote",
       "Target_FFTJ_Esuna",
@@ -788,6 +855,7 @@
     "id": "SILENCED",
     "kind": "status",
     "usedBy": [
+      "FFTJ_DANCE_FORBIDDEN_FX",
       "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_Purification",
       "Target_FFTJ_EchoHerbs",
@@ -812,6 +880,7 @@
     "id": "SLOW",
     "kind": "status",
     "usedBy": [
+      "FFTJ_DANCE_FORBIDDEN_FX",
       "Shout_FFTJ_AmeNoMurakumo",
       "Target_FFTJ_Slow",
       "Target_FFTJ_WindBlast"
@@ -888,6 +957,13 @@
       "Projectile_FFTJ_Fira",
       "Projectile_FFTJ_Firaga",
       "Projectile_FFTJ_ThrowBombs"
+    ]
+  },
+  {
+    "id": "Projectile_Fly",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_Fly"
     ]
   },
   {
@@ -983,6 +1059,24 @@
       "Shout_FFTJ_Focus",
       "Shout_FFTJ_JPTraining",
       "Shout_FFTJ_JobBoard"
+    ]
+  },
+  {
+    "id": "Shout_SongOfRest",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Shout_FFTJ_BattleChant",
+      "Shout_FFTJ_ForbiddenDance",
+      "Shout_FFTJ_HeathenFrolic",
+      "Shout_FFTJ_LifesAnthem",
+      "Shout_FFTJ_MagickalRefrain",
+      "Shout_FFTJ_MincingMinuet",
+      "Shout_FFTJ_NamelessSong",
+      "Shout_FFTJ_Polka",
+      "Shout_FFTJ_RousingMelody",
+      "Shout_FFTJ_SeraphSong",
+      "Shout_FFTJ_SlowDance",
+      "Shout_FFTJ_WitchHunt"
     ]
   },
   {
@@ -1360,6 +1454,13 @@
     "kind": "using parent (StatusData)",
     "usedBy": [
       "FFTJ_QUICK"
+    ]
+  },
+  {
+    "id": "BLESS",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_SONG_NAMELESS_FX"
     ]
   },
   {

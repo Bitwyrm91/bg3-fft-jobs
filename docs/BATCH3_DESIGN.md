@@ -14,14 +14,13 @@ Iaido = shouts around the Samurai (enemies only for damage; Murasame, Kiyomori, 
 
 - Equip: daggers, shortswords (ninja blades), flails, light armour. Innate: Dual Wield (also a 1000 JP support for
   other jobs): BG3's Two-Weapon Fighting style (off-hand attacks add your ability modifier).
-- Throw (12 actions, TIC: throws the item from the inventory): ranged attacks at 18 m that need no item (BG3
-  inventory juggling would be a chore), damage by FFT item type: shuriken 1d6 piercing, bomb 1d6 fire in 1.5 m,
-  dagger 1d4, sword/knight's sword/katana/ninja blade 1d8 slashing, flail/pole/book 1d6 bludgeoning, axe 1d8 slashing,
-  polearm 1d10 piercing; at will (each costs the action).
+- Throw (12 actions, TIC: throws the item from the inventory): built as javelin throws at 18 m that use up no
+  item, Dexterity save against the physical DC, 1d6 to 2d6 by item type + the better of Str/Dex; bombs 2d6 fire in
+  2 m. Once per turn each.
 - Vanish (reaction): turn invisible when a weapon attack hits you. Reflexes: +1 AC and advantage on Dexterity saves.
   Waterwalking: water neither slows you nor leaves you Wet.
 
-## Bard and Dancer (open to everyone: PHASE2.md)
+## Bard and Dancer (open to everyone: PHASE2.md): BUILT in v1.0.0.16
 
 FFT: the performer keeps singing or dancing each turn, and every ally (song) or foe (dance) feels it each turn.
 BG3: a concentration shout that wraps the performer in an aura (vanilla aura statuses, 9 m) for up to 3 turns;

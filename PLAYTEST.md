@@ -2,6 +2,14 @@
 
 Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.11**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
 
+## New in 1.0.0.16: Bard and Dancer (open to everyone)
+
+- **Performances** (Bard unlock: Summoner Lv5 + Orator Lv5; Dancer: Geomancer Lv5 + Dragoon Lv5). A song or dance takes your action and your concentration and lasts up to 3 turns; everyone within 9 m of you feels it while they stay close (one performance at a time).
+  - **Bard songs** (you and allies): Seraph Song (a level 1 spell slot back, once per short rest), Life's Anthem (1d4 HP each turn, once per short rest), Rousing Melody (+3 m), Battle Chant (+1 attack and damage), Magickal Refrain (+1 spell attack and DC), Nameless Song (Blessed). **Finale**: allies within 9 m get an extra action next turn (once per long rest).
+  - **Dancer dances** (enemies): Witch Hunt (-2 spell DC and spell attacks), Mincing Minuet (1d4 psychic each turn), Slow Dance (-3 m), Polka (2 less damage), Heathen Frolic (disadvantage on Int/Wis/Cha saves), Forbidden Dance (random ailments). **Last Waltz**: enemies within 9 m may lose their next turn (once per long rest).
+  - Reactions: Magick Surge / Faith Surge (Bard), Strength Surge / Bravery Surge (Dancer): a 10-turn boost when you're hurt. Movement: **Fly** (both), Movement +3 (Bard), Jump +3 (Dancer).
+- Worth checking: do allies get the song's status when they walk into the 9 m circle, and lose it when they leave or the song ends?
+
 ## New in 1.0.0.15: Ninja
 
 - **Ninja** (unlock: Archer Lv4, Thief Lv5, Geomancer Lv2): **Throw** anything at a creature up to 18 m away, once per turn each and without using up items: shuriken, daggers, swords, flails, katana, ninja blades, axes, polearms, poles, knight's swords and books (1d6 to 2d6 by type, + your better of Strength and Dexterity; the target's Dexterity save avoids it), and **bombs** (2d6 fire on enemies within 2 m). **Dual Wield** is always on for Ninjas (Two-Weapon Fighting + non-light weapons in both hands) and a support for other jobs. **Vanish**: turn invisible when a weapon hits you (once per combat; attacking ends it). **Reflexes**: +1 AC, advantage on Dexterity saves. **Waterwalking**: deep water doesn't slow you and nothing makes you Wet. Mastery: advantage on Stealth.
