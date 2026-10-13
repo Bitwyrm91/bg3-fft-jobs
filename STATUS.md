@@ -42,9 +42,19 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **1.0.0.18 (2026-10-12 late night):** **Arithmetician** = all 20 TIC jobs implemented (user: hits everyone whose number fits; magick loaded on the Job Board). Build: Spell_FFTJ_Arith.txt = a free single-target `<spell>_Arith` twin (UseCosts/Cooldown empty, AreaRadius/ExplodeRadius 0, TargetConditions not Dead(), range 40) for every Target_/Projectile_ action spell of White/Black/Time Mage and Mystic (47), Data.ArithMagicks, Data.ArithRules. Server: SetArith (board op), CastArithmeticks (rule shout → Osi.UseSpell of the twin at every in-combat creature within 30 m whose number fits: Level / HP / MaxHP / distance; _Arith casts don't earn JP), Accrue EXP/JP on TurnStarted, EXP Boost at CombatEnded (Abilities.* config). View.Arith + JobBoard:RenderArith. Tests simulate an unbuilt job where needed. 131 tests. Next: pacing retune for 20 jobs, Mime emblem (ask about the GPU), then phase 2 step 3 (Dark Knight, Onion Knight).
 
+**Pacing retune for 20 jobs (2026-10-13, scheduled run while the user was away; ships with the next installed version):** `tools/pacing_sim.py` plans now cover all 20 jobs along the unlock tree (`pick_job`: master the plan's jobs in order, level the missing prerequisite when the next one is locked; Mime mastered at job level 8 as in `Rules.IsMastered`; implemented jobs missing from a plan join its end), and the report shows jobs unlocked per act and when every job is open in the party. Target (user): a TYPICAL playthrough opens every job in the party by Act 3 and each fighter masters about half. New Classic = action ×0.8, 0.24 JP per XP, victory 25 + 2/level, long rest 40 (the old Fast); Fast 1.3 / 0.4 / 40 + 3 / 65; Grindy 0.45 / 0.13 / 14 + 1 / 20; PureFFT unchanged. Classic TYPICAL: 8-11 of 20 mastered per fighter, every job open at A2.25; LOW 5-7; HIGH 17-18. `--selftest` checks the new target. DESIGN section 14 regenerated, PLAYTEST "Changing how fast JP comes" updated. 131 tests pass.
+
 **NEXT: phase 2, decided with the user on 2026-10-12. Read `docs/PHASE2.md`** (every FFT job from every version, Fell Seal rules, the Soul Collector monster job; build order and ground rules: no icons for now, no GitHub push unless asked, preserve usage).
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
+
+## Decisions made while you were away (2026-10-13 scheduled run)
+
+The user asked this run not to ask questions. Every choice below is a default you can change; tell me which to redo.
+
+1. **Pacing target, measured:** "opens every job by Act 3" = every job unlocked for at least one party member by the end of Act 3 (unlocks stay per character; the party sees them); "masters about half" = each of the four fighters masters 8+ of the 20 jobs in TYPICAL. Result: 8-11 mastered, every job open at fight 25 of Act 2.
+2. **Simulated players:** one fighter (the Healer plan) chases Mime right after its first four jobs, as FFT players do; the others master their branch first. Without a Mime chaser no plan reaches Mime before mastering 19 jobs.
+3. **Classic became the old Fast** (+60% JP) instead of raising one source: all four income sources keep their old proportions. Fast and Grindy keep their old ratios to Classic (≈1.6× and ≈0.55×). PureFFT stays FFT's own numbers as the reference.
 
 ## Roadmap (user, 2026-10-11)
 

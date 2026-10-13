@@ -5158,7 +5158,7 @@ return {
         PerJobLevel = 2,
         CharLevelDivisor = 4,
         EnhancedBonus = 0.3,
-        Multiplier = 0.5,
+        Multiplier = 0.8,
         BonusActionWeight = 1.0,
         CountOutOfCombat = false,
         RequireActionCost = true,
@@ -5183,14 +5183,14 @@ return {
         },
       },
       Victory = {
-        Base = 15,
-        PerCharLevel = 1,
+        Base = 25,
+        PerCharLevel = 2,
       },
-      XPShare = 0.15,
+      XPShare = 0.24,
       Camp = {
         Share = 0.5,
       },
-      LongRest = 25,
+      LongRest = 40,
       Boost = {
         Multiplier = 1.5,
         Action = true,
@@ -5252,7 +5252,7 @@ return {
   },
   Presets = {
     Classic = {
-      Description = "Default. Includes shared learning: 15% of every JP gain also goes into the other jobs the party used in combat. Even a light playthrough masters 4+ jobs (see DESIGN.md, Pacing).",
+      Description = "Default. Includes shared learning: 15% of every JP gain also goes into the other jobs the party used in combat. Tuned for the 20 FFT jobs: a typical playthrough opens every job in the party by Act 3 and each fighter masters about half of them (see DESIGN.md, Pacing).",
       Values = {},
     },
     Fast = {
@@ -5260,14 +5260,14 @@ return {
       Values = {
         JP = {
           Action = {
-            Multiplier = 0.8,
+            Multiplier = 1.3,
           },
-          XPShare = 0.24,
+          XPShare = 0.4,
           Victory = {
-            Base = 25,
-            PerCharLevel = 2,
+            Base = 40,
+            PerCharLevel = 3,
           },
-          LongRest = 40,
+          LongRest = 65,
         },
       },
     },
@@ -5276,14 +5276,14 @@ return {
       Values = {
         JP = {
           Action = {
-            Multiplier = 0.3,
+            Multiplier = 0.45,
           },
-          XPShare = 0.08,
+          XPShare = 0.13,
           Victory = {
-            Base = 8,
+            Base = 14,
             PerCharLevel = 1,
           },
-          LongRest = 10,
+          LongRest = 20,
         },
       },
     },

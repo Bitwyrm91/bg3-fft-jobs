@@ -179,13 +179,13 @@ All numbers can be changed without touching the mod:
 
 - **Presets:** `!fft_preset Fast` (about 1.6x), `!fft_preset Grindy` (about half), `!fft_preset Classic` (default).
 - **One knob for everything:** `!fft_mult 1.5` (50% more JP from every source), `!fft_mult 0.75` (25% less).
-- **One source:** `!fft_set JP.XPShare 0.2` (more JP from XP), `!fft_set JP.Action.Multiplier 0.8` (more JP per action), `!fft_set JP.Victory.Base 30`. Undo with `!fft_unset JP.XPShare`.
+- **One source:** `!fft_set JP.XPShare 0.3` (more JP from XP; default 0.24), `!fft_set JP.Action.Multiplier 1.0` (more JP per action; default 0.8), `!fft_set JP.Victory.Base 35` (default 25). Undo with `!fft_unset JP.XPShare`.
 - **Shared learning:** `!fft_set JP.Shared.Share 0.1` (10% instead of 15%), `!fft_set JP.Shared.Share 0` (off), `!fft_set JP.Shared.Scope AllJobs` (into every job, not only the ones used in combat).
 - `!fft_config` shows every current value.
 
 Changes are saved to `%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\Script Extender\FFTJobs\config.json`. You can also edit that file and type `!fft_reload`. `config.reference.json` in the same folder lists every setting with a short explanation.
 
-With the default (Classic) numbers, the simulator estimates that each party member masters all 6 jobs by the end of Act 3, even in a light playthrough (a normal one has 5 by the end of Act 2). That is quick on purpose for this 6-job test; the numbers get re-tuned when the other 14 jobs are added.
+**Re-tuned for all 20 jobs (2026-10-13, the target you agreed):** with the default (Classic) numbers, the simulator estimates that a normal playthrough opens every job for someone in the party by late Act 2 and that each fighter masters 8-11 of the 20 jobs by the end of Act 3 (a light, story-focused one 5-7; a completionist 17-18). Classic now gives about 1.6x the JP it gave in the 6-job test (action JP 0.8, 0.24 JP per XP, victory 25 + 2 per level, long rest 40), and Fast and Grindy moved with it. Mastering every job costs 98,220 JP, so it stays a goal for long runs or the Fast preset. Numbers you changed yourself with `!fft_set` stay as you set them (they live in `config.json`).
 
 ## What to report
 

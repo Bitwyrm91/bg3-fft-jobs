@@ -37,14 +37,28 @@ ESTIMATES = {
     "HIGH": {"fights": [65, 40, 65], "casts": 9, "bonusShare": 0.25, "xp": [30000, 75000, 100000], "rests": [16, 12, 16]},
 }
 
-# The party: four fighters (active party) and two companions waiting in camp, each with a job plan.
+# The party: four fighters (active party) and two companions waiting in camp, each with a job plan along the unlock
+# tree. A character masters the jobs of its plan in order; when the next one is still locked it levels the missing
+# prerequisite first (pick_job). Implemented jobs missing from a plan are appended at its end.
 PARTY = [
-    {"name": "Fighter", "active": True, "order": ["Squire", "Knight", "Archer", "Chemist", "WhiteMage", "BlackMage"]},
-    {"name": "Caster", "active": True, "order": ["Chemist", "BlackMage", "WhiteMage", "Squire", "Knight", "Archer"]},
-    {"name": "Healer", "active": True, "order": ["Chemist", "WhiteMage", "Squire", "Archer", "Knight", "BlackMage"]},
-    {"name": "Ranger", "active": True, "order": ["Squire", "Archer", "Chemist", "WhiteMage", "Knight", "BlackMage"]},
-    {"name": "Camp A", "active": False, "order": ["Squire", "Knight", "Archer", "Chemist", "WhiteMage", "BlackMage"]},
-    {"name": "Camp B", "active": False, "order": ["Chemist", "WhiteMage", "BlackMage", "Squire", "Knight", "Archer"]},
+    {"name": "Fighter", "active": True, "order": [
+        "Squire", "Knight", "Monk", "Archer", "Thief", "Geomancer", "Dragoon", "Samurai", "Ninja", "Dancer",
+        "Chemist", "WhiteMage", "BlackMage", "Mystic", "TimeMage", "Orator", "Summoner", "Bard", "Arithmetician", "Mime"]},
+    {"name": "Caster", "active": True, "order": [
+        "Chemist", "BlackMage", "WhiteMage", "TimeMage", "Mystic", "Summoner", "Orator", "Arithmetician", "Bard",
+        "Squire", "Knight", "Archer", "Monk", "Thief", "Geomancer", "Dragoon", "Dancer", "Samurai", "Ninja", "Mime"]},
+    {"name": "Healer", "active": True, "order": [
+        "Chemist", "WhiteMage", "Mystic", "Orator", "Mime", "BlackMage", "TimeMage", "Summoner", "Bard",
+        "Arithmetician", "Squire", "Archer", "Knight", "Monk", "Thief", "Geomancer", "Dragoon", "Dancer", "Ninja", "Samurai"]},
+    {"name": "Ranger", "active": True, "order": [
+        "Squire", "Archer", "Thief", "Dragoon", "Chemist", "Knight", "Monk", "Geomancer", "Ninja", "Dancer",
+        "WhiteMage", "BlackMage", "Samurai", "Mystic", "TimeMage", "Orator", "Summoner", "Bard", "Arithmetician", "Mime"]},
+    {"name": "Camp A", "active": False, "order": [
+        "Squire", "Knight", "Archer", "Monk", "Thief", "Chemist", "Geomancer", "Dragoon", "WhiteMage", "BlackMage",
+        "Samurai", "Ninja", "Mystic", "TimeMage", "Orator", "Summoner", "Dancer", "Bard", "Arithmetician", "Mime"]},
+    {"name": "Camp B", "active": False, "order": [
+        "Chemist", "WhiteMage", "BlackMage", "Mystic", "TimeMage", "Squire", "Knight", "Archer", "Orator", "Summoner",
+        "Monk", "Thief", "Arithmetician", "Bard", "Geomancer", "Dragoon", "Dancer", "Samurai", "Ninja", "Mime"]},
 ]
 
 
@@ -163,7 +177,7 @@ class Char:
     def __init__(self, plan, jobs, abilities, cfg):
         self.name = plan["name"]
         self.active = plan["active"]
-        self.order = plan["order"]
+        self.order = [j for j in plan["order"] if j in jobs] + [j for j in jobs if j not in plan["order"]]
         self.earned = {j: 0.0 for j in jobs}
         self.unspent = {j: 0.0 for j in jobs}
         self.learned = set()
@@ -210,8 +224,34 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
             for t in shared_targets(jp, impl, j, c.unlocked, fight_jobs):
                 credit(c, t, share, "Shared")
 
+    top_level = len(th) + 1
+
     def mastered(c, j):
+        # like Rules.IsMastered: a job without abilities (Mime) is mastered at the top job level
+        if not by_job[j]:
+            return j in c.unlocked and level_of(c, j) >= top_level
         return all(a in c.learned for a in by_job[j])
+
+    def route(c, j, seen):
+        """The job to work in to get j: j itself once unlocked, else the first prerequisite below its level."""
+        if j in c.unlocked:
+            return j
+        for r in unlock_rules[j]:
+            if "job" in r and r["job"] in impl and r["job"] not in seen and level_of(c, r["job"]) < r["level"]:
+                got = route(c, r["job"], seen | {j})
+                if got:
+                    return got
+        return None
+
+    def pick_job(c):
+        """The first job of the plan not mastered yet, or the prerequisite that opens it."""
+        for j in c.order:
+            if j in c.unlocked and mastered(c, j):
+                continue
+            got = route(c, j, set())
+            if got:
+                return got
+        return c.primary
 
     def unlock(c, when):
         # badge requirements are left out: the simulated party is assumed to have found every badge
@@ -232,11 +272,7 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
                 c.mastered_at[j] = when
         if jp_boost and "JPBoost" in c.learned:
             c.boost = True
-        if mastered(c, c.primary):
-            for j in c.order:
-                if j in c.unlocked and not mastered(c, j):
-                    c.primary = j
-                    break
+        c.primary = pick_job(c)
 
     xp = 0.0
     fight_no = 0
@@ -303,30 +339,51 @@ def summary_rows(jobs_doc, cfg_doc, presets, sets, jp_boost):
             party, _ = simulate(jobs_doc, cfg, est, jp_boost)
             fighters = [c for c in party if c.active]
             camp = [c for c in party if not c.active]
-            per_act = []
-            for act in (1, 2, 3):
-                counts = [sum(1 for w in c.mastered_at.values() if act_of(w) <= act) for c in fighters]
-                per_act.append(f"{min(counts)}-{max(counts)}" if min(counts) != max(counts) else str(min(counts)))
+            def span(counts):
+                return f"{min(counts)}-{max(counts)}" if min(counts) != max(counts) else str(min(counts))
+
+            mastered_by = [span([sum(1 for w in c.mastered_at.values() if act_of(w) <= act) for c in fighters]) for act in (1, 2, 3)]
+            unlocked_by = [span([sum(1 for w in c.unlocked_at.values() if act_of(w) <= act) for c in fighters]) for act in (1, 2, 3)]
             camp_m = [len(c.mastered_at) for c in camp]
-            first = min((w for c in fighters for w in c.mastered_at.values()), key=lambda w: (act_of(w), int(w.split('.')[1])), default="-")
+            first = min((w for c in fighters for w in c.mastered_at.values()), key=fight_key, default="-")
+            all_open = party_all_open(party, jobs_doc)
             avg_total = sum(c.total for c in fighters) / len(fighters)
             rows.append({
                 "preset": preset, "estimate": est, "jp": avg_total, "camp_jp": sum(c.total for c in camp) / len(camp),
-                "act1": per_act[0], "act2": per_act[1], "act3": per_act[2], "camp": f"{min(camp_m)}-{max(camp_m)}",
-                "first": first, "tree": avg_total / tree_jp, "min_mastered": min(len(c.mastered_at) for c in fighters),
+                "mastered": mastered_by, "unlocked": unlocked_by, "all_open": all_open or "never",
+                "camp": span(camp_m), "first": first, "tree": avg_total / tree_jp,
+                "min_mastered": min(len(c.mastered_at) for c in fighters),
+                "min_unlocked": min(len(c.unlocked_at) for c in fighters),
             })
     return rows
 
 
+def fight_key(when):
+    return (act_of(when), 0 if when in (None, "start") else int(when.split(".")[1]))
+
+
+def party_all_open(party, jobs_doc):
+    """When the last job became open to someone in the party (FFT unlocks are per character; the party sees them)."""
+    impl = [j["id"] for j in jobs_doc["jobs"] if j.get("implemented")]
+    firsts = []
+    for j in impl:
+        times = [c.unlocked_at[j] for c in party if j in c.unlocked_at]
+        if not times:
+            return None
+        firsts.append(min(times, key=fight_key))
+    return max(firsts, key=fight_key)
+
+
 def print_summary(rows, markdown):
-    head = ["Preset", "Estimate", "JP per fighter", "Fighters' jobs mastered by end of Act 1 / 2 / 3", "Camp members' jobs mastered",
-            "First mastery", "JP vs full TIC tree unlock need"]
+    head = ["Preset", "Estimate", "JP per fighter", "Jobs mastered per fighter, end of Act 1 / 2 / 3",
+            "Jobs unlocked per fighter, end of Act 1 / 2 / 3", "Every job open in the party", "Camp members' jobs mastered",
+            "First mastery"]
     if markdown:
         print("| " + " | ".join(head) + " |")
         print("|" + "---|" * len(head))
     for r in rows:
-        cells = [r["preset"], r["estimate"], f"{r['jp']:,.0f}", f"{r['act1']} / {r['act2']} / {r['act3']}", r["camp"],
-                 r["first"], f"{r['tree']:.1f}x"]
+        cells = [r["preset"], r["estimate"], f"{r['jp']:,.0f}", " / ".join(r["mastered"]), " / ".join(r["unlocked"]),
+                 r["all_open"], r["camp"], r["first"]]
         if markdown:
             print("| " + " | ".join(cells) + " |")
         else:
@@ -337,17 +394,22 @@ def print_detail(jobs_doc, cfg, estimate, jp_boost, markdown):
     party, total_fights = simulate(jobs_doc, cfg, estimate, jp_boost)
     impl = [j["id"] for j in jobs_doc["jobs"] if j.get("implemented")]
     names = {j["id"]: j["name"] for j in jobs_doc["jobs"]}
-    head = ["Character"] + [names[j] for j in impl] + ["JP total"]
-    if markdown:
-        print("| " + " | ".join(head) + " |")
-        print("|" + "---|" * len(head))
-    for c in party:
-        cells = [c.name + ("" if c.active else " (camp)")]
-        for j in impl:
+    # one row per job (20+ jobs don't fit as columns), one column per character
+    head = ["Job"] + [c.name + ("" if c.active else " (camp)") for c in party]
+    rows = []
+    for j in impl:
+        cells = [names[j]]
+        for c in party:
             u = c.unlocked_at.get(j, "-")
             m = c.mastered_at.get(j)
             cells.append(f"{u} / **{m}**" if (m and markdown) else f"{u} / {m or '-'}")
-        cells.append(f"{c.total:,.0f}")
+        rows.append(cells)
+    rows.append(["Jobs mastered"] + [str(len(c.mastered_at)) for c in party])
+    rows.append(["JP total"] + [f"{c.total:,.0f}" for c in party])
+    if markdown:
+        print("| " + " | ".join(head) + " |")
+        print("|" + "---|" * len(head))
+    for cells in [head] * (not markdown) + rows:
         if markdown:
             print("| " + " | ".join(cells) + " |")
         else:
@@ -410,12 +472,24 @@ def selftest(jobs_doc, cfg_doc):
         if got != want:
             print(f"selftest: expected {want}, got {got}")
             ok = False
+    # The pacing target (user, 2026-10-12): a TYPICAL playthrough opens every job in the party by Act 3 and each
+    # fighter masters about half of the 20 jobs; even a LOW (story-focused) one masters 5.
     preset = cfg_doc["defaultPreset"]
     cfg = effective_config(cfg_doc, preset, [])
     party, _ = simulate(jobs_doc, cfg, "LOW")
     worst = min(len(c.mastered_at) for c in party if c.active)
-    if worst < 4:
+    if worst < 5:
         print(f"selftest: pacing target missed: in the LOW estimate a fighter masters only {worst} jobs with {preset}")
+        ok = False
+    party, _ = simulate(jobs_doc, cfg, "TYPICAL")
+    typical = min(len(c.mastered_at) for c in party if c.active)
+    n_jobs = sum(1 for j in jobs_doc["jobs"] if j.get("implemented"))
+    if typical < int(n_jobs * 0.4):
+        print(f"selftest: pacing target missed: in the TYPICAL estimate a fighter masters only {typical} of {n_jobs} jobs with {preset}")
+        ok = False
+    opened = party_all_open(party, jobs_doc)
+    if opened is None or act_of(opened) > 3:
+        print(f"selftest: pacing target missed: in the TYPICAL estimate some job never opens in the party with {preset}")
         ok = False
     totals = {}
     for p in ("Grindy", preset, "Fast"):
@@ -425,7 +499,8 @@ def selftest(jobs_doc, cfg_doc):
         print(f"selftest: presets out of order: {totals}")
         ok = False
     print("pacing simulator self-test " + ("OK" if ok else "FAILED")
-          + f" (LOW estimate, {preset}: every fighter masters {worst}+ jobs)")
+          + f" ({preset}: every fighter masters {worst}+ jobs in LOW, {typical}+ of {n_jobs} in TYPICAL;"
+          + f" every job open in the party at {opened})")
     return 0 if ok else 1
 
 

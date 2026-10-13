@@ -280,7 +280,7 @@ Console commands (`who` = `host` (default), a party member's name or a GUID):
 
 `tools/pacing_sim.py` plays a whole party through a BG3 playthrough with the engine's formulas (it mirrors `Server/Rules.lua`; its self-test checks the same numbers as the Lua tests) and reports when jobs unlock and are mastered.
 
-**Model.** Six tracked characters: four fighters in the active party and two companions in camp, each with a job plan (Fighter: Squire → Knight → Archer → Chemist → White Mage → Black Mage; Caster: Chemist → Black Mage → White Mage → …; Healer: Chemist → White Mage → …; Ranger: Squire → Archer → …). Everyone learns the cheapest affordable ability in any unlocked job after every fight and switches to the next job in the plan once the current one is mastered. No JP Boost unless `--jp-boost`. All JP sources of section 7.
+**Model.** Six tracked characters: four fighters in the active party and two companions in camp, each with a plan of all 20 jobs along the unlock tree (Fighter: Squire → Knight → Monk → Archer → Thief → Geomancer → Dragoon → Samurai → Ninja → Dancer → the mage jobs; Caster: Chemist → Black Mage → White Mage → Time Mage → Mystic → Summoner → Orator → Arithmetician → Bard → the physical jobs; Healer: Chemist → White Mage → Mystic → Orator → **Mime** → …, the party member who chases FFT's last job; Ranger: Squire → Archer → Thief → Dragoon → …; the camp companions have mixed plans). A character masters the jobs of its plan in order; when the next one is still locked it first levels the missing prerequisite, as FFT players do (Mime sends the Healer to Squire Lv8, Geomancer Lv5, Dragoon Lv5, …). Everyone learns the cheapest affordable ability in every unlocked job after each fight. A job without abilities (Mime) counts as mastered at job level 8, as in the engine. Implemented jobs missing from a plan (new ones) go to its end. Badges are assumed found. No JP Boost unless `--jp-boost`. All JP sources of section 7.
 
 **Estimates** (assumptions; replace them with telemetry once there is real play data):
 
@@ -292,59 +292,79 @@ Console commands (`who` = `host` (default), a party member's name or a GUID):
 
 Sources for the estimates: BG3 XP table (L12 = 100,000; Wargamer/Gamer Guides; eip.gg lists slightly lower L6-11 values), Larian's 80 combat encounters in Early Access (≈ Act 1), player reports of levels per act (Steam forums: about L7 after a full Act 1, L10-11 after Act 2, L12 early in Act 3). A quarter of the casts are assumed to be bonus actions.
 
+**Pacing target** (user, 2026-10-12, for the 20 TIC jobs): a TYPICAL playthrough opens every job in the party by Act 3 (unlocks are per character; the party sees them) and each fighter masters about half of the jobs. `--selftest` checks it with the default preset: TYPICAL, every job open by the end of Act 3 and every fighter at 8+ of 20 mastered; LOW, every fighter at 5+.
+
 **Presets** (everything else as in section 7: FFT formula `8 + 2 × job level + floor(level / 4)`, TIC +30% on own actions, spillover 1/4 also into locked jobs, JP Boost ×1.5, camp share 1/2, shared learning 15% into the other jobs used in combat):
 
 | Preset | `Action.Multiplier` | `XPShare` | Victory | Long rest | Shared learning | Meant for |
 |---|---|---|---|---|---|---|
-| **Classic** (default) | 0.5 | 0.15 | 15 + 1 per level | 25 | 15% | the pacing target below |
-| Fast | 0.8 | 0.24 | 25 + 2 per level | 40 | 15% | short runs, trying many jobs (≈1.65× Classic) |
-| Grindy | 0.3 | 0.08 | 8 + 1 per level | 10 | 15% | FFT-like scarcity (≈0.55× Classic) |
+| **Classic** (default) | 0.8 | 0.24 | 25 + 2 per level | 40 | 15% | the pacing target above |
+| Fast | 1.3 | 0.4 | 40 + 3 per level | 65 | 15% | short runs, trying many jobs (≈1.6× Classic) |
+| Grindy | 0.45 | 0.13 | 14 + 1 per level | 20 | 15% | FFT-like scarcity (≈0.55× Classic) |
 | PureFFT | 1.0 | 0 | 0 | 0 (no camp share) | off | reference: FFT's own per-action JP only |
 
-**Results** (`python3 tools/pacing_sim.py --markdown`). "Jobs mastered" counts the 6 MVP jobs; "JP vs full TIC tree" divides a fighter's total JP by the 17,600 JP that unlocking every one of the 20 TIC jobs needs (Squire and Chemist to Lv8, Knight/Archer/Time Mage/Mystic to Lv4, eight more jobs to Lv5), a forward look at when the other 14 jobs are added.
+Retuned on 2026-10-13 for the 20 jobs (98,220 JP to master them all; Time Mage 10,670, Summoner 9,200, Dragoon 9,150 and Samurai 8,000 cost the most). The old Classic (0.5 / 0.15 / 15 + 1 per level / 25), tuned for the 6 MVP jobs, gave a TYPICAL fighter 5-7 mastered jobs and never opened Mime; the new Classic is the old Fast, and Fast and Grindy were rescaled around it.
 
-| Preset | Estimate | JP per fighter | Fighters' jobs mastered by end of Act 1 / 2 / 3 | Camp members' jobs mastered | First mastery | JP vs full TIC tree unlock need |
-|---|---|---|---|---|---|---|
-| Classic | LOW | 26,981 | 1 / 2-3 / 6 | 5-5 | A1.13 | 1.5x |
-| Classic | TYPICAL | 41,692 | 1-2 / 5 / 6 | 6-6 | A1.10 | 2.4x |
-| Classic | HIGH | 66,037 | 4-5 / 6 / 6 | 6-6 | A1.8 | 3.8x |
-| Fast | LOW | 42,828 | 1-2 / 5 / 6 | 6-6 | A1.9 | 2.4x |
-| Fast | TYPICAL | 67,182 | 2-4 / 6 / 6 | 6-6 | A1.7 | 3.8x |
-| Fast | HIGH | 107,154 | 6 / 6 / 6 | 6-6 | A1.5 | 6.1x |
-| Grindy | LOW | 15,493 | 0-1 / 1-2 / 2-3 | 2-2 | A1.23 | 0.9x |
-| Grindy | TYPICAL | 23,948 | 1 / 2-3 / 5 | 2-4 | A1.17 | 1.4x |
-| Grindy | HIGH | 38,506 | 1-2 / 5 / 6 | 5-5 | A1.14 | 2.2x |
-| PureFFT | LOW | 12,763 | 0-1 / 1-2 / 1-2 | 0-0 | A1.17 | 0.7x |
-| PureFFT | TYPICAL | 32,017 | 1-2 / 3-4 / 6 | 0-0 | A1.12 | 1.8x |
-| PureFFT | HIGH | 74,437 | 5 / 6 / 6 | 0-0 | A1.8 | 4.2x |
+**Results** (`python3 tools/pacing_sim.py --markdown`). Spans are the lowest and highest of the four fighters. "Every job open in the party" is the fight after which each of the 20 jobs is unlocked for at least one party member (A2.25 = Act 2, 25th fight of the act; "never" = not within the playthrough).
 
-**Shared learning** (2026-10-11) gives a fighter 13-19% of its JP, spread over the jobs the party uses (the model's fighters use four different jobs). With only the 6 MVP jobs the test is quick: every fighter masters all six by the end of Act 3 even in LOW. Without it (`--set JP.Shared.Share=0`) Classic gave LOW 1 / 2-3 / 5, TYPICAL 1-2 / 4 / 6, HIGH 3-4 / 6 / 6. With `Scope` `AllJobs` (every job gets 15%) it gives LOW 1 / 3 / 6, TYPICAL 1-2 / 6 / 6, HIGH 5-6 / 6 / 6, and that effect grows with every job added. Re-tune once the other 14 FFT jobs are in.
-
-**Why Classic looks like this.** FFT's own per-action JP (PureFFT) leaves a light BG3 playthrough with 1-2 mastered jobs and camp companions with none: BG3 has too few, finite fights. Classic halves action JP and adds an XP share, so progress follows BG3's own pacing (quests, exploration and skill checks give XP too) and the gap between a light and a completionist run shrinks from 5.8× to 2.4×. Where Classic's JP comes from (`--sources`):
-
-| Estimate | Who | Action | Spillover | Victory | XP share | Camp share | Long rest | Shared learning | Total |
-|---|---|---|---|---|---|---|---|---|---|
-| LOW | fighter | 4,303 (16%) | 2,482 (9%) | 1,722 (6%) | 12,750 (47%) | 0 | 550 (2%) | 5,173 (19%) | 26,981 |
-| LOW | camp | 0 | 0 | 0 | 12,750 (58%) | 3,013 (14%) | 550 (3%) | 5,610 (26%) | 21,922 |
-| TYPICAL | fighter | 10,573 (25%) | 6,100 (15%) | 2,690 (6%) | 15,000 (36%) | 0 | 825 (2%) | 6,505 (16%) | 41,692 |
-| TYPICAL | camp | 0 | 0 | 0 | 15,000 (52%) | 6,631 (23%) | 825 (3%) | 6,209 (22%) | 28,666 |
-| HIGH | fighter | 23,657 (36%) | 13,648 (21%) | 3,937 (6%) | 15,000 (23%) | 0 | 1,100 (2%) | 8,694 (13%) | 66,037 |
-| HIGH | camp | 0 | 0 | 0 | 15,000 (41%) | 13,797 (37%) | 1,100 (3%) | 7,135 (19%) | 37,032 |
-
-With JP Boost equipped as soon as it is learned (`--jp-boost`), Classic gives 35,300 / 55,900 / 88,800 JP per fighter (LOW / TYPICAL / HIGH).
-
-**When a typical player gets each job** (Classic, TYPICAL, `--detail TYPICAL`; "unlocked / **mastered**", A2.14 = Act 2, 14th fight of the act):
-
-| Character | Squire | Chemist | Knight | Archer | White Mage | Black Mage | JP total |
+| Preset | Estimate | JP per fighter | Jobs mastered per fighter, end of Act 1 / 2 / 3 | Jobs unlocked per fighter, end of Act 1 / 2 / 3 | Every job open in the party | Camp members' jobs mastered | First mastery |
 |---|---|---|---|---|---|---|---|
-| Fighter | start / **A1.10** | start / **A2.13** | A1.2 / **A1.29** | A1.2 / **A2.6** | A1.6 / **A2.22** | A1.6 / **A3.5** | 41,728 |
-| Caster | start / **A2.20** | start / **A1.22** | A1.6 / **A2.27** | A1.6 / **A3.6** | A1.2 / **A2.17** | A1.2 / **A2.5** | 41,699 |
-| Healer | start / **A2.7** | start / **A1.22** | A1.6 / **A2.25** | A1.6 / **A2.18** | A1.2 / **A2.3** | A1.2 / **A3.7** | 41,663 |
-| Ranger | start / **A1.10** | start / **A2.7** | A1.2 / **A2.25** | A1.2 / **A1.41** | A1.6 / **A2.18** | A1.6 / **A3.7** | 41,679 |
-| Camp A (camp) | start / **A1.15** | start / **A2.29** | A1.3 / **A1.40** | A1.3 / **A2.17** | A1.13 / **A3.15** | A1.13 / **A3.33** | 28,741 |
-| Camp B (camp) | start / **A3.7** | start / **A1.34** | A2.5 / **A3.18** | A2.5 / **A3.34** | A1.3 / **A2.13** | A1.3 / **A3.2** | 28,590 |
+| Classic | LOW | 48,378 | 1-2 / 3-4 / 5-7 | 10-11 / 14-15 / 17-20 | A3.16 | 4-7 | A1.9 |
+| Classic | TYPICAL | 75,357 | 2-3 / 4-6 / 8-11 | 13-14 / 17-20 / 19-20 | A2.25 | 7-9 | A1.7 |
+| Classic | HIGH | 116,741 | 4-6 / 7-11 / 17-18 | 17-18 / 19-20 / 19-20 | A2.2 | 10-11 | A1.5 |
+| Fast | LOW | 80,199 | 2 / 4-6 / 9-12 | 11-12 / 17-20 / 19-20 | A2.19 | 9-10 | A1.6 |
+| Fast | TYPICAL | 121,498 | 3-5 / 7-10 / 18-19 | 17-18 / 19-20 / 19-20 | A2.6 | 13 | A1.4 |
+| Fast | HIGH | 185,365 | 6-8 / 17-19 / 20 | 19-20 / 19-20 / 20 | A1.44 | 18 | A1.4 |
+| Grindy | LOW | 25,899 | 0-1 / 2 / 3-4 | 6-7 / 11-12 / 14-15 | never | 3-4 | A1.15 |
+| Grindy | TYPICAL | 40,700 | 1-2 / 3-4 / 4-6 | 10-11 / 13-16 / 17-20 | A3.37 | 4-5 | A1.12 |
+| Grindy | HIGH | 64,356 | 2-3 / 4-6 / 6-9 | 13-14 / 17-20 / 19-20 | A2.37 | 4-7 | A1.9 |
+| PureFFT | LOW | 12,296 | 0-1 / 1-2 / 1-2 | 6-7 / 8-9 / 10-11 | never | 0 | A1.17 |
+| PureFFT | TYPICAL | 30,178 | 1-2 / 2-3 / 3-5 | 10-11 / 13 / 14-16 | never | 0 | A1.12 |
+| PureFFT | HIGH | 67,241 | 3-4 / 4-6 / 7-10 | 14-15 / 15-18 / 19-20 | A2.35 | 0 | A1.8 |
 
-**Retuning.** Change the numbers in game (`!fft_set JP.XPShare 0.2`, `!fft_mult 1.3`, `!fft_preset Fast`) or in `config.json`; try them first with `python3 tools/pacing_sim.py --set JP.XPShare=0.2`. The engine logs every fight and long rest to `telemetry.jsonl` (`!fft_telemetry` sums it up): real actions per fight, JP by source and XP per act can then replace the estimates above. When jobs are added, mastering the MVP six gets relatively easier; re-run the simulator and lower `Action.Multiplier`/`XPShare` if the tree should take longer.
+**Shared learning** (2026-10-11) now gives a fighter about 26% of its JP (TYPICAL), spread over the jobs the party uses (the model's fighters use four different jobs and route through prerequisites). Without it (`--set JP.Shared.Share=0`) Classic's fighters master LOW 1-2 / 3-4 / 5-6, TYPICAL 2-3 / 4-6 / 7-10, HIGH 3-6 / 7-10 / 14 jobs by the end of Act 1 / 2 / 3; with `Scope` `AllJobs` (every job gets 15%) LOW 1-2 / 3-6 / 16-18, TYPICAL 3-4 / 14-15 / 20, HIGH 10-12 / 20 / 20.
+
+**Why Classic looks like this.** FFT's own per-action JP (PureFFT) leaves a TYPICAL BG3 playthrough with 1-2 / 2-3 / 3-5 mastered jobs per fighter (end of Act 1 / 2 / 3) and camp companions with none: BG3 has too few, finite fights. Classic scales action JP to 0.8 and adds an XP share (about 32% of a typical fighter's JP), so progress follows BG3's own pacing (quests, exploration and skill checks give XP too) and the gap between a light and a completionist run shrinks from 5.5× (PureFFT) to 2.4×. Where Classic's JP comes from (`--sources`):
+
+| Estimate | Who | Action | Spill | Victory | XP | Camp | Rest | Shared | Total |
+|---|---|---|---|---|---|---|---|---|---|
+| LOW | fighter | 6,822 (14%) | 3,936 (8%) | 3,044 (6%) | 20,400 (42%) | 0 (0%) | 880 (2%) | 13,296 (27%) | 48,378 |
+| LOW | camp | 0 (0%) | 0 (0%) | 0 (0%) | 20,400 (51%) | 4,933 (12%) | 880 (2%) | 14,048 (35%) | 40,261 |
+| TYPICAL | fighter | 16,233 (22%) | 9,365 (12%) | 4,780 (6%) | 24,000 (32%) | 0 (0%) | 1,320 (2%) | 19,659 (26%) | 75,357 |
+| TYPICAL | camp | 0 (0%) | 0 (0%) | 0 (0%) | 24,000 (44%) | 10,507 (19%) | 1,320 (2%) | 19,037 (35%) | 54,864 |
+| HIGH | fighter | 36,204 (31%) | 20,887 (18%) | 7,024 (6%) | 24,000 (21%) | 0 (0%) | 1,760 (2%) | 26,866 (23%) | 116,741 |
+| HIGH | camp | 0 (0%) | 0 (0%) | 0 (0%) | 24,000 (34%) | 21,614 (30%) | 1,760 (2%) | 23,497 (33%) | 70,871 |
+
+With JP Boost equipped as soon as it is learned (`--jp-boost`), Classic gives 60,786 / 94,653 / 149,813 JP per fighter (LOW / TYPICAL / HIGH).
+
+**When a typical player gets each job** (Classic, TYPICAL, `--detail TYPICAL --markdown`; "unlocked / **mastered**"):
+
+| Job | Fighter | Caster | Healer | Ranger | Camp A (camp) | Camp B (camp) |
+|---|---|---|---|---|---|---|
+| Squire | start / **A1.7** | start / - | start / **A2.18** | start / **A1.7** | start / **A1.9** | start / **A3.26** |
+| Chemist | start / **A3.43** | start / **A1.14** | start / **A1.14** | start / **A2.25** | start / **A3.3** | start / **A1.21** |
+| Knight | A1.2 / **A1.19** | A1.4 / - | A1.4 / - | A1.2 / **A2.30** | A1.2 / **A1.25** | A2.16 / **A3.33** |
+| Archer | A1.2 / **A2.5** | A1.4 / - | A1.4 / - | A1.2 / **A1.27** | A1.2 / **A2.3** | A2.16 / - |
+| White Mage | A1.4 / - | A1.2 / **A2.1** | A1.2 / **A1.32** | A1.4 / **A3.40** | A1.9 / **A3.42** | A1.2 / **A1.45** |
+| Black Mage | A1.4 / - | A1.2 / **A1.34** | A1.2 / **A3.11** | A1.4 / - | A1.9 / - | A1.2 / **A2.12** |
+| Monk | A1.9 / **A1.39** | A1.14 / - | A1.14 / - | A1.15 / **A3.10** | A1.12 / **A2.15** | A2.27 / - |
+| Thief | A1.15 / **A2.12** | A1.14 / - | A1.14 / - | A1.9 / **A1.44** | A1.22 / **A2.25** | A1.22 / - |
+| Time Mage | A1.21 / - | A1.16 / **A2.23** | A1.22 / **A3.30** | A1.21 / - | A1.29 / - | A1.29 / **A3.23** |
+| Mystic | A1.21 / - | A1.22 / **A3.3** | A1.16 / **A2.6** | A1.21 / - | A1.29 / - | A1.23 / **A2.26** |
+| Geomancer | A1.23 / **A2.19** | A1.31 / - | A1.31 / - | A1.31 / **A3.15** | A2.4 / **A3.10** | A3.3 / - |
+| Dragoon | A1.38 / **A3.4** | A1.38 / - | A1.39 / - | A1.31 / **A2.19** | A2.9 / **A3.31** | A2.9 / - |
+| Summoner | A2.6 / - | A2.2 / **A3.24** | A2.6 / **A3.43** | A2.6 / - | A2.8 / - | A2.8 / - |
+| Orator | A1.39 / - | A1.39 / **A3.31** | A1.34 / **A2.15** | A1.39 / - | A2.1 / - | A2.1 / - |
+| Samurai | A2.2 / **A3.23** | A2.2 / - | A2.2 / - | A1.45 / - | A2.5 / - | - / - |
+| Ninja | A2.13 / **A3.31** | A2.15 / - | A2.15 / - | A2.15 / **A3.25** | A2.16 / - | - / - |
+| Arithmetician | A2.9 / - | A2.3 / **A3.41** | A2.9 / - | A2.9 / - | A3.42 / - | A2.13 / - |
+| Bard | A3.27 / - | A3.25 / - | A2.24 / - | A3.27 / - | - / - | - / - |
+| Dancer | A2.15 / **A3.38** | A3.14 / - | A2.25 / - | A3.11 / **A3.34** | A3.5 / - | - / - |
+| Mime | - / - | - / - | A2.25 / **A3.2** | - / - | - / - | - / - |
+| Jobs mastered | 11 | 8 | 9 | 11 | 9 | 7 |
+| JP total | 75,359 | 75,702 | 75,319 | 75,051 | 55,108 | 54,620 |
+
+**Retuning.** Change the numbers in game (`!fft_set JP.XPShare 0.2`, `!fft_mult 1.3`, `!fft_preset Fast`) or in `config.json`; try them first with `python3 tools/pacing_sim.py --set JP.XPShare=0.2`. The engine logs every fight and long rest to `telemetry.jsonl` (`!fft_telemetry` sums it up): real actions per fight, JP by source and XP per act can then replace the estimates above. New jobs (Dark Knight, Onion Knight, the special jobs) join the end of every plan automatically; re-run `--selftest` and these tables after adding them.
 
 ## 15. Open questions and unverified items
 
