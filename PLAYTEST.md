@@ -1,6 +1,10 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.20**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.21**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.21: the Dark Knight's area attacks hit everyone
+
+- Your answer: **Abyssal Blade** and **Unholy Sacrifice** now hit everyone around the Dark Knight, allies too, as in FFT. Keep your party out of the 4.5 m / 5 m circle.
 
 ## New in 1.0.0.20: Onion Knight (War of the Lions)
 
@@ -14,8 +18,8 @@ Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the m
   - **Sanguine Sword** (500 JP): a melee weapon attack that heals you for half the damage it deals (at will).
   - **Infernal Strike** (500): a weapon attack; the target gets -2 to spell attacks and spell DC for 2 turns and you regain a level 1 spell slot (once per short rest).
   - **Crushing Blow** (300): a weapon attack + 1d8 necrotic; Constitution save or Stopped for 1 turn, bosses immune (once per short rest).
-  - **Abyssal Blade** (1000): costs a tenth of your maximum HP; enemies within 4.5 m take 3d8 necrotic, 6d8 if right next to you (Dexterity save for half; once per short rest).
-  - **Unholy Sacrifice** (1200): costs a quarter of your maximum HP; enemies within 5 m take 8d8 necrotic and are Slowed for 2 turns (Constitution save for half and no Slow; once per long rest). The HP costs never take your last hit point.
+  - **Abyssal Blade** (1000): costs a tenth of your maximum HP; **everyone else within 4.5 m, allies too** (your choice, as in FFT), takes 3d8 necrotic, 6d8 if right next to you (Dexterity save for half; once per short rest).
+  - **Unholy Sacrifice** (1200): costs a quarter of your maximum HP; **everyone else within 5 m, allies too**, takes 8d8 necrotic and is Slowed for 2 turns (Constitution save for half and no Slow; once per long rest). The HP costs never take your last hit point.
   - **HP Boost** (2000): +20% maximum HP. **Vehemence** (400): +1d6 necrotic on weapon hits but -2 AC. **Movement +3** and **Jump +3** (1000 each). Mastery: resistance to necrotic damage. Main-job equipment: swords, greatswords, all armour, shields.
 - Worth checking: does Sanguine Sword heal you? Do enemies next to you take more from Abyssal Blade than those farther away? Does the HP cost appear as necrotic damage on the Dark Knight?
 

@@ -1,4 +1,4 @@
-# Special jobs and badges: proposal (phase 2 step 4, NOT built)
+# Special jobs and badges (phase 2 step 4; table APPROVED by the user 2026-10-13, not built yet)
 
 Written 2026-10-13 by the scheduled run while the user was away. **Nothing here is built.** The user approves or
 changes the table first (PHASE2.md item 3: "Propose which boss drops which badge to the user before building it").
@@ -29,7 +29,7 @@ version.
 | 2 | **Fell Knight** (Gaffgarion) | Fell Sword: steal life force with a sword | **Minthara** (Act 1, Shattered Sanctum or the grove raid) | a paladin who turned from her goddess to the Absolute; TIC: "a fallen knight who has turned his back on the light of the gods" | Knight Lv4, Black Mage Lv4 |
 | 3 | **Divine Knight** (Meliadoul) | Unyielding Blade: attacks that destroy equipment | **Nere** (Act 1, Grymforge) | a True Soul: the Absolute's church militant | Knight Lv5, Monk Lv4 |
 | 4 | **Templar** (Beowulf) | Spellblade: sword strikes that inflict ailments | **Inquisitor W'wargaz** (Act 1, Crèche Y'llek) | the enforcer of the githyanki faith | Knight Lv5, Mystic Lv4 |
-| 5 | **Automaton** (Worker 8; WotL "Steel Giant") | Work: crushing mechanical blows | **Grym** (Act 1, Adamantine Forge; optional, usual) | a forge construct (alternative: the Steel Watch Titan, Act 3) | Squire Lv6, Geomancer Lv4 |
+| 5 | **Steel Giant** (Worker 8; TIC calls it "Automaton") | Work: crushing mechanical blows | **Grym** (Act 1, Adamantine Forge; optional, usual) | a forge construct (alternative: the Steel Watch Titan, Act 3) | Squire Lv6, Geomancer Lv4 |
 | 6 | **Astrologer** (Orran) | Astrology: the stars' influence on men's fates | **Auntie Ethel** (Act 1, Riverside Teahouse; optional) | a hag who trades in fates and bargains | Time Mage Lv5, Mystic Lv4 |
 | 7 | **Game Hunter** (Luso, WotL) | Hunt: monster-hunting skills | **the Flind** (Act 1, gnoll war band; optional) | the pack's huntmaster | Archer Lv5, Thief Lv4 |
 | 8 | **Sky Pirate** (Balthier, WotL) | Piracy: stealing in style | **Commander Zhalk** (prologue nautiloid; optional, hard) | the captain of a flying ship | Thief Lv6, Archer Lv4 |
@@ -62,7 +62,17 @@ each pair matches the job's style, and the strongest jobs need the highest level
 Byblos and the Holy Dragon are monster jobs in the TIC data: they belong to the Soul Collector
 (`docs/SOUL_COLLECTOR_MAP.md`).
 
-## Open questions for the user
+## The user's answers (2026-10-13)
+
+1. **Spared or recruited bosses still give the badge** (when spared, or when they join: Minthara hands it over).
+2. **Keep the act spread** (8 / 4 / 5).
+3. **Add all 7 extra TIC special jobs, after the 17** (bosses as suggested above).
+4. **Job levels as proposed.**
+5. **A found badge = a notification and the Job Board** for now; a visible item later, with the art.
+6. Worker 8's special job is called **Steel Giant** (War of the Lions' name), because "Automaton" is the construct
+   Soul form.
+
+## The questions that were asked
 
 1. **Spared or recruited bosses:** Minthara can join you, Zhalk usually escapes, Ethel can be bargained with, Yurgir
    can be freed from his contract. Should the badge come anyway (when they are spared or join), or turn up somewhere

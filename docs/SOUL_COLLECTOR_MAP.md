@@ -1,4 +1,4 @@
-# Soul Collector: BG3 creature to FFT monster mapping (proposal, NOT built)
+# Soul Collector: BG3 creature to FFT monster mapping (APPROVED by the user 2026-10-13, not built yet)
 
 Written 2026-10-13 by the scheduled run while the user was away. **Nothing here is built.** PHASE2.md item 14: "Propose
 the full mapping table to the user before building the forms."
@@ -90,7 +90,17 @@ otherwise (the user's rule: theme **and** tier).
 | Mystic Carrion (Act 3) | **Skeletal Fiend** | a necromancer |
 | The Elder Brain (finale) | **Arch Seraph** (Ultima's final form) | the last enemy |
 
-## Gaps and choices to confirm
+## The user's answers (2026-10-13)
+
+1. **Soul Brand replaces the killing blow (new rule):** the Soul Collector puts a debuff on an enemy: **1 turn, can't
+   be resisted, no cooldown**. If the branded enemy dies while branded (by anyone's hand), the party devours its soul.
+2. **Unmatched FFT monsters** (Elder Treant, Blue Dragon, Hydra, Greater Hydra, Tiamat) sound like powerful forms:
+   **attach them to Act 3 creatures**, but **build the Act 1 forms first**.
+3. **The nearest fits are fine** (spiders → Coeurl, imps → Ahriman, giant badgers → Swine, ogres → Sekhret).
+4. **Lucavi forms for the big villains: yes.**
+5. The construct Soul form keeps the name **Automaton**; the special job is Steel Giant.
+
+## The choices that were asked
 
 1. **FFT monsters with no BG3 match yet:** Elder Treant, Blue Dragon and the whole hydra family (Hydra, Greater Hydra,
    Tiamat): BG3 has no hydras. Leave them out, or give them to elite Act 3 creatures?

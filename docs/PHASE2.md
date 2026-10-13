@@ -18,7 +18,7 @@ The user's decisions of 2026-10-12 (a long Q&A in the coordinator chat) and the 
 2. **War of the Lions:** Dark Knight and Onion Knight, as late bonus jobs (their numbers come from WotL guides).
 3. **Special character jobs**, about 15-18: Holy Knight, Divine Knight, Sword Saint, Fell Knight, Ark Knight, Machinist, Skyseer, Netherseer, Templar, Dragonkin, Steel Giant, Soldier, Princess, Cleric, Astrologer, Sky Pirate, Game Hunter. Confirm the list against the data and guides.
    - **Unlock Fell Seal style:** a badge item dropped by a fitting BG3 boss **plus** job-level requirements.
-   - Propose which boss drops which badge to the user before building it.
+   - Propose which boss drops which badge to the user before building it. **Done and approved 2026-10-13: `docs/SPECIAL_JOBS.md`** (17 jobs + 7 more TIC special jobs after them; spared or recruited bosses still give their badge; Worker 8's job = Steel Giant).
 4. **Bard and Dancer are open to everyone** (FFT's male/female locks are dropped).
 5. **Mime = Echo action:** on its turn the Mime can repeat the last ability an ally used this round, ignoring that ability's cooldown. FFT's automatic out-of-turn echo would misbehave in BG3's turn order.
 
@@ -42,7 +42,7 @@ The user's decisions of 2026-10-12 (a long Q&A in the coordinator chat) and the 
 9. **A job on the Job Board.** Proposed names: Devour Soul; Soul Incarnation (the transformation); Soul Codex (the list of forms on the Job Board); Soul Known (the marker on enemies). The user may rename them.
 10. **Unlock:** a special chest on the nautiloid near where the intellect devourer ("Us", the brain ally) can be recruited. It holds an item that **unlocks the job for the whole party when picked up**.
     - My default for saves already past the nautiloid (like the user's test saves): the item appears in the camp traveller's chest.
-11. **Devour Soul is a killing blow:** a damaging attack; if it kills the target, the party devours its soul essence and can take its form at will (within the charges).
+11. ~~Devour Soul is a killing blow~~ **Soul Brand (user, 2026-10-13):** the Soul Collector brands an enemy with a debuff that lasts 1 turn, can't be resisted and has no cooldown; if the enemy dies while branded (by anyone), the party devours its soul essence and can take its form at will (within the charges).
 12. **Targets:** monsters, goblinoids (goblins, gnolls, bugbears, …) and **all bosses**, humanoid ones too (Minthara, Nere, Dror Ragzlin, Ketheric, Orin…). Boss forms are toned down, with the boss's signature moves. Ordinary humans/elves/dwarves only if needed to fit more FFT monsters.
 13. **Souls are party-wide:** a shared Soul Codex; any party member with the Soul Collector job can use every collected form.
 14. **Two forms per devoured BG3 monster type:**

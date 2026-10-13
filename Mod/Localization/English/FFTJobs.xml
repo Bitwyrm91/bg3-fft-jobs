@@ -2,7 +2,7 @@
 <contentList>
   <content contentuid="h7105ca0bgad34g5755g9a5fg77dba673cbdb" version="1">When a spell damages you, you regain a level 1 spell slot. Once per short rest.</content>
   <content contentuid="hc7df1ac9gdc9dg5682gb746gcaed40976949" version="1">Absorb MP</content>
-  <content contentuid="hee0a6b6ege8b1g5dd5g95c9gb79a7797842d" version="1">Costs a tenth of your maximum hit points (never your last one). Enemies within 4.5 m of you take 3d8 necrotic damage, 6d8 if they stand right next to you (Dexterity save for half). Once per short rest.</content>
+  <content contentuid="hee0a6b6ege8b1g5dd5g95c9gb79a7797842d" version="1">Costs a tenth of your maximum hit points (never your last one). Everyone else within 4.5 m of you, allies too, takes 3d8 necrotic damage, 6d8 if right next to you (Dexterity save for half). Once per short rest.</content>
   <content contentuid="h1eb74406g7b60g519fgac65gacef3c3182c1" version="1">Echo: Abyssal Blade</content>
   <content contentuid="h50c1abe0gee17g5b67gab55g153e58c0deae" version="1">Abyssal Blade</content>
   <content contentuid="h1eba29dbg78d2g5440gbdf2g81926781af82" version="1">Gain 5 experience per character level at the start of each of your turns in a fight.</content>
@@ -720,7 +720,7 @@
   <content contentuid="haff10204g21cbg56b1g8968g322da59c548d" version="1">A creature within 18 m makes a Constitution save or is Blinded for 2 turns (it repeats the save each turn).</content>
   <content contentuid="h0d6239ddg6451g53ceg8286g9a6454cd44c1" version="1">Echo: Umbra</content>
   <content contentuid="h896df1f0gdfd1g5d91g8ff7gd0cf27b397e9" version="1">Umbra</content>
-  <content contentuid="h9f071ff7g22f1g59ecgb88bga3824584e187" version="1">Costs a quarter of your maximum hit points (never your last one). Enemies within 5 m of you take 8d8 necrotic damage and are Slowed for 2 turns (Constitution save for half damage and no Slow). Once per long rest.</content>
+  <content contentuid="h9f071ff7g22f1g59ecgb88bga3824584e187" version="1">Costs a quarter of your maximum hit points (never your last one). Everyone else within 5 m of you, allies too, takes 8d8 necrotic damage and is Slowed for 2 turns (Constitution save for half damage and no Slow). Once per long rest.</content>
   <content contentuid="he30e30fcg0d8ag5207g9675g47b86a64f13f" version="1">Echo: Unholy Sacrifice</content>
   <content contentuid="h6a954544g9f39g5d43g82bagc778205529b8" version="1">Unholy Sacrifice</content>
   <content contentuid="h529057b6gc9d4g5653gb7acgcde2982263fa" version="1">When a weapon attack hits you, you turn invisible for up to 2 turns (it ends when you attack or cast). Once per combat.</content>
