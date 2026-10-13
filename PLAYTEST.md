@@ -1,6 +1,10 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.39**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.40**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.40: safer start-up
+
+- Nothing new to play: if the game didn't know one of the events the mod listens to (the boss-badge ones are new), the mod now logs a warning ("could not listen to Osiris ...") and keeps everything else working, instead of risking the rest of the set-up. If you see that line in the SE log, tell me.
 
 ## New in 1.0.0.39: Sword Saint (special job 17 of 17: all special jobs built)
 

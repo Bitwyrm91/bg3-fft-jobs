@@ -29,9 +29,13 @@ Events.Osiris = {
 function Events.Register(svc, log)
     for _, e in ipairs(Events.Osiris) do
         local name, arity, method = e[1], e[2], e[3]
-        Ext.Osiris.RegisterListener(name, arity, "after", function(...)
+        -- one event the game doesn't know (or a changed arity) must not stop the others from being hooked
+        local ok, err = pcall(Ext.Osiris.RegisterListener, name, arity, "after", function(...)
             log.Safe(name, svc[method], svc, ...)
         end)
+        if not ok then
+            log.Warn(string.format("could not listen to Osiris %s/%d: %s", name, arity, tostring(err)))
+        end
     end
     Ext.Events.SessionLoaded:Subscribe(function()
         log.Safe("SessionLoaded", svc.OnSessionLoaded, svc)
