@@ -9,6 +9,9 @@
   <content contentuid="hbe05dc61g0727g5124g92b1g28423298c10c" version="1">Accrue EXP</content>
   <content contentuid="h25e6f520g421ag51bdg942cg6123c4e199f9" version="1">Gain 10 JP for your job at the start of each of your turns in a fight.</content>
   <content contentuid="ha6bf6b77gfdc5g5356gbcf7g1481419fd87f" version="1">Accrue JP</content>
+  <content contentuid="h85306e1cg07afg5ec4gbb38g0f157f05c49e" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 thunder (wind) damage each. Once per short rest.</content>
+  <content contentuid="h542f6c63g87bfg5747g9c99g958ff13808aa" version="1">Echo: Adamantine Blade</content>
+  <content contentuid="h0b7e746ag2104g511dga7e8g4b472c2a21d6" version="1">Adamantine Blade</content>
   <content contentuid="h4997245bgb55eg51ddgabb4g2e58561960be" version="1">Ranged weapon attack that deals 1d4 extra damage.</content>
   <content contentuid="h349ba02cg00ffg5188g9d1ag1bc79b4ca8dd" version="1">Echo: Aim +1</content>
   <content contentuid="hb22e902bgbba6g5091g88a4g4d2f36a6ad5e" version="1">Aim +1</content>
@@ -96,6 +99,9 @@
   <content contentuid="h9f4a3824gf49bg5b4dga6c0g37d3b1f71c07" version="1">Every foe within 12 m makes a Wisdom save or is Stopped, Immobilized and Disabled for 1 turn (bosses shrug off Stop). Once per long rest.</content>
   <content contentuid="h405c6ea3g5391g5efbga8dcg5448bc855631" version="1">Echo: Celestial Stasis</content>
   <content contentuid="h1a1e37dag74e6g52beg8646gf0d80b6d0c27" version="1">Celestial Stasis</content>
+  <content contentuid="he6771b38gf2e2g5e2eg845egd84c0ba05e29" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d4 psychic damage each, and each bolt has a 1 in 5 chance of each of Blinded, Silenced, Frightened and Poisoned for 2 turns. Once per short rest.</content>
+  <content contentuid="h11e5fb63g6f91g5d46g979cgc78844565b8c" version="1">Echo: Celestial Void</content>
+  <content contentuid="h0bcdb3d0g8a4ag5a35gaf0bg386f6c44292e" version="1">Celestial Void</content>
   <content contentuid="hc2226df6gf9edg5b9fg9ff8g336deff7e3ae" version="1">You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.</content>
   <content contentuid="hf3a46cb0g4112g5869g8bf3g10a68ffc15ac" version="1">Echo: Chakra</content>
   <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
@@ -200,6 +206,9 @@
   <content contentuid="h8fcbbe4bg07d1g5e8dg9a1fgc96ba6b45aac" version="1">Ranged weapon attack against a creature within 18 m: 4d8 force damage. Recoil: half the damage dealt. Once per short rest.</content>
   <content contentuid="h547f4f7dg600fg502bgbb94g12809a416bd5" version="1">Echo: Dispose</content>
   <content contentuid="hcbe143f2gaa5bg5cf0ga237gc4db85c048d3" version="1">Dispose</content>
+  <content contentuid="hc4201480gfa21g5ac8g9cf2g6fc7455ed309" version="1">4 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 bludgeoning (earth) damage each. Once per long rest.</content>
+  <content contentuid="h7ff57b6eg754dg5a8fg9070g7ed7577809db" version="1">Echo: Divinity</content>
+  <content contentuid="hd226c64egf5e8g561agbbdcgeec71aab2df5" version="1">Divinity</content>
   <content contentuid="h56a8cd99g58c9g52cbga38eg78f3b1bc3fe4" version="1">Unarmed strike at a pressure point: on a hit, the creature makes a Constitution save (your Strength/Dexterity DC) or is Doomed, and dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
   <content contentuid="h28108b4ag6a69g5a1fgb2e1g49a6e269b5bf" version="1">Echo: Doom Fist</content>
   <content contentuid="h6ac7d984g29b1g5662gb29fg6c846f9e6147" version="1">Doom Fist</content>
@@ -334,6 +343,9 @@
   <content contentuid="h44887906g8d53g57c7g9c46g66df40cb4b46" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have disadvantage on Intelligence, Wisdom and Charisma saving throws.</content>
   <content contentuid="h12c2226cg6fbag5adega7c7gb94248b3c799" version="1">Echo: Heathen Frolic</content>
   <content contentuid="h9045a704gec6cg59b4gb5fdga51efa89d8f5" version="1">Heathen Frolic</content>
+  <content contentuid="h21875c2cg2c2ag5d35gbcf3g8886bef4cc7d" version="1">2 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d6 lightning damage each. At will.</content>
+  <content contentuid="h3035c08cg3341g5818g96b5g3689530925ba" version="1">Echo: Heaven's Wrath</content>
+  <content contentuid="h13a66e51gf231g574bgb5ebg60434ce9ad8c" version="1">Heaven's Wrath</content>
   <content contentuid="h5b61fa18ga6dfg55aegb224g81e375e543e9" version="1">Arithmeticks: Hesitation</content>
   <content contentuid="he5224064g4b7dg5334gaa74gec34f4645568" version="1">A creature within 18 m makes a Wisdom save or is Disabled for 1 turn: no actions or bonus actions (it can still move).</content>
   <content contentuid="he71a8816g8df3g52dcg9d2bgbffa6d18d5a7" version="1">Echo: Hesitation</content>
@@ -425,6 +437,9 @@
   <content contentuid="he6cb11c3g2e10g5589gab85gff3f597ce83a" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you regain 1d4 hit points at the start of each of their turns. Once per short rest.</content>
   <content contentuid="he28f39a1g4437g54c8ga197g6e5c5fb3642e" version="1">Echo: Life's Anthem</content>
   <content contentuid="he3b93df5g5e79g5f31g99edgb23795787907" version="1">Life's Anthem</content>
+  <content contentuid="ha74d8d27gf02fg5fffg9a1cg9bd14fb6bc28" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 cold (water) damage each. Once per short rest.</content>
+  <content contentuid="haf6e293egfea7g5ca6g88e5g82d68c474b5f" version="1">Echo: Maelstrom</content>
+  <content contentuid="ha228caeagad1fg52deg98f0g40305c648d60" version="1">Maelstrom</content>
   <content contentuid="h7218403fgf688g57f1gb541gd9b301fb7c7b" version="1">+1 spell save DC and +1 to spell attack rolls.</content>
   <content contentuid="h8f58a2a8ge351g5fa4g941eg76080b571603" version="1">Magick Boost</content>
   <content contentuid="hc95b80eeg019dg5cd0ga828g98b30cbbc688" version="1">When a spell damages you, its caster takes 2d6 force damage.</content>
@@ -648,6 +663,9 @@
   <content contentuid="h608eb009g8e4fg5c87gb2ffga47ba145274c" version="1">Only on plain ground (no surface under you). Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 4 chance of being Immobilized for 2 turns.</content>
   <content contentuid="he746dfecg745eg5edbg82cbg9d3af20f9fed" version="1">Echo: Sinkhole</content>
   <content contentuid="h108b7b00g31b6g520dg874bgfa34b31c6bea" version="1">Sinkhole</content>
+  <content contentuid="ha4c4306dgcff8g54e7gad1ag5a067c266a4d" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 fire damage each. Once per short rest.</content>
+  <content contentuid="h77315d60gb3f4g5f5cg8cb4g8aa021244c90" version="1">Echo: Ashura</content>
+  <content contentuid="hb88d28b0g8163g58b1gbbd9g81e02fc0d969" version="1">Ashura</content>
   <content contentuid="h5345cc63g5dd7g50c0gbbd3g9253ac4d4dd7" version="1">Arithmeticks: Slow</content>
   <content contentuid="h33941a53g3784g5485gaf11ga685858c5209" version="1">An enemy within 18 m makes a Wisdom save or is Slowed for 3 turns (BG3's Slow: -2 AC and Dexterity saves, half movement, no reactions; it repeats the save each turn). Once per short rest.</content>
   <content contentuid="h68a459d3g7033g5249g9102g63f9cbb550cb" version="1">Echo: Slow</content>
@@ -969,6 +987,10 @@
   <content contentuid="hb887d17fg07e1g59e5gab89gc3332eb5c53c" version="1">Sky Pirate Mastery</content>
   <content contentuid="h9a6c5d4agf557g53c1g88e0g04043cf059f2" version="1">Balthier's job (War of the Lions). Piracy: stealing in style. Every Plunder is the Thief's steal with your weapon's damage on top, and Barrage strikes four times in one blow. Equipment: shortswords, rapiers, scimitars, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="heb51805egf8c6g56f6gb5a5g5de42eeb9637" version="1">Job: Sky Pirate</content>
+  <content contentuid="hf5640d3fgb52eg5a62gaf22gac2b8835779f" version="1">Resistance to lightning damage. Earned by mastering Skyseer; kept after changing jobs.</content>
+  <content contentuid="h67f71602g9e6fg5563ga566g4fa08fd3d34a" version="1">Skyseer Mastery</content>
+  <content contentuid="he275bc76g44e5g5389gae82g305b8f103945" version="1">Rapha's job. Sky Mantra: words of enlightenment that rain bolts of lightning, fire, wind, water, earth or ailments on the foes you pick; no attack roll, not magick (no spell slots). Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hc3e6f054g27b5g58eagab1dg9a1d83c35f6e" version="1">Job: Skyseer</content>
   <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

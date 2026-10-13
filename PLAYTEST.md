@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.30**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.31**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.31: Skyseer (special job 9 of 17)
+
+- **Skyseer** (Rapha's job): needs the **Skyseer Badge** (Fist Marcus, the winged knight who raids Last Light) plus **Mystic Lv5** and **Time Mage Lv4**.
+- **Sky Mantra**: FFT's mantras strike at random inside an area; here they are bolts you aim like Magic Missile (several at one foe if you like), no attack roll and not magick (Silence doesn't stop them). **Heaven's Wrath** (0 JP, at will): 2 x 1d6 lightning. **Ashura** (200): 3 x 1d8 fire. **Adamantine Blade** (300): 3 x 1d8 thunder. **Maelstrom** (400): 3 x 1d8 cold. **Celestial Void** (500): 3 x 1d4 psychic, each bolt a 1 in 5 chance each of Blinded, Silenced, Frightened, Poisoned. **Divinity** (600, once per long rest): 4 x 1d8 bludgeoning (earth). The others once per short rest.
+- Main-job equipment: quarterstaffs, light armour. Mastery: resistance to lightning damage.
+- Worth checking: the bolts' look (Magic Missile's darts; Ashura uses Scorching Ray's rays).
 
 ## New in 1.0.0.30: Game Hunter (special job 8 of 17; all Act 1 badges done)
 

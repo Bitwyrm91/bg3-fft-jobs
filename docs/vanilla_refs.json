@@ -263,6 +263,7 @@
       "FFTJ_Job_GameHunter",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Job_SkyPirate",
+      "FFTJ_Job_Skyseer",
       "FFTJ_Job_SteelGiant",
       "FFTJ_Job_Templar",
       "FFTJ_Mastery_OnionKnight",
@@ -440,6 +441,13 @@
     ]
   },
   {
+    "id": "Spell_Conjuration_ConjureElemental_Earth",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_Divinity"
+    ]
+  },
+  {
     "id": "Spell_Conjuration_FindFamiliar",
     "kind": "icon",
     "usedBy": [
@@ -541,6 +549,7 @@
     "id": "Spell_Enchantment_DissonantWhispers",
     "kind": "icon",
     "usedBy": [
+      "Projectile_FFTJ_CelestialVoid",
       "Zone_FFTJ_SpellbladeSyphon"
     ]
   },
@@ -641,6 +650,35 @@
       "FFTJ_SONG_LIFE",
       "FFTJ_SONG_LIFE_FX",
       "Shout_FFTJ_LifesAnthem"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_RayOfFrost",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_Maelstrom"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_ScorchingRay",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_SkyAshura"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_Thunderwave",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_AdamantineBlade"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_WitchBolt",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_Skyseer",
+      "Projectile_FFTJ_HeavensWrath"
     ]
   },
   {
@@ -865,6 +903,7 @@
     "id": "BLINDNESS",
     "kind": "status",
     "usedBy": [
+      "Projectile_FFTJ_CelestialVoid",
       "Target_FFTJ_Umbra",
       "Zone_FFTJ_SpellbladeBlind"
     ]
@@ -921,6 +960,7 @@
     "id": "FRIGHTENED",
     "kind": "status",
     "usedBy": [
+      "Projectile_FFTJ_CelestialVoid",
       "Target_FFTJ_Esuna",
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Trepidation",
@@ -981,6 +1021,7 @@
     "kind": "status",
     "usedBy": [
       "FFTJ_DANCE_FORBIDDEN_FX",
+      "Projectile_FFTJ_CelestialVoid",
       "Projectile_FFTJ_Poison",
       "Target_FFTJ_Antidote",
       "Target_FFTJ_Esuna",
@@ -1154,6 +1195,7 @@
     "kind": "status",
     "usedBy": [
       "FFTJ_DANCE_FORBIDDEN_FX",
+      "Projectile_FFTJ_CelestialVoid",
       "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_Purification",
       "Target_FFTJ_Dispelna",
@@ -1320,6 +1362,17 @@
     ]
   },
   {
+    "id": "Projectile_MagicMissile",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_AdamantineBlade",
+      "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_Divinity",
+      "Projectile_FFTJ_HeavensWrath",
+      "Projectile_FFTJ_Maelstrom"
+    ]
+  },
+  {
     "id": "Projectile_MainHandAttack",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -1338,6 +1391,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Projectile_FFTJ_Blizzard"
+    ]
+  },
+  {
+    "id": "Projectile_ScorchingRay",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_SkyAshura"
     ]
   },
   {
