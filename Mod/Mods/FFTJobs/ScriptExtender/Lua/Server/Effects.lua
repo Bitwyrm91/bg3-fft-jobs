@@ -175,8 +175,9 @@ function Effects.GravityHit(svc, caster, target, shareKey)
         damage, name(svc, target)))
 end
 
--- Chemical Mixup / Chemical Burns (Chemist, custom abilities): four afflictions, each with its damage kind. The
--- effects are vanilla statuses without a StackType (Overwrite), so applying one again sets its new duration.
+-- Chemical Mixup / Chemical Burns (Chemist, custom abilities): four afflictions, each with its damage kind. Effects are
+-- lengthened in place with SetStatusDuration(..., Add) (Burns' SpellSuccess, Mixup's FFTJ_MIXUP_EXTEND_* statuses),
+-- never applied again: re-applying BURNING would deal its on-apply 1d4 fire once more. Extra turns: 2, in the stats.
 Effects.Mixup = {
     { Type = "Fire", Status = "BURNING", Word = "fire" },
     { Type = "Acid", Status = "ACID", Word = "acid" },
@@ -245,7 +246,7 @@ function Effects.ChemicalMixup(svc, caster, target)
             end
         end
         if low then
-            afflict(svc, target, Effects.Mixup[low].Status, has[low] + (cfg.MixupFullExtendTurns or 2), caster)
+            afflict(svc, target, "FFTJ_MIXUP_EXTEND_" .. Effects.Mixup[low].Status, 0, caster)
             extra = ", " .. Effects.Mixup[low].Status .. " lengthened"
         end
     end
@@ -263,14 +264,11 @@ function Effects.ChemicalBurns(svc, caster, target)
     local cfg = svc:Cfg().Abilities
     local has, n = afflictions(svc, target)
     local dice, total = mixupDice(svc, caster), 0
-    for i, turns in pairs(has) do
+    for i in pairs(has) do
         local a = Effects.Mixup[i]
         local damage = rollDamage(svc, dice)
         total = total + damage
-        svc.Game:ApplyDamage(target, damage, a.Type, caster)
-        if turns >= 0 then
-            afflict(svc, target, a.Status, turns + (cfg.BurnsExtendTurns or 2), caster)
-        end
+        svc.Game:ApplyDamage(target, damage, a.Type, caster) -- (the spell's SetStatusDuration adds the turns)
     end
     local spread = 0
     if n == #Effects.Mixup then

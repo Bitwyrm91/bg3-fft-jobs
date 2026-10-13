@@ -128,8 +128,9 @@ function S.chemical_mixup_on_all_four_rolls_more_and_lengthens_the_shortest(w, T
     afflicted(w, GOB, { BURNING = 3, ACID = 1, POISONED = 2, BLEEDING = 2 })
     applied(w, GOB, "FFTJ_CHEM_MIXUP", T.TAV)
     T.eq(gob.hp, 32, "two dice of 4")
-    T.eq(gob.statusTurns.ACID, 3, "the shortest gets 2 more turns")
-    T.eq(gob.statusTurns.BURNING, 3, "the others stay")
+    T.truthy(gob.statuses.FFTJ_MIXUP_EXTEND_ACID, "the shortest is lengthened in place")
+    T.eq(gob.statusTurns.ACID, 1, "not re-applied")
+    T.eq(gob.statuses.FFTJ_MIXUP_EXTEND_BURNING, nil, "only the shortest")
 end
 
 function S.chemical_burns_lengthens_and_strikes_each_effect(w, T)
@@ -140,8 +141,8 @@ function S.chemical_burns_lengthens_and_strikes_each_effect(w, T)
     afflicted(w, GOB, { BURNING = 2, BLEEDING = 1 })
     applied(w, GOB, "FFTJ_CHEM_BURNS", T.TAV)
     T.eq(gob.hp, 32, "4 fire + 4 slashing")
-    T.eq(gob.statusTurns.BURNING, 4)
-    T.eq(gob.statusTurns.BLEEDING, 3)
+    T.eq(gob.statusTurns.BURNING, 2, "not re-applied (the spell's SetStatusDuration lengthens it)")
+    T.eq(gob.statusTurns.BLEEDING, 1)
     T.eq(gob.statuses.ACID, nil, "adds nothing new")
 end
 
