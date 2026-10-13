@@ -246,6 +246,18 @@
   <content contentuid="h210189fag2234g519egbddbgaccf0fcb1018" version="1">Doublehand</content>
   <content contentuid="h8e7fed3ege96eg5d37gbd09g4cd7fde69efb" version="1">When a weapon attack damages you, you gain Death Ward (the next blow that would drop you to 0 HP leaves you at 1 instead; FFT gives Reraise). Once per long rest.</content>
   <content contentuid="h2ac33475g2b71g59eagb4f7gfe1128366c69" version="1">Dragonheart</content>
+  <content contentuid="h22eb5ddcg18c8g57d1ga7e5g8ec49d084f4f" version="1">A creature that isn't humanoid (dragons, beasts, monsters) within 18 m makes a Wisdom save or fights on your side for 2 turns; bosses shrug it off. Once per short rest.</content>
+  <content contentuid="haaf5c193gaea5g528ag9994g2267aaa721a1" version="1">Echo: Dragon's Charm</content>
+  <content contentuid="h95c8239egaf11g5089g99e2ge651c260efb4" version="1">Dragon's Charm</content>
+  <content contentuid="h9c58afeag1e90g5f53g9bb4g1b4960d2cb20" version="1">Give of your own life: you lose 1d8 hit points, and an ally within 18 m regains 3d8 hit points and is cured of being poisoned, blinded, frightened and diseased. Once per short rest.</content>
+  <content contentuid="ha09e3449g7745g5c22g9088g6655d0ae421d" version="1">Echo: Dragon's Gift</content>
+  <content contentuid="h245be34dg5107g5f9eg95a8g8858e8965849" version="1">Dragon's Gift</content>
+  <content contentuid="hf47cef9eg2686g544bg8813gbe07b0d855ff" version="1">An ally within 18 m gets Strength Surge, Magick Surge and Speed Surge for 3 turns. Once per short rest.</content>
+  <content contentuid="h0dc96dcbg5594g5a6dgbec8g6460b0da026f" version="1">Echo: Dragon's Might</content>
+  <content contentuid="habf7dd5agf3d1g5e53g84cag5b9ae7d31bd1" version="1">Dragon's Might</content>
+  <content contentuid="h0ca2d152gbfbfg5c16gbb6eg3accedf17e5c" version="1">Warp time for an ally within 18 m: it gets the Time Mage's Quick (an extra action on its next turn). Once per long rest.</content>
+  <content contentuid="h857b2122g5fe5g5780g8f1bg4ae0e3318912" version="1">Echo: Dragon's Speed</content>
+  <content contentuid="hef5ab741g3ef4g509eg92a7g03b103a7877e" version="1">Dragon's Speed</content>
   <content contentuid="hbe4ede89g10aag5796ga5ccg655a1e3b2781" version="1">Fight with a weapon in each hand like a Ninja: you add your ability modifier to off-hand damage (Two-Weapon Fighting) and can dual-wield weapons that aren't light. Always on while Ninja is your job.</content>
   <content contentuid="ha263a0f1g1adfg55acg80cag8fc098f40737" version="1">Dual Wield</content>
   <content contentuid="haf0f59beg191eg5572g9d31g5a64089fd3fa" version="1">A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage, gives the target -2 to spell attack rolls and spell save DC for 2 turns and gives you back a level 1 spell slot. Once per short rest.</content>
@@ -326,6 +338,9 @@
   <content contentuid="h006ec71ag19fag5d7fg9e7fg463c3066d440" version="1">1d8 fire damage to a creature within 18 m, no attack roll.</content>
   <content contentuid="hf4fff24eg1477g5b59g8ca0g5bb16105cf3d" version="1">Echo: Fire</content>
   <content contentuid="h0703e513g7da3g50b4gb6b0gc4d0ac969c07" version="1">Fire</content>
+  <content contentuid="h2eccc65dg71afg573agb26fg5c52bdb3f0ea" version="1">Breathe a cone of flame: 3d6 fire damage (Dexterity save for half). Once per short rest.</content>
+  <content contentuid="hdc4fb954g2f70g573bg9921g930103fcb0cb" version="1">Echo: Fire Breath</content>
+  <content contentuid="h23edf8e8g3a85g5437g9915g32846858d3f4" version="1">Fire Breath</content>
   <content contentuid="h9da2fcf4gd058g56bdg9a8fg835787f3ecde" version="1">Reaction: when an enemy moves into your melee reach, attack it first (like Polearm Master, with any weapon or fists). BG3 cannot cancel the enemy's own attack.</content>
   <content contentuid="h29d1397bg424bg5940g8797g51d1b7df565d" version="1">First Strike</content>
   <content contentuid="h97fd141cgd554g5819gb3beg0b2c5795c25f" version="1">Arithmeticks: Flare</content>
@@ -396,6 +411,9 @@
   <content contentuid="hfee7f9c5gc881g5f89g99b8g191fd3ea6c1a" version="1">4d10 radiant damage to a creature within 18 m, no attack roll. Once per short rest.</content>
   <content contentuid="h1fef834fge3b9g52b0g97b0g359749d0aea6" version="1">Echo: Holy</content>
   <content contentuid="hcd4a57f2g1325g55f4gbb3dg51702d8ba86c" version="1">Holy</content>
+  <content contentuid="hdbb26927g7e0ag56f6g94fcg0669d74dbb1a" version="1">Breathe divine power in a wide cone: 6d8 radiant damage (Dexterity save for half). Once per long rest.</content>
+  <content contentuid="h4c57edd0gbb69g5ad2g9090gf75dc57c21b4" version="1">Echo: Holy Breath</content>
+  <content contentuid="h5ad78558g39bbg585aga72agf88869f289d0" version="1">Holy Breath</content>
   <content contentuid="h0bd76b65g960eg596aga5a0g6293ccf08315" version="1">Jump: leap up to 6 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
   <content contentuid="h4dd3e762g610bg5f7eg8cd8gdc1c92a1b1f2" version="1">Echo: Horizontal Jump +1</content>
   <content contentuid="hb49829dcg8676g5877g9b53gf5492595bb77" version="1">Horizontal Jump +1</content>
@@ -411,6 +429,9 @@
   <content contentuid="h1c571433g80adg5c31gb52dg629c6dc43208" version="1">Jump: leap up to 18 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
   <content contentuid="h4115acdbg7dccg56c2g8893ga363de84cc5b" version="1">Echo: Horizontal Jump +7</content>
   <content contentuid="h1c9e8fc9g8e8eg5e47g9c2cgb2d0e6cc2dd8" version="1">Horizontal Jump +7</content>
+  <content contentuid="ha301a689g75eag5348gad2agae24708d2790" version="1">Breathe a cone of freezing air: everything in it takes 2d8 cold damage (Dexterity save against your manoeuvre DC for half). Once per short rest.</content>
+  <content contentuid="h53d385d8gfd53g5502g9ea9ge193f7631f61" version="1">Echo: Ice Breath</content>
+  <content contentuid="h55cf69e0gf7e6g56a2gb565gd47390218dfd" version="1">Ice Breath</content>
   <content contentuid="h86ef77f1ge747g5a8fg9bbfg9121dc07d8ac" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 fire damage (Dexterity save for half). Allies are spared. Once per short rest.</content>
   <content contentuid="hf94f9818g151ag59d3g972egae4b8f52be8a" version="1">Echo: Ifrit</content>
   <content contentuid="hb2039ccegd2a8g5186ga433g59e4d1b83812" version="1">Ifrit</content>
@@ -917,6 +938,9 @@
   <content contentuid="h9efa3e8agf1d7g5845gae50g44ca6a7615c6" version="1">1d8 lightning damage to a creature within 18 m, no attack roll.</content>
   <content contentuid="haf28bdf7gb2a7g51f6gaccagfd70e36b62fd" version="1">Echo: Thunder</content>
   <content contentuid="h61b0b750g5244g5945g9d9eg6abb6b847a66" version="1">Thunder</content>
+  <content contentuid="hc65131b3ge9dag5c8ag951cgbe3270b2bd9f" version="1">Breathe a 12 m line of lightning: 2d8 lightning damage (Dexterity save for half). Once per short rest.</content>
+  <content contentuid="h26b34219gf936g534fgb0b6g31ac7878ed29" version="1">Echo: Thunder Breath</content>
+  <content contentuid="hd7c368b8gd358g5b01g97e0ga6ca89fae581" version="1">Thunder Breath</content>
   <content contentuid="h3779b1bag9f9eg55c2gaaccgb30ec962f94e" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 bludgeoning damage and fall prone (Dexterity save for half, no prone). Allies are spared. Once per short rest.</content>
   <content contentuid="h052fcd75g0cb0g5574g84d2g1c101745bcac" version="1">Echo: Titan</content>
   <content contentuid="hc8b82969g51aeg52cbgaaf3gc4fd520a0e71" version="1">Titan</content>
@@ -1020,6 +1044,10 @@
   <content contentuid="h53354524gcaa1g590ag87a1ge43ba7d6b23e" version="1">Divine Knight Mastery</content>
   <content contentuid="hc905812eg9fc7g5545ga403gb45233ce4fa7" version="1">Meliadoul's job. Unyielding Blade: slashes that fly 6 m and knock a foe's gear off (armour, headwear, weapon or an accessory falls to the ground; FFT destroys it, here you can still loot it). Story items hold. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h2b3522d7g0492g54a5g98b8g19581f4ee6bf" version="1">Job: Divine Knight</content>
+  <content contentuid="h69a971e0g3220g5f58gbfd7gc3cb31faabe4" version="1">Resistance to fire damage. Earned by mastering Dragonkin; kept after changing jobs.</content>
+  <content contentuid="h23bc372eg7c87g53ecgb421ga244fc329a68" version="1">Dragonkin Mastery</content>
+  <content contentuid="h8ed27e9egb03cg5dcfgbb77g6fc321dfce58" version="1">Reis's job. Dragon: breaths of ice, fire, lightning and holy power, and the draconic gifts FFT gives only to dragons and hydras, here for any ally (Gift, Might, Speed); Dragon's Charm turns a beast or monster to your side for a while. Equipment: spears, pikes, glaives, halberds, light armour, medium armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h6b5af1bdg3ac0g5258gb113g333c2ae1a393" version="1">Job: Dragonkin</content>
   <content contentuid="he588a050g93a9g5344ga4d0g182e16af033a" version="1">Jump 3 m farther. Earned by mastering Dragoon; kept after changing jobs.</content>
   <content contentuid="h0e9db50ega9bfg5c6fgb895gd11d0d98189a" version="1">Dragoon Mastery</content>
   <content contentuid="h3d0ed583g1caeg5f41gac3egbe1cb3b48be5" version="1">Leaps on enemies with a polearm: Jump's reach and landing power grow with Horizontal and Vertical Jump. Equipment: spears, pikes, glaives, halberds, tridents, shields, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.37**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.38**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.38: Dragonkin (special job 16 of 17)
+
+- **Dragonkin** (Reis's job): needs the **Dragonkin Badge** (Ansur, the Wyrmway) plus **Dragoon Lv6** and **Summoner Lv5**.
+- **Dragon**, as in TIC: **Ice Breath**, **Fire Breath**, **Thunder Breath** (0 JP each, once per short rest: a cone of 2d8 cold, a cone of 3d6 fire, a 12 m line of 2d8 lightning; Dex save half), **Holy Breath** (900, once per long rest: wide cone, 6d8 radiant). FFT's dragon-only arts work on any ally here: **Dragon's Gift** (300: you lose 1d8 HP, an ally regains 3d8 and is cured of poison, blindness, fear and disease), **Dragon's Might** (400: Strength, Magick and Speed Surge for 3 turns), **Dragon's Speed** (400: the Time Mage's Quick, once per long rest). **Dragon's Charm** (300): a creature that isn't humanoid makes a Wisdom save or fights for you for 2 turns (bosses immune).
+- Main-job equipment: spears, pikes, glaives, halberds, light and medium armour. Mastery: resistance to fire.
 
 ## New in 1.0.0.37: Princess (special job 15 of 17)
 

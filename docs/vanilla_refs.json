@@ -305,6 +305,7 @@
       "FFTJ_Job_Astrologer",
       "FFTJ_Job_Cleric",
       "FFTJ_Job_DivineKnight",
+      "FFTJ_Job_Dragonkin",
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_GameHunter",
       "FFTJ_Job_HolyKnight",
@@ -577,6 +578,13 @@
     ]
   },
   {
+    "id": "Spell_Enchantment_CharmPerson",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_DragonsCharm"
+    ]
+  },
+  {
     "id": "Spell_Enchantment_Confusion",
     "kind": "icon",
     "usedBy": [
@@ -626,6 +634,7 @@
     "id": "Spell_Enchantment_Heroism",
     "kind": "icon",
     "usedBy": [
+      "Target_FFTJ_DragonsMight",
       "Zone_FFTJ_SpellbladeFaith"
     ]
   },
@@ -672,7 +681,9 @@
     "id": "Spell_Evocation_Daylight",
     "kind": "icon",
     "usedBy": [
-      "Zone_FFTJ_DivineRuination"
+      "FFTJ_Mastery_Dragonkin",
+      "Zone_FFTJ_DivineRuination",
+      "Zone_FFTJ_HolyBreath"
     ]
   },
   {
@@ -702,6 +713,13 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Sandstorm"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_HealingWord",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_DragonsGift"
     ]
   },
   {
@@ -873,7 +891,8 @@
     "usedBy": [
       "FFTJ_SWIFTSPELL",
       "FFTJ_Swiftspell",
-      "Shout_FFTJ_Masamune"
+      "Shout_FFTJ_Masamune",
+      "Target_FFTJ_DragonsSpeed"
     ]
   },
   {
@@ -1173,7 +1192,8 @@
     "kind": "status",
     "usedBy": [
       "Shout_FFTJ_Purification",
-      "Target_FFTJ_Dispelna"
+      "Target_FFTJ_Dispelna",
+      "Target_FFTJ_DragonsGift"
     ]
   },
   {
@@ -1204,7 +1224,8 @@
     "kind": "status",
     "usedBy": [
       "Shout_FFTJ_Purification",
-      "Target_FFTJ_Dispelna"
+      "Target_FFTJ_Dispelna",
+      "Target_FFTJ_DragonsGift"
     ]
   },
   {
@@ -1212,7 +1233,8 @@
     "kind": "status",
     "usedBy": [
       "Shout_FFTJ_Purification",
-      "Target_FFTJ_Dispelna"
+      "Target_FFTJ_Dispelna",
+      "Target_FFTJ_DragonsGift"
     ]
   },
   {
@@ -1242,7 +1264,8 @@
     "kind": "status",
     "usedBy": [
       "Shout_FFTJ_Purification",
-      "Target_FFTJ_Dispelna"
+      "Target_FFTJ_Dispelna",
+      "Target_FFTJ_DragonsGift"
     ]
   },
   {
@@ -1938,6 +1961,21 @@
     ]
   },
   {
+    "id": "Zone_BurningHands",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Zone_FFTJ_FireBreath"
+    ]
+  },
+  {
+    "id": "Zone_ConeOfCold",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Zone_FFTJ_HolyBreath",
+      "Zone_FFTJ_IceBreath"
+    ]
+  },
+  {
     "id": "Zone_GustOfWind_Monk",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -1948,7 +1986,8 @@
     "id": "Zone_LightningBolt",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Zone_FFTJ_KikuIchimonji"
+      "Zone_FFTJ_KikuIchimonji",
+      "Zone_FFTJ_ThunderBreath"
     ]
   },
   {
