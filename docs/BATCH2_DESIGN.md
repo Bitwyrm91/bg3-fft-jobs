@@ -5,7 +5,7 @@ Done: **Dragoon** (v1.0.0.10). Left: **Summoner**, **Orator**, **Geomancer**. Th
 lists below), effects from the game's `Ability-en` descriptions, vanilla parents, tests, build, validate, install only
 with BG3 closed, commit after each job, no GPU image generation without asking.
 
-## Summoner (designed 2026-10-12, not built)
+## Summoner (designed 2026-10-12, BUILT in v1.0.0.11)
 
 Espers **spare allies** (user): damage espers use `TargetConditions "Enemy() and not Dead()"` (a Target spell's
 TargetConditions filter every creature in its area, as vanilla Sculpt Spells shows on Flame Strike); heal/buff espers

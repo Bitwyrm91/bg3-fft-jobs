@@ -299,3 +299,13 @@ data "StatusType" "INCAPACITATED"
 data "DisplayName" "{{str:status.FFTJ_STONE.name}}"
 data "Description" "{{str:status.FFTJ_STONE.desc}}"
 data "StackId" "FFTJ_STONE"
+
+// Golem (Summoner): temporary hit points, as vanilla MAG_TEMPORARY_HP statuses.
+new entry "FFTJ_GOLEM"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_GOLEM.name}}"
+data "Description" "{{str:status.FFTJ_GOLEM.desc}}"
+data "Icon" "Spell_Abjuration_Aid"
+data "StackId" "FFTJ_GOLEM"
+data "Boosts" "TemporaryHP(15)"

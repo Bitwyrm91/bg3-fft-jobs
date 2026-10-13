@@ -26,6 +26,8 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **1.0.0.10 (2026-10-12 ~18:45):** user on 1.0.0.9: "looks way wayy better"; colours rendered much brighter than set → palette darkened (IMGUI colours are drawn brighter in BG3; tune by eye). Batch 2 started with the **Dragoon** (15 abilities, TIC costs 0 diffs): Jump = Projectile_FFTJ_Jump1/2/3/4/7 on Brutal Leap (range per Horizontal tier) + Projectile_FFTJ_JumpLanding (jump knockdown blast: weapon damage + best Vertical tier via HasPassive, prone; Dex save); new grant-variant condition `learned` (a lower tier grants nothing once a higher one is learned, tested); Dragonheart = Death Ward once per long rest; Ignore Elevation = jump +6 m and IgnoreFallDamage(). 126 tests. Next in batch 2: Summoner (designed in docs/BATCH2_DESIGN.md), Orator, Geomancer (research notes there too).
 
+**1.0.0.11 (2026-10-12 late):** **Summoner** built from docs/BATCH2_DESIGN.md (17 abilities, TIC costs 0 diffs; espers spare allies via TargetConditions + AoEConditions; Golem = FFTJ_GOLEM TemporaryHP(15); Halve MP on OnShortRest). 126 tests, validate OK. Next: Orator, Geomancer (research pointers in docs/BATCH2_DESIGN.md).
+
 **NEXT: phase 2, decided with the user on 2026-10-12. Read `docs/PHASE2.md`** (every FFT job from every version, Fell Seal rules, the Soul Collector monster job; build order and ground rules: no icons for now, no GitHub push unless asked, preserve usage).
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.

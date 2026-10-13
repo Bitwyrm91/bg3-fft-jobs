@@ -28,6 +28,8 @@
   <content contentuid="h9f6353begc21eg52abga631gbb0f8d6864f4" version="1">Aurablast</content>
   <content contentuid="h3f0aa3dbg61fdg599bga2a2g297a302ae1b1" version="1">When you take damage, regain 1d4+2 HP. Once per turn.</content>
   <content contentuid="h57c76934g2a19g5dd0gba4cg4341525da592" version="1">Auto-Potion</content>
+  <content contentuid="h9895cab5gc69cg566dgbf36g4282693bb62b" version="1">Mega Flare: enemies within 5 m of a point up to 18 m away take 8d8 force damage (Dexterity save for half). Allies are spared. Once per long rest.</content>
+  <content contentuid="h2435ec00g86cfg5941g8df2g03e4944d28ae" version="1">Bahamut</content>
   <content contentuid="h9717a9f6gc29bg53e2gb8fag5b471499a289" version="1">A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, but -2 to saving throws (strengthen an ally's magic, or soften an enemy). Once per short rest.</content>
   <content contentuid="h132d66fagc2d9g57dcga812g3f742bbf79d4" version="1">Belief</content>
   <content contentuid="h9bc71ca4gd076g5b96ga3e0g5d84488f41b0" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
@@ -38,6 +40,8 @@
   <content contentuid="h19c3ad71gf0c5g586cg9984g70c2e026e1a2" version="1">Blizzard</content>
   <content contentuid="h71bbbd65gebe5g52eegba2eg32d2622e81a7" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage. Always on while Monk is your job.</content>
   <content contentuid="h3a07239cgf1a1g5492g92a5g3ae451b18faf" version="1">Brawler</content>
+  <content contentuid="h7fa0a2a3g15d6g5d3dg874bga064bbde3d05" version="1">You and allies within 6 m gain Reflect for 3 turns. Once per long rest.</content>
+  <content contentuid="h16398070g0d82g5a7bgb834g66994bc0ce29" version="1">Carbuncle</content>
   <content contentuid="hc2226df6gf9edg5b9fg9ff8g336deff7e3ae" version="1">You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.</content>
   <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
   <content contentuid="hc7a5deceg9d9fg5c26ga3b8g7299e10e6f75" version="1">+2 to weapon attack rolls.</content>
@@ -52,6 +56,8 @@
   <content contentuid="h8a22b598g75afg57f6g87afg0cc5c5e0fcb0" version="1">Critical: Quick</content>
   <content contentuid="h40a1faefg40acg579ega585g6796fc9cb7f6" version="1">When damage leaves you at 20% of your hit points or less, you regain half your maximum hit points. Once per long rest.</content>
   <content contentuid="h7f1c4995ge642g57adgbd42g2508eee55eae" version="1">Critical: Recover HP</content>
+  <content contentuid="h6301a4bag9d6bg52c4gb239gc84bb48c790a" version="1">When damage leaves you at 20% of your hit points or less, you regain all your level 1 spell slots. Once per long rest.</content>
+  <content contentuid="h03bc0ac8g888cg52e3gafccg3a1b16948845" version="1">Critical: Recover MP</content>
   <content contentuid="hd61583b7gd790g5b6agae4bgeeae29f84943" version="1">Heal up to 3 allies for 2d8+3. Once per short rest.</content>
   <content contentuid="hd7fc9da8g2d74g5a9egbdeeg882f15d2006a" version="1">Cura</content>
   <content contentuid="h74a4f82fg6ebeg57aagaba4g065916b79e92" version="1">Heal up to 4 allies for 4d8+4. Once per long rest.</content>
@@ -60,6 +66,8 @@
   <content contentuid="h4a9da558gdab3g595aga197gf633a880b245" version="1">Cure</content>
   <content contentuid="hcbe7b8e0g4b4fg52a6g853bg83d7a1dbbc4c" version="1">Spin and strike every enemy within 2 m: an unarmed attack roll against each, 1d8 + your unarmed attack modifier bludgeoning on a hit. FFT also hits allies; here only enemies.</content>
   <content contentuid="h0da6eaaeg23d9g5a40g95f7ge8dcb356bd2b" version="1">Cyclone</content>
+  <content contentuid="h55cfd0b2gc417g5b77g93f8g5782a6068eea" version="1">Enemies within 5 m of a point up to 18 m away take 7d10 bludgeoning damage (Dexterity save for half). Allies are spared. Once per long rest.</content>
+  <content contentuid="hb0becc33gaa9eg5516ga793ge78b437a1b7d" version="1">Cyclops</content>
   <content contentuid="h6c7a1987g31a9g5de5g8a14g6aa3a345cf40" version="1">8d10 necrotic damage to a creature within 18 m; Constitution save for half. Undead and constructs cannot be targeted. Once per long rest.</content>
   <content contentuid="h20430412g7126g548fg9730g2dc0dc6147c2" version="1">Death</content>
   <content contentuid="h9bd22111g2e96g5e0ag9eb9gfb673ea2978c" version="1">+1 AC.</content>
@@ -98,6 +106,8 @@
   <content contentuid="h26d11a44g6754g5a4cgbfb0gf3b0b4a58057" version="1">Evasive Stance</content>
   <content contentuid="h7be2072fg5de6g5df3ga4aagae31d8e5f460" version="1">End Blinded. Thrown like Potion.</content>
   <content contentuid="h16d7460agbbd3g5e50g821bg4fb67c56510f" version="1">Eye Drops</content>
+  <content contentuid="h088b000dg7ff4g5923g8346ga938b8cff9d8" version="1">Up to 6 allies within 18 m regain 4d8 hit points. Once per short rest.</content>
+  <content contentuid="ha86a86bdgbda1g5876g896fgd801aaf52a8b" version="1">Faerie</content>
   <content contentuid="h94fb2c2dg83ccg5c4fgbf16gd1943aaa8623" version="1">A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: it can't cast spells, deals 2 more damage and has -2 AC. Once per short rest.</content>
   <content contentuid="hc4cf26ddg0919g52f0g93c7ge30825ff9fab" version="1">Fervor</content>
   <content contentuid="h55a19410gb594g5f86gaa4fgf59bcc326e32" version="1">3d6 fire damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
@@ -116,10 +126,14 @@
   <content contentuid="had05ac22g7588g57aag9985ga600447820d8" version="1">Focus</content>
   <content contentuid="h6b8996c9gdb72g583ag8499g7489704b4f74" version="1">When you take damage, you gain that much gold.</content>
   <content contentuid="hbd201c8fgb6cbg5498g895dg3d98366281a2" version="1">Gil Snapper</content>
+  <content contentuid="hfb8bec52gfb6dg57b5g9830g1fc844c301dc" version="1">You and allies within 6 m gain 15 temporary hit points (FFT's Golem blocks physical damage). Once per long rest.</content>
+  <content contentuid="h7ba0aba5gbd02g5143gba76gf5454aeed7b7" version="1">Golem</content>
   <content contentuid="hc2198841g93cfg5d7bg94c4ge34ea94d7737" version="1">Creatures within 3 m of a point up to 18 m away make a Constitution save or lose half of their maximum hit points (force). Bosses are immune. Once per long rest.</content>
   <content contentuid="ha1f14ed6gff9bg5a53g81fdgb151345dfe26" version="1">Graviga</content>
   <content contentuid="h67c8d632g2860g5d17g91a2gb9780a057845" version="1">Creatures within 2 m of a point up to 18 m away make a Constitution save or lose a quarter of their maximum hit points (force). Bosses are immune. Once per short rest.</content>
   <content contentuid="h0f5f83dfg282eg5c3bgbdebg0504d5dbe4a8" version="1">Gravity</content>
+  <content contentuid="hf4cb1db3g5560g59e8g9c0egf2f3c7ea4e40" version="1">When you finish a short rest, you regain one level 1 and one level 2 spell slot (FFT halves MP costs).</content>
+  <content contentuid="h18ec0829g0adbg55a9gaa5eg802a5e484483" version="1">Halve MP</content>
   <content contentuid="hab2b6c61g8abfg5901g99d6gc875f0c0eebc" version="1">Strip a creature within 18 m of its blessings: Haste, Bless, Aid, Heroism, Shield of Faith, Barkskin, Stoneskin, Blur, Protection from Evil and Good, Freedom of Movement, Sanctuary, Longstrider, Invisibility, and this mod's Protect, Shell, Regen, Focus, Faith, Reflect, Float and Quick. Once per short rest.</content>
   <content contentuid="heeed14fcg5ac7g573bgba98gd214ae6b7a07" version="1">Harmony</content>
   <content contentuid="hbf01e01dg4fc2g5eb9g9dccga0ee2ee1befc" version="1">An ally within 18 m is Hasted for 3 turns (BG3's Haste: an extra action, +2 AC, more movement, then a turn of lethargy). No concentration. Once per short rest.</content>
@@ -142,6 +156,8 @@
   <content contentuid="h51dbb51fg8717g5c06g9754g4dd091bff8dc" version="1">Horizontal Jump +4</content>
   <content contentuid="h1c571433g80adg5c31gb52dg629c6dc43208" version="1">Jump: leap up to 18 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.</content>
   <content contentuid="h1c9e8fc9g8e8eg5e47g9c2cgb2d0e6cc2dd8" version="1">Horizontal Jump +7</content>
+  <content contentuid="h86ef77f1ge747g5a8fg9bbfg9121dc07d8ac" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 fire damage (Dexterity save for half). Allies are spared. Once per short rest.</content>
+  <content contentuid="hb2039ccegd2a8g5186ga433g59e4d1b83812" version="1">Ifrit</content>
   <content contentuid="hca2f7e6cg8ef2g5adag9ceegc426c4da007a" version="1">Jump 6 m farther and take no falling damage.</content>
   <content contentuid="h1b4c2335gc07dg5cebg87f7g3577b92b09f5" version="1">Ignore Elevation</content>
   <content contentuid="h8b3e5d32g7ebeg5963gbf6bg4a4f5a128663" version="1">You ignore difficult terrain (mud, water, ice, webs).</content>
@@ -158,8 +174,12 @@
   <content contentuid="haaaccdbag65e7g5434gb59dg58d71287ae34" version="1">Jump +1</content>
   <content contentuid="hd87c107dge1e0g57e5gaff0gd0cf14496519" version="1">Jump 6 m farther.</content>
   <content contentuid="h1da5b1fcgb221g5fadg8565g4e9b4dad6e8e" version="1">Jump +2</content>
+  <content contentuid="h00bfb176g5b90g5a40g93ffg7922596ed4be" version="1">A tidal wave: enemies within 5 m of a point up to 18 m away take 5d8 bludgeoning damage and are soaked (Wet: weak to cold and lightning; Dexterity save for half, not wet). Allies are spared. Once per long rest.</content>
+  <content contentuid="h5d227254gca24g56e8g815dg4ef57e2e6f84" version="1">Leviathan</content>
   <content contentuid="h5d017481g8ffbg5eebgb4fdgefb197d262ca" version="1">You always float: you can't be knocked prone and you ignore difficult terrain.</content>
   <content contentuid="h1bf70ff7g2fdag57b8g95acg3a81ede5a37c" version="1">Levitate</content>
+  <content contentuid="h42775ea2g504fg5649g8517g7f37028b2c07" version="1">Enemies within 4 m of a point up to 18 m away take 4d10 necrotic damage (Constitution save for half). Allies are spared. Once per long rest.</content>
+  <content contentuid="hef5b730bgc0e9g5ff1ga030g2ce416f8e2b0" version="1">Lich</content>
   <content contentuid="ha47f129dg6738g5a52g9c25gad41e44e09c3" version="1">When you move, regain 1d6 hit points. Once per turn.</content>
   <content contentuid="h0e9f34efgecb8g5607g8adcg3cf24ccc8fb9" version="1">Lifefont</content>
   <content contentuid="h7218403fgf688g57f1gb541gd9b301fb7c7b" version="1">+1 spell save DC and +1 to spell attack rolls.</content>
@@ -174,10 +194,14 @@
   <content contentuid="h7af2ccd5g924fg526eg9709g1e21c454bf15" version="1">Manafont</content>
   <content contentuid="h6137c09ag23c4g5dd5g8830gfb220392c107" version="1">A meteor smashes into a point up to 18 m away: creatures within 5 m take 5d8 bludgeoning and 5d8 fire damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="h8e2ed264gd49dg552egb637g46ea9ab55e5c" version="1">Meteor</content>
+  <content contentuid="h614742begf9b5g5dd9gacaeg57cdfcb0584f" version="1">Up to 4 allies within 18 m regain 2d8 hit points. Once per short rest.</content>
+  <content contentuid="h321ba59agd6a3g5694g950dgd7c91d880ca6" version="1">Moogle</content>
   <content contentuid="hb714e206g10feg5503g9baeg87df8a75d709" version="1">+3 m movement speed.</content>
   <content contentuid="he0a669afga60cg51begb1dcg39c96fde3aa2" version="1">Movement +1</content>
   <content contentuid="hd5040b7cg2ad1g540ag83efgbfff8a8cc65e" version="1">+6 m movement speed.</content>
   <content contentuid="h8d5a38d6g28d4g5de4gbb7dg404b0afec80d" version="1">Movement +2</content>
+  <content contentuid="h52980888gd4e4g5569gb857g115b93dfdf17" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest.</content>
+  <content contentuid="h2dbc5174g0820g506fg9a13gece64772e997" version="1">Odin</content>
   <content contentuid="h4ce1e541gae91g5abag9d00gd485952aca38" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2.</content>
   <content contentuid="h767a6ba2g34a0g5ab4ga421g9217d79c3ca7" version="1">Parry</content>
   <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion.</content>
@@ -200,6 +224,8 @@
   <content contentuid="h42d3a08ag373eg5262g9831g5b72ca08dd2c" version="1">Quiescence</content>
   <content contentuid="h6f8f7b02ge82fg5859gb7a8g223ee4defd4b" version="1">Revive a dead ally with 1 HP. Once per short rest.</content>
   <content contentuid="h0bb0db5cg4a18g5070g8270g65bd5162ce55" version="1">Raise</content>
+  <content contentuid="h5a6c5491g0da0g59c8g833dg914ec2cb9682" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 lightning damage (Dexterity save for half). Allies are spared. Once per short rest.</content>
+  <content contentuid="hd7a480dcgd327g5557g953eg6b080c972b3b" version="1">Ramuh</content>
   <content contentuid="h3d6e9f1bgee98g51a1g8473g8cd1bd401c8e" version="1">An ally within 18 m is shielded for 3 turns: it takes half damage from spells, and a caster whose spell damages it takes 2d6 force damage. BG3 cannot bounce the spell itself. Once per short rest.</content>
   <content contentuid="h077a5e35gc1e4g5a01gb3d0gfadcbaad7b02" version="1">Reflect</content>
   <content contentuid="hefd05e9eg70beg544cg936bg9ebb565ec2b7" version="1">The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn.</content>
@@ -226,10 +252,14 @@
   <content contentuid="h80eefe59ge1b3g5eacgbbfeg21e56d55ea01" version="1">Revive</content>
   <content contentuid="h6a02edd4g776dg5ae4gbe92gb0a4ce3f3fc5" version="1">Melee weapon attack that also pushes the target 2 m.</content>
   <content contentuid="h27771a9dg0fcag5396gbf7eg0846d874e966" version="1">Rush</content>
+  <content contentuid="h848bed46gc1e4g5aa9g889ag747c33a43f34" version="1">Enemies within 5 m of a point up to 18 m away take 6d8 fire damage (Dexterity save for half). Allies are spared. Once per long rest.</content>
+  <content contentuid="ha0338a88g65d2g51f5gabf8ga1dd11bf59d6" version="1">Salamander</content>
   <content contentuid="ha9916fc8g295bg5fcbg980aga22476868438" version="1">Touch an ally to end Blinded, Poisoned and Silenced.</content>
   <content contentuid="hc97a5f6ag22afg5394g97dcgc0d4c94cc049" version="1">Salve</content>
   <content contentuid="h59cd2ee9g52bbg50e8ga5adgdd2843e65e7b" version="1">The target has advantage on saving throws against spells for 5 turns. Once per turn.</content>
   <content contentuid="h3959f5deg7eecg515ega28ag9d26c6b424a8" version="1">Shell</content>
+  <content contentuid="h1691a52egdec0g553egbc4bgbfa4b98004ee" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 cold damage (Dexterity save for half). Allies are spared. Once per short rest.</content>
+  <content contentuid="h01f7b506g516fg5096gb32egb97c5c77b852" version="1">Shiva</content>
   <content contentuid="h9e6374eegd003g5644gacccg14acc1cfda61" version="1">A shockwave tears through the ground in a 12 m line: creatures in it make a Dexterity save (your Strength/Dexterity DC), taking 3d8 bludgeoning and falling prone on a failure, half damage on a success. Once per short rest.</content>
   <content contentuid="h59e6389bgf275g564cgb4a7gfd85d3e1ed40" version="1">Shockwave</content>
   <content contentuid="h33941a53g3784g5485gaf11ga685858c5209" version="1">An enemy within 18 m makes a Wisdom save or is Slowed for 3 turns (BG3's Slow: -2 AC and Dexterity saves, half movement, no reactions; it repeats the save each turn). Once per short rest.</content>
@@ -260,6 +290,8 @@
   <content contentuid="hc2b529e5g1e94g55bag9a4dgcfdd6e55faeb" version="1">Stop</content>
   <content contentuid="h8bfd65f2gf91ag581fg9540g6c24b3bbf48d" version="1">+2 to initiative, and in each fight the first spell you cast that costs an action costs a bonus action instead (FFT casts faster).</content>
   <content contentuid="h5ae275f6g03a1g5943g9af2gb05f39747b15" version="1">Swiftspell</content>
+  <content contentuid="hea984cd0gf88eg59b8gb880g94b76e75f297" version="1">Enemies within 3 m of a point up to 18 m away take 3d6 thunder damage and are Silenced for 2 turns (Constitution save for half, no silence). Allies are spared. Once per short rest.</content>
+  <content contentuid="h4f44496cgb533g5d95ga9bfg3a3b8b0755c4" version="1">Sylph</content>
   <content contentuid="h23fec4c9g22ceg5ea4g9a38g5de61cf286d6" version="1">Bonus action, once per turn: teleport to a spot you can see up to 9 m away (Misty Step without a spell slot).</content>
   <content contentuid="h74f64dd9ga0ffg596bg8316g8bbd25ebbf7d" version="1">Teleport</content>
   <content contentuid="hf966add7g171eg5d96g90ffg3b8972c7ff78" version="1">Item abilities can be thrown up to 9 m with any job.</content>
@@ -272,6 +304,8 @@
   <content contentuid="hb662163bg7866g5397gbba7gc56e5cd6d60f" version="1">Thundara</content>
   <content contentuid="h9efa3e8agf1d7g5845gae50g44ca6a7615c6" version="1">1d8 lightning damage to a creature within 18 m, no attack roll.</content>
   <content contentuid="h61b0b750g5244g5945g9d9eg6abb6b847a66" version="1">Thunder</content>
+  <content contentuid="h3779b1bag9f9eg55c2gaaccgb30ec962f94e" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 bludgeoning damage and fall prone (Dexterity save for half, no prone). Allies are spared. Once per short rest.</content>
+  <content contentuid="hc8b82969g51aeg52cbgaaf3gc4fd520a0e71" version="1">Titan</content>
   <content contentuid="h6c29a1c2g9a1cg55c5g8b91g304d10ec3c90" version="1">+2 to Perception (spot hidden items and traps).</content>
   <content contentuid="h1bd79da5g4bffg5c41gbe76g2e287a7581e0" version="1">Treasure Hunter</content>
   <content contentuid="h0a96a934g87f8g529cga2fcg82cb690c3b32" version="1">A creature within 18 m makes a Wisdom save or is Frightened of you for 2 turns (FFT lowers Bravery).</content>
@@ -328,6 +362,10 @@
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hb65980b3g8531g5fc9gabddgdcd5912f7558" version="1">Job: Squire</content>
+  <content contentuid="h0abe38beg124bg5c2ag87a1g55b5fc9f3b9f" version="1">+1 to Intelligence and Charisma saving throws. Earned by mastering Summoner; kept after changing jobs.</content>
+  <content contentuid="h8ae668f7g77cbg5f75gb329g26690ca4ce50" version="1">Summoner Mastery</content>
+  <content contentuid="h75d2bcfag333ag5984g9d35g0b74947a097f" version="1">Calls espers: huge area magic that spares allies, healing and protection. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h2edc874bg898bg5a68g8125g8fe652dba95e" version="1">Job: Summoner</content>
   <content contentuid="hdc74e132g0947g5589g9641g71de5297e4f8" version="1">+2 to initiative. Earned by mastering Thief; kept after changing jobs.</content>
   <content contentuid="hd70bd43dg81b1g5ffbg91d2g4a4e45962fb1" version="1">Thief Mastery</content>
   <content contentuid="he5b20481g3e51g51afg9d5age3ea488efaf6" version="1">Steals gold, experience, hearts and the gear off an enemy's back. Equipment: daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -362,6 +400,8 @@
   <content contentuid="hcb7b2dd1g82f2g5b6cg870egc2b547e6a33e" version="1">Float</content>
   <content contentuid="hbc9d1ec1ga51eg5405gbaf4g810332f1f5aa" version="1">+1 to attack rolls and +1 damage.</content>
   <content contentuid="h1906f6c3ge841g56d1g95b0g3c9d6bf606c1" version="1">Focus</content>
+  <content contentuid="h28f54b4fg5877g5587g80f8g005023c4ef68" version="1">15 temporary hit points from the Golem's shield.</content>
+  <content contentuid="he5083c5ag3cd4g56bcg804dgc1c90f6d0b93" version="1">Golem</content>
   <content contentuid="h2c97c5f0g60f7g5b47gbfc7g4197ec4003d7" version="1">Can't move, but can still act. Repeats the Strength save each turn.</content>
   <content contentuid="hefcc5bdega8a1g50ccg9014gec0e6196f422" version="1">Immobilize</content>
   <content contentuid="hda2ce899ga8deg5eaaga615gdfd2f03e4ffb" version="1">+2 AC.</content>

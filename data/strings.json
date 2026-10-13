@@ -58,6 +58,8 @@
     "status.FFTJ_DISABLE.name": "Disable",
     "status.FFTJ_DISABLE.desc": "Can't take actions or bonus actions, but can move.",
     "status.FFTJ_STONE.name": "Stone",
-    "status.FFTJ_STONE.desc": "Petrified: incapacitated and resistant to all damage."
+    "status.FFTJ_STONE.desc": "Petrified: incapacitated and resistant to all damage.",
+    "status.FFTJ_GOLEM.name": "Golem",
+    "status.FFTJ_GOLEM.desc": "15 temporary hit points from the Golem's shield."
   }
 }

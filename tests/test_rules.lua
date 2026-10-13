@@ -138,7 +138,7 @@ function S.shared_learning_targets(w, T)
     local Rules, Data = setup()
     local cfg = T.cfg({ JP = { Shared = { Share = 0.15 } } })
     local char = Rules.NewChar(Data, cfg, "Squire")
-    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage,Monk,Thief,TimeMage,Mystic,Dragoon",
+    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage,Monk,Thief,TimeMage,Mystic,Dragoon,Summoner",
         "every other implemented job, locked ones included")
     local fight = T.cfg({ JP = { Shared = { Share = 0.15, Scope = "FightJobs" } } })
     T.eq(table.concat(Rules.SharedTargets(Data, fight, char, "Squire", { Squire = true, Knight = true }), ","), "Knight",

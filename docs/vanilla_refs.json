@@ -93,6 +93,13 @@
     ]
   },
   {
+    "id": "Spell_Abjuration_Aid",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_GOLEM"
+    ]
+  },
+  {
     "id": "Spell_Abjuration_DeathWard",
     "kind": "icon",
     "usedBy": [
@@ -104,6 +111,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_AbsorbMP",
+      "FFTJ_CriticalRecoverMP",
+      "FFTJ_HalveMP",
       "FFTJ_ManaShield",
       "FFTJ_REFLECT",
       "FFTJ_Reflect_Counter",
@@ -318,6 +327,7 @@
     "kind": "status",
     "usedBy": [
       "Projectile_FFTJ_JumpLanding",
+      "Target_FFTJ_Titan",
       "Zone_FFTJ_Shockwave"
     ]
   },
@@ -443,7 +453,8 @@
       "Target_FFTJ_Esuna",
       "Target_FFTJ_Quiescence",
       "Target_FFTJ_Remedy",
-      "Target_FFTJ_Salve"
+      "Target_FFTJ_Salve",
+      "Target_FFTJ_Sylph"
     ]
   },
   {
@@ -472,6 +483,13 @@
     "kind": "status",
     "usedBy": [
       "Target_FFTJ_Harmony"
+    ]
+  },
+  {
+    "id": "WET",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Leviathan"
     ]
   },
   {
@@ -567,6 +585,13 @@
     ]
   },
   {
+    "id": "Shout_Aid",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Shout_FFTJ_Golem"
+    ]
+  },
+  {
     "id": "Shout_PrayerOfHealing",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -609,7 +634,8 @@
     "id": "Target_Blight",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Target_FFTJ_Death"
+      "Target_FFTJ_Death",
+      "Target_FFTJ_Lich"
     ]
   },
   {
@@ -623,6 +649,7 @@
     "id": "Target_CallLightning_LightningBolt",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_Ramuh",
       "Target_FFTJ_Thundaga",
       "Target_FFTJ_Thundara"
     ]
@@ -673,7 +700,8 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Cura",
-      "Target_FFTJ_Curaga"
+      "Target_FFTJ_Curaga",
+      "Target_FFTJ_Moogle"
     ]
   },
   {
@@ -715,6 +743,7 @@
     "id": "Target_FlameStrike",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_Ifrit",
       "Target_FFTJ_Meteor"
     ]
   },
@@ -771,7 +800,8 @@
     "id": "Target_IceStorm",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Target_FFTJ_Blizzaga"
+      "Target_FFTJ_Blizzaga",
+      "Target_FFTJ_Shiva"
     ]
   },
   {
@@ -818,6 +848,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Teleport"
+    ]
+  },
+  {
+    "id": "Target_Shatter",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Titan"
     ]
   },
   {

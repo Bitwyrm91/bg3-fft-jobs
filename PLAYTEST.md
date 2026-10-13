@@ -1,6 +1,10 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.10**: the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.11**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.11: Summoner
+
+- **Summoner** (unlock: Time Mage Lv3): 15 espers as big area spells that **spare your allies** (your choice): Shiva (cold), Ramuh (lightning), Ifrit (fire), Titan (earth, knocks prone), Sylph (thunder + silence), then once per long rest Bahamut (8d8 force), Odin (6d10 slashing), Leviathan (bludgeoning + soaked), Salamander (6d8 fire), Lich (necrotic), Cyclops (7d10). Moogle and Faerie heal up to 4 / 6 allies; Golem gives your group 15 temporary HP; Carbuncle gives them Reflect. **Critical: Recover MP** refills your level 1 spell slots when you're nearly down; **Halve MP** gives back a level 1 and a level 2 slot after each short rest. Mastery: +1 to Intelligence and Charisma saves.
 
 ## New in 1.0.0.10: Dragoon, softer Job Board colours
 
