@@ -2838,3 +2838,48 @@ data "SpellType" "Projectile"
 using "Projectile_Fly"
 data "DisplayName" "{{name:Fly}}"
 data "Description" "{{desc:Fly}}"
+
+// ---------------------------------------------------------------- Arithmetician (Arithmeticks), phase 2 batch 3
+// The user's design: load a learned magick and a number on the Job Board; each rule is a shout that makes the
+// server cast the magick's free "_Arith" twin (tools/build.py) at every creature in the fight whose number
+// fits, friend or foe (Service:CastArithmeticks, Osi.UseSpell). The shout itself does nothing else.
+
+new entry "Shout_FFTJ_Arith_Prime"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_SongOfRest"
+data "Level" "0"
+data "UseCosts" "ActionPoint:1"
+data "Cooldown" ""
+data "RequirementConditions" ""
+data "TargetConditions" "Self()"
+data "SpellProperties" ""
+data "SpellFlags" "HasVerbalComponent"
+data "VerbalIntent" "Utility"
+data "Icon" "Spell_Divination_Guidance"
+data "DisplayName" "{{name:Prime}}"
+data "Description" "{{desc:Prime}}"
+
+new entry "Shout_FFTJ_Arith_MultipleOf5"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_FFTJ_Arith_Prime"
+data "Icon" "Spell_Divination_Guidance"
+data "DisplayName" "{{name:MultipleOf5}}"
+data "Description" "{{desc:MultipleOf5}}"
+
+new entry "Shout_FFTJ_Arith_MultipleOf4"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_FFTJ_Arith_Prime"
+data "Icon" "Spell_Divination_Guidance"
+data "DisplayName" "{{name:MultipleOf4}}"
+data "Description" "{{desc:MultipleOf4}}"
+
+new entry "Shout_FFTJ_Arith_MultipleOf3"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_FFTJ_Arith_Prime"
+data "Icon" "Spell_Divination_Guidance"
+data "DisplayName" "{{name:MultipleOf3}}"
+data "Description" "{{desc:MultipleOf3}}"

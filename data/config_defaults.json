@@ -78,7 +78,10 @@
       "PoachGoldPerLevel": 5,
       "GilSnapperShare": 1.0,
       "GravityShare": 0.25,
-      "GravigaShare": 0.5
+      "GravigaShare": 0.5,
+      "EXPBoostShare": 0.25,
+      "AccrueEXPPerLevel": 5,
+      "AccrueJPPerTurn": 10
     },
     "XPPollMs": 2000,
     "Telemetry": {
@@ -157,6 +160,9 @@
     "Notifications.Mastered": "Show a notification when a job is mastered.",
     "Notifications.JPGain": "Print every JP gain to the console (noisy).",
     "Abilities.StealGilPerLevel": "Steal Gil: gold per level of the robbed creature.",
+    "Abilities.EXPBoostShare": "EXP Boost: extra share of the experience a fight gave (0.25 = +25%).",
+    "Abilities.AccrueEXPPerLevel": "Accrue EXP: experience per character level at each turn start in a fight.",
+    "Abilities.AccrueJPPerTurn": "Accrue JP: JP for the current job at each turn start in a fight.",
     "Abilities.StealEXPPerLevel": "Steal EXP: experience per level of the robbed creature.",
     "Abilities.PoachGoldPerLevel": "Poach: trophy gold per level of the poached creature.",
     "Abilities.GilSnapperShare": "Gil Snapper: gold per point of damage taken.",

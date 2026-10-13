@@ -639,3 +639,17 @@ data "StatusType" "BOOST"
 data "DisplayName" "{{str:Beastmaster.Name}}"
 data "Description" "{{str:status.FFTJ_BEASTMASTER_FX.desc}}"
 data "StackId" "FFTJ_BEASTMASTER_FX"
+
+// Arithmetician, Cup of Life: the 1-turn aura and the one-off heal it gives allies inside it.
+new entry "FFTJ_CUP_OF_LIFE"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "AuraRadius" "6"
+data "AuraStatuses" "TARGET:IF(Ally() and not Self() and not Dead()):ApplyStatus(FFTJ_CUP_OF_LIFE_FX,100,1)"
+
+new entry "FFTJ_CUP_OF_LIFE_FX"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "RegainHitPoints(1d4)"

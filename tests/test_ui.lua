@@ -64,6 +64,8 @@ end
 
 function S.view_model_content(w, T)
     local svc = T.boot(w)
+    -- every TIC job is built now: simulate one that isn't (the data copy belongs to this test's world)
+    svc.Data.Jobs.Arithmetician.Implemented = false
     local _, View = setup()
     local v = View.Build(svc, T.SHART)
     T.eq(#v.Chars, 3)
@@ -71,7 +73,7 @@ function S.view_model_content(w, T)
     T.eq(v.Selected, T.SHART)
     local jobs = v.Char.Jobs
     T.eq(#jobs, 20, "every FFT job, the ones not built yet included")
-    T.eq(jobs[17].Id, "Arithmetician", "the last TIC job still to build")
+    T.eq(jobs[17].Id, "Arithmetician")
     T.falsy(jobs[17].Built)
     T.eq(jobs[17].Requirements, "White Mage Lv5, Black Mage Lv5, Time Mage Lv4, Mystic Lv4")
     T.eq(jobs[17].Missing, "White Mage Lv5 (has Lv1), Black Mage Lv5 (has Lv1), Time Mage Lv4 (has Lv1), Mystic Lv4 (has Lv1)")
@@ -115,6 +117,8 @@ end
 
 function S.view_shows_fell_seal_rules(w, T, Mocks)
     local svc = T.boot(w)
+    -- every TIC job is built now: simulate one that isn't (the data copy belongs to this test's world)
+    svc.Data.Jobs.Arithmetician.Implemented = false
     local _, View = setup()
     svc:AddManualJP(T.TAV, 5000, "Squire")
     T.truthy(svc:Learn(T.TAV, "JPBoost"))

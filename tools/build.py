@@ -280,6 +280,8 @@ def build_lua(jobs_doc, config_doc):
         "Badges": badges,
         "BadgeOrder": [b["id"] for b in jobs_doc.get("badges", [])],
         "Echo": echo,
+        "ArithMagicks": {aid: sid + ARITH_SUFFIX for aid, sid in arith_magicks(jobs_doc).items()},
+        "ArithRules": ARITH_RULES,
         "ConfigDefaults": config_doc["defaults"],
         "Presets": presets,
         "PresetOrder": list(config_doc["presets"].keys()),
@@ -306,6 +308,7 @@ def string_table(jobs_doc, strings_doc):
         table[f"ability.{a['id']}.name"] = a["name"]
         table[f"ability.{a['id']}.desc"] = a["description"]
         table[f"ability.{a['id']}.echo_name"] = f"Echo: {a['name']}"
+        table[f"ability.{a['id']}.arith_name"] = f"Arithmeticks: {a['name']}"
     board = strings_doc["strings"]["JobPassive.Desc"]
     for j in jobs_doc["jobs"]:
         if j.get("implemented"):
@@ -593,6 +596,42 @@ def echo_stats(jobs_doc, entries, used):
     return "\n".join(lines).rstrip("\n") + "\n"
 
 
+# Arithmetician (user's design): it loads one learned magick of these jobs (a spell aimed at a creature: by our naming,
+# a Target_ or Projectile_ spell) and a number on the Job Board; a rule shout then makes the server cast the magick's
+# "<spell>_Arith" twin (free, no cooldown, one creature, any creature, long range) at every creature whose number fits.
+ARITH_JOBS = ("WhiteMage", "BlackMage", "TimeMage", "Mystic")
+ARITH_SUFFIX = "_Arith"
+ARITH_FILE = "Spell_FFTJ_Arith.txt"
+ARITH_RULES = {"Shout_FFTJ_Arith_Prime": "Prime", "Shout_FFTJ_Arith_MultipleOf5": "5",
+               "Shout_FFTJ_Arith_MultipleOf4": "4", "Shout_FFTJ_Arith_MultipleOf3": "3"}
+
+
+def arith_magicks(jobs_doc):
+    """ability id -> its first creature-aimed spell, for the magicks an Arithmetician can load."""
+    out = {}
+    for a in jobs_doc["abilities"]:
+        if a["job"] in ARITH_JOBS and a["type"] == "Action":
+            spells = [s for s in a["grants"].get("spells", []) if s.startswith(("Target_", "Projectile_"))]
+            if spells:
+                out[a["id"]] = spells[0]
+    return out
+
+
+def arith_stats(jobs_doc, used):
+    lines = []
+    for aid, sid in arith_magicks(jobs_doc).items():
+        key = f"ability.{aid}.arith_name"
+        used.add(key)
+        typ = "Target" if sid.startswith("Target_") else "Projectile"
+        lines += [f'new entry "{sid}{ARITH_SUFFIX}"', 'type "SpellData"', f'data "SpellType" "{typ}"', f'using "{sid}"',
+                  'data "UseCosts" ""', 'data "Cooldown" ""', 'data "RequirementConditions" ""',
+                  'data "TargetConditions" "not Dead()"', 'data "TargetRadius" "40"', 'data "AreaRadius" "0"']
+        if typ == "Projectile":
+            lines += ['data "ExplodeRadius" "0"']
+        lines += [f'data "DisplayName" "{handle_for(key)};1"', ""]
+    return "\n".join(lines).rstrip("\n") + "\n"
+
+
 def build_stats(jobs_doc, strings_doc):
     table = string_table(jobs_doc, strings_doc)
     used = set()
@@ -634,9 +673,9 @@ def build_stats(jobs_doc, strings_doc):
             raise BuildError(f"{src.name}: unresolved placeholder")
         outputs[STATS_OUT / src.name] = out
         entries += parse_stats(out, src.name)
-    out = echo_stats(jobs_doc, entries, used)
-    outputs[STATS_OUT / ECHO_FILE] = out
-    entries += parse_stats(out, ECHO_FILE)
+    for name, out in ((ECHO_FILE, echo_stats(jobs_doc, entries, used)), (ARITH_FILE, arith_stats(jobs_doc, used))):
+        outputs[STATS_OUT / name] = out
+        entries += parse_stats(out, name)
     art = set(art_keys())
     if art:
         keys = icon_keys(jobs_doc, entries)

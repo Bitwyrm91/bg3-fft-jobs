@@ -38,6 +38,8 @@
     "id": "Action_Monk_StepOfTheWind_Dash",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_AccrueEXP",
+      "FFTJ_AccrueJP",
       "FFTJ_JumpPlus3",
       "FFTJ_MovementPlus3",
       "FFTJ_Reflexes",
@@ -335,8 +337,17 @@
     "id": "Spell_Divination_Guidance",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_Arith_TargetCT",
+      "FFTJ_Arith_TargetEXP",
+      "FFTJ_Arith_TargetElevation",
+      "FFTJ_Arith_TargetLevel",
+      "FFTJ_EXPBoost",
       "FFTJ_SONG_REFRAIN",
       "FFTJ_SONG_REFRAIN_FX",
+      "Shout_FFTJ_Arith_MultipleOf3",
+      "Shout_FFTJ_Arith_MultipleOf4",
+      "Shout_FFTJ_Arith_MultipleOf5",
+      "Shout_FFTJ_Arith_Prime",
       "Shout_FFTJ_MagickalRefrain",
       "Target_FFTJ_Preach"
     ]
@@ -454,6 +465,7 @@
     "id": "Spell_Evocation_MassHealingWord",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_CupOfLife",
       "FFTJ_SONG_LIFE",
       "FFTJ_SONG_LIFE_FX",
       "Shout_FFTJ_LifesAnthem"
@@ -489,6 +501,7 @@
     "id": "Spell_Necromancy_BestowCurse_DebuffAbility",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_Soulbind",
       "Target_FFTJ_Condemn"
     ]
   },
@@ -1081,6 +1094,7 @@
     "id": "Shout_SongOfRest",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Shout_FFTJ_Arith_Prime",
       "Shout_FFTJ_BattleChant",
       "Shout_FFTJ_ForbiddenDance",
       "Shout_FFTJ_HeathenFrolic",

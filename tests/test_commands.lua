@@ -28,6 +28,8 @@ end
 
 function S.job_learn_equip_by_name(w, T)
     local svc = T.boot(w)
+    -- every TIC job is built now: simulate one that isn't (the data copy belongs to this test's world)
+    svc.Data.Jobs.Arithmetician.Implemented = false
     T.contains(out(w.console("fft_addjp", "700")), "Tav +700 JP in Squire")
     T.contains(out(w.console("fft_learn", "Focus")), "Tav learned Focus")
     T.contains(out(w.console("fft_learn", "JPBoost")), "It works without a slot while Squire is the job")

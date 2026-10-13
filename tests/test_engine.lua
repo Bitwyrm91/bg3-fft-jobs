@@ -189,10 +189,11 @@ function S.shared_learning_feeds_every_other_job(w, T)
     w.runTimers()
     T.eq(sum(svc, T, T.TAV, "Squire"), 50, "500 XP * 0.1")
     for _, job in ipairs({ "Chemist", "Knight", "Archer", "WhiteMage", "BlackMage", "Monk", "Thief", "TimeMage", "Mystic",
-        "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Bard", "Dancer", "Mime" }) do
+        "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Arithmetician", "Bard", "Dancer",
+        "Mime" }) do
         T.eq(sum(svc, T, T.TAV, job), 7, job .. ": 15% of 50 = 7.5, locked jobs included")
     end
-    T.eq(svc.State:Get(T.TAV).Stats.JP.Shared, 126, "18 other jobs x 7")
+    T.eq(svc.State:Get(T.TAV).Stats.JP.Shared, 133, "19 other jobs x 7")
     T.eq(sum(svc, T, T.SHART, "Knight"), 0, "only the earner's own jobs")
 end
 
