@@ -78,6 +78,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         Effects.StealOnceFrom(svc, source, target, Effects.StealOnce[status])
     elseif Effects.Gravity[status] then
         Effects.GravityHit(svc, source, target, Effects.Gravity[status])
+    elseif status == "FFTJ_CHEM_MIXUP" then
+        Effects.ChemicalMixup(svc, source, target)
     elseif status == "FFTJ_POACH_MARK" and source then
         svc.PoachMarks[target] = source
     end
@@ -169,6 +171,38 @@ function Effects.GravityHit(svc, caster, target, shareKey)
     game:ApplyDamage(target, damage, "Force", caster)
     svc.Log.Info(string.format("%s: %d force damage to %s", shareKey == "GravigaShare" and "Graviga" or "Gravity",
         damage, name(svc, target)))
+end
+
+-- Chemical Mixup (Chemist): a random element, damage that scales like a cantrip, and the matching effect.
+Effects.Mixup = {
+    { Type = "Fire", Status = "BURNING", Word = "fire" },
+    { Type = "Acid", Status = "ACID", Word = "acid" },
+    { Type = "Poison", Status = "POISONED", Word = "poison" },
+    { Type = "Slashing", Status = "BLEEDING", Word = "glass shards" },
+}
+
+function Effects.ChemicalMixup(svc, caster, target, roll)
+    roll = roll or math.random
+    local cfg = svc:Cfg().Abilities
+    local pick = Effects.Mixup[roll(#Effects.Mixup)]
+    local level = (caster and svc.Game:CharLevel(caster)) or 1
+    local dice = 1
+    for _, at in ipairs(cfg.MixupDiceLevels or {}) do
+        if type(level) == "number" and level >= at then
+            dice = dice + 1
+        end
+    end
+    local damage = 0
+    for _ = 1, dice do
+        damage = damage + roll(cfg.MixupDie or 4)
+    end
+    svc.Game:ApplyDamage(target, damage, pick.Type, caster)
+    svc.Game:Try("ApplyStatus", function()
+        Osi.ApplyStatus(target, pick.Status, 6 * (cfg.MixupStatusTurns or 2), 1, caster or target)
+    end)
+    svc.Log.Info(string.format("Chemical Mixup: %s, %d %s damage to %s", pick.Word, damage, pick.Type,
+        name(svc, target)))
+    return pick, damage
 end
 
 -- Osiris CastedSpell (once per cast, unlike a status on every target): the Dark Knight's HP sacrifice.

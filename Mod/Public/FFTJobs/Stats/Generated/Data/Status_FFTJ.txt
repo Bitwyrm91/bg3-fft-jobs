@@ -670,3 +670,8 @@ data "DisplayName" "hc21f9d46g93e0g5210gbcf7g22c1b8eec771;1"
 data "Icon" "Skill_Druid_WildShape"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 data "OnApplyFunctors" "RestoreResource(WildShape,1,0)"
+
+new entry "FFTJ_CHEM_MIXUP"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"

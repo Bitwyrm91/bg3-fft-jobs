@@ -3454,6 +3454,7 @@
     "id": "Projectile_FOR_GnomeGoblin_ThrowRock",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Projectile_FFTJ_ChemicalMixup",
       "Projectile_FFTJ_Soul_BewitchingGaze",
       "Projectile_FFTJ_Soul_Blaster",
       "Projectile_FFTJ_Soul_BoneShards",

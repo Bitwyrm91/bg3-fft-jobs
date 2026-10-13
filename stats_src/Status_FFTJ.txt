@@ -703,3 +703,8 @@ data "DisplayName" "{{str:status.FFTJ_SOUL_KNOWN.name}}"
 data "Icon" "Skill_Druid_WildShape"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 data "OnApplyFunctors" "RestoreResource(WildShape,1,0)"
+
+new entry "FFTJ_CHEM_MIXUP"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"

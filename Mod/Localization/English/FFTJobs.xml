@@ -120,6 +120,9 @@
   <content contentuid="hc2226df6gf9edg5b9fg9ff8g336deff7e3ae" version="1">You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.</content>
   <content contentuid="hf3a46cb0g4112g5869g8bf3g10a68ffc15ac" version="1">Echo: Chakra</content>
   <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
+  <content contentuid="hc58615dagcfa1g5d8egaaa9g9b0a988fda1d" version="1">Cantrip. Toss a flask of unstable chemicals at an enemy up to 18 m away. On a hit it deals 1d4 damage of a random kind (2d4 at level 5, 3d4 at level 10) and leaves a matching effect for 2 turns: fire = Burning, acid = Acid, poison = Poisoned, glass shards (slashing) = Bleeding.</content>
+  <content contentuid="h902f9270g1fd9g570fga5e6g7c1dda488355" version="1">Echo: Chemical Mixup</content>
+  <content contentuid="h4df1bfbdg737bg56eeg919egc4c897dccb6e" version="1">Chemical Mixup</content>
   <content contentuid="h433569d9g842cg536eg9972g83dff13a0673" version="1">The mightiest Limit: every creature within 6 m of a spot within 18 m takes 10d8 slashing damage (Dexterity save against your manoeuvre DC for half). Once per long rest.</content>
   <content contentuid="h7ad30e1bg5651g57d1g8d88g0cfa9187eeba" version="1">Echo: Cherry Blossom</content>
   <content contentuid="hbfa10ac6g4651g59acga85egaacc8c11f8cc" version="1">Cherry Blossom</content>
