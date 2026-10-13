@@ -265,4 +265,21 @@ function S.rerender_destroys_old_widgets(w, T, Mocks)
     T.eq(#win.Children, 1, "only the current content group remains")
 end
 
+function S.arithmeticks_picker_on_the_board(w, T, Mocks)
+    local svc = T.boot(w)
+    local _, View = setup()
+    local tav = svc.State:Get(T.TAV)
+    T.eq(#View.Build(svc, T.TAV).Char.Arith.Magicks, 0)
+    tav.Jobs.BlackMage = { Earned = 0, Unspent = 0, Learned = { Fire = true, Fira = true } }
+    tav.Jobs.Arithmetician = { Earned = 0, Unspent = 0, Learned = { TargetLevel = true } }
+    local arith = View.Build(svc, T.TAV).Char.Arith
+    T.eq(arith.Magicks[1].Name, "Fire")
+    T.truthy(arith.Magicks[1].Loaded, "the first one while none is chosen")
+    T.truthy(svc:SetArith(T.TAV, "Fira"))
+    arith = View.Build(svc, T.TAV).Char.Arith
+    T.falsy(arith.Magicks[1].Loaded)
+    T.truthy(arith.Magicks[2].Loaded)
+    T.eq(arith.Numbers[1].Name, "Target Level")
+end
+
 return S

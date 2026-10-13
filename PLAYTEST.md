@@ -2,6 +2,12 @@
 
 Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.11**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
 
+## New in 1.0.0.18: Arithmetician (all 20 TIC jobs done)
+
+- **Arithmetician** (unlock: White Mage Lv5, Black Mage Lv5, Time Mage Lv4, Mystic Lv4). Your design: **hits everyone whose number fits, like FFT**, with the magick **loaded on the Job Board**. Learn a **number** (Target Level = level, Target CT = current HP, Target EXP = maximum HP, Target Elevation = distance from you in metres) and a **rule** (Prime, Multiple of 3 / 4 / 5). On the Arithmetician's job page, click a learned White/Black/Time Mage or Mystic magick and a number to load them (the loaded one shows in [brackets]). In a fight, the rule spell casts the magick, free and instantly, at every creature within 30 m whose number fits: enemies, allies and yourself alike (Cure on everyone at a prime HP; Fire on every level-3 creature, friends included!). A notice lists who it hit.
+- Also: **Cup of Life** (heals on you splash 1d4 to allies within 6 m), **Soulbind** (hit back 1d6 necrotic and heal 1d6), **EXP Boost** (+25% fight XP), **Accrue EXP** / **Accrue JP** (a little XP / 10 JP each turn in a fight). Mastery: +1 to Intelligence and Wisdom saves.
+- Worth checking: does the Arithmetician cast the magick at each matching creature in turn (it queues one cast per target)?
+
 ## New in 1.0.0.17: Mime (Echo)
 
 - **Mime** (unlock: Squire Lv8, Chemist Lv8, Summoner Lv5, Orator Lv5, Geomancer Lv5, Dragoon Lv5). Your design: **Echo**. In a fight, at the start of the Mime's turn it gets a copy of the **last job ability an ally used since the Mime's previous turn** (a notice says "Echo ready: ..."; the spell is called "Echo: <ability>"). It can be used once that turn, free of the ability's cooldown, and disappears when used, at the end of the turn or when the fight ends. Plain attacks and class spells aren't echoed, only Job Board abilities. The Mime has no abilities to learn (as in FFT), so it is mastered at job level 8 (+1 to all saves). Concentration (+2 weapon attack rolls), Brawler and **Beastmaster** (allied beasts, familiars and summons within 6 m: +1 attack and damage) are always on.

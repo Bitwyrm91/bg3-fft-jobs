@@ -67,6 +67,7 @@ function View.Char(svc, guid)
         PassiveFree = char.Passive1 == nil or char.Passive2 == nil,
         JPBoost = Rules.HasJPBoost(data, char, cfg),
         AlwaysOnTypes = Util.DeepCopy(cfg.Rules.MainJobAlwaysOn or {}),
+        Arith = View.Arith(svc, char),
         InCombat = inCombat,
         Locked = {
             Job = cfg.Rules.ChangeJobOutOfCombatOnly and inCombat,
@@ -135,6 +136,26 @@ function View.Char(svc, guid)
         v.Jobs[#v.Jobs + 1] = entry
     end
     return v
+end
+
+-- Arithmeticks (Arithmetician): the learned magicks and numbers, and the loaded ones (the first while none is chosen,
+-- as Service:CastArithmeticks does).
+function View.Arith(svc, char)
+    local magicks, numbers = svc:ArithChoices(char)
+    local arith = char.Arith or {}
+    local function list(ids, loaded)
+        local out = {}
+        local found = false
+        for _, id in ipairs(ids) do
+            found = found or id == loaded
+        end
+        for i, id in ipairs(ids) do
+            local isLoaded = (found and id == loaded) or (not found and i == 1)
+            out[#out + 1] = { Id = id, Name = svc.Data.Abilities[id].Name, Loaded = isLoaded }
+        end
+        return out
+    end
+    return { Magicks = list(magicks, arith.Magick), Numbers = list(numbers, arith.Number) }
 end
 
 function View.Build(svc, selected)

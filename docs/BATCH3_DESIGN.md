@@ -37,7 +37,7 @@ the aura applies a short status to allies (songs) or enemies (dances) inside it.
 - Bard: Magick Surge, Faith Surge (reactions), Movement +3, Fly. Dancer: Strength Surge, Bravery Surge, Jump +3, Fly.
   Equipment: Bard musical instruments + light armour; Dancer daggers + light armour.
 
-## Arithmetician (unlock White Mage 5, Black Mage 5, Time Mage 4, Mystic 4)
+## Arithmetician (unlock White Mage 5, Black Mage 5, Time Mage 4, Mystic 4): BUILT in v1.0.0.18 (user: everyone whose number fits; magick loaded on the Job Board)
 
 FFT: pick a variable (CT, Level, EXP, Elevation) and a trigger (prime, multiple of 5/4/3); a learned magick then hits
 every unit (friend or foe) whose value matches, instantly and for free. BG3 idea: the variables become things BG3

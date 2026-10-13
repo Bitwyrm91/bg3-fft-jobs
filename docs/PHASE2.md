@@ -35,6 +35,7 @@ The user's decisions of 2026-10-12 (a long Q&A in the coordinator chat) and the 
    - **Thief (user, 2026-10-12):** Steal takes **real loot** from enemies (gold, the item itself; Steal Heart charms); quest and story items can't be stolen.
    - **Badges (user, 2026-10-12):** one per boss, found once for the **whole party**; each character still needs the special job's job levels.
    - **Batch 2 (user, 2026-10-12):** Geomancy: **terrain decides** (each learned Geomancy ability only works on its terrain or BG3 surface: Torrent on water, Magma Surge on fire/lava, Snowstorm on ice, Quicksand on mud, Tanglevine on grass, ...). Dragoon Jump: **leap and strike now** (Horizontal Jump = reach, Vertical Jump = height). Summoner: espers **spare allies** (damage hits enemies only, healing espers allies only). Orator's Entice: **the enemy fights for you on its own (AI-controlled) for 2 turns** of the battle; bosses immune.
+   - **Arithmetician (user, 2026-10-12):** Arithmeticks hit **everyone whose number fits, like FFT** (allies too); the magick is **loaded on the Job Board** and each rule (Prime, Multiple of 3/4/5) is a button.
 8. **Later Fell Seal phase:** keep the look-alike classes as separate jobs but **link** them (JP earned in one also feeds its twin, about 50%). **Never two jobs with one name:** rename the Fell Seal one (Knight → Defender, etc.).
 
 ### The Soul Collector (the monster job; user's name)

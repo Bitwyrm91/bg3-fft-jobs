@@ -411,6 +411,9 @@ function JobBoard:RenderJob(root, c, j)
         text(root, j.Mastered and ("Mastered! Perk: " .. j.Mastery) or ("Mastery perk: " .. j.Mastery),
             j.Mastered and TEXT.Good or TEXT.Dim, WRAP)
     end
+    if j.Id == "Arithmetician" and c.Arith then
+        self:RenderArith(root, c.Arith)
+    end
     local abilities = root:AddTable("FFTJ_Abilities", 6)
     abilities.ShowHeader = true
     for _, h in ipairs({ "", "Ability", "Type", "JP", "Status", "" }) do
@@ -452,6 +455,27 @@ function JobBoard:RenderJob(root, c, j)
             button(cell, "Unequip", "unequip" .. a.Id, false, function()
                 self:Send("Unequip", { Slot = a.Slot })
             end)
+        end
+    end
+end
+
+-- Arithmeticks: load a learned magick and a number; the rule spells cast the magick at every creature that fits.
+function JobBoard:RenderArith(root, arith)
+    text(root, "Arithmeticks: load a magick and a number here. Your rule spells (Prime, Multiple of 3, 4, 5) then cast "
+        .. "the magick at every creature in the fight whose number fits, friend or foe.", TEXT.Dim, WRAP)
+    for _, g in ipairs({
+        { "Magick", arith.Magicks or {}, "learn White Mage, Black Mage, Time Mage or Mystic magicks first" },
+        { "Number", arith.Numbers or {}, "learn Target Level, Target CT, Target EXP or Target Elevation first" },
+    }) do
+        if #g[2] == 0 then
+            text(root, g[1] .. ": none yet (" .. g[3] .. ").", TEXT.Dim, WRAP)
+        else
+            text(root, g[1] .. " (click to load):")
+            for i, it in ipairs(g[2]) do
+                button(root, (it.Loaded and "[" .. it.Name .. "]" or it.Name), "arith" .. it.Id, i > 1, function()
+                    self:Send("SetArith", { Ability = it.Id })
+                end)
+            end
         end
     end
 end
