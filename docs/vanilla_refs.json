@@ -57,6 +57,13 @@
     ]
   },
   {
+    "id": "Action_Monster_Bulette_Bite",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Destroy"
+    ]
+  },
+  {
     "id": "Action_Monster_ElementalEarth_MultiAttack",
     "kind": "icon",
     "usedBy": [
@@ -112,6 +119,28 @@
       "FFTJ_Mastery_DivineKnight",
       "Zone_FFTJ_CrushArmor",
       "Zone_FFTJ_CrushHelm"
+    ]
+  },
+  {
+    "id": "Action_Smash",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_SteelGiant",
+      "Target_FFTJ_Compress"
+    ]
+  },
+  {
+    "id": "Action_Topple",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Pulverize"
+    ]
+  },
+  {
+    "id": "Action_TransmuterStone_Resistance",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SteelBody"
     ]
   },
   {
@@ -215,6 +244,7 @@
       "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_OnionKnight",
+      "FFTJ_Job_SteelGiant",
       "FFTJ_Job_Templar",
       "FFTJ_Mastery_OnionKnight",
       "FFTJ_OnionKnight_5",
@@ -553,6 +583,13 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Bonecrusher"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_EldritchBlast",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_Dispose"
     ]
   },
   {
@@ -929,6 +966,7 @@
     "kind": "status",
     "usedBy": [
       "Projectile_FFTJ_JumpLanding",
+      "Target_FFTJ_Pulverize",
       "Target_FFTJ_Titan",
       "Zone_FFTJ_Shockwave"
     ]
@@ -1214,6 +1252,7 @@
     "id": "Projectile_GuidingBolt",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Projectile_FFTJ_Dispose",
       "Projectile_FFTJ_Holy"
     ]
   },
@@ -1613,6 +1652,7 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_CrushingBlow",
+      "Target_FFTJ_Destroy",
       "Target_FFTJ_InfernalStrike",
       "Target_FFTJ_RendArmor",
       "Target_FFTJ_RendMagick",

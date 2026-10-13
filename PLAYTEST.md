@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.26**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.27**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.27: Steel Giant (special job 5 of 17)
+
+- **Steel Giant** (Worker 8's job, your name for it): needs the **Steel Giant Badge** (Grym, the Adamantine Forge) plus **Squire Lv6** and **Geomancer Lv4**.
+- **Work**, as in TIC: four abilities that are free (0 JP, as in FFT) but hurt you too (recoil = force damage, a share of the damage you dealt): **Destroy** (melee weapon attack, recoil a quarter), **Compress** (weapon + 2d8 bludgeoning, recoil a third), **Pulverize** (weapon + 4d8 bludgeoning, Strength save or prone, recoil half, once per short rest), **Dispose** (ranged attack within 18 m, 4d8 force, recoil half, once per short rest).
+- While Steel Giant is your job: **Steel Body** (resist poison damage, can't be poisoned). Main-job equipment: greatclubs, mauls, warhammers, greataxes, medium and heavy armour. Mastery: resistance to force damage (your own recoil too).
+- Worth checking: does the recoil damage you after a hit (and only then)?
 
 ## New in 1.0.0.26: Templar (special job 4 of 17)
 

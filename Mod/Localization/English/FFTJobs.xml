@@ -108,6 +108,9 @@
   <content contentuid="h6a109dc8gafd4g5b91ga51fg04250b393f2f" version="1">Protect and Shell together on a creature within 18 m for 5 turns. Once per short rest.</content>
   <content contentuid="h58ecf97fgfbabg5d67g997dg2ef71922d28b" version="1">Echo: Wall</content>
   <content contentuid="h25c859eeg379bg5910g84c3g7e42a5601403" version="1">Wall</content>
+  <content contentuid="h18d6281fg909ag5a21gbc56g8fc26abd8888" version="1">Melee weapon attack: your weapon's damage + 2d8 bludgeoning. Recoil: a third of the damage dealt.</content>
+  <content contentuid="hfba4a0e4gafa6g5986gbfffgee7ff522cbcd" version="1">Echo: Compress</content>
+  <content contentuid="ha96d0a9cgd57ag5e19g8b78g06aa33116573" version="1">Compress</content>
   <content contentuid="hc7a5deceg9d9fg5c26ga3b8g7299e10e6f75" version="1">+2 to weapon attack rolls.</content>
   <content contentuid="h12851168g1a13g5e9bga89fgd8b5abc18048" version="1">Concentration</content>
   <content contentuid="h41a57c74g97c0g5536g87f5g914ba2e8d421" version="1">A creature within 18 m makes a Constitution save or is Doomed: it dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
@@ -178,6 +181,9 @@
   <content contentuid="h4025f7cag367ag5cadgb845g6dd7d81a5f3f" version="1">A creature within 18 m makes a Wisdom save or is Confused for 2 turns (it repeats the save each turn). Once per short rest.</content>
   <content contentuid="heb16dd33g5376g57a1gbba1g724a299549be" version="1">Echo: Delirium</content>
   <content contentuid="h95130a0cgbf48g50ccgb611g2852154be8f0" version="1">Delirium</content>
+  <content contentuid="he6dd3112g8623g52dfg88e5gf2c31167b242" version="1">Melee weapon attack: your weapon's damage. Recoil: you take force damage equal to a quarter of the damage dealt.</content>
+  <content contentuid="hbe4fedd6g971ag50a9g9023g54a89efda007" version="1">Echo: Destroy</content>
+  <content contentuid="hd8e692d0g8d3bg5cadg9537ge0a24ed7d134" version="1">Destroy</content>
   <content contentuid="h1be7b20dg6c45g5f2egb362gd711cc07cf18" version="1">Arithmeticks: Disbelief</content>
   <content contentuid="h5e211384g2836g5e05g88c5g0bb5b88e1361" version="1">A creature within 18 m makes a Wisdom save or becomes an Atheist for 2 turns: it can't cast spells and has advantage on saving throws against spells. Once per short rest.</content>
   <content contentuid="h0a18dae9g72afg512dga75egc58c25f36e8c" version="1">Echo: Disbelief</content>
@@ -185,6 +191,9 @@
   <content contentuid="h47c87744g0935g537eg981bg303b95c29aa9" version="1">End every ailment on a creature within 18 m: poisoned, diseased, blinded, charmed, frightened, paralysed, petrified, stunned, asleep, confused, cursed and silenced, and FFT's Doom, Stop, Immobilize, Berserk, Disable, Stone, Toad and Undead. Once per turn.</content>
   <content contentuid="hd49c51eege05bg5d8fgbfbfg953b4c89028e" version="1">Echo: Dispelna</content>
   <content contentuid="h5e2a29fdg29e3g5d65gb567g9b88056da665" version="1">Dispelna</content>
+  <content contentuid="h8fcbbe4bg07d1g5e8dg9a1fgc96ba6b45aac" version="1">Ranged weapon attack against a creature within 18 m: 4d8 force damage. Recoil: half the damage dealt. Once per short rest.</content>
+  <content contentuid="h547f4f7dg600fg502bgbb94g12809a416bd5" version="1">Echo: Dispose</content>
+  <content contentuid="hcbe143f2gaa5bg5cf0ga237gc4db85c048d3" version="1">Dispose</content>
   <content contentuid="h56a8cd99g58c9g52cbga38eg78f3b1bc3fe4" version="1">Unarmed strike at a pressure point: on a hit, the creature makes a Constitution save (your Strength/Dexterity DC) or is Doomed, and dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
   <content contentuid="h28108b4ag6a69g5a1fgb2e1g49a6e269b5bf" version="1">Echo: Doom Fist</content>
   <content contentuid="h6ac7d984g29b1g5662gb29fg6c846f9e6147" version="1">Doom Fist</content>
@@ -503,6 +512,9 @@
   <content contentuid="h2f915be8gf318g53b8ga783gf54b0ee9000c" version="1">The target gets +2 AC for 5 turns. Once per turn.</content>
   <content contentuid="hc24370deg1cd7g565bg8b56g21dcc9b70bf9" version="1">Echo: Protect</content>
   <content contentuid="he97c83c4g2db4g5c14gba78gebb36091d7d7" version="1">Protect</content>
+  <content contentuid="h4f249dc9g05e3g531agb846gf184e764f151" version="1">Melee weapon attack: your weapon's damage + 4d8 bludgeoning, and the target is knocked prone (Strength save against your manoeuvre DC). Recoil: half the damage dealt. Once per short rest.</content>
+  <content contentuid="h257846cbg1ab1g57a7g95d0gab9bc5a0089f" version="1">Echo: Pulverize</content>
+  <content contentuid="h6a91eb30gf3eag5161gb9d2ge28d19deebe5" version="1">Pulverize</content>
   <content contentuid="h830fa253gcc68g586fg89c8g3334782b53ce" version="1">Two quick unarmed strikes at a creature in melee range: each hit deals 1d6 + your unarmed attack modifier bludgeoning.</content>
   <content contentuid="h19bc51adgc1edg5ffagaa84g5b8c71beee71" version="1">Echo: Pummel</content>
   <content contentuid="h4e9feef4gfa78g5d78g8111g566013ac3575" version="1">Pummel</content>
@@ -919,6 +931,10 @@
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hb65980b3g8531g5fc9gabddgdcd5912f7558" version="1">Job: Squire</content>
+  <content contentuid="h164ec546gac6eg52f6gb10bg7a08fe8b2402" version="1">Resistance to force damage (your own recoil too). Earned by mastering Steel Giant; kept after changing jobs.</content>
+  <content contentuid="h8fab3054g8ddcg50e9g9861g455912560ec3" version="1">Steel Giant Mastery</content>
+  <content contentuid="hfb2c6375g5978g5927gb5edga967e14ebf12" version="1">Worker 8's job (TIC calls it Automaton; War of the Lions' name, your choice). Work: crushing mechanical blows that hurt you too (recoil): Destroy, Compress and Pulverize up close, Dispose at range. All four come free (0 JP, as in FFT). While Steel Giant is your job you resist poison damage and can't be poisoned. Equipment: greatclubs, mauls, warhammers, greataxes, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hd35a5952gf8f1g5f4cg867bg72e689f4f5d9" version="1">Job: Steel Giant</content>
   <content contentuid="h0abe38beg124bg5c2ag87a1g55b5fc9f3b9f" version="1">+1 to Intelligence and Charisma saving throws. Earned by mastering Summoner; kept after changing jobs.</content>
   <content contentuid="h8ae668f7g77cbg5f75gb329g26690ca4ce50" version="1">Summoner Mastery</content>
   <content contentuid="h75d2bcfag333ag5984g9d35g0b74947a097f" version="1">Calls espers: huge area magic that spares allies, healing and protection. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -945,6 +961,8 @@
   <content contentuid="h2d2df22age88cg5dd7g8c19g9e4ce6bf69ac" version="1">Holy Magicks</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
+  <content contentuid="hf8f38127gbca0g590dgb6ccg7051bbc5976f" version="1">While Steel Giant is your job you resist poison damage and can't be poisoned.</content>
+  <content contentuid="h8da033f2g7c62g5fb5g8c32gf522c746c65e" version="1">Steel Body</content>
   <content contentuid="hed88a027gf2b3g5541gbd6agd477f35f7c9e" version="1">Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.</content>
   <content contentuid="h188b0598gbe93g5c5dga252g5838ca4c297a" version="1">JP Training (test)</content>
   <content contentuid="h8468f582g8fceg579bg89e6g25b7e837ef1a" version="1">+1 AC and +1 to attack rolls while Onion Knight is your job.</content>
