@@ -34,6 +34,8 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **1.0.0.14 (2026-10-12 night):** **Samurai** (15 abilities, TIC costs 0 diffs; lists from RPGSite's TIC jobs guide, effects from TIC Ability-en). Iaido = Shouts on Arms of Hadar (enemies within 3 m, ManeuverSaveDC), Kiku-ichimonji = Zone on Lightning Bolt (12 m line), friendly ones on Mass Healing Word / the Golem shout. Bonecrusher = OnDamaged + SWAP below 25% HP; Shirahadori `using UncannyDodge`; Doublehand IF(HasVersatileTwoHanded()). Tests now use Mime (the last job) as the unbuilt example. Batch 3 plan (designs in docs/BATCH3_DESIGN.md): Ninja, Bard, Dancer, then Arithmetician and Mime (script work).
 
+**1.0.0.15 (2026-10-12 night):** **Ninja** (16 abilities, TIC costs 0 diffs). Throws = Projectile_Javelin children, Dex save vs ManeuverSaveDC, damage dice + max(DexterityModifier,StrengthModifier) (vanilla form), OncePerTurn each, weapon item icons; bombs on Projectile_Fireball (2 m, no ignite). FFTJ_DualWield = TwoWeaponFighting();DualWielding(true);DualWielding(false), innate for Ninja and the 1000 JP support. Vanish = OnAttacked → FFTJ_VANISH (INVISIBILITY without the on-damage removal), OncePerCombat. Next: Bard, Dancer (docs/BATCH3_DESIGN.md), then Arithmetician and Mime.
+
 **NEXT: phase 2, decided with the user on 2026-10-12. Read `docs/PHASE2.md`** (every FFT job from every version, Fell Seal rules, the Soul Collector monster job; build order and ground rules: no icons for now, no GitHub push unless asked, preserve usage).
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.

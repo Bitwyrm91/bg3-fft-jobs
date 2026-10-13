@@ -15,6 +15,13 @@
     ]
   },
   {
+    "id": "Action_Monk_StepOfTheWind_Dash",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Reflexes"
+    ]
+  },
+  {
     "id": "Action_Monster_ElementalEarth_MultiAttack",
     "kind": "icon",
     "usedBy": [
@@ -61,6 +68,90 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Quicksand"
+    ]
+  },
+  {
+    "id": "Item_BOOK_GEN_Book_A",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowBooks"
+    ]
+  },
+  {
+    "id": "Item_GRN_Bomb_A",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowBombs"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Dagger_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowDaggers"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Dart_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowShuriken"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Flail_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowFlails"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Greatsword_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowKnightsSwords"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Handaxe_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowAxes"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Longsword_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowSwords"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Quarterstaff_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowPoles"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Scimitar_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowKatana"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Shortsword_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowNinjaBlades"
+    ]
+  },
+  {
+    "id": "Item_WPN_HUM_Spear_A_0",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowPolearms"
     ]
   },
   {
@@ -302,6 +393,13 @@
     ]
   },
   {
+    "id": "Spell_Illusion_Invisibility",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Vanish"
+    ]
+  },
+  {
     "id": "Spell_Illusion_Silence",
     "kind": "icon",
     "usedBy": [
@@ -321,6 +419,13 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_UNDEAD"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_CreateWater",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Waterwalking"
     ]
   },
   {
@@ -587,6 +692,7 @@
     "id": "SAVED_AGAINST_HOSTILE_SPELL",
     "kind": "status",
     "usedBy": [
+      "Projectile_FFTJ_ThrowShuriken",
       "Shout_FFTJ_Ashura",
       "Target_FFTJ_Corruption",
       "Target_FFTJ_Disbelief",
@@ -780,7 +886,8 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Projectile_FFTJ_Fira",
-      "Projectile_FFTJ_Firaga"
+      "Projectile_FFTJ_Firaga",
+      "Projectile_FFTJ_ThrowBombs"
     ]
   },
   {
@@ -795,6 +902,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Projectile_FFTJ_Blizzara"
+    ]
+  },
+  {
+    "id": "Projectile_Javelin",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_ThrowShuriken"
     ]
   },
   {
@@ -1260,6 +1374,13 @@
     "kind": "using parent (StatusData)",
     "usedBy": [
       "FFTJ_STOP"
+    ]
+  },
+  {
+    "id": "INVISIBILITY",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_VANISH"
     ]
   },
   {

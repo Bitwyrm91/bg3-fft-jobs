@@ -68,6 +68,8 @@
     "status.FFTJ_TAMED.desc": "Tamed by an Orator: fights for the Orator's party on its own until this runs out.",
 
     "status.FFTJ_TOAD.name": "Toad",
-    "status.FFTJ_TOAD.desc": "Turned into a harmless critter by Geomancy (FFT's Toad; BG3 has sheep, not toads) until this ends."
+    "status.FFTJ_TOAD.desc": "Turned into a harmless critter by Geomancy (FFT's Toad; BG3 has sheep, not toads) until this ends.",
+    "status.FFTJ_VANISH.name": "Vanish",
+    "status.FFTJ_VANISH.desc": "Invisible: attacking or casting a spell ends it; being hit does not."
   }
 }

@@ -102,6 +102,8 @@
   <content contentuid="h210189fag2234g519egbddbgaccf0fcb1018" version="1">Doublehand</content>
   <content contentuid="h8e7fed3ege96eg5d37gbd09g4cd7fde69efb" version="1">When a weapon attack damages you, you gain Death Ward (the next blow that would drop you to 0 HP leaves you at 1 instead; FFT gives Reraise). Once per long rest.</content>
   <content contentuid="h2ac33475g2b71g59eagb4f7gfe1128366c69" version="1">Dragonheart</content>
+  <content contentuid="hbe4ede89g10aag5796ga5ccg655a1e3b2781" version="1">Fight with a weapon in each hand like a Ninja: you add your ability modifier to off-hand damage (Two-Weapon Fighting) and can dual-wield weapons that aren't light. Always on while Ninja is your job.</content>
+  <content contentuid="ha263a0f1g1adfg55acg80cag8fc098f40737" version="1">Dual Wield</content>
   <content contentuid="h211f263cg916ag5f1eg818dgdbca21ab39b9" version="1">Advantage on Wisdom saving throws (most talk skills and charms aim at Wisdom).</content>
   <content contentuid="hfc97151bg5353g544cg9af1g36488b3d2e08" version="1">Earplugs</content>
   <content contentuid="h80d37df8g55bfg572aga785gee17068f477e" version="1">End Silenced. Thrown like Potion.</content>
@@ -292,6 +294,8 @@
   <content contentuid="hd7a480dcgd327g5557g953eg6b080c972b3b" version="1">Ramuh</content>
   <content contentuid="h3d6e9f1bgee98g51a1g8473g8cd1bd401c8e" version="1">An ally within 18 m is shielded for 3 turns: it takes half damage from spells, and a caster whose spell damages it takes 2d6 force damage. BG3 cannot bounce the spell itself. Once per short rest.</content>
   <content contentuid="h077a5e35gc1e4g5a01gb3d0gfadcbaad7b02" version="1">Reflect</content>
+  <content contentuid="hf1875a5cg3a48g5139g9338g2eeffa6824f8" version="1">+1 AC and advantage on Dexterity saving throws.</content>
+  <content contentuid="h782d5690gcedfg590fgbb01gb15c9619ddff" version="1">Reflexes</content>
   <content contentuid="hefd05e9eg70beg544cg936bg9ebb565ec2b7" version="1">The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn.</content>
   <content contentuid="he94fec03g65ecg5dfaga674g0f5441824d27" version="1">Regen</content>
   <content contentuid="hd42c1273ga1cbg5ebcgb0b3g26ffd5415a8f" version="1">When you take damage, you gain Regen for 3 turns (1d4+1 HP per turn) unless you already have it.</content>
@@ -374,10 +378,34 @@
   <content contentuid="h8374a7c5gf208g552dga8f0gd1a04851a0f5" version="1">Tanglevine</content>
   <content contentuid="h23fec4c9g22ceg5ea4g9a38g5de61cf286d6" version="1">Bonus action, once per turn: teleport to a spot you can see up to 9 m away (Misty Step without a spell slot).</content>
   <content contentuid="h74f64dd9ga0ffg596bg8316g8bbd25ebbf7d" version="1">Teleport</content>
+  <content contentuid="hc0675c4egbedfg5330g924egf55ac013c5c3" version="1">Hurl an axe at a creature up to 18 m away: it makes a Dexterity save or takes 1d10 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="hdca812efg6987g5eaag8ff2gf64b4eb1646f" version="1">Throw Axes</content>
+  <content contentuid="hdfdf8dceg470eg5316gae4dgaa640fae6e59" version="1">Hurl a bomb at a point up to 18 m away: enemies within 2 m of it take 2d6 fire damage (Dexterity save for half). No item is used up. Once per turn.</content>
+  <content contentuid="h753e0022g65deg538fga666gb2066cbab139" version="1">Throw Bombs</content>
+  <content contentuid="h46b52941gd7d7g5b2agb09fge9eef879607d" version="1">Hurl a book at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 force damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="h6379916cgb7fdg5127ga30ag1e5e1fc411eb" version="1">Throw Books</content>
+  <content contentuid="h92b4e360g3d27g55d3gaaf9g3bac95c6802d" version="1">Hurl a dagger at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="h9918a55fg84d6g5093g815cga6cd8ad64dec" version="1">Throw Daggers</content>
+  <content contentuid="hf944eac7g2eddg5224g9599g766ab00a1c1f" version="1">Hurl a flail at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 bludgeoning damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="h0b655e6cg9f69g5c28g9f8dg9c8954a8748f" version="1">Throw Flails</content>
   <content contentuid="hf966add7g171eg5d96g90ffg3b8972c7ff78" version="1">Item abilities can be thrown up to 9 m with any job.</content>
   <content contentuid="hf1409b06g9e4bg55deg82a9g34366ad91f2d" version="1">Throw Items</content>
+  <content contentuid="h7377a36cg3261g5fd5g9bdbg1101583df37b" version="1">Hurl a katana at a creature up to 18 m away: it makes a Dexterity save or takes 1d10 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="ha13b2c64gb146g509cg93fag6c2856d93ef5" version="1">Throw Katana</content>
+  <content contentuid="hb18f2997g8e20g5acbg9d03ge9d61cf8d8b9" version="1">Hurl a knight's sword at a creature up to 18 m away: it makes a Dexterity save or takes 2d6 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="h89ce0025g468bg55f1gb6a3g0382e62b0bbf" version="1">Throw Knight's Swords</content>
+  <content contentuid="hf8c59252g6240g5dcegbc0agc8938b03d37b" version="1">Hurl a ninja blade at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="hacc8cb3ag6587g529cgb161g99e84ee16272" version="1">Throw Ninja Blades</content>
+  <content contentuid="hab304b91g40a2g5371g8e70gf1f7173e71f7" version="1">Hurl a polearm at a creature up to 18 m away: it makes a Dexterity save or takes 1d10 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="hd92a8724g3c4bg579cgba4aga68c80c4d369" version="1">Throw Polearms</content>
+  <content contentuid="h5bca4becgb3fag5842gb356g0fb167e13e3f" version="1">Hurl a pole at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 bludgeoning damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="h8eca575dgb6fdg5693g9a0ag06fe221b8ff8" version="1">Throw Poles</content>
+  <content contentuid="h944ede37gebc4g5a12gb741gadbdd459c3fe" version="1">Hurl a shuriken at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="h2778707cgc969g5cbdg982fg74aefba63e0d" version="1">Throw Shuriken</content>
   <content contentuid="h0d126babg8e22g59aeg821bgb859bb091661" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 1 m push.</content>
   <content contentuid="hf1a6958dg1c23g5653gad1ag356baa139a13" version="1">Throw Stone</content>
+  <content contentuid="h56d50b83g0d8eg5b03gb867g35004ebeff2f" version="1">Hurl a sword at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
+  <content contentuid="h35b2bb7agbad5g57f7ga553gc7dde1c514ba" version="1">Throw Swords</content>
   <content contentuid="hf6741b54gea73g5c2dgb225g82434b606136" version="1">6d6 lightning damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
   <content contentuid="hb7a4d23dgc087g5c54g8997g15c61d572f33" version="1">Thundaga</content>
   <content contentuid="ha286b905gba8dg5bfagad6fgba80a11851a4" version="1">3d6 lightning damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
@@ -396,6 +424,8 @@
   <content contentuid="hf70fde6cg26adg5fe0g8793g963827b35256" version="1">Trepidation</content>
   <content contentuid="haff10204g21cbg56b1g8968g322da59c548d" version="1">A creature within 18 m makes a Constitution save or is Blinded for 2 turns (it repeats the save each turn).</content>
   <content contentuid="h896df1f0gdfd1g5d91g8ff7gd0cf27b397e9" version="1">Umbra</content>
+  <content contentuid="h529057b6gc9d4g5653gb7acgcde2982263fa" version="1">When a weapon attack hits you, you turn invisible for up to 2 turns (it ends when you attack or cast). Once per combat.</content>
+  <content contentuid="h81695ff6ge8c2g5291g9ca4gb0ae62d060ae" version="1">Vanish</content>
   <content contentuid="h88d6e99cgbf9bg5a4egae54g858f5b385fa6" version="1">Your Jump lands harder: 1d4 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
   <content contentuid="h407332e6g5f27g539fg9d4dge0c59928dbcc" version="1">Vertical Jump ±2</content>
   <content contentuid="h2916d30ag2751g5b8ag8cefg8403f017e4fb" version="1">Your Jump lands harder: 1d6 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
@@ -412,6 +442,8 @@
   <content contentuid="h32a9a769g9a8eg5b0dg96c0g02c3283621bd" version="1">Vertical Jump ±8</content>
   <content contentuid="h6e493f4ag4c73g5a68g85a2g6ab47c8f9b8f" version="1">When a weapon attack damages you, you take the Defending stance: +2 AC until your next turn. Once per turn.</content>
   <content contentuid="h91769c6dg98b2g53dbg9434geb130914f2ed" version="1">Vigilance</content>
+  <content contentuid="haf2d9b79g11cdg541dgacd0gb0b6ba8d103d" version="1">Deep water doesn't slow you, and water never leaves you Wet.</content>
+  <content contentuid="h1b80e3b9g62c3g54b8g894eg5421c2a70d52" version="1">Waterwalking</content>
   <content contentuid="h34b72f75g39c5g5b2bgbbf1g148cc5289758" version="1">Only in shadow or darkness, or while you stand in grease, oil or alcohol. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Wisdom save has a 1 in 4 chance of falling Asleep for 2 turns.</content>
   <content contentuid="hc08c15b4g29e8g516cgafb3gd709ba9c6a0a" version="1">Will-o'-the-Wisp</content>
   <content contentuid="hcd98907agdea0g5238g8dc1g4b348884b868" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 thunder damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 4 chance of being Slowed for 2 turns.</content>
@@ -452,6 +484,10 @@
   <content contentuid="h725dd9d1g0434g596egb017g56997cab1387" version="1">Mystic Mastery</content>
   <content contentuid="hd40c9e23g1711g5dd5ga1d0gf1255fa7713c" version="1">Afflicts mind and body: blindness, silence, sleep, confusion, stone, drains. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="haec3b93eg1bc4g57e9gbd3bg8ff7e0b309e0" version="1">Job: Mystic</content>
+  <content contentuid="hcbbcafdcg1832g517fgaac0ga9c62cb29ea1" version="1">Advantage on Stealth checks. Earned by mastering Ninja; kept after changing jobs.</content>
+  <content contentuid="hc0a7be0cgc9a2g50a2gad60g247972464f91" version="1">Ninja Mastery</content>
+  <content contentuid="h588d0436ga440g5d8ag9dc4gd68d36ca52ec" version="1">Throws anything at foes and fights with a blade in each hand; Dual Wield is always on. Equipment: daggers, shortswords, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hb09a887agaef7g59aagba98g8f9d4125c770" version="1">Job: Ninja</content>
   <content contentuid="h3c34a56egf438g5c42gb205g1340e1e94322" version="1">+2 to Persuasion, Deception and Intimidation checks. Earned by mastering Orator; kept after changing jobs.</content>
   <content contentuid="hb2acc83bgf81fg5829gbbc1g37901130fa0b" version="1">Orator Mastery</content>
   <content contentuid="ha0ba8523gcbf6g590egbde3g24b62899052b" version="1">Talks foes into switching sides, sleeping, raging or dying; Beast Tongue is always on. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -542,4 +578,6 @@
   <content contentuid="h68404a7dg6ddag5e2fga861ga14e81c3224f" version="1">Toad</content>
   <content contentuid="he63564cagebefg5ac4g96c1g0534831cb2d1" version="1">Can't regain hit points; vulnerable to radiant damage.</content>
   <content contentuid="h3376eb1fg0cdbg5ed9gbe2ag62cc8adf62c9" version="1">Undead</content>
+  <content contentuid="hd04dc240gf265g5850gaf34g722d3cf533f8" version="1">Invisible: attacking or casting a spell ends it; being hit does not.</content>
+  <content contentuid="ha3503429g19b9g5eedga3a1gaed1f9f74dd2" version="1">Vanish</content>
 </contentList>
