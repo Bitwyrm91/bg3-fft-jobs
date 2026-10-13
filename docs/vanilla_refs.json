@@ -294,6 +294,7 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_DefenseBoost",
+      "FFTJ_Job_ArkKnight",
       "FFTJ_Job_Astrologer",
       "FFTJ_Job_Cleric",
       "FFTJ_Job_DivineKnight",
@@ -820,11 +821,23 @@
     ]
   },
   {
+    "id": "Spell_Necromancy_RayOfInfeeblement",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_Magicksap",
+      "Zone_FFTJ_Mindsap",
+      "Zone_FFTJ_Powersap",
+      "Zone_FFTJ_Speedsap"
+    ]
+  },
+  {
     "id": "Spell_Necromancy_VampiricTouch",
     "kind": "icon",
     "usedBy": [
       "FFTJ_Job_DarkKnight",
+      "FFTJ_Mastery_ArkKnight",
       "FFTJ_Mastery_FellKnight",
+      "Target_FFTJ_BloodDrain",
       "Target_FFTJ_SanguineSword",
       "Zone_FFTJ_Shadowblade",
       "Zone_FFTJ_SpellbladeDrain"
@@ -1273,6 +1286,7 @@
       "Target_FFTJ_Snowstorm",
       "Target_FFTJ_Sylph",
       "Zone_FFTJ_HallowedBolt",
+      "Zone_FFTJ_Magicksap",
       "Zone_FFTJ_SpellbladeSilence"
     ]
   },
@@ -1825,6 +1839,7 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Barrage",
+      "Target_FFTJ_BloodDrain",
       "Target_FFTJ_CrushingBlow",
       "Target_FFTJ_Destroy",
       "Target_FFTJ_InfernalStrike",

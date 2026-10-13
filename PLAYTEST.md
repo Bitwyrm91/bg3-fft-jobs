@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.35**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.36**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.36: Ark Knight (special job 14 of 17)
+
+- **Ark Knight** (Elmdore's job): needs the **Ark Knight Badge** (Cazador Szarr, his palace) plus **Samurai Lv5** and **Black Mage Lv5**.
+- **Sword Spirit**: the Samurai's ten katana spirits (Ashura ... Chirijiraden, the same spells and costs, learned again here). **Blade of Ruin** (0 JP each, Elmdore's own; once per short rest each): 6 m ruinous slashes: **Magicksap** (Con save or Silenced 2 turns), **Speedsap** (-3 m movement), **Powersap** (deals 2 less damage), **Mindsap** (-2 spell attacks and DC), the last three for 10 turns. **Blood Drain** (0 JP, once per short rest): bite for 2d6 piercing + 2d6 necrotic and heal that much.
+- Main-job equipment: longswords, scimitars, greatswords, light and medium armour. Mastery: +1 to Dexterity saves.
 
 ## New in 1.0.0.35: Machinist (special job 13 of 17)
 

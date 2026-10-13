@@ -96,6 +96,9 @@
   <content contentuid="hb7c570e3g84adg570egab22gcc3bcc5bd077" version="1">1d8 cold damage to a creature within 18 m, no attack roll.</content>
   <content contentuid="hcd0ad944gbce3g50d5g94f1g32648c21886a" version="1">Echo: Blizzard</content>
   <content contentuid="h19c3ad71gf0c5g586cg9984g70c2e026e1a2" version="1">Blizzard</content>
+  <content contentuid="hbc2c97aagc4d9g5dd0ga041g8e2983ad2694" version="1">Bite a creature next to you (melee weapon attack roll): 2d6 piercing + 2d6 necrotic damage, and you regain hit points equal to the damage dealt. Not against undead or constructs. Once per short rest.</content>
+  <content contentuid="h6e06d773g5304g5656gb1b3g7e7597bfad74" version="1">Echo: Blood Drain</content>
+  <content contentuid="h80bc09cdg1329g54a8g8f20g81bd81a7c688" version="1">Blood Drain</content>
   <content contentuid="h2f1d6714gb0aeg5148g91b4g9b3ba6b04fde" version="1">When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest.</content>
   <content contentuid="hfd486fcag6401g5831g8fb0g531fb96a1c73" version="1">Bonecrusher</content>
   <content contentuid="h92f523fdg6e23g509cga0c0gea023490c254" version="1">A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 force. At will.</content>
@@ -496,6 +499,9 @@
   <content contentuid="h831c3bf0g0f2ag5586gae41gc1e683bbc003" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +1 to spell attack rolls and spell save DC.</content>
   <content contentuid="h30cb5f2bg2b93g5d1dg8f6eg154f601e04e0" version="1">Echo: Magickal Refrain</content>
   <content contentuid="h13406d40g4f43g536fgaacdgaaa3fc964f60" version="1">Magickal Refrain</content>
+  <content contentuid="h2c03ac98g3b5fg5caagb2c2g9a8d9f0fbadf" version="1">A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save against your manoeuvre DC or is Silenced for 2 turns (FFT drains its MP). Once per short rest.</content>
+  <content contentuid="hbcbd21acg79a8g583dg9712gddfe5cdabb0e" version="1">Echo: Magicksap</content>
+  <content contentuid="h487c90ecg65f7g5ddfg80a8gc6b51e935b26" version="1">Magicksap</content>
   <content contentuid="hcefa27adg2358g52bfg9674g8d17c947b4e1" version="1">Only while you stand in fire or lava. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 10 chance of being struck down at the end of its next turn (Doom 1; bosses are immune).</content>
   <content contentuid="hd468980eg39e7g5e27g9ecegef5c2ac65588" version="1">Echo: Magma Surge</content>
   <content contentuid="h8bb7a393g2b3eg51f7g919bg93ca3849ce68" version="1">Magma Surge</content>
@@ -519,6 +525,9 @@
   <content contentuid="hf8b6e660g1f1ag5bb8ga128g18423b315ad0" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you take 1d4 psychic damage at the start of each of their turns.</content>
   <content contentuid="h22b53c2fg50a8g52d0gbe6fg8744c14b10c8" version="1">Echo: Mincing Minuet</content>
   <content contentuid="h2fd22e5ag7704g5140ga7d4g7f31309b1694" version="1">Mincing Minuet</content>
+  <content contentuid="h03c4cebag09e7g5723ga0a5g8d450f1703da" version="1">A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target has -2 to spell attack rolls and spell save DC for 10 turns. Once per short rest.</content>
+  <content contentuid="h8a045746gf4ccg537fg9363g0cacf610561e" version="1">Echo: Mindsap</content>
+  <content contentuid="h75540d41g589dg58ceg840dg91774961228d" version="1">Mindsap</content>
   <content contentuid="h614742begf9b5g5dd9gacaeg57cdfcb0584f" version="1">Up to 4 allies within 18 m regain 2d8 hit points. Once per short rest.</content>
   <content contentuid="h448493ecgf72fg587fg8da3g41dfc342a54d" version="1">Echo: Moogle</content>
   <content contentuid="h321ba59agd6a3g5694g950dgd7c91d880ca6" version="1">Moogle</content>
@@ -607,6 +616,9 @@
   <content contentuid="h9c5ad605gc4c0g5badgaf8egfb8d789a921a" version="1">Heal 2d4+2. Touch range, or 9 m when thrown (Chemist primary job or Throw Items).</content>
   <content contentuid="h89ad1463g7bd2g586bgb707g9a84ee3a4e25" version="1">Echo: Potion</content>
   <content contentuid="hdc38429ag507eg5684g9080g79d18940ac4b" version="1">Potion</content>
+  <content contentuid="hd743cd87g6f8ag55d1g91c8g55a1b9d1258b" version="1">A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target deals 2 less damage for 10 turns. Once per short rest.</content>
+  <content contentuid="hc1de44a6gbb64g5188g8b70gad679856fe2e" version="1">Echo: Powersap</content>
+  <content contentuid="hd03da4aeg177dg5d0dg95b5g69c1ed53e333" version="1">Powersap</content>
   <content contentuid="hdd8f8841gfc3bg5d0fg91d8gfda8a2a22a5d" version="1">An ally within 18 m is Blessed for 3 turns (+1d4 to attack rolls and saving throws; FFT raises Bravery).</content>
   <content contentuid="h6a9ff3d5gf7c4g53e1g9edeg4ee47b591ec5" version="1">Echo: Praise</content>
   <content contentuid="hbd6429b3g2ef9g5788gae6dg5a9a387c6dbf" version="1">Praise</content>
@@ -750,6 +762,9 @@
   <content contentuid="h4e37f8b0gf373g5a4cga6b2g24c6691df7f2" version="1">Soulbind</content>
   <content contentuid="h4e1f1c50g793bg5a22gbc73g78370fc48b84" version="1">When you take damage, gain +3 m movement for 2 turns.</content>
   <content contentuid="h6ed4b882gb760g5933g88d3g7ade648bb995" version="1">Speed Surge</content>
+  <content contentuid="h745e0e76gd66ag5806g87e9gce3c91bb9941" version="1">A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target has -3 m movement for 10 turns (FFT: for the battle). Once per short rest.</content>
+  <content contentuid="h301c6c8fga02dg5ebdgb990g05bea67af34d" version="1">Echo: Speedsap</content>
+  <content contentuid="h4b80a568g4596g5db6g9488g19505bb72b66" version="1">Speedsap</content>
   <content contentuid="hf1fe125cga163g5911gb50eg9b4316a3e898" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or goes Berserk for 2 turns. Once per short rest.</content>
   <content contentuid="hd0487007g20feg5731g8497gbffb7fcb6463" version="1">Echo: Berserk</content>
   <content contentuid="hcee6c539gf62bg5e23gb499g8f797a05b6ca" version="1">Berserk</content>
@@ -969,6 +984,10 @@
   <content contentuid="hba0af446g7e8fg51feg8796g1c47ad81e764" version="1">Arithmetician Mastery</content>
   <content contentuid="h4207327cgcffdg5780gb930g333c8d3cff70" version="1">Casts magick by numbers (Arithmeticks): load a learned White, Black or Time Mage or Mystic magick and a number (level, hit points, maximum hit points or distance) on the Job Board, then a rule (prime, multiple of 3, 4 or 5) casts it instantly and for free at every creature in the fight, friend or foe, whose number fits. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h2b309fa1g5403g5469gb74bga9d519748fac" version="1">Job: Arithmetician</content>
+  <content contentuid="hcaa77c0eg46e0g5f9bg9288g22bc13052736" version="1">+1 to Dexterity saving throws. Earned by mastering Ark Knight; kept after changing jobs.</content>
+  <content contentuid="h8c30d564gd77ag5ea9gb680g04acdb439088" version="1">Ark Knight Mastery</content>
+  <content contentuid="h58cc2b49g49a1g51b4gb18aga1a20669293c" version="1">Elmdore's job. Sword Spirit: the Samurai's katana spirits (learned again here). Blade of Ruin: 6 m slashes that sap a foe's magic, speed, power or mind for the fight (free, Elmdore's own). Blood Drain: a vampire's bite that heals you. Equipment: longswords, scimitars, greatswords, light armour, medium armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h36ad91c5g19fag5392ga50cg12534d8605d1" version="1">Job: Ark Knight</content>
   <content contentuid="h7bd57280g0844g51e8gb938g500a20f71a2f" version="1">You can't be surprised. Earned by mastering Astrologer; kept after changing jobs.</content>
   <content contentuid="hc142e593gf94eg5183ga90eg352abdee81f7" version="1">Astrologer Mastery</content>
   <content contentuid="h2a0d8ac3gfdb2g5947g87f9g133b1707486c" version="1">Orran's job. Astrology has a single art, as in FFT: Celestial Stasis halts the stars, and every foe around you is Stopped, Immobilized and Disabled. While Astrologer is your job you read the stars: +3 to initiative. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
