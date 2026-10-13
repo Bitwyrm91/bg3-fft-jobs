@@ -120,6 +120,37 @@ function S.chemical_mixup_adds_an_effect_the_target_lacks(w, T)
     T.eq(gob.hp, 36, "1d4 at level 1, highest roll")
 end
 
+function S.chemical_mixup_catalyst_adds_two_at_two(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    local gob = enemy(w)
+    afflicted(w, GOB, { BURNING = 2 })
+    applied(w, GOB, "FFTJ_CHEM_MIXUP", T.TAV)
+    local added = 0
+    for _, st in ipairs({ "ACID", "POISONED", "BLEEDING" }) do
+        added = added + (gob.statuses[st] and 1 or 0)
+    end
+    T.eq(added, 1, "one effect on: adds one")
+    applied(w, GOB, "FFTJ_CHEM_MIXUP", T.TAV)
+    for _, st in ipairs({ "BURNING", "ACID", "POISONED", "BLEEDING" }) do
+        T.truthy(gob.statuses[st], "two on: adds both missing, all four now: " .. st)
+    end
+end
+
+function S.saturation_lengthens_the_shortest_other_effect(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    local gob = enemy(w)
+    afflicted(w, GOB, { BURNING = 3, ACID = 1, POISONED = 2 })
+    applied(w, GOB, "FFTJ_CHEM_MIXUP", T.TAV)
+    T.eq(gob.statuses.FFTJ_SATURATE_ACID, nil, "not without the passive")
+    gob.statuses.BLEEDING = nil
+    w.chars[T.TAV].passives.FFTJ_Saturation = true
+    applied(w, GOB, "FFTJ_CHEM_MIXUP", T.TAV)
+    T.truthy(gob.statuses.FFTJ_SATURATE_ACID, "the shortest other effect gets a turn")
+    T.eq(gob.statuses.FFTJ_SATURATE_BURNING, nil, "only one")
+end
+
 function S.chemical_mixup_on_all_four_rolls_more_and_lengthens_the_shortest(w, T)
     T.boot(w)
     fixedRoll(T)
@@ -180,7 +211,7 @@ function S.fulminate_flask_bursts_tiny_and_grows_on_a_burning_target(w, T)
     T.truthy(ring.statuses.BURNING, "enemies in it catch fire")
     T.truthy(close.statuses.BURNING)
     T.truthy(w.chars[T.TAV].statuses.FFTJ_FULMINATE_BLAST, "the thrower is in the burst")
-    T.eq(w.chars[T.TAV].statuses.BURNING, nil, "but never set on fire by it")
+    T.truthy(w.chars[T.TAV].statuses.BURNING, "and catches fire like everyone in it")
 end
 
 function S.gravity_takes_a_share_of_max_hp(w, T)

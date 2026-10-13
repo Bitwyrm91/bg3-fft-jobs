@@ -754,12 +754,12 @@ using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 
 // One per creature in the burst (Effects.Fulminate applies it with the thrower as source): damage, then one
-// Constitution save against the thrower's spell DC; a fail applies FFTJ_FULMINATE_STUNNED (Blinded + Deafened).
+// Constitution save against the thrower's Intelligence spell DC; a fail applies FFTJ_FULMINATE_STUNNED (Blinded + Deafened).
 new entry "FFTJ_FULMINATE_BLAST"
 type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
-data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
 
 new entry "FFTJ_FULMINATE_STUNNED"
 type "StatusData"
@@ -776,3 +776,27 @@ data "Icon" "Spell_Illusion_Silence"
 data "StackId" "FFTJ_DEAFENED"
 data "Boosts" "Disadvantage(Concentration);ActionResourceBlock(ReactionActionPoint)"
 data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "FFTJ_SATURATE_BURNING"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "SetStatusDuration(BURNING,1,Add)"
+
+new entry "FFTJ_SATURATE_ACID"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "SetStatusDuration(ACID,1,Add)"
+
+new entry "FFTJ_SATURATE_POISONED"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "SetStatusDuration(POISONED,1,Add)"
+
+new entry "FFTJ_SATURATE_BLEEDING"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "SetStatusDuration(BLEEDING,1,Add)"

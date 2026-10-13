@@ -674,10 +674,41 @@
     ]
   },
   {
+    "id": "Item_GRN_AcidBottle_A",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Int_ChemicalMixup",
+      "Projectile_FFTJ_ChemicalMixup"
+    ]
+  },
+  {
     "id": "Item_GRN_Bomb_A",
     "kind": "icon",
     "usedBy": [
       "Projectile_FFTJ_ThrowBombs"
+    ]
+  },
+  {
+    "id": "Item_GRN_FireFlask_A",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Int_ChemicalBurns",
+      "Projectile_FFTJ_ChemicalBurns"
+    ]
+  },
+  {
+    "id": "Item_GRN_Sunflash_Grenade_A",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Int_FulminateFlask",
+      "Projectile_FFTJ_FulminateFlask"
+    ]
+  },
+  {
+    "id": "Item_LOOT_Alchemy_Machine_Flask_A",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Saturation"
     ]
   },
   {

@@ -1499,3 +1499,37 @@ data "Description" "{{masterydesc:SoulCollector}}"
 data "Icon" "Skill_Druid_WildShape"
 data "Properties" "Highlighted"
 data "Boosts" "ActionResource(WildShape,1,0)"
+
+new entry "FFTJ_Saturation"
+type "PassiveData"
+data "DisplayName" "{{name:Saturation}}"
+data "Description" "{{desc:Saturation}}"
+data "Icon" "Item_LOOT_Alchemy_Machine_Flask_A"
+data "Properties" "Highlighted"
+
+// Chemist flasks cast with Intelligence (user, 2026-10-13: "scale like other caster classes, Intelligence"):
+// UnlockSpell's 5th argument sets the casting ability (vanilla: UnlockSpell(Projectile_ProduceFlame_Hurl,,,,Wisdom)).
+
+new entry "FFTJ_Int_ChemicalMixup"
+type "PassiveData"
+data "Icon" "Item_GRN_AcidBottle_A"
+data "DisplayName" "{{name:ChemicalMixup}}"
+data "Description" "{{desc:ChemicalMixup}}"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_ChemicalMixup,,,,Intelligence)"
+
+new entry "FFTJ_Int_ChemicalBurns"
+type "PassiveData"
+data "Icon" "Item_GRN_FireFlask_A"
+data "DisplayName" "{{name:ChemicalBurns}}"
+data "Description" "{{desc:ChemicalBurns}}"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_ChemicalBurns,,,,Intelligence)"
+
+new entry "FFTJ_Int_FulminateFlask"
+type "PassiveData"
+data "Icon" "Item_GRN_Sunflash_Grenade_A"
+data "DisplayName" "{{name:FulminateFlask}}"
+data "Description" "{{desc:FulminateFlask}}"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_FulminateFlask,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Intelligence)"

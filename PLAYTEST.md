@@ -1,6 +1,14 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.52**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.53**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.53: Chemist stacking + Intelligence
+
+- **Catalyst** (Chemical Mixup): with two of the four effects on the target it adds both missing ones at once.
+- **Saturation** (Chemist support, 200 JP): when your flask adds one of the four, the shortest of the others lasts 1 more turn.
+- Fulminate Flask on a Burning target sets **everyone** in the 2 m burst on fire; Alchemist's Fire burst on impact.
+- Chemist flasks cast with **Intelligence**: Mixup/Burns are spell attacks, Fulminate's save uses your Intelligence spell DC. Flask icons (acid bottle, fire flask, sunflash).
+Check: the tooltip shows the Intelligence-based hit chance; the abilities still appear after learning (now granted through hidden passives).
 
 ## New in 1.0.0.52: Fulminate Flask (Chemist)
 

@@ -225,10 +225,33 @@ local function afflict(svc, target, status, turns, source)
     end)
 end
 
+-- The shortest-lasting effect in `has` (turns >= 0), leaving out index `skip`.
+local function shortest(has, skip)
+    local low
+    for i, turns in pairs(has) do
+        if i ~= skip and turns >= 0 and (not low or turns < has[low]) then
+            low = i
+        end
+    end
+    return low
+end
+
+-- Saturation (Chemist support passive): a flask that added one of the four lengthens the shortest of the others the
+-- target already had by 1 turn (FFTJ_SATURATE_* = SetStatusDuration(..., 1, Add)); once per throw.
+local function saturate(svc, caster, target, has, skip)
+    if not caster or not svc.Game:Has("Passives", caster, "FFTJ_Saturation") then
+        return
+    end
+    local low = shortest(has, skip)
+    if low then
+        afflict(svc, target, "FFTJ_SATURATE_" .. Effects.Mixup[low].Status, 0, caster)
+    end
+end
+
 function Effects.ChemicalMixup(svc, caster, target)
     local cfg = svc:Cfg().Abilities
     local has, n = afflictions(svc, target)
-    local dice, pick, extra = mixupDice(svc, caster), nil, ""
+    local dice, picks, extra = mixupDice(svc, caster), {}, ""
     if n < #Effects.Mixup then
         local missing = {}
         for i = 1, #Effects.Mixup do
@@ -236,30 +259,38 @@ function Effects.ChemicalMixup(svc, caster, target)
                 missing[#missing + 1] = i
             end
         end
-        pick = Effects.Mixup[missing[Effects.Roll(#missing)]]
+        -- Catalyst: with MixupCatalystAt effects already on, two missing ones at once
+        local count = (n >= (cfg.MixupCatalystAt or 2)) and 2 or 1
+        for _ = 1, math.min(count, #missing) do
+            local k = Effects.Roll(#missing)
+            picks[#picks + 1] = Effects.Mixup[missing[k]]
+            table.remove(missing, k)
+        end
     else
         -- all four already: one more damage die, and the shortest effect lasts longer
-        pick = Effects.Mixup[Effects.Roll(#Effects.Mixup)]
+        picks[1] = Effects.Mixup[Effects.Roll(#Effects.Mixup)]
         dice = dice + (cfg.MixupFullExtraDice or 1)
-        local low
-        for i, turns in pairs(has) do
-            if turns >= 0 and (not low or turns < has[low]) then
-                low = i
-            end
-        end
+        local low = shortest(has)
         if low then
             afflict(svc, target, "FFTJ_MIXUP_EXTEND_" .. Effects.Mixup[low].Status, 0, caster)
             extra = ", " .. Effects.Mixup[low].Status .. " lengthened"
         end
     end
+    local pick = picks[1]
     local damage = rollDamage(svc, dice)
     svc.Game:ApplyDamage(target, damage, pick.Type, caster)
     if n < #Effects.Mixup then
-        afflict(svc, target, pick.Status, cfg.MixupStatusTurns or 2, caster)
+        if n > 0 then
+            saturate(svc, caster, target, has)
+        end
+        for _, p in ipairs(picks) do
+            afflict(svc, target, p.Status, cfg.MixupStatusTurns or 2, caster)
+            extra = extra .. ", adds " .. p.Status
+        end
     end
     svc.Log.Info(string.format("Chemical Mixup: %s, %d %s damage to %s%s", pick.Word, damage, pick.Type,
         name(svc, target), extra))
-    return pick, damage
+    return pick, damage, picks
 end
 
 function Effects.ChemicalBurns(svc, caster, target)
@@ -293,8 +324,8 @@ function Effects.ChemicalBurns(svc, caster, target)
     return n, total, spread
 end
 
--- Fulminate Flask (Chemist, custom): a tiny burst around the target; a Burning target makes it larger and sets the
--- enemies in it on fire. Each creature caught gets FFTJ_FULMINATE_BLAST (damage + Constitution save, in the stats).
+-- Fulminate Flask (Chemist, custom): a tiny burst around the target; a Burning target makes it larger and sets
+-- everyone in it on fire (area effects hit allies too). Each creature caught gets FFTJ_FULMINATE_BLAST (damage + Constitution save, in the stats).
 function Effects.Fulminate(svc, caster, target)
     local cfg = svc:Cfg().Abilities
     local burning = svc.Game:HasStatus(target, "BURNING")
@@ -304,7 +335,11 @@ function Effects.Fulminate(svc, caster, target)
         local d = other == target and 0 or svc.Game:Distance(target, other)
         if d and d <= radius and not svc.Game:IsDead(other) then
             afflict(svc, other, "FFTJ_FULMINATE_BLAST", 0, caster)
-            if burning and other ~= target and not svc.State:Get(other) and (not caster or svc.Game:IsEnemy(caster, other)) then
+            if burning and other ~= target and not svc.Game:HasStatus(other, "BURNING") then
+                local has, n = afflictions(svc, other)
+                if n > 0 then
+                    saturate(svc, caster, other, has)
+                end
                 afflict(svc, other, "BURNING", cfg.FulminateBurningTurns or 2, caster)
             end
             hit = hit + 1
