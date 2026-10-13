@@ -18,7 +18,7 @@ When the user says "NWP", this is the list:
    learned.
 4. **Keep improving the Job Board** (Future changes 1 and 10 below: dropdown groups; the progress bar is already gone).
 5. **Soul Collector development PAUSED** (Future changes 4, 5, 8 wait: JP-cost forms, form strength).
-Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
+Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
 Fell Seal source.
 
 ## Future changes (user, 2026-10-13; mod work PAUSED by the user, nothing below is started)
