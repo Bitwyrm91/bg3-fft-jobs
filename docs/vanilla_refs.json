@@ -197,6 +197,13 @@
     ]
   },
   {
+    "id": "GenericIcon_Intent_Healing",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_Princess"
+    ]
+  },
+  {
     "id": "Item_BOOK_GEN_Book_A",
     "kind": "icon",
     "usedBy": [
@@ -304,6 +311,7 @@
       "FFTJ_Job_Machinist",
       "FFTJ_Job_Netherseer",
       "FFTJ_Job_OnionKnight",
+      "FFTJ_Job_Princess",
       "FFTJ_Job_SkyPirate",
       "FFTJ_Job_Skyseer",
       "FFTJ_Job_Soldier",
@@ -1332,6 +1340,13 @@
     "usedBy": [
       "Target_FFTJ_Leviathan",
       "Target_FFTJ_Torrent"
+    ]
+  },
+  {
+    "id": "BlessedHealer",
+    "kind": "using parent (PassiveData)",
+    "usedBy": [
+      "FFTJ_RoyalGrace"
     ]
   },
   {

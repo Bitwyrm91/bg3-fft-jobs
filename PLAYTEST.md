@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.36**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.37**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.37: Princess (special job 15 of 17)
+
+- **Princess** (Ovelia's job): needs the **Princess Badge** (Viconia DeVir, the House of Grief) plus **White Mage Lv6** and **Orator Lv5**.
+- **Holy Magicks** (TIC: powerful magicks for recovery and protection): the White Magicks and the group magicks Curaja, Protectja, Shellja and Wall (the same spells as the White Mage's and the Cleric's, learned again here; no Dispelna, that one is Alma's).
+- While Princess is your job: **Royal Grace**, every spell you cast that restores hit points also restores 1d6 of yours (the Cleric heals the target more instead). Main-job equipment: quarterstaffs, daggers, light armour. Mastery: +2 to Persuasion.
 
 ## New in 1.0.0.36: Ark Knight (special job 14 of 17)
 

@@ -1076,6 +1076,10 @@
   <content contentuid="hb2acc83bgf81fg5829gbbc1g37901130fa0b" version="1">Orator Mastery</content>
   <content contentuid="ha0ba8523gcbf6g590egbde3g24b62899052b" version="1">Talks foes into switching sides, sleeping, raging or dying; Beast Tongue is always on. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h7984f2d6ge108g5205gb8eege6aa1b6e71c3" version="1">Job: Orator</content>
+  <content contentuid="h9ed13087gb791g50cegabb8gefb2b83b30f3" version="1">+2 to Persuasion checks. Earned by mastering Princess; kept after changing jobs.</content>
+  <content contentuid="h6028c7f7ga336g52ddga339g6d290a2c2c6e" version="1">Princess Mastery</content>
+  <content contentuid="hd5b783cag7e30g5a22g8868ga646ed8db4a3" version="1">Ovelia's job. Holy Magicks: the White Magicks and the group magicks (Curaja, Protectja, Shellja, Wall), learned again here. While Princess is your job, every spell you cast that restores hit points also restores 1d6 of yours (Royal Grace). Equipment: quarterstaffs, daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h768198b7g2c42g5c1cg92d0gd0be6fb59092" version="1">Job: Princess</content>
   <content contentuid="hb15b45f2g2d07g5693g8de4gaa1ba478f336" version="1">You can't be Frightened. Earned by mastering Samurai; kept after changing jobs.</content>
   <content contentuid="hbca21ec6g2f04g5a10gb133gb2a8f11624b7" version="1">Samurai Mastery</content>
   <content contentuid="h3e80565cg441ag510ag8545g49cf8260de42" version="1">Draws out the spirits of legendary blades (Iaido): bursts around you that cut down enemies or shield your allies. Equipment: longswords, scimitars, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -1130,6 +1134,8 @@
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
   <content contentuid="h7445e45eg7f7bg5e2bgb9f1gc31502292f1d" version="1">While Game Hunter is your job, your weapon hits deal 1d6 extra damage to creatures that aren't humanoid.</content>
   <content contentuid="h117f3e9egd881g5877gbed1gaa59afc0c532" version="1">Monster Hunter</content>
+  <content contentuid="h6463bb4cgcacag5820g858fg47ff9ec4e1fb" version="1">While Princess is your job, every spell you cast that restores hit points also restores 1d6 of yours.</content>
+  <content contentuid="h95bcb30bg15ffg517bg9e6dga9c24889af62" version="1">Royal Grace</content>
   <content contentuid="h45ad6cd3gee0ag5024g94b0g87fb2e5ac9db" version="1">While Astrologer is your job you read what the stars hold: +3 to initiative.</content>
   <content contentuid="he98439c2g9728g5973gab0ag0f1e08c8da2b" version="1">Star Reading</content>
   <content contentuid="hf8f38127gbca0g590dgb6ccg7051bbc5976f" version="1">While Steel Giant is your job you resist poison damage and can't be poisoned.</content>
