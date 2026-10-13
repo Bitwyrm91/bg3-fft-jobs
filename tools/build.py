@@ -21,7 +21,7 @@ import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.pat
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.44"
+MOD_VERSION = "1.0.0.45"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -123,6 +123,10 @@ def validate(jobs_doc, config_doc, strings_doc):
                 errors.append(f"job {j['id']}: required level {req['level']} out of range")
             if j.get("implemented") and not job_by_id.get(req["job"], {}).get("implemented"):
                 errors.append(f"job {j['id']} is implemented but requires unimplemented job {req['job']}")
+        own = {a["id"] for a in jobs_doc["abilities"] if a["job"] == j["id"]}
+        for aid in j.get("startLearned", []):
+            if aid not in own:
+                errors.append(f"job {j['id']}: startLearned {aid} is not one of its abilities")
         levels = [t.get("level") for t in j.get("levelGrants", [])]
         if any(not isinstance(lv, int) or not 1 <= lv <= 8 for lv in levels) or levels != sorted(set(levels)):
             errors.append(f"job {j['id']}: levelGrants need increasing job levels 1-8")
@@ -285,6 +289,8 @@ def build_lua(jobs_doc, config_doc):
                             for t in j.get("levelGrants", [])],
             # while it is the main job, no slot or secondary works (Onion Knight; config Rules.OnionKnightBlocksSlots)
             "NoSlots": bool(j.get("noSlots")),
+            # abilities a character knows as soon as the job unlocks (FFT's special units arrive with their own art)
+            "StartLearned": j.get("startLearned", []),
         }
         # the job's emblem in our icon atlas (art\icons\Job_<JobId>), shown on the Job Board even before it is built
         if "Job_" + j["id"] in art:

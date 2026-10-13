@@ -1,6 +1,32 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.44**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.45**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.45: the Soul Collector made playable (Act 1 quick start)
+
+Fixes found by checking the mod against the game's own data (no game run yet):
+
+- **"Us" now gives the Soul Codex.** The mod listened for the wrong devourer: the lab's "Us" is `S_TUT_Lab_TrappedDevourer` in the game's story. Talking with Us (or Us joining you) now unlocks the Soul Collector; the camp-chest fallback past the nautiloid stays.
+- **Soul Brand and Soul Incarnation are known as soon as the job opens:** no 0 JP "Learn" click. The rest (Feral Vigor, Deep Reserves) still costs JP.
+- **The Soul Incarnation menu only shows the forms you earned.** Before, it listed every form of every soul at every tier (a container shows its whole list); now each form joins the menu when its soul is devoured, like Wild Shape's later forms.
+- **Every form has its own icon** (vanilla creature icons: Dire Wolf, Giant Spider, spore clouds, Minotaur gore...), instead of the same Shove icon for all 70.
+- **Right bodies:** Myconid, Malboro, Greater Malboro (Ethel), Twig Blight and Dryad borrowed a duergar civilian's body; now myconids, a needle blight and a wood woad. Kuo-toa forms use the plain kuo-toa body instead of an endgame ally's.
+- **Form hit points are kept in Wild Shape's range:** a form takes its body's hit points, and some Act 1 bodies are boss-sized (Grym 300, Bulette 125, Spectator 118). The body's share is now 12-50 for normal forms and 40-70 for boss forms (the Moon druid's owlbear has 65), plus the per-level bonus as before. Tiny bodies (goblin 9, imp 10) get a little more.
+- **Minthara's form** uses a drow warrior body (her own template is a player one, without hit points of its own).
+- **You can brand while in a form** (forms remove your own spells; Soul Brand stays).
+- Leaving a form adds Wild Shape's technical status like vanilla (no Great Weapon Master bonus attack off the drop).
+- Right souls: BOOOAL gives a Kuo-toa soul (not a Redcap); a Zhentarim ranger is no gnoll, a duergar spider-master no spider; the nautiloid's hellsboars give no Boar soul (they are Act 3's Wild Boar in the approved map).
+- Casting a form's skill outside a fight no longer hands back a Wild Shape charge (only the transformation is free).
+
+**Act 1 quick start (new game):**
+
+1. On the nautiloid, free and talk with **Us** in the lab (the brain in the jar) → "Beside the brain in the jar lies a codex of stolen souls." Skipped it? On the beach the codex turns up in the camp chest.
+2. **Job Board** → the **Soul Collector** tile (bottom section) → make it your job (or secondary). Soul Brand and Soul Incarnation are already in your spells.
+3. In a fight: **Soul Brand** (bonus action, 18 m) on an imp, then kill it (anyone can) before its next turn → "devoured an Imp soul ... New forms: Imp and Ahriman."
+4. **Soul Incarnation** (bonus action, 1 Wild Shape charge; free outside fights) → pick a form. **Dismiss** returns you. 3 and 5 souls of a type make its forms stronger and add skills.
+5. Early souls to aim for: imps and mind flayers (nautiloid), harpies and the beach intellect devourers, goblins, wolves/worgs, gnolls, spiders, the owlbear (→ Chocobo).
+
+**Watch for (tell me, or send the newest SE log):** a form with no attacks or the wrong body; a form missing from the menu after "New forms"; Soul Brand missing in a form; the charge count; any `soul without a form:` line in the log for a monster you expected to count.
 
 ## New in 1.0.0.44: boss souls, free forms outside fights
 

@@ -17,6 +17,18 @@
     ]
   },
   {
+    "id": "Action_Barbarian_Rage_EagleTotem",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Owlbear_F1",
+      "FFTJ_SOUL_Owlbear_F3",
+      "FFTJ_SOUL_Owlbear_F5",
+      "Shout_FFTJ_Soul_Owlbear_F1",
+      "Shout_FFTJ_Soul_Owlbear_F3",
+      "Shout_FFTJ_Soul_Owlbear_F5"
+    ]
+  },
+  {
     "id": "Action_Bard_SongOfRest",
     "kind": "icon",
     "usedBy": [
@@ -24,6 +36,42 @@
       "FFTJ_SONG_SERAPH_FX",
       "Shout_FFTJ_Finale",
       "Shout_FFTJ_SeraphSong"
+    ]
+  },
+  {
+    "id": "Action_Bear_GuardingRoar",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_HookHorror_F1",
+      "FFTJ_SOUL_HookHorror_F3",
+      "FFTJ_SOUL_HookHorror_F5",
+      "Shout_FFTJ_Soul_HookHorror_F1",
+      "Shout_FFTJ_Soul_HookHorror_F3",
+      "Shout_FFTJ_Soul_HookHorror_F5"
+    ]
+  },
+  {
+    "id": "Action_Boar_Tusk",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Boar_F1",
+      "FFTJ_SOUL_Boar_F3",
+      "FFTJ_SOUL_Boar_F5",
+      "Shout_FFTJ_Soul_Boar_F1",
+      "Shout_FFTJ_Soul_Boar_F3",
+      "Shout_FFTJ_Soul_Boar_F5"
+    ]
+  },
+  {
+    "id": "Action_Cat_Claws",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Wolf_F1",
+      "FFTJ_SOUL_Wolf_F3",
+      "FFTJ_SOUL_Wolf_F5",
+      "Shout_FFTJ_Soul_Wolf_F1",
+      "Shout_FFTJ_Soul_Wolf_F3",
+      "Shout_FFTJ_Soul_Wolf_F5"
     ]
   },
   {
@@ -44,6 +92,18 @@
       "Projectile_FFTJ_ArmShot",
       "Projectile_FFTJ_LegShot",
       "Projectile_FFTJ_SealEvil"
+    ]
+  },
+  {
+    "id": "Action_DeepRothe_Charge",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Bulette_F1",
+      "FFTJ_SOUL_Bulette_F3",
+      "FFTJ_SOUL_Bulette_F5",
+      "Shout_FFTJ_Soul_Bulette_F1",
+      "Shout_FFTJ_Soul_Bulette_F3",
+      "Shout_FFTJ_Soul_Bulette_F5"
     ]
   },
   {
@@ -69,6 +129,126 @@
     "usedBy": [
       "FFTJ_Mastery_SkyPirate",
       "Target_FFTJ_Barrage"
+    ]
+  },
+  {
+    "id": "Action_Fly",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Harpy_F1",
+      "FFTJ_SOUL_Harpy_F3",
+      "FFTJ_SOUL_Harpy_F5",
+      "Shout_FFTJ_Soul_Harpy_F1",
+      "Shout_FFTJ_Soul_Harpy_F3",
+      "Shout_FFTJ_Soul_Harpy_F5"
+    ]
+  },
+  {
+    "id": "Action_FullSwing",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Goblin_F1",
+      "FFTJ_SOUL_Goblin_F3",
+      "FFTJ_SOUL_Goblin_F5",
+      "Shout_FFTJ_Soul_Goblin_F1",
+      "Shout_FFTJ_Soul_Goblin_F3",
+      "Shout_FFTJ_Soul_Goblin_F5"
+    ]
+  },
+  {
+    "id": "Action_GiantBadger_Burrow",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Badger_F1",
+      "FFTJ_SOUL_Badger_F3",
+      "FFTJ_SOUL_Badger_F5",
+      "Shout_FFTJ_Soul_Badger_F1",
+      "Shout_FFTJ_Soul_Badger_F3",
+      "Shout_FFTJ_Soul_Badger_F5"
+    ]
+  },
+  {
+    "id": "Action_Glut_BlackSporeCloud",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Ethel_F1",
+      "FFTJ_SOUL_Ethel_F3",
+      "FFTJ_SOUL_Ethel_F5",
+      "Shout_FFTJ_Soul_Ethel_F1",
+      "Shout_FFTJ_Soul_Ethel_F3",
+      "Shout_FFTJ_Soul_Ethel_F5"
+    ]
+  },
+  {
+    "id": "Action_Glut_GreenSporeCloud",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Myconid_F1",
+      "FFTJ_SOUL_Myconid_F3",
+      "FFTJ_SOUL_Myconid_F5",
+      "Shout_FFTJ_Soul_Myconid_F1",
+      "Shout_FFTJ_Soul_Myconid_F3",
+      "Shout_FFTJ_Soul_Myconid_F5"
+    ]
+  },
+  {
+    "id": "Action_Glut_WhiteSporeCloud",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Myconid_B1",
+      "FFTJ_SOUL_Myconid_B3",
+      "FFTJ_SOUL_Myconid_B5",
+      "Shout_FFTJ_Soul_Myconid_B1",
+      "Shout_FFTJ_Soul_Myconid_B3",
+      "Shout_FFTJ_Soul_Myconid_B5"
+    ]
+  },
+  {
+    "id": "Action_ImprovisedWeapon",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Goblin_B1",
+      "FFTJ_SOUL_Goblin_B3",
+      "FFTJ_SOUL_Goblin_B5",
+      "Shout_FFTJ_Soul_Goblin_B1",
+      "Shout_FFTJ_Soul_Goblin_B3",
+      "Shout_FFTJ_Soul_Goblin_B5"
+    ]
+  },
+  {
+    "id": "Action_Mag_CommandUndead_Approach",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Skeleton_F1",
+      "FFTJ_SOUL_Skeleton_F3",
+      "FFTJ_SOUL_Skeleton_F5",
+      "Shout_FFTJ_Soul_Skeleton_F1",
+      "Shout_FFTJ_Soul_Skeleton_F3",
+      "Shout_FFTJ_Soul_Skeleton_F5"
+    ]
+  },
+  {
+    "id": "Action_Mag_Illithid_MindTax",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_MindFlayer_B1",
+      "FFTJ_SOUL_MindFlayer_B3",
+      "FFTJ_SOUL_MindFlayer_B5",
+      "Shout_FFTJ_Soul_MindFlayer_B1",
+      "Shout_FFTJ_Soul_MindFlayer_B3",
+      "Shout_FFTJ_Soul_MindFlayer_B5"
+    ]
+  },
+  {
+    "id": "Action_Mag_PhalarAluve_Shriek",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Harpy_B1",
+      "FFTJ_SOUL_Harpy_B3",
+      "FFTJ_SOUL_Harpy_B5",
+      "Shout_FFTJ_Soul_Harpy_B1",
+      "Shout_FFTJ_Soul_Harpy_B3",
+      "Shout_FFTJ_Soul_Harpy_B5"
     ]
   },
   {
@@ -98,6 +278,18 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Destroy"
+    ]
+  },
+  {
+    "id": "Action_Monster_Duergar_MindSpike",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Nere_B1",
+      "FFTJ_SOUL_Nere_B3",
+      "FFTJ_SOUL_Nere_B5",
+      "Shout_FFTJ_Soul_Nere_B1",
+      "Shout_FFTJ_Soul_Nere_B3",
+      "Shout_FFTJ_Soul_Nere_B5"
     ]
   },
   {
@@ -136,10 +328,64 @@
     ]
   },
   {
+    "id": "Action_Monster_KuoToa_Net",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_KuoToa_B1",
+      "FFTJ_SOUL_KuoToa_B3",
+      "FFTJ_SOUL_KuoToa_B5",
+      "Shout_FFTJ_Soul_KuoToa_B1",
+      "Shout_FFTJ_Soul_KuoToa_B3",
+      "Shout_FFTJ_Soul_KuoToa_B5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Minotaur_Charge",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Minotaur_F1",
+      "FFTJ_SOUL_Minotaur_F3",
+      "FFTJ_SOUL_Minotaur_F5",
+      "Shout_FFTJ_Soul_Minotaur_F1",
+      "Shout_FFTJ_Soul_Minotaur_F3",
+      "Shout_FFTJ_Soul_Minotaur_F5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Minotaur_Gore",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Minotaur_B1",
+      "FFTJ_SOUL_Minotaur_B3",
+      "FFTJ_SOUL_Minotaur_B5",
+      "Shout_FFTJ_Soul_Minotaur_B1",
+      "Shout_FFTJ_Soul_Minotaur_B3",
+      "Shout_FFTJ_Soul_Minotaur_B5"
+    ]
+  },
+  {
     "id": "Action_Monster_Minotaur_Jump",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_VerticalJump2"
+      "FFTJ_SOUL_Grym_F1",
+      "FFTJ_SOUL_Grym_F3",
+      "FFTJ_SOUL_Grym_F5",
+      "FFTJ_VerticalJump2",
+      "Shout_FFTJ_Soul_Grym_F1",
+      "Shout_FFTJ_Soul_Grym_F3",
+      "Shout_FFTJ_Soul_Grym_F5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Minotaur_Reckless",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Ogre_B1",
+      "FFTJ_SOUL_Ogre_B3",
+      "FFTJ_SOUL_Ogre_B5",
+      "Shout_FFTJ_Soul_Ogre_B1",
+      "Shout_FFTJ_Soul_Ogre_B3",
+      "Shout_FFTJ_Soul_Ogre_B5"
     ]
   },
   {
@@ -150,6 +396,78 @@
     ]
   },
   {
+    "id": "Action_Monster_Slayer_Bloodbath",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Zhalk_B1",
+      "FFTJ_SOUL_Zhalk_B3",
+      "FFTJ_SOUL_Zhalk_B5",
+      "Shout_FFTJ_Soul_Zhalk_B1",
+      "Shout_FFTJ_Soul_Zhalk_B3",
+      "Shout_FFTJ_Soul_Zhalk_B5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Slayer_DeathGrowl",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Ogre_F1",
+      "FFTJ_SOUL_Ogre_F3",
+      "FFTJ_SOUL_Ogre_F5",
+      "Shout_FFTJ_Soul_Ogre_F1",
+      "Shout_FFTJ_Soul_Ogre_F3",
+      "Shout_FFTJ_Soul_Ogre_F5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Slayer_LetTheSlaughterBegin",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Zhalk_F1",
+      "FFTJ_SOUL_Zhalk_F3",
+      "FFTJ_SOUL_Zhalk_F5",
+      "Shout_FFTJ_Soul_Zhalk_F1",
+      "Shout_FFTJ_Soul_Zhalk_F3",
+      "Shout_FFTJ_Soul_Zhalk_F5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Slayer_MultiAttack",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Bugbear_F1",
+      "FFTJ_SOUL_Bugbear_F3",
+      "FFTJ_SOUL_Bugbear_F5",
+      "Shout_FFTJ_Soul_Bugbear_F1",
+      "Shout_FFTJ_Soul_Bugbear_F3",
+      "Shout_FFTJ_Soul_Bugbear_F5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Slayer_RelentlessLunge",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Nere_F1",
+      "FFTJ_SOUL_Nere_F3",
+      "FFTJ_SOUL_Nere_F5",
+      "Shout_FFTJ_Soul_Nere_F1",
+      "Shout_FFTJ_Soul_Nere_F3",
+      "Shout_FFTJ_Soul_Nere_F5"
+    ]
+  },
+  {
+    "id": "Action_Monster_Slayer_Slam",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Bugbear_B1",
+      "FFTJ_SOUL_Bugbear_B3",
+      "FFTJ_SOUL_Bugbear_B5",
+      "Shout_FFTJ_Soul_Bugbear_B1",
+      "Shout_FFTJ_Soul_Bugbear_B3",
+      "Shout_FFTJ_Soul_Bugbear_B5"
+    ]
+  },
+  {
     "id": "Action_Paladin_AuraOfCourage",
     "kind": "icon",
     "usedBy": [
@@ -157,382 +475,34 @@
     ]
   },
   {
+    "id": "Action_Paladin_DivineSmite",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Minthara_F1",
+      "FFTJ_SOUL_Minthara_F3",
+      "FFTJ_SOUL_Minthara_F5",
+      "Shout_FFTJ_Soul_Minthara_F1",
+      "Shout_FFTJ_Soul_Minthara_F3",
+      "Shout_FFTJ_Soul_Minthara_F5"
+    ]
+  },
+  {
+    "id": "Action_Pounce_HookHorror",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_HookHorror_B1",
+      "FFTJ_SOUL_HookHorror_B3",
+      "FFTJ_SOUL_HookHorror_B5",
+      "Shout_FFTJ_Soul_HookHorror_B1",
+      "Shout_FFTJ_Soul_HookHorror_B3",
+      "Shout_FFTJ_Soul_HookHorror_B5"
+    ]
+  },
+  {
     "id": "Action_Shove",
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_DivineKnight",
-      "FFTJ_SOUL_Boar_B1",
-      "FFTJ_SOUL_Boar_B3",
-      "FFTJ_SOUL_Boar_B5",
-      "FFTJ_SOUL_Boar_F1",
-      "FFTJ_SOUL_Boar_F3",
-      "FFTJ_SOUL_Boar_F5",
-      "FFTJ_SOUL_Bugbear_B1",
-      "FFTJ_SOUL_Bugbear_B3",
-      "FFTJ_SOUL_Bugbear_B5",
-      "FFTJ_SOUL_Bugbear_F1",
-      "FFTJ_SOUL_Bugbear_F3",
-      "FFTJ_SOUL_Bugbear_F5",
-      "FFTJ_SOUL_Bulette_B1",
-      "FFTJ_SOUL_Bulette_B3",
-      "FFTJ_SOUL_Bulette_B5",
-      "FFTJ_SOUL_Bulette_F1",
-      "FFTJ_SOUL_Bulette_F3",
-      "FFTJ_SOUL_Bulette_F5",
-      "FFTJ_SOUL_Construct_B1",
-      "FFTJ_SOUL_Construct_B3",
-      "FFTJ_SOUL_Construct_B5",
-      "FFTJ_SOUL_Construct_F1",
-      "FFTJ_SOUL_Construct_F3",
-      "FFTJ_SOUL_Construct_F5",
-      "FFTJ_SOUL_Ethel_B1",
-      "FFTJ_SOUL_Ethel_B3",
-      "FFTJ_SOUL_Ethel_B5",
-      "FFTJ_SOUL_Ethel_F1",
-      "FFTJ_SOUL_Ethel_F3",
-      "FFTJ_SOUL_Ethel_F5",
-      "FFTJ_SOUL_Flind_B1",
-      "FFTJ_SOUL_Flind_B3",
-      "FFTJ_SOUL_Flind_B5",
-      "FFTJ_SOUL_Flind_F1",
-      "FFTJ_SOUL_Flind_F3",
-      "FFTJ_SOUL_Flind_F5",
-      "FFTJ_SOUL_Ghoul_B1",
-      "FFTJ_SOUL_Ghoul_B3",
-      "FFTJ_SOUL_Ghoul_B5",
-      "FFTJ_SOUL_Ghoul_F1",
-      "FFTJ_SOUL_Ghoul_F3",
-      "FFTJ_SOUL_Ghoul_F5",
-      "FFTJ_SOUL_Gnoll_B1",
-      "FFTJ_SOUL_Gnoll_B3",
-      "FFTJ_SOUL_Gnoll_B5",
-      "FFTJ_SOUL_Gnoll_F1",
-      "FFTJ_SOUL_Gnoll_F3",
-      "FFTJ_SOUL_Gnoll_F5",
-      "FFTJ_SOUL_Goblin_B1",
-      "FFTJ_SOUL_Goblin_B3",
-      "FFTJ_SOUL_Goblin_B5",
-      "FFTJ_SOUL_Goblin_F1",
-      "FFTJ_SOUL_Goblin_F3",
-      "FFTJ_SOUL_Goblin_F5",
-      "FFTJ_SOUL_Grym_B1",
-      "FFTJ_SOUL_Grym_B3",
-      "FFTJ_SOUL_Grym_B5",
-      "FFTJ_SOUL_Grym_F1",
-      "FFTJ_SOUL_Grym_F3",
-      "FFTJ_SOUL_Grym_F5",
-      "FFTJ_SOUL_Gut_B1",
-      "FFTJ_SOUL_Gut_B3",
-      "FFTJ_SOUL_Gut_B5",
-      "FFTJ_SOUL_Gut_F1",
-      "FFTJ_SOUL_Gut_F3",
-      "FFTJ_SOUL_Gut_F5",
-      "FFTJ_SOUL_Harpy_B1",
-      "FFTJ_SOUL_Harpy_B3",
-      "FFTJ_SOUL_Harpy_B5",
-      "FFTJ_SOUL_Harpy_F1",
-      "FFTJ_SOUL_Harpy_F3",
-      "FFTJ_SOUL_Harpy_F5",
-      "FFTJ_SOUL_HookHorror_B1",
-      "FFTJ_SOUL_HookHorror_B3",
-      "FFTJ_SOUL_HookHorror_B5",
-      "FFTJ_SOUL_HookHorror_F1",
-      "FFTJ_SOUL_HookHorror_F3",
-      "FFTJ_SOUL_HookHorror_F5",
-      "FFTJ_SOUL_Imp_B1",
-      "FFTJ_SOUL_Imp_B3",
-      "FFTJ_SOUL_Imp_B5",
-      "FFTJ_SOUL_Imp_F1",
-      "FFTJ_SOUL_Imp_F3",
-      "FFTJ_SOUL_Imp_F5",
-      "FFTJ_SOUL_IntellectDevourer_B1",
-      "FFTJ_SOUL_IntellectDevourer_B3",
-      "FFTJ_SOUL_IntellectDevourer_B5",
-      "FFTJ_SOUL_IntellectDevourer_F1",
-      "FFTJ_SOUL_IntellectDevourer_F3",
-      "FFTJ_SOUL_IntellectDevourer_F5",
-      "FFTJ_SOUL_KuoToa_B1",
-      "FFTJ_SOUL_KuoToa_B3",
-      "FFTJ_SOUL_KuoToa_B5",
-      "FFTJ_SOUL_KuoToa_F1",
-      "FFTJ_SOUL_KuoToa_F3",
-      "FFTJ_SOUL_KuoToa_F5",
-      "FFTJ_SOUL_Mephit_B1",
-      "FFTJ_SOUL_Mephit_B3",
-      "FFTJ_SOUL_Mephit_B5",
-      "FFTJ_SOUL_Mephit_F1",
-      "FFTJ_SOUL_Mephit_F3",
-      "FFTJ_SOUL_Mephit_F5",
-      "FFTJ_SOUL_MindFlayer_B1",
-      "FFTJ_SOUL_MindFlayer_B3",
-      "FFTJ_SOUL_MindFlayer_B5",
-      "FFTJ_SOUL_MindFlayer_F1",
-      "FFTJ_SOUL_MindFlayer_F3",
-      "FFTJ_SOUL_MindFlayer_F5",
-      "FFTJ_SOUL_Minotaur_B1",
-      "FFTJ_SOUL_Minotaur_B3",
-      "FFTJ_SOUL_Minotaur_B5",
-      "FFTJ_SOUL_Minotaur_F1",
-      "FFTJ_SOUL_Minotaur_F3",
-      "FFTJ_SOUL_Minotaur_F5",
-      "FFTJ_SOUL_Minthara_B1",
-      "FFTJ_SOUL_Minthara_B3",
-      "FFTJ_SOUL_Minthara_B5",
-      "FFTJ_SOUL_Minthara_F1",
-      "FFTJ_SOUL_Minthara_F3",
-      "FFTJ_SOUL_Minthara_F5",
-      "FFTJ_SOUL_Myconid_B1",
-      "FFTJ_SOUL_Myconid_B3",
-      "FFTJ_SOUL_Myconid_B5",
-      "FFTJ_SOUL_Myconid_F1",
-      "FFTJ_SOUL_Myconid_F3",
-      "FFTJ_SOUL_Myconid_F5",
-      "FFTJ_SOUL_Nere_B1",
-      "FFTJ_SOUL_Nere_B3",
-      "FFTJ_SOUL_Nere_B5",
-      "FFTJ_SOUL_Nere_F1",
-      "FFTJ_SOUL_Nere_F3",
-      "FFTJ_SOUL_Nere_F5",
-      "FFTJ_SOUL_Ogre_B1",
-      "FFTJ_SOUL_Ogre_B3",
-      "FFTJ_SOUL_Ogre_B5",
-      "FFTJ_SOUL_Ogre_F1",
-      "FFTJ_SOUL_Ogre_F3",
-      "FFTJ_SOUL_Ogre_F5",
-      "FFTJ_SOUL_Owlbear_B1",
-      "FFTJ_SOUL_Owlbear_B3",
-      "FFTJ_SOUL_Owlbear_B5",
-      "FFTJ_SOUL_Owlbear_F1",
-      "FFTJ_SOUL_Owlbear_F3",
-      "FFTJ_SOUL_Owlbear_F5",
-      "FFTJ_SOUL_Redcap_B1",
-      "FFTJ_SOUL_Redcap_B3",
-      "FFTJ_SOUL_Redcap_B5",
-      "FFTJ_SOUL_Redcap_F1",
-      "FFTJ_SOUL_Redcap_F3",
-      "FFTJ_SOUL_Redcap_F5",
-      "FFTJ_SOUL_Skeleton_B1",
-      "FFTJ_SOUL_Skeleton_B3",
-      "FFTJ_SOUL_Skeleton_B5",
-      "FFTJ_SOUL_Skeleton_F1",
-      "FFTJ_SOUL_Skeleton_F3",
-      "FFTJ_SOUL_Skeleton_F5",
-      "FFTJ_SOUL_Spectator_B1",
-      "FFTJ_SOUL_Spectator_B3",
-      "FFTJ_SOUL_Spectator_B5",
-      "FFTJ_SOUL_Spectator_F1",
-      "FFTJ_SOUL_Spectator_F3",
-      "FFTJ_SOUL_Spectator_F5",
-      "FFTJ_SOUL_SpiderQueen_B1",
-      "FFTJ_SOUL_SpiderQueen_B3",
-      "FFTJ_SOUL_SpiderQueen_B5",
-      "FFTJ_SOUL_SpiderQueen_F1",
-      "FFTJ_SOUL_SpiderQueen_F3",
-      "FFTJ_SOUL_SpiderQueen_F5",
-      "FFTJ_SOUL_TwigBlight_B1",
-      "FFTJ_SOUL_TwigBlight_B3",
-      "FFTJ_SOUL_TwigBlight_B5",
-      "FFTJ_SOUL_TwigBlight_F1",
-      "FFTJ_SOUL_TwigBlight_F3",
-      "FFTJ_SOUL_TwigBlight_F5",
-      "FFTJ_SOUL_Wwargaz_B1",
-      "FFTJ_SOUL_Wwargaz_B3",
-      "FFTJ_SOUL_Wwargaz_B5",
-      "FFTJ_SOUL_Wwargaz_F1",
-      "FFTJ_SOUL_Wwargaz_F3",
-      "FFTJ_SOUL_Wwargaz_F5",
-      "FFTJ_SOUL_Zhalk_B1",
-      "FFTJ_SOUL_Zhalk_B3",
-      "FFTJ_SOUL_Zhalk_B5",
-      "FFTJ_SOUL_Zhalk_F1",
-      "FFTJ_SOUL_Zhalk_F3",
-      "FFTJ_SOUL_Zhalk_F5",
-      "Shout_FFTJ_Soul_Boar_B1",
-      "Shout_FFTJ_Soul_Boar_B3",
-      "Shout_FFTJ_Soul_Boar_B5",
-      "Shout_FFTJ_Soul_Boar_F1",
-      "Shout_FFTJ_Soul_Boar_F3",
-      "Shout_FFTJ_Soul_Boar_F5",
-      "Shout_FFTJ_Soul_Bugbear_B1",
-      "Shout_FFTJ_Soul_Bugbear_B3",
-      "Shout_FFTJ_Soul_Bugbear_B5",
-      "Shout_FFTJ_Soul_Bugbear_F1",
-      "Shout_FFTJ_Soul_Bugbear_F3",
-      "Shout_FFTJ_Soul_Bugbear_F5",
-      "Shout_FFTJ_Soul_Bulette_B1",
-      "Shout_FFTJ_Soul_Bulette_B3",
-      "Shout_FFTJ_Soul_Bulette_B5",
-      "Shout_FFTJ_Soul_Bulette_F1",
-      "Shout_FFTJ_Soul_Bulette_F3",
-      "Shout_FFTJ_Soul_Bulette_F5",
-      "Shout_FFTJ_Soul_Construct_B1",
-      "Shout_FFTJ_Soul_Construct_B3",
-      "Shout_FFTJ_Soul_Construct_B5",
-      "Shout_FFTJ_Soul_Construct_F1",
-      "Shout_FFTJ_Soul_Construct_F3",
-      "Shout_FFTJ_Soul_Construct_F5",
-      "Shout_FFTJ_Soul_Ethel_B1",
-      "Shout_FFTJ_Soul_Ethel_B3",
-      "Shout_FFTJ_Soul_Ethel_B5",
-      "Shout_FFTJ_Soul_Ethel_F1",
-      "Shout_FFTJ_Soul_Ethel_F3",
-      "Shout_FFTJ_Soul_Ethel_F5",
-      "Shout_FFTJ_Soul_Flind_B1",
-      "Shout_FFTJ_Soul_Flind_B3",
-      "Shout_FFTJ_Soul_Flind_B5",
-      "Shout_FFTJ_Soul_Flind_F1",
-      "Shout_FFTJ_Soul_Flind_F3",
-      "Shout_FFTJ_Soul_Flind_F5",
-      "Shout_FFTJ_Soul_Ghoul_B1",
-      "Shout_FFTJ_Soul_Ghoul_B3",
-      "Shout_FFTJ_Soul_Ghoul_B5",
-      "Shout_FFTJ_Soul_Ghoul_F1",
-      "Shout_FFTJ_Soul_Ghoul_F3",
-      "Shout_FFTJ_Soul_Ghoul_F5",
-      "Shout_FFTJ_Soul_Gnoll_B1",
-      "Shout_FFTJ_Soul_Gnoll_B3",
-      "Shout_FFTJ_Soul_Gnoll_B5",
-      "Shout_FFTJ_Soul_Gnoll_F1",
-      "Shout_FFTJ_Soul_Gnoll_F3",
-      "Shout_FFTJ_Soul_Gnoll_F5",
-      "Shout_FFTJ_Soul_Goblin_B1",
-      "Shout_FFTJ_Soul_Goblin_B3",
-      "Shout_FFTJ_Soul_Goblin_B5",
-      "Shout_FFTJ_Soul_Goblin_F1",
-      "Shout_FFTJ_Soul_Goblin_F3",
-      "Shout_FFTJ_Soul_Goblin_F5",
-      "Shout_FFTJ_Soul_Grym_B1",
-      "Shout_FFTJ_Soul_Grym_B3",
-      "Shout_FFTJ_Soul_Grym_B5",
-      "Shout_FFTJ_Soul_Grym_F1",
-      "Shout_FFTJ_Soul_Grym_F3",
-      "Shout_FFTJ_Soul_Grym_F5",
-      "Shout_FFTJ_Soul_Gut_B1",
-      "Shout_FFTJ_Soul_Gut_B3",
-      "Shout_FFTJ_Soul_Gut_B5",
-      "Shout_FFTJ_Soul_Gut_F1",
-      "Shout_FFTJ_Soul_Gut_F3",
-      "Shout_FFTJ_Soul_Gut_F5",
-      "Shout_FFTJ_Soul_Harpy_B1",
-      "Shout_FFTJ_Soul_Harpy_B3",
-      "Shout_FFTJ_Soul_Harpy_B5",
-      "Shout_FFTJ_Soul_Harpy_F1",
-      "Shout_FFTJ_Soul_Harpy_F3",
-      "Shout_FFTJ_Soul_Harpy_F5",
-      "Shout_FFTJ_Soul_HookHorror_B1",
-      "Shout_FFTJ_Soul_HookHorror_B3",
-      "Shout_FFTJ_Soul_HookHorror_B5",
-      "Shout_FFTJ_Soul_HookHorror_F1",
-      "Shout_FFTJ_Soul_HookHorror_F3",
-      "Shout_FFTJ_Soul_HookHorror_F5",
-      "Shout_FFTJ_Soul_Imp_B1",
-      "Shout_FFTJ_Soul_Imp_B3",
-      "Shout_FFTJ_Soul_Imp_B5",
-      "Shout_FFTJ_Soul_Imp_F1",
-      "Shout_FFTJ_Soul_Imp_F3",
-      "Shout_FFTJ_Soul_Imp_F5",
-      "Shout_FFTJ_Soul_IntellectDevourer_B1",
-      "Shout_FFTJ_Soul_IntellectDevourer_B3",
-      "Shout_FFTJ_Soul_IntellectDevourer_B5",
-      "Shout_FFTJ_Soul_IntellectDevourer_F1",
-      "Shout_FFTJ_Soul_IntellectDevourer_F3",
-      "Shout_FFTJ_Soul_IntellectDevourer_F5",
-      "Shout_FFTJ_Soul_KuoToa_B1",
-      "Shout_FFTJ_Soul_KuoToa_B3",
-      "Shout_FFTJ_Soul_KuoToa_B5",
-      "Shout_FFTJ_Soul_KuoToa_F1",
-      "Shout_FFTJ_Soul_KuoToa_F3",
-      "Shout_FFTJ_Soul_KuoToa_F5",
-      "Shout_FFTJ_Soul_Mephit_B1",
-      "Shout_FFTJ_Soul_Mephit_B3",
-      "Shout_FFTJ_Soul_Mephit_B5",
-      "Shout_FFTJ_Soul_Mephit_F1",
-      "Shout_FFTJ_Soul_Mephit_F3",
-      "Shout_FFTJ_Soul_Mephit_F5",
-      "Shout_FFTJ_Soul_MindFlayer_B1",
-      "Shout_FFTJ_Soul_MindFlayer_B3",
-      "Shout_FFTJ_Soul_MindFlayer_B5",
-      "Shout_FFTJ_Soul_MindFlayer_F1",
-      "Shout_FFTJ_Soul_MindFlayer_F3",
-      "Shout_FFTJ_Soul_MindFlayer_F5",
-      "Shout_FFTJ_Soul_Minotaur_B1",
-      "Shout_FFTJ_Soul_Minotaur_B3",
-      "Shout_FFTJ_Soul_Minotaur_B5",
-      "Shout_FFTJ_Soul_Minotaur_F1",
-      "Shout_FFTJ_Soul_Minotaur_F3",
-      "Shout_FFTJ_Soul_Minotaur_F5",
-      "Shout_FFTJ_Soul_Minthara_B1",
-      "Shout_FFTJ_Soul_Minthara_B3",
-      "Shout_FFTJ_Soul_Minthara_B5",
-      "Shout_FFTJ_Soul_Minthara_F1",
-      "Shout_FFTJ_Soul_Minthara_F3",
-      "Shout_FFTJ_Soul_Minthara_F5",
-      "Shout_FFTJ_Soul_Myconid_B1",
-      "Shout_FFTJ_Soul_Myconid_B3",
-      "Shout_FFTJ_Soul_Myconid_B5",
-      "Shout_FFTJ_Soul_Myconid_F1",
-      "Shout_FFTJ_Soul_Myconid_F3",
-      "Shout_FFTJ_Soul_Myconid_F5",
-      "Shout_FFTJ_Soul_Nere_B1",
-      "Shout_FFTJ_Soul_Nere_B3",
-      "Shout_FFTJ_Soul_Nere_B5",
-      "Shout_FFTJ_Soul_Nere_F1",
-      "Shout_FFTJ_Soul_Nere_F3",
-      "Shout_FFTJ_Soul_Nere_F5",
-      "Shout_FFTJ_Soul_Ogre_B1",
-      "Shout_FFTJ_Soul_Ogre_B3",
-      "Shout_FFTJ_Soul_Ogre_B5",
-      "Shout_FFTJ_Soul_Ogre_F1",
-      "Shout_FFTJ_Soul_Ogre_F3",
-      "Shout_FFTJ_Soul_Ogre_F5",
-      "Shout_FFTJ_Soul_Owlbear_B1",
-      "Shout_FFTJ_Soul_Owlbear_B3",
-      "Shout_FFTJ_Soul_Owlbear_B5",
-      "Shout_FFTJ_Soul_Owlbear_F1",
-      "Shout_FFTJ_Soul_Owlbear_F3",
-      "Shout_FFTJ_Soul_Owlbear_F5",
-      "Shout_FFTJ_Soul_Redcap_B1",
-      "Shout_FFTJ_Soul_Redcap_B3",
-      "Shout_FFTJ_Soul_Redcap_B5",
-      "Shout_FFTJ_Soul_Redcap_F1",
-      "Shout_FFTJ_Soul_Redcap_F3",
-      "Shout_FFTJ_Soul_Redcap_F5",
-      "Shout_FFTJ_Soul_Skeleton_B1",
-      "Shout_FFTJ_Soul_Skeleton_B3",
-      "Shout_FFTJ_Soul_Skeleton_B5",
-      "Shout_FFTJ_Soul_Skeleton_F1",
-      "Shout_FFTJ_Soul_Skeleton_F3",
-      "Shout_FFTJ_Soul_Skeleton_F5",
-      "Shout_FFTJ_Soul_Spectator_B1",
-      "Shout_FFTJ_Soul_Spectator_B3",
-      "Shout_FFTJ_Soul_Spectator_B5",
-      "Shout_FFTJ_Soul_Spectator_F1",
-      "Shout_FFTJ_Soul_Spectator_F3",
-      "Shout_FFTJ_Soul_Spectator_F5",
-      "Shout_FFTJ_Soul_SpiderQueen_B1",
-      "Shout_FFTJ_Soul_SpiderQueen_B3",
-      "Shout_FFTJ_Soul_SpiderQueen_B5",
-      "Shout_FFTJ_Soul_SpiderQueen_F1",
-      "Shout_FFTJ_Soul_SpiderQueen_F3",
-      "Shout_FFTJ_Soul_SpiderQueen_F5",
-      "Shout_FFTJ_Soul_TwigBlight_B1",
-      "Shout_FFTJ_Soul_TwigBlight_B3",
-      "Shout_FFTJ_Soul_TwigBlight_B5",
-      "Shout_FFTJ_Soul_TwigBlight_F1",
-      "Shout_FFTJ_Soul_TwigBlight_F3",
-      "Shout_FFTJ_Soul_TwigBlight_F5",
-      "Shout_FFTJ_Soul_Wwargaz_B1",
-      "Shout_FFTJ_Soul_Wwargaz_B3",
-      "Shout_FFTJ_Soul_Wwargaz_B5",
-      "Shout_FFTJ_Soul_Wwargaz_F1",
-      "Shout_FFTJ_Soul_Wwargaz_F3",
-      "Shout_FFTJ_Soul_Wwargaz_F5",
-      "Shout_FFTJ_Soul_Zhalk_B1",
-      "Shout_FFTJ_Soul_Zhalk_B3",
-      "Shout_FFTJ_Soul_Zhalk_B5",
-      "Shout_FFTJ_Soul_Zhalk_F1",
-      "Shout_FFTJ_Soul_Zhalk_F3",
-      "Shout_FFTJ_Soul_Zhalk_F5",
       "Zone_FFTJ_CrushArmor",
       "Zone_FFTJ_CrushHelm"
     ]
@@ -546,6 +516,18 @@
       "Zone_FFTJ_Ascension",
       "Zone_FFTJ_BladeBurst",
       "Zone_FFTJ_Braver"
+    ]
+  },
+  {
+    "id": "Action_Spider_Entomb",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_SpiderQueen_F1",
+      "FFTJ_SOUL_SpiderQueen_F3",
+      "FFTJ_SOUL_SpiderQueen_F5",
+      "Shout_FFTJ_Soul_SpiderQueen_F1",
+      "Shout_FFTJ_Soul_SpiderQueen_F3",
+      "Shout_FFTJ_Soul_SpiderQueen_F5"
     ]
   },
   {
@@ -567,6 +549,18 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_SteelBody"
+    ]
+  },
+  {
+    "id": "Action_VampireBite",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Redcap_B1",
+      "FFTJ_SOUL_Redcap_B3",
+      "FFTJ_SOUL_Redcap_B5",
+      "Shout_FFTJ_Soul_Redcap_B1",
+      "Shout_FFTJ_Soul_Redcap_B3",
+      "Shout_FFTJ_Soul_Redcap_B5"
     ]
   },
   {
@@ -715,6 +709,18 @@
     ]
   },
   {
+    "id": "PassiveFeature_ImprovedDivineSmite",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Minthara_B1",
+      "FFTJ_SOUL_Minthara_B3",
+      "FFTJ_SOUL_Minthara_B5",
+      "Shout_FFTJ_Soul_Minthara_B1",
+      "Shout_FFTJ_Soul_Minthara_B3",
+      "Shout_FFTJ_Soul_Minthara_B5"
+    ]
+  },
+  {
     "id": "PassiveFeature_Lucky_RollAdditionalDie",
     "kind": "icon",
     "usedBy": [
@@ -780,21 +786,39 @@
     ]
   },
   {
+    "id": "Skill_Druid_WildShape_Boar",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Boar_B1",
+      "FFTJ_SOUL_Boar_B3",
+      "FFTJ_SOUL_Boar_B5",
+      "Shout_FFTJ_Soul_Boar_B1",
+      "Shout_FFTJ_Soul_Boar_B3",
+      "Shout_FFTJ_Soul_Boar_B5"
+    ]
+  },
+  {
+    "id": "Skill_Druid_WildShape_Cat",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Spider_F1",
+      "FFTJ_SOUL_Spider_F3",
+      "FFTJ_SOUL_Spider_F5",
+      "Shout_FFTJ_Soul_Spider_F1",
+      "Shout_FFTJ_Soul_Spider_F3",
+      "Shout_FFTJ_Soul_Spider_F5"
+    ]
+  },
+  {
     "id": "Skill_Druid_WildShape_DireWolf",
     "kind": "icon",
     "usedBy": [
       "FFTJ_SOUL_Wolf_B1",
       "FFTJ_SOUL_Wolf_B3",
       "FFTJ_SOUL_Wolf_B5",
-      "FFTJ_SOUL_Wolf_F1",
-      "FFTJ_SOUL_Wolf_F3",
-      "FFTJ_SOUL_Wolf_F5",
       "Shout_FFTJ_Soul_Wolf_B1",
       "Shout_FFTJ_Soul_Wolf_B3",
-      "Shout_FFTJ_Soul_Wolf_B5",
-      "Shout_FFTJ_Soul_Wolf_F1",
-      "Shout_FFTJ_Soul_Wolf_F3",
-      "Shout_FFTJ_Soul_Wolf_F5"
+      "Shout_FFTJ_Soul_Wolf_B5"
     ]
   },
   {
@@ -804,15 +828,9 @@
       "FFTJ_SOUL_Badger_B1",
       "FFTJ_SOUL_Badger_B3",
       "FFTJ_SOUL_Badger_B5",
-      "FFTJ_SOUL_Badger_F1",
-      "FFTJ_SOUL_Badger_F3",
-      "FFTJ_SOUL_Badger_F5",
       "Shout_FFTJ_Soul_Badger_B1",
       "Shout_FFTJ_Soul_Badger_B3",
-      "Shout_FFTJ_Soul_Badger_B5",
-      "Shout_FFTJ_Soul_Badger_F1",
-      "Shout_FFTJ_Soul_Badger_F3",
-      "Shout_FFTJ_Soul_Badger_F5"
+      "Shout_FFTJ_Soul_Badger_B5"
     ]
   },
   {
@@ -822,33 +840,9 @@
       "FFTJ_SOUL_Spider_B1",
       "FFTJ_SOUL_Spider_B3",
       "FFTJ_SOUL_Spider_B5",
-      "FFTJ_SOUL_Spider_F1",
-      "FFTJ_SOUL_Spider_F3",
-      "FFTJ_SOUL_Spider_F5",
       "Shout_FFTJ_Soul_Spider_B1",
       "Shout_FFTJ_Soul_Spider_B3",
-      "Shout_FFTJ_Soul_Spider_B5",
-      "Shout_FFTJ_Soul_Spider_F1",
-      "Shout_FFTJ_Soul_Spider_F3",
-      "Shout_FFTJ_Soul_Spider_F5"
-    ]
-  },
-  {
-    "id": "Skill_Druid_WildShape_Raven",
-    "kind": "icon",
-    "usedBy": [
-      "FFTJ_SOUL_Eagle_B1",
-      "FFTJ_SOUL_Eagle_B3",
-      "FFTJ_SOUL_Eagle_B5",
-      "FFTJ_SOUL_Eagle_F1",
-      "FFTJ_SOUL_Eagle_F3",
-      "FFTJ_SOUL_Eagle_F5",
-      "Shout_FFTJ_Soul_Eagle_B1",
-      "Shout_FFTJ_Soul_Eagle_B3",
-      "Shout_FFTJ_Soul_Eagle_B5",
-      "Shout_FFTJ_Soul_Eagle_F1",
-      "Shout_FFTJ_Soul_Eagle_F3",
-      "Shout_FFTJ_Soul_Eagle_F5"
+      "Shout_FFTJ_Soul_Spider_B5"
     ]
   },
   {
@@ -864,6 +858,18 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_CriticalRecoverHP"
+    ]
+  },
+  {
+    "id": "Skill_Warlock_PactOfTheChain_Imp",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Imp_B1",
+      "FFTJ_SOUL_Imp_B3",
+      "FFTJ_SOUL_Imp_B5",
+      "Shout_FFTJ_Soul_Imp_B1",
+      "Shout_FFTJ_Soul_Imp_B3",
+      "Shout_FFTJ_Soul_Imp_B5"
     ]
   },
   {
@@ -970,6 +976,18 @@
     ]
   },
   {
+    "id": "Spell_Conjuration_FlamingSphere",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Mephit_F1",
+      "FFTJ_SOUL_Mephit_F3",
+      "FFTJ_SOUL_Mephit_F5",
+      "Shout_FFTJ_Soul_Mephit_F1",
+      "Shout_FFTJ_Soul_Mephit_F3",
+      "Shout_FFTJ_Soul_Mephit_F5"
+    ]
+  },
+  {
     "id": "Spell_Conjuration_FogCloud",
     "kind": "icon",
     "usedBy": [
@@ -981,6 +999,18 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Tanglevine"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_HungerOfHadar",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_KuoToa_F1",
+      "FFTJ_SOUL_KuoToa_F3",
+      "FFTJ_SOUL_KuoToa_F5",
+      "Shout_FFTJ_Soul_KuoToa_F1",
+      "Shout_FFTJ_Soul_KuoToa_F3",
+      "Shout_FFTJ_Soul_KuoToa_F5"
     ]
   },
   {
@@ -1237,6 +1267,30 @@
     ]
   },
   {
+    "id": "Spell_Gale_ShadowSummon",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Wwargaz_B1",
+      "FFTJ_SOUL_Wwargaz_B3",
+      "FFTJ_SOUL_Wwargaz_B5",
+      "Shout_FFTJ_Soul_Wwargaz_B1",
+      "Shout_FFTJ_Soul_Wwargaz_B3",
+      "Shout_FFTJ_Soul_Wwargaz_B5"
+    ]
+  },
+  {
+    "id": "Spell_Gnoll_SoulOffering",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Flind_B1",
+      "FFTJ_SOUL_Flind_B3",
+      "FFTJ_SOUL_Flind_B5",
+      "Shout_FFTJ_Soul_Flind_B1",
+      "Shout_FFTJ_Soul_Flind_B3",
+      "Shout_FFTJ_Soul_Flind_B5"
+    ]
+  },
+  {
     "id": "Spell_Illusion_Invisibility",
     "kind": "icon",
     "usedBy": [
@@ -1264,9 +1318,63 @@
     ]
   },
   {
+    "id": "Spell_IntellectDevourer_DevourIntellect",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_IntellectDevourer_B1",
+      "FFTJ_SOUL_IntellectDevourer_B3",
+      "FFTJ_SOUL_IntellectDevourer_B5",
+      "Shout_FFTJ_Soul_IntellectDevourer_B1",
+      "Shout_FFTJ_Soul_IntellectDevourer_B3",
+      "Shout_FFTJ_Soul_IntellectDevourer_B5"
+    ]
+  },
+  {
+    "id": "Spell_IntellectDevourer_SynapticDischarge",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_IntellectDevourer_F1",
+      "FFTJ_SOUL_IntellectDevourer_F3",
+      "FFTJ_SOUL_IntellectDevourer_F5",
+      "Shout_FFTJ_Soul_IntellectDevourer_F1",
+      "Shout_FFTJ_Soul_IntellectDevourer_F3",
+      "Shout_FFTJ_Soul_IntellectDevourer_F5"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_AnimateDead_Skeleton",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Skeleton_B1",
+      "FFTJ_SOUL_Skeleton_B3",
+      "FFTJ_SOUL_Skeleton_B5",
+      "Shout_FFTJ_Soul_Skeleton_B1",
+      "Shout_FFTJ_Soul_Skeleton_B3",
+      "Shout_FFTJ_Soul_Skeleton_B5"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_AnimateDead_Zombie",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Ghoul_B1",
+      "FFTJ_SOUL_Ghoul_B3",
+      "FFTJ_SOUL_Ghoul_B5",
+      "Shout_FFTJ_Soul_Ghoul_B1",
+      "Shout_FFTJ_Soul_Ghoul_B3",
+      "Shout_FFTJ_Soul_Ghoul_B5"
+    ]
+  },
+  {
     "id": "Spell_Necromancy_BestowCurse",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_SOUL_Redcap_F1",
+      "FFTJ_SOUL_Redcap_F3",
+      "FFTJ_SOUL_Redcap_F5",
+      "Shout_FFTJ_Soul_Redcap_F1",
+      "Shout_FFTJ_Soul_Redcap_F3",
+      "Shout_FFTJ_Soul_Redcap_F5",
       "Zone_FFTJ_SpellbladeDoubt"
     ]
   },
@@ -1311,6 +1419,12 @@
     "id": "Spell_Necromancy_InflictWounds",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_SOUL_Gut_F1",
+      "FFTJ_SOUL_Gut_F3",
+      "FFTJ_SOUL_Gut_F5",
+      "Shout_FFTJ_Soul_Gut_F1",
+      "Shout_FFTJ_Soul_Gut_F3",
+      "Shout_FFTJ_Soul_Gut_F5",
       "Target_FFTJ_InfernalStrike",
       "Zone_FFTJ_Duskblade"
     ]
@@ -1323,6 +1437,18 @@
       "Zone_FFTJ_Mindsap",
       "Zone_FFTJ_Powersap",
       "Zone_FFTJ_Speedsap"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_RayOfSickness",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Ghoul_F1",
+      "FFTJ_SOUL_Ghoul_F3",
+      "FFTJ_SOUL_Ghoul_F5",
+      "Shout_FFTJ_Soul_Ghoul_F1",
+      "Shout_FFTJ_Soul_Ghoul_F3",
+      "Shout_FFTJ_Soul_Ghoul_F5"
     ]
   },
   {
@@ -1346,12 +1472,66 @@
     ]
   },
   {
+    "id": "Spell_Transmutation_ElementalWeapon",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Construct_F1",
+      "FFTJ_SOUL_Construct_F3",
+      "FFTJ_SOUL_Construct_F5",
+      "Shout_FFTJ_Soul_Construct_F1",
+      "Shout_FFTJ_Soul_Construct_F3",
+      "Shout_FFTJ_Soul_Construct_F5"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_ElementalWeapon_Fire",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Mephit_B1",
+      "FFTJ_SOUL_Mephit_B3",
+      "FFTJ_SOUL_Mephit_B5",
+      "FFTJ_SOUL_Wwargaz_F1",
+      "FFTJ_SOUL_Wwargaz_F3",
+      "FFTJ_SOUL_Wwargaz_F5",
+      "Shout_FFTJ_Soul_Mephit_B1",
+      "Shout_FFTJ_Soul_Mephit_B3",
+      "Shout_FFTJ_Soul_Mephit_B5",
+      "Shout_FFTJ_Soul_Wwargaz_F1",
+      "Shout_FFTJ_Soul_Wwargaz_F3",
+      "Shout_FFTJ_Soul_Wwargaz_F5"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_EnhanceAbility_EaglesSplendor",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Eagle_B1",
+      "FFTJ_SOUL_Eagle_B3",
+      "FFTJ_SOUL_Eagle_B5",
+      "Shout_FFTJ_Soul_Eagle_B1",
+      "Shout_FFTJ_Soul_Eagle_B3",
+      "Shout_FFTJ_Soul_Eagle_B5"
+    ]
+  },
+  {
     "id": "Spell_Transmutation_FleshToStone",
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Contortion",
       "Zone_FFTJ_FinishingTouch",
       "Zone_FFTJ_SpellbladeBreak"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_Fly",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Eagle_F1",
+      "FFTJ_SOUL_Eagle_F3",
+      "FFTJ_SOUL_Eagle_F5",
+      "Shout_FFTJ_Soul_Eagle_F1",
+      "Shout_FFTJ_Soul_Eagle_F3",
+      "Shout_FFTJ_Soul_Eagle_F5"
     ]
   },
   {
@@ -1365,6 +1545,18 @@
     ]
   },
   {
+    "id": "Spell_Transmutation_PlantGrowth",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_TwigBlight_F1",
+      "FFTJ_SOUL_TwigBlight_F3",
+      "FFTJ_SOUL_TwigBlight_F5",
+      "Shout_FFTJ_Soul_TwigBlight_F1",
+      "Shout_FFTJ_Soul_TwigBlight_F3",
+      "Shout_FFTJ_Soul_TwigBlight_F5"
+    ]
+  },
+  {
     "id": "Spell_Transmutation_Slow",
     "kind": "icon",
     "usedBy": [
@@ -1372,6 +1564,18 @@
       "FFTJ_DANCE_SLOW_FX",
       "Shout_FFTJ_SlowDance",
       "Target_FFTJ_Stall"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_ThornWhip",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_TwigBlight_B1",
+      "FFTJ_SOUL_TwigBlight_B3",
+      "FFTJ_SOUL_TwigBlight_B5",
+      "Shout_FFTJ_Soul_TwigBlight_B1",
+      "Shout_FFTJ_Soul_TwigBlight_B3",
+      "Shout_FFTJ_Soul_TwigBlight_B5"
     ]
   },
   {
@@ -1396,6 +1600,30 @@
     ]
   },
   {
+    "id": "Status_Gnoll_PackTactics",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Gnoll_B1",
+      "FFTJ_SOUL_Gnoll_B3",
+      "FFTJ_SOUL_Gnoll_B5",
+      "Shout_FFTJ_Soul_Gnoll_B1",
+      "Shout_FFTJ_Soul_Gnoll_B3",
+      "Shout_FFTJ_Soul_Gnoll_B5"
+    ]
+  },
+  {
+    "id": "Status_Hag_HagEyed",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Spectator_F1",
+      "FFTJ_SOUL_Spectator_F3",
+      "FFTJ_SOUL_Spectator_F5",
+      "Shout_FFTJ_Soul_Spectator_F1",
+      "Shout_FFTJ_Soul_Spectator_F3",
+      "Shout_FFTJ_Soul_Spectator_F5"
+    ]
+  },
+  {
     "id": "Status_Stunned",
     "kind": "icon",
     "usedBy": [
@@ -1410,10 +1638,82 @@
     ]
   },
   {
+    "id": "TadpoleSuperPower_ForceTunnel",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Bulette_B1",
+      "FFTJ_SOUL_Bulette_B3",
+      "FFTJ_SOUL_Bulette_B5",
+      "Shout_FFTJ_Soul_Bulette_B1",
+      "Shout_FFTJ_Soul_Bulette_B3",
+      "Shout_FFTJ_Soul_Bulette_B5"
+    ]
+  },
+  {
     "id": "statIcons_Ensnared",
     "kind": "icon",
     "usedBy": [
       "FFTJ_IMMOBILIZE"
+    ]
+  },
+  {
+    "id": "statIcons_GOB_GoblinPriest_Chains",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Gut_B1",
+      "FFTJ_SOUL_Gut_B3",
+      "FFTJ_SOUL_Gut_B5",
+      "Shout_FFTJ_Soul_Gut_B1",
+      "Shout_FFTJ_Soul_Gut_B3",
+      "Shout_FFTJ_Soul_Gut_B5"
+    ]
+  },
+  {
+    "id": "statIcons_Gnoll_BrewingRage",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Flind_F1",
+      "FFTJ_SOUL_Flind_F3",
+      "FFTJ_SOUL_Flind_F5",
+      "Shout_FFTJ_Soul_Flind_F1",
+      "Shout_FFTJ_Soul_Flind_F3",
+      "Shout_FFTJ_Soul_Flind_F5"
+    ]
+  },
+  {
+    "id": "statIcons_Gnoll_Rampage",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Gnoll_F1",
+      "FFTJ_SOUL_Gnoll_F3",
+      "FFTJ_SOUL_Gnoll_F5",
+      "Shout_FFTJ_Soul_Gnoll_F1",
+      "Shout_FFTJ_Soul_Gnoll_F3",
+      "Shout_FFTJ_Soul_Gnoll_F5"
+    ]
+  },
+  {
+    "id": "statIcons_GougedEye",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Imp_F1",
+      "FFTJ_SOUL_Imp_F3",
+      "FFTJ_SOUL_Imp_F5",
+      "Shout_FFTJ_Soul_Imp_F1",
+      "Shout_FFTJ_Soul_Imp_F3",
+      "Shout_FFTJ_Soul_Imp_F5"
+    ]
+  },
+  {
+    "id": "statIcons_HagsTrickery",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Ethel_B1",
+      "FFTJ_SOUL_Ethel_B3",
+      "FFTJ_SOUL_Ethel_B5",
+      "Shout_FFTJ_Soul_Ethel_B1",
+      "Shout_FFTJ_Soul_Ethel_B3",
+      "Shout_FFTJ_Soul_Ethel_B5"
     ]
   },
   {
@@ -1422,6 +1722,78 @@
     "usedBy": [
       "FFTJ_FLOAT",
       "FFTJ_Levitate"
+    ]
+  },
+  {
+    "id": "statIcons_MindMastery",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_MindFlayer_F1",
+      "FFTJ_SOUL_MindFlayer_F3",
+      "FFTJ_SOUL_MindFlayer_F5",
+      "Shout_FFTJ_Soul_MindFlayer_F1",
+      "Shout_FFTJ_Soul_MindFlayer_F3",
+      "Shout_FFTJ_Soul_MindFlayer_F5"
+    ]
+  },
+  {
+    "id": "statIcons_Mindstruck",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Spectator_B1",
+      "FFTJ_SOUL_Spectator_B3",
+      "FFTJ_SOUL_Spectator_B5",
+      "Shout_FFTJ_Soul_Spectator_B1",
+      "Shout_FFTJ_Soul_Spectator_B3",
+      "Shout_FFTJ_Soul_Spectator_B5"
+    ]
+  },
+  {
+    "id": "statIcons_OwlbearsRage",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Owlbear_B1",
+      "FFTJ_SOUL_Owlbear_B3",
+      "FFTJ_SOUL_Owlbear_B5",
+      "Shout_FFTJ_Soul_Owlbear_B1",
+      "Shout_FFTJ_Soul_Owlbear_B3",
+      "Shout_FFTJ_Soul_Owlbear_B5"
+    ]
+  },
+  {
+    "id": "statIcons_SpiderQueensWrath",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_SpiderQueen_B1",
+      "FFTJ_SOUL_SpiderQueen_B3",
+      "FFTJ_SOUL_SpiderQueen_B5",
+      "Shout_FFTJ_Soul_SpiderQueen_B1",
+      "Shout_FFTJ_Soul_SpiderQueen_B3",
+      "Shout_FFTJ_Soul_SpiderQueen_B5"
+    ]
+  },
+  {
+    "id": "statIcons_Static_Discharge",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Grym_B1",
+      "FFTJ_SOUL_Grym_B3",
+      "FFTJ_SOUL_Grym_B5",
+      "Shout_FFTJ_Soul_Grym_B1",
+      "Shout_FFTJ_Soul_Grym_B3",
+      "Shout_FFTJ_Soul_Grym_B5"
+    ]
+  },
+  {
+    "id": "statIcons_Static_Discharge_Construct",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_SOUL_Construct_B1",
+      "FFTJ_SOUL_Construct_B3",
+      "FFTJ_SOUL_Construct_B5",
+      "Shout_FFTJ_Soul_Construct_B1",
+      "Shout_FFTJ_Soul_Construct_B3",
+      "Shout_FFTJ_Soul_Construct_B5"
     ]
   },
   {
@@ -2352,6 +2724,222 @@
       "Shout_FFTJ_Soul_Zhalk_F1",
       "Shout_FFTJ_Soul_Zhalk_F3",
       "Shout_FFTJ_Soul_Zhalk_F5"
+    ]
+  },
+  {
+    "id": "WILDSHAPE_TECHNICAL",
+    "kind": "status",
+    "usedBy": [
+      "FFTJ_SOUL_Badger_B1",
+      "FFTJ_SOUL_Badger_B3",
+      "FFTJ_SOUL_Badger_B5",
+      "FFTJ_SOUL_Badger_F1",
+      "FFTJ_SOUL_Badger_F3",
+      "FFTJ_SOUL_Badger_F5",
+      "FFTJ_SOUL_Boar_B1",
+      "FFTJ_SOUL_Boar_B3",
+      "FFTJ_SOUL_Boar_B5",
+      "FFTJ_SOUL_Boar_F1",
+      "FFTJ_SOUL_Boar_F3",
+      "FFTJ_SOUL_Boar_F5",
+      "FFTJ_SOUL_Bugbear_B1",
+      "FFTJ_SOUL_Bugbear_B3",
+      "FFTJ_SOUL_Bugbear_B5",
+      "FFTJ_SOUL_Bugbear_F1",
+      "FFTJ_SOUL_Bugbear_F3",
+      "FFTJ_SOUL_Bugbear_F5",
+      "FFTJ_SOUL_Bulette_B1",
+      "FFTJ_SOUL_Bulette_B3",
+      "FFTJ_SOUL_Bulette_B5",
+      "FFTJ_SOUL_Bulette_F1",
+      "FFTJ_SOUL_Bulette_F3",
+      "FFTJ_SOUL_Bulette_F5",
+      "FFTJ_SOUL_Construct_B1",
+      "FFTJ_SOUL_Construct_B3",
+      "FFTJ_SOUL_Construct_B5",
+      "FFTJ_SOUL_Construct_F1",
+      "FFTJ_SOUL_Construct_F3",
+      "FFTJ_SOUL_Construct_F5",
+      "FFTJ_SOUL_Eagle_B1",
+      "FFTJ_SOUL_Eagle_B3",
+      "FFTJ_SOUL_Eagle_B5",
+      "FFTJ_SOUL_Eagle_F1",
+      "FFTJ_SOUL_Eagle_F3",
+      "FFTJ_SOUL_Eagle_F5",
+      "FFTJ_SOUL_Ethel_B1",
+      "FFTJ_SOUL_Ethel_B3",
+      "FFTJ_SOUL_Ethel_B5",
+      "FFTJ_SOUL_Ethel_F1",
+      "FFTJ_SOUL_Ethel_F3",
+      "FFTJ_SOUL_Ethel_F5",
+      "FFTJ_SOUL_Flind_B1",
+      "FFTJ_SOUL_Flind_B3",
+      "FFTJ_SOUL_Flind_B5",
+      "FFTJ_SOUL_Flind_F1",
+      "FFTJ_SOUL_Flind_F3",
+      "FFTJ_SOUL_Flind_F5",
+      "FFTJ_SOUL_Ghoul_B1",
+      "FFTJ_SOUL_Ghoul_B3",
+      "FFTJ_SOUL_Ghoul_B5",
+      "FFTJ_SOUL_Ghoul_F1",
+      "FFTJ_SOUL_Ghoul_F3",
+      "FFTJ_SOUL_Ghoul_F5",
+      "FFTJ_SOUL_Gnoll_B1",
+      "FFTJ_SOUL_Gnoll_B3",
+      "FFTJ_SOUL_Gnoll_B5",
+      "FFTJ_SOUL_Gnoll_F1",
+      "FFTJ_SOUL_Gnoll_F3",
+      "FFTJ_SOUL_Gnoll_F5",
+      "FFTJ_SOUL_Goblin_B1",
+      "FFTJ_SOUL_Goblin_B3",
+      "FFTJ_SOUL_Goblin_B5",
+      "FFTJ_SOUL_Goblin_F1",
+      "FFTJ_SOUL_Goblin_F3",
+      "FFTJ_SOUL_Goblin_F5",
+      "FFTJ_SOUL_Grym_B1",
+      "FFTJ_SOUL_Grym_B3",
+      "FFTJ_SOUL_Grym_B5",
+      "FFTJ_SOUL_Grym_F1",
+      "FFTJ_SOUL_Grym_F3",
+      "FFTJ_SOUL_Grym_F5",
+      "FFTJ_SOUL_Gut_B1",
+      "FFTJ_SOUL_Gut_B3",
+      "FFTJ_SOUL_Gut_B5",
+      "FFTJ_SOUL_Gut_F1",
+      "FFTJ_SOUL_Gut_F3",
+      "FFTJ_SOUL_Gut_F5",
+      "FFTJ_SOUL_Harpy_B1",
+      "FFTJ_SOUL_Harpy_B3",
+      "FFTJ_SOUL_Harpy_B5",
+      "FFTJ_SOUL_Harpy_F1",
+      "FFTJ_SOUL_Harpy_F3",
+      "FFTJ_SOUL_Harpy_F5",
+      "FFTJ_SOUL_HookHorror_B1",
+      "FFTJ_SOUL_HookHorror_B3",
+      "FFTJ_SOUL_HookHorror_B5",
+      "FFTJ_SOUL_HookHorror_F1",
+      "FFTJ_SOUL_HookHorror_F3",
+      "FFTJ_SOUL_HookHorror_F5",
+      "FFTJ_SOUL_Imp_B1",
+      "FFTJ_SOUL_Imp_B3",
+      "FFTJ_SOUL_Imp_B5",
+      "FFTJ_SOUL_Imp_F1",
+      "FFTJ_SOUL_Imp_F3",
+      "FFTJ_SOUL_Imp_F5",
+      "FFTJ_SOUL_IntellectDevourer_B1",
+      "FFTJ_SOUL_IntellectDevourer_B3",
+      "FFTJ_SOUL_IntellectDevourer_B5",
+      "FFTJ_SOUL_IntellectDevourer_F1",
+      "FFTJ_SOUL_IntellectDevourer_F3",
+      "FFTJ_SOUL_IntellectDevourer_F5",
+      "FFTJ_SOUL_KuoToa_B1",
+      "FFTJ_SOUL_KuoToa_B3",
+      "FFTJ_SOUL_KuoToa_B5",
+      "FFTJ_SOUL_KuoToa_F1",
+      "FFTJ_SOUL_KuoToa_F3",
+      "FFTJ_SOUL_KuoToa_F5",
+      "FFTJ_SOUL_Mephit_B1",
+      "FFTJ_SOUL_Mephit_B3",
+      "FFTJ_SOUL_Mephit_B5",
+      "FFTJ_SOUL_Mephit_F1",
+      "FFTJ_SOUL_Mephit_F3",
+      "FFTJ_SOUL_Mephit_F5",
+      "FFTJ_SOUL_MindFlayer_B1",
+      "FFTJ_SOUL_MindFlayer_B3",
+      "FFTJ_SOUL_MindFlayer_B5",
+      "FFTJ_SOUL_MindFlayer_F1",
+      "FFTJ_SOUL_MindFlayer_F3",
+      "FFTJ_SOUL_MindFlayer_F5",
+      "FFTJ_SOUL_Minotaur_B1",
+      "FFTJ_SOUL_Minotaur_B3",
+      "FFTJ_SOUL_Minotaur_B5",
+      "FFTJ_SOUL_Minotaur_F1",
+      "FFTJ_SOUL_Minotaur_F3",
+      "FFTJ_SOUL_Minotaur_F5",
+      "FFTJ_SOUL_Minthara_B1",
+      "FFTJ_SOUL_Minthara_B3",
+      "FFTJ_SOUL_Minthara_B5",
+      "FFTJ_SOUL_Minthara_F1",
+      "FFTJ_SOUL_Minthara_F3",
+      "FFTJ_SOUL_Minthara_F5",
+      "FFTJ_SOUL_Myconid_B1",
+      "FFTJ_SOUL_Myconid_B3",
+      "FFTJ_SOUL_Myconid_B5",
+      "FFTJ_SOUL_Myconid_F1",
+      "FFTJ_SOUL_Myconid_F3",
+      "FFTJ_SOUL_Myconid_F5",
+      "FFTJ_SOUL_Nere_B1",
+      "FFTJ_SOUL_Nere_B3",
+      "FFTJ_SOUL_Nere_B5",
+      "FFTJ_SOUL_Nere_F1",
+      "FFTJ_SOUL_Nere_F3",
+      "FFTJ_SOUL_Nere_F5",
+      "FFTJ_SOUL_Ogre_B1",
+      "FFTJ_SOUL_Ogre_B3",
+      "FFTJ_SOUL_Ogre_B5",
+      "FFTJ_SOUL_Ogre_F1",
+      "FFTJ_SOUL_Ogre_F3",
+      "FFTJ_SOUL_Ogre_F5",
+      "FFTJ_SOUL_Owlbear_B1",
+      "FFTJ_SOUL_Owlbear_B3",
+      "FFTJ_SOUL_Owlbear_B5",
+      "FFTJ_SOUL_Owlbear_F1",
+      "FFTJ_SOUL_Owlbear_F3",
+      "FFTJ_SOUL_Owlbear_F5",
+      "FFTJ_SOUL_Redcap_B1",
+      "FFTJ_SOUL_Redcap_B3",
+      "FFTJ_SOUL_Redcap_B5",
+      "FFTJ_SOUL_Redcap_F1",
+      "FFTJ_SOUL_Redcap_F3",
+      "FFTJ_SOUL_Redcap_F5",
+      "FFTJ_SOUL_Skeleton_B1",
+      "FFTJ_SOUL_Skeleton_B3",
+      "FFTJ_SOUL_Skeleton_B5",
+      "FFTJ_SOUL_Skeleton_F1",
+      "FFTJ_SOUL_Skeleton_F3",
+      "FFTJ_SOUL_Skeleton_F5",
+      "FFTJ_SOUL_Spectator_B1",
+      "FFTJ_SOUL_Spectator_B3",
+      "FFTJ_SOUL_Spectator_B5",
+      "FFTJ_SOUL_Spectator_F1",
+      "FFTJ_SOUL_Spectator_F3",
+      "FFTJ_SOUL_Spectator_F5",
+      "FFTJ_SOUL_SpiderQueen_B1",
+      "FFTJ_SOUL_SpiderQueen_B3",
+      "FFTJ_SOUL_SpiderQueen_B5",
+      "FFTJ_SOUL_SpiderQueen_F1",
+      "FFTJ_SOUL_SpiderQueen_F3",
+      "FFTJ_SOUL_SpiderQueen_F5",
+      "FFTJ_SOUL_Spider_B1",
+      "FFTJ_SOUL_Spider_B3",
+      "FFTJ_SOUL_Spider_B5",
+      "FFTJ_SOUL_Spider_F1",
+      "FFTJ_SOUL_Spider_F3",
+      "FFTJ_SOUL_Spider_F5",
+      "FFTJ_SOUL_TwigBlight_B1",
+      "FFTJ_SOUL_TwigBlight_B3",
+      "FFTJ_SOUL_TwigBlight_B5",
+      "FFTJ_SOUL_TwigBlight_F1",
+      "FFTJ_SOUL_TwigBlight_F3",
+      "FFTJ_SOUL_TwigBlight_F5",
+      "FFTJ_SOUL_Wolf_B1",
+      "FFTJ_SOUL_Wolf_B3",
+      "FFTJ_SOUL_Wolf_B5",
+      "FFTJ_SOUL_Wolf_F1",
+      "FFTJ_SOUL_Wolf_F3",
+      "FFTJ_SOUL_Wolf_F5",
+      "FFTJ_SOUL_Wwargaz_B1",
+      "FFTJ_SOUL_Wwargaz_B3",
+      "FFTJ_SOUL_Wwargaz_B5",
+      "FFTJ_SOUL_Wwargaz_F1",
+      "FFTJ_SOUL_Wwargaz_F3",
+      "FFTJ_SOUL_Wwargaz_F5",
+      "FFTJ_SOUL_Zhalk_B1",
+      "FFTJ_SOUL_Zhalk_B3",
+      "FFTJ_SOUL_Zhalk_B5",
+      "FFTJ_SOUL_Zhalk_F1",
+      "FFTJ_SOUL_Zhalk_F3",
+      "FFTJ_SOUL_Zhalk_F5"
     ]
   },
   {

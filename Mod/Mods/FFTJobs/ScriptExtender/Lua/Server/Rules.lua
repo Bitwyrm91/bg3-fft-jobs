@@ -223,8 +223,26 @@ function Rules.CheckUnlocks(data, cfg, char)
             Rules.EnsureJob(char, jobId)
             unlocked[#unlocked + 1] = jobId
         end
+        if job.Implemented and Rules.IsUnlocked(char, jobId) then
+            Rules.LearnStart(data, char, jobId) -- also repairs jobs unlocked before StartLearned existed
+        end
     end
     return unlocked
+end
+
+-- The job's StartLearned abilities (the Soul Collector's Soul Brand and Soul Incarnation): known, free, from the
+-- moment the job unlocks. Returns true when something was learned.
+function Rules.LearnStart(data, char, jobId)
+    local job = data.Jobs[jobId]
+    local any = false
+    for _, aid in ipairs(job and job.StartLearned or {}) do
+        local js = Rules.EnsureJob(char, jobId)
+        if not js.Learned[aid] then
+            js.Learned[aid] = true
+            any = true
+        end
+    end
+    return any
 end
 
 function Rules.UnlockAll(data, char)
@@ -232,6 +250,7 @@ function Rules.UnlockAll(data, char)
         if data.Jobs[jobId].Implemented then
             char.Unlocked[jobId] = true
             Rules.EnsureJob(char, jobId)
+            Rules.LearnStart(data, char, jobId)
         end
     end
 end

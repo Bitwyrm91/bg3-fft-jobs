@@ -16,6 +16,7 @@ SOULS_JSON = ROOT / "data" / "souls.json"
 SPELL_FILE = "Spell_FFTJ_Soul.txt"
 STATUS_FILE = "Status_FFTJ_Soul.txt"
 CONTAINER = "Shout_FFTJ_SoulIncarnation"
+BRAND_SPELL = "Target_FFTJ_SoulBrand"
 TIERS = (1, 3, 5)
 SKILL_TIERS = {"B": (3, 5), "F": (1, 3, 5)}
 # Wild Shape's "spawn in a puff" effect and status groups (vanilla WILDSHAPE_*_PLAYER)
@@ -40,6 +41,13 @@ KINDS = {"melee", "bolt", "burst", "cone", "heal", "cleanse", "buff"}
 
 def load():
     return json.loads(SOULS_JSON.read_text(encoding="utf-8")) if SOULS_JSON.exists() else None
+
+
+def body_hp_change(doc, soul, form):
+    """Max HP added (or taken) so the template's own hit points land inside hpRange (normal or boss forms)."""
+    low, high = doc["hpRange"]["boss" if soul.get("boss") else "normal"]
+    hp = form["templateHp"]
+    return min(max(hp, low), high) - hp
 
 
 def form_status(t, side, tier):
@@ -89,6 +97,8 @@ def validate(doc):
             f = s["forms"][side]
             if not re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", f["template"]):
                 errors.append(f"soul {s['id']} {side}: bad template {f['template']}")
+            if not isinstance(f.get("templateHp"), int) or f["templateHp"] < 1:
+                errors.append(f"soul {s['id']} {side}: templateHp (the template's Vitality) missing")
             if not s.get("boss") and len(f["skills"]) != len(SKILL_TIERS[side]):
                 errors.append(f"soul {s['id']} {side}: needs {len(SKILL_TIERS[side])} skills")
             for k in f["skills"]:
@@ -235,7 +245,7 @@ def skill_entry(sid, sk, H):
 def stats(doc, H):
     """{file name: stats text}. H(key) -> loca handle with ';1' (marks the string used)."""
     rules = doc["rules"]
-    spells, statuses, children = [], [], []
+    spells, statuses = [], []
     for s in doc["souls"]:
         t = s["id"]
         for side in ("B", "F"):
@@ -243,17 +253,21 @@ def stats(doc, H):
             for tier in TIERS:
                 st = form_status(s["id"], side, tier)
                 sp = form_spell(s["id"], side, tier)
-                children.append(sp)
                 unlock = ";".join(f"UnlockSpell({skill_spell(k, doc['skills'][k])})"
                                   for k in tier_skills(f, side, tier, s.get("boss")))
+                # the body's own hit points, clamped (a 300 HP adamantine golem would end every Act 1 fight)
+                change = body_hp_change(doc, s, f)
+                body_hp = f"IncreaseMaxHP({change})" if change else ""
+                # the polymorph rule removes the character's own spells: Soul Brand stays, so a form can still brand
                 boosts = ";".join(x for x in ("VoicebarkBlock()", "BlockSpellCast()", "UnlockSpell(Shout_WildShape_Dismiss)",
-                                              f"IncreaseMaxHP(Level*{s['hp']})", unlock, TIER_BOOSTS[tier]) if x)
+                                              f"UnlockSpell({BRAND_SPELL})", body_hp, f"IncreaseMaxHP(Level*{s['hp']})", unlock,
+                                              TIER_BOOSTS[tier]) if x)
                 statuses += [f'new entry "{st}"', 'type "StatusData"', 'data "StatusType" "POLYMORPHED"',
                              f'data "DisplayName" "{H(f"soul.{t}.{side}{tier}.name")}"',
                              f'data "Description" "{H(f"soul.{t}.{side}{tier}.desc")}"',
                              f'data "Icon" "{f["icon"]}"', 'data "StackId" "WILDSHAPE"', f'data "Boosts" "{boosts}"',
                              'data "OnApplyFunctors" "ApplyStatus(SELF,WILDSHAPE_ACTIVE,100,-1)"',
-                             'data "OnRemoveFunctors" "RemoveStatus(WILDSHAPE_ACTIVE)"',
+                             'data "OnRemoveFunctors" "ApplyStatus(SELF,WILDSHAPE_TECHNICAL,100,1);RemoveStatus(WILDSHAPE_ACTIVE)"',
                              f'data "TemplateID" "{f["template"]}"', f'data "Rules" "{rules}"',
                              f'data "StatusGroups" "{GROUPS}"', f'data "ApplyEffect" "{APPLY_EFFECT}"', ""]
                 spells += [f'new entry "{sp}"', 'type "SpellData"', 'data "SpellType" "Shout"',
@@ -265,7 +279,10 @@ def stats(doc, H):
                            'data "DescriptionParams" ""', 'data "UseCosts" "BonusActionPoint:1;WildShape:1"',
                            'data "RequirementConditions" "not HasStatus(\'WILDSHAPE_ACTIVE\')"', ""]
     spells = [f'new entry "{CONTAINER}"', 'type "SpellData"', 'data "SpellType" "Shout"', 'using "Shout_WildShape"',
-              f'data "ContainerSpells" "{";".join(children)}"', f'data "DisplayName" "{H("soul.container.name")}"',
+              # empty on purpose: a container shows every ContainerSpells entry, learned or not (vanilla Disguise Self);
+              # the forms join it one by one as they are granted, by their SpellContainerID (vanilla
+              # Shout_END_AllyAbilities_MultipleSummon, Wild Shape's Deep Rothe)
+              'data "ContainerSpells" ""', f'data "DisplayName" "{H("soul.container.name")}"',
               f'data "Description" "{H("soul.container.desc")}"', 'data "ExtraDescription" ""',
               'data "UseCosts" "BonusActionPoint:1;WildShape:1"', ""] + spells
     for k, sk in doc["skills"].items():

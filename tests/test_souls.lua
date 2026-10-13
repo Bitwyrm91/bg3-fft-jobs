@@ -90,7 +90,7 @@ function S.forms_follow_the_souls_devoured(w, T)
     local tav = w.chars[T.TAV]
     svc:AddBadge("SoulCodex")
     T.truthy(svc:SetPrimary(T.TAV, "SoulCollector"))
-    T.truthy(svc:Learn(T.TAV, "SoulIncarnation"))
+    T.falsy(svc:Learn(T.TAV, "SoulIncarnation"), "known from the start (StartLearned)")
     T.truthy(tav.spells.Shout_FFTJ_SoulIncarnation and tav.passives.FFTJ_SoulCharges)
     T.falsy(tav.spells.Shout_FFTJ_Soul_Goblin_B1, "no soul, no form")
     T.truthy(Souls.Add(svc, "Goblin", 1))
@@ -137,19 +137,25 @@ function S.a_form_is_free_outside_a_fight(w, T)
     w.chars[T.SHART].inCombat = true
     T.cast(w, T.SHART, "Shout_FFTJ_Soul_Goblin_B1")
     T.falsy(w.chars[T.SHART].statuses.FFTJ_SOUL_REFUND, "in a fight it costs a charge")
+    w.chars[T.TAV].statuses.FFTJ_SOUL_REFUND = nil
+    T.cast(w, T.TAV, "Shout_FFTJ_Soul_SporeCloud")
+    T.falsy(w.chars[T.TAV].statuses.FFTJ_SOUL_REFUND, "a form skill with the same prefix gives no charge back")
 end
 
-local US = "40bd6b82-2728-410a-bb8a-a805f98556a1"
+local US = "6ca92237-eb1e-4ed8-a1ee-18b3bef21558" -- S_TUT_Lab_TrappedDevourer, the story's "Us"
 
 function S.talking_with_us_on_the_nautiloid_gives_the_soul_codex(w, T)
     local svc = T.boot(w, { level = "TUT_Avernus_C" })
-    w.newChar(US, { name = "Intellect Devourer", player = false, party = false })
-    w.fire("DialogActorJoined", "TUT_Lab_Us", 3, "S_TUT_Lab_IntellectDevourer_" .. US, 0)
+    w.newChar(US, { name = "Us", player = false, party = false })
+    w.fire("DialogActorJoined", "TUT_Lab_Us", 3, "S_TUT_Lab_TrappedDevourer_" .. US, 0)
     T.falsy(svc.State:Meta().Badges.SoulCodex, "Us alone")
     w.fire("DialogActorJoined", "TUT_Lab_Us", 3, "S_Player_" .. T.TAV, 1)
     T.truthy(svc.State:Meta().Badges.SoulCodex)
     T.contains(w.notifications, "Beside the brain in the jar lies a codex of stolen souls. The party found the Soul Codex.")
     T.truthy(svc.State:Get(T.TAV).Unlocked.SoulCollector)
+    local learned = svc.State:Get(T.TAV).Jobs.SoulCollector.Learned
+    T.truthy(learned.SoulBrand and learned.SoulIncarnation, "its two arts are known from the start, no Learn click")
+    T.falsy(learned.FeralVigor, "the rest still costs JP")
 end
 
 function S.past_the_nautiloid_the_soul_codex_is_in_the_camp_chest(w, T)

@@ -111,7 +111,8 @@ function Souls.Devour(svc, guid, by)
     svc:ReconcileAll()
     local s = svc.Data.Souls[typeId]
     local n = souls[typeId]
-    local msg = string.format("%s devoured a %s soul (%d in the Soul Codex).", whoName, s.Name, n)
+    local article = s.Name:find("^[AEIOU]") and "an" or "a"
+    local msg = string.format("%s devoured %s %s soul (%d in the Soul Codex).", whoName, article, s.Name, n)
     local tier = Souls.Tier(n)
     if not before then
         msg = msg .. string.format(" New forms: %s and %s.", s.Forms.B.Name, s.Forms.F.Name)
@@ -170,7 +171,12 @@ end
 -- notification and the Job Board, like the boss badges (an item later, with the art): the party gets it when a party
 -- member talks with Us or Us joins; a party that reaches the shore without it (or a save made later) finds it in the
 -- camp's traveller's chest.
-Souls.US = "40bd6b82-2728-410a-bb8a-a805f98556a1" -- S_TUT_Lab_IntellectDevourer
+-- Us is S_TUT_Lab_TrappedDevourer (the story's DB_PartyMembers / dialog speaker, display name "Us"); the lab's other
+-- devourer, S_TUT_Lab_IntellectDevourer, counts too
+Souls.US = {
+    ["6ca92237-eb1e-4ed8-a1ee-18b3bef21558"] = true, -- S_TUT_Lab_TrappedDevourer
+    ["40bd6b82-2728-410a-bb8a-a805f98556a1"] = true, -- S_TUT_Lab_IntellectDevourer
+}
 Souls.CODEX_US = "Beside the brain in the jar lies a codex of stolen souls."
 Souls.CODEX_CAMP = "A codex of stolen souls turned up in your camp's traveller's chest."
 
@@ -196,7 +202,7 @@ function Souls.OnDialogActor(svc, instance, guid)
     svc.SoulDialogs = svc.SoulDialogs or {}
     local d = svc.SoulDialogs[instance] or {}
     svc.SoulDialogs[instance] = d
-    if guid == Souls.US then
+    if Souls.US[guid] then
         d.Us = true
     elseif svc.State:Get(guid) then
         d.Party = true
@@ -213,7 +219,7 @@ function Souls.OnDialogEnded(svc, instance)
 end
 
 function Souls.OnJoined(svc, guid)
-    if guid == Souls.US then
+    if Souls.US[guid] then
         Souls.GiveCodex(svc, Souls.CODEX_US)
     end
 end
