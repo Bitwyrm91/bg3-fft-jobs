@@ -30,6 +30,8 @@ function NetServer.Handle(svc, req)
         ok, msg = svc:Equip(guid, req.Ability, req.Slot)
     elseif op == "Unequip" then
         ok, msg = svc:Unequip(guid, req.Slot)
+    elseif op == "SetArith" then
+        ok, msg = svc:SetArith(guid, req.Ability)
     else
         ok, msg = false, "Unknown request " .. tostring(op)
     end

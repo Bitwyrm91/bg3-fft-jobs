@@ -355,4 +355,49 @@ function Game:ApplyDamage(guid, amount, damageType, source)
     end)
 end
 
+---------------------------------------------------------------- Arithmeticks (Service:CastArithmeticks)
+
+function Game:Distance(a, b)
+    local ok1, ax, ay, az = pcall(Osi.GetPosition, a)
+    local ok2, bx, by, bz = pcall(Osi.GetPosition, b)
+    if not (ok1 and ok2 and ax and bx) then
+        return nil
+    end
+    return math.sqrt((ax - bx) ^ 2 + (ay - by) ^ 2 + (az - bz) ^ 2)
+end
+
+function Game:Hitpoints(guid)
+    return self:Try("GetHitpoints", function()
+        return Osi.GetHitpoints(guid)
+    end)
+end
+
+function Game:MaxHitpoints(guid)
+    return self:Try("GetMaxHitpoints", function()
+        return Osi.GetMaxHitpoints(guid)
+    end)
+end
+
+-- Every character the server knows (players, companions, NPCs, monsters).
+function Game:AllCharacters()
+    local out = {}
+    local list = self:Try("ServerCharacter entities", function()
+        return Ext.Entity.GetAllEntitiesWithComponent("ServerCharacter")
+    end)
+    for _, e in ipairs(list or {}) do
+        local guid = e.Uuid and e.Uuid.EntityUuid
+        if guid then
+            out[#out + 1] = guid
+        end
+    end
+    return out
+end
+
+-- Osiris queues the cast: the caster performs it after its current action.
+function Game:UseSpell(caster, spell, target)
+    self:Try("UseSpell", function()
+        Osi.UseSpell(caster, spell, target)
+    end)
+end
+
 return Game

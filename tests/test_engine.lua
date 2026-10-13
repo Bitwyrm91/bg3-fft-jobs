@@ -620,4 +620,51 @@ function S.mime_echoes_the_last_ally_job_ability(w, T)
     T.endCombat(w, "c2", { T.TAV, T.SHART })
 end
 
+function S.arithmeticks_hit_every_creature_whose_number_fits(w, T)
+    local svc = T.boot(w)
+    local GOBLIN = "55555555-5555-4555-8555-555555555555"
+    w.newChar(GOBLIN, { name = "Goblin", level = 4, player = false, party = false })
+    local tav = svc.State:Get(T.TAV)
+    tav.Jobs.BlackMage = { Earned = 0, Unspent = 0, Learned = { Fire = true } }
+    tav.Jobs.Arithmetician = { Earned = 0, Unspent = 0, Learned = { TargetLevel = true, MultipleOf3 = true, MultipleOf4 = true } }
+    T.falsy(svc:SetArith(T.TAV, "Cure"), "not learned")
+    T.falsy(svc:SetArith(T.TAV, "Focus"), "not a magick")
+    T.truthy(svc:SetArith(T.TAV, "Fire"))
+    T.truthy(svc:SetArith(T.TAV, "TargetLevel"))
+    T.startCombat(w, "c1", { T.TAV, T.SHART, GOBLIN })
+    w.chars[GOBLIN].x = 50
+    T.cast(w, T.TAV, "Shout_FFTJ_Arith_MultipleOf3")
+    local hit = {}
+    for _, u in ipairs(w.usedSpells) do
+        T.eq(u[1], T.TAV)
+        T.eq(u[2], svc.Data.ArithMagicks.Fire, "the free twin of the loaded magick")
+        hit[u[3]] = true
+    end
+    T.truthy(hit[T.TAV] and hit[T.SHART], "level 3: friends too, the caster included")
+    T.falsy(hit[T.ASTA], "not in the fight")
+    w.chars[GOBLIN].x = 0
+    w.usedSpells = {}
+    T.cast(w, T.TAV, "Shout_FFTJ_Arith_MultipleOf4")
+    T.eq(#w.usedSpells, 1)
+    T.eq(w.usedSpells[1][3], GOBLIN, "level 4")
+    T.cast(w, T.TAV, w.usedSpells[1][2])
+    T.eq(#w.usedSpells, 1, "the twin's own cast does nothing more")
+    T.endCombat(w, "c1", { T.TAV, T.SHART, GOBLIN })
+end
+
+function S.arithmeticks_rules(w, T)
+    local Service = Ext.Require("Server/Service.lua")
+    local primes, threes = {}, {}
+    for n = 0, 20 do
+        if Service.ArithFits("Prime", n) then
+            primes[#primes + 1] = n
+        end
+        if Service.ArithFits("3", n) then
+            threes[#threes + 1] = n
+        end
+    end
+    T.eq(table.concat(primes, ","), "2,3,5,7,11,13,17,19")
+    T.eq(table.concat(threes, ","), "3,6,9,12,15,18", "0 is not a multiple here")
+end
+
 return S

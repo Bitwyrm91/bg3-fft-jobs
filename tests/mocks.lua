@@ -129,7 +129,7 @@ end
 
 function Mocks.Install()
     local world = {
-        chars = {}, files = {}, prints = {}, notifications = {}, timers = {}, ticks = {}, listeners = {},
+        chars = {}, files = {}, prints = {}, notifications = {}, timers = {}, ticks = {}, listeners = {}, usedSpells = {},
         events = {}, commands = {}, stats = {}, loca = {}, modVars = {}, classUuids = {},
         serverChannels = {}, clientChannels = {}, windows = {}, host = nil, osiCalls = {}, side = "server",
         items = {}, itemStats = {},
@@ -239,6 +239,11 @@ function Mocks.Install()
             end,
             GetAllEntitiesWithComponent = function(name)
                 local out = {}
+                if name == "ServerCharacter" then
+                    for guid in pairs(world.chars) do
+                        out[#out + 1] = { Uuid = { EntityUuid = guid } }
+                    end
+                end
                 if name == "PartyMember" then
                     for guid, c in pairs(world.chars) do
                         if c.party then
@@ -403,6 +408,20 @@ function Mocks.Install()
         ApplyDamage = function(g, amount, damageType, source)
             rec("ApplyDamage", g, amount, damageType, source)
             char(g).hp = char(g).hp - amount
+        end,
+        GetPosition = function(g)
+            local c = char(g)
+            return c.x or 0, c.y or 0, c.z or 0
+        end,
+        GetHitpoints = function(g)
+            return char(g).hp
+        end,
+        GetMaxHitpoints = function(g)
+            return char(g).maxHp
+        end,
+        UseSpell = function(caster, spell, target)
+            rec("UseSpell", caster, spell, target)
+            world.usedSpells[#world.usedSpells + 1] = { caster, spell, target }
         end,
         DB_Players = {
             Get = function(self, filter)

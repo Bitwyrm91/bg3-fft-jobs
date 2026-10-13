@@ -394,6 +394,13 @@ function Service:OnCastedSpell(caster, spell)
         return
     end
     self:TrackEcho(guid, char, spell)
+    if string.sub(spell, -6) == "_Arith" then
+        return -- Arithmeticks' own casts: the rule shout already counted
+    end
+    local rule = self.Data.ArithRules and self.Data.ArithRules[spell]
+    if rule then
+        self:CastArithmeticks(guid, char, rule)
+    end
     local cfg = self:Cfg()
     local jp = cfg.JP
     local inCombat = self.Game:IsInCombat(guid)
@@ -485,6 +492,22 @@ function Service:OnTurnStarted(object)
     local guid = Util.Guid(object)
     self.TurnCasts[guid or ""] = 0
     self:OfferEcho(guid)
+    self:Accrue(guid)
+end
+
+-- Accrue EXP / Accrue JP (Arithmetician movement abilities): a little XP or JP at each turn start in a fight.
+function Service:Accrue(guid)
+    local char = guid and self.State:Get(guid)
+    if not (char and self.Ready and not self:IsDisabled() and self.Game:IsInCombat(guid)) then
+        return
+    end
+    local cfg = self:Cfg()
+    if Rules.EquippedEffect(self.Data, char, "AccrueEXP", cfg) then
+        self.Game:AddExplorationXP(guid, cfg.Abilities.AccrueEXPPerLevel * self.Game:CharLevel(guid))
+    end
+    if Rules.EquippedEffect(self.Data, char, "AccrueJP", cfg) then
+        self:AddJP(guid, char.Primary, cfg.Abilities.AccrueJPPerTurn, "Accrue", self.CharCombat[guid])
+    end
 end
 
 function Service:OnTurnEnded(object)
@@ -497,6 +520,114 @@ function Service:OnTurnEnded(object)
     if char.Echo then
         char.Echo = nil
         self:Reconcile(guid)
+    end
+end
+
+---------------------------------------------------------------- Arithmetician: Arithmeticks
+
+-- The user's design: the Arithmetician loads one learned magick and one number on the Job Board; a rule shout then
+-- casts the magick's free "_Arith" twin (tools/build.py) at every creature in the fight, friend or foe, whose number
+-- fits. FFT's CT / EXP / Elevation become BG3 numbers a player can see: hit points, maximum hit points, distance.
+Service.ArithNumbers = { TargetCT = "HP", TargetLevel = "Level", TargetEXP = "MaxHP", TargetElevation = "Distance" }
+Service.ArithReach = 30 -- metres: "the fight" around the Arithmetician
+
+local function isPrime(n)
+    if n < 2 then
+        return false
+    end
+    for d = 2, math.floor(math.sqrt(n)) do
+        if n % d == 0 then
+            return false
+        end
+    end
+    return true
+end
+
+function Service.ArithFits(rule, n)
+    n = math.floor(tonumber(n) or -1)
+    if rule == "Prime" then
+        return isPrime(n)
+    end
+    local k = tonumber(rule)
+    return k ~= nil and n >= k and n % k == 0
+end
+
+-- The learned magicks and numbers this character can load, in Job Board order.
+function Service:ArithChoices(char)
+    local magicks, numbers = {}, {}
+    for _, aid in ipairs(self.Data.AbilityOrder) do
+        if Rules.IsLearned(char, aid) then
+            if self.Data.ArithMagicks[aid] then
+                magicks[#magicks + 1] = aid
+            elseif Service.ArithNumbers[aid] then
+                numbers[#numbers + 1] = aid
+            end
+        end
+    end
+    return magicks, numbers
+end
+
+function Service:SetArith(guid, abilityId)
+    local char, err = self:CheckChar(guid)
+    if not char then
+        return false, err
+    end
+    local ab = self.Data.Abilities[abilityId or ""]
+    local kind = ab and (self.Data.ArithMagicks[abilityId] and "Magick" or (Service.ArithNumbers[abilityId] and "Number"))
+    if not kind then
+        return false, "Not an Arithmeticks magick or number: " .. tostring(abilityId)
+    end
+    if not Rules.IsLearned(char, abilityId) then
+        return false, ab.Name .. " is not learned yet"
+    end
+    char.Arith = char.Arith or {}
+    char.Arith[kind] = abilityId
+    self.State:MarkDirty()
+    return true, "Arithmeticks: " .. ab.Name .. " loaded"
+end
+
+function Service:ArithNumber(kind, caster, target)
+    if kind == "Level" then
+        return self.Game:CharLevel(target)
+    elseif kind == "HP" then
+        return self.Game:Hitpoints(target)
+    elseif kind == "MaxHP" then
+        return self.Game:MaxHitpoints(target)
+    end
+    local d = self.Game:Distance(caster, target)
+    return d and math.floor(d)
+end
+
+function Service:CastArithmeticks(guid, char, rule)
+    local arith = char.Arith or {}
+    local magicks, numbers = self:ArithChoices(char)
+    local magick = arith.Magick and Rules.IsLearned(char, arith.Magick) and arith.Magick or magicks[1]
+    local number = arith.Number and Rules.IsLearned(char, arith.Number) and arith.Number or numbers[1]
+    if not (magick and number) then
+        self:Notify(guid, "Arithmeticks need a learned magick and a learned number (Target Level, ...); load them on the Job Board.")
+        return
+    end
+    if not self.Game:IsInCombat(guid) then
+        self:Notify(guid, "Arithmeticks work in a fight.")
+        return
+    end
+    local kind = Service.ArithNumbers[number]
+    local twin = self.Data.ArithMagicks[magick]
+    local names = {}
+    for _, target in ipairs(self.Game:AllCharacters()) do
+        local d = self.Game:Distance(guid, target)
+        if d and d <= Service.ArithReach and self.Game:IsInCombat(target) and not self.Game:IsDead(target)
+            and Service.ArithFits(rule, self:ArithNumber(kind, guid, target)) then
+            self.Game:UseSpell(guid, twin, target)
+            names[#names + 1] = self.Game:DisplayName(target) or target
+        end
+    end
+    local what = string.format("%s, %s (%s)", self.Data.Abilities[magick].Name, self.Data.Abilities[number].Name,
+        rule == "Prime" and "prime" or ("multiple of " .. rule))
+    if #names == 0 then
+        self:Notify(guid, "Arithmeticks " .. what .. ": no creature fits.")
+    else
+        self:Notify(guid, "Arithmeticks " .. what .. ": " .. table.concat(names, ", ") .. ".")
     end
 end
 
@@ -615,6 +746,10 @@ function Service:OnCombatEnded(combatId)
         local c = participants[guid]
         if char then
             local xpNow = self.Game:TotalXP(guid)
+            local gained = (type(xpNow) == "number" and type(c.XPStart) == "number") and (xpNow - c.XPStart) or 0
+            if gained > 0 and Rules.EquippedEffect(self.Data, char, "EXPBoost", cfg) then
+                self.Game:AddExplorationXP(guid, math.floor(gained * cfg.Abilities.EXPBoostShare))
+            end
             chars[guid] = {
                 name = char.Name, job = char.Primary, jobLv = Rules.GetJobLevel(cfg, char, char.Primary),
                 lvl = self.Game:CharLevel(guid), actions = c.Actions or 0, jp = c.JP,
