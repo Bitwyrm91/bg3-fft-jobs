@@ -4,6 +4,23 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **Where the work is:** `main` (the cloud branch `claude/game-modding-research-setup-qgn88h` was merged on 2026-10-12).
 
+## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
+
+When the user says "NWP", this is the list:
+1. **Samurai: possibly switch to Fell Seal's Samurai abilities** (https://fellseal.fandom.com/wiki/Samurai#Abilities).
+   "Possibly": ask before replacing the TIC Iaido set (Ark Knight shares the Samurai's spells, so check it too).
+2. **New job: Assassin, from Fell Seal** (https://fellseal.fandom.com/wiki/Assassin). Ask where it sits in the tree
+   (unlock requirement, group) and whether it is renamed (earlier rule: Fell Seal classes linked to FFT look-alikes
+   get renamed).
+3. **Ninja replaced by the classic WoW Rogue** (stealth, combo points?, poisons, Sinister Strike, Backstab, Eviscerate,
+   Kick, Sap, Vanish, Sprint...). Design questions first: keep the Ninja name/tile or a new "Rogue" job, Ninja's
+   unlocks and dual wield, how combo points work in BG3 (an action resource?), what happens to saves with Ninja
+   learned.
+4. **Keep improving the Job Board** (Future changes 1 and 10 below: dropdown groups; the progress bar is already gone).
+5. **Soul Collector development PAUSED** (Future changes 4, 5, 8 wait: JP-cost forms, form strength).
+Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
+Fell Seal source.
+
 ## Future changes (user, 2026-10-13; mod work PAUSED by the user, nothing below is started)
 
 1. **Job Board: "Jobs and special jobs should be a dropdown menu."** Each group (Jobs, Special jobs; probably the
