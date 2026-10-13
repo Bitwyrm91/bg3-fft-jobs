@@ -82,6 +82,7 @@
     "id": "PassiveFeature_FightingStyle_GreatWeaponFighting",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_Doublehand",
       "FFTJ_EquipPolearms"
     ]
   },
@@ -167,7 +168,29 @@
       "FFTJ_REFLECT",
       "FFTJ_Reflect_Counter",
       "Interrupt_FFTJ_ManaShield",
+      "Shout_FFTJ_Kiyomori",
       "Target_FFTJ_Reflect"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_ArmsOfHadar",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Kotetsu"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_CloudOfDaggers",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Ashura"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_FogCloud",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_AmeNoMurakumo"
     ]
   },
   {
@@ -215,6 +238,13 @@
     ]
   },
   {
+    "id": "Spell_Enchantment_Confusion",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Muramasa"
+    ]
+  },
+  {
     "id": "Spell_Enchantment_DominateBeast",
     "kind": "icon",
     "usedBy": [
@@ -251,6 +281,20 @@
     ]
   },
   {
+    "id": "Spell_Evocation_DestructiveWave",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Bonecrusher"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_FlameStrike",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Chirijiraden"
+    ]
+  },
+  {
     "id": "Spell_Evocation_GustOfWind",
     "kind": "icon",
     "usedBy": [
@@ -261,6 +305,7 @@
     "id": "Spell_Illusion_Silence",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_BizenOsafune",
       "Target_FFTJ_Quiescence"
     ]
   },
@@ -290,7 +335,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_SWIFTSPELL",
-      "FFTJ_Swiftspell"
+      "FFTJ_Swiftspell",
+      "Shout_FFTJ_Masamune"
     ]
   },
   {
@@ -326,6 +372,13 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_DISABLE"
+    ]
+  },
+  {
+    "id": "Status_Wet",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Swim"
     ]
   },
   {
@@ -416,6 +469,7 @@
     "id": "CONFUSION",
     "kind": "status",
     "usedBy": [
+      "Shout_FFTJ_Muramasa",
       "Target_FFTJ_Delirium",
       "Target_FFTJ_Tremor"
     ]
@@ -454,6 +508,7 @@
     "id": "HASTE",
     "kind": "status",
     "usedBy": [
+      "Shout_FFTJ_Masamune",
       "Target_FFTJ_Harmony",
       "Target_FFTJ_Haste"
     ]
@@ -532,6 +587,7 @@
     "id": "SAVED_AGAINST_HOSTILE_SPELL",
     "kind": "status",
     "usedBy": [
+      "Shout_FFTJ_Ashura",
       "Target_FFTJ_Corruption",
       "Target_FFTJ_Disbelief",
       "Target_FFTJ_Empowerment",
@@ -626,6 +682,7 @@
     "id": "SILENCED",
     "kind": "status",
     "usedBy": [
+      "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_Purification",
       "Target_FFTJ_EchoHerbs",
       "Target_FFTJ_Esuna",
@@ -649,6 +706,7 @@
     "id": "SLOW",
     "kind": "status",
     "usedBy": [
+      "Shout_FFTJ_AmeNoMurakumo",
       "Target_FFTJ_Slow",
       "Target_FFTJ_WindBlast"
     ]
@@ -673,6 +731,13 @@
     "usedBy": [
       "Target_FFTJ_Leviathan",
       "Target_FFTJ_Torrent"
+    ]
+  },
+  {
+    "id": "UncannyDodge",
+    "kind": "using parent (PassiveData)",
+    "usedBy": [
+      "FFTJ_Shirahadori"
     ]
   },
   {
@@ -772,6 +837,20 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Shout_FFTJ_Golem"
+    ]
+  },
+  {
+    "id": "Shout_ArmsOfHadar",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Shout_FFTJ_Ashura"
+    ]
+  },
+  {
+    "id": "Shout_HealingWord_Mass",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Shout_FFTJ_Murasame"
     ]
   },
   {
@@ -1153,6 +1232,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Zone_FFTJ_Shockwave"
+    ]
+  },
+  {
+    "id": "Zone_LightningBolt",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Zone_FFTJ_KikuIchimonji"
     ]
   },
   {

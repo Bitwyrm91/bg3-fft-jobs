@@ -18,12 +18,16 @@
   <content contentuid="h99cfbd4dg6194g5a8cg9a3bg3591bfe63b39" version="1">Aim +5</content>
   <content contentuid="hfa0f97e8g640ag59a0g9ff1gdd6b22cd888a" version="1">Costs your action and bonus action. Ranged weapon attack that deals 3d8 extra damage. Once per short rest.</content>
   <content contentuid="h89c80f25g4aa3g5eddgad68gf455002b3156" version="1">Aim +7</content>
+  <content contentuid="h44fb5d8cgd009g537aga38cgcca739e32b31" version="1">Enemies within 3 m of you take 4d6 cold damage and are Slowed for 2 turns (Constitution save: half damage, not slowed). Once per short rest.</content>
+  <content contentuid="h23272f7egd9aeg5b08g8b29gf003a2f2009b" version="1">Ame-no-Murakumo</content>
   <content contentuid="h22736c6age9acg5bbcg9816gdb469f5cfa96" version="1">End Poisoned. Thrown like Potion.</content>
   <content contentuid="h132086eegaef6g5303gad84gae2746afa580" version="1">Antidote</content>
   <content contentuid="hf379c5abg2c68g57a7g95b9gb14f41d97d44" version="1">Piercing damage you take is reduced by 3.</content>
   <content contentuid="ha4f7181ag41dbg51bfgbb31g47ae8217ff82" version="1">Archer's Bane</content>
   <content contentuid="h0b00536fg317dg57f1g9c68g300e73f19cdb" version="1">Revive a dead ally and heal it for 4d8. Once per long rest.</content>
   <content contentuid="ha9726bcdgfad3g5ccbg9c39g521a69c18bc3" version="1">Arise</content>
+  <content contentuid="hea7c75e0g4aebg5c22g8031gf34a69d858e2" version="1">Enemies within 3 m of you make a Dexterity save or take 1d8 slashing damage (2d8 from level 5, 3d8 from level 11).</content>
+  <content contentuid="h760636afg6121g5820ga892ge947aca6cb9a" version="1">Ashura</content>
   <content contentuid="hf9c98759gee53g5dabg95f6g04f824d6bbf9" version="1">+2 damage with weapon attacks.</content>
   <content contentuid="hd14bffbeg6bedg57cdg9b54g866093485eaa" version="1">Attack Boost</content>
   <content contentuid="h6540f982g23dbg506egab76g671df63a9a4d" version="1">Hurl your fighting spirit at a creature up to 9 m away: ranged unarmed attack roll, 1d10 + your unarmed attack modifier force damage.</content>
@@ -36,18 +40,24 @@
   <content contentuid="hb5f8cdfdg8552g5d00ga3f4gbd7aa80e15c5" version="1">Beast Tongue</content>
   <content contentuid="h9717a9f6gc29bg53e2gb8fag5b471499a289" version="1">A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, but -2 to saving throws (strengthen an ally's magic, or soften an enemy). Once per short rest.</content>
   <content contentuid="h132d66fagc2d9g57dcga812g3f742bbf79d4" version="1">Belief</content>
+  <content contentuid="h84a59097gc298g5e09g8c09gde0eb940df28" version="1">Enemies within 3 m of you take 3d6 psychic damage and are Silenced for 1 turn (Wisdom save: half damage, no silence; FFT drains MP). Once per short rest.</content>
+  <content contentuid="h6b020604g8713g5935g9f42g0fd6599e619c" version="1">Bizen Osafune</content>
   <content contentuid="h9bc71ca4gd076g5b96ga3e0g5d84488f41b0" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
   <content contentuid="hcf7bea1ag694fg5002ga908g6c29e90f8062" version="1">Blizzaga</content>
   <content contentuid="h6b854859gb227g5984gbd41gdc6d96cd95cf" version="1">3d6 cold damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
   <content contentuid="hbc93d37bg1565g504eg988fg51ca5925a76c" version="1">Blizzara</content>
   <content contentuid="hb7c570e3g84adg570egab22gcc3bcc5bd077" version="1">1d8 cold damage to a creature within 18 m, no attack roll.</content>
   <content contentuid="h19c3ad71gf0c5g586cg9984g70c2e026e1a2" version="1">Blizzard</content>
+  <content contentuid="h2f1d6714gb0aeg5148g91b4g9b3ba6b04fde" version="1">When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest.</content>
+  <content contentuid="hfd486fcag6401g5831g8fb0g531fb96a1c73" version="1">Bonecrusher</content>
   <content contentuid="h71bbbd65gebe5g52eegba2eg32d2622e81a7" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage. Always on while Monk is your job.</content>
   <content contentuid="h3a07239cgf1a1g5492g92a5g3ae451b18faf" version="1">Brawler</content>
   <content contentuid="h7fa0a2a3g15d6g5d3dg874bga064bbde3d05" version="1">You and allies within 6 m gain Reflect for 3 turns. Once per long rest.</content>
   <content contentuid="h16398070g0d82g5a7bgb834g66994bc0ce29" version="1">Carbuncle</content>
   <content contentuid="hc2226df6gf9edg5b9fg9ff8g336deff7e3ae" version="1">You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.</content>
   <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
+  <content contentuid="hf405f68eg2132g5d3cg9f22gbd6cb98151d3" version="1">A ring of blue flame: enemies within 5 m of you take 8d6 fire damage (Dexterity save for half). Once per long rest.</content>
+  <content contentuid="h46468f30g3a55g5a17g883egd43de417d94d" version="1">Chirijiraden</content>
   <content contentuid="hc7a5deceg9d9fg5c26ga3b8g7299e10e6f75" version="1">+2 to weapon attack rolls.</content>
   <content contentuid="h12851168g1a13g5e9bga89fgd8b5abc18048" version="1">Concentration</content>
   <content contentuid="h41a57c74g97c0g5536g87f5g914ba2e8d421" version="1">A creature within 18 m makes a Constitution save or is Doomed: it dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
@@ -88,6 +98,8 @@
   <content contentuid="hf06e8b2dg38e8g54bfgabbdg82f6eab3dc45" version="1">Disbelief</content>
   <content contentuid="h56a8cd99g58c9g52cbga38eg78f3b1bc3fe4" version="1">Unarmed strike at a pressure point: on a hit, the creature makes a Constitution save (your Strength/Dexterity DC) or is Doomed, and dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
   <content contentuid="h6ac7d984g29b1g5662gb29fg6c846f9e6147" version="1">Doom Fist</content>
+  <content contentuid="hb9bcbf41g4d55g559bgb130gebc8a07ead00" version="1">+2 damage with versatile weapons (longswords, spears, quarterstaffs, ...) held in both hands.</content>
+  <content contentuid="h210189fag2234g519egbddbgaccf0fcb1018" version="1">Doublehand</content>
   <content contentuid="h8e7fed3ege96eg5d37gbd09g4cd7fde69efb" version="1">When a weapon attack damages you, you gain Death Ward (the next blow that would drop you to 0 HP leaves you at 1 instead; FFT gives Reraise). Once per long rest.</content>
   <content contentuid="h2ac33475g2b71g59eagb4f7gfe1128366c69" version="1">Dragonheart</content>
   <content contentuid="h211f263cg916ag5f1eg818dgdbca21ab39b9" version="1">Advantage on Wisdom saving throws (most talk skills and charms aim at Wisdom).</content>
@@ -110,6 +122,8 @@
   <content contentuid="hca58d2c8g1294g5b8aga7a0gba51dc3ae632" version="1">Equip Guns</content>
   <content contentuid="hef1bbb9eg3e9bg575fg8de6gb7124705f6c5" version="1">Proficiency with medium and heavy armour.</content>
   <content contentuid="h11bbd2a8g7ff0g5d07g8118g63514886b481" version="1">Equip Heavy Armor</content>
+  <content contentuid="h5b6829d2g748eg59a3g9b6eg36670599289a" version="1">Proficiency with longswords and scimitars (BG3 has no katanas), whatever your job.</content>
+  <content contentuid="h3f8e2b03g54f4g5d70gb502gf168a4cb3a55" version="1">Equip Katana</content>
   <content contentuid="hd91f8d14ga5d9g50f9gbc5bgda388cbd1f6d" version="1">Proficiency with spears, pikes, glaives, halberds and tridents, whatever your job.</content>
   <content contentuid="h4f2e2193g883eg5214gb2e2g2dc0eeae660a" version="1">Equip Polearms</content>
   <content contentuid="h090b1667g6448g50ccga605gb245c0dea7d6" version="1">Proficiency with shields.</content>
@@ -198,6 +212,12 @@
   <content contentuid="haaaccdbag65e7g5434gb59dg58d71287ae34" version="1">Jump +1</content>
   <content contentuid="hd87c107dge1e0g57e5gaff0gd0cf14496519" version="1">Jump 6 m farther.</content>
   <content contentuid="h1da5b1fcgb221g5fadg8565g4e9b4dad6e8e" version="1">Jump +2</content>
+  <content contentuid="hdf4ed653g5ceeg5d57ga332g585793a08036" version="1">Enemies in a 12 m line from you take 6d8 slashing damage (Dexterity save for half). Once per long rest.</content>
+  <content contentuid="h9efdf3fcg0be9g591fg83a8gc7bfe8bf63a2" version="1">Kiku-ichimonji</content>
+  <content contentuid="h5d2efae0ga343g52efg8469gf774dc9f7470" version="1">You and allies within 3 m of you gain Protect (+2 AC) and Shell (advantage on saves against spells) for 3 turns. Once per short rest.</content>
+  <content contentuid="he2ec234cge451g51d8g83ebg4728cd181fa4" version="1">Kiyomori</content>
+  <content contentuid="h028eb348gabbbg5c00gac86gc52c30ac0115" version="1">Enemies within 3 m of you take 3d6 necrotic damage (Constitution save for half). Once per short rest.</content>
+  <content contentuid="h7b43b592g7087g5b47g9ef8g7711dd0e79bb" version="1">Kotetsu</content>
   <content contentuid="h9b1702c2g9a61g5bc0g8f52gc5bdd41c5634" version="1">Walk on lava: it doesn't set you ablaze or slow you.</content>
   <content contentuid="h5f557ba6g81eeg5f4agb347g7a86843b9057" version="1">Lavawalking</content>
   <content contentuid="h00bfb176g5b90g5a40g93ffg7922596ed4be" version="1">A tidal wave: enemies within 5 m of a point up to 18 m away take 5d8 bludgeoning damage and are soaked (Wet: weak to cold and lightning; Dexterity save for half, not wet). Allies are spared. Once per long rest.</content>
@@ -220,6 +240,8 @@
   <content contentuid="hfb584fd7g7be0g5e80ga4b1g75cd82936252" version="1">Mana Shield</content>
   <content contentuid="ha0f661e8g13c4g5dbbgae52gb323b5fcf264" version="1">When you move, you regain a level 1 spell slot. Once per short rest.</content>
   <content contentuid="h7af2ccd5g924fg526eg9709g1e21c454bf15" version="1">Manafont</content>
+  <content contentuid="h6b6ae4c3g0b78g5577gb139ga94b9bed23d1" version="1">You and allies within 3 m of you gain Regen for 3 turns and Haste for 2 (an extra action, +2 AC, double movement; lethargic for a turn afterwards, as in BG3). Once per long rest.</content>
+  <content contentuid="h4a96ad8ag2e96g5195gba17g5bf96a1c2d30" version="1">Masamune</content>
   <content contentuid="h6137c09ag23c4g5dd5g8830gfb220392c107" version="1">A meteor smashes into a point up to 18 m away: creatures within 5 m take 5d8 bludgeoning and 5d8 fire damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="h8e2ed264gd49dg552egb637g46ea9ab55e5c" version="1">Meteor</content>
   <content contentuid="hb9f4496agc7bdg51b3g9061g1af6ab08bb65" version="1">A dull lecture: enemies within 3 m of a point up to 18 m away make a Wisdom save or fall Asleep for 2 turns (they wake when damaged). Allies are spared. Once per short rest.</content>
@@ -230,6 +252,10 @@
   <content contentuid="he0a669afga60cg51begb1dcg39c96fde3aa2" version="1">Movement +1</content>
   <content contentuid="hd5040b7cg2ad1g540ag83efgbfff8a8cc65e" version="1">+6 m movement speed.</content>
   <content contentuid="h8d5a38d6g28d4g5de4gbb7dg404b0afec80d" version="1">Movement +2</content>
+  <content contentuid="h7b1846c0g40d5g57e7g8fc0ge6c6a67c89c7" version="1">Enemies within 3 m of you take 4d8 necrotic damage. On a failed Wisdom save they are Confused for 2 turns, with a 1 in 10 chance of Doom (bosses are immune); on a success they take half. Once per long rest.</content>
+  <content contentuid="h5d2ebff9g097dg5189g8ee0g099883b519bb" version="1">Muramasa</content>
+  <content contentuid="h6ecd1490g5da3g5b9cga598g1afb22f570ae" version="1">You and allies within 3 m of you regain 2d8 hit points. Once per short rest.</content>
+  <content contentuid="h1aa2db41gfbbdg55a8ga5edg0ca32a57c96f" version="1">Murasame</content>
   <content contentuid="h15de29c1ga795g5483gbb65gea574ed08eb2" version="1">When a weapon attack hits you, the ground strikes back: the attacker takes 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11). Once per turn.</content>
   <content contentuid="h9f1958bdgea93g5d8cga106ga04382c8bfa2" version="1">Nature's Wrath</content>
   <content contentuid="h52980888gd4e4g5569gb857g115b93dfdf17" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest.</content>
@@ -298,6 +324,8 @@
   <content contentuid="h2faf27cegb2a9g5674gb142gf7c1a042be4f" version="1">Sandstorm</content>
   <content contentuid="h59cd2ee9g52bbg50e8ga5adgdd2843e65e7b" version="1">The target has advantage on saving throws against spells for 5 turns. Once per turn.</content>
   <content contentuid="h3959f5deg7eecg515ega28ag9d26c6b424a8" version="1">Shell</content>
+  <content contentuid="h20814256g9a8dg5005ga9b0gecb10ea5e0b8" version="1">When an attack hits you, use your reaction to take half damage (like Uncanny Dodge; switch it on or off on your passives bar).</content>
+  <content contentuid="hf0a60418g5ea9g56e5g852dg9a4c0a9b94ae" version="1">Shirahadori</content>
   <content contentuid="h1691a52egdec0g553egbc4bgbfa4b98004ee" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 cold damage (Dexterity save for half). Allies are spared. Once per short rest.</content>
   <content contentuid="h01f7b506g516fg5096gb32egb97c5c77b852" version="1">Shiva</content>
   <content contentuid="h9e6374eegd003g5644gacccg14acc1cfda61" version="1">A shockwave tears through the ground in a 12 m line: creatures in it make a Dexterity save (your Strength/Dexterity DC), taking 3d8 bludgeoning and falling prone on a failure, half damage on a success. Once per short rest.</content>
@@ -336,6 +364,8 @@
   <content contentuid="hc2b529e5g1e94g55bag9a4dgcfdd6e55faeb" version="1">Stop</content>
   <content contentuid="h8bfd65f2gf91ag581fg9540g6c24b3bbf48d" version="1">+2 to initiative, and in each fight the first spell you cast that costs an action costs a bonus action instead (FFT casts faster).</content>
   <content contentuid="h5ae275f6g03a1g5943g9af2gb05f39747b15" version="1">Swiftspell</content>
+  <content contentuid="hbdffe073ga187g55d4gb182g668a79285398" version="1">Deep water doesn't slow you.</content>
+  <content contentuid="h9921f9c2g1f9ag53ccg9178g30cc3ea59b8c" version="1">Swim</content>
   <content contentuid="hea984cd0gf88eg59b8gb880g94b76e75f297" version="1">Enemies within 3 m of a point up to 18 m away take 3d6 thunder damage and are Silenced for 2 turns (Constitution save for half, no silence). Allies are spared. Once per short rest.</content>
   <content contentuid="h4f44496cgb533g5d95ga9bfg3a3b8b0755c4" version="1">Sylph</content>
   <content contentuid="h9da699c7g1b11g58c6g9b63gb6dac7e5bc0d" version="1">Gives the Tame action: a beast or monster (not a humanoid) at 25% of its hit points or less makes a Wisdom save or fights for you for the rest of the fight. Bosses are immune. Once per short rest. Entice also lasts 4 turns.</content>
@@ -426,6 +456,10 @@
   <content contentuid="hb2acc83bgf81fg5829gbbc1g37901130fa0b" version="1">Orator Mastery</content>
   <content contentuid="ha0ba8523gcbf6g590egbde3g24b62899052b" version="1">Talks foes into switching sides, sleeping, raging or dying; Beast Tongue is always on. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h7984f2d6ge108g5205gb8eege6aa1b6e71c3" version="1">Job: Orator</content>
+  <content contentuid="hb15b45f2g2d07g5693g8de4gaa1ba478f336" version="1">You can't be Frightened. Earned by mastering Samurai; kept after changing jobs.</content>
+  <content contentuid="hbca21ec6g2f04g5a10gb133gb2a8f11624b7" version="1">Samurai Mastery</content>
+  <content contentuid="h3e80565cg441ag510ag8545g49cf8260de42" version="1">Draws out the spirits of legendary blades (Iaido): bursts around you that cut down enemies or shield your allies. Equipment: longswords, scimitars, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h8a3db8a3g39b2g5768g8703g5d2e7a3e9e33" version="1">Job: Samurai</content>
   <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

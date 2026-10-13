@@ -2,6 +2,10 @@
 
 Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.11**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
 
+## New in 1.0.0.14: Samurai (batch 3 starts)
+
+- **Samurai** (unlock: Knight Lv4, Monk Lv5, Dragoon Lv2): **Iaido** draws out a legendary blade's spirit around you (no katana needed; BG3 has none). Damage ones hit only enemies within 3 m of you: **Ashura** at will (1d8 slashing, more at levels 5 and 11), then once per short rest **Kotetsu** (necrotic), **Bizen Osafune** (psychic + silence), **Ame-no-Murakumo** (cold + slow); once per long rest **Muramasa** (necrotic + confusion, rare Doom), **Kiku-ichimonji** (a 12 m line), **Chirijiraden** (8d6 fire, 5 m). Friendly ones touch you and allies within 3 m: **Murasame** heals 2d8, **Kiyomori** gives Protect + Shell, **Masamune** gives Regen + Haste. **Bonecrusher**: hit back hard when you drop to a quarter of your HP; **Shirahadori**: Uncanny Dodge; **Equip Katana**: longswords and scimitars; **Doublehand**: +2 damage with a versatile weapon in both hands; **Swim**: deep water doesn't slow you. Mastery: can't be Frightened.
+
 ## New in 1.0.0.13: Geomancer (batch 2 done)
 
 - **Geomancer** (unlock: Monk Lv4). **Terrain decides** (your choice): each Geomancy skill works only while you stand on its terrain, and its button is greyed out elsewhere. Every skill hits the enemies within 2 m of a point up to 18 m away for cantrip damage that can't be dodged (1d6, 2d6 from level 5, 3d6 from 11); a failed save may add FFT's ailment (1 in 4, or 1 in 10 for the deadly ones):
