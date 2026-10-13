@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.32**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.33**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.33: Soldier (special job 11 of 17)
+
+- **Soldier** (Cloud's job): needs the **Soldier Badge** (Yurgir: defeated, or spared/freed when you leave Act 2 after meeting him) plus **Squire Lv8** and **Knight Lv6**.
+- **Limit**, as in TIC: **Braver** (150 JP, at will: 6 m blade energy, weapon + 1d8 force), **Cross Slash** (200: weapon + 3d8 slashing), **Blade Burst** (250: 9 m, weapon + 2d8 force, +3d8 while you're below half HP), **Ascension** (800: 9 m, weapon + 2d10, +4d10 if the target is below half HP), **Meteorain** (600: meteors on a 4 m area, 3d10 bludgeoning + 2d6 fire, Dex save half), **Finishing Touch** (700: 9 m, Con save or Stopped 1 turn, 1 in 4 also Stone), **Omnislash** (1200: 9 m, weapon damage twice + 6d8 slashing), **Cherry Blossom** (1500: 10d8 slashing in a 6 m area, Dex save half). Braver at will, the next three once per short rest, the rest once per long rest. FFT needs a materia blade; here any weapon works.
+- Main-job equipment: swords, greatswords, light and medium armour. Mastery: critical hits on 19-20.
 
 ## New in 1.0.0.32: Netherseer (special job 10 of 17)
 

@@ -47,6 +47,9 @@
   <content contentuid="h0b00536fg317dg57f1g9c68g300e73f19cdb" version="1">Revive a dead ally and heal it for 4d8. Once per long rest.</content>
   <content contentuid="h0eba2b88g7197g5c6cg9dddg5728f9aa7f78" version="1">Echo: Arise</content>
   <content contentuid="ha9726bcdgfad3g5ccbg9c39g521a69c18bc3" version="1">Arise</content>
+  <content contentuid="h5a8b259fg9e3bg524agbed6g67871a6b7327" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d10 force, and 4d10 more force if the target is below half its hit points (FFT: damage grows with the HP it has lost). Once per short rest.</content>
+  <content contentuid="hb4d087fdg9728g5c5agafffg7deca31de93d" version="1">Echo: Ascension</content>
+  <content contentuid="h76e67b28gd4c9g55f8g8bc9g4e14e2102579" version="1">Ascension</content>
   <content contentuid="hea7c75e0g4aebg5c22g8031gf34a69d858e2" version="1">Enemies within 3 m of you make a Dexterity save or take 1d8 slashing damage (2d8 from level 5, 3d8 from level 11).</content>
   <content contentuid="h57b2c53fge648g59f8g89dfgcc7a7800d1aa" version="1">Echo: Ashura</content>
   <content contentuid="h760636afg6121g5820ga892ge947aca6cb9a" version="1">Ashura</content>
@@ -75,6 +78,9 @@
   <content contentuid="h84a59097gc298g5e09g8c09gde0eb940df28" version="1">Enemies within 3 m of you take 3d6 psychic damage and are Silenced for 1 turn (Wisdom save: half damage, no silence; FFT drains MP). Once per short rest.</content>
   <content contentuid="hc8ea31fegd802g5b30ga45agee8cd23c0f8b" version="1">Echo: Bizen Osafune</content>
   <content contentuid="h6b020604g8713g5935g9f42g0fd6599e619c" version="1">Bizen Osafune</content>
+  <content contentuid="hac75f317g1e4ag5f97ga0a6g3f6d0e9e647a" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 force, and 3d8 more force while you are below half your hit points (FFT: damage grows with the HP you've lost). Once per short rest.</content>
+  <content contentuid="h338ea0f9g206dg577fg9e4cg38bd4baa9595" version="1">Echo: Blade Burst</content>
+  <content contentuid="h3c9b98e9gd458g5123ga1d1g13e42da5cfc8" version="1">Blade Burst</content>
   <content contentuid="h4c5f7993g505cg5e7bgbf89gcc30cc7f5df2" version="1">Arithmeticks: Blizzaga</content>
   <content contentuid="h9bc71ca4gd076g5b96ga3e0g5d84488f41b0" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest.</content>
   <content contentuid="h5ef078feg248eg50b4g9b3bg9a885f59fdd6" version="1">Echo: Blizzaga</content>
@@ -89,6 +95,9 @@
   <content contentuid="h19c3ad71gf0c5g586cg9984g70c2e026e1a2" version="1">Blizzard</content>
   <content contentuid="h2f1d6714gb0aeg5148g91b4g9b3ba6b04fde" version="1">When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest.</content>
   <content contentuid="hfd486fcag6401g5831g8fb0g531fb96a1c73" version="1">Bonecrusher</content>
+  <content contentuid="h92f523fdg6e23g509cga0c0gea023490c254" version="1">A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 force. At will.</content>
+  <content contentuid="h831ab94fgd333g562bga1cdg870c1cb3b261" version="1">Echo: Braver</content>
+  <content contentuid="haeb17162g34f0g585fg8e86g0739accb791d" version="1">Braver</content>
   <content contentuid="h19b50a7fg9a32g5dd5gaf00gf0a862d4b25b" version="1">When a weapon attack hits you, you get +1 to attack rolls for 10 turns.</content>
   <content contentuid="hb05081c1g37c9g5d25gbab3gab5e5f187e95" version="1">Bravery Surge</content>
   <content contentuid="h71bbbd65gebe5g52eegba2eg32d2622e81a7" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage. Always on while Monk is your job.</content>
@@ -105,6 +114,9 @@
   <content contentuid="hc2226df6gf9edg5b9fg9ff8g336deff7e3ae" version="1">You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.</content>
   <content contentuid="hf3a46cb0g4112g5869g8bf3g10a68ffc15ac" version="1">Echo: Chakra</content>
   <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
+  <content contentuid="h433569d9g842cg536eg9972g83dff13a0673" version="1">The mightiest Limit: every creature within 6 m of a spot within 18 m takes 10d8 slashing damage (Dexterity save against your manoeuvre DC for half). Once per long rest.</content>
+  <content contentuid="h7ad30e1bg5651g57d1g8d88g0cfa9187eeba" version="1">Echo: Cherry Blossom</content>
+  <content contentuid="hbfa10ac6g4651g59acga85egaacc8c11f8cc" version="1">Cherry Blossom</content>
   <content contentuid="hf405f68eg2132g5d3cg9f22gbd6cb98151d3" version="1">A ring of blue flame: enemies within 5 m of you take 8d6 fire damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="hbcdd520dg4d51g500cga5bdgd720d5d3bfa2" version="1">Echo: Chirijiraden</content>
   <content contentuid="h46468f30g3a55g5a17g883egd43de417d94d" version="1">Chirijiraden</content>
@@ -148,6 +160,9 @@
   <content contentuid="h7f1c4995ge642g57adgbd42g2508eee55eae" version="1">Critical: Recover HP</content>
   <content contentuid="h6301a4bag9d6bg52c4gb239gc84bb48c790a" version="1">When damage leaves you at 20% of your hit points or less, you regain all your level 1 spell slots. Once per long rest.</content>
   <content contentuid="h03bc0ac8g888cg52e3gafccg3a1b16948845" version="1">Critical: Recover MP</content>
+  <content contentuid="h1802f804gd700g52cag8b5fg03d3037ea3f6" version="1">A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 3d8 slashing. Once per short rest.</content>
+  <content contentuid="h4e2edb7dg5f79g5fd4g94fbgd73218b3bb30" version="1">Echo: Cross Slash</content>
+  <content contentuid="h00287ebegbf3ag578cgb18aga648e5fc8216" version="1">Cross Slash</content>
   <content contentuid="h7178719egcf70g5e0fg83f1g874ab47e0cf3" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks one of the target's accessories off (amulet, ring, cloak, gloves or boots); it falls to the ground. Once per short rest.</content>
   <content contentuid="hd9a17deeg3550g583dgaa3dge3d6797b1383" version="1">Echo: Crush Accessory</content>
   <content contentuid="hfdbded42g8d6dg5ed4g9734g9c87251c3703" version="1">Crush Accessory</content>
@@ -284,6 +299,9 @@
   <content contentuid="h16f66d58g903dg5a8eg9520g415b7273b17c" version="1">The ultimate song: allies within 9 m of you get an extra action on their next turn (Quick). Once per long rest.</content>
   <content contentuid="h1edc6fd4g6317g5517gbeedg41166bb97019" version="1">Echo: Finale</content>
   <content contentuid="hf048b216g66bdg541bgbaffg2ce5baaf9330" version="1">Finale</content>
+  <content contentuid="h5eb17816gafedg5b7aga099g45ebafdf1e9c" version="1">Blade energy that flies 9 m: each foe in the line makes a Constitution save against your manoeuvre DC or is Stopped for 1 turn, and one in four of those is also turned to Stone for 2 turns (bosses shrug off both). Once per long rest.</content>
+  <content contentuid="h83f2063dgd019g5f0bga3cfg6705f35f3726" version="1">Echo: Finishing Touch</content>
+  <content contentuid="h32ce2fdfg6023g5c07ga291g2a22bacdedb1" version="1">Finishing Touch</content>
   <content contentuid="h0c3f7cc0g2b63g5e99g999cg1950b94ac431" version="1">Arithmeticks: Fira</content>
   <content contentuid="h55a19410gb594g5f86gaa4fgf59bcc326e32" version="1">3d6 fire damage in a 3 m radius; Dexterity save for half. Once per short rest.</content>
   <content contentuid="hfee3adb6g1e73g503egaac7geeefb98b5682" version="1">Echo: Fira</content>
@@ -474,6 +492,9 @@
   <content contentuid="h6137c09ag23c4g5dd5g8830gfb220392c107" version="1">A meteor smashes into a point up to 18 m away: creatures within 5 m take 5d8 bludgeoning and 5d8 fire damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="h66d38162g4525g5558gafd8g58a7ee5c4743" version="1">Echo: Meteor</content>
   <content contentuid="h8e2ed264gd49dg552egb637g46ea9ab55e5c" version="1">Meteor</content>
+  <content contentuid="h05e289a6g487fg51e4ga3a7gea785f2e98ed" version="1">Meteorites rain on a spot within 18 m: every creature within 4 m takes 3d10 bludgeoning and 2d6 fire damage (Dexterity save against your manoeuvre DC for half). Once per long rest.</content>
+  <content contentuid="h8cbf1338g2942g5259ga4feg8482de5d1f63" version="1">Echo: Meteorain</content>
+  <content contentuid="h5ea6091eg2aa9g59ccga1b4gf80807be4ad3" version="1">Meteorain</content>
   <content contentuid="hb9f4496agc7bdg51b3g9061g1af6ab08bb65" version="1">A dull lecture: enemies within 3 m of a point up to 18 m away make a Wisdom save or fall Asleep for 2 turns (they wake when damaged). Allies are spared. Once per short rest.</content>
   <content contentuid="ha62caa4ag66a0g5754g939dg51e2d7bda6c7" version="1">Echo: Mimic Darlavon</content>
   <content contentuid="h97669d19g0289g58a8g8409g6f142a1ca00d" version="1">Mimic Darlavon</content>
@@ -521,6 +542,9 @@
   <content contentuid="h52980888gd4e4g5569gb857g115b93dfdf17" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest.</content>
   <content contentuid="h2ac54054g103dg5d0cgba15g8950483d884a" version="1">Echo: Odin</content>
   <content contentuid="h2dbc5174g0820g506fg9a13gece64772e997" version="1">Odin</content>
+  <content contentuid="hfc7d10bagee49g5d60g9d93gacddc570de99" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage twice over + 6d8 slashing. Once per long rest.</content>
+  <content contentuid="hc3c9bf7eg99fbg5267g9977gf891a36cd418" version="1">Echo: Omnislash</content>
+  <content contentuid="h20c2d3adgc654g58abgbb52gb5aa8e00b008" version="1">Omnislash</content>
   <content contentuid="h4ce1e541gae91g5abag9d00gd485952aca38" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2.</content>
   <content contentuid="h767a6ba2g34a0g5ab4ga421g9217d79c3ca7" version="1">Parry</content>
   <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion.</content>
@@ -1013,6 +1037,10 @@
   <content contentuid="h67f71602g9e6fg5563ga566g4fa08fd3d34a" version="1">Skyseer Mastery</content>
   <content contentuid="he275bc76g44e5g5389gae82g305b8f103945" version="1">Rapha's job. Sky Mantra: words of enlightenment that rain bolts of lightning, fire, wind, water, earth or ailments on the foes you pick; no attack roll, not magick (no spell slots). Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hc3e6f054g27b5g58eagab1dg9a1d83c35f6e" version="1">Job: Skyseer</content>
+  <content contentuid="h3aebc61bgb269g5b72gbaf2g7c3770fc4107" version="1">Your attacks score a critical hit on a roll of 19 or 20. Earned by mastering Soldier; kept after changing jobs.</content>
+  <content contentuid="h0633fffeg4341g5844gb856g4def867e6537" version="1">Soldier Mastery</content>
+  <content contentuid="h61a2ccd8g1f75g57dbgafe4g6eac3f6f7ae4" version="1">Cloud's job. Limit: blade energy pushed to the limit. Slashes that fly 6-9 m (Braver, Cross Slash, Blade Burst, Ascension, Omnislash), meteors (Meteorain), a stopping strike (Finishing Touch) and the mightiest blow, Cherry Blossom. Equipment: shortswords, longswords, greatswords, light armour, medium armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="haee1f9b3g8427g5c56ga545g98896ca5f46e" version="1">Job: Soldier</content>
   <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

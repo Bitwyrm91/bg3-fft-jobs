@@ -27,6 +27,15 @@
     ]
   },
   {
+    "id": "Action_Cleave_New",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_Soldier",
+      "Zone_FFTJ_CrossSlash",
+      "Zone_FFTJ_Omnislash"
+    ]
+  },
+  {
     "id": "Action_DisarmingAttack_Melee",
     "kind": "icon",
     "usedBy": [
@@ -134,7 +143,10 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_SteelGiant",
-      "Target_FFTJ_Compress"
+      "Target_FFTJ_Compress",
+      "Zone_FFTJ_Ascension",
+      "Zone_FFTJ_BladeBurst",
+      "Zone_FFTJ_Braver"
     ]
   },
   {
@@ -265,6 +277,7 @@
       "FFTJ_Job_OnionKnight",
       "FFTJ_Job_SkyPirate",
       "FFTJ_Job_Skyseer",
+      "FFTJ_Job_Soldier",
       "FFTJ_Job_SteelGiant",
       "FFTJ_Job_Templar",
       "FFTJ_Mastery_OnionKnight",
@@ -438,7 +451,8 @@
     "id": "Spell_Conjuration_CloudOfDaggers",
     "kind": "icon",
     "usedBy": [
-      "Shout_FFTJ_Ashura"
+      "Shout_FFTJ_Ashura",
+      "Target_FFTJ_CherryBlossom"
     ]
   },
   {
@@ -635,7 +649,8 @@
     "id": "Spell_Evocation_FlameStrike",
     "kind": "icon",
     "usedBy": [
-      "Shout_FFTJ_Chirijiraden"
+      "Shout_FFTJ_Chirijiraden",
+      "Target_FFTJ_Meteorain"
     ]
   },
   {
@@ -791,6 +806,7 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Contortion",
+      "Zone_FFTJ_FinishingTouch",
       "Zone_FFTJ_SpellbladeBreak"
     ]
   },
@@ -1090,7 +1106,8 @@
       "Target_FFTJ_Quiescence",
       "Target_FFTJ_Repose",
       "Target_FFTJ_Stall",
-      "Target_FFTJ_Trepidation"
+      "Target_FFTJ_Trepidation",
+      "Zone_FFTJ_FinishingTouch"
     ]
   },
   {
