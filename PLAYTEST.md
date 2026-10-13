@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.25**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.26**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.26: Templar (special job 4 of 17)
+
+- **Templar** (Beowulf's job): needs the **Templar Badge** (Inquisitor W'wargaz, Creche Y'llek) plus **Knight Lv5** and **Mystic Lv4**.
+- **Spellblade**, as in TIC: 14 slashes that fly 6 m (melee weapon attack against each foe in the line) and carry magick. A hit deals your weapon's damage and the art's effect; ailments let the target save against your manoeuvre DC (8 + proficiency + Strength or Dexterity): **Blind** (50 JP), **Silence** (90), **Zombie** (150), **Sleep** (170), **Drain** (180: +2d6 necrotic, heal half), **Faith** / **Doubt** / **Berserk** / **Confuse** (200), **Disable** (50), **Syphon** (100: a level 1 spell slot back), **Dispel** (300: strips blessings), **Chicken** (500: Frightened), **Break** (300: Stone, once per long rest). The same statuses as the Mystic's arts; most once per short rest.
+- Main-job equipment: swords, greatswords, all armour, shields. Mastery: +1 to Charisma saving throws.
+- Worth checking: does the save message appear after a hit, and does Sleep stay on (the slash's damage lands before the sleep)?
 
 ## New in 1.0.0.25: Divine Knight (special job 3 of 17)
 

@@ -83,7 +83,7 @@ Byblos and the Holy Dragon are monster jobs in the TIC data: they belong to the 
 4. **Job levels:** keep the proposed pairs?
 5. **The badge:** a visible item in the inventory, or only the Job Board unlock and a notification?
 
-Built so far: Cleric (1.0.0.23), Fell Knight (1.0.0.24), Divine Knight (1.0.0.25).
+Built so far: Cleric (1.0.0.23), Fell Knight (1.0.0.24), Divine Knight (1.0.0.25), Templar (1.0.0.26).
 
 ## Built: boss badge detection (1.0.0.22)
 

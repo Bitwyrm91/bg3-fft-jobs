@@ -624,6 +624,48 @@
   <content contentuid="h4e37f8b0gf373g5a4cga6b2g24c6691df7f2" version="1">Soulbind</content>
   <content contentuid="h4e1f1c50g793bg5a22gbc73g78370fc48b84" version="1">When you take damage, gain +3 m movement for 2 turns.</content>
   <content contentuid="h6ed4b882gb760g5933g88d3g7ade648bb995" version="1">Speed Surge</content>
+  <content contentuid="hf1fe125cga163g5911gb50eg9b4316a3e898" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or goes Berserk for 2 turns. Once per short rest.</content>
+  <content contentuid="hd0487007g20feg5731g8497gbffb7fcb6463" version="1">Echo: Berserk</content>
+  <content contentuid="hcee6c539gf62bg5e23gb499g8f797a05b6ca" version="1">Berserk</content>
+  <content contentuid="h52147a4dg3327g59bcg882fgbd1c6c5fb979" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save or is Blinded for 2 turns.</content>
+  <content contentuid="h7fb947b3g54c8g53c8ga711g80df9bfc101a" version="1">Echo: Blind</content>
+  <content contentuid="hde5bf3f5gbfa5g5debg91f3gf055f488c165" version="1">Blind</content>
+  <content contentuid="h2ca8a669gb8b5g5adbg9e5eg59d6020aee1a" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save or is Petrified for 2 turns; bosses are immune. Once per long rest.</content>
+  <content contentuid="hd4cfeb5ag3599g5f21g94feg59317cbdbb6c" version="1">Echo: Break</content>
+  <content contentuid="h81f0a056g277dg5ceaga6f4g2a1160379737" version="1">Break</content>
+  <content contentuid="h4de079f8gf85eg5393ga74dgd1e335fe7e2d" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Frightened for 2 turns (FFT lowers Bravery).</content>
+  <content contentuid="h0fc665a3g4469g5837gad37gefd066d2c074" version="1">Echo: Chicken</content>
+  <content contentuid="hec36d0e3g0740g5513ga117g1957b193e296" version="1">Chicken</content>
+  <content contentuid="h5781d135ge6b1g5a5bg9e83gcb211e77ab75" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Confused for 2 turns. Once per short rest.</content>
+  <content contentuid="h7dd93127gc89bg5d89gb3eagcd09202bc518" version="1">Echo: Confuse</content>
+  <content contentuid="h6ef4c105ge2b6g5e9cgb7afg786a442d0343" version="1">Confuse</content>
+  <content contentuid="h1b0bfb85gd93fg5a1ag9d22gf59f4a50e9e3" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Disabled for 1 turn (no actions or bonus actions).</content>
+  <content contentuid="h828a55dbg6fbdg52d2g826eg68bee97f296d" version="1">Echo: Disable</content>
+  <content contentuid="hb88d2919ge618g5403ga355g504cd39cf6bf" version="1">Disable</content>
+  <content contentuid="h3adfcc8ege695g5e7bga7f6g56ad67e8ef1e" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target loses its blessings (Haste, Bless, Aid, Heroism, Shield of Faith, Barkskin, Stoneskin, Blur, ... as the Mystic's Harmony). Once per short rest.</content>
+  <content contentuid="hc90ed3ffgd9feg5858g89b8g3f082bbd797a" version="1">Echo: Dispel</content>
+  <content contentuid="h0c609472gf76ag57b2gb250gac8f21a75cdc" version="1">Dispel</content>
+  <content contentuid="h53cd43d1gf47dg59a0g9ca2gc165ce3d6b67" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or becomes an Atheist for 2 turns (no spells). Once per short rest.</content>
+  <content contentuid="h4a4fa8eaga4c3g5811g9caeg2f904be774b3" version="1">Echo: Doubt</content>
+  <content contentuid="h3028fa31g99c5g510eg8a67g1e64bb70b229" version="1">Doubt</content>
+  <content contentuid="h581b2877g842cg56b9g8b75g026c9f302b51" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and it also takes 2d6 necrotic damage and you regain half the damage dealt. Once per short rest.</content>
+  <content contentuid="he0d39ba0g9d1fg5d73ga87age4e2eda2f6cd" version="1">Echo: Drain</content>
+  <content contentuid="h8bc5cb16gfad9g5b63ga5f7g817bf8a7b809" version="1">Drain</content>
+  <content contentuid="h5b52bdeag89ecg508fgae86g4a07298f92a1" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target gains Faith for 3 turns (-2 to its saving throws, +2 to its own spell attacks and DC).</content>
+  <content contentuid="h941da338g0c6cg5174ga44ag89e5d996c9ef" version="1">Echo: Faith</content>
+  <content contentuid="h9c14b3e3gb076g5ffbg89ecg5bf44ace907d" version="1">Faith</content>
+  <content contentuid="hdb90cbe6g3879g5a0cg8f2cg1ee6a148f781" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Silenced for 2 turns. Once per short rest.</content>
+  <content contentuid="h6c38dbb4gf964g5bc3gbd46g95b75e121cc2" version="1">Echo: Silence</content>
+  <content contentuid="hf19615acgc705g5cdfgbb17g22c8bf471e4b" version="1">Silence</content>
+  <content contentuid="hb96d751ag26d3g51e1g92efg2bab369bfbb4" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or falls Asleep for 2 turns (it wakes when damaged). Once per short rest.</content>
+  <content contentuid="hb43c6ea1ga84ag51b2gbfcdg939f7011bf7a" version="1">Echo: Sleep</content>
+  <content contentuid="hcba356a1g2d0bg5170gb692gb7d857f72573" version="1">Sleep</content>
+  <content contentuid="ha15bda0bgb66cg5069g92edge3463f486f73" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and you regain a level 1 spell slot (FFT absorbs MP). Once per short rest.</content>
+  <content contentuid="h5a3a7826ge76ag5157g9c5fgfd151d53f33b" version="1">Echo: Syphon</content>
+  <content contentuid="h160e5349gdc3eg53dbg9de3g944299e7f5ca" version="1">Syphon</content>
+  <content contentuid="h550406c4gb8cfg5e69g9518gb8eba8839a26" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save or turns Undead for 3 turns (no healing, vulnerable to radiant damage). Once per short rest.</content>
+  <content contentuid="h10090f53gbd03g530dgbd4ag1de6290cfe7f" version="1">Echo: Zombie</content>
+  <content contentuid="h24703da7ge0a3g52d4g93e1g6475a522d9b4" version="1">Zombie</content>
   <content contentuid="h0a2ae977gc4e7g5202g8f94g3a3b19eb4d72" version="1">A creature within 18 m makes a Wisdom save or loses its actions and bonus actions next turn (it can still move; FFT resets its CT). Once per short rest.</content>
   <content contentuid="h486b62a2g02a3g5518g9af0g41f3ecece60e" version="1">Echo: Stall</content>
   <content contentuid="hbafbc7f7g2feag5784g93fag878b946305b9" version="1">Stall</content>
@@ -881,6 +923,10 @@
   <content contentuid="h8ae668f7g77cbg5f75gb329g26690ca4ce50" version="1">Summoner Mastery</content>
   <content contentuid="h75d2bcfag333ag5984g9d35g0b74947a097f" version="1">Calls espers: huge area magic that spares allies, healing and protection. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h2edc874bg898bg5a68g8125g8fe652dba95e" version="1">Job: Summoner</content>
+  <content contentuid="h65cc0119g3312g5418gbba5g1a5c0ff2866f" version="1">+1 to Charisma saving throws. Earned by mastering Templar; kept after changing jobs.</content>
+  <content contentuid="hb534ca9egc1b6g5510g87a8g56df4f37adf3" version="1">Templar Mastery</content>
+  <content contentuid="haee852a3g78f4g59f2ga4c8g9e9093d9eb1b" version="1">Beowulf's job. Spellblade: slashes that fly 6 m and carry magick. A hit inflicts an ailment (the target saves against your manoeuvre DC: Blind, Silence, Sleep, Stone, Berserk, Confuse, ...), drains HP or a spell slot, grants Faith or strips blessings. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hecb8e0a9gc2cdg528bg9514gbd1c255aa366" version="1">Job: Templar</content>
   <content contentuid="hdc74e132g0947g5589g9641g71de5297e4f8" version="1">+2 to initiative. Earned by mastering Thief; kept after changing jobs.</content>
   <content contentuid="hd70bd43dg81b1g5ffbg91d2g4a4e45962fb1" version="1">Thief Mastery</content>
   <content contentuid="he5b20481g3e51g51afg9d5age3ea488efaf6" version="1">Steals gold, experience, hearts and the gear off an enemy's back. Equipment: daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

@@ -215,6 +215,7 @@
       "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_OnionKnight",
+      "FFTJ_Job_Templar",
       "FFTJ_Mastery_OnionKnight",
       "FFTJ_OnionKnight_5",
       "FFTJ_Vigilance"
@@ -306,6 +307,14 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Dragonheart"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_DispelMagic",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_Templar",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -456,7 +465,8 @@
       "FFTJ_DANCE_FROLIC",
       "FFTJ_DANCE_FROLIC_FX",
       "Shout_FFTJ_HeathenFrolic",
-      "Shout_FFTJ_Muramasa"
+      "Shout_FFTJ_Muramasa",
+      "Zone_FFTJ_SpellbladeConfuse"
     ]
   },
   {
@@ -466,7 +476,15 @@
       "FFTJ_DANCE_FORBIDDEN",
       "FFTJ_DANCE_FORBIDDEN_FX",
       "Shout_FFTJ_ForbiddenDance",
-      "Shout_FFTJ_LastWaltz"
+      "Shout_FFTJ_LastWaltz",
+      "Zone_FFTJ_SpellbladeBerserk"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_DissonantWhispers",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_SpellbladeSyphon"
     ]
   },
   {
@@ -485,6 +503,20 @@
     ]
   },
   {
+    "id": "Spell_Enchantment_Heroism",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_SpellbladeFaith"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_Hex",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_SpellbladeChicken"
+    ]
+  },
+  {
     "id": "Spell_Enchantment_HoldMonster",
     "kind": "icon",
     "usedBy": [
@@ -492,10 +524,18 @@
     ]
   },
   {
+    "id": "Spell_Enchantment_HoldPerson",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_SpellbladeDisable"
+    ]
+  },
+  {
     "id": "Spell_Enchantment_Sleep",
     "kind": "icon",
     "usedBy": [
-      "Target_FFTJ_MimicDarlavon"
+      "Target_FFTJ_MimicDarlavon",
+      "Zone_FFTJ_SpellbladeSleep"
     ]
   },
   {
@@ -562,7 +602,15 @@
       "FFTJ_DANCE_WITCH_FX",
       "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_WitchHunt",
-      "Target_FFTJ_Quiescence"
+      "Target_FFTJ_Quiescence",
+      "Zone_FFTJ_SpellbladeSilence"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_BestowCurse",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_SpellbladeDoubt"
     ]
   },
   {
@@ -582,10 +630,24 @@
     ]
   },
   {
+    "id": "Spell_Necromancy_Blindness",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_SpellbladeBlind"
+    ]
+  },
+  {
     "id": "Spell_Necromancy_ChillTouch",
     "kind": "icon",
     "usedBy": [
       "FFTJ_UNDEAD"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_Contagion_SlimyDoom",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_SpellbladeZombie"
     ]
   },
   {
@@ -603,7 +665,8 @@
       "FFTJ_Job_DarkKnight",
       "FFTJ_Mastery_FellKnight",
       "Target_FFTJ_SanguineSword",
-      "Zone_FFTJ_Shadowblade"
+      "Zone_FFTJ_Shadowblade",
+      "Zone_FFTJ_SpellbladeDrain"
     ]
   },
   {
@@ -617,7 +680,8 @@
     "id": "Spell_Transmutation_FleshToStone",
     "kind": "icon",
     "usedBy": [
-      "Target_FFTJ_Contortion"
+      "Target_FFTJ_Contortion",
+      "Zone_FFTJ_SpellbladeBreak"
     ]
   },
   {
@@ -693,7 +757,8 @@
     "id": "AID",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -707,7 +772,8 @@
     "id": "BARKSKIN",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -715,7 +781,8 @@
     "kind": "status",
     "usedBy": [
       "Target_FFTJ_Harmony",
-      "Target_FFTJ_Praise"
+      "Target_FFTJ_Praise",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -734,14 +801,16 @@
     "id": "BLINDNESS",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Umbra"
+      "Target_FFTJ_Umbra",
+      "Zone_FFTJ_SpellbladeBlind"
     ]
   },
   {
     "id": "BLUR",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -765,7 +834,8 @@
     "usedBy": [
       "Shout_FFTJ_Muramasa",
       "Target_FFTJ_Delirium",
-      "Target_FFTJ_Tremor"
+      "Target_FFTJ_Tremor",
+      "Zone_FFTJ_SpellbladeConfuse"
     ]
   },
   {
@@ -779,7 +849,8 @@
     "id": "FREEDOM_OF_MOVEMENT",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -788,14 +859,16 @@
     "usedBy": [
       "Target_FFTJ_Esuna",
       "Target_FFTJ_Remedy",
-      "Target_FFTJ_Trepidation"
+      "Target_FFTJ_Trepidation",
+      "Zone_FFTJ_SpellbladeChicken"
     ]
   },
   {
     "id": "GREATER_INVISIBILITY",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -804,28 +877,32 @@
     "usedBy": [
       "Shout_FFTJ_Masamune",
       "Target_FFTJ_Harmony",
-      "Target_FFTJ_Haste"
+      "Target_FFTJ_Haste",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
     "id": "HEROISM",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
     "id": "INVISIBILITY",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
     "id": "LONGSTRIDER",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -860,7 +937,8 @@
     "id": "PROTECTION_FROM_EVIL_AND_GOOD",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -875,7 +953,8 @@
     "id": "SANCTUARY",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -1000,7 +1079,8 @@
     "id": "SHIELD_OF_FAITH",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
@@ -1017,7 +1097,8 @@
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Salve",
       "Target_FFTJ_Snowstorm",
-      "Target_FFTJ_Sylph"
+      "Target_FFTJ_Sylph",
+      "Zone_FFTJ_SpellbladeSilence"
     ]
   },
   {
@@ -1026,7 +1107,8 @@
     "usedBy": [
       "Target_FFTJ_MimicDarlavon",
       "Target_FFTJ_Repose",
-      "Target_FFTJ_WillOTheWisp"
+      "Target_FFTJ_WillOTheWisp",
+      "Zone_FFTJ_SpellbladeSleep"
     ]
   },
   {
@@ -1051,7 +1133,8 @@
     "id": "STONESKIN",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Harmony"
+      "Target_FFTJ_Harmony",
+      "Zone_FFTJ_SpellbladeDispel"
     ]
   },
   {
