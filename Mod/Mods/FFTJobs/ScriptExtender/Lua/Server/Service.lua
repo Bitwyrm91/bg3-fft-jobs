@@ -394,6 +394,7 @@ function Service:OnCastedSpell(caster, spell)
         return
     end
     self:TrackEcho(guid, char, spell)
+    Effects.OnCastedSpell(self, guid, spell)
     if string.sub(spell, -6) == "_Arith" then
         return -- Arithmeticks' own casts: the rule shout already counted
     end
@@ -850,10 +851,43 @@ function Service:OnAttackedBy(defender, attackerOwner, attacker, damageType, dam
     end
 end
 
-function Service:OnKilledBy(defender)
+function Service:OnKilledBy(defender, attackOwner, attacker)
     if self.Ready and not self:IsDisabled() then
         Effects.OnKilledBy(self, Util.Guid(defender))
+        self:CountKill(Util.Guid(defender), Util.Guid(attackOwner), Util.Guid(attacker))
     end
+end
+
+-- A party member defeated a creature outside the party (the owner counts for its summons): one more kill toward
+-- unlocks that need them (War of the Lions' Dark Knight: 20).
+function Service:CountKill(defender, attackOwner, attacker)
+    if not defender or self.State:Get(defender) or self.Game:IsPartyMember(defender) then
+        return
+    end
+    local killer = (attackOwner and self.State:Get(attackOwner)) and attackOwner or attacker
+    local char = killer and self.State:Get(killer)
+    if not char then
+        return
+    end
+    char.Kills = (char.Kills or 0) + 1
+    self.State:MarkDirty()
+    self:CheckUnlocksNow(killer, char)
+end
+
+-- Unlocks what a character's requirements now allow (after a kill or a mastery: JP gains check in Rules.AddJP) and
+-- announces it. Returns the newly unlocked job ids.
+function Service:CheckUnlocksNow(guid, char)
+    local unlocked = Rules.CheckUnlocks(self.Data, self:Cfg(), char)
+    for _, jobId in ipairs(unlocked) do
+        if self:Cfg().Notifications.Unlock then
+            self:Notify(guid, string.format("%s unlocked the %s job!", char.Name, self.Data.Jobs[jobId].Name))
+        end
+    end
+    if #unlocked > 0 then
+        self.State:MarkDirty()
+        self:SyncParty()
+    end
+    return unlocked
 end
 
 function Service:OnCharacterJoinedParty(character)
@@ -965,6 +999,7 @@ function Service:Learn(guid, abilityId)
         if cfg.Notifications.Mastered then
             self:Notify(guid, string.format("%s mastered %s!%s", char.Name, job.Name, perk and (" " .. perk) or ""))
         end
+        self:CheckUnlocksNow(guid, char) -- jobs that need this one mastered (Dark Knight)
     end
     return true, table.concat(parts, " ")
 end

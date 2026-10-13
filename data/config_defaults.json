@@ -81,7 +81,9 @@
       "GravigaShare": 0.5,
       "EXPBoostShare": 0.25,
       "AccrueEXPPerLevel": 5,
-      "AccrueJPPerTurn": 10
+      "AccrueJPPerTurn": 10,
+      "AbyssalBladeHPCost": 0.1,
+      "UnholySacrificeHPCost": 0.25
     },
     "XPPollMs": 2000,
     "Telemetry": {
@@ -163,6 +165,8 @@
     "Abilities.EXPBoostShare": "EXP Boost: extra share of the experience a fight gave (0.25 = +25%).",
     "Abilities.AccrueEXPPerLevel": "Accrue EXP: experience per character level at each turn start in a fight.",
     "Abilities.AccrueJPPerTurn": "Accrue JP: JP for the current job at each turn start in a fight.",
+    "Abilities.AbyssalBladeHPCost": "Abyssal Blade (Dark Knight): share of the caster's maximum HP it costs (never the last hit point).",
+    "Abilities.UnholySacrificeHPCost": "Unholy Sacrifice (Dark Knight): share of the caster's maximum HP it costs (never the last hit point).",
     "Abilities.StealEXPPerLevel": "Steal EXP: experience per level of the robbed creature.",
     "Abilities.PoachGoldPerLevel": "Poach: trophy gold per level of the poached creature.",
     "Abilities.GilSnapperShare": "Gil Snapper: gold per point of damage taken.",

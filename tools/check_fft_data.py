@@ -99,6 +99,7 @@ def main():
 
     # The file is laid out by hand (one line per job/ability), so edit it line by line.
     out, section = [], None
+    other = set()  # jobs from other FFT versions (a "group", e.g. War of the Lions): not in TIC's tables, skipped
     for line in DATA.read_text(encoding="utf-8").split("\n"):
         m = re.match(r'^  "(\w+)": ', line)
         if m:
@@ -106,10 +107,13 @@ def main():
         if line.startswith("    {") and section in ("jobs", "abilities", "leftOut"):
             comma = line.endswith(",")
             entry = json.loads(line.strip().rstrip(","))
-            ok = check_job(entry) if section == "jobs" else check_ability(entry, section)
-            if ok and SOURCE_ID not in entry.setdefault("source", []):
-                entry["source"].insert(0, SOURCE_ID)
-            line = "    " + json.dumps(entry, ensure_ascii=False) + ("," if comma else "")
+            if section == "jobs" and entry.get("group"):
+                other.add(entry["id"])
+            if (entry["id"] if section == "jobs" else entry.get("job")) not in other:
+                ok = check_job(entry) if section == "jobs" else check_ability(entry, section)
+                if ok and SOURCE_ID not in entry.setdefault("source", []):
+                    entry["source"].insert(0, SOURCE_ID)
+                line = "    " + json.dumps(entry, ensure_ascii=False) + ("," if comma else "")
         out.append(line)
         if line == '    "sources": {' and section == "meta" and SOURCE_ID not in "\n".join(out[:-1]):
             out.append(f'      "{SOURCE_ID}": {json.dumps(SOURCE_TEXT, ensure_ascii=False)},')

@@ -202,7 +202,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Doublehand",
-      "FFTJ_EquipPolearms"
+      "FFTJ_EquipPolearms",
+      "FFTJ_Vehemence"
     ]
   },
   {
@@ -245,6 +246,13 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Earplugs"
+    ]
+  },
+  {
+    "id": "PassiveFeature_Tough",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_HPBoost"
     ]
   },
   {
@@ -292,9 +300,17 @@
     ]
   },
   {
+    "id": "Spell_CircleOfDeath",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_UnholySacrifice"
+    ]
+  },
+  {
     "id": "Spell_Conjuration_ArmsOfHadar",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_AbyssalBlade",
       "Shout_FFTJ_Kotetsu"
     ]
   },
@@ -506,10 +522,33 @@
     ]
   },
   {
+    "id": "Spell_Necromancy_Blight",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_DarkKnight",
+      "Target_FFTJ_CrushingBlow"
+    ]
+  },
+  {
     "id": "Spell_Necromancy_ChillTouch",
     "kind": "icon",
     "usedBy": [
       "FFTJ_UNDEAD"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_InflictWounds",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_InfernalStrike"
+    ]
+  },
+  {
+    "id": "Spell_Necromancy_VampiricTouch",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Job_DarkKnight",
+      "Target_FFTJ_SanguineSword"
     ]
   },
   {
@@ -911,6 +950,7 @@
     "usedBy": [
       "FFTJ_DANCE_FORBIDDEN_FX",
       "Shout_FFTJ_AmeNoMurakumo",
+      "Shout_FFTJ_UnholySacrifice",
       "Target_FFTJ_Slow",
       "Target_FFTJ_WindBlast"
     ]
@@ -1062,7 +1102,9 @@
     "id": "Shout_ArmsOfHadar",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Shout_FFTJ_Ashura"
+      "Shout_FFTJ_AbyssalBlade",
+      "Shout_FFTJ_Ashura",
+      "Shout_FFTJ_UnholySacrifice"
     ]
   },
   {
@@ -1387,12 +1429,15 @@
     "id": "Target_MainHandAttack",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_CrushingBlow",
+      "Target_FFTJ_InfernalStrike",
       "Target_FFTJ_RendArmor",
       "Target_FFTJ_RendMagick",
       "Target_FFTJ_RendPower",
       "Target_FFTJ_RendSpeed",
       "Target_FFTJ_RendWeapon",
       "Target_FFTJ_Rush",
+      "Target_FFTJ_SanguineSword",
       "Target_FFTJ_StealGil"
     ]
   },

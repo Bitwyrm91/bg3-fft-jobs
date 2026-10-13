@@ -134,4 +134,32 @@ function S.other_statuses_are_ignored(w, T)
     T.eq(#w.osiCalls, before, "no game calls for statuses that are not ours")
 end
 
+function S.dark_knight_sacrifice_costs_max_hp_never_the_last(w, T)
+    T.boot(w)
+    local tav = w.chars[T.TAV]
+    tav.maxHp, tav.hp = 50, 50
+    T.cast(w, T.TAV, "Shout_FFTJ_AbyssalBlade")
+    T.eq(tav.hp, 45, "Abyssal Blade: a tenth of 50")
+    T.cast(w, T.TAV, "Shout_FFTJ_UnholySacrifice_Echo")
+    T.eq(tav.hp, 33, "Unholy Sacrifice: a quarter of 50 (12); an Echo of it costs the same")
+    tav.hp = 5
+    T.cast(w, T.TAV, "Shout_FFTJ_UnholySacrifice")
+    T.eq(tav.hp, 1, "never the last hit point")
+    T.cast(w, T.TAV, "Shout_FFTJ_AbyssalBlade")
+    T.eq(tav.hp, 1, "nothing left to pay")
+    T.cast(w, T.TAV, "Target_FFTJ_SanguineSword")
+    T.eq(tav.hp, 1, "other Dark Knight skills cost no HP")
+end
+
+function S.kills_count_for_the_party_member_who_defeats_an_enemy(w, T)
+    local svc = T.boot(w)
+    enemy(w)
+    w.fire("KilledBy", "S_" .. GOB, "S_Player_" .. T.TAV, "S_Player_" .. T.TAV, 0)
+    T.eq(svc.State:Get(T.TAV).Kills, 1)
+    w.fire("KilledBy", "S_Player_" .. T.SHART, "S_Player_" .. T.TAV, "S_Player_" .. T.TAV, 0)
+    T.eq(svc.State:Get(T.TAV).Kills, 1, "a party member is no kill")
+    w.fire("KilledBy", "S_" .. GOB, "S_" .. GOB, "S_" .. GOB, 0)
+    T.eq(svc.State:Get(T.TAV).Kills, 1, "only kills by the party count")
+end
+
 return S

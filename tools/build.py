@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.18"
+MOD_VERSION = "1.0.0.19"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -88,9 +88,16 @@ def validate(jobs_doc, config_doc, strings_doc):
                 if req["badge"] not in badge_ids:
                     errors.append(f"job {j['id']}: unknown badge {req['badge']}")
                 continue
+            if "kills" in req:
+                if not (isinstance(req["kills"], int) and req["kills"] > 0):
+                    errors.append(f"job {j['id']}: kills must be a positive whole number")
+                continue
             if req["job"] not in job_by_id:
                 errors.append(f"job {j['id']}: unknown required job {req['job']}")
-            if not (1 <= req["level"] <= 8):
+            if req.get("mastered"):
+                if "level" in req:
+                    errors.append(f"job {j['id']}: a requirement is either a level or mastered, not both")
+            elif not (1 <= req["level"] <= 8):
                 errors.append(f"job {j['id']}: required level {req['level']} out of range")
             if j.get("implemented") and not job_by_id.get(req["job"], {}).get("implemented"):
                 errors.append(f"job {j['id']} is implemented but requires unimplemented job {req['job']}")
@@ -220,15 +227,25 @@ def equip_text(job):
     return ", ".join(PROFICIENCIES[p] for p in job.get("equip", []))
 
 
+def unlock_req(r):
+    """One unlock requirement for Rules.RequirementsMet: a badge, a kill count, a mastered job or a job level."""
+    if "badge" in r:
+        return {"Badge": r["badge"]}
+    if "kills" in r:
+        return {"Kills": r["kills"]}
+    if r.get("mastered"):
+        return {"Job": r["job"], "Mastered": True}
+    return {"Job": r["job"], "Level": r["level"]}
+
+
 def build_lua(jobs_doc, config_doc):
     jobs = {}
     art = set(art_keys())
     for i, j in enumerate(jobs_doc["jobs"]):
         jobs[j["id"]] = {
-            "Id": j["id"], "Name": j["name"], "Skillset": j.get("skillset", ""),
+            "Id": j["id"], "Name": j["name"], "Skillset": j.get("skillset", ""), "Group": j.get("group", ""),
             "Implemented": bool(j.get("implemented")), "Order": i + 1,
-            "Unlock": [{"Badge": r["badge"]} if "badge" in r else {"Job": r["job"], "Level": r["level"]}
-                       for r in j.get("unlock", [])],
+            "Unlock": [unlock_req(r) for r in j.get("unlock", [])],
             "Innate": {k.capitalize(): v for k, v in j.get("innate", {}).items()},
             "Equip": equip_text(j),
             "Description": j.get("description", ""),

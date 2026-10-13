@@ -2,6 +2,9 @@
 <contentList>
   <content contentuid="h7105ca0bgad34g5755g9a5fg77dba673cbdb" version="1">When a spell damages you, you regain a level 1 spell slot. Once per short rest.</content>
   <content contentuid="hc7df1ac9gdc9dg5682gb746gcaed40976949" version="1">Absorb MP</content>
+  <content contentuid="hee0a6b6ege8b1g5dd5g95c9gb79a7797842d" version="1">Costs a tenth of your maximum hit points (never your last one). Enemies within 4.5 m of you take 3d8 necrotic damage, 6d8 if they stand right next to you (Dexterity save for half). Once per short rest.</content>
+  <content contentuid="h1eb74406g7b60g519fgac65gacef3c3182c1" version="1">Echo: Abyssal Blade</content>
+  <content contentuid="h50c1abe0gee17g5b67gab55g153e58c0deae" version="1">Abyssal Blade</content>
   <content contentuid="h1eba29dbg78d2g5440gbdf2g81926781af82" version="1">Gain 5 experience per character level at the start of each of your turns in a fight.</content>
   <content contentuid="hbe05dc61g0727g5124g92b1g28423298c10c" version="1">Accrue EXP</content>
   <content contentuid="h25e6f520g421ag51bdg942cg6123c4e199f9" version="1">Gain 10 JP for your job at the start of each of your turns in a fight.</content>
@@ -115,6 +118,9 @@
   <content contentuid="h7f1c4995ge642g57adgbd42g2508eee55eae" version="1">Critical: Recover HP</content>
   <content contentuid="h6301a4bag9d6bg52c4gb239gc84bb48c790a" version="1">When damage leaves you at 20% of your hit points or less, you regain all your level 1 spell slots. Once per long rest.</content>
   <content contentuid="h03bc0ac8g888cg52e3gafccg3a1b16948845" version="1">Critical: Recover MP</content>
+  <content contentuid="h84c9d54eg6a10g5d53g9860ge21bf88afd56" version="1">Melee weapon attack that adds 1d8 necrotic damage; on a hit the target makes a Constitution save or is Stopped for 1 turn (bosses are immune). Once per short rest.</content>
+  <content contentuid="hd982929agc1c3g5b20g9c02g69f347ed9a82" version="1">Echo: Crushing Blow</content>
+  <content contentuid="h46be1c4ag27c5g5e3ag8c9cg5e3ca5af7342" version="1">Crushing Blow</content>
   <content contentuid="hf2b34e64g5c3cg569cgba44g0ea4649a16b7" version="1">When you regain hit points, allies within 6 m of you regain 1d4 hit points. Once per turn.</content>
   <content contentuid="hc6df99b9g5691g5854g9b47ga69bb0648fbe" version="1">Cup of Life</content>
   <content contentuid="hbde734b7g06a4g5b0dgb297gd02cacac258d" version="1">Arithmeticks: Cura</content>
@@ -264,6 +270,8 @@
   <content contentuid="h67c8d632g2860g5d17g91a2gb9780a057845" version="1">Creatures within 2 m of a point up to 18 m away make a Constitution save or lose a quarter of their maximum hit points (force). Bosses are immune. Once per short rest.</content>
   <content contentuid="h339e1399g04f1g57eega889gcb1538c6145a" version="1">Echo: Gravity</content>
   <content contentuid="h0f5f83dfg282eg5c3bgbdebg0504d5dbe4a8" version="1">Gravity</content>
+  <content contentuid="h55cd1ca6g33f2g5c6bgbba7g51bf1834d85d" version="1">+20% maximum hit points.</content>
+  <content contentuid="hcf75ae3cg77c3g5210gbadbgb6a7c84e66f5" version="1">HP Boost</content>
   <content contentuid="hf4cb1db3g5560g59e8g9c0egf2f3c7ea4e40" version="1">When you finish a short rest, you regain one level 1 and one level 2 spell slot (FFT halves MP costs).</content>
   <content contentuid="h18ec0829g0adbg55a9gaa5eg802a5e484483" version="1">Halve MP</content>
   <content contentuid="hd9e9bccfg35b4g5fe8g8fecg70a6b6de431d" version="1">Arithmeticks: Harmony</content>
@@ -324,6 +332,9 @@
   <content contentuid="he001283fg7cedg5f02g812bg8c076d0e5a68" version="1">A creature within 18 m makes a Constitution save or is Petrified for 2 turns (incapacitated, resistant to all damage). Bosses are immune. Once per long rest.</content>
   <content contentuid="h4b5a7662g598bg5a25g9707g61e0c9eba3d1" version="1">Echo: Induration</content>
   <content contentuid="hfb1b5ccdgeab5g5b92gbb9bg3f0a6414cae4" version="1">Induration</content>
+  <content contentuid="h4b01d2e6g68a5g5ca0gabb2g0b2bd730c3a8" version="1">Melee weapon attack; on a hit the target has -2 to spell attack rolls and spell save DC for 2 turns and you regain a level 1 spell slot. Once per short rest.</content>
+  <content contentuid="hc66f4a1ag6a52g5578ga445ga02c6f47e220" version="1">Echo: Infernal Strike</content>
+  <content contentuid="hdaf599ecgcab0g5fa6gad35gcb450f05fb52" version="1">Infernal Strike</content>
   <content contentuid="h382c1c8bg0f9dg5010g968ageb08f10563b0" version="1">A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: no spells, 2 more damage, -2 AC. Once per short rest.</content>
   <content contentuid="hd9251fdcg5298g5427g8db3g620d7442adb2" version="1">Echo: Insult</content>
   <content contentuid="ha04c98e7g3320g5e70gbdd8gba5831f38154" version="1">Insult</content>
@@ -541,6 +552,9 @@
   <content contentuid="h72ec2eebgda89g561bgb356g05a50b7c574c" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Blinded for 2 turns.</content>
   <content contentuid="h84ee8079gb92ag52b9g91c1gab1a66812bb3" version="1">Echo: Sandstorm</content>
   <content contentuid="h2faf27cegb2a9g5674gb142gf7c1a042be4f" version="1">Sandstorm</content>
+  <content contentuid="h4026287dgdaa5g5012g83a5g7b98b5d5f388" version="1">Melee weapon attack that heals you for half the damage it deals.</content>
+  <content contentuid="h4488bb70g9886g5f3bgb581gb5ca17c50254" version="1">Echo: Sanguine Sword</content>
+  <content contentuid="hfdbb5e21g6055g58e1gb536g388b4bd78974" version="1">Sanguine Sword</content>
   <content contentuid="hfa75defeg68d9g5772gae29ge40b9dd41ac1" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get back a level 1 spell slot (once each per song). Once per short rest.</content>
   <content contentuid="he195886ege0a2g5110gbc5dgac59615e31c5" version="1">Echo: Seraph Song</content>
   <content contentuid="h94888e4fg83c8g5ca0ga1a9gfaaeb9b4d391" version="1">Seraph Song</content>
@@ -706,8 +720,13 @@
   <content contentuid="haff10204g21cbg56b1g8968g322da59c548d" version="1">A creature within 18 m makes a Constitution save or is Blinded for 2 turns (it repeats the save each turn).</content>
   <content contentuid="h0d6239ddg6451g53ceg8286g9a6454cd44c1" version="1">Echo: Umbra</content>
   <content contentuid="h896df1f0gdfd1g5d91g8ff7gd0cf27b397e9" version="1">Umbra</content>
+  <content contentuid="h9f071ff7g22f1g59ecgb88bga3824584e187" version="1">Costs a quarter of your maximum hit points (never your last one). Enemies within 5 m of you take 8d8 necrotic damage and are Slowed for 2 turns (Constitution save for half damage and no Slow). Once per long rest.</content>
+  <content contentuid="he30e30fcg0d8ag5207g9675g47b86a64f13f" version="1">Echo: Unholy Sacrifice</content>
+  <content contentuid="h6a954544g9f39g5d43g82bagc778205529b8" version="1">Unholy Sacrifice</content>
   <content contentuid="h529057b6gc9d4g5653gb7acgcde2982263fa" version="1">When a weapon attack hits you, you turn invisible for up to 2 turns (it ends when you attack or cast). Once per combat.</content>
   <content contentuid="h81695ff6ge8c2g5291g9ca4gb0ae62d060ae" version="1">Vanish</content>
+  <content contentuid="h590572fag1a39g5362g8f90g7c517f48468c" version="1">Your weapon attacks deal an extra 1d6 necrotic damage, but you have -2 AC.</content>
+  <content contentuid="h1ef5d3b3gf3afg56d7gb7e4g02acceb67bc4" version="1">Vehemence</content>
   <content contentuid="h88d6e99cgbf9bg5a4egae54g858f5b385fa6" version="1">Your Jump lands harder: 1d4 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
   <content contentuid="h407332e6g5f27g539fg9d4dge0c59928dbcc" version="1">Vertical Jump ±2</content>
   <content contentuid="h2916d30ag2751g5b8ag8cefg8403f017e4fb" version="1">Your Jump lands harder: 1d6 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.</content>
@@ -765,6 +784,10 @@
   <content contentuid="ha1c6c7abgb73ag52c2gb1f6gc64d39775291" version="1">Dancer Mastery</content>
   <content contentuid="h386ef383g8148g5e2bgb176g15aba4ddd92c" version="1">Dances against the enemy: dances that slow, weaken, curse or wound every foe around you while you keep dancing. Equipment: daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h80bb1dcag9a2eg59a8g952cg4d16a9d03a24" version="1">Job: Dancer</content>
+  <content contentuid="h043c221bg07e8g57deg8591g45038191fa79" version="1">Resistance to necrotic damage. Earned by mastering Dark Knight; kept after changing jobs.</content>
+  <content contentuid="h80c7ee44gade2g5f1dgaa7agfba5532ca92b" version="1">Dark Knight Mastery</content>
+  <content contentuid="ha565165ag2660g57b1gb3a2g8a07a37d2f52" version="1">A knight who wields darkness (War of the Lions). Fell Sword drains HP and spell slots from foes and trades your own HP for crushing blows around you. A late job: master Knight and Black Mage, reach level 8 as Dragoon, Samurai, Ninja and Geomancer, and defeat 20 enemies. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hb889c94cg74b8g5209gb266ga72f070c1f16" version="1">Job: Dark Knight</content>
   <content contentuid="he588a050g93a9g5344ga4d0g182e16af033a" version="1">Jump 3 m farther. Earned by mastering Dragoon; kept after changing jobs.</content>
   <content contentuid="h0e9db50ega9bfg5c6fgb895gd11d0d98189a" version="1">Dragoon Mastery</content>
   <content contentuid="h3d0ed583g1caeg5f41gac3egbe1cb3b48be5" version="1">Leaps on enemies with a polearm: Jump's reach and landing power grow with Horizontal and Vertical Jump. Equipment: spears, pikes, glaives, halberds, tridents, shields, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

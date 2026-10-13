@@ -37,6 +37,9 @@ ESTIMATES = {
     "HIGH": {"fights": [65, 40, 65], "casts": 9, "bonusShare": 0.25, "xp": [30000, 75000, 100000], "rests": [16, 12, 16]},
 }
 
+# Enemies each fighter defeats per fight (unlock requirements like the Dark Knight's 20 kills); an assumption.
+KILLS_PER_FIGHT = 1
+
 # The party: four fighters (active party) and two companions waiting in camp, each with a job plan along the unlock
 # tree. A character masters the jobs of its plan in order; when the next one is still locked it levels the missing
 # prerequisite first (pick_job). Implemented jobs missing from a plan are appended at its end.
@@ -187,6 +190,7 @@ class Char:
         self.mastered_at = {}
         self.boost = False
         self.total = 0.0
+        self.kills = 0
         self.sources = {}
 
 
@@ -232,12 +236,22 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
             return j in c.unlocked and level_of(c, j) >= top_level
         return all(a in c.learned for a in by_job[j])
 
+    def req_met(c, r):
+        # badges are assumed found; kills come with the fights (KILLS_PER_FIGHT)
+        if "kills" in r:
+            return c.kills >= r["kills"]
+        if "job" not in r:
+            return True
+        if r.get("mastered"):
+            return r["job"] in c.unlocked and mastered(c, r["job"])
+        return level_of(c, r["job"]) >= r["level"]
+
     def route(c, j, seen):
-        """The job to work in to get j: j itself once unlocked, else the first prerequisite below its level."""
+        """The job to work in to get j: j itself once unlocked, else the first prerequisite still missing."""
         if j in c.unlocked:
             return j
         for r in unlock_rules[j]:
-            if "job" in r and r["job"] in impl and r["job"] not in seen and level_of(c, r["job"]) < r["level"]:
+            if "job" in r and r["job"] in impl and r["job"] not in seen and not req_met(c, r):
                 got = route(c, r["job"], seen | {j})
                 if got:
                     return got
@@ -254,9 +268,8 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
         return c.primary
 
     def unlock(c, when):
-        # badge requirements are left out: the simulated party is assumed to have found every badge
         for j in impl:
-            if j not in c.unlocked and all(level_of(c, r["job"]) >= r["level"] for r in unlock_rules[j] if "job" in r):
+            if j not in c.unlocked and all(req_met(c, r) for r in unlock_rules[j]):
                 c.unlocked.add(j)
                 c.unlocked_at[j] = when
 
@@ -288,6 +301,7 @@ def simulate(jobs_doc, cfg, estimate, jp_boost=False):
             fighters = [c for c in party if c.active]
             own = {}
             for c in fighters:
+                c.kills += KILLS_PER_FIGHT
                 o, s = action_jp(jp, level_of(c, c.primary), lv, weight, c.boost)
                 own[c.name] = o * est["casts"]
                 add(c, c.primary, own[c.name], "Action")
@@ -324,7 +338,7 @@ def full_tree_requirement(jobs_doc, th):
     for j in jobs_doc["jobs"]:
         for r in j.get("unlock", []):
             if "job" in r:
-                need[r["job"]] = max(need.get(r["job"], 1), r["level"])
+                need[r["job"]] = max(need.get(r["job"], 1), len(th) + 1 if r.get("mastered") else r["level"])
     return sum(th[lv - 2] for lv in need.values() if lv >= 2), need
 
 
@@ -362,11 +376,15 @@ def fight_key(when):
     return (act_of(when), 0 if when in (None, "start") else int(when.split(".")[1]))
 
 
+def target_jobs(jobs_doc):
+    """The jobs the pacing target counts: the 20 TIC jobs. Bonus jobs (a "group" such as WotL) come on top."""
+    return [j["id"] for j in jobs_doc["jobs"] if j.get("implemented") and not j.get("group")]
+
+
 def party_all_open(party, jobs_doc):
-    """When the last job became open to someone in the party (FFT unlocks are per character; the party sees them)."""
-    impl = [j["id"] for j in jobs_doc["jobs"] if j.get("implemented")]
+    """When the last TIC job became open to someone in the party (unlocks are per character; the party sees them)."""
     firsts = []
-    for j in impl:
+    for j in target_jobs(jobs_doc):
         times = [c.unlocked_at[j] for c in party if j in c.unlocked_at]
         if not times:
             return None
@@ -376,7 +394,7 @@ def party_all_open(party, jobs_doc):
 
 def print_summary(rows, markdown):
     head = ["Preset", "Estimate", "JP per fighter", "Jobs mastered per fighter, end of Act 1 / 2 / 3",
-            "Jobs unlocked per fighter, end of Act 1 / 2 / 3", "Every job open in the party", "Camp members' jobs mastered",
+            "Jobs unlocked per fighter, end of Act 1 / 2 / 3", "Every TIC job open in the party", "Camp members' jobs mastered",
             "First mastery"]
     if markdown:
         print("| " + " | ".join(head) + " |")
@@ -482,14 +500,14 @@ def selftest(jobs_doc, cfg_doc):
         print(f"selftest: pacing target missed: in the LOW estimate a fighter masters only {worst} jobs with {preset}")
         ok = False
     party, _ = simulate(jobs_doc, cfg, "TYPICAL")
-    typical = min(len(c.mastered_at) for c in party if c.active)
-    n_jobs = sum(1 for j in jobs_doc["jobs"] if j.get("implemented"))
+    typical = min(sum(1 for j in c.mastered_at if j in target_jobs(jobs_doc)) for c in party if c.active)
+    n_jobs = len(target_jobs(jobs_doc))
     if typical < int(n_jobs * 0.4):
-        print(f"selftest: pacing target missed: in the TYPICAL estimate a fighter masters only {typical} of {n_jobs} jobs with {preset}")
+        print(f"selftest: pacing target missed: in the TYPICAL estimate a fighter masters only {typical} of the {n_jobs} TIC jobs with {preset}")
         ok = False
     opened = party_all_open(party, jobs_doc)
     if opened is None or act_of(opened) > 3:
-        print(f"selftest: pacing target missed: in the TYPICAL estimate some job never opens in the party with {preset}")
+        print(f"selftest: pacing target missed: in the TYPICAL estimate some TIC job never opens in the party with {preset}")
         ok = False
     totals = {}
     for p in ("Grindy", preset, "Fast"):
@@ -499,8 +517,8 @@ def selftest(jobs_doc, cfg_doc):
         print(f"selftest: presets out of order: {totals}")
         ok = False
     print("pacing simulator self-test " + ("OK" if ok else "FAILED")
-          + f" ({preset}: every fighter masters {worst}+ jobs in LOW, {typical}+ of {n_jobs} in TYPICAL;"
-          + f" every job open in the party at {opened})")
+          + f" ({preset}: every fighter masters {worst}+ jobs in LOW, {typical}+ of the {n_jobs} TIC jobs in TYPICAL;"
+          + f" every TIC job open in the party at {opened})")
     return 0 if ok else 1
 
 

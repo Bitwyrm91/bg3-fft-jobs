@@ -36,6 +36,7 @@ function Rules.NewChar(data, cfg, startJob)
         Unlocked = {},
         Badges = {},
         Jobs = {},
+        Kills = 0,
         Granted = { Spells = {}, Passives = {}, Statuses = {} },
         Stats = Rules.NewStats(),
         SinceRest = Rules.NewStats(),
@@ -55,6 +56,7 @@ function Rules.Normalize(char)
     char.Unlocked = char.Unlocked or {}
     char.Badges = char.Badges or {}
     char.Jobs = char.Jobs or {}
+    char.Kills = char.Kills or 0
     -- saves from 1.0.0.5 and older: FFT's support and movement slots become the two passive slots
     for _, old in ipairs({ "Support", "Movement" }) do
         local id = char[old]
@@ -129,7 +131,9 @@ function Rules.BadgeName(data, badgeId)
     return badge and badge.Name or tostring(badgeId)
 end
 
--- Returns met (bool) and the list of requirements still missing ({Job, Level, Have} or {Badge}).
+-- Returns met (bool) and the list of requirements still missing ({Job, Level, Have}, {Job, Mastered}, {Kills, Have}
+-- or {Badge}). Mastered: every ability of the job learned (War of the Lions' Dark Knight); Kills: enemies the
+-- character has defeated (Service:CountKill).
 function Rules.RequirementsMet(data, cfg, char, jobId)
     local job = data.Jobs[jobId]
     local missing = {}
@@ -140,6 +144,15 @@ function Rules.RequirementsMet(data, cfg, char, jobId)
         if req.Badge then
             if not Rules.HasBadge(char, req.Badge) then
                 missing[#missing + 1] = { Badge = req.Badge }
+            end
+        elseif req.Kills then
+            local have = char.Kills or 0
+            if have < req.Kills then
+                missing[#missing + 1] = { Kills = req.Kills, Have = have }
+            end
+        elseif req.Mastered then
+            if not Rules.IsMastered(data, char, req.Job, cfg) then
+                missing[#missing + 1] = { Job = req.Job, Mastered = true }
             end
         else
             local have = Rules.GetJobLevel(cfg, char, req.Job)
@@ -160,9 +173,12 @@ function Rules.RequirementText(data, jobId)
     for _, req in ipairs(job.Unlock) do
         if req.Badge then
             parts[#parts + 1] = Rules.BadgeName(data, req.Badge)
+        elseif req.Kills then
+            parts[#parts + 1] = string.format("%d enemies defeated", req.Kills)
         else
             local rj = data.Jobs[req.Job]
-            parts[#parts + 1] = string.format("%s Lv%d", rj and rj.Name or req.Job, req.Level)
+            parts[#parts + 1] = req.Mastered and string.format("%s mastered", rj and rj.Name or req.Job)
+                or string.format("%s Lv%d", rj and rj.Name or req.Job, req.Level)
         end
     end
     return table.concat(parts, ", ")
@@ -230,6 +246,11 @@ function Rules.MissingText(data, cfg, char, jobId)
     for _, m in ipairs(missing) do
         if m.Badge then
             parts[#parts + 1] = Rules.BadgeName(data, m.Badge)
+        elseif m.Kills then
+            parts[#parts + 1] = string.format("%d enemies defeated (has %d)", m.Kills, m.Have)
+        elseif m.Mastered then
+            local rj = data.Jobs[m.Job]
+            parts[#parts + 1] = string.format("%s mastered", rj and rj.Name or m.Job)
         else
             local rj = data.Jobs[m.Job]
             parts[#parts + 1] = string.format("%s Lv%d (has Lv%d)", rj and rj.Name or m.Job, m.Level, m.Have)

@@ -164,7 +164,14 @@ function S.mastery_totals_and_unlocks_match_design(w, T)
     T.eq(req("WhiteMage"), "Chemist2")
     T.eq(req("BlackMage"), "Chemist2")
     T.eq(#Data.Jobs.Mime.Unlock, 6, "the full TIC tree is in the data")
-    T.eq(#Data.JobOrder, 20)
+    local tic = 0
+    for _, id in ipairs(Data.JobOrder) do
+        if Data.Jobs[id].Group == "" then
+            tic = tic + 1
+        end
+    end
+    T.eq(tic, 20, "the 20 TIC jobs; War of the Lions and special jobs carry a group")
+    T.eq(Data.Jobs.DarkKnight.Group, "WotL")
 end
 
 function S.config_defaults_are_consistent(w, T)

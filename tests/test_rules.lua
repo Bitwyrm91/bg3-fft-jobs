@@ -140,8 +140,15 @@ function S.shared_learning_targets(w, T)
     local Rules, Data = setup()
     local cfg = T.cfg({ JP = { Shared = { Share = 0.15 } } })
     local char = Rules.NewChar(Data, cfg, "Squire")
-    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage,Monk,Thief,TimeMage,Mystic,Geomancer,Dragoon,Summoner,Orator,Samurai,Ninja,Arithmetician,Bard,Dancer,Mime",
+    local others = {}
+    for _, id in ipairs(Data.JobOrder) do
+        if id ~= "Squire" and Data.Jobs[id].Implemented then
+            others[#others + 1] = id
+        end
+    end
+    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), table.concat(others, ","),
         "every other implemented job, locked ones included")
+    T.truthy(#others >= 19)
     local fight = T.cfg({ JP = { Shared = { Share = 0.15, Scope = "FightJobs" } } })
     T.eq(table.concat(Rules.SharedTargets(Data, fight, char, "Squire", { Squire = true, Knight = true }), ","), "Knight",
         "FightJobs: only the jobs used in the fight")
@@ -483,6 +490,30 @@ function S.a_job_without_abilities_is_mastered_at_the_top_level(w, T)
     char.Jobs.Mime = { Earned = 999999, Unspent = 0, Learned = {} }
     T.truthy(Rules.IsMastered(Data, char, "Mime", cfg), "job level 8")
     T.falsy(Rules.IsMastered(Data, char, "Mime"), "needs the level thresholds")
+end
+
+function S.mastered_and_kill_requirements(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    T.eq(Rules.RequirementText(Data, "DarkKnight"),
+        "Knight mastered, Black Mage mastered, Dragoon Lv8, Samurai Lv8, Ninja Lv8, Geomancer Lv8, 20 enemies defeated")
+    local met, missing = Rules.RequirementsMet(Data, cfg, char, "DarkKnight")
+    T.falsy(met)
+    T.eq(#missing, 7)
+    T.truthy(missing[1].Mastered)
+    T.eq(missing[7].Kills, 20)
+    T.contains({ Rules.MissingText(Data, cfg, char, "DarkKnight") }, "Knight mastered, Black Mage mastered, "
+        .. "Dragoon Lv8 (has Lv1), Samurai Lv8 (has Lv1), Ninja Lv8 (has Lv1), Geomancer Lv8 (has Lv1), "
+        .. "20 enemies defeated (has 0)")
+    char.Kills = 20
+    for _, aid in ipairs(Data.AbilitiesByJob.Knight) do
+        Rules.EnsureJob(char, "Knight").Learned[aid] = true
+    end
+    met, missing = Rules.RequirementsMet(Data, cfg, char, "DarkKnight")
+    T.eq(#missing, 5, "Knight mastered and 20 kills are done")
+    T.eq(missing[1].Job, "BlackMage")
+    T.eq(Rules.Normalize({}).Kills, 0, "older saves start at 0 kills")
 end
 
 return S

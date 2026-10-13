@@ -72,7 +72,7 @@ function S.view_model_content(w, T)
     T.eq(v.Chars[1].Name, "Astarion", "sorted by name")
     T.eq(v.Selected, T.SHART)
     local jobs = v.Char.Jobs
-    T.eq(#jobs, 20, "every FFT job, the ones not built yet included")
+    T.eq(#jobs, #svc.Data.JobOrder, "every FFT job, the ones not built yet included")
     T.eq(jobs[17].Id, "Arithmetician")
     T.falsy(jobs[17].Built)
     T.eq(jobs[17].Requirements, "White Mage Lv5, Black Mage Lv5, Time Mage Lv4, Mystic Lv4")

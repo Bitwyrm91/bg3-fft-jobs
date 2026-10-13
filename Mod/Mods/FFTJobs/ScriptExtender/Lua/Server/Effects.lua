@@ -5,8 +5,14 @@
 --   Bosses shrug off Doom, Stop and Stone, as in FFT.
 --   Gil Snapper (Thief): gold equal to the damage taken.
 --   Poach (Thief): a monster the poacher hit this turn pays out when it dies.
+--   Abyssal Blade, Unholy Sacrifice (Dark Knight): the caster pays a share of its maximum HP (never the last one).
 -- Every number is in the config (Abilities.*).
 local Effects = {}
+
+-- Spell -> the config key of the share of the caster's maximum HP it costs (an Echo of it costs the same).
+Effects.Sacrifice = {
+    Shout_FFTJ_AbyssalBlade = "AbyssalBladeHPCost", Shout_FFTJ_UnholySacrifice = "UnholySacrificeHPCost",
+}
 
 -- Steal marker -> the equipment slots it searches, in order (BG3 slot names for Osi.GetEquippedItem), and its name.
 Effects.Steal = {
@@ -132,6 +138,24 @@ function Effects.GravityHit(svc, caster, target, shareKey)
     game:ApplyDamage(target, damage, "Force", caster)
     svc.Log.Info(string.format("%s: %d force damage to %s", shareKey == "GravigaShare" and "Graviga" or "Gravity",
         damage, name(svc, target)))
+end
+
+-- Osiris CastedSpell (once per cast, unlike a status on every target): the Dark Knight's HP sacrifice.
+function Effects.OnCastedSpell(svc, caster, spell)
+    local key = type(spell) == "string" and Effects.Sacrifice[(string.gsub(spell, "_Echo$", ""))]
+    if not key or not caster then
+        return
+    end
+    local game = svc.Game
+    local maxHp, hp = game:MaxHP(caster), game:HP(caster)
+    if type(maxHp) ~= "number" or type(hp) ~= "number" or maxHp <= 0 then
+        return
+    end
+    local cost = math.min(math.max(1, math.floor(maxHp * svc:Cfg().Abilities[key])), hp - 1)
+    if cost > 0 then
+        game:ApplyDamage(caster, cost, "Necrotic", caster)
+        svc.Log.Info(string.format("%s sacrificed %d HP (%s)", name(svc, caster), cost, spell))
+    end
 end
 
 -- Osiris AttackedBy: Gil Snapper pays gold for the damage taken.

@@ -349,6 +349,13 @@ function Game:MaxHP(guid)
     end)
 end
 
+function Game:HP(guid)
+    local e = self:Entity(guid)
+    return e and self:Try("Health component", function()
+        return e.Health and e.Health.Hp
+    end)
+end
+
 function Game:ApplyDamage(guid, amount, damageType, source)
     self:Try("ApplyDamage", function()
         Osi.ApplyDamage(guid, amount, damageType, source or guid)

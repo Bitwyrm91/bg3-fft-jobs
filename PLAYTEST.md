@@ -1,6 +1,18 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.11**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.19**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.19: JP re-tuned for 20 jobs, Dark Knight (War of the Lions)
+
+- **More JP (your target):** a normal playthrough should open every job for someone in the party by late Act 2 and let each fighter master about half of the 20 jobs. Details at the end, under "Changing how fast JP comes".
+- **Dark Knight**, a late bonus job from War of the Lions, unlocked the WotL way: **Knight and Black Mage mastered**, **Dragoon, Samurai, Ninja and Geomancer at Lv8**, and **20 enemies defeated** by that character (kills count from this version on; the job's tile shows how many you have). To try it right away: `!fft_unlockall`. Fell Sword:
+  - **Sanguine Sword** (500 JP): a melee weapon attack that heals you for half the damage it deals (at will).
+  - **Infernal Strike** (500): a weapon attack; the target gets -2 to spell attacks and spell DC for 2 turns and you regain a level 1 spell slot (once per short rest).
+  - **Crushing Blow** (300): a weapon attack + 1d8 necrotic; Constitution save or Stopped for 1 turn, bosses immune (once per short rest).
+  - **Abyssal Blade** (1000): costs a tenth of your maximum HP; enemies within 4.5 m take 3d8 necrotic, 6d8 if right next to you (Dexterity save for half; once per short rest).
+  - **Unholy Sacrifice** (1200): costs a quarter of your maximum HP; enemies within 5 m take 8d8 necrotic and are Slowed for 2 turns (Constitution save for half and no Slow; once per long rest). The HP costs never take your last hit point.
+  - **HP Boost** (2000): +20% maximum HP. **Vehemence** (400): +1d6 necrotic on weapon hits but -2 AC. **Movement +3** and **Jump +3** (1000 each). Mastery: resistance to necrotic damage. Main-job equipment: swords, greatswords, all armour, shields.
+- Worth checking: does Sanguine Sword heal you? Do enemies next to you take more from Abyssal Blade than those farther away? Does the HP cost appear as necrotic damage on the Dark Knight?
 
 ## New in 1.0.0.18: Arithmetician (all 20 TIC jobs done)
 
