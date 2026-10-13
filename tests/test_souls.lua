@@ -105,6 +105,25 @@ function S.forms_follow_the_souls_devoured(w, T)
     T.truthy(tav.spells.Shout_FFTJ_Soul_Goblin_B3, "as the secondary skill set too")
 end
 
+function S.grants_wait_until_the_form_ends(w, T)
+    local svc = T.boot(w)
+    local Souls = Ext.Require("Server/Souls.lua")
+    local tav = w.chars[T.TAV]
+    svc:AddBadge("SoulCodex")
+    T.truthy(svc:SetPrimary(T.TAV, "SoulCollector"))
+    T.truthy(Souls.Add(svc, "Goblin", 1))
+    T.truthy(tav.spells.Shout_FFTJ_Soul_Goblin_B1)
+    tav.statuses.WILDSHAPE_ACTIVE = true -- in a form (the polymorph swaps the spellbook)
+    T.truthy(Souls.Add(svc, "Goblin", 2))
+    T.truthy(tav.spells.Shout_FFTJ_Soul_Goblin_B1, "nothing changes inside the form")
+    T.falsy(tav.spells.Shout_FFTJ_Soul_Goblin_B3)
+    tav.statuses.WILDSHAPE_ACTIVE = nil
+    w.fire("StatusRemoved", "S_Player_" .. T.TAV, "WILDSHAPE_ACTIVE", "S_Player_" .. T.TAV, 0)
+    w.runTimers()
+    T.truthy(tav.spells.Shout_FFTJ_Soul_Goblin_B3, "applied once the form ends")
+    T.falsy(tav.spells.Shout_FFTJ_Soul_Goblin_B1)
+end
+
 function S.known_soul_types_are_marked_in_a_fight(w, T)
     local svc = T.boot(w)
     local Souls = Ext.Require("Server/Souls.lua")

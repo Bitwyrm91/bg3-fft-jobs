@@ -1,6 +1,11 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.45**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.46**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.46: devouring while in a form
+
+- Devour a soul **while you are in a form** (the usual case: brand, then finish it off as a wolf): the new or stronger forms are added **when you return** (Dismiss, or the form drops), not inside the form. A Wild Shape swaps your spellbook, so a spell added in a form might have been lost with it. Same for job changes made while in a Wild Shape.
+- Also checked: every boss badge points at the right character in the game's level data (Gut, Minthara, Nere, W'wargaz, Grym, Ethel, the Flind, Zhalk, and the Act 2-3 ones).
 
 ## New in 1.0.0.45: the Soul Collector made playable (Act 1 quick start)
 

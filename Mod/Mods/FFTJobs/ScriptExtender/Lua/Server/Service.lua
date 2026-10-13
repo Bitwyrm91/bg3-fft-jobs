@@ -29,6 +29,7 @@ function Service.New(deps)
     self.EchoSeen = {} -- Mime guid -> EchoSeq when its last turn ended
     self.OnOpenBoard = nil -- set by NetServer
     self.SoulBranded = {} -- creature guid -> {By = brander, Gen}: Soul Brand on it (Souls.lua)
+    self.PendingReconcile = {} -- guid -> repair flag: grant changes held while a Wild Shape / Soul form is active
     return self
 end
 
@@ -173,9 +174,18 @@ function Service:DiscoverParty()
     end
 end
 
+-- Grants wait while the character is in a Wild Shape or Soul form (WILDSHAPE_ACTIVE): the polymorph rule swaps the
+-- spellbook, so a spell added or removed inside a form may not survive it. OnStatusRemoved applies them afterwards.
+Service.FORM_STATUS = "WILDSHAPE_ACTIVE"
+Service.FORM_END_MS = 1000
+
 function Service:Reconcile(guid, repair)
     local char = self.State:Get(guid)
     if not char then
+        return
+    end
+    if self.Game:Has("Statuses", guid, Service.FORM_STATUS) then
+        self.PendingReconcile[guid] = self.PendingReconcile[guid] or repair or false
         return
     end
     local desired
@@ -869,8 +879,23 @@ function Service:OnStatusApplied(object, status, causee)
 end
 
 function Service:OnStatusRemoved(object, status)
-    if self.Ready and status == Souls.BRAND then
+    if not self.Ready then
+        return
+    end
+    if status == Souls.BRAND then
         Souls.OnStatusRemoved(self, Util.Guid(object), status)
+    elseif status == Service.FORM_STATUS then
+        -- the form ended: apply what changed meanwhile (a soul devoured in a form), once the body is back
+        local guid = Util.Guid(object)
+        if guid and self.PendingReconcile[guid] ~= nil then
+            self.WaitFor(Service.FORM_END_MS, function()
+                local repair = self.PendingReconcile[guid]
+                if repair ~= nil and not self.Game:Has("Statuses", guid, Service.FORM_STATUS) then
+                    self.PendingReconcile[guid] = nil
+                    self:Reconcile(guid, true)
+                end
+            end)
+        end
     end
 end
 
