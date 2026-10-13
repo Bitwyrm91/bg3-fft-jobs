@@ -57,6 +57,9 @@
   <content contentuid="h9895cab5gc69cg566dgbf36g4282693bb62b" version="1">Mega Flare: enemies within 5 m of a point up to 18 m away take 8d8 force damage (Dexterity save for half). Allies are spared. Once per long rest.</content>
   <content contentuid="h34203605g37e5g5924ga0e0g21c1c8afd583" version="1">Echo: Bahamut</content>
   <content contentuid="h2435ec00g86cfg5941g8df2g03e4944d28ae" version="1">Bahamut</content>
+  <content contentuid="hcaf44e30g6bf4g5014gbde7g9c0ce2c9b986" version="1">Melee weapon attack that strikes four times, each strike dealing half your weapon's damage (one attack roll for all four). Once per short rest.</content>
+  <content contentuid="h309e07f8gb93ag5380ga392g69829df62abc" version="1">Echo: Barrage</content>
+  <content contentuid="h0085dc28g62e1g5020g8d47gad0ce5fd78f2" version="1">Barrage</content>
   <content contentuid="h2ee116c3gdc78g5aa3ga403g95e5d3a5bd3b" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +1 to attack rolls and +1 damage.</content>
   <content contentuid="h94b955eag0281g5c31gb66bg10ce4c4af33d" version="1">Echo: Battle Chant</content>
   <content contentuid="hbd85e644g3ba2g52b6gafc9gab689baea5da" version="1">Battle Chant</content>
@@ -490,6 +493,30 @@
   <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion.</content>
   <content contentuid="h34821d13ge6d4g54e8gb02eg62231b581eef" version="1">Echo: Phoenix Down</content>
   <content contentuid="h0d97b2aegc290g5cdbgb478g11d37f703126" version="1">Phoenix Down</content>
+  <content contentuid="h914620adgc9d0g50cdgb020gd41ab2528fae" version="1">Melee weapon attack: your weapon's damage, and one of the enemy's accessories goes into your inventory. Story items can't be taken.</content>
+  <content contentuid="hd000f42cg2cc2g5cbcg8298g4771b05c72bc" version="1">Echo: Plunder Accessory</content>
+  <content contentuid="hcbb1713ag9fd7g5fd0ga6beg2ea1d005a4bc" version="1">Plunder Accessory</content>
+  <content contentuid="he59f1310g45e3g5b14g9f68gb5e9a1d99dfe" version="1">Melee weapon attack: your weapon's damage, and the enemy's body armour goes into your inventory. Story items can't be taken.</content>
+  <content contentuid="h22b154b3g7b46g519bga727gf63ca854f4ab" version="1">Echo: Plunder Armor</content>
+  <content contentuid="h130ef962gb538g524bga546g0c5542daeab9" version="1">Plunder Armor</content>
+  <content contentuid="h656fe96ag17f3g5e52g9ac7g15ab848ed34f" version="1">Melee weapon attack: your weapon's damage, and you gain experience (10 times the creature's level; once per creature).</content>
+  <content contentuid="h75ceb8e0ga3c0g521dgbf7eg1a6add307b8f" version="1">Echo: Plunder EXP</content>
+  <content contentuid="h327a0806gacdag532fgb7b9g09cc72898ee2" version="1">Plunder EXP</content>
+  <content contentuid="h03e1dfd9g82f4g5e45g8957gb69abd917bc6" version="1">Melee weapon attack: your weapon's damage, and you pocket gold (10 times the creature's level; once per creature).</content>
+  <content contentuid="hdd69e894gb1f2g5c1bg8ea1gec8f53e0d7ae" version="1">Echo: Plunder Gil</content>
+  <content contentuid="h671f9749gb41eg56e2gaab6g7fd6c8884dea" version="1">Plunder Gil</content>
+  <content contentuid="ha75176bag705eg5cfcgae61gec194e426882" version="1">A creature up to 9 m away makes a Wisdom save (your Strength/Dexterity DC) or is Charmed for 2 turns: it can't harm you.</content>
+  <content contentuid="h451315c7g1453g5a73gb4c9g5eb86696b44f" version="1">Echo: Plunder Heart</content>
+  <content contentuid="h3d163c4cg7995g5e97gacffg8bfcb8689d15" version="1">Plunder Heart</content>
+  <content contentuid="h916ccd88g0546g5800g82a4gfaead20671a5" version="1">Melee weapon attack: your weapon's damage, and the enemy's headwear goes into your inventory. Story items can't be taken.</content>
+  <content contentuid="h3635aa7eg30f8g54c1g8282g17187f25b209" version="1">Echo: Plunder Helm</content>
+  <content contentuid="hd12141c8g9fd7g51bfga15bg43bf7f6d640b" version="1">Plunder Helm</content>
+  <content contentuid="h03af5c0fg2456g511bg8953gd522dc5cdd77" version="1">Melee weapon attack: your weapon's damage, and the enemy's shield goes into your inventory. Story items can't be taken.</content>
+  <content contentuid="he6211a20g5697g5c2cg951fgfe205e01f68a" version="1">Echo: Plunder Shield</content>
+  <content contentuid="h931103edgecf0g5087gb237gcfaac2956ae9" version="1">Plunder Shield</content>
+  <content contentuid="h422d6472g6d54g5420g83d4gcfe6917f9293" version="1">Melee weapon attack: your weapon's damage, and the enemy's main weapon goes into your inventory. Story items can't be taken.</content>
+  <content contentuid="h6c6c99f8g2e91g5645g91cbgb44451d145f9" version="1">Echo: Plunder Weapon</content>
+  <content contentuid="h42218a11g372fg59e9g821ag75303e01e6b3" version="1">Plunder Weapon</content>
   <content contentuid="h721fdff2g9cdcg5e92g9c4ag0671a774b54b" version="1">When a beast or monster (not a humanoid) you hit with a weapon this turn dies, you take a trophy worth 5 times its level in gold.</content>
   <content contentuid="hd482b6f7g690cg58ecg8ae4g02853068352c" version="1">Poach</content>
   <content contentuid="hcc71afcegec2eg5408g9e3dgeb5efb57b6d8" version="1">Arithmeticks: Poison</content>
@@ -934,6 +961,10 @@
   <content contentuid="hbca21ec6g2f04g5a10gb133gb2a8f11624b7" version="1">Samurai Mastery</content>
   <content contentuid="h3e80565cg441ag510ag8545g49cf8260de42" version="1">Draws out the spirits of legendary blades (Iaido): bursts around you that cut down enemies or shield your allies. Equipment: longswords, scimitars, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h8a3db8a3g39b2g5768g8703g5d2e7a3e9e33" version="1">Job: Samurai</content>
+  <content contentuid="hdf14e5b1gddf4g59cbga7bbg929cdd7b699e" version="1">+2 to Sleight of Hand checks. Earned by mastering Sky Pirate; kept after changing jobs.</content>
+  <content contentuid="hb887d17fg07e1g59e5gab89gc3332eb5c53c" version="1">Sky Pirate Mastery</content>
+  <content contentuid="h9a6c5d4agf557g53c1g88e0g04043cf059f2" version="1">Balthier's job (War of the Lions). Piracy: stealing in style. Every Plunder is the Thief's steal with your weapon's damage on top, and Barrage strikes four times in one blow. Equipment: shortswords, rapiers, scimitars, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="heb51805egf8c6g56f6gb5a5g5de42eeb9637" version="1">Job: Sky Pirate</content>
   <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

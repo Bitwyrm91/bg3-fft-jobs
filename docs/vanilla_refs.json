@@ -35,6 +35,14 @@
     ]
   },
   {
+    "id": "Action_Flurry",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_SkyPirate",
+      "Target_FFTJ_Barrage"
+    ]
+  },
+  {
     "id": "Action_Monk_FlurryOfBlows",
     "kind": "icon",
     "usedBy": [
@@ -252,6 +260,7 @@
       "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_OnionKnight",
+      "FFTJ_Job_SkyPirate",
       "FFTJ_Job_SteelGiant",
       "FFTJ_Job_Templar",
       "FFTJ_Mastery_OnionKnight",
@@ -1669,6 +1678,7 @@
     "id": "Target_MainHandAttack",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_Barrage",
       "Target_FFTJ_CrushingBlow",
       "Target_FFTJ_Destroy",
       "Target_FFTJ_InfernalStrike",

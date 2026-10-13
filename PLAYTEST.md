@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.28**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.29**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.29: Sky Pirate (special job 7 of 17)
+
+- **Sky Pirate** (Balthier's job, War of the Lions): needs the **Sky Pirate Badge** (Commander Zhalk: beaten on the nautiloid, or left behind when you reach the shore, so every Act 1 save has it) plus **Thief Lv6** and **Archer Lv4**.
+- **Piracy** (WotL costs): **Plunder Gil** (0 JP), **Heart** (250), **Helm** (450), **Armor** (550), **Shield** (450), **Weapon** (750), **Accessory** (600), **EXP** (350): the Thief's steals with **your weapon's damage on the same hit** (Plunder Heart charms like Steal Heart). **Barrage** (1200): one melee attack roll, four strikes at half weapon damage each (once per short rest).
+- Main-job equipment: shortswords, rapiers, scimitars, hand crossbows, light armour. Mastery: +2 to Sleight of Hand.
+- Worth checking: a Plunder hit both damages and takes the item.
 
 ## New in 1.0.0.28: Astrologer (special job 6 of 17)
 

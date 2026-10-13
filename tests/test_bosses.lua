@@ -220,8 +220,11 @@ function S.every_built_special_job_unlocks_learns_and_grants(w, T)
                     svc:AddManualJP(guid, 3000, req.Job)
                 end
             end
-            T.falsy(svc.State:Get(guid).Unlocked[jobId], jobId .. " needs its badge")
-            T.truthy(svc:AddBadge(job.Unlock[1].Badge))
+            local badge = job.Unlock[1].Badge
+            if not svc.State:Meta().Badges[badge] then -- (Zhalk's comes with Act 1, where the test boots)
+                T.falsy(svc.State:Get(guid).Unlocked[jobId], jobId .. " needs its badge")
+            end
+            T.truthy(svc:AddBadge(badge))
             T.truthy(svc.State:Get(guid).Unlocked[jobId], jobId .. ": badge + levels unlock it")
             T.truthy(svc:SetPrimary(guid, jobId))
             svc:AddManualJP(guid, 20000, jobId)
