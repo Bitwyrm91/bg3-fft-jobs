@@ -156,7 +156,8 @@ end
 
 function S.special_jobs_have_their_own_section_on_the_board(w, T, Mocks)
     local svc = T.boot(w)
-    svc:AddBadge("Cleric")
+    svc.Data.Jobs.SwordSaint.Implemented = false -- as long as a special job is not built (the copy is this test's)
+    svc:AddBadge("SwordSaint")
     T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
     local win = w.windows[1]
     local found = Mocks.FindWidgets(win, function(x)
@@ -165,11 +166,11 @@ function S.special_jobs_have_their_own_section_on_the_board(w, T, Mocks)
     T.eq(#found, 1)
     local tile
     for _, b in ipairs(Mocks.FindWidgets(win, function(x)
-        return x.Kind == "Button" and x.Label == "Cleric (soon)##tileCleric"
+        return x.Kind == "Button" and x.Label == "Sword Saint (soon)##tileSwordSaint"
     end)) do
         tile = b
     end
-    T.truthy(tile, "the Cleric tile")
+    T.truthy(tile, "the Sword Saint tile")
     tile.OnClick(tile)
     local lines = {}
     for _, x in ipairs(Mocks.FindWidgets(win, function(x)
@@ -178,8 +179,28 @@ function S.special_jobs_have_their_own_section_on_the_board(w, T, Mocks)
         lines[#lines + 1] = x.Label
     end
     local text = table.concat(lines, "\n")
-    T.contains(text, "Unlock: Cleric Badge (True Soul Gut), White Mage Lv4, Chemist Lv4.")
-    T.contains(text, "You still need: White Mage Lv4 (has Lv1), Chemist Lv4 (has Lv1).", "the badge is found")
+    T.contains(text, "Unlock: Sword Saint Badge (Sarevok Anchev), Knight Lv8, Samurai Lv8.")
+    T.contains(text, "You still need: Knight Lv8 (has Lv1), Samurai Lv8 (has Lv1).", "the badge is found")
+end
+
+-- Special jobs, built one by one: each needs its boss's badge plus job levels, then works like any job.
+function S.cleric_needs_the_badge_and_levels(w, T)
+    local svc = T.boot(w)
+    svc:AddManualJP(T.TAV, 1100, "WhiteMage")
+    svc:AddManualJP(T.TAV, 1100, "Chemist")
+    T.falsy(svc.State:Get(T.TAV).Unlocked.Cleric, "White Mage Lv4 and Chemist Lv4 are not enough")
+    w.newChar(GUT, { name = "True Soul Gut", level = 4, player = false, party = false })
+    w.fire("Died", "S_GOB_GoblinPriest_" .. GUT)
+    T.truthy(svc.State:Get(T.TAV).Unlocked.Cleric)
+    T.contains(w.notifications, "True Soul Gut is defeated. The party found the Cleric Badge. Tav unlocked the Cleric job!")
+    T.truthy(svc:SetPrimary(T.TAV, "Cleric"))
+    local tav = w.chars[T.TAV]
+    T.truthy(tav.passives.FFTJ_Job_Cleric and tav.passives.FFTJ_HolyMagicks, "job marker and Holy Magicks")
+    T.truthy(svc:Learn(T.TAV, "Dispelna"), "Alma's own magick costs 0 JP")
+    T.truthy(tav.spells.Target_FFTJ_Dispelna)
+    svc:AddManualJP(T.TAV, 50, "Cleric")
+    T.truthy(svc:Learn(T.TAV, "ClericCure"))
+    T.truthy(tav.spells.Target_FFTJ_Cure, "the White Magicks' spell, learned as the Cleric's own")
 end
 
 return S

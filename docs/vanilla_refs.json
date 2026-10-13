@@ -194,6 +194,7 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_DefenseBoost",
+      "FFTJ_Job_Cleric",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Mastery_OnionKnight",
       "FFTJ_OnionKnight_5",
@@ -301,6 +302,34 @@
       "Interrupt_FFTJ_ManaShield",
       "Shout_FFTJ_Kiyomori",
       "Target_FFTJ_Reflect"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_GreaterRestoration",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_Cleric"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_ProtectionFromEnergy",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Shellja"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_Sanctuary",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Wall"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_ShieldOfFaith",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Protectja"
     ]
   },
   {
@@ -849,35 +878,47 @@
     "id": "SG_Blinded",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
     "id": "SG_Charmed",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
     "id": "SG_Confused",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
+    ]
+  },
+  {
+    "id": "SG_Cursed",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
     "id": "SG_Disease",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
     "id": "SG_Frightened",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
@@ -891,21 +932,38 @@
     "id": "SG_Paralyzed",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
+    ]
+  },
+  {
+    "id": "SG_Petrified",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
     "id": "SG_Poisoned",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
     "id": "SG_Sleeping",
     "kind": "status",
     "usedBy": [
-      "Shout_FFTJ_Purification"
+      "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna"
+    ]
+  },
+  {
+    "id": "SG_Stunned",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Dispelna"
     ]
   },
   {
@@ -930,6 +988,7 @@
       "FFTJ_DANCE_FORBIDDEN_FX",
       "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_Purification",
+      "Target_FFTJ_Dispelna",
       "Target_FFTJ_EchoHerbs",
       "Target_FFTJ_Esuna",
       "Target_FFTJ_Quiescence",
@@ -979,6 +1038,13 @@
     "usedBy": [
       "Target_FFTJ_Leviathan",
       "Target_FFTJ_Torrent"
+    ]
+  },
+  {
+    "id": "DiscipleOfLife",
+    "kind": "using parent (PassiveData)",
+    "usedBy": [
+      "FFTJ_HolyMagicks"
     ]
   },
   {
@@ -1115,6 +1181,7 @@
     "id": "Shout_HealingWord_Mass",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Shout_FFTJ_Curaja",
       "Shout_FFTJ_Murasame"
     ]
   },
@@ -1349,6 +1416,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Quicksand"
+    ]
+  },
+  {
+    "id": "Target_GreaterRestoration",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Dispelna"
     ]
   },
   {

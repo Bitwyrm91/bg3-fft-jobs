@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.22**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.23**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.23: Cleric (special job 1 of 17)
+
+- **Cleric** (Alma's job): needs the **Cleric Badge** (True Soul Gut, Act 1) plus **White Mage Lv4** and **Chemist Lv4**. To try it at once: `!fft_badge Cleric` and JP Training.
+- **Holy Magicks**, as in TIC: the White Magicks (Cure ... Holy, the same spells as the White Mage's, learned again with Cleric JP) plus what the White Mage lacks in this mod: **Curaja** (800 JP: you and every ally within 9 m heal 5d8+5, once per long rest), **Protectja** / **Shellja** (600: Protect or Shell on you and every ally within 9 m for 5 turns, once per short rest), **Wall** (400: Protect + Shell on one creature, once per short rest), and Alma's own **Dispelna** (0 JP: ends every ailment on one creature, FFT's Doom, Stop, Stone, Toad, ... included; once per turn).
+- **While Cleric is your job**, every spell you cast that restores hit points restores **1d6 more** (Holy Magicks passive). Main-job equipment: quarterstaffs, maces, light and medium armour. Mastery: resistance to radiant damage.
+- Worth checking: does Curaja heal the whole party around you, does the 1d6 bonus show after a Cure, does Dispelna clear Stop or Toad?
 
 ## New in 1.0.0.22: bosses drop badges (special jobs, step 1)
 

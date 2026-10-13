@@ -96,6 +96,18 @@
   <content contentuid="hf405f68eg2132g5d3cg9f22gbd6cb98151d3" version="1">A ring of blue flame: enemies within 5 m of you take 8d6 fire damage (Dexterity save for half). Once per long rest.</content>
   <content contentuid="hbcdd520dg4d51g500cga5bdgd720d5d3bfa2" version="1">Echo: Chirijiraden</content>
   <content contentuid="h46468f30g3a55g5a17g883egd43de417d94d" version="1">Chirijiraden</content>
+  <content contentuid="h59a22f43g17ffg5b0fgbe82gfe12513d8b3e" version="1">Heal yourself and every ally within 9 m for 5d8+5. Once per long rest.</content>
+  <content contentuid="h8cdfeafeg06cdg571agb0f2g2d7340b82e0d" version="1">Echo: Curaja</content>
+  <content contentuid="h187d99eegdbd2g54f6g87d0gac1d5124c6f5" version="1">Curaja</content>
+  <content contentuid="h5fc74ed5g1f77g5c66g9387g57044249bd05" version="1">Protect (+2 AC) on yourself and every ally within 9 m for 5 turns. Once per short rest.</content>
+  <content contentuid="h1c1a424dgd9d3g54f1g9779gdf3cf7d0f4e6" version="1">Echo: Protectja</content>
+  <content contentuid="h548f3006gcd61g5b84g927ag28a457785cf2" version="1">Protectja</content>
+  <content contentuid="hd139ae57g60edg538ag8e36g8ea5777c323f" version="1">Shell (advantage on saving throws against spells) on yourself and every ally within 9 m for 5 turns. Once per short rest.</content>
+  <content contentuid="h594b7b68gc124g5b9eg8475gbe1274195ea4" version="1">Echo: Shellja</content>
+  <content contentuid="h3efae390gbbdag5096g9579g721ef8be3ef8" version="1">Shellja</content>
+  <content contentuid="h6a109dc8gafd4g5b91ga51fg04250b393f2f" version="1">Protect and Shell together on a creature within 18 m for 5 turns. Once per short rest.</content>
+  <content contentuid="h58ecf97fgfbabg5d67g997dg2ef71922d28b" version="1">Echo: Wall</content>
+  <content contentuid="h25c859eeg379bg5910g84c3g7e42a5601403" version="1">Wall</content>
   <content contentuid="hc7a5deceg9d9fg5c26ga3b8g7299e10e6f75" version="1">+2 to weapon attack rolls.</content>
   <content contentuid="h12851168g1a13g5e9bga89fgd8b5abc18048" version="1">Concentration</content>
   <content contentuid="h41a57c74g97c0g5536g87f5g914ba2e8d421" version="1">A creature within 18 m makes a Constitution save or is Doomed: it dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
@@ -158,6 +170,9 @@
   <content contentuid="h5e211384g2836g5e05g88c5g0bb5b88e1361" version="1">A creature within 18 m makes a Wisdom save or becomes an Atheist for 2 turns: it can't cast spells and has advantage on saving throws against spells. Once per short rest.</content>
   <content contentuid="h0a18dae9g72afg512dga75egc58c25f36e8c" version="1">Echo: Disbelief</content>
   <content contentuid="hf06e8b2dg38e8g54bfgabbdg82f6eab3dc45" version="1">Disbelief</content>
+  <content contentuid="h47c87744g0935g537eg981bg303b95c29aa9" version="1">End every ailment on a creature within 18 m: poisoned, diseased, blinded, charmed, frightened, paralysed, petrified, stunned, asleep, confused, cursed and silenced, and FFT's Doom, Stop, Immobilize, Berserk, Disable, Stone, Toad and Undead. Once per turn.</content>
+  <content contentuid="hd49c51eege05bg5d8fgbfbfg953b4c89028e" version="1">Echo: Dispelna</content>
+  <content contentuid="h5e2a29fdg29e3g5d65gb567g9b88056da665" version="1">Dispelna</content>
   <content contentuid="h56a8cd99g58c9g52cbga38eg78f3b1bc3fe4" version="1">Unarmed strike at a pressure point: on a hit, the creature makes a Constitution save (your Strength/Dexterity DC) or is Doomed, and dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.</content>
   <content contentuid="h28108b4ag6a69g5a1fgb2e1g49a6e269b5bf" version="1">Echo: Doom Fist</content>
   <content contentuid="h6ac7d984g29b1g5662gb29fg6c846f9e6147" version="1">Doom Fist</content>
@@ -780,6 +795,10 @@
   <content contentuid="ha0878788g1539g50aaga105g9011b9bad5f0" version="1">Chemist Mastery</content>
   <content contentuid="h32930831g3939g523ega2b3gb066b895d542" version="1">Item expert. Starting job. Throws items when it is the primary job. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h5a0e3fd8g4f51g51d1ga5f4g78bd01d0edcb" version="1">Job: Chemist</content>
+  <content contentuid="hed6087f1g4da1g5a8aga07cg04662cee02b6" version="1">Resistance to radiant damage. Earned by mastering Cleric; kept after changing jobs.</content>
+  <content contentuid="h223ac386g2b0ag583egabd6g00685ad09d60" version="1">Cleric Mastery</content>
+  <content contentuid="h334ef6d2g6d14g51b1gaf61g7df0cab5bf13" version="1">Alma's job. Holy Magicks: the White Magicks (learned again here), the group magicks the White Mage lacks in this mod (Curaja, Protectja, Shellja, Wall) and Alma's own Dispelna. While Cleric is your job, every spell you cast that restores hit points restores 1d6 more. Equipment: quarterstaffs, maces, light armour, medium armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h8d6e2ef4ge5d0g5f6bgb4c0g288678863577" version="1">Job: Cleric</content>
   <content contentuid="ha617f576g51f0g598bg9b02gbd56ddac55cb" version="1">Advantage on Acrobatics checks. Earned by mastering Dancer; kept after changing jobs.</content>
   <content contentuid="ha1c6c7abgb73ag52c2gb1f6gc64d39775291" version="1">Dancer Mastery</content>
   <content contentuid="h386ef383g8148g5e2bgb176g15aba4ddd92c" version="1">Dances against the enemy: dances that slow, weaken, curse or wound every foe around you while you keep dancing. Equipment: daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -850,6 +869,8 @@
   <content contentuid="hf12d1373g3fc7g5d45gb675g90d8be9f9bb8" version="1">Job: White Mage</content>
   <content contentuid="h60a54324g3a68g5608g837bg2c8ae321bcfc" version="1">Allied beasts, familiars and summons within 6 m of you get +1 to attack rolls and +1 damage. (FFT: gives nearby monsters a hidden ability.)</content>
   <content contentuid="h5ada1bd3g8e0cg5349g8541g76ea85ca6c18" version="1">Beastmaster</content>
+  <content contentuid="h0883af88g0d37g5edfg9eccg14067755391d" version="1">While Cleric is your job, every spell you cast that restores hit points restores 1d6 more.</content>
+  <content contentuid="h2d2df22age88cg5dd7g8c19g9e4ce6bf69ac" version="1">Holy Magicks</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
   <content contentuid="hed88a027gf2b3g5541gbd6agd477f35f7c9e" version="1">Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.</content>

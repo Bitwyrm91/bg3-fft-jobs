@@ -2,6 +2,8 @@
   "schema": 1,
   "note": "Extra English strings used by stats_src templates as {{str:KEY}}. Ability names/descriptions come from fft_jobs.json ({{name:ID}}, {{desc:ID}}), job passive texts from the job list ({{jobname:ID}}, {{jobdesc:ID}}).",
   "strings": {
+    "HolyMagicks.Name": "Holy Magicks",
+    "HolyMagicks.Desc": "While Cleric is your job, every spell you cast that restores hit points restores 1d6 more.",
     "JobBoard.Name": "Job Board",
     "JobBoard.Desc": "Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.",
     "JobPassive.Desc": "Current FFT job. Change it on the Job Board.",
