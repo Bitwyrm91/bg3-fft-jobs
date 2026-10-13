@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.31**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.32**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.32: Netherseer (special job 10 of 17)
+
+- **Netherseer** (Marach's job): needs the **Netherseer Badge** (Balthazar, Gauntlet of Shar) plus **Mystic Lv5** and **Black Mage Lv5**.
+- **Nether Mantra**: the Skyseer's bolts, harder hitting (FFT: stronger against foes of low Faith; BG3 has no Faith): **Hell's Wrath** (0 JP, at will): 2 x 1d8 lightning. **Nether Ashura** (200): 3 x 1d10 fire. **Nether Blade** (300): 3 x 1d10 thunder. **Nether Maelstrom** (400): 3 x 1d10 cold. **Corporeal Void** (500): 3 x 1d4 psychic with the same ailment chances. **Impiety** (600, once per long rest): 4 x 1d10 bludgeoning. The others once per short rest.
+- Main-job equipment: quarterstaffs, light armour. Mastery: resistance to thunder damage.
 
 ## New in 1.0.0.31: Skyseer (special job 9 of 17)
 

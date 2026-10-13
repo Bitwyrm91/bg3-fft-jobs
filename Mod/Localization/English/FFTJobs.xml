@@ -131,6 +131,9 @@
   <content contentuid="hd846cc92g2cb4g5a13ga58egeeab8746ea42" version="1">Only in shadow or darkness. Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 10 chance of being turned to Stone for 2 turns.</content>
   <content contentuid="h0e43a70cg88b7g5c2agb4f3g06ecd88044b7" version="1">Echo: Contortion</content>
   <content contentuid="hccdcd4f5g0d55g565dga68fg84a84e475285" version="1">Contortion</content>
+  <content contentuid="h3a7c9934gfa8dg53ecgb37agaabf1da86e79" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d4 psychic damage each, and each bolt has a 1 in 5 chance of each of Blinded, Silenced, Frightened and Poisoned for 2 turns. Once per short rest.</content>
+  <content contentuid="hfc567e0eg94d4g58d5ga078g8861431a338c" version="1">Echo: Corporeal Void</content>
+  <content contentuid="h6179383cgdbbag5efdg9618g365f8872fb71" version="1">Corporeal Void</content>
   <content contentuid="he24239a9g0d65g5c8fg9bebg846393bc09f2" version="1">Arithmeticks: Corruption</content>
   <content contentuid="hccf20ed1ge441g5467g9471gccacd7211e04" version="1">A creature within 18 m makes a Constitution save or turns Undead for 3 turns: it can't regain hit points and is vulnerable to radiant damage. Once per short rest.</content>
   <content contentuid="h6770f4c1g38fbg5fb5g9391gfcf1e08786c4" version="1">Echo: Corruption</content>
@@ -346,6 +349,9 @@
   <content contentuid="h21875c2cg2c2ag5d35gbcf3g8886bef4cc7d" version="1">2 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d6 lightning damage each. At will.</content>
   <content contentuid="h3035c08cg3341g5818g96b5g3689530925ba" version="1">Echo: Heaven's Wrath</content>
   <content contentuid="h13a66e51gf231g574bgb5ebg60434ce9ad8c" version="1">Heaven's Wrath</content>
+  <content contentuid="h4cb4bb42g16bdg5885g8b5ag0f72498c3bae" version="1">2 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 lightning damage each. At will.</content>
+  <content contentuid="h54b281f2gb776g5994ga556gc33d5338402c" version="1">Echo: Hell's Wrath</content>
+  <content contentuid="hd057638fg3a83g5952gba21g54f2ff6a54fd" version="1">Hell's Wrath</content>
   <content contentuid="h5b61fa18ga6dfg55aegb224g81e375e543e9" version="1">Arithmeticks: Hesitation</content>
   <content contentuid="he5224064g4b7dg5334gaa74gec34f4645568" version="1">A creature within 18 m makes a Wisdom save or is Disabled for 1 turn: no actions or bonus actions (it can still move).</content>
   <content contentuid="he71a8816g8df3g52dcg9d2bgbffa6d18d5a7" version="1">Echo: Hesitation</content>
@@ -385,6 +391,9 @@
   <content contentuid="h69ef04b6gc8aag515fg9ab8g4c129fd2daf3" version="1">An enemy within 18 m makes a Strength save or can't move for 2 turns (it can still act; it repeats the save each turn).</content>
   <content contentuid="hc770c25cg7722g5aefgaf2dgef43206c1929" version="1">Echo: Immobilize</content>
   <content contentuid="hb76229abg33f1g5fecg9ff4ga5310282ecc5" version="1">Immobilize</content>
+  <content contentuid="h2f43098cgbb79g58e4ga64bg0e3e45a6f94f" version="1">4 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 bludgeoning (earth) damage each. Once per long rest.</content>
+  <content contentuid="he0f76291g042eg5a6eg9010geca0bcf88525" version="1">Echo: Impiety</content>
+  <content contentuid="h5d55c1b7g7c43g553aga6feg283322bdbf26" version="1">Impiety</content>
   <content contentuid="hbae13d0bgdf3bg58d2g976bg74f345138678" version="1">Arithmeticks: Induration</content>
   <content contentuid="he001283fg7cedg5f02g812bg8c076d0e5a68" version="1">A creature within 18 m makes a Constitution save or is Petrified for 2 turns (incapacitated, resistant to all damage). Bosses are immune. Once per long rest.</content>
   <content contentuid="h4b5a7662g598bg5a25g9707g61e0c9eba3d1" version="1">Echo: Induration</content>
@@ -500,6 +509,15 @@
   <content contentuid="hc58b302cg3228g5c49g914bg6c21c10f6623" version="1">Nameless Song</content>
   <content contentuid="h15de29c1ga795g5483gbb65gea574ed08eb2" version="1">When a weapon attack hits you, the ground strikes back: the attacker takes 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11). Once per turn.</content>
   <content contentuid="h9f1958bdgea93g5d8cga106ga04382c8bfa2" version="1">Nature's Wrath</content>
+  <content contentuid="hdc437915g134bg5595g88dcg17a787c1a8cd" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 fire damage each. Once per short rest.</content>
+  <content contentuid="hf762fef7gd087g57ffg92bfga370d1259eb0" version="1">Echo: Nether Ashura</content>
+  <content contentuid="h83ea2d16g12bag58b0ga426g7207ad9e05ac" version="1">Nether Ashura</content>
+  <content contentuid="h716ba894gf56fg597egb8efgc1d466b2adc9" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 thunder (wind) damage each. Once per short rest.</content>
+  <content contentuid="h1bb38132g76cbg5fdfg93a3g3f4145470421" version="1">Echo: Nether Blade</content>
+  <content contentuid="hddd78508g4567g5f60g8024g8dc35bdfdb3e" version="1">Nether Blade</content>
+  <content contentuid="hd39ac5f2gd5dcg5dfeg9ac8g7190b5e8d0c6" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 cold (water) damage each. Once per short rest.</content>
+  <content contentuid="h2deb9aeagafcfg5016gae2bgc8b4bd916dc7" version="1">Echo: Nether Maelstrom</content>
+  <content contentuid="h4114aadag678fg5710ga4e6g18915082a57e" version="1">Nether Maelstrom</content>
   <content contentuid="h52980888gd4e4g5569gb857g115b93dfdf17" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest.</content>
   <content contentuid="h2ac54054g103dg5d0cgba15g8950483d884a" version="1">Echo: Odin</content>
   <content contentuid="h2dbc5174g0820g506fg9a13gece64772e997" version="1">Odin</content>
@@ -967,6 +985,10 @@
   <content contentuid="h725dd9d1g0434g596egb017g56997cab1387" version="1">Mystic Mastery</content>
   <content contentuid="hd40c9e23g1711g5dd5ga1d0gf1255fa7713c" version="1">Afflicts mind and body: blindness, silence, sleep, confusion, stone, drains. Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="haec3b93eg1bc4g57e9gbd3bg8ff7e0b309e0" version="1">Job: Mystic</content>
+  <content contentuid="hc0068dddg7f49g540dg802cg77f6a36ce4e8" version="1">Resistance to thunder damage. Earned by mastering Netherseer; kept after changing jobs.</content>
+  <content contentuid="h4420c0e7ge46ag5599gb9c4g6c0918d7e009" version="1">Netherseer Mastery</content>
+  <content contentuid="h8e540ae0g8632g5e2cg8eb7g17a150482b61" version="1">Marach's job. Nether Mantra: words of enlightenment that rain bolts of lightning, fire, wind, water, earth or ailments on the foes you pick; no attack roll, not magick (no spell slots). Harder hitting than the Sky Mantra (FFT: stronger against foes of low Faith; BG3 has no Faith). Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h50359831g2fa9g5325g9c0dgdc5f69a908e9" version="1">Job: Netherseer</content>
   <content contentuid="hcbbcafdcg1832g517fgaac0ga9c62cb29ea1" version="1">Advantage on Stealth checks. Earned by mastering Ninja; kept after changing jobs.</content>
   <content contentuid="hc0a7be0cgc9a2g50a2gad60g247972464f91" version="1">Ninja Mastery</content>
   <content contentuid="h588d0436ga440g5d8ag9dc4gd68d36ca52ec" version="1">Throws anything at foes and fights with a blade in each hand; Dual Wield is always on. Equipment: daggers, shortswords, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

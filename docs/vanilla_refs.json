@@ -261,6 +261,7 @@
       "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_GameHunter",
+      "FFTJ_Job_Netherseer",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Job_SkyPirate",
       "FFTJ_Job_Skyseer",
@@ -444,7 +445,8 @@
     "id": "Spell_Conjuration_ConjureElemental_Earth",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_Divinity"
+      "Projectile_FFTJ_Divinity",
+      "Projectile_FFTJ_Impiety"
     ]
   },
   {
@@ -550,6 +552,7 @@
     "kind": "icon",
     "usedBy": [
       "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_CorporealVoid",
       "Zone_FFTJ_SpellbladeSyphon"
     ]
   },
@@ -656,13 +659,15 @@
     "id": "Spell_Evocation_RayOfFrost",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_Maelstrom"
+      "Projectile_FFTJ_Maelstrom",
+      "Projectile_FFTJ_NetherMaelstrom"
     ]
   },
   {
     "id": "Spell_Evocation_ScorchingRay",
     "kind": "icon",
     "usedBy": [
+      "Projectile_FFTJ_NetherAshura",
       "Projectile_FFTJ_SkyAshura"
     ]
   },
@@ -670,7 +675,9 @@
     "id": "Spell_Evocation_Thunderwave",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_AdamantineBlade"
+      "FFTJ_Mastery_Netherseer",
+      "Projectile_FFTJ_AdamantineBlade",
+      "Projectile_FFTJ_NetherBlade"
     ]
   },
   {
@@ -678,7 +685,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_Skyseer",
-      "Projectile_FFTJ_HeavensWrath"
+      "Projectile_FFTJ_HeavensWrath",
+      "Projectile_FFTJ_HellsWrath"
     ]
   },
   {
@@ -904,6 +912,7 @@
     "kind": "status",
     "usedBy": [
       "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_CorporealVoid",
       "Target_FFTJ_Umbra",
       "Zone_FFTJ_SpellbladeBlind"
     ]
@@ -961,6 +970,7 @@
     "kind": "status",
     "usedBy": [
       "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_CorporealVoid",
       "Target_FFTJ_Esuna",
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Trepidation",
@@ -1022,6 +1032,7 @@
     "usedBy": [
       "FFTJ_DANCE_FORBIDDEN_FX",
       "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_CorporealVoid",
       "Projectile_FFTJ_Poison",
       "Target_FFTJ_Antidote",
       "Target_FFTJ_Esuna",
@@ -1196,6 +1207,7 @@
     "usedBy": [
       "FFTJ_DANCE_FORBIDDEN_FX",
       "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_CorporealVoid",
       "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_Purification",
       "Target_FFTJ_Dispelna",
@@ -1367,9 +1379,14 @@
     "usedBy": [
       "Projectile_FFTJ_AdamantineBlade",
       "Projectile_FFTJ_CelestialVoid",
+      "Projectile_FFTJ_CorporealVoid",
       "Projectile_FFTJ_Divinity",
       "Projectile_FFTJ_HeavensWrath",
-      "Projectile_FFTJ_Maelstrom"
+      "Projectile_FFTJ_HellsWrath",
+      "Projectile_FFTJ_Impiety",
+      "Projectile_FFTJ_Maelstrom",
+      "Projectile_FFTJ_NetherBlade",
+      "Projectile_FFTJ_NetherMaelstrom"
     ]
   },
   {
@@ -1397,6 +1414,7 @@
     "id": "Projectile_ScorchingRay",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Projectile_FFTJ_NetherAshura",
       "Projectile_FFTJ_SkyAshura"
     ]
   },
