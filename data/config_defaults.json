@@ -64,7 +64,8 @@
       "LearnOutOfCombatOnly": true,
       "SlotsOutOfCombatOnly": true,
       "MainJobAlwaysOn": ["Support", "Movement"],
-      "MasteryPerks": true
+      "MasteryPerks": true,
+      "OnionKnightBlocksSlots": true
     },
     "Notifications": {
       "LevelUp": true,
@@ -157,6 +158,7 @@
     "Rules.SlotsOutOfCombatOnly": "The secondary skill set and the reaction and passive slots can only change out of combat.",
     "Rules.MainJobAlwaysOn": "Fell Seal rule: learned abilities of these types from the main job work without a slot (Support, Movement, Reaction; [] = off). The slots stay free for other jobs' abilities.",
     "Rules.MasteryPerks": "Fell Seal rule: mastering a job (every ability learned) gives its small permanent perk, kept after changing jobs.",
+    "Rules.OnionKnightBlocksSlots": "Onion Knight (War of the Lions): while it is the main job, the secondary, reaction and passive slots do nothing, as in FFT (false = they work).",
     "Notifications.LevelUp": "Show a notification on job level up.",
     "Notifications.Unlock": "Show a notification when a job unlocks.",
     "Notifications.Mastered": "Show a notification when a job is mastered.",

@@ -1076,3 +1076,38 @@ data "Description" "{{desc:Vehemence}}"
 data "Icon" "PassiveFeature_FightingStyle_GreatWeaponFighting"
 data "Properties" "Highlighted"
 data "Boosts" "CharacterWeaponDamage(1d6,Necrotic);AC(-2)"
+
+// ---------------------------------------------------------------- Onion Knight (War of the Lions)
+// No abilities; Rules.BlocksSlots turns its slots off; the job-level tiers come from levelGrants (highest reached).
+
+new entry "FFTJ_Job_OnionKnight"
+type "PassiveData"
+data "DisplayName" "{{jobname:OnionKnight}}"
+data "Description" "{{jobdesc:OnionKnight}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "{{prof:OnionKnight}}"
+
+new entry "FFTJ_OnionKnight_5"
+type "PassiveData"
+data "DisplayName" "{{str:passive.FFTJ_OnionKnight_5.name}}"
+data "Description" "{{str:passive.FFTJ_OnionKnight_5.desc}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "AC(1);RollBonus(Attack,1)"
+
+new entry "FFTJ_OnionKnight_8"
+type "PassiveData"
+data "DisplayName" "{{str:passive.FFTJ_OnionKnight_8.name}}"
+data "Description" "{{str:passive.FFTJ_OnionKnight_8.desc}}"
+data "Icon" "PassiveFeature_Tough"
+data "Properties" "Highlighted"
+data "Boosts" "Ability(Strength,2);Ability(Dexterity,2);Ability(Constitution,2);Ability(Intelligence,2);Ability(Wisdom,2);Ability(Charisma,2);AC(2);RollBonus(Attack,2)"
+
+new entry "FFTJ_Mastery_OnionKnight"
+type "PassiveData"
+data "DisplayName" "{{masteryname:OnionKnight}}"
+data "Description" "{{masterydesc:OnionKnight}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "AC(1)"

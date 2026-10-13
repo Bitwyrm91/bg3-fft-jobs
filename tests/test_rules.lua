@@ -516,4 +516,45 @@ function S.mastered_and_kill_requirements(w, T)
     T.eq(Rules.Normalize({}).Kills, 0, "older saves start at 0 kills")
 end
 
+function S.onion_knight_grows_with_job_level_and_rests_its_slots(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    local function first(job, typ)
+        for _, aid in ipairs(Data.AbilitiesByJob[job]) do
+            if Data.Abilities[aid].Type == typ then
+                Rules.EnsureJob(char, job).Learned[aid] = true
+                return Data.Abilities[aid]
+            end
+        end
+    end
+    local support, action = first("Squire", "Support"), first("Chemist", "Action")
+    char.Passive1, char.Secondary = support.Id, "Chemist"
+    char.Unlocked.OnionKnight, char.Primary = true, "OnionKnight"
+    Rules.EnsureJob(char, "OnionKnight")
+    local d = Rules.DesiredGrants(Data, char, cfg)
+    T.truthy(d.Passives.FFTJ_Job_OnionKnight)
+    T.falsy(d.Passives.FFTJ_OnionKnight_5, "Lv1: nothing yet")
+    T.falsy(d.Passives[support.Grants.Passives[1]], "a slotted support rests")
+    T.falsy(d.Spells[action.Grants.Spells[1]], "so does the secondary")
+    T.eq(#Rules.ActivePassives(Data, char, cfg), 0)
+    char.Jobs.OnionKnight.Earned = 1100
+    d = Rules.DesiredGrants(Data, char, cfg)
+    T.truthy(d.Passives.FFTJ_OnionKnight_5, "Lv5")
+    T.falsy(d.Passives.FFTJ_OnionKnight_8)
+    char.Jobs.OnionKnight.Earned = 3000
+    d = Rules.DesiredGrants(Data, char, cfg)
+    T.truthy(d.Passives.FFTJ_OnionKnight_8, "Lv8")
+    T.falsy(d.Passives.FFTJ_OnionKnight_5, "only the highest tier")
+    T.truthy(Rules.IsMastered(Data, char, "OnionKnight", cfg), "no abilities: mastered at job level 8")
+    T.truthy(d.Passives.FFTJ_Mastery_OnionKnight)
+    d = Rules.DesiredGrants(Data, char, T.cfg({ Rules = { OnionKnightBlocksSlots = false } }))
+    T.truthy(d.Passives[support.Grants.Passives[1]], "switch off: slots work")
+    T.truthy(d.Spells[action.Grants.Spells[1]])
+    char.Primary = "Squire"
+    d = Rules.DesiredGrants(Data, char, cfg)
+    T.falsy(d.Passives.FFTJ_OnionKnight_8, "tiers only while it is the main job")
+    T.truthy(d.Passives.FFTJ_Mastery_OnionKnight, "the mastery perk stays")
+end
+
 return S

@@ -591,8 +591,18 @@ end
 
 -- The reaction/support/movement abilities in effect, as a list of ids: the slots, then the main job's always-on
 -- ones (cfg nil: the slots only).
+-- War of the Lions' Onion Knight: while it is the main job, no ability from a slot or the secondary works (jobs
+-- with NoSlots; config Rules.OnionKnightBlocksSlots, on unless set to false).
+function Rules.BlocksSlots(data, char, cfg)
+    local job = data.Jobs[char.Primary]
+    return job ~= nil and job.NoSlots == true and not (cfg and cfg.Rules.OnionKnightBlocksSlots == false)
+end
+
 function Rules.ActivePassives(data, char, cfg)
     local out, seen = {}, {}
+    if Rules.BlocksSlots(data, char, cfg) then
+        return out
+    end
     for _, slot in ipairs(Rules.Slots) do
         local ab = char[slot] and data.Abilities[char[slot]]
         if ab and Rules.SlotTypes[slot][ab.Type] and Rules.IsLearned(char, ab.Id) and not seen[ab.Id] then
@@ -689,6 +699,16 @@ function Rules.DesiredGrants(data, char, cfg)
     local primary = data.Jobs[char.Primary]
     if primary then
         add(primary.Innate)
+        -- passives the main job gives by its job level (Onion Knight): only the highest tier reached
+        local tier
+        for _, t in ipairs(primary.LevelGrants or {}) do
+            if cfg and Rules.GetJobLevel(cfg, char, char.Primary) >= t.Level then
+                tier = t
+            end
+        end
+        if tier then
+            add(tier.Grants)
+        end
     end
     -- the Mime's echo for this turn (Service: set at its turn start, cleared after use or at turn end)
     if char.Echo and char.Primary == "Mime" and primary and primary.Implemented then
@@ -704,7 +724,7 @@ function Rules.DesiredGrants(data, char, cfg)
         end
     end
     addLearnedActions(char.Primary)
-    if char.Secondary and char.Secondary ~= char.Primary then
+    if char.Secondary and char.Secondary ~= char.Primary and not Rules.BlocksSlots(data, char, cfg) then
         addLearnedActions(char.Secondary)
     end
     for _, aid in ipairs(active) do

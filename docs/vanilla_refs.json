@@ -194,6 +194,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_DefenseBoost",
+      "FFTJ_Job_OnionKnight",
+      "FFTJ_Mastery_OnionKnight",
+      "FFTJ_OnionKnight_5",
       "FFTJ_Vigilance"
     ]
   },
@@ -252,7 +255,8 @@
     "id": "PassiveFeature_Tough",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_HPBoost"
+      "FFTJ_HPBoost",
+      "FFTJ_OnionKnight_8"
     ]
   },
   {

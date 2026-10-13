@@ -1,6 +1,11 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.19**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.20**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.20: Onion Knight (War of the Lions)
+
+- **Onion Knight** (unlock as in WotL: **Squire Lv6 + Chemist Lv6**). It has **no abilities**, and while it is your job your secondary, reaction and passive slots rest too (FFT's rule; `!fft_set Rules.OnionKnightBlocksSlots false` lets them work). In return it uses **every weapon, armour and shield** and grows with its job level: **Lv5** +1 AC and +1 to attack rolls; **Lv8** +2 to every ability score, +2 AC and +2 to attack rolls. Mastered at job level 8 (3,000 JP): +1 AC for good, whatever your job.
+- Worth checking: with Onion Knight as the job, do the slotted passives and the secondary's actions disappear, and come back when you switch jobs? Do the Lv5 / Lv8 passives show on the character sheet?
 
 ## New in 1.0.0.19: JP re-tuned for 20 jobs, Dark Knight (War of the Lions)
 

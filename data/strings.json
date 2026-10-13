@@ -35,6 +35,10 @@
 
     "status.FFTJ_DOOM.name": "Doom",
     "status.FFTJ_DOOM.desc": "Dies when Doom runs out.",
+    "passive.FFTJ_OnionKnight_5.name": "Onion Knight Lv5",
+    "passive.FFTJ_OnionKnight_5.desc": "+1 AC and +1 to attack rolls while Onion Knight is your job.",
+    "passive.FFTJ_OnionKnight_8.name": "Onion Knight Lv8",
+    "passive.FFTJ_OnionKnight_8.desc": "+2 to every ability score, +2 AC and +2 to attack rolls while Onion Knight is your job.",
     "status.FFTJ_STOP.name": "Stop",
     "status.FFTJ_STOP.desc": "Frozen in time: can't move or act; melee hits are critical. Repeats the Wisdom save each turn.",
     "status.FFTJ_IMMOBILIZE.name": "Immobilize",
