@@ -19,7 +19,34 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
    be devoured without a fight. Until then the raw SE console lines in the reply of 2026-10-13 do it (server context:
    `H = Osi.GetHostCharacter(); X,Y,Z = Osi.GetPosition(H)`, `G = Osi.CreateAt("<root template>", X+3, Y, Z, 0, 1, "")`,
    `Osi.ApplyStatus(G, "FFTJ_SOUL_BRAND", 6, 1, H); Osi.ApplyDamage(G, 999, "Force", H)`).
-3. **GitHub:** nothing more is published (no push, no release) until the user says so. main on GitHub = 1.0.0.47 +
+   **User's try (screenshot, 2026-10-13): failed with "X is nil"** — the first line was typed before the console
+   was in Lua mode (no `S >>` prompt; "Entering server Lua console." came after it), so it never ran. Press Enter on
+   an empty line until `S >>` shows, then run the lines; or one line:
+   `H = Osi.GetHostCharacter(); X,Y,Z = Osi.GetPosition(H); G = Osi.CreateAt("35e843cf-bc73-4754-aaee-fd8272d99ea6", X+3, Y, Z, 0, 1, "")`.
+4. **Soul forms far too strong (user screenshot: a level 1 Imp kill gave a form with Wounding Ray 4d8+3 necrotic,
+   18 m, Eyestalk Action).** Cause: the Imp's F form (Ahriman) borrows the Spectator body 319efbbe, and the Wild Shape
+   rule we use (WildShapeKeepName 9c580a1d) has `ApplySpellsFromTemplate=true`, so a form gets the body's whole
+   vanilla kit. Same body: Spectator B, Quasit F; every form on a creature (non-Wild-Shape) template may carry its
+   kit. Fix idea: own shapeshift rule with `ApplySpellsFromTemplate=false` (only our skills; check the unarmed attack
+   from `UnarmedAbilityFromTemplate`), test at the menu + a load first (custom data files crashed before, cf. DOS2
+   Alignment); audit every form's template kit/HP.
+5. **Soul forms should cost JP to learn, not be learned automatically.** Now Rules.DesiredGrants (Rules.lua ~792)
+   grants both forms at soul tiers 1/3/5. Plan: devouring a soul makes its forms *learnable* on the Soul Collector's
+   board page (only devoured types listed), Learn spends Soul Collector JP (costs in config), grants only learned
+   forms. Size: medium, not huge (one session: Rules + board list + Learn message + config + tests). Ask first:
+   cost per form, do tier upgrades (3/5 souls) also cost JP, both forms bought separately?
+6. Item 1 repeated by the user on 2026-10-13 (job + special job dropdowns).
+8. **Mind flayer form ("squidraken") is "like an Act 2-3 god, way too strong in every way"** (screenshot: Extract
+   Brain 10d10+6d6, 71 HP). Same cause as item 4 (body's vanilla kit copied); also cut its HP/damage. Rebalance
+   every soul form for the act it comes from.
+9. **Console helper confirmed wanted:** the spawn line worked; the user killed the goblin by hand and wants a
+   command that applies Soul Brand and kills the target (item 2's `!fft_soul kill`).
+10. **Job Board UI "needs work, going in a good direction":** REMOVE the job-level progress bar entirely (user: "I
+    don't need a progress bar for job levels"); keep a plain text line like "Level 2 at 200 JP", nothing clipped.
+11. **Heals too strong for easy skills** (screenshot: Hi-Potion = Heal 4d4+4 once per short rest). User: make the
+    potion/heal tiers small steps up; the strong versions should need a spell slot. Audit every heal (Chemist
+    potions, White Magicks Cure line, Cleric/Princess copies, Salve, Chakra, etc.) against BG3 potions/Cure Wounds.
+7. **GitHub:** nothing more is published (no push, no release) until the user says so. main on GitHub = 1.0.0.47 +
    the tester README (dae659b); the repo is private.
 
 **State (2026-10-12, local run):** Part B is done up to the in-game playtest. Built, installed and enabled on the user's PC; at the main menu the mod loads, its client script runs without errors and all 100 stats entries are in the game. **Not seen in an actual game yet** (no save loaded, nothing cast): the server side, JP, the Job Board, every ability. Next: the user's playtest (`PLAYTEST.md`), then fix what they report, then the other 14 jobs.
@@ -119,6 +146,8 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 **1.0.0.46 (2026-10-13, third session; installed with the game closed, NOT seen in game): grants wait while a form is active.** `Service:Reconcile` holds every grant change while the character has WILDSHAPE_ACTIVE (`PendingReconcile[guid]`, repair flag kept) and `OnStatusRemoved(WILDSHAPE_ACTIVE)` re-runs it with repair after `FORM_END_MS` (1 s) once the status is really gone: a polymorph swaps the spellbook (rule `RemovePrevSpells`), so AddSpell/RemoveSpell inside a form may not survive it (unverified either way; this is the safe order). New test `grants_wait_until_the_form_ends`; 169 tests. All 25 boss badge GUIDs checked against the extracted levels (right characters; scratchpad script, same method as tools/check_souls.py).
 
 **1.0.0.47 (2026-10-13, third session; installed with the game closed, NOT seen in game): the Soul Codex item + 10 more Act 1 souls (user: "souls for uncovered act 1 creatures"; the codex "in a chest ... accessible right away without further restriction"; Soul Brand 0 JP = already so).** Codex: our first item root template, `Public/FFTJobs/RootTemplates/_merged.lsx` written by build.py from `souls.json` `codex` (MapKey 3ee4acf3-0164-4966-a312-2cdfdbfd19bf, parent BOOK_Wizards_Tome_Ornate_H 02f7446a (look, OBJ_Book via BASE_BOOK), maxStackAmount 1, DisplayName/Description loca handles) and converted to .lsf by package.ps1 (same loop as the texture bank). `Souls.PlaceCodex` on StartGameplay: no SoulCodex badge and no chest on this level yet → `Game:SpawnNear(CONT_MF_Chest_A 813c005f, host, 1.5)` (GetPosition + FindValidPosition(x,y,z,5,host,1) + `CreateAt(t,x,y,z,0,1,"")`) + `TemplateAddTo(codex, chest, 1, 0)`; meta.CodexChest/CodexLevel; CreateAt failing → badge at once. Osiris `TemplateAddedTo/4` (template, item, holder, addType) with a party holder → badge. The Us dialog/join route is removed. New souls (data/souls.json, map in docs/SOUL_COLLECTOR_MAP.md "Added"): DeepRothe, Kobold, Gremishka, OchreJelly, LavaElemental, WoodWoad, Mimic, Bear (`%f[%a]bear%f[%A]`), Quasit, Phasm; 20 new skills; F forms reuse family skill sets; "rothe" matched "brother" → `deep_rothe`/`deep roth`. 45 soul types, 1555 stats entries, 170 tests, validate/check_refs/check_souls clean. **Unverified in game:** the custom root template loading and its look, CreateAt/FindValidPosition on the nautiloid floor, TemplateAddedTo's holder for a looted item.
+
+**1.0.0.48 (2026-10-13, small changes while paused, NOT seen in game):** Future changes 2/9 (`!fft_soul spawn <type>` / `kill`) and 10 (progress bar removed, text line instead) done; souls_gen exports `Template` per form.
 
 **Next (2026-10-13 evening, after 1.0.0.44; weekly usage 75%, the user stops this mod at ~90%):** the user's playtest of an early game (Act 1): the 1.0.0.22-44 badges, special jobs and the Soul Collector (PLAYTEST.md "New in" sections list what to watch; read the newest SE runtime log first). Then, if usage allows: enemy jobs for Act 1 (first check in game that the AI casts spells added with AddSpell, PHASE2.md item 24), Act 2-3 souls, the 7 extra special jobs (docs/SPECIAL_JOBS.md, last section), the Soul Codex as a real item (custom root template). Helper tools: `tools/jobtool.py`, `tools/release.py`; soul data in `data/souls.json` (`tools/souls_gen.py`).
 

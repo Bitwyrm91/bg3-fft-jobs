@@ -402,16 +402,8 @@ function JobBoard:RenderJob(root, c, j)
         end
         text(root, status)
         if j.NextAt then
-            pcall(function()
-                local bar = root:AddProgressBar()
-                bar.Value = j.Progress or 0
-                bar.Overlay = string.format("Level %d at %s JP earned (%s now)", j.Level + 1, Util.Num(j.NextAt),
-                    Util.Num(j.Earned))
-                bar.Size = { 520, 0 }
-                style(bar, "PlotHistogram", THEME.PlotHistogram)
-                style(bar, "FrameBg", THEME.FrameBg)
-                style(bar, "Text", { 1, 1, 1, 1 })
-            end)
+            text(root, string.format("Level %d at %s JP earned (%s now)", j.Level + 1, Util.Num(j.NextAt),
+                Util.Num(j.Earned)), TEXT.Dim)
         else
             text(root, "Top job level reached.", TEXT.Dim)
         end

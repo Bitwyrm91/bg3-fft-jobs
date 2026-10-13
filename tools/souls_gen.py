@@ -323,7 +323,7 @@ def lua_data(doc):
         forms = {}
         for side in ("B", "F"):
             f = s["forms"][side]
-            forms[side] = {"Name": f["name"], "Spells": {str(t): form_spell(s["id"], side, t) for t in TIERS},
+            forms[side] = {"Name": f["name"], "Template": f["template"], "Spells": {str(t): form_spell(s["id"], side, t) for t in TIERS},
                            "Skills": [{"Name": doc["skills"][k]["name"], "Souls": at}
                                       for k, at in zip(f["skills"], skill_tiers(f, side, s.get("boss")))]}
         souls[s["id"]] = {"Id": s["id"], "Name": s["name"], "Act": s["act"], "Match": s.get("match", []),

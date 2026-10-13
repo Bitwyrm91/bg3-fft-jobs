@@ -1,6 +1,11 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.47**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.48**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.48: test helpers, simpler Job Board
+
+- The job-level progress bar is gone; the board shows "Level N at X JP earned" as text.
+- `!fft_soul spawn <type>` spawns that creature beside you; `!fft_soul kill` applies Soul Brand and kills it (devours its soul).
 
 ## New in 1.0.0.47: the Soul Codex is a book in a chest; 10 more Act 1 souls
 

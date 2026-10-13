@@ -170,11 +170,31 @@ def("fft_badge", "<badge|list>  give the party a badge (testing; special jobs ne
     return result(svc:AddBadge(id))
 end)
 
-def("fft_soul", "<list|add <type> [n]|unlock>  the Soul Codex (testing: add souls, give the Soul Codex)", function(svc, args)
+def("fft_soul", "<list|add <type> [n]|unlock|spawn <type>|kill>  the Soul Codex (testing: add souls, give the Soul Codex, spawn a creature and kill it branded)", function(svc, args)
     local Souls = Ext.Require("Server/Souls.lua")
     local sub = args[1] and string.lower(args[1]) or "list"
     if sub == "unlock" then
         return result(svc:AddBadge(Souls.BADGE))
+    elseif sub == "spawn" then
+        local id = Souls.Find(svc.Data, table.concat(args, " ", 2))
+        if not id then
+            return { "Unknown soul type (one of: " .. table.concat(svc.Data.SoulOrder or {}, ", ") .. ")" }
+        end
+        local guid = svc.Game:SpawnNear(svc.Data.Souls[id].Forms.B.Template, svc.Game:HostCharacter(), 3)
+        Souls.TestTarget = guid
+        return { guid and ("Spawned a " .. svc.Data.Souls[id].Name .. " beside you; !fft_soul kill brands and kills it.")
+            or "Spawning failed (see the log)." }
+    elseif sub == "kill" then
+        local target, host = Souls.TestTarget, svc.Game:HostCharacter()
+        if not target then
+            return { "Nothing to kill: use !fft_soul spawn <type> first." }
+        end
+        Souls.TestTarget = nil
+        local ok, err = pcall(function()
+            Osi.ApplyStatus(target, Souls.BRAND, 6, 1, host)
+            Osi.ApplyDamage(target, 999, "Force", host)
+        end)
+        return { ok and "Branded and killed it." or ("Kill failed: " .. tostring(err)) }
     elseif sub == "add" then
         local count = tonumber(args[#args])
         local last = count and #args - 1 or #args
