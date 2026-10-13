@@ -4,6 +4,24 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **Where the work is:** `main` (the cloud branch `claude/game-modding-research-setup-qgn88h` was merged on 2026-10-12).
 
+## Future changes (user, 2026-10-13; mod work PAUSED by the user, nothing below is started)
+
+1. **Job Board: "Jobs and special jobs should be a dropdown menu."** Each group (Jobs, Special jobs; probably the
+   Monster job too) collapses/expands. Plan: own toggle buttons ("[-] Jobs (22)" / "[+] Special jobs (24)") with the
+   open state in `JobBoard.OpenGroups[id]` (kept between redraws and board openings), drawn in `JobBoard:RenderTiles`
+   instead of the `AddSeparatorText` title. Reason not to use `AddCollapsingHeader`: the board is rebuilt on every
+   click (`self:Render`), and whether SE v33's CollapsingHeader keeps its open state across a rebuild, or has
+   `DefaultOpen`/`OnExpand`, is unverified. Update `tests/test_bosses.lua` (special_jobs_have_their_own_section_...
+   looks for the SeparatorText title). Ask the user: which groups start open (proposal: Jobs open, Special closed).
+2. **Console test helper (user asked how to spawn and kill something for a test):** add `!fft_soul spawn <type>`
+   (the type's BG3-form template beside the host via `Game:SpawnNear`, remembered as the test target) and
+   `!fft_soul kill` (FFTJ_SOUL_BRAND from the host, then `Osi.ApplyDamage(target, 999, "Force", host)`), so a soul can
+   be devoured without a fight. Until then the raw SE console lines in the reply of 2026-10-13 do it (server context:
+   `H = Osi.GetHostCharacter(); X,Y,Z = Osi.GetPosition(H)`, `G = Osi.CreateAt("<root template>", X+3, Y, Z, 0, 1, "")`,
+   `Osi.ApplyStatus(G, "FFTJ_SOUL_BRAND", 6, 1, H); Osi.ApplyDamage(G, 999, "Force", H)`).
+3. **GitHub:** nothing more is published (no push, no release) until the user says so. main on GitHub = 1.0.0.47 +
+   the tester README (dae659b); the repo is private.
+
 **State (2026-10-12, local run):** Part B is done up to the in-game playtest. Built, installed and enabled on the user's PC; at the main menu the mod loads, its client script runs without errors and all 100 stats entries are in the game. **Not seen in an actual game yet** (no save loaded, nothing cast): the server side, JP, the Job Board, every ability. Next: the user's playtest (`PLAYTEST.md`), then fix what they report, then the other 14 jobs.
 
 **Version 1.0.0.2 (2026-10-12, user's request "something that gives me a bunch of job points so I can test without fighting everything"):** a free **JP Training (test)** spell (`Shout_FFTJ_JPTraining`, Inspiring Leader icon) and `!fft_train [amount]`: every party member gets `Test.JPPerCast` (1,000) JP in each job unlocked before the cast; config `Test.Tools` (true) hides it when false. 90 tests pass, `validate_vanilla.py` OK (27 references, 101 entries), packaged and installed (both modsettings copies at version 1.0.0.2). Not smoke-tested at the menu: the only new stats entry is a copy of the Job Board one (which loaded fine) plus a vanilla icon.
