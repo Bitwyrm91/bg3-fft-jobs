@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.27**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.28**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.28: Astrologer (special job 6 of 17)
+
+- **Astrologer** (Orran's job): needs the **Astrologer Badge** (Auntie Ethel: defeated, or spared when you leave Act 1 after meeting her) plus **Time Mage Lv5** and **Mystic Lv4**.
+- **Astrology** has a single art, as in FFT: **Celestial Stasis** (0 JP): every foe within 12 m makes a Wisdom save or is **Stopped, Immobilized and Disabled** for 1 turn (bosses shrug off Stop); once per long rest. FFT hits every foe on the map.
+- While Astrologer is your job: **Star Reading**, +3 to initiative. Main-job equipment: quarterstaffs, light armour. Mastery: you can't be surprised.
+- Worth checking: how many foes does a 12 m burst catch in a normal fight?
 
 ## New in 1.0.0.27: Steel Giant (special job 5 of 17)
 

@@ -90,6 +90,9 @@
   <content contentuid="h7fa0a2a3g15d6g5d3dg874bga064bbde3d05" version="1">You and allies within 6 m gain Reflect for 3 turns. Once per long rest.</content>
   <content contentuid="hf1f9ff33g2a11g5ec3gbc83geaa65a0008aa" version="1">Echo: Carbuncle</content>
   <content contentuid="h16398070g0d82g5a7bgb834g66994bc0ce29" version="1">Carbuncle</content>
+  <content contentuid="h9f4a3824gf49bg5b4dga6c0g37d3b1f71c07" version="1">Every foe within 12 m makes a Wisdom save or is Stopped, Immobilized and Disabled for 1 turn (bosses shrug off Stop). Once per long rest.</content>
+  <content contentuid="h405c6ea3g5391g5efbga8dcg5448bc855631" version="1">Echo: Celestial Stasis</content>
+  <content contentuid="h1a1e37dag74e6g52beg8646gf0d80b6d0c27" version="1">Celestial Stasis</content>
   <content contentuid="hc2226df6gf9edg5b9fg9ff8g336deff7e3ae" version="1">You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.</content>
   <content contentuid="hf3a46cb0g4112g5869g8bf3g10a68ffc15ac" version="1">Echo: Chakra</content>
   <content contentuid="h25bcb0e5g5870g5e70gaa00gcd8766a1fa07" version="1">Chakra</content>
@@ -855,6 +858,10 @@
   <content contentuid="hba0af446g7e8fg51feg8796g1c47ad81e764" version="1">Arithmetician Mastery</content>
   <content contentuid="h4207327cgcffdg5780gb930g333c8d3cff70" version="1">Casts magick by numbers (Arithmeticks): load a learned White, Black or Time Mage or Mystic magick and a number (level, hit points, maximum hit points or distance) on the Job Board, then a rule (prime, multiple of 3, 4 or 5) casts it instantly and for free at every creature in the fight, friend or foe, whose number fits. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h2b309fa1g5403g5469gb74bga9d519748fac" version="1">Job: Arithmetician</content>
+  <content contentuid="h7bd57280g0844g51e8gb938g500a20f71a2f" version="1">You can't be surprised. Earned by mastering Astrologer; kept after changing jobs.</content>
+  <content contentuid="hc142e593gf94eg5183ga90eg352abdee81f7" version="1">Astrologer Mastery</content>
+  <content contentuid="h2a0d8ac3gfdb2g5947g87f9g133b1707486c" version="1">Orran's job. Astrology has a single art, as in FFT: Celestial Stasis halts the stars, and every foe around you is Stopped, Immobilized and Disabled. While Astrologer is your job you read the stars: +3 to initiative. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hed64bca2g71f6g52d2g8b27gd66140d449cf" version="1">Job: Astrologer</content>
   <content contentuid="h842a167fgb060g58b0g8711g87923a648318" version="1">+2 to Performance and Persuasion checks. Earned by mastering Bard; kept after changing jobs.</content>
   <content contentuid="h3fb1c813g7609g58adga6e5gb253aac93ceb" version="1">Bard Mastery</content>
   <content contentuid="he00f9383gfb4ag5500ga8c8g755c75d4e876" version="1">Sings for the party: songs that wrap your allies in healing, speed, strength or magick while you keep singing. Equipment: musical instruments, daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -961,6 +968,8 @@
   <content contentuid="h2d2df22age88cg5dd7g8c19g9e4ce6bf69ac" version="1">Holy Magicks</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
+  <content contentuid="h45ad6cd3gee0ag5024g94b0g87fb2e5ac9db" version="1">While Astrologer is your job you read what the stars hold: +3 to initiative.</content>
+  <content contentuid="he98439c2g9728g5973gab0ag0f1e08c8da2b" version="1">Star Reading</content>
   <content contentuid="hf8f38127gbca0g590dgb6ccg7051bbc5976f" version="1">While Steel Giant is your job you resist poison damage and can't be poisoned.</content>
   <content contentuid="h8da033f2g7c62g5fb5g8c32gf522c746c65e" version="1">Steel Body</content>
   <content contentuid="hed88a027gf2b3g5541gbd6agd477f35f7c9e" version="1">Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.</content>

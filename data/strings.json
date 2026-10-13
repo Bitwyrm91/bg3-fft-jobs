@@ -2,6 +2,8 @@
   "schema": 1,
   "note": "Extra English strings used by stats_src templates as {{str:KEY}}. Ability names/descriptions come from fft_jobs.json ({{name:ID}}, {{desc:ID}}), job passive texts from the job list ({{jobname:ID}}, {{jobdesc:ID}}).",
   "strings": {
+    "StarReading.Name": "Star Reading",
+    "StarReading.Desc": "While Astrologer is your job you read what the stars hold: +3 to initiative.",
     "SteelBody.Name": "Steel Body",
     "SteelBody.Desc": "While Steel Giant is your job you resist poison damage and can't be poisoned.",
     "HolyMagicks.Name": "Holy Magicks",

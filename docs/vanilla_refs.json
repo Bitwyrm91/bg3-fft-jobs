@@ -130,6 +130,13 @@
     ]
   },
   {
+    "id": "Action_StarryForm_Chalice",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_CelestialStasis"
+    ]
+  },
+  {
     "id": "Action_Topple",
     "kind": "icon",
     "usedBy": [
@@ -240,6 +247,7 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_DefenseBoost",
+      "FFTJ_Job_Astrologer",
       "FFTJ_Job_Cleric",
       "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
@@ -258,6 +266,14 @@
       "FFTJ_Doublehand",
       "FFTJ_EquipPolearms",
       "FFTJ_Vehemence"
+    ]
+  },
+  {
+    "id": "PassiveFeature_Generic_Threat",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_Astrologer",
+      "FFTJ_StarReading"
     ]
   },
   {
@@ -1001,6 +1017,7 @@
     "usedBy": [
       "Projectile_FFTJ_ThrowShuriken",
       "Shout_FFTJ_Ashura",
+      "Shout_FFTJ_CelestialStasis",
       "Target_FFTJ_Corruption",
       "Target_FFTJ_Disbelief",
       "Target_FFTJ_Empowerment",
@@ -1318,6 +1335,7 @@
     "usedBy": [
       "Shout_FFTJ_AbyssalBlade",
       "Shout_FFTJ_Ashura",
+      "Shout_FFTJ_CelestialStasis",
       "Shout_FFTJ_UnholySacrifice"
     ]
   },
