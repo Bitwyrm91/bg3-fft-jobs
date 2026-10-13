@@ -100,6 +100,7 @@ function Service:StartGameplay()
     -- boss badges: bosses the story counts as defeated (also before the mod was installed), then the act rule
     Bosses.CheckDefeated(self)
     Bosses.OnLevel(self, self.Level or self.Game:CurrentLevel())
+    Souls.OnLevel(self, self.Level or self.Game:CurrentLevel())
 end
 
 ---------------------------------------------------------------- characters
@@ -923,6 +924,7 @@ function Service:OnCharacterJoinedParty(character)
         self:Reconcile(guid, true)
     end
     Bosses.OnJoined(self, guid) -- a boss who joins hands over its badge (Minthara)
+    Souls.OnJoined(self, guid) -- Us brings the Soul Codex
 end
 
 -- Boss badges (Bosses.lua): a boss died; who meets whom in dialogs.
@@ -935,10 +937,12 @@ end
 
 function Service:OnDialogActorJoined(dialog, instance, actor)
     Bosses.OnDialogActor(self, instance, Util.Guid(actor))
+    Souls.OnDialogActor(self, instance, Util.Guid(actor))
 end
 
 function Service:OnDialogEnded(dialog, instance)
     Bosses.OnDialogEnded(self, instance)
+    Souls.OnDialogEnded(self, instance)
 end
 
 ---------------------------------------------------------------- player choices (Job Board, console)

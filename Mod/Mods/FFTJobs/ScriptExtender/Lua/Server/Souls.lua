@@ -161,6 +161,66 @@ function Souls.Find(data, text)
     return nil
 end
 
+-- The Soul Codex (PHASE2.md item 10): beside "Us", the intellect devourer in the nautiloid's lab. For now it is a
+-- notification and the Job Board, like the boss badges (an item later, with the art): the party gets it when a party
+-- member talks with Us or Us joins; a party that reaches the shore without it (or a save made later) finds it in the
+-- camp's traveller's chest.
+Souls.US = "40bd6b82-2728-410a-bb8a-a805f98556a1" -- S_TUT_Lab_IntellectDevourer
+Souls.CODEX_US = "Beside the brain in the jar lies a codex of stolen souls."
+Souls.CODEX_CAMP = "A codex of stolen souls turned up in your camp's traveller's chest."
+
+local function hasCodex(svc)
+    local badges = svc.State:Meta().Badges
+    return badges ~= nil and badges[Souls.BADGE] == true
+end
+
+function Souls.GiveCodex(svc, reason)
+    if not svc.Ready or hasCodex(svc) or not (svc.Data.Badges and svc.Data.Badges[Souls.BADGE]) then
+        return false
+    end
+    svc.Log.Info("Soul Codex found: " .. reason)
+    svc:AddBadge(Souls.BADGE, nil, reason)
+    return true
+end
+
+-- Osiris DialogActorJoined: Us and a party member in the same dialog.
+function Souls.OnDialogActor(svc, instance, guid)
+    if not instance or not guid or hasCodex(svc) then
+        return
+    end
+    svc.SoulDialogs = svc.SoulDialogs or {}
+    local d = svc.SoulDialogs[instance] or {}
+    svc.SoulDialogs[instance] = d
+    if guid == Souls.US then
+        d.Us = true
+    elseif svc.State:Get(guid) then
+        d.Party = true
+    end
+    if d.Us and d.Party then
+        Souls.GiveCodex(svc, Souls.CODEX_US)
+    end
+end
+
+function Souls.OnDialogEnded(svc, instance)
+    if svc.SoulDialogs then
+        svc.SoulDialogs[instance] = nil
+    end
+end
+
+function Souls.OnJoined(svc, guid)
+    if guid == Souls.US then
+        Souls.GiveCodex(svc, Souls.CODEX_US)
+    end
+end
+
+-- A level started: past the nautiloid (Data.LevelActs act 1 or later) without the codex, it is in the camp chest.
+function Souls.OnLevel(svc, level)
+    local act = level and svc.Data.LevelActs and svc.Data.LevelActs[level]
+    if act and act >= 1 then
+        Souls.GiveCodex(svc, Souls.CODEX_CAMP)
+    end
+end
+
 -- One line per devoured type for !fft_soul list.
 function Souls.Lines(svc)
     local out = {}

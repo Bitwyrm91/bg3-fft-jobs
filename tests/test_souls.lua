@@ -31,7 +31,7 @@ function S.soul_types_come_from_template_stats_and_name(w, T)
 end
 
 function S.the_soul_codex_opens_the_job_for_the_party(w, T)
-    local svc = T.boot(w)
+    local svc = T.boot(w, { level = "TUT_Avernus_C" })
     local Rules = Ext.Require("Server/Rules.lua")
     T.falsy(svc.State:Get(T.TAV).Unlocked.SoulCollector)
     local ok, msg = svc:AddBadge("SoulCodex")
@@ -114,6 +114,30 @@ function S.known_soul_types_are_marked_in_a_fight(w, T)
     Souls.Add(svc, "Goblin", 1)
     w.fire("EnteredCombat", gob2, "c2")
     T.truthy(w.chars[GOB2].statuses.FFTJ_SOUL_KNOWN)
+end
+
+local US = "40bd6b82-2728-410a-bb8a-a805f98556a1"
+
+function S.talking_with_us_on_the_nautiloid_gives_the_soul_codex(w, T)
+    local svc = T.boot(w, { level = "TUT_Avernus_C" })
+    w.newChar(US, { name = "Intellect Devourer", player = false, party = false })
+    w.fire("DialogActorJoined", "TUT_Lab_Us", 3, "S_TUT_Lab_IntellectDevourer_" .. US, 0)
+    T.falsy(svc.State:Meta().Badges.SoulCodex, "Us alone")
+    w.fire("DialogActorJoined", "TUT_Lab_Us", 3, "S_Player_" .. T.TAV, 1)
+    T.truthy(svc.State:Meta().Badges.SoulCodex)
+    T.contains(w.notifications, "Beside the brain in the jar lies a codex of stolen souls. The party found the Soul Codex.")
+    T.truthy(svc.State:Get(T.TAV).Unlocked.SoulCollector)
+end
+
+function S.past_the_nautiloid_the_soul_codex_is_in_the_camp_chest(w, T)
+    local svc = T.boot(w, { level = "TUT_Avernus_C" })
+    T.falsy(svc.State:Meta().Badges.SoulCodex)
+    w.fire("LevelGameplayStarted", "WLD_Main_A", 0)
+    T.truthy(svc.State:Meta().Badges.SoulCodex)
+    T.contains(w.notifications, "A codex of stolen souls turned up in your camp's traveller's chest.")
+    local before = #w.notifications
+    w.fire("LevelGameplayStarted", "SCL_Main_A", 0)
+    T.eq(#w.notifications, before, "only once")
 end
 
 function S.soul_console_command(w, T)

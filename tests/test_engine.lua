@@ -544,7 +544,7 @@ function S.errors_in_handlers_do_not_escape(w, T)
 end
 
 function S.jp_training_spell_trains_the_party(w, T)
-    local svc = T.boot(w)
+    local svc = T.boot(w, { level = "TUT_Avernus_C" }) -- (on the nautiloid: no Soul Codex, so only the TIC jobs)
     T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JPTraining, "testing tool granted by default")
     local before = #w.notifications
     T.cast(w, T.TAV, "Shout_FFTJ_JPTraining")

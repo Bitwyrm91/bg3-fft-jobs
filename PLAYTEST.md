@@ -1,6 +1,11 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.42**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.43**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.43: finding the Soul Codex
+
+- On the nautiloid: talk with the **intellect devourer in the lab** (the brain in the jar that becomes "Us"), or let it join you: "Beside the brain in the jar lies a codex of stolen souls." The **Soul Collector** job opens for the whole party.
+- Past the nautiloid without it (or a save from later, like your current ones): when the game loads, "A codex of stolen souls turned up in your camp's traveller's chest." It is a notification and the Job Board unlock for now, like the boss badges (an item later, with the art). `!fft_soul unlock` still works.
 
 ## New in 1.0.0.42: the Soul Collector (monster job), Act 1 souls
 
