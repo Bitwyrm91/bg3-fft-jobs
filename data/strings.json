@@ -109,6 +109,16 @@
 
     "Beastmaster.Name": "Beastmaster",
     "Beastmaster.Desc": "Allied beasts, familiars and summons within 6 m of you get +1 to attack rolls and +1 damage. (FFT: gives nearby monsters a hidden ability.)",
-    "status.FFTJ_BEASTMASTER_FX.desc": "+1 to attack rolls and +1 damage near a Mime (Beastmaster)."
+    "status.FFTJ_BEASTMASTER_FX.desc": "+1 to attack rolls and +1 damage near a Mime (Beastmaster).",
+    "status.FFTJ_SOUL_BRAND.name": "Soul Brand",
+    "status.FFTJ_SOUL_BRAND.desc": "Branded by a Soul Collector: if this creature dies before the brand fades, the party devours its soul.",
+    "status.FFTJ_SOUL_KNOWN.name": "Soul Known",
+    "status.FFTJ_SOUL_KNOWN.desc": "The party has already devoured a soul of this kind (Soul Codex on the Job Board).",
+    "passive.FFTJ_SoulCharges.name": "Soul Charges",
+    "passive.FFTJ_SoulCharges.desc": "2 Wild Shape charges for Soul Incarnation (they come back after a short rest).",
+    "passive.FFTJ_SoulCollector_4.name": "Soul Collector Lv4",
+    "passive.FFTJ_SoulCollector_4.desc": "Job level 4 as your job: one more Wild Shape charge.",
+    "passive.FFTJ_SoulCollector_7.name": "Soul Collector Lv7",
+    "passive.FFTJ_SoulCollector_7.desc": "Job level 7 as your job: two more Wild Shape charges."
   }
 }

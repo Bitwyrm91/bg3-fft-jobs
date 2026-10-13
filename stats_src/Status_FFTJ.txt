@@ -674,3 +674,23 @@ new entry "FFTJ_CRUSH_ACCESSORY"
 type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
+
+// Soul Collector: the brand (Server/Souls.lua devours the soul of a creature that dies with it) and the marker on
+// enemies whose soul type the party already devoured.
+new entry "FFTJ_SOUL_BRAND"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_SOUL_BRAND.name}}"
+data "Description" "{{str:status.FFTJ_SOUL_BRAND.desc}}"
+data "Icon" "Spell_Divination_HuntersMark"
+data "StackId" "FFTJ_SOUL_BRAND"
+data "StatusPropertyFlags" "OverheadOnTurn"
+
+new entry "FFTJ_SOUL_KNOWN"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_SOUL_KNOWN.name}}"
+data "Description" "{{str:status.FFTJ_SOUL_KNOWN.desc}}"
+data "Icon" "Skill_Druid_WildShape"
+data "StackId" "FFTJ_SOUL_KNOWN"
+data "StatusPropertyFlags" "DisableOverhead"

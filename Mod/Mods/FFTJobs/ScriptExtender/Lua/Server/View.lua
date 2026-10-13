@@ -68,6 +68,7 @@ function View.Char(svc, guid)
         JPBoost = Rules.HasJPBoost(data, char, cfg),
         AlwaysOnTypes = Util.DeepCopy(cfg.Rules.MainJobAlwaysOn or {}),
         Arith = View.Arith(svc, char),
+        Souls = View.Souls(svc, char),
         InCombat = inCombat,
         Locked = {
             Job = cfg.Rules.ChangeJobOutOfCombatOnly and inCombat,
@@ -136,6 +137,34 @@ function View.Char(svc, guid)
         v.Jobs[#v.Jobs + 1] = entry
     end
     return v
+end
+
+-- The Soul Codex (Soul Collector): every soul type of the data, devoured or not, with its forms and the skills each
+-- tier gives.
+function View.Souls(svc, char)
+    local data = svc.Data
+    if not data.Souls then
+        return nil
+    end
+    local out = { Types = {}, Devoured = 0, Total = #data.SoulOrder }
+    for _, id in ipairs(data.SoulOrder) do
+        local s = data.Souls[id]
+        local n = (char.Souls or {})[id] or 0
+        if n > 0 then
+            out.Devoured = out.Devoured + 1
+            local forms = {}
+            for _, side in ipairs({ "B", "F" }) do
+                local f = s.Forms[side]
+                local skills = {}
+                for _, sk in ipairs(f.Skills) do
+                    skills[#skills + 1] = { Name = sk.Name, Souls = sk.Souls, Has = n >= sk.Souls }
+                end
+                forms[#forms + 1] = { Name = f.Name, Skills = skills }
+            end
+            out.Types[#out.Types + 1] = { Id = id, Name = s.Name, Count = n, Forms = forms }
+        end
+    end
+    return out
 end
 
 -- Arithmeticks (Arithmetician): the learned magicks and numbers, and the loaded ones (the first while none is chosen,

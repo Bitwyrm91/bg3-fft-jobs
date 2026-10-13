@@ -1,4 +1,4 @@
-# Soul Collector: BG3 creature to FFT monster mapping (APPROVED by the user 2026-10-13, not built yet)
+# Soul Collector: BG3 creature to FFT monster mapping (APPROVED by the user 2026-10-13; Act 1 souls built in 1.0.0.42)
 
 Written 2026-10-13 by the scheduled run while the user was away. **Nothing here is built.** PHASE2.md item 14: "Propose
 the full mapping table to the user before building the forms."
@@ -119,3 +119,11 @@ otherwise (the user's rule: theme **and** tier).
 - Forms work like Wild Shape (the decided rules in PHASE2.md items 15-17: level-scaled, 2 charges per short rest,
   essences 1 / 3 / 5); research BG3's Wild Shape statuses first.
 - The "Soul Known" marker goes on enemies whose type the party already devoured.
+
+## Built (1.0.0.42): Act 1 souls
+
+`data/souls.json` holds the 26 Act 1 soul types of the table above with both forms, their templates and skills (FFT
+forms: the family's TIC monster skills; BG3 forms: two new skills each); `tools/souls_gen.py` generates the stats;
+`Server/Souls.lua` runs Soul Brand, the Soul Codex and the marker (STATUS.md 1.0.0.42 has the details). Still to do:
+the Soul Codex item (nautiloid chest near "Us", camp-chest fallback), boss forms (Lucavi for the big villains), the
+Act 2 and Act 3 souls and the unmatched FFT monsters as Act 3 forms.

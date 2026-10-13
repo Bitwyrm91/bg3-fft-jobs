@@ -1,6 +1,17 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.41**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.42**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.42: the Soul Collector (monster job), Act 1 souls
+
+- **Open it:** `!fft_soul unlock` gives the party the **Soul Codex** (the chest on the nautiloid comes in the next version). The **Soul Collector** tile is in its own section at the bottom of the Job Board; no job levels needed.
+- **Soul Brand** (0 JP, bonus action, 18 m, can't be resisted, no cooldown): brand a foe for 1 turn. If it dies while branded, by anyone's hand, the party devours its soul. A notification names the soul and the new forms.
+- **Soul Incarnation** (0 JP, bonus action, one Wild Shape charge; 2 charges per short rest, 3 at job level 4, 4 at job level 7): a menu of forms, two per devoured soul type: the BG3 creature itself and its FFT monster (goblin → Goblin and Goblin (FFT); owlbear → Owlbear and **Chocobo**; gnoll → Gnoll and Wisenkin; spider → Giant Spider and Coeurl; ...). 26 Act 1 soul types.
+- **Forms** work like Wild Shape: the creature's body, hit points and natural attacks, plus extra hit points per level; your gear and spells wait until you Dismiss or drop to 0. FFT forms get their monster skills at 1, 3 and 5 souls of that type; BG3 forms get two new skills at 3 and 5 souls; 3 souls also give +1 AC, 5 souls +2 AC and +1 to attack rolls.
+- Enemies whose soul type the party already devoured show **Soul Known** when a fight starts.
+- The Soul Codex on the Job Board (click the Soul Collector tile) lists every devoured soul, its forms and skills.
+- Test fast: `!fft_soul add goblin 3`, `!fft_soul list`.
+- **Watch for:** a form that looks wrong or keeps your gear; skills missing in a form; the Wild Shape charge count; whether Soul Brand counts a kill (the log says `soul devoured:` or `soul without a form:` with the creature's name).
 
 ## New in 1.0.0.41: badges for 7 more special jobs (jobs not built yet)
 

@@ -24,6 +24,8 @@ Events.Osiris = {
     { "Died", 1, "OnDied" },
     { "DialogActorJoined", 4, "OnDialogActorJoined" },
     { "DialogEnded", 2, "OnDialogEnded" },
+    -- Soul Collector (Souls.lua): the brand falls off; arity from the same Osi.Events.lua
+    { "StatusRemoved", 4, "OnStatusRemoved" },
 }
 
 function Events.Register(svc, log)

@@ -11,7 +11,7 @@ function S.help_lists_every_command(w, T)
     for name in pairs(w.commands) do
         T.contains(text, "!" .. name)
     end
-    T.eq(#w.console("fft_help"), 1 + 25, "25 commands")
+    T.eq(#w.console("fft_help"), 1 + 26, "26 commands")
 end
 
 function S.party_and_status(w, T)

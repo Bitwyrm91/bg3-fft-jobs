@@ -211,6 +211,8 @@
   <content contentuid="h6c7a1987g31a9g5de5g8a14g6aa3a345cf40" version="1">8d10 necrotic damage to a creature within 18 m; Constitution save for half. Undead and constructs cannot be targeted. Once per long rest.</content>
   <content contentuid="h80397737ge83bg584cg92d9g33c5c02891e0" version="1">Echo: Death</content>
   <content contentuid="h20430412g7126g548fg9730g2dc0dc6147c2" version="1">Death</content>
+  <content contentuid="hffc47cbag2f42g540cga287gef2ec31c11ee" version="1">One more Wild Shape charge for Soul Incarnation (or Wild Shape).</content>
+  <content contentuid="he31b2183g0b5dg5fc2g90b0gd4051ecff3a5" version="1">Deep Reserves</content>
   <content contentuid="h9bd22111g2e96g5e0ag9eb9gfb673ea2978c" version="1">+1 AC.</content>
   <content contentuid="h59669fd4gc2f7g5c91gb191gd8e8ffbcb29d" version="1">Defense Boost</content>
   <content contentuid="ha1ddbc45g3edeg57c4gaa2fg2667811d6490" version="1">A foe within 9 m makes a Wisdom save or hands over gold: 10 times its level (once per creature, shared with Steal Gil).</content>
@@ -316,6 +318,8 @@
   <content contentuid="ha86a86bdgbda1g5876g896fgd801aaf52a8b" version="1">Faerie</content>
   <content contentuid="haac4b87ag2060g5e32g81aagf8ff12e92a93" version="1">When a spell damages you, you gain Faith for 3 turns (+2 to spell attack rolls and spell save DC, -2 to saving throws).</content>
   <content contentuid="hcb231a93g145eg558cgbb39g5c549384d7cc" version="1">Faith Surge</content>
+  <content contentuid="hae6102d3g7df1g586cgb4dfg7578cee41134" version="1">+1 maximum hit point per level, in every form and out of it.</content>
+  <content contentuid="h1f3d8ea2g7038g578dg954fgee486ee46222" version="1">Feral Vigor</content>
   <content contentuid="h3a72554eg01e5g5b99g811fg4acb264f6e5a" version="1">Arithmeticks: Fervor</content>
   <content contentuid="h94fb2c2dg83ccg5c4fgbf16gd1943aaa8623" version="1">A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: it can't cast spells, deals 2 more damage and has -2 AC. Once per short rest.</content>
   <content contentuid="hfc95f1c6gf1c7g5cb9g97a4gcc8ca56847a7" version="1">Echo: Fervor</content>
@@ -779,6 +783,9 @@
   <content contentuid="h8a28f77fg2903g5df4g80ccgbc1d0867b103" version="1">Only while you stand on ice. Enemies within 2 m of a point up to 18 m away take 1d6 cold damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Silenced for 2 turns.</content>
   <content contentuid="hd8b0ebbcg1f96g58edgaffcge35eaa851208" version="1">Echo: Snowstorm</content>
   <content contentuid="h48e8e0e3g5b71g53f0gaa76g6bd15678525d" version="1">Snowstorm</content>
+  <content contentuid="h01ec9626g7f7bg5e83ga8e6gdd6c5f12c5a9" version="1">Bonus action. Brand a creature within 18 m for 1 turn: it can't be resisted. If it dies while branded (by anyone's hand), the party devours its soul and learns its forms (Soul Incarnation). No cooldown.</content>
+  <content contentuid="h50c0c981g07a2g5201g9754g0ac8dfadd912" version="1">Echo: Soul Brand</content>
+  <content contentuid="ha9dffde4g7222g52aagb071gae4e0604ae93" version="1">Soul Brand</content>
   <content contentuid="h81db473bgbf32g5640g9e14g8e357f0002dc" version="1">When a creature damages you, it takes 1d6 necrotic damage and you regain 1d6 hit points. Once per turn.</content>
   <content contentuid="h4e37f8b0gf373g5a4cga6b2g24c6691df7f2" version="1">Soulbind</content>
   <content contentuid="h4e1f1c50g793bg5a22gbc73g78370fc48b84" version="1">When you take damage, gain +3 m movement for 2 turns.</content>
@@ -1124,6 +1131,10 @@
   <content contentuid="h0633fffeg4341g5844gb856g4def867e6537" version="1">Soldier Mastery</content>
   <content contentuid="h61a2ccd8g1f75g57dbgafe4g6eac3f6f7ae4" version="1">Cloud's job. Limit: blade energy pushed to the limit. Slashes that fly 6-9 m (Braver, Cross Slash, Blade Burst, Ascension, Omnislash), meteors (Meteorain), a stopping strike (Finishing Touch) and the mightiest blow, Cherry Blossom. Equipment: shortswords, longswords, greatswords, light armour, medium armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="haee1f9b3g8427g5c56ga545g98896ca5f46e" version="1">Job: Soldier</content>
+  <content contentuid="h982d9c30gceb1g5e2cg935bgcbb8ad524c1e" version="1">One more Wild Shape charge for Soul Incarnation. Earned by mastering Soul Collector; kept after changing jobs.</content>
+  <content contentuid="h4ffd3833ge8bbg5330g890egc816df156ba9" version="1">Soul Collector Mastery</content>
+  <content contentuid="h3d5a9237g2a19g53a0gb01cg648f43b6a93c" version="1">Brands foes and devours their souls (Soul Brand). Each soul type the party devours gives two forms, the creature itself and an FFT monster, taken Wild Shape style with Soul Incarnation (2 charges per short rest; 3 at job level 4, 4 at job level 7). The Soul Codex on the Job Board lists every soul. Equipment: daggers, quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hd246a5a1g600fg5329gb10dg36f36d71839e" version="1">Job: Soul Collector</content>
   <content contentuid="hc5849d96g97bbg5c1cg8ca2gacb22e322600" version="1">+5 maximum hit points. Earned by mastering Squire; kept after changing jobs.</content>
   <content contentuid="hdcb217cag424ag53e2g9f4dg35fe0b2239a9" version="1">Squire Mastery</content>
   <content contentuid="ha696ff50ga5b0g55abg99e6ga3a560f604b0" version="1">Basic fighter. Starting job. Equipment: daggers, shortswords, longswords, handaxes, battleaxes, flails, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -1156,6 +1167,540 @@
   <content contentuid="h1062f6bfg6495g5f8aga4d9g041b98c04646" version="1">White Mage Mastery</content>
   <content contentuid="h0e9f7479g515cg5cfegb38eg2dbe82726e7c" version="1">Healing, revival and protection. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hf12d1373g3fc7g5d45gb675g90d8be9f9bb8" version="1">Job: White Mage</content>
+  <content contentuid="h9e24cbf5gc765g5db5ga5cag96e4e3ffef6d" version="1">Take the form of Giant Badger (the BG3 creature; Giant Badger soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h30b44b9bg8da4g56dfga59bg0e9be5587fdf" version="1">Soul Form: Giant Badger</content>
+  <content contentuid="h7494b457g0a48g5cbbg8a10gb319e318d1d2" version="1">Take the form of Giant Badger (the BG3 creature; Giant Badger soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Burrowing Claws. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h06681f64gd268g582eg99aegf4e19140d94c" version="1">Soul Form: Giant Badger</content>
+  <content contentuid="hd2411ac8g7a7cg5b1bgbfa1ga7edc2a155a8" version="1">Take the form of Giant Badger (the BG3 creature; Giant Badger soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Burrowing Claws, Thick Hide. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hb00abb43ge675g5607gbce3g67b0e77f0df1" version="1">Soul Form: Giant Badger</content>
+  <content contentuid="hcac62293g4bfdg5f6ag88b3g053e1e1aa436" version="1">Take the form of Swine (an FFT monster; Giant Badger soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Reckless Charge. Uses a Wild Shape charge.</content>
+  <content contentuid="h0352d604g98f4g5100g88b0g5f142cddd61f" version="1">Soul Form: Swine</content>
+  <content contentuid="h2900a407g94f2g529egbd1bg1aefe760e09b" version="1">Take the form of Swine (an FFT monster; Giant Badger soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Reckless Charge, Snort. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="he477717cgd2d5g5b11g8656g37b26a8d8ec3" version="1">Soul Form: Swine</content>
+  <content contentuid="h7a8ed38agff95g5691g8601g5cc090521bc4" version="1">Take the form of Swine (an FFT monster; Giant Badger soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Reckless Charge, Snort, Toot. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h1636d343g48a2g5ae8g9854g5bb4e737e9ae" version="1">Soul Form: Swine</content>
+  <content contentuid="h308a8769g3a30g53d5g8684gc23dc906f09c" version="1">Take the form of Boar (the BG3 creature; Boar soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hf645e9b6gd014g52e2gbcd8g694c77587f4b" version="1">Soul Form: Boar</content>
+  <content contentuid="hafcd2d9bg734dg53abgba8ag6ba1c913eb3a" version="1">Take the form of Boar (the BG3 creature; Boar soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tusk Charge. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h66ad4590gc95dg501dg9d51g3b08b7b1c798" version="1">Soul Form: Boar</content>
+  <content contentuid="h4718dc1eg76a4g5c0bg8096g84e6e2ba73ad" version="1">Take the form of Boar (the BG3 creature; Boar soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tusk Charge, Relentless. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h2a1440d8gbf73g5223gb390ga54be58c5ff5" version="1">Soul Form: Boar</content>
+  <content contentuid="h988e80f0g11b6g5096gb409gbe9b3e75a419" version="1">Take the form of Pig (an FFT monster; Boar soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Reckless Charge. Uses a Wild Shape charge.</content>
+  <content contentuid="h5ebf29b0g3ea0g59eeg84a4g9fb973af9562" version="1">Soul Form: Pig</content>
+  <content contentuid="hd5e3fe8dg0244g5413g95c9g9c36b0e1f41b" version="1">Take the form of Pig (an FFT monster; Boar soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Reckless Charge, Squeal. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="haca7d30fg5c5fg58ffgbbedgce8a69b85cc5" version="1">Soul Form: Pig</content>
+  <content contentuid="h5ae0d514g2b5eg5453gbdb1g57eb9f5e8fed" version="1">Take the form of Pig (an FFT monster; Boar soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Reckless Charge, Squeal, Bequeath Bacon. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hb4fd4fdeg77e2g5d33g8774g81464eaaa9c4" version="1">Soul Form: Pig</content>
+  <content contentuid="h86adaa88gc1e9g5378g9518g72d7026edbce" version="1">Take the form of Bugbear (the BG3 creature; Bugbear soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h19633426g5529g56e8gab6dg4ae8e01738cc" version="1">Soul Form: Bugbear</content>
+  <content contentuid="h8cb43be3g74bfg584aga750g545b819f8cd6" version="1">Take the form of Bugbear (the BG3 creature; Bugbear soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Surprise Attack. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h7a9bafddg2a2fg5a92ga670g74eb2a390f83" version="1">Soul Form: Bugbear</content>
+  <content contentuid="haa4c713eg9ae7g5e06gaf3cg673897f4f13f" version="1">Take the form of Bugbear (the BG3 creature; Bugbear soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Surprise Attack, Heavy Swing. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h0ade4378g9734g536dg8a5ag9e7d4690bc76" version="1">Soul Form: Bugbear</content>
+  <content contentuid="h34040b4fg7d75g55b7gb55cg67e7e6aeb907" version="1">Take the form of Gobbledygook (an FFT monster; Bugbear soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Goblin Punch. Uses a Wild Shape charge.</content>
+  <content contentuid="hf00d3f57g432eg5811gac97g0700421af840" version="1">Soul Form: Gobbledygook</content>
+  <content contentuid="hccd428e8gf3cfg59e2g9b89g611c8da2fc4e" version="1">Take the form of Gobbledygook (an FFT monster; Bugbear soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Goblin Punch, Spin Punch. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h143a477fg9ddfg5a37g8c65g5ec780807307" version="1">Soul Form: Gobbledygook</content>
+  <content contentuid="h2b7a151egcf61g5e5bgb147g92fb2a8a5d97" version="1">Take the form of Gobbledygook (an FFT monster; Bugbear soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Goblin Punch, Spin Punch, Bloodfeast. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hc4dc03c4gf07eg5441gbbfdgc2fa0f438a52" version="1">Soul Form: Gobbledygook</content>
+  <content contentuid="hf6e52303gfe0bg5d99ga4b0g19c1ffad6395" version="1">Take the form of Bulette (the BG3 creature; Bulette soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="he407b0a2gf84bg52b9g8d0ag6543bfbfb46a" version="1">Soul Form: Bulette</content>
+  <content contentuid="hafa8c1f6gd1a5g57a7gb5b4g09e9a3187a54" version="1">Take the form of Bulette (the BG3 creature; Bulette soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Deadly Leap. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hb7adbde2g656ag5ccbgbcc6gcb91aa863e22" version="1">Soul Form: Bulette</content>
+  <content contentuid="h1e8a6b83gcc0bg5ef9g85cag2105ab90a7f9" version="1">Take the form of Bulette (the BG3 creature; Bulette soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Deadly Leap, Burrow Strike. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h2289b5f9gbf0eg55e0g8048g0c5d364d8380" version="1">Soul Form: Bulette</content>
+  <content contentuid="h30587069g66a5g5150gb8b7gdca60420a185" version="1">Take the form of Behemoth King (an FFT monster; Bulette soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore. Uses a Wild Shape charge.</content>
+  <content contentuid="h15801b7bgf7d6g590agb36bg132aba04ef5a" version="1">Soul Form: Behemoth King</content>
+  <content contentuid="h05da8cb2ge525g5b96gb4d5ged1ff7579ce7" version="1">Take the form of Behemoth King (an FFT monster; Bulette soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore, Heave. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hfc33cf96g71d3g55a1gbcf8g24d390305951" version="1">Soul Form: Behemoth King</content>
+  <content contentuid="hb0724a39gbc97g5950gbde0g46a9fed5baf1" version="1">Take the form of Behemoth King (an FFT monster; Bulette soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore, Heave, Almagest. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h1a379c9fgdd94g5c1egac64gf769123126e7" version="1">Soul Form: Behemoth King</content>
+  <content contentuid="hd13597acg30adg5ba9g8889g64ab88a797f1" version="1">Take the form of Animated Armour (the BG3 creature; Construct soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="he2c04c96g3e2bg5d89g8656g667384d51364" version="1">Soul Form: Animated Armour</content>
+  <content contentuid="h750d31e4gacffg583cga8cegfdb2d99b4dbc" version="1">Take the form of Animated Armour (the BG3 creature; Construct soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Shield Bash. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h41149823g2aacg56e3gb933gd9022769b7db" version="1">Soul Form: Animated Armour</content>
+  <content contentuid="he5557ac3g3d27g541cg85b1g4886493f6c6f" version="1">Take the form of Animated Armour (the BG3 creature; Construct soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Shield Bash, Iron Guard. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h5485ddbbgf43ag5602gb10dg132be18fb1a1" version="1">Soul Form: Animated Armour</content>
+  <content contentuid="h3096792bg8906g50cbga435g4e16d9143ea0" version="1">Take the form of Automaton (an FFT monster; Construct soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Destroy. Uses a Wild Shape charge.</content>
+  <content contentuid="h9c0d8633g2d86g55aaga988g0861683f4edd" version="1">Soul Form: Automaton</content>
+  <content contentuid="hd1a20e7bga2dcg5c5bga63cgd47f4ef64e08" version="1">Take the form of Automaton (an FFT monster; Construct soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Destroy, Compress. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h1ce57e13g6706g5382g9926g00249549bd9e" version="1">Soul Form: Automaton</content>
+  <content contentuid="h99b1e219g8822g5685gbc93gad263dc1107a" version="1">Take the form of Automaton (an FFT monster; Construct soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Destroy, Compress, Energize. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h77285463g40d2g5e26g9946g206bfae98de8" version="1">Soul Form: Automaton</content>
+  <content contentuid="h97b9ad03gb290g5693ga78fgc10f4deacb4c" version="1">Take the form of Giant Eagle (the BG3 creature; Giant Eagle soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hf9e23214gdd2fg5307g822ag4ed2db7bc0d8" version="1">Soul Form: Giant Eagle</content>
+  <content contentuid="h64d52e68g3f73g59b1gb8dcgae7a53b6fc47" version="1">Take the form of Giant Eagle (the BG3 creature; Giant Eagle soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Diving Strike. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hbb2807c7gf3f9g5936gbe5fg2ca29b3b9154" version="1">Soul Form: Giant Eagle</content>
+  <content contentuid="hde91616fg4b40g567bg9bffg5fbd20596452" version="1">Take the form of Giant Eagle (the BG3 creature; Giant Eagle soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Diving Strike, Wing Gust. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="he3f35b75gf5dfg5267g839fg05517b97fc47" version="1">Soul Form: Giant Eagle</content>
+  <content contentuid="h00f00c70gad40g5151g8db8g79c9e3692405" version="1">Take the form of Black Chocobo (an FFT monster; Giant Eagle soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Choco Beak. Uses a Wild Shape charge.</content>
+  <content contentuid="hb07df646g6471g5d79g811bgef4e322f0968" version="1">Soul Form: Black Chocobo</content>
+  <content contentuid="hc30f98deg7daeg5ec2g9ab1g6cf7cf424b9f" version="1">Take the form of Black Chocobo (an FFT monster; Giant Eagle soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Choco Beak, Choco Pellets. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="ha3ca419ag382ag5d38g804cg7a546c56d072" version="1">Soul Form: Black Chocobo</content>
+  <content contentuid="h60ca4249gefebg5cccgb593gf78399f770d8" version="1">Take the form of Black Chocobo (an FFT monster; Giant Eagle soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Choco Beak, Choco Pellets, Choco Meteor. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h43593607g2694g5e6bg82a4g121644b35bd0" version="1">Soul Form: Black Chocobo</content>
+  <content contentuid="hc584e1eagf5a4g5a39g91a7g0af0e5cb8c10" version="1">Take the form of Ghoul (the BG3 creature; Ghoul soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h179d9f33gc636g5051g889bge88943fdae8c" version="1">Soul Form: Ghoul</content>
+  <content contentuid="h8798f9a0g053dg564dg9255gb0c0d2e9cf5e" version="1">Take the form of Ghoul (the BG3 creature; Ghoul soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Paralysing Claw. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hfbe52fedg47cfg5238g9348gc2841178cae1" version="1">Soul Form: Ghoul</content>
+  <content contentuid="he063aa90g7a15g55f0gbaa2gd9ed5e272a02" version="1">Take the form of Ghoul (the BG3 creature; Ghoul soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Paralysing Claw, Ravenous Bite. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h807790e3g94ddg5db0ga81dg12b3d4226751" version="1">Soul Form: Ghoul</content>
+  <content contentuid="hc3b38409g4b71g5d9fga3b3g541c6797d60e" version="1">Take the form of Ghast (an FFT monster; Ghoul soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Sleep Touch. Uses a Wild Shape charge.</content>
+  <content contentuid="h2067d2b1g1111g597fg9234g6aa0d4138b3e" version="1">Soul Form: Ghast</content>
+  <content contentuid="haca6b462g39eag54f1gb242g78ce8515184f" version="1">Take the form of Ghast (an FFT monster; Ghoul soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Sleep Touch, Drain Touch. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h872627d6gea76g508egb054ge865a91193d7" version="1">Soul Form: Ghast</content>
+  <content contentuid="h30373575ga470g5f39ga818g4d15faf1fb97" version="1">Take the form of Ghast (an FFT monster; Ghoul soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Sleep Touch, Drain Touch, Zombie Touch. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h8b6786e8g4433g56c3g8b4cge6142ee2fd57" version="1">Soul Form: Ghast</content>
+  <content contentuid="h269d8998g6f2bg565ega9b5gf73848f87d80" version="1">Take the form of Gnoll (the BG3 creature; Gnoll soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h28ddd65cg99e6g5717g8f69g55d1ea67cec7" version="1">Soul Form: Gnoll</content>
+  <content contentuid="h38bb18a2g02beg50adgbd48g56e38df690c0" version="1">Take the form of Gnoll (the BG3 creature; Gnoll soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Rampage. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hf6e88720g4543g5c81gbf3ag9addc8c24de8" version="1">Soul Form: Gnoll</content>
+  <content contentuid="h442c4a6eg7d05g5c4ag8c19g73e845389e7d" version="1">Take the form of Gnoll (the BG3 creature; Gnoll soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Rampage, Hyena Howl. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h78bed1eag40f5g54d6gb88age8be8586a87a" version="1">Soul Form: Gnoll</content>
+  <content contentuid="h9cc07b29gd289g5ec9ga825g7b4de78e8988" version="1">Take the form of Wisenkin (an FFT monster; Gnoll soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pickaxe. Uses a Wild Shape charge.</content>
+  <content contentuid="h1d16b80fg5ab9g5fb0g9e70gbbbbaef3eedd" version="1">Soul Form: Wisenkin</content>
+  <content contentuid="h11606a3cg4780g5a93g8dc9gcf05a6320e33" version="1">Take the form of Wisenkin (an FFT monster; Gnoll soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pickaxe, Feral Spin. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hbba3332dg1ed2g5704g8bbegdf1c9693e9be" version="1">Soul Form: Wisenkin</content>
+  <content contentuid="hc806e5b2ge1d1g50e7gacdfg0aa3eac35ea0" version="1">Take the form of Wisenkin (an FFT monster; Gnoll soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pickaxe, Feral Spin, Beef Up. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hc9bf0d7eg77d9g5570gad8cg549eb65e2d3f" version="1">Soul Form: Wisenkin</content>
+  <content contentuid="h6dcd1dc0gd8e1g557cg950cg4044de147c08" version="1">Take the form of Goblin (the BG3 creature; Goblin soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h1b054e89gd6fcg5583gaf86g9527e1570268" version="1">Soul Form: Goblin</content>
+  <content contentuid="h4364f292g4807g5443gb4f4g28c0559dfbbe" version="1">Take the form of Goblin (the BG3 creature; Goblin soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Dirty Trick. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="ha3505320gccd0g5e8cgbc35g68892eed5c87" version="1">Soul Form: Goblin</content>
+  <content contentuid="h5ade0266ge048g5bd5g91b7g83a7e7915f8f" version="1">Take the form of Goblin (the BG3 creature; Goblin soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Dirty Trick, Gang Up. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h369239d4g89c5g55dbga897g815ab12ba424" version="1">Soul Form: Goblin</content>
+  <content contentuid="hfbae1f1cg06e4g57c3gacaegf362e6e2e350" version="1">Take the form of Goblin (FFT) (an FFT monster; Goblin soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tackle. Uses a Wild Shape charge.</content>
+  <content contentuid="h749ac7fcg7152g5cccgbd04g3f7d4ebbed0e" version="1">Soul Form: Goblin (FFT)</content>
+  <content contentuid="h47c92672gaec8g5693g8253g26ceb7bf465e" version="1">Take the form of Goblin (FFT) (an FFT monster; Goblin soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tackle, Goblin Punch. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h031b7997ge3a7g5793gaec9g3253f8f6b7c6" version="1">Soul Form: Goblin (FFT)</content>
+  <content contentuid="h24519d97gd10cg5b39g9494g5958eb737283" version="1">Take the form of Goblin (FFT) (an FFT monster; Goblin soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tackle, Goblin Punch, Eye Gouge. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h9bd672e9g9d72g51d2gad25gafd5d0d8e437" version="1">Soul Form: Goblin (FFT)</content>
+  <content contentuid="h10b28c7fg9a4fg57f8ga10fgd64ce934582a" version="1">Take the form of Harpy (the BG3 creature; Harpy soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h5d38c8a7g3ba0g5312g8f79g15bd87ed97f7" version="1">Soul Form: Harpy</content>
+  <content contentuid="h347cf2deg2c50g5344g977eg4f11eb0bb9d3" version="1">Take the form of Harpy (the BG3 creature; Harpy soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Luring Song. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hc08e4750gbddeg5ff1g8d2eg92266c8d07f2" version="1">Soul Form: Harpy</content>
+  <content contentuid="h74b8ccecg0fb0g5b7bg81ddg9783f8d9d80d" version="1">Take the form of Harpy (the BG3 creature; Harpy soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Luring Song, Talon Rake. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h4df0aef8g678fg511fg8198gbbdcfc3b59a6" version="1">Soul Form: Harpy</content>
+  <content contentuid="hfd58f8b6g6162g5107g99fbg702da9c9c3a4" version="1">Take the form of Jura Aevis (an FFT monster; Harpy soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Peck. Uses a Wild Shape charge.</content>
+  <content contentuid="ha317c44fgd847g573cg86efg8a7bf734027c" version="1">Soul Form: Jura Aevis</content>
+  <content contentuid="h4f08fb43gde43g56abg9cdfg9a7e333e87dc" version="1">Take the form of Jura Aevis (an FFT monster; Harpy soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Peck, Talon Dive. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h24d9836cgb3f6g55b7g958cga194f5855dd8" version="1">Soul Form: Jura Aevis</content>
+  <content contentuid="hea210b7dg36b7g5997g9e6dgfae32588d6aa" version="1">Take the form of Jura Aevis (an FFT monster; Harpy soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Peck, Talon Dive, Glitterlust. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hb437cec5gec31g5435gadc5g6e58b6fd180f" version="1">Soul Form: Jura Aevis</content>
+  <content contentuid="hc5478409gb19cg536fg8acbg7edf21212001" version="1">Take the form of Hook Horror (the BG3 creature; Hook Horror soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h7ee81dadg5eabg5f46ga50egdf394750c54f" version="1">Soul Form: Hook Horror</content>
+  <content contentuid="he2cb32d2g01afg5b4fg9f3bg1a206291d072" version="1">Take the form of Hook Horror (the BG3 creature; Hook Horror soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Hook Rend. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h77c88615gf737g5b0bg924eg7d31ccb2db48" version="1">Soul Form: Hook Horror</content>
+  <content contentuid="hf490ffedg52e0g53dcg81e5g0155549d3b5d" version="1">Take the form of Hook Horror (the BG3 creature; Hook Horror soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Hook Rend, Echo Screech. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h08a9d98cg3249g5783g9320ge23968bf27b0" version="1">Soul Form: Hook Horror</content>
+  <content contentuid="h254d6d0fg1f6fg5b8fg8a4eg0388c0e61369" version="1">Take the form of Behemoth (an FFT monster; Hook Horror soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore. Uses a Wild Shape charge.</content>
+  <content contentuid="h3f82227bgf006g549bgb2b9gf88ba0e091e8" version="1">Soul Form: Behemoth</content>
+  <content contentuid="hb8c3a61ag1252g5253ga451g5f2fdc0b0777" version="1">Take the form of Behemoth (an FFT monster; Hook Horror soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore, Heave. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h8b834bfegac86g5527g866fge0859b4c46a8" version="1">Soul Form: Behemoth</content>
+  <content contentuid="h8071ae8eg2327g53f4gad7cg82e8c48ee887" version="1">Take the form of Behemoth (an FFT monster; Hook Horror soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore, Heave, Twister. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h906ebebfg0325g5d50g8478gf532b9dc7519" version="1">Soul Form: Behemoth</content>
+  <content contentuid="hc52b0abcgaa6bg51d0g8cc4g232f162922e0" version="1">Take the form of Imp (the BG3 creature; Imp soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hbd0f4ae9ga82fg547cg8c96g0efeb785aae1" version="1">Soul Form: Imp</content>
+  <content contentuid="h437911c6gdae4g5e7cg9e93g244312ce31c3" version="1">Take the form of Imp (the BG3 creature; Imp soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Sting. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="haca05752gf76ag5e21g9b27gf8e8cbb735d0" version="1">Soul Form: Imp</content>
+  <content contentuid="h7f7a7121g8a15g5defgadc7ge9943e50320b" version="1">Take the form of Imp (the BG3 creature; Imp soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Sting, Hellish Spark. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h2536c800g67b4g5713ga709g9a6c3882f43a" version="1">Soul Form: Imp</content>
+  <content contentuid="h2c28717dgc6f0g50f7g9649g378780e87378" version="1">Take the form of Ahriman (an FFT monster; Imp soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Wing Buffet. Uses a Wild Shape charge.</content>
+  <content contentuid="h41f53486gcc67g504eg82edg6e6d7659caba" version="1">Soul Form: Ahriman</content>
+  <content contentuid="hc25624c7g6faag5436g86ddgadc8a9675624" version="1">Take the form of Ahriman (an FFT monster; Imp soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Wing Buffet, Dread Gaze. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hfc14fcf8ge7afg5073ga70eg93f9d088df04" version="1">Soul Form: Ahriman</content>
+  <content contentuid="h599b43d8gd36fg588agaedfg3e9dfa4dfdf5" version="1">Take the form of Ahriman (an FFT monster; Imp soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Wing Buffet, Dread Gaze, Doom. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h12e0e2ccga4b8g5800gb521g6d7518d69cbb" version="1">Soul Form: Ahriman</content>
+  <content contentuid="he5394474ge530g5cdag87a8gede2000d8323" version="1">Take the form of Intellect Devourer (the BG3 creature; Intellect Devourer soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h24037d58gf489g5ed9g8200gb1144a59202e" version="1">Soul Form: Intellect Devourer</content>
+  <content contentuid="h401a3f36gc6beg54c3ga12dg47f9ec9f3383" version="1">Take the form of Intellect Devourer (the BG3 creature; Intellect Devourer soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Devour Intellect. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h424c5fb6g64f4g59f1ga093gfeee49e47e6b" version="1">Soul Form: Intellect Devourer</content>
+  <content contentuid="haf022127g4757g5b1cgad1dgb74c167fca74" version="1">Take the form of Intellect Devourer (the BG3 creature; Intellect Devourer soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Devour Intellect, Psychic Lash. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hfdd3ef20g287ag50fdgbd9dg69ff91076c32" version="1">Soul Form: Intellect Devourer</content>
+  <content contentuid="hf3f317d3ge922g5603g921dgfbd20079dc7e" version="1">Take the form of Squidraken (an FFT monster; Intellect Devourer soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tentacles. Uses a Wild Shape charge.</content>
+  <content contentuid="h815f23e1gaf6dg551bg84cbgadbff20fe7df" version="1">Soul Form: Squidraken</content>
+  <content contentuid="h2bff4206g1f1cg5adbgbdc8g35a68001ed90" version="1">Take the form of Squidraken (an FFT monster; Intellect Devourer soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tentacles, Ink. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h64b5dc34gb2c5g5fa9g8756g3e82810181c7" version="1">Soul Form: Squidraken</content>
+  <content contentuid="h9a2f6e4agd832g57cdga362g6e8838d49c20" version="1">Take the form of Squidraken (an FFT monster; Intellect Devourer soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tentacles, Ink, Mind Blast. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h8d1f82b8g0172g52afgae16g77c14ba4fc29" version="1">Soul Form: Squidraken</content>
+  <content contentuid="h88c4cb51g1154g5a98g952ag0953dd777614" version="1">Take the form of Kuo-toa (the BG3 creature; Kuo-toa soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hdaa2a309g84d9g5cf0g813eg9f40b22fed97" version="1">Soul Form: Kuo-toa</content>
+  <content contentuid="h1b6986a6g4ff9g5c65g9106g315f16ac4573" version="1">Take the form of Kuo-toa (the BG3 creature; Kuo-toa soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pincer Staff. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h9087f6bfge5bcg53dag8516g15c2ca80e0a2" version="1">Soul Form: Kuo-toa</content>
+  <content contentuid="hc58db790g8a04g54c3gb828gd90eae2f616b" version="1">Take the form of Kuo-toa (the BG3 creature; Kuo-toa soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pincer Staff, Sticky Shield. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hd3be30eegad52g50b4gaae6g2708df2e5adf" version="1">Soul Form: Kuo-toa</content>
+  <content contentuid="haf00b5c3g0829g5c8cg9829gd7dc5dc97d9c" version="1">Take the form of Piscodaemon (an FFT monster; Kuo-toa soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tentacles. Uses a Wild Shape charge.</content>
+  <content contentuid="heed04773g1bd0g594cgb4cag3c49fd82276b" version="1">Soul Form: Piscodaemon</content>
+  <content contentuid="h9b1c5ec0g555fg5c3dg9106gefe667a1bfb2" version="1">Take the form of Piscodaemon (an FFT monster; Kuo-toa soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tentacles, Ink. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hd9b10828gf7b2g551aga9f2g0dcbba5217e5" version="1">Soul Form: Piscodaemon</content>
+  <content contentuid="h82864d04gfb17g5131g958eg23ff75b0782d" version="1">Take the form of Piscodaemon (an FFT monster; Kuo-toa soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tentacles, Ink, Dischord. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h397cbdecg65b3g5e80gaa73gf9c6567bc6aa" version="1">Soul Form: Piscodaemon</content>
+  <content contentuid="h4fbc2b57g5aedg5674gb932g12b90f926572" version="1">Take the form of Mephit (the BG3 creature; Mephit soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hf53eff28g0c0ag57b9g81f2g304b7d32f51b" version="1">Soul Form: Mephit</content>
+  <content contentuid="h185502e4gaa7fg5389g9f00gc31494d9900f" version="1">Take the form of Mephit (the BG3 creature; Mephit soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Mephit Breath. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h4f2d8693gef85g51acga0a6g70716cb3923b" version="1">Soul Form: Mephit</content>
+  <content contentuid="h32a4c10dg3e2fg52feg877eg5835aae7f368" version="1">Take the form of Mephit (the BG3 creature; Mephit soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Mephit Breath, Death Burst. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hdec51c57g71d1g5922gac01g740dcc859b18" version="1">Soul Form: Mephit</content>
+  <content contentuid="h63d4d455g1d01g56ebg9f49g0471f9c77ede" version="1">Take the form of Bomb (an FFT monster; Mephit soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Flame Attack. Uses a Wild Shape charge.</content>
+  <content contentuid="h38b8b984g6479g5dddg91f4g854592a3340e" version="1">Soul Form: Bomb</content>
+  <content contentuid="h9488e5a8g6050g5ba7ga12cg107eff6a9352" version="1">Take the form of Bomb (an FFT monster; Mephit soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Flame Attack, Spark. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h49298a98gad2eg5843g8267gb19a3390ca4a" version="1">Soul Form: Bomb</content>
+  <content contentuid="hc9c6f49bg8eeeg51a1ga0f0g437c6802a324" version="1">Take the form of Bomb (an FFT monster; Mephit soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Flame Attack, Spark, Self-Destruct. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hbe6b7248gc18ag5ebcga592g59b14f79f25f" version="1">Soul Form: Bomb</content>
+  <content contentuid="hbdd36046g481ag55d1gb418g6b82fc289752" version="1">Take the form of Mind Flayer (the BG3 creature; Mind Flayer soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h1a14b75eg0bceg5a49gbc6ag302a70aa949e" version="1">Soul Form: Mind Flayer</content>
+  <content contentuid="h1a4883cage93cg53cdg9968gf433ae352711" version="1">Take the form of Mind Flayer (the BG3 creature; Mind Flayer soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Psychic Blast. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hc7b38b52g38e0g50fbgac85g7242ea5877bd" version="1">Soul Form: Mind Flayer</content>
+  <content contentuid="ha8c9e424gdb45g5762gb288g914efb76f90e" version="1">Take the form of Mind Flayer (the BG3 creature; Mind Flayer soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Psychic Blast, Extract Brain. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hcfa347f2ge9e8g59f2gbbfcgc499de233b5b" version="1">Soul Form: Mind Flayer</content>
+  <content contentuid="h040ca1e8g1906g515ag9b12g2e0e0c51f8a5" version="1">Take the form of Mindflayer (FFT) (an FFT monster; Mind Flayer soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Mind Blast. Uses a Wild Shape charge.</content>
+  <content contentuid="ha934e921ged8bg5046ga985g89cbe6ec7140" version="1">Soul Form: Mindflayer (FFT)</content>
+  <content contentuid="h8eca709cgbe15g5bb5ga5beg9d80b1174a24" version="1">Take the form of Mindflayer (FFT) (an FFT monster; Mind Flayer soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Mind Blast, Dischord. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h71e67f44gfa95g52b0gbdd5g8ac7ac8e28f3" version="1">Soul Form: Mindflayer (FFT)</content>
+  <content contentuid="h970bbdbbge4f4g5eb8g92a3g24c0991b1d24" version="1">Take the form of Mindflayer (FFT) (an FFT monster; Mind Flayer soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Mind Blast, Dischord, Level Drain. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h5dfe0d44g10c7g5652g8cf5g059a5030d258" version="1">Soul Form: Mindflayer (FFT)</content>
+  <content contentuid="hcb9d5134g9a3dg5292g9b5fgae6b0d277e82" version="1">Take the form of Minotaur (the BG3 creature; Minotaur soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h69df8f36gfe87g5db6g90d1g90c0b09ce87d" version="1">Soul Form: Minotaur</content>
+  <content contentuid="h95ea4320gdadag5164gbf4cgc37f8fae8c86" version="1">Take the form of Minotaur (the BG3 creature; Minotaur soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore Charge. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h681c4e12g0813g5f8dg8360gc8129dffb6ed" version="1">Soul Form: Minotaur</content>
+  <content contentuid="h310933e2g357bg55bbg98dfg2c3aa2f5d702" version="1">Take the form of Minotaur (the BG3 creature; Minotaur soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Gore Charge, Labyrinth Roar. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h31404252gef44g5d3ag99b3gedddf24f753c" version="1">Soul Form: Minotaur</content>
+  <content contentuid="h651033edg5fabg584fgacf0g35768ff07140" version="1">Take the form of Minotaur (FFT) (an FFT monster; Minotaur soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pickaxe. Uses a Wild Shape charge.</content>
+  <content contentuid="h5a16b51ag087bg50bbg9a0fg519c5fc6819f" version="1">Soul Form: Minotaur (FFT)</content>
+  <content contentuid="h24741f2cg0ac0g5b7cga316gec19a0a18ccf" version="1">Take the form of Minotaur (FFT) (an FFT monster; Minotaur soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pickaxe, Earthsplitter. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hfc494912gee09g54begbeeeg7ce7fbd1afd8" version="1">Soul Form: Minotaur (FFT)</content>
+  <content contentuid="h570953d6ge59eg580eg9938g2f81a3e14f59" version="1">Take the form of Minotaur (FFT) (an FFT monster; Minotaur soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Pickaxe, Earthsplitter, Beef Up. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h17ea44e3g2ec3g55e2ga11eg13a5fbb4544f" version="1">Soul Form: Minotaur (FFT)</content>
+  <content contentuid="h2212a0ffg45a8g5a41ga73dg824560f51c80" version="1">Take the form of Myconid (the BG3 creature; Myconid soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="he22c7d1dgad4ag521fg9115g026dee38797c" version="1">Soul Form: Myconid</content>
+  <content contentuid="h9cdd6ff4g84fag569bgade5g7c7078e971f0" version="1">Take the form of Myconid (the BG3 creature; Myconid soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Spore Cloud. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h2b3d3a18g6301g5ae1ga023g3a0672ccf593" version="1">Soul Form: Myconid</content>
+  <content contentuid="hd0ddf636gcb09g5594g8dacg0ab082dad372" version="1">Take the form of Myconid (the BG3 creature; Myconid soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Spore Cloud, Pacifying Spores. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h8ee288c7g76c0g59faga147gb74ca1f7d08a" version="1">Soul Form: Myconid</content>
+  <content contentuid="h6185dbbfg0ba3g5cbfga5c9gd6e3db43d77d" version="1">Take the form of Malboro (an FFT monster; Myconid soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Lick. Uses a Wild Shape charge.</content>
+  <content contentuid="hefcebd26g2dcfg5337g8baegff83dc8f7131" version="1">Soul Form: Malboro</content>
+  <content contentuid="hf080500fg8d17g54aag9e40g0a635320a6c7" version="1">Take the form of Malboro (an FFT monster; Myconid soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Lick, Goo. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="ha4f6b19egc21fg5defg8fe7ge6dc49b6c714" version="1">Soul Form: Malboro</content>
+  <content contentuid="h2deb3cb8ge63cg576cgbdccg526635156093" version="1">Take the form of Malboro (an FFT monster; Myconid soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Lick, Goo, Bad Breath. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h8cae7d7bg7bddg500fgbed6ge5d54f1e474a" version="1">Soul Form: Malboro</content>
+  <content contentuid="h94c69220gcc74g584dgbf03g550b7eb2f2cb" version="1">Take the form of Ogre (the BG3 creature; Ogre soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h34e4a6fbg2cc5g5a4ega156g31f736f67685" version="1">Soul Form: Ogre</content>
+  <content contentuid="ha0eb13efgf57cg56c8ga917g940a842c070f" version="1">Take the form of Ogre (the BG3 creature; Ogre soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Club Smash. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="ha7d92c50ga1d1g532cg8f26gc78203eab872" version="1">Soul Form: Ogre</content>
+  <content contentuid="hb5b3da1ega62dg5a2dgafb9g7c9c67e4d891" version="1">Take the form of Ogre (the BG3 creature; Ogre soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Club Smash, Boulder Toss. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="he6b6412eg7e67g52e4g938ag5b3919e3c73d" version="1">Soul Form: Ogre</content>
+  <content contentuid="h6d50aa1dgfd98g52e5ga762g3d1a6ca5d578" version="1">Take the form of Sekhret (an FFT monster; Ogre soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Feral Spin. Uses a Wild Shape charge.</content>
+  <content contentuid="h6c5077cfg280fg5ba4gb445g28dcd1b3ed68" version="1">Soul Form: Sekhret</content>
+  <content contentuid="h822651a3ge47eg5d46g8d01g4df54c634976" version="1">Take the form of Sekhret (an FFT monster; Ogre soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Feral Spin, Earthsplitter. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hf97252f4gf585g569aga54fg4db36f3b9e3c" version="1">Soul Form: Sekhret</content>
+  <content contentuid="he634fde0gb49ag55a7ga028g01f82b059e32" version="1">Take the form of Sekhret (an FFT monster; Ogre soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Feral Spin, Earthsplitter, Breathe Fire. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hce6b303fg143eg51e3g84cbgd8e2441e258a" version="1">Soul Form: Sekhret</content>
+  <content contentuid="hbd6a319fg485fg5fb1gabc5g472011111df1" version="1">Take the form of Owlbear (the BG3 creature; Owlbear soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h0f5dd44eg5cedg5573g8af2g180e84a0b9e6" version="1">Soul Form: Owlbear</content>
+  <content contentuid="hcbabddffgaaf9g5a64gabbegced6be7a1bf9" version="1">Take the form of Owlbear (the BG3 creature; Owlbear soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Rend. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h50b349aeg9fadg58d1g8b67g3a9466142b16" version="1">Soul Form: Owlbear</content>
+  <content contentuid="h374a7f30g7ed2g5a85g96d8g4708b168a18f" version="1">Take the form of Owlbear (the BG3 creature; Owlbear soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Rend, Terrifying Screech. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h3b811ce1g0fbcg5696ga600gbf50433d1b25" version="1">Soul Form: Owlbear</content>
+  <content contentuid="h93783babg4e25g5b3dgb96fg375b6fcb298a" version="1">Take the form of Chocobo (an FFT monster; Owlbear soul, 1+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Choco Beak. Uses a Wild Shape charge.</content>
+  <content contentuid="hd0282c05g3fd6g5331gbe5cga8b070bf635c" version="1">Soul Form: Chocobo</content>
+  <content contentuid="h43e76d8ag5c93g5b95g970agc1bec53c08d8" version="1">Take the form of Chocobo (an FFT monster; Owlbear soul, 3+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Choco Beak, Choco Cure. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="he0e56070gf3cag5fedgb188gb95398fc1f47" version="1">Soul Form: Chocobo</content>
+  <content contentuid="h170b3a6ag30dcg5151ga3eag8d23283a54b2" version="1">Take the form of Chocobo (an FFT monster; Owlbear soul, 5+ devoured): its body, hit points and natural attacks, plus 6 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Choco Beak, Choco Cure, Choco Esuna. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h616a157bg373cg5d07g82b6g77fd457a379c" version="1">Soul Form: Chocobo</content>
+  <content contentuid="h15c56028ge9d6g5855gbf74gc81817ac4e63" version="1">Take the form of Redcap (the BG3 creature; Redcap soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hc2091371g1c7bg57f0g9289g4ee7e1babf06" version="1">Soul Form: Redcap</content>
+  <content contentuid="h090897b0gf426g518dg8b82g1a51e7266019" version="1">Take the form of Redcap (the BG3 creature; Redcap soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Iron Boot Stomp. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h1c81fb06g8481g5976gb524ge0cfb4ae9727" version="1">Soul Form: Redcap</content>
+  <content contentuid="h991e3c8fge059g5b69gbdf6gf66108f98885" version="1">Take the form of Redcap (the BG3 creature; Redcap soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Iron Boot Stomp, Bloody Cap. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h8113ff92ga254g5224g9c2cg7718030f6f53" version="1">Soul Form: Redcap</content>
+  <content contentuid="hd5ceda76g2400g514cgaeeegda1466adb764" version="1">Take the form of Black Goblin (an FFT monster; Redcap soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tackle. Uses a Wild Shape charge.</content>
+  <content contentuid="h8d417b15gac3bg5c42g8ddcg688501de0eae" version="1">Soul Form: Black Goblin</content>
+  <content contentuid="hfbfd107dgbfa9g59d0gb4abg29ceb79f2e63" version="1">Take the form of Black Goblin (an FFT monster; Redcap soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tackle, Eye Gouge. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h90303ed8gad1bg5699g8c3bg63cd3a9003ad" version="1">Soul Form: Black Goblin</content>
+  <content contentuid="h4e275e2eg8391g5814ga3e6g88ced5ca07a6" version="1">Take the form of Black Goblin (an FFT monster; Redcap soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Tackle, Eye Gouge, Spin Punch. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="he73cef27gebe4g5ebag93b3gdb2968b8e614" version="1">Soul Form: Black Goblin</content>
+  <content contentuid="h6aa3ee7fg9853g5b40g917fg4d0800cb59a0" version="1">Take the form of Skeleton (the BG3 creature; Skeleton soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hc1f6093fg8eabg5363g8409g6085b82de614" version="1">Soul Form: Skeleton</content>
+  <content contentuid="h4ad762d7g90feg5d96gb3f3gc3aca7badf9e" version="1">Take the form of Skeleton (the BG3 creature; Skeleton soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Bone Shards. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h67ae24a7g3760g5a88gbaf7g873f8c4523ff" version="1">Soul Form: Skeleton</content>
+  <content contentuid="he796faaegd3f5g5885gaa02gc7c4a525aed7" version="1">Take the form of Skeleton (the BG3 creature; Skeleton soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Bone Shards, Undying. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h2adcfac6g0ec1g5e4eg9521g3699d3b1eb16" version="1">Soul Form: Skeleton</content>
+  <content contentuid="h14491912ge707g5a8agad8fg8557476b2643" version="1">Take the form of Skeleton (FFT) (an FFT monster; Skeleton soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Chop. Uses a Wild Shape charge.</content>
+  <content contentuid="hbd3bc1afg8470g55b3g822dgeef4da290a18" version="1">Soul Form: Skeleton (FFT)</content>
+  <content contentuid="h9cbc1d33g608dg5cfagbfa9g53d8be65cc3e" version="1">Take the form of Skeleton (FFT) (an FFT monster; Skeleton soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Chop, Ice Anima. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h3b9b2ad7gbc17g5524gb5a8ga59aa2807b50" version="1">Soul Form: Skeleton (FFT)</content>
+  <content contentuid="h71ad3ccag3d53g5f03g8d21g8e20caec32d9" version="1">Take the form of Skeleton (FFT) (an FFT monster; Skeleton soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Chop, Ice Anima, Thunder Anima. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hb09db74dg21f3g58f6gbb0cg67c92e5a0f50" version="1">Soul Form: Skeleton (FFT)</content>
+  <content contentuid="h8c459963g336ag56d4ga2c3ge57de56355e4" version="1">Take the form of Spectator (the BG3 creature; Spectator soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h6858d612ge28bg5e55g80f9g89dace641130" version="1">Soul Form: Spectator</content>
+  <content contentuid="h103109ccge3fbg5c39gbda5g7d63b0768c07" version="1">Take the form of Spectator (the BG3 creature; Spectator soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Paralysing Ray. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h0ea2dcc5g5d53g5a8bgac0cg811b5debfa81" version="1">Soul Form: Spectator</content>
+  <content contentuid="h7fec5315g19eag5900g9306gb7f4e392d2cf" version="1">Take the form of Spectator (the BG3 creature; Spectator soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Paralysing Ray, Fear Ray. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h1b64168fgd867g5d3cg8d90g378dec224bd2" version="1">Soul Form: Spectator</content>
+  <content contentuid="h0834f873g0901g50bdg830ag4a5c882577e3" version="1">Take the form of Floating Eye (an FFT monster; Spectator soul, 1+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Wing Buffet. Uses a Wild Shape charge.</content>
+  <content contentuid="hd759c323g8442g51deg9d25g09f546fd46ea" version="1">Soul Form: Floating Eye</content>
+  <content contentuid="h65f7ae28g2ca8g56f8g97e0g6fd5984fba51" version="1">Take the form of Floating Eye (an FFT monster; Spectator soul, 3+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Wing Buffet, Dread Gaze. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hed2b679agf67eg5cd5gaf77gd84b74f27532" version="1">Soul Form: Floating Eye</content>
+  <content contentuid="h2b865087gb3a0g52c6g96d3g6f434ca255b6" version="1">Take the form of Floating Eye (an FFT monster; Spectator soul, 5+ devoured): its body, hit points and natural attacks, plus 5 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Wing Buffet, Dread Gaze, Bewitching Gaze. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hcd06c66fgdd04g5be0gbebag587781059235" version="1">Soul Form: Floating Eye</content>
+  <content contentuid="h74861b8dgc107g504cg8fd7gb39ae38f78fb" version="1">Take the form of Giant Spider (the BG3 creature; Spider soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h04ef6098g3838g5e46ga907gd6d52bb7faf7" version="1">Soul Form: Giant Spider</content>
+  <content contentuid="hbb50bc3fge7feg5126ga32dg7f3fefc708f1" version="1">Take the form of Giant Spider (the BG3 creature; Spider soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Web Spit. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="hede4759cgbbf4g53e6gac00g536e3dbd74ad" version="1">Soul Form: Giant Spider</content>
+  <content contentuid="he550d56fg8a3eg5588gbbfag409dea6dd8de" version="1">Take the form of Giant Spider (the BG3 creature; Spider soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Web Spit, Venom Bite. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h5f8d3a14g9a38g52d6gb9dag715a59d541d1" version="1">Soul Form: Giant Spider</content>
+  <content contentuid="hc95060a4g17edg51b9g86a8g1e64efafc1a3" version="1">Take the form of Coeurl (an FFT monster; Spider soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Claw. Uses a Wild Shape charge.</content>
+  <content contentuid="hc2b250f3g19e4g5635g9b69ga5d04f0ee715" version="1">Soul Form: Coeurl</content>
+  <content contentuid="h467c5272g2cd7g5b5eg9298g16f9125530dd" version="1">Take the form of Coeurl (an FFT monster; Spider soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Claw, Venom Fang. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h67fea3d0ga8aeg5545g9728ge6811926350a" version="1">Soul Form: Coeurl</content>
+  <content contentuid="hf42c32b7g3796g59d4g94b9gda5a8bf64775" version="1">Take the form of Coeurl (an FFT monster; Spider soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Claw, Venom Fang, Blaster. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hda2fd7e9g7868g5460ga7dag32f210b74d25" version="1">Soul Form: Coeurl</content>
+  <content contentuid="h91b3eb7fg30ecg5eabg826dg432e49fee1a5" version="1">Take the form of Twig Blight (the BG3 creature; Twig Blight soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="hd3a3cf17g6bf1g5338ga5d9g8fa3600db2ab" version="1">Soul Form: Twig Blight</content>
+  <content contentuid="h73a3f5aage149g535dga566g24d1ac0b650e" version="1">Take the form of Twig Blight (the BG3 creature; Twig Blight soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Thorn Lash. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h6db5a49cg60efg5037gb10cg094afa1dbe98" version="1">Soul Form: Twig Blight</content>
+  <content contentuid="h42860cd5g2040g5cadg910eg1e9f4470fc58" version="1">Take the form of Twig Blight (the BG3 creature; Twig Blight soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Thorn Lash, Root Grasp. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h66560124g3c49g5743g98e9g5c99d4e4623f" version="1">Soul Form: Twig Blight</content>
+  <content contentuid="h28f44919g608dg59ccg8a05gb1c2646a1c53" version="1">Take the form of Dryad (an FFT monster; Twig Blight soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Leaf Rain. Uses a Wild Shape charge.</content>
+  <content contentuid="h84bd08a6gec93g5a22ga9c8g2edc88355e53" version="1">Soul Form: Dryad</content>
+  <content contentuid="h29fa52b0g94a6g52a8gaab1gc07abdc7d5d2" version="1">Take the form of Dryad (an FFT monster; Twig Blight soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Leaf Rain, Life Nymph. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h1768b496g6cc3g58a7ga441g0d524277935a" version="1">Soul Form: Dryad</content>
+  <content contentuid="h1ebf6d22g41acg53adg9bd4g45f018223044" version="1">Take the form of Dryad (an FFT monster; Twig Blight soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Leaf Rain, Life Nymph, Guardian Nymph. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hfd5fef6bgbf89g5463g9004g8ceda1d87963" version="1">Soul Form: Dryad</content>
+  <content contentuid="h5b6cbd5egc922g503bg9ad9g4988799eeca7" version="1">Take the form of Dire Wolf (the BG3 creature; Wolf soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
+  <content contentuid="h9b365f18gd579g55ebg8592g97ac97027904" version="1">Soul Form: Dire Wolf</content>
+  <content contentuid="hce705497gc435g52d8g9456ga46ce82a11d9" version="1">Take the form of Dire Wolf (the BG3 creature; Wolf soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Trip Bite. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h8bc23044gd009g573bga7b9gedb292fbb800" version="1">Soul Form: Dire Wolf</content>
+  <content contentuid="hd3b364fag281dg528bg8e4ag8903d33e9b20" version="1">Take the form of Dire Wolf (the BG3 creature; Wolf soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Trip Bite, Pack Howl. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="h729e28d7g92cfg5645ga907g6e2eebe1f941" version="1">Soul Form: Dire Wolf</content>
+  <content contentuid="hc7e4aa4ag1887g58e0g8aa3g40fab934d361" version="1">Take the form of Red Panther (an FFT monster; Wolf soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Claw. Uses a Wild Shape charge.</content>
+  <content contentuid="hc93f36ccg4f8bg5fd0gbe77ge077dd4073c8" version="1">Soul Form: Red Panther</content>
+  <content contentuid="h0e58b9d6gd49fg5c6eg9b11gebb53c0020af" version="1">Take the form of Red Panther (an FFT monster; Wolf soul, 3+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Claw, Cat Scratch. 3 souls: +1 AC. Uses a Wild Shape charge.</content>
+  <content contentuid="h4e4c0199g9022g5cf0g9d58g713d1ce06afd" version="1">Soul Form: Red Panther</content>
+  <content contentuid="hd3531489g1e09g5183gb3a3g02a68bd6bdf9" version="1">Take the form of Red Panther (an FFT monster; Wolf soul, 5+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Skills: Claw, Cat Scratch, Venom Fang. 5 souls: +2 AC and +1 to attack rolls. Uses a Wild Shape charge.</content>
+  <content contentuid="hb58dd575g9d9eg5b9cg848eg4971561b51ee" version="1">Soul Form: Red Panther</content>
+  <content contentuid="h4e0d6c4eg891dg55fegb9a8g9e422459be63" version="1">Take the form of a creature whose soul the party devoured (Soul Brand). Each soul type gives two forms: the creature itself and an FFT monster. More souls of a type make its forms stronger (3 and 5). Uses a Wild Shape charge.</content>
+  <content contentuid="h8090218fga4e1g54aagaf22g4fcdd64d0069" version="1">Soul Incarnation</content>
+  <content contentuid="h34bc2e19g9e3fg5043g82ffge364502f15aa" version="1">Holy light erupts: enemies within 6 m make a Constitution save or take radiant damage (half on a save).</content>
+  <content contentuid="hd67f7947g0b97g5cc7gbdeagd4e5b15bd7e9" version="1">Almagest</content>
+  <content contentuid="h16ce6769gae6bg5badg8033gee643cb71eaf" version="1">A Malboro's infamous breath in a 5 m cone: on a failed Constitution save, poisoned, blinded and silenced for 2 turns.</content>
+  <content contentuid="hb1a0244agcd19g5609gb91bg7cd35eede8a8" version="1">Bad Breath</content>
+  <content contentuid="h9b5e2556g3315g510eg8edcgd07c82002945" version="1">Flexes and snorts: Strength Surge for 3 turns.</content>
+  <content contentuid="hee90b0acg43d3g5f93g9dd6g5c09ab2df2c1" version="1">Beef Up</content>
+  <content contentuid="hb039867fg91e5g5366g8234gd1238542449e" version="1">Gives of itself: an ally within 9 m regains hit points.</content>
+  <content contentuid="h0a43daabg32c5g5ce1ga476gf530919dc1b0" version="1">Bequeath Bacon</content>
+  <content contentuid="h4f4c99a2g9b13g5d18g8fe0gbd842baf291e" version="1">A bewitching stare: a creature within 9 m makes a Wisdom save or is charmed for 2 turns.</content>
+  <content contentuid="h7d2bc79eg9c70g5197g98c5g30403abd7fef" version="1">Bewitching Gaze</content>
+  <content contentuid="hfd8dcd7dg4689g59b1ga7ffg83902f44695c" version="1">Crackling whiskers: a creature within 9 m makes a Constitution save or is Stopped for 1 turn (bosses shrug it off).</content>
+  <content contentuid="hc7717343gf94bg5795g89a6g1d5d74ebdd07" version="1">Blaster</content>
+  <content contentuid="h4fdf784agb5bbg5a29g8485g96a19bd2727b" version="1">Feeds on a foe's blood: necrotic damage, and you regain hit points equal to half of it.</content>
+  <content contentuid="ha23f861fge9bbg5beagb7ebg68b211fb3826" version="1">Bloodfeast</content>
+  <content contentuid="h636b5462g71feg5ea3g8650g0449356ca8b6" version="1">Dips the cap in fresh blood: Regen for 3 turns.</content>
+  <content contentuid="he00e7fe7g09b0g577dgaeebg3a2a4ceb7209" version="1">Bloody Cap</content>
+  <content contentuid="h5105c63fg4afdg51bdg9044g38ac50964a66" version="1">Flings bone shards at a creature within 12 m: piercing damage (Dexterity save for half).</content>
+  <content contentuid="hd6b7a4d5ga031g5c22gaf83g76b06b18f6df" version="1">Bone Shards</content>
+  <content contentuid="h89a8b361g8652g561bgb047g825664c76c41" version="1">Hurls a boulder up to 18 m: bludgeoning damage (Dexterity save for half).</content>
+  <content contentuid="h427bc59dge912g54cdgae7dg20d04df6c585" version="1">Boulder Toss</content>
+  <content contentuid="h8a92bc98g4034g5382g9fdfgfa6971ecf734" version="1">Breathes fire in a 6 m cone: fire damage (Dexterity save for half).</content>
+  <content contentuid="hc31e486fg2221g5802gbd29gfa5d8bb89b83" version="1">Breathe Fire</content>
+  <content contentuid="h30c674fdg9275g57cagb33cgf4cb1ae5f8a2" version="1">Digging claws: slashing damage, and the target makes a Dexterity save or is slowed (Speed Break) for 2 turns.</content>
+  <content contentuid="h32ded650g165cg51e8ga311g46de02617e78" version="1">Burrowing Claws</content>
+  <content contentuid="h3b020cf9g3b36g55e8g8f7cgd9e61d9fa766" version="1">Bursts up under a foe: heavy piercing damage.</content>
+  <content contentuid="h52318e2bg2241g5e9ega89ag3fdd79e7118e" version="1">Burrow Strike</content>
+  <content contentuid="h31dc36f6g9743g551bga3afgf995d8464b83" version="1">Bonus action. A quick second swipe.</content>
+  <content contentuid="hb5c4c83eg3b2bg52e6g9a7fgb4916abaf27f" version="1">Cat Scratch</content>
+  <content contentuid="h0592f992g0068g5926g8d63g9d5d17c934c2" version="1">Pecks with a strong beak.</content>
+  <content contentuid="h5410d3b4ga364g5577g9929g1abfb7915cb1" version="1">Choco Beak</content>
+  <content contentuid="h8969d79dg17c1g57d9g9e0dg22dcdcea4ef5" version="1">A warm chirp: you and allies within 6 m regain hit points.</content>
+  <content contentuid="hc7b128d4g13d2g5989g9d9ag35742f15c9b2" version="1">Choco Cure</content>
+  <content contentuid="h49fb578bgf003g5fdbg889fg33e5ee04bc5e" version="1">Allies within 6 m are cured of being poisoned, blinded, frightened and diseased.</content>
+  <content contentuid="h18a34770g47fag56efg80c6g34544b59c325" version="1">Choco Esuna</content>
+  <content contentuid="h2627264dgd593g5949gb70eg3cae5cc2f034" version="1">Calls a small meteor on a creature within 18 m: force damage (Dexterity save for half).</content>
+  <content contentuid="h3726a56dgf531g5c98g839agfe5205e87ce4" version="1">Choco Meteor</content>
+  <content contentuid="hd583703dg89a6g533fgab92gca0e7b64ff57" version="1">Spits pellets at a creature within 12 m: bludgeoning damage (Dexterity save for half).</content>
+  <content contentuid="h9288f0a9g3a71g50ddg9239g4769d38076e2" version="1">Choco Pellets</content>
+  <content contentuid="haec9e442g8b52g5f9fgb1efgc5b4d30d8cae" version="1">A bony chop.</content>
+  <content contentuid="h941cf38dgd75bg5e3fg8abdg89857c60a79e" version="1">Chop</content>
+  <content contentuid="hf7af61b9gf678g5130g8560ge3d411a425c9" version="1">Rakes with claws.</content>
+  <content contentuid="ha22a4561g63acg544dg883eg73f3db473cdf" version="1">Claw</content>
+  <content contentuid="h76cce67ag9669g58acg86dag535c9a92657b" version="1">An ogre's smash: bludgeoning damage, and the target makes a Strength save or is knocked prone.</content>
+  <content contentuid="hef17d09cg530cg5a94g851dg51a451ea25a7" version="1">Club Smash</content>
+  <content contentuid="hc95ae2f4g6e4dg527ega4fcg0b8dba0b88f4" version="1">Squeezes a foe: bludgeoning damage, and the target makes a Strength save or is slowed (Speed Break) for 2 turns.</content>
+  <content contentuid="h8bc5a787gb072g593ega241g993eab5d30cf" version="1">Compress</content>
+  <content contentuid="hb4a0dce7gf8e4g512cgad64g1c2c606c1173" version="1">Leaps and lands hard: enemies within 3 m make a Dexterity save or take bludgeoning damage and fall prone (half damage on a save).</content>
+  <content contentuid="he21a39dbg0d07g5e98g90e1gf16f390d3f8d" version="1">Deadly Leap</content>
+  <content contentuid="hee6ab82dg774eg56fag8479g84dbf2ed2884" version="1">A mephit's dying flare, survived: enemies within 3 m make a Dexterity save or take fire damage (half on a save).</content>
+  <content contentuid="h3500e5fdgd212g5783ga412g8156d48e4856" version="1">Death Burst</content>
+  <content contentuid="hfa4de758g615dg55f9g9c44g829637d148f7" version="1">A crushing mechanical blow.</content>
+  <content contentuid="hc2d7b84bg00e5g5a7bg9b9cg3a9a0580a450" version="1">Destroy</content>
+  <content contentuid="h23fce844g5efag5817gad28g4fe2ba4ff606" version="1">Feeds on a mind: psychic damage, and the target makes an Intelligence save or can't act for 1 turn.</content>
+  <content contentuid="heb2c2832gf28cg5176g9be8g87fa5a92d054" version="1">Devour Intellect</content>
+  <content contentuid="hf8b861e0gbfd5g554egbd3eg27572dfbb5ff" version="1">A low blow and a fistful of dirt: the target makes a Constitution save or is blinded for 1 turn.</content>
+  <content contentuid="hfadc2bccg07cbg57begb8f7g58f0c70a95a5" version="1">Dirty Trick</content>
+  <content contentuid="h8d0c00d7g4610g5d06gb01egcbe795261b28" version="1">A maddening hum at a creature within 9 m: Wisdom save or it goes berserk for 2 turns.</content>
+  <content contentuid="hbd515894g51a0g5018gab1bgd081c77bf316" version="1">Dischord</content>
+  <content contentuid="he7260667gebc0g562cg989fgbe6e87af7ba1" version="1">Ahriman's death sentence on a creature within 9 m: Wisdom save or it is Doomed (it falls when the count ends; bosses shrug it off).</content>
+  <content contentuid="he9b3800ag689cg5329g9ee7g17169dc461a3" version="1">Doom</content>
+  <content contentuid="h732c064eg8e9eg5418g8107g020f908be6d2" version="1">Drains life: necrotic damage, and you regain hit points equal to half of it.</content>
+  <content contentuid="h8ee64845g45ceg5e8ag90efg8cc3b13b4447" version="1">Drain Touch</content>
+  <content contentuid="h3e06fc52gdebag5479gbd8age76d659c3c48" version="1">A dreadful stare at a creature within 9 m: psychic damage and frightened for 2 turns on a failed Wisdom save (half damage on a save).</content>
+  <content contentuid="hd1cf532eg921dg5467gb9fcg595457709ad7" version="1">Dread Gaze</content>
+  <content contentuid="hd0a1c273g878eg55fcgad83geda66ed7af50" version="1">Strikes from above with talons: heavy slashing damage.</content>
+  <content contentuid="hac626f8fgb3a4g5148ga859g17d68d6b512a" version="1">Diving Strike</content>
+  <content contentuid="hd3114360g63fbg54bbgb1a3g19b3176637c8" version="1">Splits the ground in a 6 m cone: bludgeoning damage and prone on a failed Dexterity save (half damage on a save).</content>
+  <content contentuid="he93f23e3gef6bg531dg9f2dg01af24faea9f" version="1">Earthsplitter</content>
+  <content contentuid="h453419d0g4fe4g57ffgb16ag74c1dbad48f2" version="1">A clacking echo-call: enemies within 6 m make a Constitution save or are blinded for 1 turn.</content>
+  <content contentuid="hddcb3814g5837g5761ga797gec553585261b" version="1">Echo Screech</content>
+  <content contentuid="ha4c351a8g4773g59efg809fgc0a7a2ff8265" version="1">Reroutes power: you regain hit points.</content>
+  <content contentuid="he0e95913g5e11g5c40g84abg14880cb24445" version="1">Energize</content>
+  <content contentuid="h5a11d3d7ga56dg559agaa62g29eaad4b0636" version="1">Only against a creature that is prone, stopped or can't act: a terrible piercing strike. No instant kill (bosses would die out of their story).</content>
+  <content contentuid="h28a8bd3fgdbfag509cg8b46g78b539ec81ab" version="1">Extract Brain</content>
+  <content contentuid="h90ca5dbbgd662g50cfga2ecgff6ee986af71" version="1">Claws at the eyes: the target makes a Constitution save or is blinded for 2 turns.</content>
+  <content contentuid="hdff8e1d3ga9fag5211g99c8g5cabcfcd5c1c" version="1">Eye Gouge</content>
+  <content contentuid="hb7d57897ge59bg57b8gb162g3b00d49b0b56" version="1">An eye ray at a creature within 12 m: Wisdom save or it is frightened for 2 turns.</content>
+  <content contentuid="h7c3bee5dg48ccg5453g83d1gfdb6d5e81bea" version="1">Fear Ray</content>
+  <content contentuid="hcc7b4d04gbee3g547dgae23g5fc571709a24" version="1">Whirls in a fury: enemies within 2.5 m make a Dexterity save or take slashing damage (half on a save).</content>
+  <content contentuid="h77c712f4g1414g5509g8c26g832b5f2809a4" version="1">Feral Spin</content>
+  <content contentuid="h6687fbd9gdfa2g579cg8489gd621232f5645" version="1">Flings fire at a creature within 9 m: fire damage (Dexterity save for half).</content>
+  <content contentuid="h60572a23g55feg5398g8843g5c3fe5e76ba7" version="1">Flame Attack</content>
+  <content contentuid="h479827efga412g5183ga028gb8ed9ad250bb" version="1">Goblin cunning: +1 to attack rolls and damage for 3 turns.</content>
+  <content contentuid="h0d63e0bcgf764g581eg9296gf4c65d1509b4" version="1">Gang Up</content>
+  <content contentuid="hf41f4049g3436g593bgb71ag78dc3f989624" version="1">Dazzling feathers: a creature within 9 m makes a Wisdom save or is charmed for 2 turns.</content>
+  <content contentuid="h62a75cc1g5312g5a16g9704g285c7efbae27" version="1">Glitterlust</content>
+  <content contentuid="h3e408e22gbcfeg5b4dg80d3geb26d9607237" version="1">A wild haymaker with a goblin's whole weight behind it.</content>
+  <content contentuid="ha8f94416g60dbg5d41g9974g01d300a86c88" version="1">Goblin Punch</content>
+  <content contentuid="h163b9a55g426fg5a05g8c4dgba2e5c85595c" version="1">Spits sticky goo at a creature within 9 m: Dexterity save or it can't move for 2 turns.</content>
+  <content contentuid="h8eea14f7g7da8g5ee6g956ege86acc5abc03" version="1">Goo</content>
+  <content contentuid="h6275b9f3g248ag5bfdg80d9g9b68cde3374e" version="1">Gores with horns.</content>
+  <content contentuid="h1cd28cb4g9825g51a5g815aga625fb4c0bbc" version="1">Gore</content>
+  <content contentuid="h655787d5g96e4g5de2gb66cg53050f0a3659" version="1">Horns first: piercing damage and a 3 m push.</content>
+  <content contentuid="hdc77aa1dgd105g5416g86a1g09912d569783" version="1">Gore Charge</content>
+  <content contentuid="h40804349gb29dg5239g80eag962b5482e93e" version="1">A guardian nymph shields an ally within 9 m: Protect for 3 turns.</content>
+  <content contentuid="hcbf68888ge0e2g52fcg8c4fg15f2a555e4e3" version="1">Guardian Nymph</content>
+  <content contentuid="h5c170017g44f9g57ddga700g9602ebe50e3f" version="1">Heaves the ground: enemies within 3 m make a Strength save or take bludgeoning damage and fall prone (half damage on a save).</content>
+  <content contentuid="h5193737fg1aedg5602g9f6eg937a4de2790b" version="1">Heave</content>
+  <content contentuid="heaf01cb0g1f9cg5206g8a78ga979fa7fd3f3" version="1">A long-armed swing: bludgeoning damage, and the target makes a Strength save or is knocked prone.</content>
+  <content contentuid="hc9cdfcbcgcb41g5f51gb8begf693a8c55fcd" version="1">Heavy Swing</content>
+  <content contentuid="h78322671g948bg5715ga7c5gdcce2f3c3b25" version="1">Hellfire at a creature within 12 m: fire damage (Dexterity save for half).</content>
+  <content contentuid="he9131621ga754g54b8gb95fgc3eb6d8c7ef2" version="1">Hellish Spark</content>
+  <content contentuid="h027db689g2917g519eg9a27g7467206659f7" version="1">Hooked claws: piercing damage, and the target makes a Constitution save or bleeds for 2 turns.</content>
+  <content contentuid="h406670b2g844fg5ee6g86b5gb4f86874e3c4" version="1">Hook Rend</content>
+  <content contentuid="he412cf17g9707g5d85g9833g939772ced3ad" version="1">A cackling howl: enemies within 6 m make a Wisdom save or are frightened for 2 turns.</content>
+  <content contentuid="h247cabaag8fa6g5cbdg87c9g40adcd302cbd" version="1">Hyena Howl</content>
+  <content contentuid="haee85c92g9542g5054g8f7ag782ed9a023a3" version="1">Freezing spirit: enemies within 3 m make a Constitution save or take cold damage (half on a save).</content>
+  <content contentuid="haa91fd35g41a1g5990g8248g0e91cce9764f" version="1">Ice Anima</content>
+  <content contentuid="h73130907g82fag5cb0gbdc1gf4ea926d2ba2" version="1">A poisoned tail sting: the target makes a Constitution save or is poisoned for 2 turns.</content>
+  <content contentuid="hb3c6b7cag392bg5e4dg8110g7c482802cc09" version="1">Sting</content>
+  <content contentuid="h8996f911ga4b2g5d35ga143g6e5a7d9742f0" version="1">Squirts ink in a 5 m cone: Constitution save or blinded for 2 turns.</content>
+  <content contentuid="hd4fcf64dg71c7g5e3ag8355g1d0453637c0c" version="1">Ink</content>
+  <content contentuid="ha22e89d6g9b7bg5ad2g9379g2c785572e81a" version="1">A stomp of iron boots: the target makes a Strength save or is knocked prone.</content>
+  <content contentuid="h7ab093b1gf97ag54c6g856cg3d73782fa2c2" version="1">Iron Boot Stomp</content>
+  <content contentuid="ha41be322ga716g52cfgb989g54c67cb3bba5" version="1">Plates lock together: Protect for 3 turns.</content>
+  <content contentuid="he8594f74g6d49g5533g910fg643e45573afd" version="1">Iron Guard</content>
+  <content contentuid="h6ddbf017g22e7g5c67g8c0ag309b06cec627" version="1">A bull's roar that echoes like a maze: enemies within 6 m make a Wisdom save or are frightened for 2 turns.</content>
+  <content contentuid="h81f7b1d1ga141g5615gba06gd3c7a0129a25" version="1">Labyrinth Roar</content>
+  <content contentuid="h14d40ab7gcc95g5cc4ga0b4g109d65f5ac53" version="1">Razor leaves fall around you: enemies within 4 m make a Dexterity save or take slashing damage (half on a save).</content>
+  <content contentuid="h2bb30fc9gf706g5b8fga92ag85be59fefc6a" version="1">Leaf Rain</content>
+  <content contentuid="h2913a8eegdcc9g58b9gbc30g15fd87507491" version="1">Drains a foe's life: necrotic damage, and you regain hit points equal to half of it.</content>
+  <content contentuid="h08557e95g9b85g5b65ga815gc2ac6bf095b0" version="1">Level Drain</content>
+  <content contentuid="hfb34758bg5d83g5aa1g897egef9bf7653e18" version="1">A slimy lick: acid damage, and the target makes a Constitution save or is slowed (Speed Break) for 2 turns.</content>
+  <content contentuid="hac946a49g853eg584cga353g7e72eafa31d9" version="1">Lick</content>
+  <content contentuid="hf9a37795ge58bg5d71g88cbgc7c573497b70" version="1">A nymph's blessing: an ally within 9 m regains hit points.</content>
+  <content contentuid="h248cdc9bg0337g5f86gb9ddgef359473b06f" version="1">Life Nymph</content>
+  <content contentuid="h1bbce159g7734g53bfg902bgb9bb17823b74" version="1">A harpy's song: enemies within 9 m make a Wisdom save or are charmed for 1 turn.</content>
+  <content contentuid="hc295786cg8bf1g5a9eg8928g2b150b8935f0" version="1">Luring Song</content>
+  <content contentuid="h04ab6da7gd8dag507cgad36gc9c5aa389116" version="1">A short breath of fire in a 4.5 m cone (Dexterity save for half).</content>
+  <content contentuid="h889af646ga180g5e2aga6c3g3d19cd230d45" version="1">Mephit Breath</content>
+  <content contentuid="h0885ba13g7602g5778gbe22g6da8de8c648d" version="1">A psionic wave in a 6 m cone: psychic damage and confusion for 1 turn on a failed Intelligence save (half damage on a save).</content>
+  <content contentuid="h717ddfe1g5ca6g557dg90b8g2be42b4a7a1c" version="1">Mind Blast</content>
+  <content contentuid="h9bab525dg9f46g5a5cg9d42g79428d8d983d" version="1">Beak and claws together: heavy slashing damage.</content>
+  <content contentuid="h3892fcf3g1f24g50b3gb271gd14b9ffa2ad0" version="1">Rend</content>
+  <content contentuid="h083e792ag6905g5d17g8c1fgc4a910c95d3e" version="1">Calming spores at a creature within 9 m: Constitution save or it can't act for 1 turn (Disable).</content>
+  <content contentuid="hdddd0af1gdea1g5e9fgabe0g1303603febb1" version="1">Pacifying Spores</content>
+  <content contentuid="h6e530bb1gd1ffg5666g9cdeg7e49e8e08500" version="1">Rallies the pack: you and allies within 9 m get +1 to attack rolls and damage for 2 turns.</content>
+  <content contentuid="h163f4993gf691g5fd9gad65g7eba660b8c84" version="1">Pack Howl</content>
+  <content contentuid="h05f18d41g62e2g5cacg94c7g71a523964c1a" version="1">A ghoul's claws: the target makes a Constitution save or is Stopped for 1 turn (bosses shrug it off).</content>
+  <content contentuid="h1b737b61gde3dg5667g80dfgae0f15a05fc8" version="1">Paralysing Claw</content>
+  <content contentuid="h4f71e92dg194bg54d7g8d7dgd2a9fe919d90" version="1">An eye ray at a creature within 12 m: Constitution save or it is Stopped for 1 turn (bosses shrug it off).</content>
+  <content contentuid="h1559a5c3g4e45g551ag96cag7fcc829c5116" version="1">Paralysing Ray</content>
+  <content contentuid="h372f0d90g2bcdg567ega76dg7c1fdbfa0982" version="1">A sharp peck.</content>
+  <content contentuid="hd5225cbcgaf9cg54a0g94b8gf476886ab3e8" version="1">Peck</content>
+  <content contentuid="h5261d0f2gee5fg5db1g98f0g27f1573c36aa" version="1">Strikes with a horn like a pickaxe.</content>
+  <content contentuid="h841cde97g15abg566bg8f53g9a4ec1e5928b" version="1">Pickaxe</content>
+  <content contentuid="h5a155e82g96c0g5cabg9aa4g4ea6cd0bea30" version="1">Catches a foe in a pincer staff: the target makes a Strength save or can't move for 1 turn.</content>
+  <content contentuid="he55e191eg2addg57c0g9beagcf539df418d4" version="1">Pincer Staff</content>
+  <content contentuid="heee21cbbg66b5g5fddg8aadg1978b8e069e3" version="1">A mind flayer's mind blast in a 6 m cone: psychic damage, and on a failed Intelligence save the target can't act for 1 turn (half damage on a save).</content>
+  <content contentuid="h01c4f4e4g7979g5280gb291g28f2b064c210" version="1">Psychic Blast</content>
+  <content contentuid="h556c6807g555ag525aga971g6521c851db29" version="1">A lash of thought at a creature within 12 m: psychic damage (Intelligence save for half).</content>
+  <content contentuid="h52028531gb01bg59e5gaf5eg41885db74187" version="1">Psychic Lash</content>
+  <content contentuid="h078afa36g54a7g5caag8729g323b83ca9e1d" version="1">Bonus action. A gnoll's frenzied bite.</content>
+  <content contentuid="hf5286649g4e21g5be5g9afag9bb39a804346" version="1">Rampage</content>
+  <content contentuid="h47ad3018g0014g5492ga59cgde7935ab22ff" version="1">Gnaws flesh: piercing damage, and you regain hit points equal to half of it.</content>
+  <content contentuid="h6c9e3008gb707g56bega423g216aff2e052c" version="1">Ravenous Bite</content>
+  <content contentuid="h7495c9feg6b43g53a7gacdbg4bc1d2bc783a" version="1">Charges headlong: bludgeoning damage and a 2 m push.</content>
+  <content contentuid="h148d8c2egf9a7g5612gadd4gcb03a9c5e94d" version="1">Reckless Charge</content>
+  <content contentuid="hd37ad599gfaa5g546dg8345g7c5da9b2559f" version="1">A boar fights on through pain: temporary hit points (as the Summoner's Golem).</content>
+  <content contentuid="h2838ad59g540ag59fagbf25g897fc8fe7fc8" version="1">Relentless</content>
+  <content contentuid="hb66937dcg8823g5ca5ga51bg6f49058770b5" version="1">Roots burst from the ground under a creature within 9 m: Strength save or it can't move for 2 turns.</content>
+  <content contentuid="he097c813g733cg5192ga210ge2e1ca7689a5" version="1">Root Grasp</content>
+  <content contentuid="h71c5118bgc365g5748ga99dg40b60f26b3e4" version="1">Explodes: enemies within 4 m take heavy fire damage (Dexterity save for half), and the form takes half as much. Once per long rest.</content>
+  <content contentuid="hcdc50d3ag93f4g5d27g982fgeb8a2ed1117b" version="1">Self-Destruct</content>
+  <content contentuid="h743a4c26g5f0ag5651g9fd2g7805d027e00b" version="1">An iron bash: the target makes a Strength save or is knocked prone.</content>
+  <content contentuid="h9689b889ge23dg5b1bga49bg9057c3cd666a" version="1">Shield Bash</content>
+  <content contentuid="hc581a95ega746g54e8gb314ge822d3aa2226" version="1">A numbing touch: the target makes a Wisdom save or falls asleep for 2 turns.</content>
+  <content contentuid="h14679a9fg3499g5517gb66eg35a15a796a98" version="1">Sleep Touch</content>
+  <content contentuid="h55a7093dg4a71g57e8gaf0eg3d4c1911cc09" version="1">A contemptuous snort at a creature within 6 m: Wisdom save or it suffers Power Break for 2 turns.</content>
+  <content contentuid="hecc6feaeg4eb7g5ec1g91a6gd48a10261eee" version="1">Snort</content>
+  <content contentuid="h93f0b932g13e2g5fb5ga09fg7d09353723f3" version="1">Sparks fly: enemies within 3 m make a Dexterity save or take fire damage and burn for 2 turns.</content>
+  <content contentuid="h3f461d41ge584g5cdcg8b3eg201cdb3578e6" version="1">Spark</content>
+  <content contentuid="h9bd9f8d6ga241g5e0bg8a5fgc7b2abb0cf23" version="1">Spins with fists out: every enemy within 2 m makes a Dexterity save or takes bludgeoning damage (half on a save).</content>
+  <content contentuid="hb78f1e60g9bc7g5dc1gbef9g011220b86857" version="1">Spin Punch</content>
+  <content contentuid="ha46d5832g95e7g5c38g94a2g798b852aecc9" version="1">Releases spores: enemies within 3 m make a Constitution save or take poison damage and are poisoned for 2 turns.</content>
+  <content contentuid="he9b3a44eg42adg53f9g92a1g582b41585d68" version="1">Spore Cloud</content>
+  <content contentuid="h9b5f2fdeg00d7g59a4g8e0eg22b071998be2" version="1">A defiant squeal: you regain hit points.</content>
+  <content contentuid="h3e4ad7b5g0f90g522fga4d7gcdb4e435c486" version="1">Squeal</content>
+  <content contentuid="h2729832dgdeceg5c73g9c52ga6564461073d" version="1">A slimy shield: Protect for 3 turns.</content>
+  <content contentuid="he51b9de2g7d12g56d1g9e27g5a707e112f68" version="1">Sticky Shield</content>
+  <content contentuid="h4baf92c9ge9b5g526eg9b7cg501bb1c4d1a3" version="1">A bugbear's brutal ambush strike: extra piercing damage.</content>
+  <content contentuid="h8c92d231g701dg5857gb740g5309fc8874f3" version="1">Surprise Attack</content>
+  <content contentuid="hece2ffddgadbdg5819g8aafg7f78f7f99a9c" version="1">Slam into a foe: bludgeoning damage and a 3 m push.</content>
+  <content contentuid="hd3db0021ga613g5c30ga1c8g9307d889637b" version="1">Tackle</content>
+  <content contentuid="h29f7bddfg332dg5360ga3fagafb7a70d9f14" version="1">Dives at a creature within 12 m: slashing damage (Dexterity save for half).</content>
+  <content contentuid="ha5588649g3a17g5837g9231gdf384497b2e8" version="1">Talon Dive</content>
+  <content contentuid="h6aec7640g0870g5fa4gbc44gb7719e2f1798" version="1">Rakes with talons: the target makes a Constitution save or bleeds for 2 turns.</content>
+  <content contentuid="h6133338fg9bb7g574fgad70g3d3dd98ff1f9" version="1">Talon Rake</content>
+  <content contentuid="hb432cf1bg0f5ag557bg9642g75ab986a154e" version="1">Grasping tentacles: psychic damage, and the target makes a Strength save or can't move for 1 turn.</content>
+  <content contentuid="hbc8c5dc4gf429g5761ga932gd5c16f3f92c4" version="1">Tentacles</content>
+  <content contentuid="h4179ab60gab82g5e52gbbcbg2fda7c29f326" version="1">A screech half owl, half bear: enemies within 6 m make a Wisdom save or are frightened for 2 turns.</content>
+  <content contentuid="hf207c226gd54cg5ea2gb373gf6793a0000f1" version="1">Terrifying Screech</content>
+  <content contentuid="hf4d680ddg262cg57c9g8af1g5a655f9456e9" version="1">Hunkers down: Protect for 3 turns.</content>
+  <content contentuid="hba236174g917bg5c2bgb696gb3d123d21ad4" version="1">Thick Hide</content>
+  <content contentuid="haa53f911g6f2ag5bd6g8834gc7c169902157" version="1">Lashes with thorny twigs: the target makes a Constitution save or bleeds for 2 turns.</content>
+  <content contentuid="h71ee8407g55b8g5ef5gb8fcgd7521df1102a" version="1">Thorn Lash</content>
+  <content contentuid="h52d39998gf9b2g548bg853cg8ceb5c1a3912" version="1">Crackling spirit: enemies within 3 m make a Dexterity save or take lightning damage (half on a save).</content>
+  <content contentuid="h731add7bgdb5cg5b0ag96e6gb5ef73cc9387" version="1">Thunder Anima</content>
+  <content contentuid="hceb1b2c9g921eg5bb3g8cf5gae29141e6e2d" version="1">A ridiculous noise: enemies within 3 m make a Wisdom save or are confused for 1 turn.</content>
+  <content contentuid="hcdf69f61gaebag5e75g9989g7cf55368480e" version="1">Toot</content>
+  <content contentuid="hc5e95c64g6885g5c88gbba3gff1ef270b766" version="1">Bites at the legs: the target makes a Strength save or is knocked prone.</content>
+  <content contentuid="h736b0fcfgfbefg54edgb245g24990f23a93b" version="1">Trip Bite</content>
+  <content contentuid="h2f700a78g0ee4g5f44gb124ge73b233177e3" version="1">Tusks first: slashing damage and a 3 m push.</content>
+  <content contentuid="h73be6bc2g0f48g51d6g9476gf09a396b3d43" version="1">Tusk Charge</content>
+  <content contentuid="h8b8b975egf946g5286g9d73g7f36e5fdfdfb" version="1">A howling twister hits a creature within 12 m: thunder damage (Strength save for half).</content>
+  <content contentuid="h6aa70a82gd9dbg5d2egad23g42fb2c8c5cdc" version="1">Twister</content>
+  <content contentuid="h1da79a10g02e6g51fagbdd0g3aa393be661b" version="1">Bones knit back together: Regen for 3 turns.</content>
+  <content contentuid="he1c71f22ge871g5b57gb241g4d7c6b62d413" version="1">Undying</content>
+  <content contentuid="ha8012c27g11a8g59b0g8121g971625ce902e" version="1">A spider's venom: poison damage, and the target makes a Constitution save or is poisoned for 2 turns.</content>
+  <content contentuid="h7eaf085cg7100g51e7g8c49gc1aa4cf49139" version="1">Venom Bite</content>
+  <content contentuid="h06b857a9g3dc0g50d3gb1ddg986b837a8d0f" version="1">A venomous bite: the target makes a Constitution save or is poisoned for 2 turns.</content>
+  <content contentuid="h1907a75eg62bcg5175g9af9gf99fa17f779d" version="1">Venom Fang</content>
+  <content contentuid="h80516abcga36fg5c8fg98b8gd97494ea0ed5" version="1">Spits sticky webbing at a creature within 12 m: Dexterity save or it can't move for 2 turns.</content>
+  <content contentuid="hf40c5ef8gf615g51bbg870bg4b701872578e" version="1">Web Spit</content>
+  <content contentuid="haa358fb1g9e09g542cg9020g0d9089c873de" version="1">Beats its wings at a foe: bludgeoning damage and a 3 m push.</content>
+  <content contentuid="ha861dbb4g9351g5881g965agba7986e09663" version="1">Wing Buffet</content>
+  <content contentuid="h975d8345g696eg5cedgb8cbg7504d98e9a26" version="1">A mighty flap: enemies within 3 m make a Strength save or are knocked prone.</content>
+  <content contentuid="he10e06dcg6144g5609g8523g624a5352a4a6" version="1">Wing Gust</content>
+  <content contentuid="h753b0bafg5508g5662gbdc1g9ec9ad3b32ff" version="1">A deathly touch: the target makes a Constitution save or turns Undead for 3 turns (healing hurts it).</content>
+  <content contentuid="h20bd0224g1739g5ac2g8927g41cabc243d10" version="1">Zombie Touch</content>
   <content contentuid="h60a54324g3a68g5608g837bg2c8ae321bcfc" version="1">Allied beasts, familiars and summons within 6 m of you get +1 to attack rolls and +1 damage. (FFT: gives nearby monsters a hidden ability.)</content>
   <content contentuid="h5ada1bd3g8e0cg5349g8541g76ea85ca6c18" version="1">Beastmaster</content>
   <content contentuid="hb8a9afeegfa2bg5999gb3fag3ae17ba5a273" version="1">While Machinist is your job, your ranged weapon hits deal 1d4 extra damage.</content>
@@ -1178,6 +1723,12 @@
   <content contentuid="hd237365fg0923g562dgad5eg8c0c88e6c103" version="1">Onion Knight Lv5</content>
   <content contentuid="h456cb83eg3fd4g5354g8864g12a6c44c0a76" version="1">+2 to every ability score, +2 AC and +2 to attack rolls while Onion Knight is your job.</content>
   <content contentuid="hf7cad51fg99dcg574eg95a0g5d93eceb7185" version="1">Onion Knight Lv8</content>
+  <content contentuid="hc8b8275eg4414g59b7g85dbg84e85d63d481" version="1">2 Wild Shape charges for Soul Incarnation (they come back after a short rest).</content>
+  <content contentuid="h79b3b56cg4c6cg5e4egb807g6c2af8baa2c0" version="1">Soul Charges</content>
+  <content contentuid="h00b1ec6dg3b89g55c2g9a69gb5b0e2920360" version="1">Job level 4 as your job: one more Wild Shape charge.</content>
+  <content contentuid="h5ca92615g9a80g5241g981fg624c00b75a09" version="1">Soul Collector Lv4</content>
+  <content contentuid="hcea6b31dg955bg50e1g9e83g55898ad96028" version="1">Job level 7 as your job: two more Wild Shape charges.</content>
+  <content contentuid="h80ddd138g2aaeg55d7g8fc9g31cc4013fced" version="1">Soul Collector Lv7</content>
   <content contentuid="had726a2agfb25g5d1cg885ag9d4186f2fdd0" version="1">Can't cast spells; advantage on saving throws against spells.</content>
   <content contentuid="h321a4ad3gb0b5g5e21g8f0fga5411f5e76b2" version="1">Atheist</content>
   <content contentuid="ha4f203f8g9cfcg52e5g8f10ga73b48109897" version="1">Auto-Potion already triggered this turn.</content>
@@ -1239,6 +1790,10 @@
   <content contentuid="h6fe01358g66a3g5a98ga222gc32b47d649b5" version="1">+1 to spell attack rolls and spell save DC while the song lasts.</content>
   <content contentuid="h4ef14823ga0edg553agb8ddg0f4772349dcb" version="1">+3 m movement while the song lasts.</content>
   <content contentuid="h6ce851e9g7bcag5f56g8bccg036fea276a45" version="1">Got back a level 1 spell slot from the song.</content>
+  <content contentuid="h40eb6c09gc45fg5c66g9895g402a65cb9eb6" version="1">Branded by a Soul Collector: if this creature dies before the brand fades, the party devours its soul.</content>
+  <content contentuid="he1b4b003g9f3ag501fgb129g9b57093bf122" version="1">Soul Brand</content>
+  <content contentuid="h96aa3a0fg20f6g5f63gbf68g25b171c4d6f3" version="1">The party has already devoured a soul of this kind (Soul Codex on the Job Board).</content>
+  <content contentuid="hc21f9d46g93e0g5210gbcf7g22c1b8eec771" version="1">Soul Known</content>
   <content contentuid="h04f3c12cg2948g542ag9876gd0281fae51f5" version="1">+3 m movement.</content>
   <content contentuid="hef5cc892g7ddfg50d1g9762gef2f15354b7b" version="1">Speed Surge</content>
   <content contentuid="h78ba7c7eg2383g5f16g914fgaed64b794074" version="1">Petrified: incapacitated and resistant to all damage.</content>

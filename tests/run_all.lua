@@ -15,6 +15,7 @@ local SUITES = {
     "test_data.lua",
     "test_effects.lua",
     "test_bosses.lua",
+    "test_souls.lua",
 }
 
 local filter = arg and arg[1]

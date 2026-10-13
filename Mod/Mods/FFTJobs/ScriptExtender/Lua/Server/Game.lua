@@ -67,6 +67,33 @@ function Game:IsPartyMember(guid)
     end))
 end
 
+-- A creature's identity for the Soul Collector: its root template name, stats id and display name, lower case.
+function Game:CreatureKeys(guid)
+    local parts = {}
+    local tmpl = self:Try("GetTemplate", function()
+        return Osi.GetTemplate(guid)
+    end)
+    parts[#parts + 1] = tmpl
+    local e = self:Entity(guid)
+    parts[#parts + 1] = e and self:Try("Data.StatsId", function()
+        return e.Data and e.Data.StatsId
+    end) or nil
+    parts[#parts + 1] = self:DisplayName(guid)
+    local out = {}
+    for _, p in ipairs(parts) do
+        if type(p) == "string" and p ~= "" then
+            out[#out + 1] = p
+        end
+    end
+    return string.lower(table.concat(out, " "))
+end
+
+function Game:ApplyStatus(guid, status, duration)
+    self:Try("ApplyStatus", function()
+        Osi.ApplyStatus(guid, status, duration or -1, 1, guid)
+    end)
+end
+
 function Game:Entity(guid)
     return self:Try("Ext.Entity.Get", function()
         return Ext.Entity.Get(guid)

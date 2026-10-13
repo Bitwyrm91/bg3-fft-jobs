@@ -170,6 +170,26 @@ def("fft_badge", "<badge|list>  give the party a badge (testing; special jobs ne
     return result(svc:AddBadge(id))
 end)
 
+def("fft_soul", "<list|add <type> [n]|unlock>  the Soul Codex (testing: add souls, give the Soul Codex)", function(svc, args)
+    local Souls = Ext.Require("Server/Souls.lua")
+    local sub = args[1] and string.lower(args[1]) or "list"
+    if sub == "unlock" then
+        return result(svc:AddBadge(Souls.BADGE))
+    elseif sub == "add" then
+        local count = tonumber(args[#args])
+        local last = count and #args - 1 or #args
+        local id = Souls.Find(svc.Data, table.concat(args, " ", 2, last))
+        if not id then
+            return { "Unknown soul type (one of: " .. table.concat(svc.Data.SoulOrder or {}, ", ") .. ")" }
+        end
+        return result(Souls.Add(svc, id, count or 1))
+    end
+    local out = Souls.Lines(svc)
+    table.insert(out, 1, #out == 0 and "The Soul Codex is empty: Soul Brand a foe; if it dies branded, its soul is yours."
+        or "Soul Codex (souls devoured; 3 and 5 make the forms stronger):")
+    return out
+end)
+
 def("fft_train", "[amount]  every party member gets JP in each unlocked job (testing; default Test.JPPerCast)", function(svc, args)
     local amount
     if args[1] then

@@ -237,6 +237,7 @@ function Mocks.Install()
                     end } },
                     PartyMember = c.party and {} or nil,
                     Uuid = { EntityUuid = guid },
+                    Data = { StatsId = c.stats },
                 }
             end,
             GetAllEntitiesWithComponent = function(name)
@@ -373,6 +374,10 @@ function Mocks.Install()
         end,
         GetDisplayName = function(g)
             return "h_" .. g
+        end,
+        GetTemplate = function(g)
+            local c = world.chars[g]
+            return c and c.template
         end,
         ShowNotification = function(g, text)
             world.notifications[#world.notifications + 1] = text

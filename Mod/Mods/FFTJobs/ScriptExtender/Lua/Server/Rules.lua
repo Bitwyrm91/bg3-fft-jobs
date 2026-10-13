@@ -126,11 +126,12 @@ function Rules.HasBadge(char, badgeId)
     return char.Badges ~= nil and char.Badges[badgeId] == true
 end
 
--- How many badges the party holds (every badge is copied into each character by Rules.SyncParty).
-function Rules.BadgeCount(char)
+-- How many boss badges the party holds (every badge is copied into each character by Rules.SyncParty); the Soul
+-- Codex and other badges without a boss don't count.
+function Rules.BadgeCount(char, data)
     local n = 0
-    for _, on in pairs(char.Badges or {}) do
-        if on == true then
+    for id, on in pairs(char.Badges or {}) do
+        if on == true and not (data and data.Badges and data.Badges[id] and not data.Badges[id].Boss) then
             n = n + 1
         end
     end
@@ -172,7 +173,7 @@ function Rules.RequirementsMet(data, cfg, char, jobId)
                 missing[#missing + 1] = { Kills = req.Kills, Have = have }
             end
         elseif req.Badges then
-            local have = Rules.BadgeCount(char)
+            local have = Rules.BadgeCount(char, data)
             if have < req.Badges then
                 missing[#missing + 1] = { Badges = req.Badges, Have = have }
             end
@@ -244,6 +245,10 @@ function Rules.SyncParty(data, chars, party)
     party.Badges = party.Badges or {}
     party.PartyUnlocked = party.PartyUnlocked or {}
     local known = {}
+    -- the Soul Codex (Souls.lua) is the party's too: every character sees every devoured soul
+    for _, guid in ipairs(Util.SortedKeys(chars)) do
+        chars[guid].Souls = Util.DeepCopy(party.Souls or {})
+    end
     for _, guid in ipairs(Util.SortedKeys(chars)) do
         local char = chars[guid]
         char.Badges = char.Badges or {}
@@ -763,6 +768,18 @@ function Rules.DesiredGrants(data, char, cfg)
     for _, jobId in ipairs(data.JobOrder) do
         if Rules.HasMasteryPerk(data, cfg, char, jobId) then
             add(data.Jobs[jobId].Mastery.Grants)
+        end
+    end
+    -- Soul Incarnation in use: the forms of every devoured soul type, at the tier its souls reach (1, 3, 5)
+    if data.SoulContainer and desired.Spells[data.SoulContainer] then
+        for _, id in ipairs(data.SoulOrder or {}) do
+            local n = (char.Souls or {})[id] or 0
+            local tier = n >= 5 and "5" or n >= 3 and "3" or n >= 1 and "1" or nil
+            if tier then
+                for _, side in ipairs({ "B", "F" }) do
+                    desired.Spells[data.Souls[id].Forms[side].Spells[tier]] = true
+                end
+            end
         end
     end
     return desired

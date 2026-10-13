@@ -325,14 +325,17 @@ end
 
 -- Two grids: the FFT jobs (TIC and War of the Lions), then the special jobs that need a boss's badge.
 function JobBoard:RenderGrid(root, c)
-    local main, special = {}, {}
+    local main, special, soul = {}, {}, {}
     for _, j in ipairs(c.Jobs) do
-        local list = j.Group == "Special" and special or main
+        local list = (j.Group == "Special" and special) or (j.Group == "Soul" and soul) or main
         list[#list + 1] = j
     end
     self:RenderTiles(root, "Jobs", "FFTJ_Grid", main, c)
     if #special > 0 then
         self:RenderTiles(root, "Special jobs: badges from bosses + job levels", "FFTJ_GridSpecial", special, c)
+    end
+    if #soul > 0 then
+        self:RenderTiles(root, "Monster job: the Soul Codex opens it", "FFTJ_GridSoul", soul, c)
     end
 end
 
@@ -430,6 +433,9 @@ function JobBoard:RenderJob(root, c, j)
         text(root, j.Mastered and ("Mastered! Perk: " .. j.Mastery) or ("Mastery perk: " .. j.Mastery),
             j.Mastered and TEXT.Good or TEXT.Dim, WRAP)
     end
+    if j.Id == "SoulCollector" and c.Souls then
+        self:RenderSouls(root, c.Souls)
+    end
     if j.Id == "Arithmetician" and c.Arith then
         self:RenderArith(root, c.Arith)
     end
@@ -479,6 +485,27 @@ function JobBoard:RenderJob(root, c, j)
 end
 
 -- Arithmeticks: load a learned magick and a number; the rule spells cast the magick at every creature that fits.
+-- The Soul Codex: each devoured soul type, its two forms and the skills its souls give (3 and 5 make them stronger).
+function JobBoard:RenderSouls(root, souls)
+    style(root:AddSeparatorText(string.format("Soul Codex - %d of %d soul types", souls.Devoured, souls.Total)),
+        "Text", TEXT.Gold)
+    if #souls.Types == 0 then
+        text(root, "No souls yet. Soul Brand a foe (bonus action, 1 turn): if it dies while branded, the party devours "
+            .. "its soul and learns two forms, the creature itself and an FFT monster.", TEXT.Dim, WRAP)
+        return
+    end
+    for _, t in ipairs(souls.Types) do
+        text(root, string.format("%s x%d", t.Name, t.Count), TEXT.Gold)
+        for _, f in ipairs(t.Forms) do
+            local parts = {}
+            for _, sk in ipairs(f.Skills) do
+                parts[#parts + 1] = sk.Has and sk.Name or string.format("%s (%d souls)", sk.Name, sk.Souls)
+            end
+            text(root, "   " .. f.Name .. ": " .. table.concat(parts, ", "), nil, WRAP)
+        end
+    end
+end
+
 function JobBoard:RenderArith(root, arith)
     text(root, "Arithmeticks: load a magick and a number here. Your rule spells (Prime, Multiple of 3, 4, 5) then cast "
         .. "the magick at every creature in the fight whose number fits, friend or foe.", TEXT.Dim, WRAP)

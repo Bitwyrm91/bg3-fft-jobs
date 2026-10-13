@@ -4,6 +4,7 @@ local Rules = Ext.Require("Server/Rules.lua")
 local Grants = Ext.Require("Server/Grants.lua")
 local Effects = Ext.Require("Server/Effects.lua")
 local Bosses = Ext.Require("Server/Bosses.lua")
+local Souls = Ext.Require("Server/Souls.lua")
 
 local Service = {}
 Service.__index = Service
@@ -27,6 +28,7 @@ function Service.New(deps)
     self.LastEcho = nil -- {Spell = echo twin, Ability, By = guid, Seq}
     self.EchoSeen = {} -- Mime guid -> EchoSeq when its last turn ended
     self.OnOpenBoard = nil -- set by NetServer
+    self.SoulBranded = {} -- creature guid -> {By = brander, Gen}: Soul Brand on it (Souls.lua)
     return self
 end
 
@@ -483,6 +485,7 @@ function Service:OnEnteredCombat(object, combatId)
     end
     local guid = Util.Guid(object)
     Bosses.OnEnteredCombat(self, guid)
+    Souls.OnEnteredCombat(self, guid)
     local char = self.State:Get(guid) or self:EnsureChar(guid)
     if not char then
         return
@@ -846,10 +849,23 @@ end
 
 -- Osiris StatusApplied fires for every status in the game: only this mod's markers go further.
 function Service:OnStatusApplied(object, status, causee)
-    if not self.Ready or self:IsDisabled() or not Effects.Handles(status) then
+    if not self.Ready or self:IsDisabled() then
+        return
+    end
+    if status == Souls.BRAND then
+        Souls.OnStatusApplied(self, Util.Guid(object), status, Util.Guid(causee))
+        return
+    end
+    if not Effects.Handles(status) then
         return
     end
     Effects.OnStatusApplied(self, Util.Guid(object), status, Util.Guid(causee))
+end
+
+function Service:OnStatusRemoved(object, status)
+    if self.Ready and status == Souls.BRAND then
+        Souls.OnStatusRemoved(self, Util.Guid(object), status)
+    end
 end
 
 function Service:OnAttackedBy(defender, attackerOwner, attacker, damageType, damageAmount)
@@ -912,6 +928,9 @@ end
 -- Boss badges (Bosses.lua): a boss died; who meets whom in dialogs.
 function Service:OnDied(character)
     Bosses.OnDied(self, Util.Guid(character))
+    if self.Ready and not self:IsDisabled() then
+        Souls.OnDied(self, Util.Guid(character))
+    end
 end
 
 function Service:OnDialogActorJoined(dialog, instance, actor)

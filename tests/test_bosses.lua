@@ -240,7 +240,7 @@ function S.every_built_special_job_unlocks_learns_and_grants(w, T)
                 end
                 T.truthy(svc:AddBadge(b))
             end
-            T.truthy(count == nil or Rules.BadgeCount(svc.State:Get(guid)) >= count, jobId .. ": badge count")
+            T.truthy(count == nil or Rules.BadgeCount(svc.State:Get(guid), data) >= count, jobId .. ": badge count")
             T.truthy(svc.State:Get(guid).Unlocked[jobId], jobId .. ": badges + levels unlock it")
             T.truthy(svc:SetPrimary(guid, jobId))
             svc:AddManualJP(guid, 20000, jobId)
@@ -292,7 +292,7 @@ function S.gallant_knight_needs_squire_mastered_and_five_badges(w, T)
     end
     local tav = svc.State:Get(T.TAV)
     for _, b in ipairs({ "Cleric", "FellKnight", "DivineKnight", "Templar", "SteelGiant" }) do
-        if Rules.BadgeCount(tav) < 4 then -- (Zhalk's comes with the Act 1 boot)
+        if Rules.BadgeCount(tav, svc.Data) < 4 then -- (Zhalk's comes with the Act 1 boot)
             T.truthy(svc:AddBadge(b))
         end
     end
