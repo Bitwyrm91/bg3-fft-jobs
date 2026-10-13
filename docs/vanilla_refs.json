@@ -1479,6 +1479,7 @@
     "usedBy": [
       "FFTJ_DANCE_WITCH",
       "FFTJ_DANCE_WITCH_FX",
+      "FFTJ_DEAFENED",
       "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_WitchHunt",
       "Target_FFTJ_Quiescence",
@@ -2085,6 +2086,7 @@
     "kind": "status",
     "usedBy": [
       "FFTJ_DANCE_FORBIDDEN_FX",
+      "FFTJ_FULMINATE_STUNNED",
       "Target_FFTJ_Esuna",
       "Target_FFTJ_EyeDrops",
       "Target_FFTJ_Remedy",

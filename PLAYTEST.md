@@ -1,6 +1,10 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.51**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.52**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.52: Fulminate Flask (Chemist)
+
+- 250 JP, level 1 spell slot, 3-turn recharge: flask at a creature; tiny burst (target + anyone within 1 m): 1d6 bludgeoning, Con save or Blinded 1 turn + Deafened 2 turns (disadvantage on Concentration saves, no reactions). Burning target: 2 m burst and enemies in it start Burning. Check: the save, both statuses, the bigger burst, allies never set on fire.
 
 ## New in 1.0.0.51: Chemist effects lengthened in place
 

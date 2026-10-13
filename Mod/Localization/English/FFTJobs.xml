@@ -369,6 +369,9 @@
   <content contentuid="h7ba1be19g210ag52f2gaf94g8f643071636c" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have, at the start of each of their turns, a 1 in 10 chance each of being Blinded, Silenced, Poisoned or Slowed for 1 turn.</content>
   <content contentuid="hf8a4e5a7g6a2bg5d76ga42cgb144382d4b65" version="1">Echo: Forbidden Dance</content>
   <content contentuid="h5f0833a0gdf44g5a38gb597geb7b789f9906" version="1">Forbidden Dance</content>
+  <content contentuid="hf7d9b915gc2fag5763gb2c4g72455efee9a5" version="1">Level 1 spell slot. Throw a flask of mercury fulminate at a creature up to 18 m away. It bursts in a tiny area: the target and anyone almost touching it (1 m) take 1d6 bludgeoning and make a Constitution save; on a fail they are Blinded for 1 turn and Deafened for 2 (disadvantage on Concentration saves, no reactions). If the target is Burning, the heat sets off more fulminate: the burst reaches 2 m and enemies caught in it start Burning. Recharges in 3 turns.</content>
+  <content contentuid="h48b49b56g123ag5070gb503g70fa32d96604" version="1">Echo: Fulminate Flask</content>
+  <content contentuid="h942ea6fbg085ag52d3gb531g206d380b9e0c" version="1">Fulminate Flask</content>
   <content contentuid="h6b8996c9gdb72g583ag8499g7489704b4f74" version="1">When you take damage, you gain that much gold.</content>
   <content contentuid="hbd201c8fgb6cbg5498g895dg3d98366281a2" version="1">Gil Snapper</content>
   <content contentuid="hfb8bec52gfb6dg57b5g9830g1fc844c301dc" version="1">You and allies within 6 m gain 15 temporary hit points (FFT's Golem blocks physical damage). Once per long rest.</content>
@@ -2070,6 +2073,8 @@
   <content contentuid="h14a721b3g5594g5bbeg89f8g7013d1b1ca96" version="1">Deals 2 less damage while the dance lasts.</content>
   <content contentuid="hc1253137ge71fg5e37g96e4g622a10dec09d" version="1">-3 m movement while the dance lasts.</content>
   <content contentuid="h69bc740dg4df0g5054gacb2g47d6b166cee9" version="1">-2 to spell save DC and spell attack rolls while the dance lasts.</content>
+  <content contentuid="h9711f6bdg1111g5e78g8fd5g6e655bebca4f" version="1">Ears ringing from a blast: disadvantage on Concentration saves and no reactions.</content>
+  <content contentuid="hd89ce426g7753g5803gaa06g6a49a60155e2" version="1">Deafened</content>
   <content contentuid="h58eb9c17gbfa2g5284gace0g36ab6c5bd644" version="1">+2 AC until your next turn.</content>
   <content contentuid="hf229705fg5aecg55ebg9db3g1ae543b05c6e" version="1">Defending</content>
   <content contentuid="h3a11a39ag6777g5a2agae86g19402ab61a13" version="1">Can't take actions or bonus actions, but can move.</content>

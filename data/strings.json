@@ -119,6 +119,8 @@
     "passive.FFTJ_SoulCollector_4.name": "Soul Collector Lv4",
     "passive.FFTJ_SoulCollector_4.desc": "Job level 4 as your job: one more Wild Shape charge.",
     "passive.FFTJ_SoulCollector_7.name": "Soul Collector Lv7",
-    "passive.FFTJ_SoulCollector_7.desc": "Job level 7 as your job: two more Wild Shape charges."
+    "passive.FFTJ_SoulCollector_7.desc": "Job level 7 as your job: two more Wild Shape charges.",
+    "status.FFTJ_DEAFENED.name": "Deafened",
+    "status.FFTJ_DEAFENED.desc": "Ears ringing from a blast: disadvantage on Concentration saves and no reactions."
   }
 }

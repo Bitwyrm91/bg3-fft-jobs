@@ -80,6 +80,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         Effects.GravityHit(svc, source, target, Effects.Gravity[status])
     elseif status == "FFTJ_CHEM_MIXUP" then
         Effects.ChemicalMixup(svc, source, target)
+    elseif status == "FFTJ_FULMINATE" then
+        Effects.Fulminate(svc, source, target)
     elseif status == "FFTJ_CHEM_BURNS" then
         Effects.ChemicalBurns(svc, source, target)
     elseif status == "FFTJ_POACH_MARK" and source then
@@ -289,6 +291,28 @@ function Effects.ChemicalBurns(svc, caster, target)
     svc.Log.Info(string.format("Chemical Burns: %d effects on %s, %d damage, spread to %d", n, name(svc, target),
         total, spread))
     return n, total, spread
+end
+
+-- Fulminate Flask (Chemist, custom): a tiny burst around the target; a Burning target makes it larger and sets the
+-- enemies in it on fire. Each creature caught gets FFTJ_FULMINATE_BLAST (damage + Constitution save, in the stats).
+function Effects.Fulminate(svc, caster, target)
+    local cfg = svc:Cfg().Abilities
+    local burning = svc.Game:HasStatus(target, "BURNING")
+    local radius = burning and (cfg.FulminateBurningRadius or 2) or (cfg.FulminateRadius or 1)
+    local hit = 0
+    for _, other in ipairs(svc.Game:AllCharacters()) do
+        local d = other == target and 0 or svc.Game:Distance(target, other)
+        if d and d <= radius and not svc.Game:IsDead(other) then
+            afflict(svc, other, "FFTJ_FULMINATE_BLAST", 0, caster)
+            if burning and other ~= target and not svc.State:Get(other) and (not caster or svc.Game:IsEnemy(caster, other)) then
+                afflict(svc, other, "BURNING", cfg.FulminateBurningTurns or 2, caster)
+            end
+            hit = hit + 1
+        end
+    end
+    svc.Log.Info(string.format("Fulminate Flask on %s: %d caught (radius %s m%s)", name(svc, target), hit, radius,
+        burning and ", Burning target" or ""))
+    return hit, radius
 end
 
 -- Osiris CastedSpell (once per cast, unlike a status on every target): the Dark Knight's HP sacrifice.

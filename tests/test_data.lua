@@ -145,7 +145,7 @@ end
 
 function S.mastery_totals_and_unlocks_match_design(w, T)
     local Data = Ext.Require("Shared/GeneratedData.lua")
-    local expected = { Squire = 1470, Chemist = 4140, Knight = 2900, Archer = 5300, WhiteMage = 4670, BlackMage = 5200 }
+    local expected = { Squire = 1470, Chemist = 4390, Knight = 2900, Archer = 5300, WhiteMage = 4670, BlackMage = 5200 }
     for job, total in pairs(expected) do
         local sum = 0
         for _, aid in ipairs(Data.AbilitiesByJob[job]) do

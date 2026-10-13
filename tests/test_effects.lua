@@ -162,6 +162,27 @@ function S.chemical_burns_on_all_four_explodes_onto_nearby_enemies(w, T)
     T.contains(w.notifications, "Goblin explodes in chemical fire!")
 end
 
+function S.fulminate_flask_bursts_tiny_and_grows_on_a_burning_target(w, T)
+    T.boot(w)
+    local gob = enemy(w)
+    local close = w.newChar("88888888-8888-4888-8888-888888888888", { name = "Goblin 2", party = false, x = 0.9, hp = 20, maxHp = 20 })
+    local ring = w.newChar("99999999-9999-4999-8999-999999999999", { name = "Goblin 3", party = false, x = 1.8, hp = 20, maxHp = 20 })
+    w.chars[T.TAV].x = 1.5 -- the thrower stands in the larger ring only
+    applied(w, GOB, "FFTJ_FULMINATE", T.TAV)
+    T.truthy(gob.statuses.FFTJ_FULMINATE_BLAST, "the target")
+    T.truthy(close.statuses.FFTJ_FULMINATE_BLAST, "almost touching")
+    T.eq(ring.statuses.FFTJ_FULMINATE_BLAST, nil, "1.8 m is outside the tiny burst")
+    T.eq(close.statuses.BURNING, nil, "no fire unless the target burns")
+    gob.statuses.FFTJ_FULMINATE_BLAST, close.statuses.FFTJ_FULMINATE_BLAST = nil, nil
+    afflicted(w, GOB, { BURNING = 2 })
+    applied(w, GOB, "FFTJ_FULMINATE", T.TAV)
+    T.truthy(ring.statuses.FFTJ_FULMINATE_BLAST, "2 m burst on a Burning target")
+    T.truthy(ring.statuses.BURNING, "enemies in it catch fire")
+    T.truthy(close.statuses.BURNING)
+    T.truthy(w.chars[T.TAV].statuses.FFTJ_FULMINATE_BLAST, "the thrower is in the burst")
+    T.eq(w.chars[T.TAV].statuses.BURNING, nil, "but never set on fire by it")
+end
+
 function S.gravity_takes_a_share_of_max_hp(w, T)
     T.boot(w)
     local gob = enemy(w)

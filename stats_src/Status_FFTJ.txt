@@ -742,3 +742,37 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 data "OnApplyFunctors" "SetStatusDuration(BLEEDING,2,Add)"
+
+new entry "FFTJ_FULMINATE"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_FULMINATE_CD"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+// One per creature in the burst (Effects.Fulminate applies it with the thrower as source): damage, then one
+// Constitution save against the thrower's spell DC; a fail applies FFTJ_FULMINATE_STUNNED (Blinded + Deafened).
+new entry "FFTJ_FULMINATE_BLAST"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_STUNNED"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "ApplyStatus(BLINDED,100,1);ApplyStatus(FFTJ_DEAFENED,100,2)"
+
+new entry "FFTJ_DEAFENED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_DEAFENED.name}}"
+data "Description" "{{str:status.FFTJ_DEAFENED.desc}}"
+data "Icon" "Spell_Illusion_Silence"
+data "StackId" "FFTJ_DEAFENED"
+data "Boosts" "Disadvantage(Concentration);ActionResourceBlock(ReactionActionPoint)"
+data "StatusGroups" "SG_RemoveOnRespec"
