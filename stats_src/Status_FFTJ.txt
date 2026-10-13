@@ -653,3 +653,24 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 data "OnApplyFunctors" "RegainHitPoints(1d4)"
+
+// Unyielding Blade (Divine Knight): technical markers, the server script knocks the item off (Effects.Crush).
+new entry "FFTJ_CRUSH_HELM"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_CRUSH_ARMOR"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_CRUSH_WEAPON"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_CRUSH_ACCESSORY"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"

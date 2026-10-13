@@ -130,6 +130,18 @@
   <content contentuid="h7f1c4995ge642g57adgbd42g2508eee55eae" version="1">Critical: Recover HP</content>
   <content contentuid="h6301a4bag9d6bg52c4gb239gc84bb48c790a" version="1">When damage leaves you at 20% of your hit points or less, you regain all your level 1 spell slots. Once per long rest.</content>
   <content contentuid="h03bc0ac8g888cg52e3gafccg3a1b16948845" version="1">Critical: Recover MP</content>
+  <content contentuid="h7178719egcf70g5e0fg83f1g874ab47e0cf3" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks one of the target's accessories off (amulet, ring, cloak, gloves or boots); it falls to the ground. Once per short rest.</content>
+  <content contentuid="hd9a17deeg3550g583dgaa3dge3d6797b1383" version="1">Echo: Crush Accessory</content>
+  <content contentuid="hfdbded42g8d6dg5ed4g9734g9c87251c3703" version="1">Crush Accessory</content>
+  <content contentuid="he8bbd41bg0e2ag5934g87cegd92725b26837" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's body armour off; it falls to the ground.</content>
+  <content contentuid="hf934d948g1437g5c67g9eb0gcc1cc42fb31a" version="1">Echo: Crush Armor</content>
+  <content contentuid="h527bd635g2136g5c9dg9125gb3a3b4a398cd" version="1">Crush Armor</content>
+  <content contentuid="h4be61f54g783cg567dg860eg53c23e0df0ea" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's headwear off; it falls to the ground.</content>
+  <content contentuid="hccdf4ffag77aeg542agbe2bgb9d40dc80cdd" version="1">Echo: Crush Helm</content>
+  <content contentuid="h24380b7ega157g57cfgb9e4g3590d75bf660" version="1">Crush Helm</content>
+  <content contentuid="hc933abbdge3aag59a6g9fc0g4b92fc9b344b" version="1">A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's weapon out of its hand; it falls to the ground. Once per short rest.</content>
+  <content contentuid="h6064a3bbg63dag5875g871cg00368ae2a36b" version="1">Echo: Crush Weapon</content>
+  <content contentuid="h55fa93b9g7b0eg5d16g876fg8ff087668dc6" version="1">Crush Weapon</content>
   <content contentuid="h84c9d54eg6a10g5d53g9860ge21bf88afd56" version="1">Melee weapon attack that adds 1d8 necrotic damage; on a hit the target makes a Constitution save or is Stopped for 1 turn (bosses are immune). Once per short rest.</content>
   <content contentuid="hd982929agc1c3g5b20g9c02g69f347ed9a82" version="1">Echo: Crushing Blow</content>
   <content contentuid="h46be1c4ag27c5g5e3ag8c9cg5e3ca5af7342" version="1">Crushing Blow</content>
@@ -813,6 +825,10 @@
   <content contentuid="h80c7ee44gade2g5f1dgaa7agfba5532ca92b" version="1">Dark Knight Mastery</content>
   <content contentuid="ha565165ag2660g57b1gb3a2g8a07a37d2f52" version="1">A knight who wields darkness (War of the Lions). Fell Sword drains HP and spell slots from foes and trades your own HP for crushing blows around you. A late job: master Knight and Black Mage, reach level 8 as Dragoon, Samurai, Ninja and Geomancer, and defeat 20 enemies. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hb889c94cg74b8g5209gb266ga72f070c1f16" version="1">Job: Dark Knight</content>
+  <content contentuid="h8844d70cg3cadg5455gbf7cg1397dc0ee47e" version="1">+1 to Strength saving throws. Earned by mastering Divine Knight; kept after changing jobs.</content>
+  <content contentuid="h53354524gcaa1g590ag87a1ge43ba7d6b23e" version="1">Divine Knight Mastery</content>
+  <content contentuid="hc905812eg9fc7g5545ga403gb45233ce4fa7" version="1">Meliadoul's job. Unyielding Blade: slashes that fly 6 m and knock a foe's gear off (armour, headwear, weapon or an accessory falls to the ground; FFT destroys it, here you can still loot it). Story items hold. Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h2b3522d7g0492g54a5g98b8g19581f4ee6bf" version="1">Job: Divine Knight</content>
   <content contentuid="he588a050g93a9g5344ga4d0g182e16af033a" version="1">Jump 3 m farther. Earned by mastering Dragoon; kept after changing jobs.</content>
   <content contentuid="h0e9db50ega9bfg5c6fgb895gd11d0d98189a" version="1">Dragoon Mastery</content>
   <content contentuid="h3d0ed583g1caeg5f41gac3egbe1cb3b48be5" version="1">Leaps on enemies with a polearm: Jump's reach and landing power grow with Horizontal and Vertical Jump. Equipment: spears, pikes, glaives, halberds, tridents, shields, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

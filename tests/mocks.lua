@@ -380,6 +380,10 @@ function Mocks.Install()
         GetEquippedItem = function(g, slot)
             return char(g).equipment[slot]
         end,
+        Drop = function(item)
+            rec("Drop", item)
+            world.items[item].dropped = true
+        end,
         Unequip = function(g, item)
             rec("Unequip", g, item)
             for slot, it in pairs(char(g).equipment) do

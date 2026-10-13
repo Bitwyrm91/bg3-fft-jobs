@@ -28,6 +28,20 @@ function S.steal_weapon_takes_the_item(w, T)
     T.contains(w.notifications, "Tav stole Scimitar from Goblin!")
 end
 
+function S.crush_knocks_the_item_off_onto_the_ground(w, T)
+    T.boot(w)
+    local gob = enemy(w)
+    w.newItem(SWORD, { name = "Scimitar" })
+    gob.equipment["Melee Main Weapon"] = SWORD
+    applied(w, GOB, "FFTJ_CRUSH_WEAPON", T.TAV)
+    T.eq(gob.equipment["Melee Main Weapon"], nil, "unequipped")
+    T.truthy(w.items[SWORD].dropped, "on the ground, not in anyone's bags")
+    T.eq(#w.chars[T.TAV].inventory, 0)
+    T.contains(w.notifications, "Tav knocked Scimitar off Goblin!")
+    applied(w, GOB, "FFTJ_CRUSH_HELM", T.TAV)
+    T.contains(w.notifications, "Goblin has no headwear to break.")
+end
+
 function S.steal_weapon_falls_back_to_the_ranged_weapon(w, T)
     T.boot(w)
     local gob = enemy(w)

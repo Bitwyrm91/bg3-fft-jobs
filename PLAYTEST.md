@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.24**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.25**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.25: Divine Knight (special job 3 of 17)
+
+- **Divine Knight** (Meliadoul's job): needs the **Divine Knight Badge** (True Soul Nere, Grymforge) plus **Knight Lv5** and **Monk Lv4**.
+- **Unyielding Blade**, as in TIC: slashes that fly 6 m (melee weapon attack against each foe in the line) and break the target's gear. **Crush Armor** (200 JP) and **Crush Helm** (400) knock off its body armour / headwear; **Crush Weapon** (500) knocks its weapon out of its hand; **Crush Accessory** (800) knocks off an amulet, ring, cloak, gloves or boots (the last two once per short rest). FFT destroys the item; here it **falls to the ground** so you can still loot it. Story items hold.
+- Main-job equipment: swords, greatswords, all armour, shields. Mastery: +1 to Strength saving throws.
+- Worth checking: does a goblin's armour fall to the ground (and its AC drop)? Does an enemy pick its knocked-off weapon back up?
 
 ## New in 1.0.0.24: Fell Knight (special job 2 of 17)
 

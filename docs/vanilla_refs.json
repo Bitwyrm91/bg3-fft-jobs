@@ -27,6 +27,14 @@
     ]
   },
   {
+    "id": "Action_DisarmingAttack_Melee",
+    "kind": "icon",
+    "usedBy": [
+      "Zone_FFTJ_CrushAccessory",
+      "Zone_FFTJ_CrushWeapon"
+    ]
+  },
+  {
     "id": "Action_Monk_FlurryOfBlows",
     "kind": "icon",
     "usedBy": [
@@ -95,6 +103,15 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Quicksand"
+    ]
+  },
+  {
+    "id": "Action_Shove",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Mastery_DivineKnight",
+      "Zone_FFTJ_CrushArmor",
+      "Zone_FFTJ_CrushHelm"
     ]
   },
   {
@@ -195,6 +212,7 @@
     "usedBy": [
       "FFTJ_DefenseBoost",
       "FFTJ_Job_Cleric",
+      "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Mastery_OnionKnight",

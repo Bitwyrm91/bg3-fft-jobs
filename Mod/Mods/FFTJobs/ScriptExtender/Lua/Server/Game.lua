@@ -318,6 +318,13 @@ function Game:Unequip(guid, item)
     end)
 end
 
+-- The item falls to the ground where its holder stands.
+function Game:Drop(item)
+    self:Try("Drop", function()
+        Osi.Drop(item)
+    end)
+end
+
 function Game:ToInventory(item, guid)
     self:Try("ToInventory", function()
         Osi.ToInventory(item, guid, 1, 1, 1)

@@ -1,6 +1,7 @@
 -- Job abilities whose effect needs the server script. The stats only apply a marker status (or a passive marks the
 -- character); Osiris events bring them here:
 --   Steal (Thief): the item moves from the target's equipment to the thief's inventory; gold; experience.
+--   Crush (Divine Knight): the item falls off the target onto the ground.
 --   Gravity, Graviga (Time Mage): a share of the target's maximum HP as force damage.
 --   Bosses shrug off Doom, Stop and Stone, as in FFT.
 --   Gil Snapper (Thief): gold equal to the damage taken.
@@ -21,6 +22,14 @@ Effects.Steal = {
     FFTJ_STEAL_SHIELD = { Slots = { "Melee Offhand Weapon" }, What = "shield", ShieldOnly = true },
     FFTJ_STEAL_WEAPON = { Slots = { "Melee Main Weapon", "Ranged Main Weapon" }, What = "weapon" },
     FFTJ_STEAL_ACCESSORY = { Slots = { "Amulet", "Ring", "Ring2", "Cloak", "Gloves", "Boots" }, What = "accessory" },
+}
+-- Crush marker (Divine Knight's Unyielding Blade) -> the slots it searches: the item is knocked off and dropped on the
+-- ground (FFT destroys it; here the loot stays), story items hold.
+Effects.Crush = {
+    FFTJ_CRUSH_HELM = { Slots = { "Helmet" }, What = "headwear" },
+    FFTJ_CRUSH_ARMOR = { Slots = { "Breast" }, What = "armour" },
+    FFTJ_CRUSH_WEAPON = { Slots = { "Melee Main Weapon", "Ranged Main Weapon" }, What = "weapon" },
+    FFTJ_CRUSH_ACCESSORY = { Slots = { "Amulet", "Ring", "Ring2", "Cloak", "Gloves", "Boots" }, What = "accessory" },
 }
 -- Steal marker -> what is taken once per creature.
 Effects.StealOnce = { FFTJ_STEAL_GIL = "Gil", FFTJ_STEAL_EXP = "EXP" }
@@ -63,6 +72,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         end
     elseif Effects.Steal[status] then
         Effects.StealItem(svc, source, target, Effects.Steal[status])
+    elseif Effects.Crush[status] then
+        Effects.CrushItem(svc, source, target, Effects.Crush[status])
     elseif Effects.StealOnce[status] then
         Effects.StealOnceFrom(svc, source, target, Effects.StealOnce[status])
     elseif Effects.Gravity[status] then
@@ -93,6 +104,26 @@ function Effects.StealItem(svc, thief, target, def)
         end
     end
     tell(svc, thief, string.format("%s has no %s to steal.", name(svc, target), def.What))
+end
+
+-- Unyielding Blade: the first item found in the marker's slots falls off the target onto the ground.
+function Effects.CrushItem(svc, attacker, target, def)
+    local game = svc.Game
+    for _, slot in ipairs(def.Slots) do
+        local item = game:EquippedItem(target, slot)
+        if item then
+            if game:IsStoryItem(item) then
+                tell(svc, attacker, string.format("%s's %s holds.", name(svc, target), def.What))
+                return
+            end
+            game:Unequip(target, item)
+            game:Drop(item)
+            tell(svc, attacker, string.format("%s knocked %s off %s!", name(svc, attacker), game:DisplayName(item),
+                name(svc, target)))
+            return
+        end
+    end
+    tell(svc, attacker, string.format("%s has no %s to break.", name(svc, target), def.What))
 end
 
 -- Gold or experience, once per creature (saved: Meta.Robbed[target][kind]).
