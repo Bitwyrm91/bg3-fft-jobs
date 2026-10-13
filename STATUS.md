@@ -50,6 +50,10 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 
 **Special jobs: proposal written, NOT built (2026-10-13, scheduled run): `docs/SPECIAL_JOBS.md`** = the boss → badge table for the 17 special jobs (checked against the TIC tables `Job-en` / `JobCommand-en`: TIC calls Worker 8's job Automaton (WotL Steel Giant); Sky Pirate and Game Hunter are WotL only), proposed job levels, 7 more TIC special jobs to choose from, 5 open questions. The user approves before building.
 
+**Soul Collector: mapping proposal written, NOT built (2026-10-13, scheduled run): `docs/SOUL_COLLECTOR_MAP.md`** = every devourable BG3 creature type (from the vanilla `Character.txt` entries) → an FFT monster from the TIC `Job-en` roster by theme and tier (family member 1/2/3 ≈ Act 1/2/3), a boss table (Lucavi forms for the big villains), 5 open choices (unmatched FFT monsters: Elder Treant, Blue Dragon, the hydras; nearest fits; the Automaton name clash). The user approves before building. Enemy jobs not started (as asked).
+
+**Next (after the user's answers):** build the special jobs from `docs/SPECIAL_JOBS.md`, then the Soul Collector, then enemy jobs; the user's playtest of 1.0.0.19-1.0.0.20 (Dark Knight, Onion Knight, new JP numbers) and of batches 2-3.
+
 **NEXT: phase 2, decided with the user on 2026-10-12. Read `docs/PHASE2.md`** (every FFT job from every version, Fell Seal rules, the Soul Collector monster job; build order and ground rules: no icons for now, no GitHub push unless asked, preserve usage).
 
 FFT data source: **The Ivalice Chronicles** (the user asked for the recent remakes, not PS1); War of the Lions values where TIC is not published.
