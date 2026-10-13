@@ -67,10 +67,14 @@ function S.every_job_has_equipment_and_a_mastery_perk(w, T, Mocks)
     local entries = statsEntries(Mocks)
     for _, id in ipairs(Data.JobOrder) do
         local job = Data.Jobs[id]
-        if job.Implemented then
+        if job.Implemented and id == "Mime" then
+            T.eq(job.Equip, "", "FFT's Mime equips nothing")
+        elseif job.Implemented then
             T.truthy(job.Equip ~= "", id .. " has an equip list")
             local marker = entries[job.Innate.Passives[1]]
             T.contains(marker.data.Boosts or "", "Proficiency(", id .. " marker passive grants proficiencies")
+        end
+        if job.Implemented then
             T.truthy(job.Mastery and job.Mastery.Description ~= "", id .. " has a mastery perk")
             local perk = entries[job.Mastery.Grants.Passives[1]]
             T.truthy(perk.data.Boosts and perk.data.Boosts ~= "", id .. " mastery passive has boosts")

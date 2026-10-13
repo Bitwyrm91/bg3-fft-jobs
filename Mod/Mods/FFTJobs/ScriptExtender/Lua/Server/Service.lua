@@ -22,6 +22,9 @@ function Service.New(deps)
     self.NotTrackable = {} -- guid -> true: checked, not a party member (NPCs cast spells and enter combat too)
     self.PollGeneration = 0
     self.PoachMarks = {} -- creature guid -> the poacher who hit it this turn (Effects.lua)
+    self.EchoSeq = 0 -- counts echoable job abilities used by the party (Mime)
+    self.LastEcho = nil -- {Spell = echo twin, Ability, By = guid, Seq}
+    self.EchoSeen = {} -- Mime guid -> EchoSeq when its last turn ended
     self.OnOpenBoard = nil -- set by NetServer
     return self
 end
@@ -390,6 +393,7 @@ function Service:OnCastedSpell(caster, spell)
     if not char then
         return
     end
+    self:TrackEcho(guid, char, spell)
     local cfg = self:Cfg()
     local jp = cfg.JP
     local inCombat = self.Game:IsInCombat(guid)
@@ -478,7 +482,69 @@ function Service:OnEnteredCombat(object, combatId)
 end
 
 function Service:OnTurnStarted(object)
-    self.TurnCasts[Util.Guid(object) or ""] = 0
+    local guid = Util.Guid(object)
+    self.TurnCasts[guid or ""] = 0
+    self:OfferEcho(guid)
+end
+
+function Service:OnTurnEnded(object)
+    local guid = Util.Guid(object)
+    local char = guid and self.State:Get(guid)
+    if not self:IsMime(char) then
+        return
+    end
+    self.EchoSeen[guid] = self.EchoSeq
+    if char.Echo then
+        char.Echo = nil
+        self:Reconcile(guid)
+    end
+end
+
+---------------------------------------------------------------- Mime: Echo
+
+-- The user's design: on its turn a Mime can repeat the last job ability an ally used since the Mime's previous turn,
+-- without that ability's cooldown. Every job action spell has an "_Echo" twin without a cooldown (tools/build.py,
+-- Data.Echo); the Mime gets the right twin for its turn (char.Echo, read by Rules.DesiredGrants).
+function Service:IsMime(char)
+    local job = self.Data.Jobs.Mime
+    return char ~= nil and char.Primary == "Mime" and job ~= nil and job.Implemented == true
+end
+
+function Service:TrackEcho(guid, char, spell)
+    if char.Echo and spell == char.Echo then
+        char.Echo = nil -- one echo per turn
+        self:Reconcile(guid)
+        return
+    end
+    local echo = self.Data.Echo and self.Data.Echo[spell]
+    if echo and self.Game:IsInCombat(guid) then
+        self.EchoSeq = self.EchoSeq + 1
+        self.LastEcho = { Spell = echo.Spell, Ability = echo.Ability, By = guid, Seq = self.EchoSeq }
+    end
+end
+
+function Service:OfferEcho(guid)
+    local char = guid and self.State:Get(guid)
+    local last = self.LastEcho
+    if not (self.Ready and not self:IsDisabled() and self:IsMime(char) and last and last.By ~= guid
+            and last.Seq > (self.EchoSeen[guid] or 0) and self.Game:IsInCombat(guid)) then
+        return
+    end
+    char.Echo = last.Spell
+    self:Reconcile(guid)
+    local ab = self.Data.Abilities[last.Ability]
+    self:Notify(guid, string.format("Echo ready: %s (this turn only, no cooldown).", ab and ab.Name or last.Ability))
+end
+
+function Service:ClearEchoes()
+    self.LastEcho = nil
+    for _, guid in ipairs(self.State:Guids()) do
+        local char = self.State:Get(guid)
+        if char.Echo then
+            char.Echo = nil
+            self:Reconcile(guid)
+        end
+    end
 end
 
 -- Osiris CombatEnded: victory JP for participants still alive, camp share for everyone else, telemetry.
@@ -486,6 +552,7 @@ function Service:OnCombatEnded(combatId)
     if not self.Ready then
         return
     end
+    self:ClearEchoes()
     local rec = self.Combats[combatId]
     local participants = {}
     if rec then
@@ -1038,7 +1105,7 @@ function Service:Describe(guid)
             local status
             if not unlocked then
                 status = "locked (needs " .. Rules.RequirementText(data, jobId) .. ")"
-            elseif Rules.IsMastered(data, char, jobId) then
+            elseif Rules.IsMastered(data, char, jobId, cfg) then
                 status = "MASTERED" .. (Rules.HasMasteryPerk(data, cfg, char, jobId)
                     and (" (perk: " .. job.Mastery.Description .. ")") or "")
             else

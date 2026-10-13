@@ -183,6 +183,7 @@
     "id": "PassiveFeature_FightingStyle_Archery",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_Concentration",
       "FFTJ_Poach"
     ]
   },
@@ -300,6 +301,13 @@
     "kind": "icon",
     "usedBy": [
       "Shout_FFTJ_Ashura"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_FindFamiliar",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Beastmaster"
     ]
   },
   {
@@ -456,6 +464,14 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Vanish"
+    ]
+  },
+  {
+    "id": "Spell_Illusion_MirrorImage",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Job_Mime",
+      "FFTJ_Mastery_Mime"
     ]
   },
   {

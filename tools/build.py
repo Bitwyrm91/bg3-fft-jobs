@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.16"
+MOD_VERSION = "1.0.0.17"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -262,6 +262,7 @@ def build_lua(jobs_doc, config_doc):
             } for v in a["variants"]]
         abilities[a["id"]] = entry
         by_job[a["job"]].append(a["id"])
+    echo = {sid: {"Spell": sid + ECHO_SUFFIX, "Ability": aid} for sid, aid in echo_spells(jobs_doc).items()}
     presets = {name: {"Description": p.get("description", ""), "Values": p["values"]}
                for name, p in config_doc["presets"].items()}
     data = {
@@ -278,6 +279,7 @@ def build_lua(jobs_doc, config_doc):
         "AbilitiesByJob": by_job,
         "Badges": badges,
         "BadgeOrder": [b["id"] for b in jobs_doc.get("badges", [])],
+        "Echo": echo,
         "ConfigDefaults": config_doc["defaults"],
         "Presets": presets,
         "PresetOrder": list(config_doc["presets"].keys()),
@@ -303,6 +305,7 @@ def string_table(jobs_doc, strings_doc):
     for a in jobs_doc["abilities"]:
         table[f"ability.{a['id']}.name"] = a["name"]
         table[f"ability.{a['id']}.desc"] = a["description"]
+        table[f"ability.{a['id']}.echo_name"] = f"Echo: {a['name']}"
     board = strings_doc["strings"]["JobPassive.Desc"]
     for j in jobs_doc["jobs"]:
         if j.get("implemented"):
@@ -548,6 +551,48 @@ def build_texture_bank():
     return "\n".join(lines) + "\n"
 
 
+# Mime, Echo (user's design): on its turn a Mime may repeat the last job ability an ally used since its previous turn,
+# ignoring that ability's cooldown. Every action spell of the other implemented jobs gets a "<spell>_Echo" twin without
+# a cooldown, named "Echo: <ability>"; the server hands the right twin to the Mime for one turn (Server/Service.lua).
+ECHO_SUFFIX = "_Echo"
+ECHO_FILE = "Spell_FFTJ_Echo.txt"
+
+
+def echo_spells(jobs_doc):
+    """spell id -> ability id, for the action spells (grants and variants) of implemented jobs other than the Mime."""
+    implemented = {j["id"] for j in jobs_doc["jobs"] if j.get("implemented") and j["id"] != "Mime"}
+    out = {}
+    for a in jobs_doc["abilities"]:
+        if a["job"] in implemented and a["type"] == "Action":
+            for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])]:
+                for sid in g.get("spells", []):
+                    out.setdefault(sid, a["id"])
+    return out
+
+
+def echo_stats(jobs_doc, entries, used):
+    by_name = {e["name"]: e for e in entries}
+
+    def spell_type(name):
+        while name in by_name:
+            e = by_name[name]
+            for key, value in e["data"]:
+                if key == "SpellType":
+                    return value
+            name = e["using"]
+        raise BuildError(f"echo: no SpellType for {name}")
+
+    lines = []
+    for sid, aid in echo_spells(jobs_doc).items():
+        if sid not in by_name:
+            continue  # check_stats reports the missing grant
+        key = f"ability.{aid}.echo_name"
+        used.add(key)
+        lines += [f'new entry "{sid}{ECHO_SUFFIX}"', 'type "SpellData"', f'data "SpellType" "{spell_type(sid)}"',
+                  f'using "{sid}"', 'data "Cooldown" ""', f'data "DisplayName" "{handle_for(key)};1"', ""]
+    return "\n".join(lines).rstrip("\n") + "\n"
+
+
 def build_stats(jobs_doc, strings_doc):
     table = string_table(jobs_doc, strings_doc)
     used = set()
@@ -589,6 +634,9 @@ def build_stats(jobs_doc, strings_doc):
             raise BuildError(f"{src.name}: unresolved placeholder")
         outputs[STATS_OUT / src.name] = out
         entries += parse_stats(out, src.name)
+    out = echo_stats(jobs_doc, entries, used)
+    outputs[STATS_OUT / ECHO_FILE] = out
+    entries += parse_stats(out, ECHO_FILE)
     art = set(art_keys())
     if art:
         keys = icon_keys(jobs_doc, entries)

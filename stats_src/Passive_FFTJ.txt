@@ -923,3 +923,32 @@ data "Description" "{{desc:JumpPlus3}}"
 data "Icon" "Action_Monk_StepOfTheWind_Dash"
 data "Properties" "Highlighted"
 data "Boosts" "JumpMaxDistanceBonus(4.5)"
+
+// ---------------------------------------------------------------- Mime, phase 2 batch 3
+// Echo is server-side (Service: OfferEcho / TrackEcho) with the "_Echo" twins tools/build.py generates. The Mime has
+// no abilities of its own; its innate passives are Concentration (Archer), Brawler (Monk) and Beastmaster.
+new entry "FFTJ_Job_Mime"
+type "PassiveData"
+data "DisplayName" "{{jobname:Mime}}"
+data "Description" "{{jobdesc:Mime}}"
+data "Icon" "Spell_Illusion_MirrorImage"
+data "Properties" "Highlighted"
+
+new entry "FFTJ_Mastery_Mime"
+type "PassiveData"
+data "DisplayName" "{{masteryname:Mime}}"
+data "Description" "{{masterydesc:Mime}}"
+data "Icon" "Spell_Illusion_MirrorImage"
+data "Properties" "Highlighted"
+data "Boosts" "RollBonus(SavingThrow,1)"
+
+// Beastmaster: a 1-turn aura renewed at the start of each turn and of each fight (so it lapses once the Mime changes
+// job); allied non-humanoids inside it (beasts, familiars, summons) get Focus.
+new entry "FFTJ_Beastmaster"
+type "PassiveData"
+data "DisplayName" "{{str:Beastmaster.Name}}"
+data "Description" "{{str:Beastmaster.Desc}}"
+data "Icon" "Spell_Conjuration_FindFamiliar"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnTurn;OnCombatStarted"
+data "StatsFunctors" "ApplyStatus(SELF,FFTJ_BEASTMASTER_AURA,100,1)"

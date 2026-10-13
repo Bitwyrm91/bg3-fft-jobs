@@ -11,6 +11,7 @@ Events.Osiris = {
     { "CombatRoundStarted", 2, "OnCombatRoundStarted" },
     { "CombatEnded", 1, "OnCombatEnded" },
     { "TurnStarted", 1, "OnTurnStarted" },
+    { "TurnEnded", 1, "OnTurnEnded" },
     { "LongRestFinished", 0, "OnLongRestFinished" },
     { "LeveledUp", 1, "OnLeveledUp" },
     { "CharacterJoinedParty", 1, "OnCharacterJoinedParty" },

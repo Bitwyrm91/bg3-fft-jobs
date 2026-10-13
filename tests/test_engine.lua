@@ -189,10 +189,10 @@ function S.shared_learning_feeds_every_other_job(w, T)
     w.runTimers()
     T.eq(sum(svc, T, T.TAV, "Squire"), 50, "500 XP * 0.1")
     for _, job in ipairs({ "Chemist", "Knight", "Archer", "WhiteMage", "BlackMage", "Monk", "Thief", "TimeMage", "Mystic",
-        "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Bard", "Dancer" }) do
+        "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Bard", "Dancer", "Mime" }) do
         T.eq(sum(svc, T, T.TAV, job), 7, job .. ": 15% of 50 = 7.5, locked jobs included")
     end
-    T.eq(svc.State:Get(T.TAV).Stats.JP.Shared, 119, "17 other jobs x 7")
+    T.eq(svc.State:Get(T.TAV).Stats.JP.Shared, 126, "18 other jobs x 7")
     T.eq(sum(svc, T, T.SHART, "Knight"), 0, "only the earner's own jobs")
 end
 
@@ -576,6 +576,47 @@ function S.testing_tools_can_be_turned_off(w, T)
     T.eq(sum(svc, T, T.TAV, "Squire"), 0)
     w.console("fft_unset", "Test.Tools")
     T.truthy(w.chars[T.TAV].spells.Shout_FFTJ_JPTraining, "back with the default")
+end
+
+function S.mime_echoes_the_last_ally_job_ability(w, T)
+    local svc = T.boot(w)
+    svc:UnlockAll(T.SHART)
+    for _, c in ipairs({ svc.State:Get(T.SHART), svc.State:Get(T.TAV) }) do
+        for _, job in ipairs({ "Squire", "Chemist", "Summoner", "Orator", "Geomancer", "Dragoon" }) do
+            c.Jobs[job] = { Earned = 99999, Unspent = 0, Learned = {} } -- the Mime's job level requirements
+        end
+    end
+    T.truthy(svc:SetPrimary(T.SHART, "Mime"))
+    local mime = w.chars[T.SHART].spells
+    T.startCombat(w, "c1", { T.TAV, T.SHART })
+    w.fire("TurnStarted", "S_Player_" .. T.SHART)
+    T.falsy(mime.Shout_FFTJ_Ashura_Echo, "nothing to echo yet")
+    w.fire("TurnEnded", "S_Player_" .. T.SHART)
+    T.cast(w, T.TAV, "Shout_FFTJ_Ashura")
+    w.fire("TurnStarted", "S_Player_" .. T.SHART)
+    T.truthy(mime.Shout_FFTJ_Ashura_Echo, "an ally's job ability: its echo twin for this turn")
+    T.cast(w, T.SHART, "Shout_FFTJ_Ashura_Echo")
+    T.falsy(mime.Shout_FFTJ_Ashura_Echo, "one echo per turn")
+    w.fire("TurnEnded", "S_Player_" .. T.SHART)
+    w.fire("TurnStarted", "S_Player_" .. T.SHART)
+    T.falsy(mime.Shout_FFTJ_Ashura_Echo, "only what allies used since the Mime's last turn")
+    w.fire("TurnEnded", "S_Player_" .. T.SHART)
+    T.cast(w, T.TAV, "Target_MainHandAttack")
+    w.fire("TurnStarted", "S_Player_" .. T.SHART)
+    T.eq(svc.State:Get(T.SHART).Echo, nil, "a plain attack is not a job ability")
+    w.fire("TurnEnded", "S_Player_" .. T.SHART)
+    T.cast(w, T.TAV, "Zone_FFTJ_KikuIchimonji")
+    w.fire("TurnStarted", "S_Player_" .. T.SHART)
+    T.truthy(mime.Zone_FFTJ_KikuIchimonji_Echo)
+    T.endCombat(w, "c1", { T.TAV, T.SHART })
+    T.falsy(mime.Zone_FFTJ_KikuIchimonji_Echo, "echoes end with the fight")
+    svc:UnlockAll(T.TAV)
+    T.truthy(svc:SetPrimary(T.TAV, "Mime"))
+    T.startCombat(w, "c2", { T.TAV, T.SHART })
+    T.cast(w, T.TAV, "Shout_FFTJ_Ashura")
+    w.fire("TurnStarted", "S_Player_" .. T.TAV)
+    T.falsy(w.chars[T.TAV].spells.Shout_FFTJ_Ashura_Echo, "a Mime doesn't echo itself")
+    T.endCombat(w, "c2", { T.TAV, T.SHART })
 end
 
 return S

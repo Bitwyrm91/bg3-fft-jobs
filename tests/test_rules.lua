@@ -44,7 +44,7 @@ function S.add_jp_keeps_fractions(w, T)
     T.eq(char.Jobs.Squire.Unspent, 5)
     T.eq(Rules.AddJP(Data, cfg, char, "Squire", -5).Added, 0, "negative amounts are ignored")
     T.eq(Rules.AddJP(Data, cfg, char, "Squire", 0 / 0).Added, 0, "NaN is ignored")
-    T.eq(Rules.AddJP(Data, cfg, char, "Mime", 50).Added, 0, "unimplemented job")
+    T.eq(Rules.AddJP(Data, cfg, char, "Arithmetician", 50).Added, 0, "unimplemented job")
 end
 
 function S.unlock_knight_and_archer_at_squire_2(w, T)
@@ -138,7 +138,7 @@ function S.shared_learning_targets(w, T)
     local Rules, Data = setup()
     local cfg = T.cfg({ JP = { Shared = { Share = 0.15 } } })
     local char = Rules.NewChar(Data, cfg, "Squire")
-    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage,Monk,Thief,TimeMage,Mystic,Geomancer,Dragoon,Summoner,Orator,Samurai,Ninja,Bard,Dancer",
+    T.eq(table.concat(Rules.SharedTargets(Data, cfg, char, "Squire"), ","), "Chemist,Knight,Archer,WhiteMage,BlackMage,Monk,Thief,TimeMage,Mystic,Geomancer,Dragoon,Summoner,Orator,Samurai,Ninja,Bard,Dancer,Mime",
         "every other implemented job, locked ones included")
     local fight = T.cfg({ JP = { Shared = { Share = 0.15, Scope = "FightJobs" } } })
     T.eq(table.concat(Rules.SharedTargets(Data, fight, char, "Squire", { Squire = true, Knight = true }), ","), "Knight",
@@ -311,7 +311,7 @@ function S.find_job_and_ability_from_text(w, T)
     T.eq(Rules.FindJob(Data, "white mage"), "WhiteMage")
     T.eq(Rules.FindJob(Data, "WHITEMAGE"), "WhiteMage")
     T.eq(Rules.FindJob(Data, "black"), "BlackMage")
-    T.eq(Rules.FindJob(Data, "mime"), nil, "not implemented")
+    T.eq(Rules.FindJob(Data, "arithmetician"), nil, "not implemented")
     T.eq(Rules.FindJob(Data, "time mage"), "TimeMage")
     T.eq(Rules.FindAbility(Data, "Aim +1"), "Aim1")
     T.eq(Rules.FindAbility(Data, "x-potion"), "XPotion")
@@ -467,6 +467,17 @@ function S.sync_party_shows_unlocks_and_shares_badges(w, T)
     T.falsy(Rules.SetPrimary(Data, b, "Knight"))
     T.truthy(b.Badges.Crest, "badges belong to the party")
     T.eq(#Rules.SyncParty(Data, chars, party), 0, "nothing new the second time")
+end
+
+function S.a_job_without_abilities_is_mastered_at_the_top_level(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    T.eq(#Data.AbilitiesByJob.Mime, 0, "the Mime has no abilities to learn")
+    T.falsy(Rules.IsMastered(Data, char, "Mime", cfg))
+    char.Jobs.Mime = { Earned = 999999, Unspent = 0, Learned = {} }
+    T.truthy(Rules.IsMastered(Data, char, "Mime", cfg), "job level 8")
+    T.falsy(Rules.IsMastered(Data, char, "Mime"), "needs the level thresholds")
 end
 
 return S

@@ -2,6 +2,11 @@
 
 Updated 2026-10-12 evening. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.11**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
 
+## New in 1.0.0.17: Mime (Echo)
+
+- **Mime** (unlock: Squire Lv8, Chemist Lv8, Summoner Lv5, Orator Lv5, Geomancer Lv5, Dragoon Lv5). Your design: **Echo**. In a fight, at the start of the Mime's turn it gets a copy of the **last job ability an ally used since the Mime's previous turn** (a notice says "Echo ready: ..."; the spell is called "Echo: <ability>"). It can be used once that turn, free of the ability's cooldown, and disappears when used, at the end of the turn or when the fight ends. Plain attacks and class spells aren't echoed, only Job Board abilities. The Mime has no abilities to learn (as in FFT), so it is mastered at job level 8 (+1 to all saves). Concentration (+2 weapon attack rolls), Brawler and **Beastmaster** (allied beasts, familiars and summons within 6 m: +1 attack and damage) are always on.
+- Worth checking: does "Echo: ..." appear on the hotbar at the Mime's turn and vanish after use?
+
 ## New in 1.0.0.16: Bard and Dancer (open to everyone)
 
 - **Performances** (Bard unlock: Summoner Lv5 + Orator Lv5; Dancer: Geomancer Lv5 + Dragoon Lv5). A song or dance takes your action and your concentration and lasts up to 3 turns; everyone within 9 m of you feels it while they stay close (one performance at a time).

@@ -45,7 +45,7 @@ creatures have (level, HP, AC, distance); the Arithmetician's action casts one o
 learned on every creature in sight that matches. Needs script support (choose spell + rule, find matching
 creatures, cast with Osi.UseSpell / ApplyStatus). Ask the user before building: it is the most complicated job.
 
-## Mime (PHASE2.md: Echo action)
+## Mime (PHASE2.md: Echo action): BUILT in v1.0.0.17
 
 On its turn the Mime can repeat the last ability an ally used this round, ignoring that ability's cooldown. Needs the
 server script to remember each ally's last cast (CastedSpell event) and grant/trigger it for the Mime. Innate:

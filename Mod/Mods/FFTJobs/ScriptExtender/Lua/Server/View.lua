@@ -101,7 +101,7 @@ function View.Char(svc, guid)
             entry.NextAt = nextAt
             entry.PrevAt = prevAt
             entry.Progress = progress
-            entry.Mastered = Rules.IsMastered(data, char, jobId)
+            entry.Mastered = Rules.IsMastered(data, char, jobId, cfg)
             entry.LearnedCount = Rules.LearnedCount(data, char, jobId)
             entry.Total = #data.AbilitiesByJob[jobId]
             entry.Equip = job.Equip ~= "" and job.Equip or nil

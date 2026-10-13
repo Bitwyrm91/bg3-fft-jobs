@@ -89,6 +89,10 @@
     "status.FFTJ_STRENGTH_SURGE.name": "Strength Surge",
     "status.FFTJ_STRENGTH_SURGE.desc": "+2 damage with weapon attacks.",
     "status.FFTJ_BRAVERY_SURGE.name": "Bravery Surge",
-    "status.FFTJ_BRAVERY_SURGE.desc": "+1 to attack rolls."
+    "status.FFTJ_BRAVERY_SURGE.desc": "+1 to attack rolls.",
+
+    "Beastmaster.Name": "Beastmaster",
+    "Beastmaster.Desc": "Allied beasts, familiars and summons within 6 m of you get +1 to attack rolls and +1 damage. (FFT: gives nearby monsters a hidden ability.)",
+    "status.FFTJ_BEASTMASTER_FX.desc": "+1 to attack rolls and +1 damage near a Mime (Beastmaster)."
   }
 }

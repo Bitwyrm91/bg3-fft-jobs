@@ -376,10 +376,15 @@ function Rules.IsLearned(char, abilityId)
     return false
 end
 
-function Rules.IsMastered(data, char, jobId)
+-- Every ability learned. A job without abilities to learn (the Mime) is mastered at the top job level instead,
+-- which needs cfg (job level thresholds).
+function Rules.IsMastered(data, char, jobId, cfg)
     local list = data.AbilitiesByJob[jobId]
-    if not list or #list == 0 then
+    if not list then
         return false
+    end
+    if #list == 0 then
+        return cfg ~= nil and Rules.GetJobLevel(cfg, char, jobId) > #cfg.JobLevels.Thresholds
     end
     for _, aid in ipairs(list) do
         if not Rules.IsLearned(char, aid) then
@@ -640,7 +645,7 @@ end
 function Rules.HasMasteryPerk(data, cfg, char, jobId)
     local job = data.Jobs[jobId]
     return cfg ~= nil and cfg.Rules.MasteryPerks == true and job ~= nil and job.Implemented and job.Mastery ~= nil
-        and Rules.IsMastered(data, char, jobId)
+        and Rules.IsMastered(data, char, jobId, cfg)
 end
 
 -- Everything the mod should currently grant: {Spells = set, Passives = set, Statuses = set}. cfg (optional) adds
@@ -663,6 +668,10 @@ function Rules.DesiredGrants(data, char, cfg)
     local primary = data.Jobs[char.Primary]
     if primary then
         add(primary.Innate)
+    end
+    -- the Mime's echo for this turn (Service: set at its turn start, cleared after use or at turn end)
+    if char.Echo and char.Primary == "Mime" and primary and primary.Implemented then
+        desired.Spells[char.Echo] = true
     end
     local active = Rules.ActivePassives(data, char, cfg)
     local function addLearnedActions(jobId)
