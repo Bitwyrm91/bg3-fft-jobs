@@ -925,6 +925,10 @@
   <content contentuid="h11f54ef1g108cg52cdgb719g5bdac0836f2a" version="1">Fell Knight Mastery</content>
   <content contentuid="h48b028b6gcc03g5726gbff7ga62ce8e87e87" version="1">Gaffgarion's job. Fell Sword: dark sword strikes that reach foes up to 6 m away and drink their life (Shadowblade) or their magic (Duskblade). Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hd66e5cb4gb287g509bg895agb4321f7f1481" version="1">Job: Fell Knight</content>
+  <content contentuid="h90815efagb85ag52b4g8cc4g41d694ce6dfd" version="1">+2 to Survival checks. Earned by mastering Game Hunter; kept after changing jobs.</content>
+  <content contentuid="h77a58e17ge73fg5542gb46ege53ab0161595" version="1">Game Hunter Mastery</content>
+  <content contentuid="hcec5113dgb83fg5a8bg95dbg405341c39d17" version="1">Luso's job (War of the Lions). Hunt: the Squire's skills (Focus, Rush, Throw Stone, Salve, learned again here), and while Game Hunter is your job you always Poach (a beast or monster you hit that dies the same turn gives a trophy) and your weapon hits deal +1d6 damage to anything that isn't humanoid (Monster Hunter). Equipment: shortswords, spears, javelins, shortbows, longbows, light armour, medium armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h94f27d47g1de6g5fe2gab31gb2bdf000c0ff" version="1">Job: Game Hunter</content>
   <content contentuid="h1621ad3agd6efg5d37g8a67ga644c941c4dc" version="1">+1 to Strength and Constitution saving throws. Earned by mastering Geomancer; kept after changing jobs.</content>
   <content contentuid="hc37f351dg3f78g55c8gad94g81db8673e095" version="1">Geomancer Mastery</content>
   <content contentuid="h561baee6g8476g5ae0ga3e7g7fad2b5582f2" version="1">Turns the ground under your feet into a weapon: each Geomancy skill works only on its own terrain (plain ground, sunlight, shadow, water, ice, fire, mud, vines, grease). Equipment: shortswords, longswords, handaxes, battleaxes, shields, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -999,6 +1003,8 @@
   <content contentuid="h2d2df22age88cg5dd7g8c19g9e4ce6bf69ac" version="1">Holy Magicks</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
+  <content contentuid="h7445e45eg7f7bg5e2bgb9f1gc31502292f1d" version="1">While Game Hunter is your job, your weapon hits deal 1d6 extra damage to creatures that aren't humanoid.</content>
+  <content contentuid="h117f3e9egd881g5877gbed1gaa59afc0c532" version="1">Monster Hunter</content>
   <content contentuid="h45ad6cd3gee0ag5024g94b0g87fb2e5ac9db" version="1">While Astrologer is your job you read what the stars hold: +3 to initiative.</content>
   <content contentuid="he98439c2g9728g5973gab0ag0f1e08c8da2b" version="1">Star Reading</content>
   <content contentuid="hf8f38127gbca0g590dgb6ccg7051bbc5976f" version="1">While Steel Giant is your job you resist poison damage and can't be poisoned.</content>

@@ -247,6 +247,7 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Concentration",
+      "FFTJ_Mastery_GameHunter",
       "FFTJ_Poach"
     ]
   },
@@ -259,6 +260,7 @@
       "FFTJ_Job_Cleric",
       "FFTJ_Job_DivineKnight",
       "FFTJ_Job_FellKnight",
+      "FFTJ_Job_GameHunter",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Job_SkyPirate",
       "FFTJ_Job_SteelGiant",
@@ -1207,6 +1209,13 @@
     "usedBy": [
       "Target_FFTJ_Leviathan",
       "Target_FFTJ_Torrent"
+    ]
+  },
+  {
+    "id": "ColossusSlayer",
+    "kind": "using parent (PassiveData)",
+    "usedBy": [
+      "FFTJ_MonsterHunter"
     ]
   },
   {

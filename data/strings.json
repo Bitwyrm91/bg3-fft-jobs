@@ -2,6 +2,8 @@
   "schema": 1,
   "note": "Extra English strings used by stats_src templates as {{str:KEY}}. Ability names/descriptions come from fft_jobs.json ({{name:ID}}, {{desc:ID}}), job passive texts from the job list ({{jobname:ID}}, {{jobdesc:ID}}).",
   "strings": {
+    "MonsterHunter.Name": "Monster Hunter",
+    "MonsterHunter.Desc": "While Game Hunter is your job, your weapon hits deal 1d6 extra damage to creatures that aren't humanoid.",
     "StarReading.Name": "Star Reading",
     "StarReading.Desc": "While Astrologer is your job you read what the stars hold: +3 to initiative.",
     "SteelBody.Name": "Steel Body",

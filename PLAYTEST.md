@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.29**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.30**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.30: Game Hunter (special job 8 of 17; all Act 1 badges done)
+
+- **Game Hunter** (Luso's job, War of the Lions): needs the **Game Hunter Badge** (the Flind, the gnoll war band) plus **Archer Lv5** and **Thief Lv4**.
+- **Hunt**, as in WotL: the Squire's skills (**Focus**, **Rush**, **Throw Stone**, **Salve**, learned again with Game Hunter JP). While Game Hunter is your job: **Poach** always on (a beast or monster you hit that dies the same turn gives a trophy) and **Monster Hunter**: your weapon hits deal +1d6 damage to anything that isn't humanoid.
+- Main-job equipment: shortswords, spears, javelins, short and long bows, light and medium armour. Mastery: +2 to Survival.
+- Worth checking: does the +1d6 show against a wolf or a spider but not a goblin?
 
 ## New in 1.0.0.29: Sky Pirate (special job 7 of 17)
 
