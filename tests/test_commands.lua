@@ -111,8 +111,9 @@ end
 
 function S.badge_command(w, T)
     T.boot(w)
-    T.contains(out(w.console("fft_badge", "list")), "No badges yet")
+    T.contains(out(w.console("fft_badge", "list")), "Badges (bosses drop them; !fft_badge <id> gives one for testing):")
     T.contains(out(w.console("fft_badge", "crown")), "Unknown badge crown")
+    T.contains(out(w.console("fft_badge", "cleric badge")), "The party found the Cleric Badge!")
 end
 
 function S.grants_command_reports_game_state(w, T)

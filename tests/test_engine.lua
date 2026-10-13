@@ -334,16 +334,16 @@ function S.mastery_perks_can_be_turned_off(w, T)
     T.falsy(w.chars[T.TAV].passives.FFTJ_Mastery_Squire)
 end
 
--- A made-up special job for the badge tests: Holy Knight, needs the Holy Knight Badge and Knight Lv3.
+-- A made-up special job for the badge tests (not in the data): Test Knight, needs the Test Knight Badge and Knight Lv3.
 local function addBadgeJob()
     local Data = Ext.Require("Shared/GeneratedData.lua")
-    Data.Jobs.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight", Skillset = "Holy Sword", Implemented = true,
-        Order = #Data.JobOrder + 1, Unlock = { { Badge = "HolyKnight" }, { Job = "Knight", Level = 3 } },
+    Data.Jobs.TestKnight = { Id = "TestKnight", Name = "Test Knight", Skillset = "Test Sword", Implemented = true,
+        Order = #Data.JobOrder + 1, Unlock = { { Badge = "TestKnight" }, { Job = "Knight", Level = 3 } },
         Innate = {}, Equip = "", Description = "test job" }
-    Data.JobOrder[#Data.JobOrder + 1] = "HolyKnight"
-    Data.AbilitiesByJob.HolyKnight = {}
-    Data.Badges.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight Badge", Description = "test badge" }
-    Data.BadgeOrder[#Data.BadgeOrder + 1] = "HolyKnight"
+    Data.JobOrder[#Data.JobOrder + 1] = "TestKnight"
+    Data.AbilitiesByJob.TestKnight = {}
+    Data.Badges.TestKnight = { Id = "TestKnight", Name = "Test Knight Badge", Description = "test badge" }
+    Data.BadgeOrder[#Data.BadgeOrder + 1] = "TestKnight"
 end
 
 function S.badge_and_job_levels_unlock_a_special_job(w, T)
@@ -351,29 +351,29 @@ function S.badge_and_job_levels_unlock_a_special_job(w, T)
     local svc = T.boot(w)
     svc:AddManualJP(T.TAV, 200, "Squire")
     svc:AddManualJP(T.TAV, 400, "Knight")
-    T.falsy(svc.State:Get(T.TAV).Unlocked.HolyKnight, "Knight Lv3 alone is not enough")
-    local ok, msg = svc:AddBadge("HolyKnight")
+    T.falsy(svc.State:Get(T.TAV).Unlocked.TestKnight, "Knight Lv3 alone is not enough")
+    local ok, msg = svc:AddBadge("TestKnight")
     T.truthy(ok, msg)
-    T.contains(msg, "The party found the Holy Knight Badge. Tav unlocked the Holy Knight job!")
-    T.truthy(svc.State:Get(T.SHART).Badges.HolyKnight, "the badge serves everyone")
-    T.falsy(svc.State:Get(T.SHART).Unlocked.HolyKnight, "but Shadowheart needs Knight Lv3 herself")
-    T.contains(select(2, svc:AddBadge("HolyKnight")), "already has")
+    T.contains(msg, "The party found the Test Knight Badge. Tav unlocked the Test Knight job!")
+    T.truthy(svc.State:Get(T.SHART).Badges.TestKnight, "the badge serves everyone")
+    T.falsy(svc.State:Get(T.SHART).Unlocked.TestKnight, "but Shadowheart needs Knight Lv3 herself")
+    T.contains(select(2, svc:AddBadge("TestKnight")), "already has")
     local gale = "55555555-5555-4555-8555-555555555555"
     w.newChar(gale, { name = "Gale", level = 3, xp = 1000, class = "Wizard" })
     w.fire("CharacterJoinedParty", "S_Player_" .. gale)
-    T.truthy(svc.State:Get(gale).Badges.HolyKnight, "a later member gets the party's badges")
+    T.truthy(svc.State:Get(gale).Badges.TestKnight, "a later member gets the party's badges")
 end
 
 function S.badge_first_then_job_levels(w, T)
     addBadgeJob()
     local svc = T.boot(w)
-    T.truthy(svc:AddBadge("HolyKnight"))
-    T.falsy(svc.State:Get(T.SHART).Unlocked.HolyKnight)
+    T.truthy(svc:AddBadge("TestKnight"))
+    T.falsy(svc.State:Get(T.SHART).Unlocked.TestKnight)
     svc:AddManualJP(T.SHART, 200, "Squire")
     svc:AddManualJP(T.SHART, 400, "Knight")
-    T.truthy(svc.State:Get(T.SHART).Unlocked.HolyKnight, "the badge counts once the levels are there")
-    T.falsy(svc.State:Get(T.TAV).Unlocked.HolyKnight, "each character needs its own levels")
-    T.contains(w.notifications, "Shadowheart unlocked the Holy Knight job!")
+    T.truthy(svc.State:Get(T.SHART).Unlocked.TestKnight, "the badge counts once the levels are there")
+    T.falsy(svc.State:Get(T.TAV).Unlocked.TestKnight, "each character needs its own levels")
+    T.contains(w.notifications, "Shadowheart unlocked the Test Knight job!")
 end
 
 function S.grants_follow_learning_and_job_changes(w, T)

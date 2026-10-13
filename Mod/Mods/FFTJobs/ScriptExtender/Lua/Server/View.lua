@@ -82,7 +82,7 @@ function View.Char(svc, guid)
         local job = data.Jobs[jobId]
         local unlocked = job.Implemented and Rules.IsUnlocked(char, jobId)
         local entry = {
-            Id = jobId, Name = job.Name, Skillset = job.Skillset, Built = job.Implemented == true,
+            Id = jobId, Name = job.Name, Skillset = job.Skillset, Built = job.Implemented == true, Group = job.Group,
             Unlocked = unlocked == true,
             Requirements = Rules.RequirementText(data, jobId),
             -- unlocked by someone in the party: shown to everyone, but this character needs its own levels

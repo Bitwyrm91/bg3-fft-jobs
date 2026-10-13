@@ -20,6 +20,10 @@ Events.Osiris = {
     { "StatusApplied", 4, "OnStatusApplied" },
     { "AttackedBy", 7, "OnAttackedBy" },
     { "KilledBy", 4, "OnKilledBy" },
+    -- boss badges (Bosses.lua); arities from the same Osi.Events.lua (2026-10-13)
+    { "Died", 1, "OnDied" },
+    { "DialogActorJoined", 4, "OnDialogActorJoined" },
+    { "DialogEnded", 2, "OnDialogEnded" },
 }
 
 function Events.Register(svc, log)

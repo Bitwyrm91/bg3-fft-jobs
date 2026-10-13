@@ -425,16 +425,16 @@ function S.mastery_perk_follows_mastery(w, T)
     T.falsy(Rules.DesiredGrants(Data, char).Passives.FFTJ_Mastery_Archer, "without the config: off")
 end
 
--- Data with a made-up special job: Holy Knight needs the Holy Knight Badge and Knight Lv3.
+-- Data with a made-up special job (not in the data): Test Knight needs the Test Knight Badge and Knight Lv3.
 local function badgeData(Data)
     local Util = Ext.Require("Shared/Util.lua")
     local d = Util.DeepCopy(Data)
-    d.Jobs.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight", Implemented = true, Order = #d.JobOrder + 1,
-        Unlock = { { Badge = "HolyKnight" }, { Job = "Knight", Level = 3 } }, Innate = {}, Equip = "" }
-    d.JobOrder[#d.JobOrder + 1] = "HolyKnight"
-    d.AbilitiesByJob.HolyKnight = {}
-    d.Badges.HolyKnight = { Id = "HolyKnight", Name = "Holy Knight Badge", Description = "test" }
-    d.BadgeOrder[#d.BadgeOrder + 1] = "HolyKnight"
+    d.Jobs.TestKnight = { Id = "TestKnight", Name = "Test Knight", Implemented = true, Order = #d.JobOrder + 1,
+        Unlock = { { Badge = "TestKnight" }, { Job = "Knight", Level = 3 } }, Innate = {}, Equip = "" }
+    d.JobOrder[#d.JobOrder + 1] = "TestKnight"
+    d.AbilitiesByJob.TestKnight = {}
+    d.Badges.TestKnight = { Id = "TestKnight", Name = "Test Knight Badge", Description = "test" }
+    d.BadgeOrder[#d.BadgeOrder + 1] = "TestKnight"
     return d
 end
 
@@ -442,27 +442,27 @@ function S.badge_requirements(w, T)
     local Rules, Data = setup()
     local data = badgeData(Data)
     local cfg = T.cfg()
-    T.eq(Rules.RequirementText(data, "HolyKnight"), "Holy Knight Badge, Knight Lv3")
+    T.eq(Rules.RequirementText(data, "TestKnight"), "Test Knight Badge, Knight Lv3")
     local a = Rules.NewChar(data, cfg, "Squire")
     local b = Rules.NewChar(data, cfg, "Squire")
     local chars, party = { A = a, B = b }, {}
     Rules.AddJP(data, cfg, a, "Squire", 200)
     Rules.AddJP(data, cfg, a, "Knight", 400)
-    local met, missing = Rules.RequirementsMet(data, cfg, a, "HolyKnight")
+    local met, missing = Rules.RequirementsMet(data, cfg, a, "TestKnight")
     T.falsy(met)
-    T.eq(missing[1].Badge, "HolyKnight")
+    T.eq(missing[1].Badge, "TestKnight")
     T.falsy(Rules.AddBadge(data, cfg, chars, party, "Crown"), "unknown badge")
-    local ok, err, info = Rules.AddBadge(data, cfg, chars, party, "HolyKnight")
+    local ok, err, info = Rules.AddBadge(data, cfg, chars, party, "TestKnight")
     T.truthy(ok, err)
     T.eq(#info.Unlocked, 1, "only A has the job levels")
     T.eq(info.Unlocked[1].Guid, "A")
-    T.eq(info.Unlocked[1].Job, "HolyKnight")
-    T.truthy(Rules.HasBadge(b, "HolyKnight"), "the badge serves the whole party")
-    T.falsy(Rules.IsUnlocked(b, "HolyKnight"), "B still needs Knight Lv3 itself")
-    T.truthy(Rules.IsPartyUnlocked(party, "HolyKnight"))
-    T.eq(Rules.MissingText(data, cfg, b, "HolyKnight"), "Knight Lv3 (has Lv1)")
-    T.truthy(select(3, Rules.AddBadge(data, cfg, chars, party, "HolyKnight")).Already)
-    T.eq(Rules.FindBadge(data, "holy knight badge"), "HolyKnight")
+    T.eq(info.Unlocked[1].Job, "TestKnight")
+    T.truthy(Rules.HasBadge(b, "TestKnight"), "the badge serves the whole party")
+    T.falsy(Rules.IsUnlocked(b, "TestKnight"), "B still needs Knight Lv3 itself")
+    T.truthy(Rules.IsPartyUnlocked(party, "TestKnight"))
+    T.eq(Rules.MissingText(data, cfg, b, "TestKnight"), "Knight Lv3 (has Lv1)")
+    T.truthy(select(3, Rules.AddBadge(data, cfg, chars, party, "TestKnight")).Already)
+    T.eq(Rules.FindBadge(data, "test knight badge"), "TestKnight")
 end
 
 function S.sync_party_shows_unlocks_and_shares_badges(w, T)

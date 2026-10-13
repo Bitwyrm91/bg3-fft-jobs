@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.21"
+MOD_VERSION = "1.0.0.22"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -79,9 +79,25 @@ def validate(jobs_doc, config_doc, strings_doc):
     badge_ids = [b["id"] for b in jobs_doc.get("badges", [])]
     if len(badge_ids) != len(set(badge_ids)):
         errors.append("duplicate badge id")
+    acts = jobs_doc.get("levelActs", {})
+    if any(not isinstance(a, int) or not 0 <= a <= 4 for a in acts.values()):
+        errors.append("levelActs: acts are whole numbers 0 (prologue) to 4 (finale)")
+    boss_chars = set()
     for b in jobs_doc.get("badges", []):
         if not b.get("name") or not b.get("description"):
             errors.append(f"badge {b['id']}: needs a name and a description")
+        # boss badges (docs/SPECIAL_JOBS.md): the boss's characters, its act and how sparing it counts
+        if b.get("characters") is not None:
+            if not b.get("boss") or not isinstance(b.get("act"), int) or not 0 <= b["act"] <= 4:
+                errors.append(f"badge {b['id']}: a boss badge needs a boss name and an act 0-4")
+            for g in b["characters"]:
+                if not re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", g):
+                    errors.append(f"badge {b['id']}: bad character GUID {g}")
+                if g in boss_chars:
+                    errors.append(f"badge {b['id']}: character {g} belongs to two badges")
+                boss_chars.add(g)
+            if b.get("spared", "met") not in ("met", "always", "never"):
+                errors.append(f"badge {b['id']}: spared is met, always or never")
     for j in jobs:
         for req in j.get("unlock", []):
             if "badge" in req:
@@ -266,8 +282,16 @@ def build_lua(jobs_doc, config_doc):
                 "Description": j["mastery"]["description"],
                 "Grants": {k.capitalize(): v for k, v in j["mastery"].items() if k in GRANT_KINDS},
             }
-    badges = {b["id"]: {"Id": b["id"], "Name": b["name"], "Description": b["description"]}
-              for b in jobs_doc.get("badges", [])}
+    badges, boss_badge = {}, {}
+    for b in jobs_doc.get("badges", []):
+        badges[b["id"]] = {"Id": b["id"], "Name": b["name"], "Description": b["description"]}
+        if b.get("characters") is not None:
+            # Server/Bosses.lua: the boss's characters (any of them defeated counts), its act (sparing it counts when
+            # the party moves on to a later act: "met" = only if the party met it, "always", "never")
+            badges[b["id"]].update({"Boss": b["boss"], "Act": b["act"], "Characters": b["characters"],
+                                    "Spared": b.get("spared", "met"), "SparedText": b.get("sparedText", "")})
+            for g in b["characters"]:
+                boss_badge[g] = b["id"]
     abilities = {}
     by_job = {j["id"]: [] for j in jobs_doc["jobs"] if j.get("implemented")}
     for i, a in enumerate(jobs_doc["abilities"]):
@@ -304,6 +328,8 @@ def build_lua(jobs_doc, config_doc):
         "AbilitiesByJob": by_job,
         "Badges": badges,
         "BadgeOrder": [b["id"] for b in jobs_doc.get("badges", [])],
+        "BossBadge": boss_badge,
+        "LevelActs": jobs_doc.get("levelActs", {}),
         "Echo": echo,
         "ArithMagicks": {aid: sid + ARITH_SUFFIX for aid, sid in arith_magicks(jobs_doc).items()},
         "ArithRules": ARITH_RULES,

@@ -3,6 +3,7 @@ local Util = Ext.Require("Shared/Util.lua")
 local Rules = Ext.Require("Server/Rules.lua")
 local Grants = Ext.Require("Server/Grants.lua")
 local Effects = Ext.Require("Server/Effects.lua")
+local Bosses = Ext.Require("Server/Bosses.lua")
 
 local Service = {}
 Service.__index = Service
@@ -74,7 +75,8 @@ function Service:OnSessionLoaded()
 end
 
 -- Osiris LevelGameplayStarted: the story is running, Osiris calls are safe.
-function Service:OnLevelGameplayStarted()
+function Service:OnLevelGameplayStarted(level)
+    self.Level = level
     self.GameplayStarted = true
     if self.Ready then
         self:StartGameplay()
@@ -93,6 +95,9 @@ function Service:StartGameplay()
     self:ReconcileAll(true)
     self:PollXP()
     self:StartXPPoll()
+    -- boss badges: bosses the story counts as defeated (also before the mod was installed), then the act rule
+    Bosses.CheckDefeated(self)
+    Bosses.OnLevel(self, self.Level or self.Game:CurrentLevel())
 end
 
 ---------------------------------------------------------------- characters
@@ -477,6 +482,7 @@ function Service:OnEnteredCombat(object, combatId)
         return
     end
     local guid = Util.Guid(object)
+    Bosses.OnEnteredCombat(self, guid)
     local char = self.State:Get(guid) or self:EnsureChar(guid)
     if not char then
         return
@@ -685,6 +691,7 @@ function Service:OnCombatEnded(combatId)
         return
     end
     self:ClearEchoes()
+    Bosses.CheckDefeated(self) -- a boss knocked out or made to surrender in this fight
     local rec = self.Combats[combatId]
     local participants = {}
     if rec then
@@ -899,6 +906,20 @@ function Service:OnCharacterJoinedParty(character)
     if self:EnsureChar(guid) then
         self:Reconcile(guid, true)
     end
+    Bosses.OnJoined(self, guid) -- a boss who joins hands over its badge (Minthara)
+end
+
+-- Boss badges (Bosses.lua): a boss died; who meets whom in dialogs.
+function Service:OnDied(character)
+    Bosses.OnDied(self, Util.Guid(character))
+end
+
+function Service:OnDialogActorJoined(dialog, instance, actor)
+    Bosses.OnDialogActor(self, instance, Util.Guid(actor))
+end
+
+function Service:OnDialogEnded(dialog, instance)
+    Bosses.OnDialogEnded(self, instance)
 end
 
 ---------------------------------------------------------------- player choices (Job Board, console)
@@ -1070,8 +1091,9 @@ function Service:UnlockAll(guid)
     return true, char.Name .. ": every implemented job unlocked"
 end
 
--- The party found a badge (later dropped by bosses; !fft_badge for testing). Returns ok, message.
-function Service:AddBadge(badgeId, finder)
+-- The party found a badge (from a boss: Bosses.lua, with a reason sentence first; !fft_badge for testing).
+-- Returns ok, message.
+function Service:AddBadge(badgeId, finder, reason)
     if not self.Ready then
         return false, "The job system has not loaded yet"
     end
@@ -1100,6 +1122,9 @@ function Service:AddBadge(badgeId, finder)
             self.Data.Jobs[jobId].Name)
     end
     local msg = table.concat(parts, ". ") .. "!"
+    if reason then
+        msg = reason .. " " .. msg
+    end
     local target = finder or self.Game:HostCharacter()
     if target and cfg.Notifications.Unlock then
         self:Notify(target, msg)

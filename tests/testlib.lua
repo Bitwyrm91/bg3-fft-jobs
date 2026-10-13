@@ -116,7 +116,7 @@ function T.party(world)
     world.stats["Shout_Free"] = ""
 end
 
--- Boots the server (and client), loads the session and starts gameplay.
+-- Boots the server (and client), loads the session and starts gameplay (in opts.level, default WLD_Main_A).
 function T.boot(world, opts)
     opts = opts or {}
     if not opts.noParty then
@@ -128,7 +128,7 @@ function T.boot(world, opts)
         world.bootClient()
     end
     world.sessionLoaded()
-    world.fire("LevelGameplayStarted", "WLD_Main_A", 0)
+    world.fire("LevelGameplayStarted", opts.level or "WLD_Main_A", 0)
     world.tick()
     return svc
 end

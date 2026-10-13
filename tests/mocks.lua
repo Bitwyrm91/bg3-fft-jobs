@@ -133,6 +133,8 @@ function Mocks.Install()
         events = {}, commands = {}, stats = {}, loca = {}, modVars = {}, classUuids = {},
         serverChannels = {}, clientChannels = {}, windows = {}, host = nil, osiCalls = {}, side = "server",
         items = {}, itemStats = {},
+        defeated = {}, -- guid -> true: the story's DB_Defeated (boss badges)
+        level = nil, -- Osi.GetRegion of the host
     }
     local cache = {}
 
@@ -423,6 +425,19 @@ function Mocks.Install()
             rec("UseSpell", caster, spell, target)
             world.usedSpells[#world.usedSpells + 1] = { caster, spell, target }
         end,
+        GetRegion = function(g)
+            return world.level
+        end,
+        -- rows carry the story name before the GUID, like the game's
+        DB_Defeated = {
+            Get = function(self, filter)
+                local rows = {}
+                for guid in pairs(world.defeated) do
+                    rows[#rows + 1] = { "S_Boss_" .. guid }
+                end
+                return rows
+            end,
+        },
         DB_Players = {
             Get = function(self, filter)
                 local rows = {}

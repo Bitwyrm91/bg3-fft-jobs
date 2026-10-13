@@ -73,6 +73,10 @@
       "Mastered": true,
       "JPGain": false
     },
+    "Badges": {
+      "FromBosses": true,
+      "SparedBosses": true
+    },
     "Abilities": {
       "StealGilPerLevel": 10,
       "StealEXPPerLevel": 10,
@@ -163,6 +167,8 @@
     "Notifications.Unlock": "Show a notification when a job unlocks.",
     "Notifications.Mastered": "Show a notification when a job is mastered.",
     "Notifications.JPGain": "Print every JP gain to the console (noisy).",
+    "Badges.FromBosses": "Special jobs: a boss's badge comes when the game counts the boss as defeated (killed, knocked out, surrendered, ...) or when the boss joins the party. Bosses beaten before the mod was installed count when the save loads. false = badges only through !fft_badge.",
+    "Badges.SparedBosses": "A boss the party met (fought or spoke with) and left alive gives its badge when the party moves on to a later act (spared bosses still give their badge). Commander Zhalk counts when you reach the shore.",
     "Abilities.StealGilPerLevel": "Steal Gil: gold per level of the robbed creature.",
     "Abilities.EXPBoostShare": "EXP Boost: extra share of the experience a fight gave (0.25 = +25%).",
     "Abilities.AccrueEXPPerLevel": "Accrue EXP: experience per character level at each turn start in a fight.",

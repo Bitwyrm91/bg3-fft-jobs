@@ -1,4 +1,4 @@
-# Special jobs and badges (phase 2 step 4; table APPROVED by the user 2026-10-13, not built yet)
+# Special jobs and badges (phase 2 step 4; table APPROVED by the user 2026-10-13; boss badges built in 1.0.0.22, jobs being built one by one)
 
 Written 2026-10-13 by the scheduled run while the user was away. **Nothing here is built.** The user approves or
 changes the table first (PHASE2.md item 3: "Propose which boss drops which badge to the user before building it").
@@ -82,6 +82,42 @@ Byblos and the Holy Dragon are monster jobs in the TIC data: they belong to the 
 3. **The extra TIC jobs:** add some or all of the 7 above?
 4. **Job levels:** keep the proposed pairs?
 5. **The badge:** a visible item in the inventory, or only the Job Board unlock and a notification?
+
+## Built: boss badge detection (1.0.0.22)
+
+`Server/Bosses.lua`; the boss characters are in `data/fft_jobs.json` (`badges[].characters`), found in the vanilla level
+data (`Mods/Gustav*/{Globals,Levels}/<level>/Characters/_merged.lsf`, converted with Divine into
+`C:\Users\berus\GameModding\decomp\bg3\levels`) and checked against the English names (`decomp\bg3\loca`):
+
+| Badge | Boss character (`S_` name, English name) | GUID |
+|---|---|---|
+| Cleric | S_GOB_GoblinPriest ("True Soul Gut") | b983c336-9a14-4e9b-adb9-4689e7e0afa9 |
+| Fell Knight | S_GOB_DrowCommander ("Nightwarden Minthara", also the companion) | 25721313-0c15-4935-8176-9f134385451b |
+| Divine Knight | S_UND_TheDrowNere ("Nere") | 06bf05c5-216b-4eaf-91f5-8f1dd3d57f30 |
+| Templar | S_CRE_Templar ("Ch'r'ai W'wargaz") | 378ac93e-03a0-40b4-904c-f37989ac7a8c |
+| Steel Giant | S_UND_KethericCity_AdamantineGolem ("Grym") | 2a5997fc-5f2a-4a13-b309-bed16da3b255 |
+| Astrologer | S_HAG_Hag ("Auntie Ethel"; her illusion doubles don't count) | c457d064-83fb-4ec6-b74d-1f30dfafd12d |
+| Game Hunter | S_PLA_ConflictedFlind_Boss ("Flind") | 34464430-fed8-4f50-86d5-bd35846920a0 |
+| Sky Pirate | S_TUT_Helm_Devil_005 ("Commander Zhalk") | ed103005-fd71-457d-ae6c-39654bbd8f2e |
+| Netherseer | S_SHA_Necromancer ("Balthazar") | 53651a9f-7ea8-444f-ba2d-224390b72f7d |
+| Skyseer | S_HAV_FlamingSpy ("Fist Marcus") | acb1dd9e-952b-4281-8e30-ec6f671493a6 |
+| Soldier | S_GLO_Orthon ("Yurgir") | 1dc8091d-2af6-4d33-9268-998ef266d19c |
+| Holy Knight | S_MOO_Ketheric, S_MOO_Ketheric_Transforming, S_GLO_Myrkul | e9918f3e-5b87-40a3-a9bd-61545151573f, 5222b192-2ea3-4ecc-8434-79c9f28169f8, 9061c1d3-5965-4251-9c07-bcebe53d0660 |
+| Machinist | S_GLO_Gortash ("Lord Enver Gortash") | b878a854-f790-4999-95c4-3f20f00f65ac |
+| Ark Knight | S_GLO_Cazador ("Cazador Szarr") | 2f1880e6-1297-4ca3-a79c-9fabc7f179d3 |
+| Princess | S_LOW_Viconia ("Viconia DeVir") | b1ea974d-96fb-47ca-b6d9-9c85fcb69313 |
+| Dragonkin | S_WYR_SkeletalDragon ("Ansur") | 67770922-5e0a-40c5-b3f0-67e8eb50493a |
+| Sword Saint | S_LOW_MurderTribunal_Sarevok | ae9f784a-ea64-4297-95a7-8377e85231b6 |
+
+For the 7 extra jobs later: S_GLO_Orin bf24e0ec-a3a6-4905-bd2d-45dc8edf8101, S_GLO_Monitor ("Raphael")
+f65becd6-5cd7-4c88-b85e-6dd06b60f7b8, S_LOW_Lorroakan a9d4b71d-b0ef-429e-8210-6dc8be986ee9, S_TWN_Hospital_Surgeon
+("Malus Thorm") e58b8b34-038b-4858-b817-c2a8096a9381, S_SCL_Drider ("Kar'niss") aa59ce01-3d2e-42e8-a539-c07e0ea292ab,
+S_TWN_Distillery_Brewer ("Thisobald Thorm") 4d9e3db3-9a78-4f4b-8101-1dd73c0f3be5; the Steel Watch Titan is not found
+yet.
+
+How "defeated" is read: the vanilla story keeps `DB_Defeated` (`Mods/Shared/Story/RawFiles/Goals/__AAA_FirstGoal.txt`:
+dead, knocked out, surrendered, petrified, banished, iron-flasked, dominated then released; saved with the game). The
+story goals were extracted to `C:\Users\berus\GameModding\decomp\bg3\story`.
 
 ## Notes for building it later
 

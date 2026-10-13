@@ -342,6 +342,30 @@ function Game:IsBoss(guid)
     end))
 end
 
+-- Everyone the story counts as defeated (Osiris DB_Defeated, kept by the vanilla story: dead, knocked out,
+-- surrendered, petrified, banished, ...; it is saved with the game). Returns {guid = true}.
+function Game:DefeatedSet()
+    local set = {}
+    local rows = self:Try("DB_Defeated", function()
+        return Osi.DB_Defeated:Get(nil)
+    end)
+    for _, row in ipairs(rows or {}) do
+        local g = Util.Guid(row[1])
+        if g then
+            set[g] = true
+        end
+    end
+    return set
+end
+
+-- The level the host is in ("WLD_Main_A"), for when no LevelGameplayStarted was seen (after a console reset).
+function Game:CurrentLevel()
+    local host = self:HostCharacter()
+    return host and self:Try("GetRegion", function()
+        return Osi.GetRegion(host)
+    end)
+end
+
 function Game:MaxHP(guid)
     local e = self:Entity(guid)
     return e and self:Try("Health component", function()

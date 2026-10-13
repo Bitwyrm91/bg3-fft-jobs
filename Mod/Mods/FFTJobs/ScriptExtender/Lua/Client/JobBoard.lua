@@ -213,6 +213,9 @@ local function tileTooltip(j)
     local lines = { j.Name .. (j.Skillset ~= "" and (" - " .. j.Skillset) or "") }
     if not j.Built then
         lines[#lines + 1] = "Coming in a later update. Unlock: " .. j.Requirements .. "."
+        if j.Missing and j.Missing ~= "" then
+            lines[#lines + 1] = "You still need: " .. j.Missing .. "."
+        end
         return lines
     end
     if j.IsPrimary then
@@ -320,11 +323,24 @@ function JobBoard:RenderHeader(root, view, c)
         .. "later update. Hover a tile or an ability for details.", nil, WRAP)
 end
 
+-- Two grids: the FFT jobs (TIC and War of the Lions), then the special jobs that need a boss's badge.
 function JobBoard:RenderGrid(root, c)
-    style(root:AddSeparatorText("Jobs"), "Text", TEXT.Gold)
-    local grid = root:AddTable("FFTJ_Grid", GRID_COLUMNS)
+    local main, special = {}, {}
+    for _, j in ipairs(c.Jobs) do
+        local list = j.Group == "Special" and special or main
+        list[#list + 1] = j
+    end
+    self:RenderTiles(root, "Jobs", "FFTJ_Grid", main, c)
+    if #special > 0 then
+        self:RenderTiles(root, "Special jobs: each needs a boss's badge", "FFTJ_GridSpecial", special, c)
+    end
+end
+
+function JobBoard:RenderTiles(root, title, id, jobs, c)
+    style(root:AddSeparatorText(title), "Text", TEXT.Gold)
+    local grid = root:AddTable(id, GRID_COLUMNS)
     local row
-    for i, j in ipairs(c.Jobs) do
+    for i, j in ipairs(jobs) do
         if (i - 1) % GRID_COLUMNS == 0 then
             row = grid:AddRow()
         end
@@ -366,6 +382,9 @@ function JobBoard:RenderJob(root, c, j)
     end
     if not j.Built then
         text(root, "Coming in a later update. Unlock: " .. j.Requirements .. ".", TEXT.Dim, WRAP)
+        if j.Missing and j.Missing ~= "" then
+            text(root, "You still need: " .. j.Missing .. ".", TEXT.Note, WRAP)
+        end
         return
     end
     if not j.Unlocked then

@@ -1,6 +1,7 @@
 -- SE console commands (type them in the Script Extender console, server context): !fft_help
 local Util = Ext.Require("Shared/Util.lua")
 local Rules = Ext.Require("Server/Rules.lua")
+local Bosses = Ext.Require("Server/Bosses.lua")
 
 local Commands = {}
 
@@ -155,14 +156,11 @@ end)
 def("fft_badge", "<badge|list>  give the party a badge (testing; special jobs need one plus job levels)", function(svc, args)
     local data = svc.Data
     if not args[1] or string.lower(args[1]) == "list" then
-        local out = {}
-        for _, id in ipairs(data.BadgeOrder or {}) do
-            out[#out + 1] = string.format("  %s: %s", id, data.Badges[id].Description)
-        end
+        local out = Bosses.Lines(svc)
         if #out == 0 then
             return { "No badges yet: the special jobs that need them come later" }
         end
-        table.insert(out, 1, "Badges (!fft_badge <id>):")
+        table.insert(out, 1, "Badges (bosses drop them; !fft_badge <id> gives one for testing):")
         return out
     end
     local id = Rules.FindBadge(data, table.concat(args, " "))

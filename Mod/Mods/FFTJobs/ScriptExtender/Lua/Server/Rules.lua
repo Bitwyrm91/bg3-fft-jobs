@@ -131,6 +131,15 @@ function Rules.BadgeName(data, badgeId)
     return badge and badge.Name or tostring(badgeId)
 end
 
+-- In requirement lists: "Cleric Badge (True Soul Gut)" for a boss's badge.
+function Rules.BadgeLabel(data, badgeId)
+    local badge = data.Badges and data.Badges[badgeId]
+    if badge and badge.Boss then
+        return string.format("%s (%s)", badge.Name, badge.Boss)
+    end
+    return Rules.BadgeName(data, badgeId)
+end
+
 -- Returns met (bool) and the list of requirements still missing ({Job, Level, Have}, {Job, Mastered}, {Kills, Have}
 -- or {Badge}). Mastered: every ability of the job learned (War of the Lions' Dark Knight); Kills: enemies the
 -- character has defeated (Service:CountKill).
@@ -172,7 +181,7 @@ function Rules.RequirementText(data, jobId)
     local parts = {}
     for _, req in ipairs(job.Unlock) do
         if req.Badge then
-            parts[#parts + 1] = Rules.BadgeName(data, req.Badge)
+            parts[#parts + 1] = Rules.BadgeLabel(data, req.Badge)
         elseif req.Kills then
             parts[#parts + 1] = string.format("%d enemies defeated", req.Kills)
         else
@@ -245,7 +254,7 @@ function Rules.MissingText(data, cfg, char, jobId)
     local parts = {}
     for _, m in ipairs(missing) do
         if m.Badge then
-            parts[#parts + 1] = Rules.BadgeName(data, m.Badge)
+            parts[#parts + 1] = Rules.BadgeLabel(data, m.Badge)
         elseif m.Kills then
             parts[#parts + 1] = string.format("%d enemies defeated (has %d)", m.Kills, m.Have)
         elseif m.Mastered then

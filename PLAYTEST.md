@@ -1,6 +1,14 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.21**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.22**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.22: bosses drop badges (special jobs, step 1)
+
+- The **17 special jobs** (Holy Knight, Sword Saint, Cleric, ...) are on the Job Board as "soon" tiles. Each needs a **badge from one BG3 boss** plus job levels (the table you approved, `docs/SPECIAL_JOBS.md`); the jobs themselves come one by one in the next versions.
+- **How a badge comes:** when the game counts the boss as **defeated** (killed, knocked out, surrendered, petrified, ...), when the boss **joins your party** (Minthara hands hers over), or, your rule for **spared bosses**: when you move on to the **next act** after meeting the boss (fought it or spoke with it) and leaving it alive. Commander Zhalk counts when you reach the shore. A notification says it, e.g. "True Soul Gut is defeated. The party found the Cleric Badge!".
+- **Saves from before this version:** bosses you already beat count when the save loads (the game keeps its own "defeated" record). Bosses you spared before installing don't (the mod didn't see you meet them): use `!fft_badge <id>` for those.
+- `!fft_badge list` shows every badge, its boss and act, and whether it was found or the boss met. Settings: `!fft_set Badges.FromBosses false` (no boss badges), `!fft_set Badges.SparedBosses false` (only defeated or recruited bosses count).
+- Worth checking: load your Act 2 save and run `!fft_badge list`: the Act 1 bosses you beat should say "found". The SE log lines start with "boss badge" and "the party met".
 
 ## New in 1.0.0.21: the Dark Knight's area attacks hit everyone
 
