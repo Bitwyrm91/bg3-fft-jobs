@@ -23,6 +23,7 @@ Effects.Gravity = { FFTJ_GRAVITY = "GravityShare", FFTJ_GRAVIGA = "GravigaShare"
 -- Statuses FFT bosses are immune to: the script lifts them off a boss right away.
 Effects.BossImmune = {
     FFTJ_DOOM = true, FFTJ_STOP = true, FFTJ_STONE = true, FFTJ_ENTICED = true, FFTJ_TAMED = true,
+    FFTJ_TOAD = true,
 }
 
 -- Cheap test for the StatusApplied event, which fires for every status in the game.

@@ -15,10 +15,52 @@
     ]
   },
   {
+    "id": "Action_Monster_ElementalEarth_MultiAttack",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_AttackBoost"
+    ]
+  },
+  {
+    "id": "Action_Monster_ElementalEarth_SeismicStrike",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Tremor"
+    ]
+  },
+  {
+    "id": "Action_Monster_ElementalEarth_Slam",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Sinkhole"
+    ]
+  },
+  {
+    "id": "Action_Monster_ElementalLava_CreateLava",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_MagmaSurge"
+    ]
+  },
+  {
+    "id": "Action_Monster_GiantEagle_StrongWind",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_WindBlast"
+    ]
+  },
+  {
     "id": "Action_Monster_Minotaur_Jump",
     "kind": "icon",
     "usedBy": [
       "FFTJ_VerticalJump2"
+    ]
+  },
+  {
+    "id": "Action_Monster_MudMephit_DeathBurst_Chosen",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Quicksand"
     ]
   },
   {
@@ -55,6 +97,7 @@
     "id": "PassiveFeature_Mobile_DashAcrossDifficultTerrain",
     "kind": "icon",
     "usedBy": [
+      "FFTJ_IgnoreTerrain",
       "FFTJ_IgnoreWeather",
       "FFTJ_Lifefont",
       "FFTJ_Manafont",
@@ -128,6 +171,20 @@
     ]
   },
   {
+    "id": "Spell_Conjuration_GraspingVine",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Tanglevine"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_SleetStorm",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Snowstorm"
+    ]
+  },
+  {
     "id": "Spell_Divination_Guidance",
     "kind": "icon",
     "usedBy": [
@@ -194,6 +251,13 @@
     ]
   },
   {
+    "id": "Spell_Evocation_GustOfWind",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Sandstorm"
+    ]
+  },
+  {
     "id": "Spell_Illusion_Silence",
     "kind": "icon",
     "usedBy": [
@@ -215,6 +279,13 @@
     ]
   },
   {
+    "id": "Spell_Transmutation_FleshToStone",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_Contortion"
+    ]
+  },
+  {
     "id": "Spell_Transmutation_Haste",
     "kind": "icon",
     "usedBy": [
@@ -227,6 +298,27 @@
     "kind": "icon",
     "usedBy": [
       "Target_FFTJ_Stall"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_WindWalk",
+    "kind": "icon",
+    "usedBy": [
+      "Target_FFTJ_WindSlash"
+    ]
+  },
+  {
+    "id": "Spell_WallOfThorns",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_NaturesWrath"
+    ]
+  },
+  {
+    "id": "Status_BurningLava",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Lavawalking"
     ]
   },
   {
@@ -287,7 +379,8 @@
       "Target_FFTJ_Esuna",
       "Target_FFTJ_EyeDrops",
       "Target_FFTJ_Remedy",
-      "Target_FFTJ_Salve"
+      "Target_FFTJ_Salve",
+      "Target_FFTJ_Sandstorm"
     ]
   },
   {
@@ -323,7 +416,8 @@
     "id": "CONFUSION",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Delirium"
+      "Target_FFTJ_Delirium",
+      "Target_FFTJ_Tremor"
     ]
   },
   {
@@ -538,6 +632,7 @@
       "Target_FFTJ_Quiescence",
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Salve",
+      "Target_FFTJ_Snowstorm",
       "Target_FFTJ_Sylph"
     ]
   },
@@ -546,14 +641,16 @@
     "kind": "status",
     "usedBy": [
       "Target_FFTJ_MimicDarlavon",
-      "Target_FFTJ_Repose"
+      "Target_FFTJ_Repose",
+      "Target_FFTJ_WillOTheWisp"
     ]
   },
   {
     "id": "SLOW",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Slow"
+      "Target_FFTJ_Slow",
+      "Target_FFTJ_WindBlast"
     ]
   },
   {
@@ -574,7 +671,8 @@
     "id": "WET",
     "kind": "status",
     "usedBy": [
-      "Target_FFTJ_Leviathan"
+      "Target_FFTJ_Leviathan",
+      "Target_FFTJ_Torrent"
     ]
   },
   {
@@ -768,6 +866,13 @@
     ]
   },
   {
+    "id": "Target_CreateWater",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Torrent"
+    ]
+  },
+  {
     "id": "Target_CrownOfMadness",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -835,7 +940,15 @@
     "id": "Target_Entangle",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Target_FFTJ_Immobilize"
+      "Target_FFTJ_Immobilize",
+      "Target_FFTJ_Tanglevine"
+    ]
+  },
+  {
+    "id": "Target_FaerieFire",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_WillOTheWisp"
     ]
   },
   {
@@ -850,6 +963,7 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Ifrit",
+      "Target_FFTJ_MagmaSurge",
       "Target_FFTJ_Meteor"
     ]
   },
@@ -865,6 +979,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Pummel"
+    ]
+  },
+  {
+    "id": "Target_Grease",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Quicksand"
     ]
   },
   {
@@ -915,7 +1036,8 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Blizzaga",
-      "Target_FFTJ_Shiva"
+      "Target_FFTJ_Shiva",
+      "Target_FFTJ_Snowstorm"
     ]
   },
   {
@@ -968,6 +1090,7 @@
     "id": "Target_Shatter",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_Sinkhole",
       "Target_FFTJ_Titan"
     ]
   },
@@ -1065,6 +1188,13 @@
     "kind": "using parent (StatusData)",
     "usedBy": [
       "FFTJ_STONE"
+    ]
+  },
+  {
+    "id": "POLYMORPH_SHEEP",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_TOAD"
     ]
   }
 ]

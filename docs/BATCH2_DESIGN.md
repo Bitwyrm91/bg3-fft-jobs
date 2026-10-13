@@ -1,6 +1,6 @@
 # Phase 2, batch 2: design notes for the next session
 
-Done: **Dragoon** (v1.0.0.10), **Summoner** (v1.0.0.11), **Orator** (v1.0.0.12). Left: **Geomancer**. The user's decisions are in `docs/PHASE2.md`
+Done: **Dragoon** (v1.0.0.10), **Summoner** (v1.0.0.11), **Orator** (v1.0.0.12), **Geomancer** (v1.0.0.13). Batch 2 is complete. The user's decisions are in `docs/PHASE2.md`
 (item 7, "Batch 2"). Build each job like batch 1 (`STATUS.md`): costs from the TIC game table (all match the RPGSite
 lists below), effects from the game's `Ability-en` descriptions, vanilla parents, tests, build, validate, install only
 with BG3 closed, commit after each job, no GPU image generation without asking.
@@ -46,9 +46,16 @@ boosts). Talk skills (Praise/Intimidate = bravery, Preach/Enlighten = faith, Con
 Darlavon = sleep, Stall = delay, Defraud = steal gil?) map to existing statuses (FFTJ_FAITH, FFTJ_BERSERK, FFTJ_DOOM,
 SLEEP, ...). Beast Tongue is innate (TIC help text). Equip: dagger, gun (hand crossbows), clothing/robe.
 
-## Geomancer (user: terrain decides)
+## Geomancer (user: terrain decides) (BUILT in v1.0.0.13)
 
 Research first: BG3 surface conditions usable in `RequirementConditions` (e.g. whether the caster stands in water,
 fire, ice, mud, grease, webs: look for conditions like `InSurface(...)` or `HasStatus('WET')`-style checks in vanilla
 spells), and a plain-ground fallback (Tremor/Sinkhole/Wind Slash?). Twelve abilities at 150 JP each; reaction
 Nature's Wrath 300, support Attack Boost 400, movement Ignore Terrain 220 and Lavawalking 150.
+
+Built as: plain ground (no Geomancy surface) = Sinkhole, Tremor; sunlight = Wind Slash, Sandstorm, Wind Blast; shadow or
+darkness = Contortion, Will-o'-the-Wisp; water or Wet = Torrent; ice = Snowstorm; fire/lava = Magma Surge;
+mud/blood/acid/poison = Quicksand; vines/overgrowth/webs = Tanglevine; grease/oil/alcohol = Will-o'-the-Wisp. BG3 can't
+read FFT's tile materials (stone, wood, sand...) from stats; the SE AI grid exposes surfaces and light flags, not
+materials, so light stands in for them. Toad = FFTJ_TOAD (Polymorph's sheep, 1 turn), which could also bring back the
+Black Mage's Toad and the Chemist's Maiden's Kiss (now in leftOut).

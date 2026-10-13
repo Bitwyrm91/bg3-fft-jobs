@@ -331,3 +331,13 @@ data "DisplayName" "{{str:status.FFTJ_TAMED.name}}"
 data "Description" "{{str:status.FFTJ_TAMED.desc}}"
 data "Icon" "Spell_Enchantment_DominateBeast"
 data "StackId" "FFTJ_TAMED"
+
+// Geomancer, Torrent: FFT's Toad. BG3 has no toad form, so it is vanilla Polymorph's sheep for 1 turn (bosses: the
+// server script lifts it, Effects.lua).
+new entry "FFTJ_TOAD"
+type "StatusData"
+using "POLYMORPH_SHEEP"
+data "StatusType" "POLYMORPHED"
+data "DisplayName" "{{str:status.FFTJ_TOAD.name}}"
+data "Description" "{{str:status.FFTJ_TOAD.desc}}"
+data "StackId" "FFTJ_TOAD"

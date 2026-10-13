@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.12"
+MOD_VERSION = "1.0.0.13"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -326,6 +326,42 @@ KEY_OF = {"name": "ability.{}.name", "desc": "ability.{}.desc", "jobname": "job.
 # {{prof:<JobId>}} -> the job's equip list as Proficiency() boosts (plain stats text, not a string handle).
 PROF_PLACEHOLDER = re.compile(r"\{\{prof:([^}]+)\}\}")
 
+# Geomancy, "terrain decides" (user): {{terrain:<Key>[|<Key>...]}} -> a condition that is true while the caster
+# (context.Source) stands on one of those terrains. Surface names are the ones vanilla conditions use (InSurface).
+TERRAIN_SURFACES = {
+    "Water": ["SurfaceWater", "SurfaceWaterElectrified", "SurfaceDeepWater", "SurfaceDeepWaterRunning"],
+    "Ice": ["SurfaceWaterFrozen", "SurfaceBloodFrozen"],
+    "Fire": ["SurfaceFire", "SurfaceHellfire", "SurfaceLava"],
+    "Swamp": ["SurfaceMud", "SurfaceBlood", "SurfaceAcid", "SurfacePoison", "SurfaceCausticBrine",
+              "SurfaceSerpentVenom", "SurfaceWyvernPoison", "SurfacePurpleWormPoison"],
+    "Plants": ["SurfaceVines", "SurfaceOvergrowth", "SurfaceWeb"],
+    "Oil": ["SurfaceGrease", "SurfaceOil", "SurfaceAlcohol"],
+}
+TERRAIN_PLACEHOLDER = re.compile(r"\{\{terrain:([^}]+)\}\}")
+
+
+def in_surfaces(names):
+    return " or ".join(f"InSurface('{s}',context.Source)" for s in names)
+
+
+def terrain_condition(key):
+    if key == "Plain":  # no Geomancy surface under you
+        return "not (" + in_surfaces([s for group in TERRAIN_SURFACES.values() for s in group]) + ")"
+    if key == "Sunlight":
+        return "IsInSunlight(context.Source)"
+    if key == "Shadow":
+        return ("HasObscuredState(ObscuredState.LightlyObscured,context.Source) or "
+                "HasObscuredState(ObscuredState.HeavilyObscured,context.Source)")
+    if key == "Water":  # rain counts: it leaves you Wet
+        return in_surfaces(TERRAIN_SURFACES["Water"]) + " or HasStatus('WET',context.Source)"
+    if key in TERRAIN_SURFACES:
+        return in_surfaces(TERRAIN_SURFACES[key])
+    raise BuildError(f"unknown terrain {key!r}")
+
+
+def terrain(m):
+    return "(" + " or ".join(f"({terrain_condition(k)})" for k in m.group(1).split("|")) + ")"
+
 
 def xml_escape(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -545,7 +581,7 @@ def build_stats(jobs_doc, strings_doc):
             if line.startswith("new entry") and lines and lines[-1] != "":
                 lines.append("")
             if line or (lines and lines[-1] != ""):
-                lines.append(PLACEHOLDER.sub(repl, PROF_PLACEHOLDER.sub(prof, line)))
+                lines.append(PLACEHOLDER.sub(repl, PROF_PLACEHOLDER.sub(prof, TERRAIN_PLACEHOLDER.sub(terrain, line))))
         while lines and lines[-1] == "":
             lines.pop()
         out = "\n".join(lines) + "\n"
