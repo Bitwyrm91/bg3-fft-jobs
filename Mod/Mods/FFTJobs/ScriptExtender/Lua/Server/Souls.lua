@@ -11,8 +11,13 @@ Souls.KNOWN = "FFTJ_SOUL_KNOWN"
 Souls.BADGE = "SoulCodex"
 Souls.FORGET_MS = 1500 -- a brand removed this long before Died still counts (the order of the two events is unknown)
 
--- The soul type of a creature, from its lower-case keys (template name, stats id, display name), or nil.
-function Souls.TypeOf(data, keys)
+-- The soul type of a creature: a boss's own soul by its character GUID (Data.SoulByGuid), else from its lower-case
+-- keys (template name, stats id, display name); nil when no form answers to it.
+function Souls.TypeOf(data, keys, guid)
+    local boss = guid and data.SoulByGuid and data.SoulByGuid[guid]
+    if boss then
+        return boss
+    end
     if not keys or keys == "" then
         return nil
     end
@@ -88,7 +93,7 @@ end
 -- The party devours a creature's soul. Returns the soul type id (nil when no form answers to it).
 function Souls.Devour(svc, guid, by)
     local keys = svc.Game:CreatureKeys(guid)
-    local typeId = Souls.TypeOf(svc.Data, keys)
+    local typeId = Souls.TypeOf(svc.Data, keys, guid)
     local who = (by and svc.State:Get(by)) and by or svc.Game:HostCharacter()
     local whoName = who and svc.State:Get(who) and svc.State:Get(who).Name or "The party"
     if not typeId then
@@ -129,7 +134,7 @@ function Souls.OnEnteredCombat(svc, guid)
     if not souls or next(souls) == nil then
         return
     end
-    local typeId = Souls.TypeOf(svc.Data, svc.Game:CreatureKeys(guid))
+    local typeId = Souls.TypeOf(svc.Data, svc.Game:CreatureKeys(guid), guid)
     if typeId and souls[typeId] then
         svc.Game:ApplyStatus(guid, Souls.KNOWN, -1)
     end

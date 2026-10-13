@@ -116,6 +116,29 @@ function S.known_soul_types_are_marked_in_a_fight(w, T)
     T.truthy(w.chars[GOB2].statuses.FFTJ_SOUL_KNOWN)
 end
 
+function S.a_boss_gives_its_own_soul_with_every_skill(w, T)
+    local svc = T.boot(w)
+    local gut = "b983c336-9a14-4e9b-adb9-4689e7e0afa9"
+    w.newChar(gut, { name = "True Soul Gut", template = "GOB_Priestess_9e9000e1", player = false, party = false })
+    w.fire("StatusApplied", "S_GOB_GoblinPriest_" .. gut, "FFTJ_SOUL_BRAND", "S_Player_" .. T.TAV, 0)
+    w.chars[gut].dead = true
+    w.fire("Died", "S_GOB_GoblinPriest_" .. gut)
+    T.eq(souls(svc).Gut, 1, "Gut's own soul, not a goblin's")
+    T.eq(souls(svc).Goblin, nil)
+    T.contains(w.notifications, "New forms: True Soul Gut and Black Goblin (Gut).")
+    local Souls = Ext.Require("Server/Souls.lua")
+    T.eq(svc.Data.Souls.Gut.Forms.F.Skills[3].Souls, 1, "a boss soul gives every skill at once")
+end
+
+function S.a_form_is_free_outside_a_fight(w, T)
+    T.boot(w)
+    T.cast(w, T.TAV, "Shout_FFTJ_Soul_Goblin_B1")
+    T.truthy(w.chars[T.TAV].statuses.FFTJ_SOUL_REFUND, "the charge comes back")
+    w.chars[T.SHART].inCombat = true
+    T.cast(w, T.SHART, "Shout_FFTJ_Soul_Goblin_B1")
+    T.falsy(w.chars[T.SHART].statuses.FFTJ_SOUL_REFUND, "in a fight it costs a charge")
+end
+
 local US = "40bd6b82-2728-410a-bb8a-a805f98556a1"
 
 function S.talking_with_us_on_the_nautiloid_gives_the_soul_codex(w, T)

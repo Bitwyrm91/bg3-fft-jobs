@@ -67,9 +67,14 @@ def skill_spell(sid, sk):
     return f"{prefix}_FFTJ_Soul_{sid}"
 
 
-def tier_skills(form, side, tier):
+def skill_tiers(form, side, boss=False):
+    """The souls each of a form's skills needs: bosses are unique, so a boss soul gives them all at once."""
+    return [1] * len(form["skills"]) if boss else list(SKILL_TIERS[side])
+
+
+def tier_skills(form, side, tier, boss=False):
     """Skill ids a form has at this tier."""
-    return [s for s, at in zip(form["skills"], SKILL_TIERS[side]) if at <= tier]
+    return [s for s, at in zip(form["skills"], skill_tiers(form, side, boss)) if at <= tier]
 
 
 def validate(doc):
@@ -84,12 +89,14 @@ def validate(doc):
             f = s["forms"][side]
             if not re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", f["template"]):
                 errors.append(f"soul {s['id']} {side}: bad template {f['template']}")
-            if len(f["skills"]) != len(SKILL_TIERS[side]):
+            if not s.get("boss") and len(f["skills"]) != len(SKILL_TIERS[side]):
                 errors.append(f"soul {s['id']} {side}: needs {len(SKILL_TIERS[side])} skills")
             for k in f["skills"]:
                 if k not in skills:
                     errors.append(f"soul {s['id']} {side}: unknown skill {k}")
-        for p in s["match"] + s.get("exclude", []):
+        if not s.get("match") and not s.get("guids"):
+            errors.append(f"soul {s['id']}: needs match patterns or boss guids")
+        for p in s.get("match", []) + s.get("exclude", []):
             if re.sub(r"%[A-Za-z]", "", p) != re.sub(r"%[A-Za-z]", "", p).lower():
                 errors.append(f"soul {s['id']}: patterns are lower case ({p})")
     for k, sk in skills.items():
@@ -108,7 +115,7 @@ def strings(doc):
             f = s["forms"][side]
             kind = "the BG3 creature" if side == "B" else "an FFT monster"
             for tier in TIERS:
-                names = ", ".join(doc["skills"][k]["name"] for k in tier_skills(f, side, tier))
+                names = ", ".join(doc["skills"][k]["name"] for k in tier_skills(f, side, tier, s.get("boss")))
                 skills = f" Skills: {names}." if names else " Its own natural attacks."
                 out[f"soul.{s['id']}.{side}{tier}.name"] = f"Soul Form: {f['name']}"
                 out[f"soul.{s['id']}.{side}{tier}.desc"] = (
@@ -238,7 +245,7 @@ def stats(doc, H):
                 sp = form_spell(s["id"], side, tier)
                 children.append(sp)
                 unlock = ";".join(f"UnlockSpell({skill_spell(k, doc['skills'][k])})"
-                                  for k in tier_skills(f, side, tier))
+                                  for k in tier_skills(f, side, tier, s.get("boss")))
                 boosts = ";".join(x for x in ("VoicebarkBlock()", "BlockSpellCast()", "UnlockSpell(Shout_WildShape_Dismiss)",
                                               f"IncreaseMaxHP(Level*{s['hp']})", unlock, TIER_BOOSTS[tier]) if x)
                 statuses += [f'new entry "{st}"', 'type "StatusData"', 'data "StatusType" "POLYMORPHED"',
@@ -275,7 +282,8 @@ def lua_data(doc):
             f = s["forms"][side]
             forms[side] = {"Name": f["name"], "Spells": {str(t): form_spell(s["id"], side, t) for t in TIERS},
                            "Skills": [{"Name": doc["skills"][k]["name"], "Souls": at}
-                                      for k, at in zip(f["skills"], SKILL_TIERS[side])]}
-        souls[s["id"]] = {"Id": s["id"], "Name": s["name"], "Act": s["act"], "Match": s["match"],
-                          "Exclude": s.get("exclude", []), "Forms": forms}
-    return souls, [s["id"] for s in doc["souls"]], CONTAINER
+                                      for k, at in zip(f["skills"], skill_tiers(f, side, s.get("boss")))]}
+        souls[s["id"]] = {"Id": s["id"], "Name": s["name"], "Act": s["act"], "Match": s.get("match", []),
+                          "Exclude": s.get("exclude", []), "Boss": bool(s.get("boss")), "Forms": forms}
+    by_guid = {g: s["id"] for s in doc["souls"] for g in s.get("guids", [])}
+    return souls, [s["id"] for s in doc["souls"]], CONTAINER, by_guid

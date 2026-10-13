@@ -1,6 +1,11 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.43**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.44**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.44: boss souls, free forms outside fights
+
+- **Act 1 bosses have their own souls** (brand them before they fall): Commander Zhalk (Byblos), Auntie Ethel (Greater Malboro), True Soul Gut (Black Goblin), Minthara (**Gigas, the Lucavi Belias**), Nere (Sekhret), Grym (Automaton), Inquisitor W'wargaz (Red Dragon, toned down), the Flind (Minotaur) and the phase spider matriarch (Coeurl). Each gives two forms, the boss itself with two signature moves and its FFT monster, with every skill at once (a boss has only one soul). Dror Ragzlin counts as a bugbear/hobgoblin soul.
+- **Transforming outside a fight is free:** the Wild Shape charge comes back at once. In a fight it costs a charge and a bonus action.
 
 ## New in 1.0.0.43: finding the Soul Codex
 

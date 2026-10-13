@@ -386,6 +386,10 @@ function Service:OnCastedSpell(caster, spell)
         self:OpenBoard(guid)
         return
     end
+    -- Soul Incarnation is free outside a fight (PHASE2.md item 16): the Wild Shape charge comes back
+    if type(spell) == "string" and spell:find("^Shout_FFTJ_Soul_") and not self.Game:IsInCombat(guid) then
+        self.Game:ApplyStatus(guid, "FFTJ_SOUL_REFUND", 0)
+    end
     if spell == self.Data.TrainingSpell then
         if not self:Cfg().Test.Tools then
             self.Log.Info("JP Training is turned off (Test.Tools = false)")
