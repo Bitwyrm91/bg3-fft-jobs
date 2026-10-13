@@ -203,4 +203,45 @@ function S.cleric_needs_the_badge_and_levels(w, T)
     T.truthy(tav.spells.Target_FFTJ_Cure, "the White Magicks' spell, learned as the Cleric's own")
 end
 
+-- Every built special job: its badge and job levels unlock it; as the job, every ability can be learned and is granted.
+function S.every_built_special_job_unlocks_learns_and_grants(w, T)
+    local svc = T.boot(w)
+    local data = svc.Data
+    local built = 0
+    for _, jobId in ipairs(data.JobOrder) do
+        local job = data.Jobs[jobId]
+        if job.Group == "Special" and job.Implemented then
+            built = built + 1
+            local guid = "77777777-7777-4777-8777-" .. string.format("%012d", built)
+            w.newChar(guid, { name = "Tester" .. built, level = 6, class = "Fighter" })
+            w.fire("CharacterJoinedParty", "S_Player_" .. guid)
+            for _, req in ipairs(job.Unlock) do
+                if req.Job then
+                    svc:AddManualJP(guid, 3000, req.Job)
+                end
+            end
+            T.falsy(svc.State:Get(guid).Unlocked[jobId], jobId .. " needs its badge")
+            T.truthy(svc:AddBadge(job.Unlock[1].Badge))
+            T.truthy(svc.State:Get(guid).Unlocked[jobId], jobId .. ": badge + levels unlock it")
+            T.truthy(svc:SetPrimary(guid, jobId))
+            svc:AddManualJP(guid, 20000, jobId)
+            for _, aid in ipairs(data.AbilitiesByJob[jobId]) do
+                local ok, msg = svc:Learn(guid, aid)
+                T.truthy(ok, jobId .. " " .. aid .. ": " .. tostring(msg))
+                local ab = data.Abilities[aid]
+                if ab.Type == "Action" then
+                    for _, s in ipairs(ab.Grants.Spells or {}) do
+                        T.truthy(w.chars[guid].spells[s], jobId .. " grants " .. s)
+                    end
+                end
+            end
+            for _, p in ipairs(job.Innate.Passives or {}) do
+                T.truthy(w.chars[guid].passives[p], jobId .. " innate " .. p)
+            end
+            T.truthy(w.chars[guid].passives[job.Mastery.Grants.Passives[1]], jobId .. " mastered: perk")
+        end
+    end
+    T.truthy(built >= 1, "at least one special job is built")
+end
+
 return S

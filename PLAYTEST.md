@@ -1,6 +1,14 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.23**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.24**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.24: Fell Knight (special job 2 of 17)
+
+- **Fell Knight** (Gaffgarion's job): needs the **Fell Knight Badge** (Minthara: defeated, knocked out, or recruited) plus **Knight Lv4** and **Black Mage Lv4**.
+- **Fell Sword**, as in TIC (two techniques that strike *distant* foes): **Shadowblade** (100 JP): a dark slash that flies 6 m, a melee weapon attack against each foe in the line; a hit deals your weapon's damage and heals you for half of it. **Duskblade** (500): the same slash; a hit also gives the target -2 to spell attacks and spell DC for 2 turns and gives you back a level 1 spell slot (once per short rest).
+- Main-job equipment: swords, greatswords, all armour, shields. Mastery: your weapon attacks deal 1 extra necrotic damage.
+- Worth checking: does the slash hit a foe 5-6 m away without walking up? Does it look right (it borrows a magic weapon's flying-slash action)?
+- Also new: a test walks every built special job (badge + levels unlock it, every ability learns and appears).
 
 ## New in 1.0.0.23: Cleric (special job 1 of 17)
 

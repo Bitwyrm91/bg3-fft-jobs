@@ -182,6 +182,9 @@
   <content contentuid="h2ac33475g2b71g59eagb4f7gfe1128366c69" version="1">Dragonheart</content>
   <content contentuid="hbe4ede89g10aag5796ga5ccg655a1e3b2781" version="1">Fight with a weapon in each hand like a Ninja: you add your ability modifier to off-hand damage (Two-Weapon Fighting) and can dual-wield weapons that aren't light. Always on while Ninja is your job.</content>
   <content contentuid="ha263a0f1g1adfg55acg80cag8fc098f40737" version="1">Dual Wield</content>
+  <content contentuid="haf0f59beg191eg5572g9d31g5a64089fd3fa" version="1">A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage, gives the target -2 to spell attack rolls and spell save DC for 2 turns and gives you back a level 1 spell slot. Once per short rest.</content>
+  <content contentuid="h0e30dc5egea3cg5330gb480g719af0b145cf" version="1">Echo: Duskblade</content>
+  <content contentuid="hc01f84fdg7aafg5baegb920g20c91e344883" version="1">Duskblade</content>
   <content contentuid="h96800332g49deg5c73gaab0gb4f58dbd1890" version="1">Earn 25% more experience from fights.</content>
   <content contentuid="haed26d8bg3e5ag5bf7g9158gedccf3ee215a" version="1">EXP Boost</content>
   <content contentuid="h211f263cg916ag5f1eg818dgdbca21ab39b9" version="1">Advantage on Wisdom saving throws (most talk skills and charms aim at Wisdom).</content>
@@ -573,6 +576,9 @@
   <content contentuid="hfa75defeg68d9g5772gae29ge40b9dd41ac1" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get back a level 1 spell slot (once each per song). Once per short rest.</content>
   <content contentuid="he195886ege0a2g5110gbc5dgac59615e31c5" version="1">Echo: Seraph Song</content>
   <content contentuid="h94888e4fg83c8g5ca0ga1a9gfaaeb9b4d391" version="1">Seraph Song</content>
+  <content contentuid="h7b80fa06g9934g5301ga7b4g214d15794c3e" version="1">A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and heals you for half the damage dealt.</content>
+  <content contentuid="hd1a7cefdg97a5g5317g8f5fg22c53100f0c2" version="1">Echo: Shadowblade</content>
+  <content contentuid="h0d06dbddg57b3g51b3gbf56gdf5067fc3c0b" version="1">Shadowblade</content>
   <content contentuid="h0fb00907g8f54g5f83g9864g6de87c63d77c" version="1">Arithmeticks: Shell</content>
   <content contentuid="h59cd2ee9g52bbg50e8ga5adgdd2843e65e7b" version="1">The target has advantage on saving throws against spells for 5 turns. Once per turn.</content>
   <content contentuid="h573e99b7gdf12g5463ga3f2g579612b00cfe" version="1">Echo: Shell</content>
@@ -811,6 +817,10 @@
   <content contentuid="h0e9db50ega9bfg5c6fgb895gd11d0d98189a" version="1">Dragoon Mastery</content>
   <content contentuid="h3d0ed583g1caeg5f41gac3egbe1cb3b48be5" version="1">Leaps on enemies with a polearm: Jump's reach and landing power grow with Horizontal and Vertical Jump. Equipment: spears, pikes, glaives, halberds, tridents, shields, light armour, medium armour, heavy armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="habfde28ega5b4g50c8g9054gd515a04e37ac" version="1">Job: Dragoon</content>
+  <content contentuid="hd3bac3aagd1a4g5278g802fg51165e0abd36" version="1">Your weapon attacks deal 1 extra necrotic damage. Earned by mastering Fell Knight; kept after changing jobs.</content>
+  <content contentuid="h11f54ef1g108cg52cdgb719g5bdac0836f2a" version="1">Fell Knight Mastery</content>
+  <content contentuid="h48b028b6gcc03g5726gbff7ga62ce8e87e87" version="1">Gaffgarion's job. Fell Sword: dark sword strikes that reach foes up to 6 m away and drink their life (Shadowblade) or their magic (Duskblade). Equipment: shortswords, longswords, greatswords, light armour, medium armour, heavy armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="hd66e5cb4gb287g509bg895agb4321f7f1481" version="1">Job: Fell Knight</content>
   <content contentuid="h1621ad3agd6efg5d37g8a67ga644c941c4dc" version="1">+1 to Strength and Constitution saving throws. Earned by mastering Geomancer; kept after changing jobs.</content>
   <content contentuid="hc37f351dg3f78g55c8gad94g81db8673e095" version="1">Geomancer Mastery</content>
   <content contentuid="h561baee6g8476g5ae0ga3e7g7fad2b5582f2" version="1">Turns the ground under your feet into a weapon: each Geomancy skill works only on its own terrain (plain ground, sunlight, shadow, water, ice, fire, mud, vines, grease). Equipment: shortswords, longswords, handaxes, battleaxes, shields, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>

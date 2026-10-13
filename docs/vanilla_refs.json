@@ -195,6 +195,7 @@
     "usedBy": [
       "FFTJ_DefenseBoost",
       "FFTJ_Job_Cleric",
+      "FFTJ_Job_FellKnight",
       "FFTJ_Job_OnionKnight",
       "FFTJ_Mastery_OnionKnight",
       "FFTJ_OnionKnight_5",
@@ -573,7 +574,8 @@
     "id": "Spell_Necromancy_InflictWounds",
     "kind": "icon",
     "usedBy": [
-      "Target_FFTJ_InfernalStrike"
+      "Target_FFTJ_InfernalStrike",
+      "Zone_FFTJ_Duskblade"
     ]
   },
   {
@@ -581,7 +583,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Job_DarkKnight",
-      "Target_FFTJ_SanguineSword"
+      "FFTJ_Mastery_FellKnight",
+      "Target_FFTJ_SanguineSword",
+      "Zone_FFTJ_Shadowblade"
     ]
   },
   {
@@ -1600,6 +1604,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Zone_FFTJ_KikuIchimonji"
+    ]
+  },
+  {
+    "id": "Zone_Mag_WeaponAction_RazorGale",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Zone_FFTJ_Shadowblade"
     ]
   },
   {
