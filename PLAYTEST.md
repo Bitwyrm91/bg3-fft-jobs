@@ -1,6 +1,27 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.46**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.47**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.47: the Soul Codex is a book in a chest; 10 more Act 1 souls
+
+- **The Soul Codex is a real item now.** When the game starts (or when you load a save that doesn't have it), **a chest appears right beside your main character** with the **Soul Codex** inside (an ornate tome). Take it: "You took the Soul Codex, a book of stolen souls." The Soul Collector opens for the whole party at once; no dialog, no job levels. Soul Brand and Soul Incarnation cost 0 JP and are already known.
+- Left the chest on the nautiloid? A new chest appears on the next level (once per level until someone takes the book). If the game ever refuses to make the chest, the codex is given straight away ("turned up in your pack"), so the job can't be lost. The old "talk with Us" route is gone.
+- **10 more Act 1 souls** (each with two forms; the FFT forms use their family's skills):
+
+| Devour | BG3 form (2 new skills) | FFT form |
+|---|---|---|
+| Deep Rothé (Underdark) | Deep Rothé: Rothé Charge, Herd Bellow | Uribo |
+| Kobolds | Kobold: Sling Stone, Pack Tactics | Goblin (Kobold) |
+| Gremishka (Arcane Tower) | Gremishka: Magic Munch, Arcane Burst | Bomb (Gremishka) |
+| Ochre jelly | Ochre Jelly: Pseudopod, Engulf | Ochu |
+| Lava / fire elementals (Grymforge) | Lava Elemental: Magma Fist, Lava Burst | Grenade |
+| Wood woads (Ethel's lair) | Wood Woad: Woad Club, Barkskin | Treant |
+| Mimics | Mimic: Adhesive Bite, Glue Spit | Floating Eye (Mimic) |
+| Bears | Bear: Maul, Mighty Roar | Behemoth (Bear) |
+| Quasits | Quasit: Quasit Claw, Scare | Ahriman (Quasit) |
+| The phasm | Phasm: Shifting Strike, Shifting Form | Ghoul (FFT) |
+
+**Act 1 quick start (replaces the 1.0.0.45 steps):** start a new game → open the chest beside you, take the Soul Codex → Job Board → Soul Collector → in the first fight, Soul Brand an imp and kill it before its next turn → Soul Incarnation → Imp or Ahriman. **Watch for:** the chest not appearing (the SE log says `Soul Codex chest placed:` or `could not place`), the book's name/look, taking it not unlocking the job.
 
 ## New in 1.0.0.46: devouring while in a form
 

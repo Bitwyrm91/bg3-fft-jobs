@@ -161,31 +161,55 @@ function S.a_form_is_free_outside_a_fight(w, T)
     T.falsy(w.chars[T.TAV].statuses.FFTJ_SOUL_REFUND, "a form skill with the same prefix gives no charge back")
 end
 
-local US = "6ca92237-eb1e-4ed8-a1ee-18b3bef21558" -- S_TUT_Lab_TrappedDevourer, the story's "Us"
+local CODEX = "3ee4acf3-0164-4966-a312-2cdfdbfd19bf" -- the FFTJ_SoulCodex item root template
 
-function S.talking_with_us_on_the_nautiloid_gives_the_soul_codex(w, T)
+local function spawned(w, name)
+    local out = {}
+    for _, c in ipairs(w.osiCalls) do
+        if c[1] == name then
+            out[#out + 1] = c
+        end
+    end
+    return out
+end
+
+function S.a_chest_with_the_soul_codex_appears_beside_you(w, T)
     local svc = T.boot(w, { level = "TUT_Avernus_C" })
-    w.newChar(US, { name = "Us", player = false, party = false })
-    w.fire("DialogActorJoined", "TUT_Lab_Us", 3, "S_TUT_Lab_TrappedDevourer_" .. US, 0)
-    T.falsy(svc.State:Meta().Badges.SoulCodex, "Us alone")
-    w.fire("DialogActorJoined", "TUT_Lab_Us", 3, "S_Player_" .. T.TAV, 1)
+    local made = spawned(w, "CreateAt")
+    T.eq(#made, 1, "one chest at the start")
+    T.eq(made[1][2], svc.Data.SoulCodex.Chest)
+    local adds = spawned(w, "TemplateAddTo")
+    T.eq(adds[#adds][2], CODEX)
+    T.contains(w.notifications, "A chest beside you holds the Soul Codex.")
+    T.falsy(svc.State:Meta().Badges.SoulCodex, "not before it is taken")
+    -- the chest's own inventory doesn't count; a party member taking it does
+    local chest = svc.State:Meta().CodexChest
+    w.fire("TemplateAddedTo", "FFTJ_SoulCodex_" .. CODEX, "FFTJ_SoulCodex_x", "Spawned_" .. chest, "")
+    T.falsy(svc.State:Meta().Badges.SoulCodex)
+    w.fire("TemplateAddedTo", "FFTJ_SoulCodex_" .. CODEX, "FFTJ_SoulCodex_x", "S_Player_" .. T.TAV, "")
     T.truthy(svc.State:Meta().Badges.SoulCodex)
-    T.contains(w.notifications, "Beside the brain in the jar lies a codex of stolen souls. The party found the Soul Codex.")
-    T.truthy(svc.State:Get(T.TAV).Unlocked.SoulCollector)
+    T.contains(w.notifications, "You took the Soul Codex, a book of stolen souls. The party found the Soul Codex.")
     local learned = svc.State:Get(T.TAV).Jobs.SoulCollector.Learned
     T.truthy(learned.SoulBrand and learned.SoulIncarnation, "its two arts are known from the start, no Learn click")
     T.falsy(learned.FeralVigor, "the rest still costs JP")
+    w.fire("LevelGameplayStarted", "WLD_Main_A", 0)
+    T.eq(#spawned(w, "CreateAt"), 1, "no more chests once the party has it")
 end
 
-function S.past_the_nautiloid_the_soul_codex_is_in_the_camp_chest(w, T)
+function S.a_codex_left_behind_comes_back_on_the_next_level_only(w, T)
     local svc = T.boot(w, { level = "TUT_Avernus_C" })
-    T.falsy(svc.State:Meta().Badges.SoulCodex)
+    T.eq(#spawned(w, "CreateAt"), 1)
+    w.fire("LevelGameplayStarted", "TUT_Avernus_C", 0)
+    T.eq(#spawned(w, "CreateAt"), 1, "once per level")
     w.fire("LevelGameplayStarted", "WLD_Main_A", 0)
+    T.eq(#spawned(w, "CreateAt"), 2, "left on the nautiloid: a new chest on the beach")
+end
+
+function S.no_chest_means_the_codex_at_once(w, T)
+    w.failCreateAt = true
+    local svc = T.boot(w, { level = "TUT_Avernus_C" })
     T.truthy(svc.State:Meta().Badges.SoulCodex)
-    T.contains(w.notifications, "A codex of stolen souls turned up in your camp's traveller's chest.")
-    local before = #w.notifications
-    w.fire("LevelGameplayStarted", "SCL_Main_A", 0)
-    T.eq(#w.notifications, before, "only once")
+    T.contains(w.notifications, "A codex of stolen souls turned up in your pack. The party found the Soul Codex.")
 end
 
 function S.soul_console_command(w, T)

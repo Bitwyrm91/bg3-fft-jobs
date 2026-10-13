@@ -167,18 +167,15 @@ function Souls.Find(data, text)
     return nil
 end
 
--- The Soul Codex (PHASE2.md item 10): beside "Us", the intellect devourer in the nautiloid's lab. For now it is a
--- notification and the Job Board, like the boss badges (an item later, with the art): the party gets it when a party
--- member talks with Us or Us joins; a party that reaches the shore without it (or a save made later) finds it in the
--- camp's traveller's chest.
--- Us is S_TUT_Lab_TrappedDevourer (the story's DB_PartyMembers / dialog speaker, display name "Us"); the lab's other
--- devourer, S_TUT_Lab_IntellectDevourer, counts too
-Souls.US = {
-    ["6ca92237-eb1e-4ed8-a1ee-18b3bef21558"] = true, -- S_TUT_Lab_TrappedDevourer
-    ["40bd6b82-2728-410a-bb8a-a805f98556a1"] = true, -- S_TUT_Lab_IntellectDevourer
-}
-Souls.CODEX_US = "Beside the brain in the jar lies a codex of stolen souls."
-Souls.CODEX_CAMP = "A codex of stolen souls turned up in your camp's traveller's chest."
+-- The Soul Codex (PHASE2.md item 10; the user, 2026-10-13: "put it in a chest and let it be accessible right away
+-- without further restriction"): a real item. When gameplay starts on a level and the party has no codex yet (a new
+-- game on the nautiloid, or an older save), a chest appears beside the host character with the codex inside, once
+-- per level. Taking the codex (a party member gets it: TemplateAddedTo) gives the SoulCodex badge, which opens the
+-- Soul Collector for the whole party. If no chest can be made, the badge comes at once: the job is never out of reach.
+Souls.CODEX_CHEST = "A chest beside you holds the Soul Codex."
+Souls.CODEX_TAKEN = "You took the Soul Codex, a book of stolen souls."
+Souls.CODEX_FALLBACK = "A codex of stolen souls turned up in your pack."
+Souls.CHEST_OFFSET = 1.5
 
 local function hasCodex(svc)
     local badges = svc.State:Meta().Badges
@@ -194,42 +191,42 @@ function Souls.GiveCodex(svc, reason)
     return true
 end
 
--- Osiris DialogActorJoined: Us and a party member in the same dialog.
-function Souls.OnDialogActor(svc, instance, guid)
-    if not instance or not guid or hasCodex(svc) then
-        return
+-- The chest with the codex beside the host character (once per level while the party has no codex).
+function Souls.PlaceCodex(svc, level)
+    local codex = svc.Data.SoulCodex
+    local meta = svc.State:Meta()
+    if not svc.Ready or not codex or hasCodex(svc) or (meta.CodexChest and meta.CodexLevel == level) then
+        return false
     end
-    svc.SoulDialogs = svc.SoulDialogs or {}
-    local d = svc.SoulDialogs[instance] or {}
-    svc.SoulDialogs[instance] = d
-    if Souls.US[guid] then
-        d.Us = true
-    elseif svc.State:Get(guid) then
-        d.Party = true
+    local host = svc.Game:HostCharacter()
+    if not host then
+        return false
     end
-    if d.Us and d.Party then
-        Souls.GiveCodex(svc, Souls.CODEX_US)
+    local chest = svc.Game:SpawnNear(codex.Chest, host, Souls.CHEST_OFFSET)
+    if not chest then
+        svc.Log.Warn("could not place the Soul Codex chest; the codex is given at once")
+        return Souls.GiveCodex(svc, Souls.CODEX_FALLBACK)
+    end
+    svc.Game:TemplateAddTo(codex.Item, chest, 1)
+    meta.CodexChest = chest
+    meta.CodexLevel = level
+    svc.State:MarkDirty()
+    svc.Log.Info(string.format("Soul Codex chest placed: %s (%s)", chest, tostring(level)))
+    svc:Notify(host, Souls.CODEX_CHEST)
+    return true
+end
+
+-- Osiris TemplateAddedTo: the codex went into a party member's inventory.
+function Souls.OnTemplateAdded(svc, template, holder)
+    local codex = svc.Data.SoulCodex
+    if codex and template == codex.Item and holder and (svc.State:Get(holder) or svc.Game:IsPartyMember(holder)) then
+        Souls.GiveCodex(svc, Souls.CODEX_TAKEN)
     end
 end
 
-function Souls.OnDialogEnded(svc, instance)
-    if svc.SoulDialogs then
-        svc.SoulDialogs[instance] = nil
-    end
-end
-
-function Souls.OnJoined(svc, guid)
-    if Souls.US[guid] then
-        Souls.GiveCodex(svc, Souls.CODEX_US)
-    end
-end
-
--- A level started: past the nautiloid (Data.LevelActs act 1 or later) without the codex, it is in the camp chest.
+-- Gameplay started on a level.
 function Souls.OnLevel(svc, level)
-    local act = level and svc.Data.LevelActs and svc.Data.LevelActs[level]
-    if act and act >= 1 then
-        Souls.GiveCodex(svc, Souls.CODEX_CAMP)
-    end
+    Souls.PlaceCodex(svc, level)
 end
 
 -- One line per devoured type for !fft_soul list.

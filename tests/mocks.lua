@@ -424,6 +424,22 @@ function Mocks.Install()
             local c = char(g)
             return c.x or 0, c.y or 0, c.z or 0
         end,
+        FindValidPosition = function(x, y, z, radius, obj, flag)
+            return x, y, z
+        end,
+        CreateAt = function(template, x, y, z, temporary, playSpawn, event)
+            rec("CreateAt", template, x, y, z)
+            if world.failCreateAt then
+                error("CreateAt failed")
+            end
+            world.spawnSeq = (world.spawnSeq or 0) + 1
+            local guid = string.format("00000000-0000-0000-0000-%012d", world.spawnSeq)
+            world.items[guid] = { name = "Spawned", template = template, story = false }
+            return "Spawned_" .. guid
+        end,
+        TemplateAddTo = function(template, holder, count, notify)
+            rec("TemplateAddTo", template, holder, count)
+        end,
         GetHitpoints = function(g)
             return char(g).hp
         end,

@@ -88,6 +88,27 @@ function Game:CreatureKeys(guid)
     return string.lower(table.concat(out, " "))
 end
 
+-- Creates an item from a root template on the ground beside a character (a valid spot within 5 m). Returns its GUID.
+function Game:SpawnNear(template, guid, offset)
+    local ok, x, y, z = pcall(Osi.GetPosition, guid)
+    if not ok or type(x) ~= "number" then
+        return nil
+    end
+    local okv, vx, vy, vz = pcall(Osi.FindValidPosition, x + offset, y, z, 5.0, guid, 1)
+    if not okv or type(vx) ~= "number" then
+        vx, vy, vz = x + offset, y, z
+    end
+    return Util.Guid(self:Try("CreateAt", function()
+        return Osi.CreateAt(template, vx, vy, vz, 0, 1, "")
+    end))
+end
+
+function Game:TemplateAddTo(template, holder, count)
+    self:Try("TemplateAddTo", function()
+        Osi.TemplateAddTo(template, holder, count or 1, 0)
+    end)
+end
+
 function Game:ApplyStatus(guid, status, duration)
     self:Try("ApplyStatus", function()
         Osi.ApplyStatus(guid, status, duration or -1, 1, guid)

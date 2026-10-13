@@ -129,7 +129,7 @@
     {"id": "WhiteKnight", "name": "White Knight Badge", "boss": "Raphael", "act": 3, "characters": ["f65becd6-5cd7-4c88-b85e-6dd06b60f7b8"], "description": "From Raphael, the cambion who deals in souls (Act 3, House of Hope): Wiegraf too made a pact with a demon."},
     {"id": "Assassin", "name": "Assassin Badge", "boss": "Orin the Red", "act": 3, "characters": ["bf24e0ec-a3a6-4905-bd2d-45dc8edf8101"], "description": "From Orin the Red, Bhaal's Chosen assassin (Act 3, Temple of Bhaal)."},
     {"id": "RuneKnight", "name": "Rune Knight Badge", "boss": "the Steel Watch Titan", "act": 3, "characters": ["51db791d-4378-448a-86ba-3e3ae2748db6"], "description": "From the Steel Watch Titan, the Steel Watch's prototype colossus (Act 3, Steel Watch Foundry)."},
-    {"id": "SoulCodex", "name": "Soul Codex", "description": "A codex of stolen souls, found on the nautiloid near the brain in the jar (or in the camp's traveller's chest). It opens the Soul Collector job for the whole party."}
+    {"id": "SoulCodex", "name": "Soul Codex", "description": "A codex of stolen souls, in a chest that appears beside you when the game starts (or on the next level, if you leave it behind). Taking it opens the Soul Collector job for the whole party."}
   ],
   "abilities": [
     {"id": "Focus", "job": "Squire", "type": "Action", "name": "Focus", "cost": 300, "grants": {"spells": ["Shout_FFTJ_Focus"]}, "description": "Bonus action. +1 to attack rolls and +1 damage for 10 turns.", "fft": "PS1 Accumulate: Physical Attack +1 for the battle.", "source": ["tic_game_data", "game8_squire", "rpgsite_jobs"], "note": "Hack the Minotaur: 300 on one page, 400 on another."},

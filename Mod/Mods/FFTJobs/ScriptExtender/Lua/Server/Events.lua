@@ -26,6 +26,8 @@ Events.Osiris = {
     { "DialogEnded", 2, "OnDialogEnded" },
     -- Soul Collector (Souls.lua): the brand falls off; arity from the same Osi.Events.lua
     { "StatusRemoved", 4, "OnStatusRemoved" },
+    -- the Soul Codex item taken (Souls.lua); arity from the story goals (_GLOBAL_ItemEvents.txt)
+    { "TemplateAddedTo", 4, "OnTemplateAddedTo" },
 }
 
 function Events.Register(svc, log)

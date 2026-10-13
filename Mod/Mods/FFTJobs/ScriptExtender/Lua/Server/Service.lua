@@ -954,7 +954,6 @@ function Service:OnCharacterJoinedParty(character)
         self:Reconcile(guid, true)
     end
     Bosses.OnJoined(self, guid) -- a boss who joins hands over its badge (Minthara)
-    Souls.OnJoined(self, guid) -- Us brings the Soul Codex
 end
 
 -- Boss badges (Bosses.lua): a boss died; who meets whom in dialogs.
@@ -967,12 +966,17 @@ end
 
 function Service:OnDialogActorJoined(dialog, instance, actor)
     Bosses.OnDialogActor(self, instance, Util.Guid(actor))
-    Souls.OnDialogActor(self, instance, Util.Guid(actor))
 end
 
 function Service:OnDialogEnded(dialog, instance)
     Bosses.OnDialogEnded(self, instance)
-    Souls.OnDialogEnded(self, instance)
+end
+
+-- An item made from a root template went into an inventory: the Soul Codex (Souls.lua).
+function Service:OnTemplateAddedTo(template, item, holder)
+    if self.Ready and not self:IsDisabled() then
+        Souls.OnTemplateAdded(self, Util.Guid(template), Util.Guid(holder))
+    end
 end
 
 ---------------------------------------------------------------- player choices (Job Board, console)

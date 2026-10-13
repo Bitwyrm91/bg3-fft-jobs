@@ -90,6 +90,24 @@ otherwise (the user's rule: theme **and** tier).
 | Mystic Carrion (Act 3) | **Skeletal Fiend** | a necromancer |
 | The Elder Brain (finale) | **Arch Seraph** (Ultima's final form) | the last enemy |
 
+## Added 2026-10-13 (user: "souls for uncovered act 1 creatures"; built in 1.0.0.47)
+
+Act 1 creatures the first map left out. The FFT form uses its family's skills (and an FFT-family body); names with the
+creature in brackets where the family's monster is already a form.
+
+| BG3 creature | BG3 form body | FFT form (family) |
+|---|---|---|
+| Deep Rothé | Wild Shape's Deep Rothé | Uribo (pig; WotL's name) |
+| Kobolds | Kobolds_Melee | Goblin (Kobold) (goblin) |
+| Gremishka | Gremishka | Bomb (Gremishka) (bomb) |
+| Ochre jelly | Ooze_Jelly_Ochre | Ochu (malboro), shambling mound body |
+| Lava and fire elementals | Elemental_Lava | Grenade (bomb), fire elemental body |
+| Wood woads | WoodWoad | Treant (dryad), vine blight body |
+| Mimics | Monstrosity_Mimic | Floating Eye (Mimic) (floating eye) |
+| Bears | Bear_NPC_Wildshape (black bear) | Behemoth (Bear) (behemoth) |
+| Quasits | Quasit_A | Ahriman (Quasit) (floating eye) |
+| The phasm | Ooze_Jelly_Phasm | Ghoul (FFT) (TIC's ghost), shadow body |
+
 ## The user's answers (2026-10-13)
 
 1. **Soul Brand replaces the killing blow (new rule):** the Soul Collector puts a debuff on an enemy: **1 turn, can't

@@ -18,12 +18,14 @@ Copy-Item -Recurse (Join-Path $root "Mod\Public") $stage
 # Icons: the textures from art\icons, and the atlas texture bank as .lsf like vanilla's ("[PAK]_UI" needs -LiteralPath).
 & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "make_icons.ps1") -Stage $stage
 if ($LASTEXITCODE -ne 0) { throw "make_icons.ps1 failed" }
-$bankLsx = Join-Path $stage "Public\FFTJobs\Content\UI\[PAK]_UI\_merged.lsx"
-if (Test-Path -LiteralPath $bankLsx) {
-    $bankLsf = [IO.Path]::ChangeExtension($bankLsx, ".lsf")
-    & $Divine -g bg3 -a convert-resource -s $bankLsx -d $bankLsf
-    if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath $bankLsf)) { throw "convert-resource failed for $bankLsx" }
-    Remove-Item -LiteralPath $bankLsx
+# Resources the game reads as .lsf: the atlas texture bank and the item root templates (the Soul Codex).
+foreach ($rel in @("Public\FFTJobs\Content\UI\[PAK]_UI\_merged.lsx", "Public\FFTJobs\RootTemplates\_merged.lsx")) {
+    $lsx = Join-Path $stage $rel
+    if (-not (Test-Path -LiteralPath $lsx)) { continue }
+    $lsf = [IO.Path]::ChangeExtension($lsx, ".lsf")
+    & $Divine -g bg3 -a convert-resource -s $lsx -d $lsf
+    if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath $lsf)) { throw "convert-resource failed for $lsx" }
+    Remove-Item -LiteralPath $lsx
 }
 
 # Divine needs absolute paths.
