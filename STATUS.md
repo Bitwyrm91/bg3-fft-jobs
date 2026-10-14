@@ -14,8 +14,10 @@ Mender skills, JP above the head), pushed; vanilla checks clean; **1.0.0.71 PACK
 C:\Users\berus\GameModding\backups). Nothing of 1.0.0.62-71 seen in game yet (PLAYTEST.md lists what to check).
 `main` = this branch (fast-forwarded from 1.0.0.61 and pushed on the user's word, 2026-10-14). Pacing self-test fails
 since 1.0.0.70 (7 of 20, target 8): user accepted.
-**1.0.0.72 (Strange Fluid, NWP 20) and 1.0.0.73 (Job Board pages, NWP 4) are on this branch, local only: NOT pushed,
-NOT packaged or installed** (the PC still runs 1.0.0.71; `main` is still 1.0.0.71).
+**1.0.0.72 (Strange Fluid, NWP 20), 1.0.0.73 (Job Board pages, NWP 4) and 1.0.0.74 (Gelatinous Goo + Quick Toss) are
+pushed on this branch; 1.0.0.74 is PACKAGED AND INSTALLED** (2026-10-14, BG3 closed; installed pak hash = build;
+backup of the 1.0.0.71 pak in C:\Users\berus\GameModding\backups). `main` is still 1.0.0.71. None of 1.0.0.72-74 seen
+in game yet (PLAYTEST.md).
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
 
