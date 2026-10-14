@@ -21,11 +21,12 @@ import upcast  # Chemist skills cast with higher spell slots
 import menu_gen  # job menus in BG3's own UI (spell containers)
 import statcast  # job skills hit and set save DCs with the highest ability
 import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.path when this script runs
+import smartcast  # Smart Casting (Wizard): area spells leave out allies while the caster has it
 
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.67"
+MOD_VERSION = "1.0.0.68"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -170,6 +171,12 @@ def validate(jobs_doc, config_doc, strings_doc):
             errors.append(f"ability {aid}: grants nothing")
         if not a.get("description"):
             errors.append(f"ability {aid}: no description")
+        # per-spell art (an ability that grants two spells, e.g. the Wizard's Water I / Fire I): spell -> art key
+        spells = {s for g in [a.get("grants", {})] + [v["grants"] for v in a.get("variants", [])]
+                  for s in g.get("spells", [])}
+        for sid, key in a.get("icons", {}).items():
+            if sid not in spells or not IDENT.match(key or ""):
+                errors.append(f"ability {aid}: icons maps {sid} (not one of its spells, or a bad key {key})")
         # the ability its spells cast with while the highest ability is not in use (tools/statcast.py)
         if "castStat" in a and a["castStat"] not in [name for name, _ in statcast.STATS]:
             errors.append(f"ability {aid}: castStat must be an ability name (Strength ... Charisma)")
@@ -568,9 +575,14 @@ def icon_keys(jobs_doc, entries):
         for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])]:
             for kind in GRANT_KINDS:
                 for sid in g.get(kind, []):
-                    keys.setdefault(sid, a["id"])
+                    keys.setdefault(sid, a.get("icons", {}).get(sid, a["id"]))
                     granted.append((sid, a["id"]))
     by_name = {e["name"]: e for e in entries}
+    # higher spell-slot levels (tools/upcast.py) show their root's picture
+    for e in entries:
+        root = next((v for k, v in e["data"] if k == "RootSpellID"), None)
+        if root in keys:
+            keys.setdefault(e["name"], keys[root])
     for sid, aid in granted:
         for _, value in by_name.get(sid, {}).get("data", []):
             for st in status_refs(value):
@@ -829,6 +841,17 @@ def build_stats(jobs_doc, strings_doc):
         for name, out in souls_gen.stats(souls_doc, soul_handle).items():
             outputs[STATS_OUT / name] = out
             entries += parse_stats(out, name)
+    spell_files = {path.name: path for path in outputs if path.name.startswith("Spell_")}
+    changed, missing, _ = smartcast.apply({name: outputs[path] for name, path in spell_files.items()})
+    if missing:
+        print(f"smartcast: {len(missing)} vanilla parents not in data/vanilla_spells.json, their spells are skipped "
+              f"(run python tools/smartcast.py --vanilla on the PC with the game data): {', '.join(missing[:5])}")
+    if changed:
+        for name, out in changed.items():
+            outputs[spell_files[name]] = out
+        entries = []
+        for path, out in outputs.items():
+            entries += parse_stats(out, path.name)
     def menu_handle(key):
         if key not in table:
             raise BuildError(f"menus: unknown string {key}")

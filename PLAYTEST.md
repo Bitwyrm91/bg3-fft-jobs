@@ -1,6 +1,38 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.67**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.68**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.68: the Wizard (Fell Seal), a new job
+
+A new job, **Wizard** (skill set Elementalism), next to the Black Mage on the Job Board. It opens when a character
+reaches **level 4 as Black Mage and level 4 as White Mage**. Equipment: staffs, clubs, light armour.
+
+| Ability | JP | What it does |
+|---|---|---|
+| Water I / Fire I | known | two area cantrips (1.5 m, Dexterity save): 1d6 cold (target gets **Wet**) or fire; plus spell-slot versions |
+| Earth I / Thunder I | 500 | same, bludgeoning (falling stones) or lightning (double on Wet targets) |
+| Smart Casting | 500 | support: your area abilities from this mod, every job, leave out you and your allies |
+| Water II / Fire II | 500 | level 1 spell slot: 3d6 within 2 m, half on a save; higher slots +1d6 |
+| Return Magic | 500 | reaction: an enemy spell that hurts you sends half its damage back as force damage |
+| Earth II / Thunder II | 500 | level 1 spell slot, like Water II / Fire II |
+| Boon | 625 | support: after you kill an enemy, your next attack roll is a critical hit (until the end of your next turn) |
+| Water Locus / Fire Locus | 750 | level 2 spell slot, spell attack on one creature: 4d8; higher slots +1d8 |
+| Earth Locus / Thunder Locus | 750 | the same |
+
+Every damage roll adds your highest ability modifier. Wet: double cold and lightning damage, half fire damage, so
+Water then Thunder is the combo. The mastery perk is one extra level 1 spell slot.
+
+Please check:
+- Water I on a group: those who fail the save are Wet (status icon); a Thunder I on them next shows double damage.
+- Pick a spell-slot version (e.g. Fire I with a spell slot, or Water II): does BG3's level picker show levels 1-6, and
+  do higher levels roll more dice (tooltip)?
+- Slot **Smart Casting**, then cast Fire I / Water II (or Fira, a Chemist Caustic Flask) with an ally in the area:
+  the ally takes nothing. Without it, the ally is hit.
+- Slot **Return Magic** and let an enemy caster hit you with a spell: the caster takes half (combat log, and a party
+  message "... returns the magic ..."). Weapon hits don't trigger it.
+- Slot **Boon**, kill an enemy, then attack (weapon or Locus spell): it should be a critical hit. Tell me if Boon
+  disappears right after the kill without being used.
+- Earth I / Earth Locus borrow a trap's falling-rocks look: tell me if they show no animation.
 
 ## New in 1.0.0.67: Counter Tackle fixed (and Magick Counter, Reflect)
 

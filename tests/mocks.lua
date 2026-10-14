@@ -358,6 +358,9 @@ function Mocks.Install()
         IsEnemy = function(x, y)
             return b(char(x).party ~= char(y).party)
         end,
+        IsAlly = function(x, y)
+            return b(char(x).party == char(y).party)
+        end,
         RemoveStatus = function(g, s)
             rec("RemoveStatus", g, s)
             char(g).statuses[s] = nil

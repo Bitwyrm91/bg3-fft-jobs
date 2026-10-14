@@ -859,3 +859,23 @@ new entry "FFTJ_UNSTABLE_CD"
 type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
+
+// ---------------------------------------------------------------- Wizard (Elementalism; Fell Seal, 1.0.0.67)
+// Boon: the next attack roll is a critical hit; gone after one attack (vanilla WILD_MAGIC_ENCHANT_CHARACTER's
+// RemoveEvents) or at the end of the next turn (2 turns from the kill). UNVERIFIED IN GAME: whether the killing
+// attack's own OnAttack already removes it.
+new entry "FFTJ_BOON"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:Boon.Status.Name}}"
+data "Description" "{{str:Boon.Status.Desc}}"
+data "Icon" "PassiveFeature_DarkOnesBlessing"
+data "StackId" "FFTJ_BOON"
+data "Boosts" "CriticalHit(AttackRoll,Success,Always)"
+data "RemoveEvents" "OnAttack"
+
+// Return Magic marker on the caster of a spell that hurt the wizard (Effects.lua acts on it).
+new entry "FFTJ_RETURN_MAGIC"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"

@@ -34,7 +34,7 @@ LOCKED_SUFFIX = "_Locked"
 NEVER_PASSIVE = "FFTJ_MenuLocked"
 PARENT = "Shout_FFTJ_JobBoard"  # free, Level 0, self-cast, does nothing
 EXCLUDED_GROUPS = ("Soul",)  # Soul Collector: NWP (user, 2026-10-14)
-REGULAR_GROUPS = ("", "WotL")
+REGULAR_GROUPS = ("", "WotL", "FellSeal")
 
 ICONS = {CHANGE: "PassiveFeature_PactOfTheTome", SECONDARY: "PassiveFeature_BookOfAncientSecrets",
          CLEAR: "Skill_Warlock_DismissPactWeapon", "locked": "Spell_Abjuration_ArcaneLock",

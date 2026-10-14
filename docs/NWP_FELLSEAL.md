@@ -68,3 +68,30 @@ armour (ours: no axes, user). Starting ability: Rooting Shot. Passives: Know Wea
 Mapping notes for later: Fell Seal "Gunner 4" has no job here (closest: Machinist, a special job, or Archer);
 "Ranger" = Archer; Mirage ~ BG3 Blink/Mirror Image-style evade; Critical: X counters = our reaction slot with an
 HP-below-threshold trigger; Fell Seal MP costs → our cooldowns (no MP pool, user's rule).
+
+## Wizard (Fell Seal) — skill set "Elementalism" (pasted by the user on 2026-10-14; a NEW job beside the Black Mage)
+
+Requirements: Mender 2 (ours, user: half the maximum job level as both Black Mage and White Mage = level 4 each).
+Move 3, Jump 4. Equipment: rod, robe, light armour (ours: quarterstaffs, clubs, light armour, like the Black Mage).
+Starting ability: Water I / Fire I. Passives: Smart Casting, Boon. Counter: Magic. Mastery: MP+5, MND+5, RES+5 (ours:
+one extra level 1 spell slot, user). "These spell-slingers can take out large groups of enemies at once by unleashing
+destructive magic upon the battlefield." Base for Alchemystic, Druid, Fellblade, Gadgeteer, Vessel.
+
+| Ability | AP | MP | Range / area | Kind | Effect |
+|---|---|---|---|---|---|
+| Water I / Fire I | 0 | 8 | 0-3, vert 10; cross 3 | spell | 1x MND water/fire damage in a small area |
+| Earth I / Thunder I | 200 | 8 | 0-3, vert 10; cross 3 | spell | 1x MND earth/thunder damage in a small area |
+| Smart Casting | 200 | | | passive | offensive multi-target abilities skip allies, helpful ones skip enemies |
+| Water II / Fire II | 200 | 14 | 0-3, vert 14; cross 3 | spell | 1.5x MND water/fire damage in a small area |
+| Magic | 200 | | | counter | counters an offensive spell with a non-elemental version cast back at the attacker |
+| Earth II / Thunder II | 200 | 14 | 0-3, vert 14; cross 3 | spell | 1.5x MND earth/thunder damage in a small area |
+| Boon | 250 | | | passive | after felling an enemy, the next action is a guaranteed critical; wears off at the end of the next turn |
+| Water Locus / Fire Locus | 300 | 18 | 0-4, vert 18; single | spell | 2x MND water/fire damage to one target |
+| Earth Locus / Thunder Locus | 300 | 18 | 0-4, vert 18; single | spell | 2x MND earth/thunder damage to one target |
+
+Built (user's answers, 2026-10-14): JP = AP x 2.5 (Ranger rule): 0, 500, 500, 500, 500, 500, 625, 750, 750 = 4625.
+Group "FellSeal" (with the Peddler; shown in the main Jobs list). Elements: Water = cold + Wet, Fire = fire, Earth =
+bludgeoning, Thunder = lightning. Costs: Tier I cantrip + spell-slot version (level picker 1-6), Tier II level 1 slot,
+Locus level 2 slot (spell attacks), higher slots add dice. Smart Casting covers every area ability of the mod
+(tools/smartcast.py + Effects.Spared), not BG3's own spells. Magic -> "Return Magic": half the spell's damage back as
+force damage. Boon: attack rolls only (BG3 rules: saving-throw spells can't crit).

@@ -1320,6 +1320,7 @@
       "Shout_FFTJ_ChangeJob_Thief_Locked",
       "Shout_FFTJ_ChangeJob_TimeMage_Locked",
       "Shout_FFTJ_ChangeJob_WhiteMage_Locked",
+      "Shout_FFTJ_ChangeJob_Wizard_Locked",
       "Shout_FFTJ_SecondaryJob_Archer_Locked",
       "Shout_FFTJ_SecondaryJob_Arithmetician_Locked",
       "Shout_FFTJ_SecondaryJob_Bard_Locked",
@@ -1341,7 +1342,8 @@
       "Shout_FFTJ_SecondaryJob_Summoner_Locked",
       "Shout_FFTJ_SecondaryJob_Thief_Locked",
       "Shout_FFTJ_SecondaryJob_TimeMage_Locked",
-      "Shout_FFTJ_SecondaryJob_WhiteMage_Locked"
+      "Shout_FFTJ_SecondaryJob_WhiteMage_Locked",
+      "Shout_FFTJ_SecondaryJob_Wizard_Locked"
     ]
   },
   {
@@ -1490,6 +1492,9 @@
       "Projectile_FFTJ_Divinity",
       "Projectile_FFTJ_Impiety",
       "Shout_FFTJ_Learn_Divinity",
+      "Shout_FFTJ_Learn_EarthThunder1",
+      "Shout_FFTJ_Learn_EarthThunder2",
+      "Shout_FFTJ_Learn_EarthThunderLocus",
       "Shout_FFTJ_Learn_Impiety"
     ]
   },
@@ -1974,7 +1979,8 @@
       "Projectile_FFTJ_Maelstrom",
       "Projectile_FFTJ_NetherMaelstrom",
       "Shout_FFTJ_Learn_Maelstrom",
-      "Shout_FFTJ_Learn_NetherMaelstrom"
+      "Shout_FFTJ_Learn_NetherMaelstrom",
+      "Shout_FFTJ_Learn_WaterFireLocus"
     ]
   },
   {
@@ -2291,6 +2297,8 @@
     "usedBy": [
       "FFTJ_Waterwalking",
       "Shout_FFTJ_Learn_Torrent",
+      "Shout_FFTJ_Learn_WaterFire1",
+      "Shout_FFTJ_Learn_WaterFire2",
       "Shout_FFTJ_Learn_Waterwalking"
     ]
   },
@@ -3276,8 +3284,26 @@
     "id": "WET",
     "kind": "status",
     "usedBy": [
+      "Projectile_FFTJ_WaterLocus",
+      "Projectile_FFTJ_WaterLocus_3",
+      "Projectile_FFTJ_WaterLocus_4",
+      "Projectile_FFTJ_WaterLocus_5",
+      "Projectile_FFTJ_WaterLocus_6",
       "Target_FFTJ_Leviathan",
-      "Target_FFTJ_Torrent"
+      "Target_FFTJ_Torrent",
+      "Target_FFTJ_WaterI",
+      "Target_FFTJ_WaterII",
+      "Target_FFTJ_WaterII_2",
+      "Target_FFTJ_WaterII_3",
+      "Target_FFTJ_WaterII_4",
+      "Target_FFTJ_WaterII_5",
+      "Target_FFTJ_WaterII_6",
+      "Target_FFTJ_WaterI_Slot",
+      "Target_FFTJ_WaterI_Slot_2",
+      "Target_FFTJ_WaterI_Slot_3",
+      "Target_FFTJ_WaterI_Slot_4",
+      "Target_FFTJ_WaterI_Slot_5",
+      "Target_FFTJ_WaterI_Slot_6"
     ]
   },
   {
@@ -4159,7 +4185,8 @@
     "id": "Projectile_ChromaticOrb_Lightning",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Thunder"
+      "Projectile_FFTJ_Thunder",
+      "Projectile_FFTJ_ThunderLocus"
     ]
   },
   {
@@ -4223,10 +4250,18 @@
     ]
   },
   {
+    "id": "Projectile_FallingRocks",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_EarthI"
+    ]
+  },
+  {
     "id": "Projectile_FireBolt",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Fire"
+      "Projectile_FFTJ_Fire",
+      "Projectile_FFTJ_FireLocus"
     ]
   },
   {
@@ -4235,6 +4270,7 @@
     "usedBy": [
       "Projectile_FFTJ_Fira",
       "Projectile_FFTJ_Firaga",
+      "Projectile_FFTJ_FireI",
       "Projectile_FFTJ_ThrowBombs"
     ]
   },
@@ -4314,7 +4350,8 @@
     "id": "Projectile_RayOfFrost",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Blizzard"
+      "Projectile_FFTJ_Blizzard",
+      "Projectile_FFTJ_WaterLocus"
     ]
   },
   {
@@ -4747,7 +4784,8 @@
     "usedBy": [
       "Target_FFTJ_Ramuh",
       "Target_FFTJ_Thundaga",
-      "Target_FFTJ_Thundara"
+      "Target_FFTJ_Thundara",
+      "Target_FFTJ_ThunderI"
     ]
   },
   {
@@ -4775,7 +4813,8 @@
     "id": "Target_CreateWater",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Target_FFTJ_Torrent"
+      "Target_FFTJ_Torrent",
+      "Target_FFTJ_WaterI"
     ]
   },
   {

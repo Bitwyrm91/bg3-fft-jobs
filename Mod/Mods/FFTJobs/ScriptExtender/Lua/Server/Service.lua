@@ -25,6 +25,7 @@ function Service.New(deps)
     self.PollGeneration = 0
     self.PoachMarks = {} -- creature guid -> the poacher who hit it this turn (Effects.lua)
     self.TrophyMarks = {} -- creature guid -> the hunter whose Collect Trophy hit it this turn (Effects.lua)
+    self.ReturnMagic = {} -- "wizard|caster" -> spell damage being added up for Return Magic (Effects.lua)
     self.EchoSeq = 0 -- counts echoable job abilities used by the party (Mime)
     self.LastEcho = nil -- {Spell = echo twin, Ability, By = guid, Seq}
     self.EchoSeen = {} -- Mime guid -> EchoSeq when its last turn ended
@@ -1058,7 +1059,7 @@ end
 
 function Service:OnAttackedBy(defender, attackerOwner, attacker, damageType, damageAmount)
     if self.Ready and not self:IsDisabled() then
-        Effects.OnAttackedBy(self, Util.Guid(defender), damageAmount)
+        Effects.OnAttackedBy(self, Util.Guid(defender), damageAmount, Util.Guid(attacker) or Util.Guid(attackerOwner))
     end
 end
 

@@ -521,6 +521,12 @@ function Game:IsEnemy(a, b)
     end) == 1
 end
 
+function Game:IsAlly(a, b)
+    return self:Try("IsAlly", function()
+        return Osi.IsAlly(a, b)
+    end) == 1
+end
+
 function Game:Hitpoints(guid)
     return self:Try("GetHitpoints", function()
         return Osi.GetHitpoints(guid)

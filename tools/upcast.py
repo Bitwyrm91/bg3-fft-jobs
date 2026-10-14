@@ -31,6 +31,18 @@ FLASKS = {
 BLAST = "FFTJ_FULMINATE_BLAST"
 POTIONS = {"Target_FFTJ_Potion": "Potion", "Target_FFTJ_HiPotion": "HiPotion", "Target_FFTJ_XPotion": "XPotion"}
 LUA_STATUSES = sorted({v[0] for v in FLASKS.values()})  # Effects.lua strips "_<N>" from these
+# Wizard (Fell Seal, user 2026-10-14: spell slots, Chemist style): plain stats damage, so a higher slot rolls more
+# dice. Root (its Level is the first slot level) -> dice added per level above it. The Tier I `_Slot` roots are
+# written in stats_src (one more die than the slot level); only their higher levels come from here.
+DAMAGE_ROOTS = {
+    "Target_FFTJ_WaterI_Slot": 1, "Projectile_FFTJ_FireI_Slot": 1, "Projectile_FFTJ_EarthI_Slot": 1,
+    "Target_FFTJ_ThunderI_Slot": 1,
+    "Target_FFTJ_WaterII": 1, "Projectile_FFTJ_FireII": 1, "Projectile_FFTJ_EarthII": 1, "Target_FFTJ_ThunderII": 1,
+    "Projectile_FFTJ_WaterLocus": 1, "Projectile_FFTJ_FireLocus": 1, "Projectile_FFTJ_EarthLocus": 1,
+    "Projectile_FFTJ_ThunderLocus": 1,
+}
+DAMAGE_FIELDS = ("SpellSuccess", "SpellFail", "TooltipDamageList")
+DICE = re.compile(r"\b(\d+)d(\d+)\b")
 ABILITY_OF = {"Projectile_FFTJ_ChemicalMixup": "ChemicalMixup", "Projectile_FFTJ_CausticFlask": "CausticFlask"}
 
 
@@ -123,4 +135,19 @@ def stats(entries_list, H):
         for n in range(2, MAX_LEVEL + 1):
             variant(f"{top}_{n}", top, n, "SpellProperties", heal_at(n),
                     extra=[f'data "TooltipDamageList" "{heal_at(n)}"'])
+    for root, step in DAMAGE_ROOTS.items():
+        if root not in entries:
+            raise ValueError(f"upcast: {root} has no stats entry")
+        first = int(_field(entries, root, "Level") or 0)
+        values = {f: _field(entries, root, f) for f in DAMAGE_FIELDS}
+        if first < 1 or not DICE.search(values["SpellSuccess"] or ""):
+            raise ValueError(f"upcast: {root} needs Level 1+ and damage dice in SpellSuccess")
+        for n in range(first + 1, MAX_LEVEL + 1):
+            more = step * (n - first)
+            extra = [f'data "{f}" "{DICE.sub(lambda m: f"{int(m.group(1)) + more}d{m.group(2)}", v)}"'
+                     for f, v in values.items() if v]
+            spells.extend([f'new entry "{root}_{n}"', 'type "SpellData"',
+                           f'data "SpellType" "{_field(entries, root, "SpellType")}"', f'using "{root}"',
+                           f'data "RootSpellID" "{root}"', f'data "PowerLevel" "{n}"',
+                           f'data "UseCosts" "ActionPoint:1;{SLOT.format(n)}"', *extra, *icon(root), ""])
     return {SPELL_FILE: "\n".join(spells).rstrip("\n") + "\n", STATUS_FILE: "\n".join(statuses).rstrip("\n") + "\n"}
