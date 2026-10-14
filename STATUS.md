@@ -32,6 +32,18 @@ When the user says "NWP", this is the list:
    via `Ext.Loca.UpdateTranslatedString`). Casting = Service:SetPrimary / Learn. Optional extras: level-up screen
    picks (Progression selectors added at runtime) and Job Mastery feats. The Job Board stays for overview at first.
    User's budget for it: ~5% weekly; weekly was 89% when asked, so it waits for a fresh session after the reset.
+8. **Collaboration with another Claude agent on a different PC** (user, 2026-10-14: "use CIC if that's easiest to
+   setup to be shared with another claude agent from a different PC, basically a collaboration dump for when one of
+   us makes changes it automatically goes to the github"). Goal: every change from either PC lands on GitHub by
+   itself, so the other agent always starts from the latest. **Ask first what "CIC" means** (CI/CD with GitHub
+   Actions? Claude in Chrome? something else). Likely pieces: auto-push after each local commit (git post-commit hook,
+   or a step in tools/release.py) - this replaces the "never push unless asked" rule, so confirm it; each agent pulls
+   (rebase) before it starts and before it pushes; a GitHub Actions workflow running tools/run_tests.sh +
+   `build.py --check` on every push (the cloud session ran these tests on Linux before); straight to main or short
+   branches + pull requests?; the other PC needs access to Bitwyrm91/bg3-fft-jobs (collaborator invite) and its own
+   paths (env.sh, decomp\bg3 for the vanilla checks, BG3 install for package/install); generated files are committed,
+   so both run build.py before committing; binary icons (art/icons/*.jpg) can't be merged, so one side owns art.
+   STATUS.md stays the handoff both agents read first.
 Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
 Fell Seal source.
 
@@ -77,8 +89,9 @@ Fell Seal source.
 11. **Heals too strong for easy skills** (screenshot: Hi-Potion = Heal 4d4+4 once per short rest). User: make the
     potion/heal tiers small steps up; the strong versions should need a spell slot. Audit every heal (Chemist
     potions, White Magicks Cure line, Cleric/Princess copies, Salve, Chakra, etc.) against BG3 potions/Cure Wounds.
-7. **GitHub:** nothing more is published (no push, no release) until the user says so. main on GitHub = 1.0.0.47 +
-   the tester README (dae659b); the repo is private.
+7. **GitHub:** pushed up to 1.0.0.55 (+ tag backup-1.0.0.54-before-menus) on 2026-10-14 at the user's request
+   ("publish everything to github"); no GitHub release. Otherwise still no push / release until the user says so
+   (NWP item 8 may change that). The repo is private. Tester zip: Documents\1Claude\FFTJobs-1.0.0.55-test.zip.
 
 **State (2026-10-12, local run):** Part B is done up to the in-game playtest. Built, installed and enabled on the user's PC; at the main menu the mod loads, its client script runs without errors and all 100 stats entries are in the game. **Not seen in an actual game yet** (no save loaded, nothing cast): the server side, JP, the Job Board, every ability. Next: the user's playtest (`PLAYTEST.md`), then fix what they report, then the other 14 jobs.
 
