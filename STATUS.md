@@ -21,7 +21,7 @@ When the user says "NWP", this is the list:
    Kick, Sap, Vanish, Sprint...). Design questions first: keep the Ninja name/tile or a new "Rogue" job, Ninja's
    unlocks and dual wield, how combo points work in BG3 (an action resource?), what happens to saves with Ninja
    learned.
-4. **Keep improving the Job Board** (Future changes 1 and 10 below: dropdown groups; the progress bar is already gone).
+4. **Keep improving the Job Board** (Future changes 1 and 10 below: dropdown groups, built in 1.0.0.61; the progress bar is already gone).
 5. **Soul Collector development PAUSED** (Future changes 4, 5, 8 wait: JP-cost forms, form strength). Its job is left out of the hotbar job menus of 1.0.0.55 (user: "anything related to soul devourer should be for NWP").
 6. **NEW BG3 BASE CLASS: the WoW Warlock** (user, 2026-10-13: "NWP - create a WoW warlock as a base class in BG3"; a
    SEPARATE mod, not part of FFTJobs; WoW-style, not D&D, under a new cool name). How BG3 classes are built:
@@ -40,8 +40,10 @@ When the user says "NWP", this is the list:
 8. **Collaboration with another Claude agent on a different PC** (user, 2026-10-14: "use CIC if that's easiest to
    setup to be shared with another claude agent from a different PC, basically a collaboration dump for when one of
    us makes changes it automatically goes to the github"). Goal: every change from either PC lands on GitHub by
-   itself, so the other agent always starts from the latest. **Ask first what "CIC" means** (CI/CD with GitHub
-   Actions? Claude in Chrome? something else). Likely pieces: auto-push after each local commit (git post-commit hook,
+   itself, so the other agent always starts from the latest. **CIC = Claude in Chrome** (user's answer, 2026-10-14).
+   It drives the user's Chrome (pages, clicks, forms); it does not move git changes between PCs, so the sync is still
+   the pieces below; Chrome can do the web-only steps (collaborator invite, GitHub settings). Ask the rest of the
+   design first. Likely pieces: auto-push after each local commit (git post-commit hook,
    or a step in tools/release.py) - this replaces the "never push unless asked" rule, so confirm it; each agent pulls
    (rebase) before it starts and before it pushes; a GitHub Actions workflow running tools/run_tests.sh +
    `build.py --check` on every push (the cloud session ran these tests on Linux before); straight to main or short
@@ -58,7 +60,7 @@ When the user says "NWP", this is the list:
 11. **New separate mod: skip the nautiloid**, start at level 2 on the beach.
 12. **Multiplayer support**: works in MP but "weird stuff". Fixed in 1.0.0.56: Dummy/Player tabs (character-creation
     placeholders). Watch: per-client Job Board, notifications to the right player, JP line per client.
-13. **Throw Stone: no animation when the friend uses it** (MP client).
+13. **Throw Stone: no animation when the friend uses it** (MP client). 1.0.0.57 gave it the player throw animation; not seen in game.
 14. **Enemies get jobs** (already planned, PHASE2.md).
 15. **Learn entries cast from the hotbar don't seem to work** (user: not a huge priority). Log of 2026-10-14 01:47 UTC
     (MP session): every job change came from the Job Board ("Job Board: ..."); NO "Not done:"/menu cast at all, so
@@ -67,7 +69,7 @@ When the user says "NWP", this is the list:
     ID, does it matter that the caster is a client player? Use `tools\se_console.ps1` + a cast test.
 16. **Shadowheart's portrait changed** (screenshot: a short dark-haired woman with horns, not her own); the user wants
     "something sexy" for her portrait. Find out why it changed first (a mod? the MP save?).
-17. **Chemical Mixup: no throw animation** (at least in MP).
+17. **Chemical Mixup: no throw animation** (at least in MP). Fixed with 13 in 1.0.0.57; not seen in game.
 18. **Highest-stat scaling step 2** (1.0.0.56 did damage + heals): hit chance and save DCs from the highest ability.
 
 Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
