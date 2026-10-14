@@ -381,6 +381,29 @@ tests/test_peddler.lua (7). Unverified in game: the trap items (constellation ke
 GetOwner on a summoned item, EndTurn), OnHeal + SpellId, potion causee, the Patented container. Icons: subjects.txt
 lines, not painted yet.
 
+**1.0.0.70 (2026-10-14, local session "Mender", NOT packaged or seen in game): four Fell Seal Mender skills join the
+White Mage (user).** User's picks: Renew replaces Regenerate (leftOut `retired` + `replacedBy` Renew: learned and
+slotted move over, no refund; icon Regenerate.jpg -> Renew.jpg); Mana Font made a counter (id `WhiteMageManaFont`,
+the Mystic's `Manafont` stays): refills an empty level 1 slot when damaged, once per round; Blessed One = half the
+real heal; Rebirth = 2 turns, level 2 slot, 25% HP. JP = Fell Seal AP x 2.5 rounded to 10 (source `fellseal_mender`):
+Renew 500, Mana Font 440, Blessed One 440, Rebirth 875 -> White Mage 6525 JP (was 4670). **The pacing self-test now
+FAILS** (TYPICAL: the weakest fighter masters 7 of the 20 TIC jobs, target 8; the sim sat exactly at 8 before):
+user, 2026-10-14: "let it cost whatever it does for now, don't change anything else" -> decide later (options given:
+JP.XPShare 0.24 -> 0.26 passes with room; Mender costs at AP x 1.5 pass just barely). Build: Renew = FFTJ_Renew
+(OnDamaged, SELF = owner) + hidden FFTJ_Renew_Miss (OnAttacked, IsMiss, default target = owner); Mana Font =
+FFTJ_WhiteMageManaFont (OnDamaged) -> FFTJ_MANAFONT_CHECK (instant; OnApplyFunctors test vanilla Bolstering Magic's
+`HasPassive('UnlockedSpellSlotLevel1') and not HasActionResource('SpellSlot',100,1,true)` on context.Target, then
+FFTJ_MANAFONT_USED 1 turn + RestoreResource(SpellSlot,1,1)); Blessed One = Lua: Osiris UsingSpellOnTarget/6 (Game:
+IsSingleTargetHeal = VerbalIntent Healing, Target/Projectile, no area, AmountOfTargets <= 1, target != caster) keeps
+the target's HP, the first rise in HitpointsChanged/2 within Abilities.BlessedOneWaitMs (5000) heals the caster
+Abilities.BlessedOneShare (0.5) through Osi.SetHitpoints (Game:Heal; nothing for a downed caster); Rebirth =
+Target_FFTJ_Rebirth (using Target_DeathWard) -> FFTJ_REBIRTH (using DEATH_WARD, `DownedStatus(FFTJ_REBIRTH_DOWNED,11)`)
+-> FFTJ_REBIRTH_DOWNED (using DEATH_WARD_DOWNED, `RegainHitPoints(MaxHP/4,Guaranteed)`). Icon art for Mana Font,
+Blessed One, Rebirth not painted yet (subjects.txt lines added; they show borrowed vanilla icons). Tests 226 (4 new:
+Blessed One x3, Regenerate -> Renew), build --check, check_refs, validate_vanilla clean. Unverified in game: all of
+it, especially UsingSpellOnTarget firing before the heal lands, OnAttacked misses, the slot test, DownedStatus 11 vs
+Death Ward's 10.
+
 ## Open questions for the user
 
 - MP: abilities use cooldowns instead of an FFT MP pool. An MP resource (a custom `ActionResourceDefinition`) is possible later. Wanted?

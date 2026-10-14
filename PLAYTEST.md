@@ -1,6 +1,26 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.69**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.70**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.70: four Fell Seal Mender skills for the White Mage
+
+- **Renew** (reaction, 500 JP) **replaces Regenerate**: when you take damage, or an attack against you misses, you
+  gain Regen for 3 turns (1d4+1 HP at the start of each turn) unless you already have it. A save that had
+  Regenerate learned gets Renew learned (and in the reaction slot if Regenerate was there), no JP lost.
+- **Mana Font** (reaction, 440 JP; not the Mystic's Manafont): when you take damage and one of your level 1 spell
+  slots is empty, you get it back. Once per round ("Mana Font Used" shows until your next turn).
+- **Blessed One** (support, 440 JP): when you heal another creature with a single-target heal (Cure, Healing Word,
+  Cure Wounds...; not Cura or other group heals), you regain half the HP it got back. No green number pops up for
+  you: watch your HP bar.
+- **Rebirth** (action, 875 JP): level 2 spell slot, 18 m. For 2 turns, the next time the target would go down it
+  stays up with a quarter of its HP instead (like Death Ward), and Rebirth ends.
+- Mastering White Mage now costs 6525 JP (was 4670).
+
+Please check: as a White Mage with spell slots spent, get hit with Mana Font slotted (a level 1 slot back? only once
+per round?). With Renew slotted, let an enemy miss you (Regen?). Cast Cure on a hurt ally with Blessed One slotted
+(do you heal half?). Cast Rebirth on someone, then let them drop (do they stay up with a quarter HP?). Paste the
+newest Script Extender log if something does nothing (Blessed One logs "regained N HP" or "restored no hit points in
+time").
 
 ## New in 1.0.0.69: the Peddler (new Fell Seal job)
 
