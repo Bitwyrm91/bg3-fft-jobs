@@ -1,6 +1,21 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.55**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.56**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.56: Poison and Acid hurt, skills scale with your best stat
+
+- **Poisoned and Acid deal 1d4 damage at the start of each turn in a fight**, for everyone (DOS2 style): spiders,
+  poisoned weapons, acid surfaces, our Chemist skills, enemies and you alike. Config: Abilities.PoisonTickDie /
+  AcidTickDie (0 = off).
+- **Job skills add your highest ability modifier to their damage and healing** (Str, Dex, Con, Int, Wis or Cha,
+  whichever is best). Weapon skills keep using the weapon's stat; Chemist items stay flat. Hit chance and save DCs
+  come later.
+- **Potion heals 1d4+2** (one die).
+- **Job Board: no more "Dummy" / "Player" tabs** (character-creation placeholders). Old ones are removed on load;
+  `!fft_forget <name>` removes any other character from the Job Board for good.
+
+Please check: do Fire, Cure, Rush etc. still deal damage/heal (the tooltip should show the dice plus a number)? If a
+job skill suddenly does nothing, tell me at once (the new formula is the suspect; 1.0.0.55 is backed up).
 
 ## New in 1.0.0.55: jobs and learning from the hotbar (BG3's own menus)
 

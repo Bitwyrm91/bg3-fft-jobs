@@ -92,8 +92,51 @@ function Service:OnResetCompleted()
     self:OnSessionLoaded()
 end
 
+-- Character creation (level SYS_CC_*) shows placeholder characters ("Player", "Dummy" in multiplayer); seen tracked
+-- and on the Job Board in a playtest (2026-10-14). Nothing is tracked there.
+function Service:InCharacterCreation()
+    local level = self.Level or self.Game:CurrentLevel()
+    return type(level) == "string" and level:find("^SYS_CC") ~= nil
+end
+
+Service.PLACEHOLDER_NAMES = { Dummy = true, Player = true }
+
+-- A character-creation placeholder: its name and not a party or camp member.
+function Service:IsPlaceholder(guid)
+    local name = self.Game:DisplayName(guid)
+    return Service.PLACEHOLDER_NAMES[name or ""] == true and not self.Game:IsPartyOrCamp(guid)
+end
+
+-- Stops tracking a character for good (Meta.Forgotten): its grants are removed and it leaves the Job Board.
+function Service:Forget(guid)
+    local char = self.State:Get(guid)
+    if not char then
+        return false, "Not tracked: " .. tostring(guid)
+    end
+    Grants.RemoveAll(self.Game, guid, char)
+    self.State:Remove(guid)
+    local meta = self.State:Meta()
+    meta.Forgotten = meta.Forgotten or {}
+    meta.Forgotten[guid] = true
+    self.State:MarkDirty()
+    return true, "No longer tracked: " .. tostring(char.Name)
+end
+
+function Service:ForgetPlaceholders()
+    for _, guid in ipairs(self.State:Guids()) do
+        if self:IsPlaceholder(guid) then
+            local _, msg = self:Forget(guid)
+            self.Log.Info(msg .. " (a character-creation placeholder)")
+        end
+    end
+end
+
 function Service:StartGameplay()
     self.NotTrackable = {}
+    if self:InCharacterCreation() then
+        return -- StartGameplay runs again on the first real level
+    end
+    self:ForgetPlaceholders()
     self:DiscoverParty()
     self:ReconcileAll(true)
     self:PollXP()
@@ -130,10 +173,10 @@ function Service:EnsureChar(guid)
     if char then
         return char
     end
-    if self.NotTrackable[guid] then
+    if self.NotTrackable[guid] or self:InCharacterCreation() or (self.State:Meta().Forgotten or {})[guid] then
         return nil
     end
-    if not self.Game:IsTrackable(guid) then
+    if self:IsPlaceholder(guid) or not self.Game:IsTrackable(guid) then
         self.NotTrackable[guid] = true
         return nil
     end
@@ -522,6 +565,9 @@ end
 function Service:OnTurnStarted(object)
     local guid = Util.Guid(object)
     self.TurnCasts[guid or ""] = 0
+    if guid and self.Ready and not self:IsDisabled() then
+        self.Log.Safe("status ticks", Effects.OnTurnStarted, self, guid)
+    end
     self:OfferEcho(guid)
     self:Accrue(guid)
 end

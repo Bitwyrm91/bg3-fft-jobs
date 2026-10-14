@@ -16,13 +16,14 @@ import sys
 import uuid
 from pathlib import Path
 
+import scaling  # job skills scale with the highest ability (damage, heals)
 import menu_gen  # job menus in BG3's own UI (spell containers)
 import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.path when this script runs
 
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.55"
+MOD_VERSION = "1.0.0.56"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -642,6 +643,7 @@ def build_texture_bank():
 # a cooldown, named "Echo: <ability>"; the server hands the right twin to the Mime for one turn (Server/Service.lua).
 ECHO_SUFFIX = "_Echo"
 ECHO_FILE = "Spell_FFTJ_Echo.txt"
+SCALED_FILES = ("Spell_FFTJ.txt", "Interrupt_FFTJ.txt")  # tools/scaling.py
 
 
 def echo_spells(jobs_doc):
@@ -754,6 +756,10 @@ def build_stats(jobs_doc, strings_doc):
         out = "\n".join(lines) + "\n"
         if "{{" in out:
             raise BuildError(f"{src.name}: unresolved placeholder")
+        if src.name in SCALED_FILES:
+            out, touched = scaling.apply(out, jobs_doc)
+            for aid in touched:
+                table[f"ability.{aid}.desc"] = table[f"ability.{aid}.desc"].rstrip() + scaling.NOTE
         outputs[STATS_OUT / src.name] = out
         entries += parse_stats(out, src.name)
     for name, out in ((ECHO_FILE, echo_stats(jobs_doc, entries, used)), (ARITH_FILE, arith_stats(jobs_doc, used))):

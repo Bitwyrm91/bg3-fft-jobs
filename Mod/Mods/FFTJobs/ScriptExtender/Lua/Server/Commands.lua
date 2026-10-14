@@ -299,6 +299,26 @@ def("fft_grants", "[who]  what the jobs grant now and whether the game has it (d
     return svc:DescribeGrants(guid)
 end)
 
+def("fft_forget", "<name|guid>  stop tracking characters with that exact name (e.g. Dummy) for good", function(svc, args)
+    local key = table.concat(args, " ")
+    if key == "" then
+        return { "Usage: !fft_forget <name or guid>" }
+    end
+    local out = {}
+    for _, guid in ipairs(svc.State:Guids()) do
+        local char = svc.State:Get(guid)
+        if guid == Util.Guid(key) or string.lower(char.Name or "") == string.lower(key) then
+            if guid == svc.Game:HostCharacter() then
+                out[#out + 1] = "Not the host: " .. tostring(char.Name)
+            else
+                local _, msg = svc:Forget(guid)
+                out[#out + 1] = msg
+            end
+        end
+    end
+    return #out > 0 and out or { "No tracked character named " .. key }
+end)
+
 def("fft_reset", "[who]  reset a character's jobs and JP", function(svc, args)
     local guid, err = who(svc, args[1])
     if not guid then

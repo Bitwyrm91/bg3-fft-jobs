@@ -190,6 +190,24 @@ Effects.Mixup = {
 }
 Effects.Roll = math.random -- tests swap it for a fixed roll
 
+-- DOS2-style damage over time for BG3's own Poisoned and Acid (user, 2026-10-14: the whole game, everyone): at the
+-- start of each creature's turn in a fight. Only the exact statuses, not vanilla statuses built on them (story
+-- sickness, drinks), which would otherwise inherit a tick. Config Abilities.PoisonTickDie / AcidTickDie (0 = off).
+Effects.Ticks = {
+    { Status = "POISONED", Type = "Poison", Die = "PoisonTickDie" },
+    { Status = "ACID", Type = "Acid", Die = "AcidTickDie" },
+}
+
+function Effects.OnTurnStarted(svc, guid)
+    local cfg = svc:Cfg().Abilities
+    for _, t in ipairs(Effects.Ticks) do
+        local die = tonumber(cfg[t.Die]) or 0
+        if die > 0 and svc.Game:Has("Statuses", guid, t.Status) then
+            svc.Game:ApplyDamage(guid, Effects.Roll(die), t.Type, guid)
+        end
+    end
+end
+
 local function mixupDice(svc, caster)
     local level = caster and svc.Game:CharLevel(caster)
     local dice = 1

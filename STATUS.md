@@ -44,6 +44,27 @@ When the user says "NWP", this is the list:
    paths (env.sh, decomp\bg3 for the vanilla checks, BG3 install for package/install); generated files are committed,
    so both run build.py before committing; binary icons (art/icons/*.jpg) can't be merged, so one side owns art.
    STATUS.md stays the handoff both agents read first.
+**NWP additions after the first multiplayer playtest of 1.0.0.55 (user, 2026-10-14; the user and a friend, MP):**
+9. **Learn menus: no way to see current JP** while learning from the hotbar menus (the "<name> has N <job> JP to
+   spend" ExtraDescription line did not show or update). Ideas: JP in the Learn container's own name/description,
+   or an overhead/notification line when a Learn menu opens.
+10. **Show JP gains above the head**, like the floating "+HP" numbers (research the Osiris/SE call for overhead
+    text; maybe a short-lived status with the amount, or DisplayText).
+11. **New separate mod: skip the nautiloid**, start at level 2 on the beach.
+12. **Multiplayer support**: works in MP but "weird stuff". Fixed in 1.0.0.56: Dummy/Player tabs (character-creation
+    placeholders). Watch: per-client Job Board, notifications to the right player, JP line per client.
+13. **Throw Stone: no animation when the friend uses it** (MP client).
+14. **Enemies get jobs** (already planned, PHASE2.md).
+15. **Learn entries cast from the hotbar don't seem to work** (user: not a huge priority). Log of 2026-10-14 01:47 UTC
+    (MP session): every job change came from the Job Board ("Job Board: ..."); NO "Not done:"/menu cast at all, so
+    CastedSpell never reached Service:OnMenuSpell for a menu entry. Check: are the children castable (greyed?), does
+    CastedSpell fire for container children (try the Change Job entries too), is the event's spell name the child
+    ID, does it matter that the caster is a client player? Use `tools\se_console.ps1` + a cast test.
+16. **Shadowheart's portrait changed** (screenshot: a short dark-haired woman with horns, not her own); the user wants
+    "something sexy" for her portrait. Find out why it changed first (a mod? the MP save?).
+17. **Chemical Mixup: no throw animation** (at least in MP).
+18. **Highest-stat scaling step 2** (1.0.0.56 did damage + heals): hit chance and save DCs from the highest ability.
+
 Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
 Fell Seal source.
 
@@ -206,6 +227,20 @@ Fell Seal source.
 **1.0.0.54 (2026-10-13, user design, NOT seen in game):** Chemist Caustic Flask + Unstable Flask (Effects.Bursts / Effects.FlaskBurst, config Abilities.FlaskBurstRadius 1.5; recharge statuses FFTJ_CAUSTIC_CD/FFTJ_UNSTABLE_CD 2 turns; Intelligence via FFTJ_Int_*). User dropped the Chain Reaction idea (never built); Catalyst + Saturation stay. Chemist: 19 abilities, 4990 JP.
 
 **1.0.0.55 (NWP item 7, 2026-10-14, installed, NOT seen in game): job menus in BG3's own UI.** tools/menu_gen.py
+
+**1.0.0.56 (2026-10-14, installed only with BG3 closed, NOT seen in game): user's "changes to make NOW" after the
+first multiplayer playtest of 1.0.0.55.** (1) Poisoned/Acid tick 1d4 (user: whole game) via Lua, not a stats
+override: Effects.OnTurnStarted deals damage to any creature with the exact status POISONED/ACID at its turn start
+(vanilla children like POTION_OF_POISON / CAMP_DAISY_SICK would inherit a stats TickFunctors); config
+Abilities.PoisonTickDie / AcidTickDie; the client appends a sentence to the vanilla tooltips (UpdateTranslatedString).
+(2) Highest-stat scaling step 1 = tools/scaling.py at build time: + max(max(max(Str,Dex),max(Con,Int)),max(Wis,Cha))
+modifier on 234 dice/LevelMapValue DealDamage/RegainHitPoints formulas of Spell_FFTJ.txt (not weapon/unarmed, not
+existing modifiers, not Chemist FFT items); descriptions of changed abilities get a sentence. Nested max() is
+unverified in game (vanilla has max() with expressions inside). Step 2 (hit chance + DCs) after the weekly reset.
+(3) Potion 1d4+2 (user's pick; items flat). (4) "Dummy"/"Player" Job Board tabs (MP character-creation placeholders,
+tracked at new-game start on SYS_CC_I): no tracking on SYS_CC_* levels, placeholders (name Dummy/Player, not in
+party or camp) are forgotten on load (Meta.Forgotten), new `!fft_forget <name|guid>`. tests/test_scaling.lua; 189
+tests. Backup of 1.0.0.55: C:\Users\berus\GameModding\backups\FFTJobs-1.0.0.55.pak.
 (called by build.py) writes Spell_FFTJ_Menu.txt (569 entries): containers Shout_FFTJ_ChangeJob / Shout_FFTJ_SecondaryJob
 (+ _None) / Shout_FFTJ_LearnFrom_<Job>, children join by SpellContainerID (the Soul Incarnation pattern; containers list
 nothing). User's answers: regular jobs (no group + WotL) always listed, locked ones as greyed "???" (`_Locked` twin,

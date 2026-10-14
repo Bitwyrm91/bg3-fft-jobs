@@ -67,6 +67,13 @@ function Game:IsPartyMember(guid)
     end))
 end
 
+-- In the party, the camp included (companions waiting at camp).
+function Game:IsPartyOrCamp(guid)
+    return isTrue(self:Try("IsPartyMember", function()
+        return Osi.IsPartyMember(guid, 1)
+    end))
+end
+
 -- A creature's identity for the Soul Collector: its root template name, stats id and display name, lower case.
 function Game:CreatureKeys(guid)
     local parts = {}
