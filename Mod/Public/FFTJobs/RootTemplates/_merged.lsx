@@ -14,6 +14,258 @@
 					<attribute id="Type" type="FixedString" value="item" />
 					<attribute id="maxStackAmount" type="int32" value="1" />
 				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h71f2c6c7g2d8fg5becga5cag4ea13a06faaf" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="hf744833fga837g5d21g9cc0g3e7fe3d6997f" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="61496804-e418-405a-b64f-55da652cbaa6" />
+					<attribute id="Name" type="LSString" value="FFTJ_Trap_LaceratingTrap" />
+					<attribute id="ParentTemplateId" type="FixedString" value="08f18dbc-f862-48c2-afcc-036f2e82b2a6" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="ConstellationConfigGlobalParameters">
+							<children>
+								<node id="ConstellationConfigParameter">
+									<attribute id="Name" type="LSString" value="Projectile" />
+									<children>
+										<node id="Value">
+											<children>
+												<node id="Scalar">
+													<children>
+														<node id="Scalar">
+															<children>
+																<node id="String">
+																	<attribute id="String" type="LSString" value="Projectile_FFTJ_LaceratingTrap_Trap" />
+																</node>
+															</children>
+														</node>
+													</children>
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h705c023bg2a62g54b6gafc8gff3f01c766f4" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h1d556510gf2a5g5508gad34g0633afecc760" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="0175f384-ba04-4ddd-9f3b-3b3a49675c17" />
+					<attribute id="Name" type="LSString" value="FFTJ_Trap_ImmobilizingTrap" />
+					<attribute id="ParentTemplateId" type="FixedString" value="850f19a5-5548-4d19-a04f-faf618152407" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="ConstellationConfigGlobalParameters">
+							<children>
+								<node id="ConstellationConfigParameter">
+									<attribute id="Name" type="LSString" value="Projectile" />
+									<children>
+										<node id="Value">
+											<children>
+												<node id="Scalar">
+													<children>
+														<node id="Scalar">
+															<children>
+																<node id="String">
+																	<attribute id="String" type="LSString" value="Projectile_FFTJ_ImmobilizingTrap_Trap" />
+																</node>
+															</children>
+														</node>
+													</children>
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h0bc15e51g7220g57a3ga7efga8d9ccb552b3" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h9f17bea1g37b3g5d54ga710g421fa92e0def" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="398f9cc7-74a7-4361-a6d4-59e00a63e2f3" />
+					<attribute id="Name" type="LSString" value="FFTJ_Trap_PainfulTrap" />
+					<attribute id="ParentTemplateId" type="FixedString" value="0ab48ea9-84ed-43e8-8dde-b90797dba3a5" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="ConstellationConfigGlobalParameters">
+							<children>
+								<node id="ConstellationConfigParameter">
+									<attribute id="Name" type="LSString" value="Projectile" />
+									<children>
+										<node id="Value">
+											<children>
+												<node id="Scalar">
+													<children>
+														<node id="Scalar">
+															<children>
+																<node id="String">
+																	<attribute id="String" type="LSString" value="Projectile_FFTJ_PainfulTrap_Trap" />
+																</node>
+															</children>
+														</node>
+													</children>
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h854b1ad6g1c5cg5970gbe77gc6a2bdcb76c6" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h8af4c048gbc6eg56f4gaee0g8cb819f73606" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="3323687f-c8bc-4b68-83a8-6c5550f5aab3" />
+					<attribute id="Name" type="LSString" value="FFTJ_Trap_AlluringTrap" />
+					<attribute id="ParentTemplateId" type="FixedString" value="181cdccc-80ea-43c7-8ca7-3ba0214f26f3" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1.3199748" />
+									<attribute id="Max" type="fvec3" value="1.5 1.5 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 -0.5 -1.5" />
+									<attribute id="Radius" type="float" value="0.5463637" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="ConstellationConfigGlobalParameters">
+							<children>
+								<node id="ConstellationConfigParameter">
+									<attribute id="Name" type="LSString" value="Projectile" />
+									<children>
+										<node id="Value">
+											<children>
+												<node id="Scalar">
+													<children>
+														<node id="Scalar">
+															<children>
+																<node id="String">
+																	<attribute id="String" type="LSString" value="Projectile_FFTJ_AlluringTrap_Trap" />
+																</node>
+															</children>
+														</node>
+													</children>
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
 			</children>
 		</node>
 	</region>

@@ -1,0 +1,38 @@
+// ---------------------------------------------------------------- Peddler (Fell Seal), 2026-10-14
+new entry "FFTJ_Job_Peddler"
+type "PassiveData"
+data "DisplayName" "{{jobname:Peddler}}"
+data "Description" "{{jobdesc:Peddler}}"
+data "Icon" "PassiveFeature_FastHands"
+data "Properties" "Highlighted"
+data "Boosts" "{{prof:Peddler}}"
+
+// Mastery: Fell Seal HP/MP +5, SPD +3 (SPD = turn order = initiative; no MP pool here).
+new entry "FFTJ_Mastery_Peddler"
+type "PassiveData"
+data "DisplayName" "{{masteryname:Peddler}}"
+data "Description" "{{masterydesc:Peddler}}"
+data "Icon" "PassiveFeature_FastHands"
+data "Properties" "Highlighted"
+data "Boosts" "IncreaseMaxHP(5);Initiative(3)"
+
+// Quick Fingers (user's pick): BG3 Thief's Fast Hands, one more bonus action every turn.
+new entry "FFTJ_QuickFingers"
+type "PassiveData"
+data "DisplayName" "{{name:QuickFingers}}"
+data "Description" "{{desc:QuickFingers}}"
+data "Icon" "PassiveFeature_FastHands"
+data "Properties" "Highlighted"
+data "Boosts" "ActionResource(BonusActionPoint,1,0)"
+
+// Item Potency (user: Chemist items, BG3 potions and grenades). The grenades' own damage once more (vanilla dice:
+// Acid Vial 2d6 acid, Smokepowder bombs 3d4+9 force, spore grenades 2d4+1 poison). The healing half is the hidden
+// FFTJ_ItemPotency_Heal (tools/peddler.py, from the Chemist potion spells); BG3 potions and Alchemist's Fire:
+// Server/Peddler.lua.
+new entry "FFTJ_ItemPotency"
+type "PassiveData"
+data "DisplayName" "{{name:ItemPotency}}"
+data "Description" "{{desc:ItemPotency}}"
+data "Icon" "Item_CONS_Potion_Tribal_A_Greater"
+data "Properties" "Highlighted"
+data "Boosts" "IF(SpellId('Projectile_Grenade_AcidBottle')):DamageBonus(2d6,Acid);IF(SpellId('Projectile_Grenade_Bomb') or SpellId('Projectile_Grenade_Bomb_Smoke')):DamageBonus(3d4+9,Force);IF(SpellId('Projectile_BlackSporeCloud_Grenade') or SpellId('Projectile_GreenSporeCloud_Grenade')):DamageBonus(2d4+1,Poison)"

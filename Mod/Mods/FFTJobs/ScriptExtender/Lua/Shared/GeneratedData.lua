@@ -1554,8 +1554,36 @@ return {
         },
       },
     },
+    Peddler = {
+      Id = "Peddler",
+      Name = "Peddler",
+      Skillset = "Peddle",
+      Group = "FellSeal",
+      Implemented = true,
+      Order = 48,
+      Unlock = {
+        {
+          Job = "Archer",
+          Level = 5,
+        },
+      },
+      Innate = {
+        Passives = { "FFTJ_Job_Peddler" },
+      },
+      Equip = "daggers, handaxes, battleaxes, hand crossbows, light crossbows, heavy crossbows, light armour, shields",
+      Description = "Relying on their wits, Peddlers stay out of direct combat: they set clever traps and get the most out of items (Fell Seal's Peddler).",
+      LevelGrants = {},
+      NoSlots = false,
+      StartLearned = { "LaceratingTrap" },
+      Mastery = {
+        Description = "+5 maximum hit points and +3 initiative.",
+        Grants = {
+          Passives = { "FFTJ_Mastery_Peddler" },
+        },
+      },
+    },
   },
-  JobOrder = { "Squire", "Chemist", "Knight", "Archer", "WhiteMage", "BlackMage", "Monk", "Thief", "TimeMage", "Mystic", "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Arithmetician", "Bard", "Dancer", "Mime", "DarkKnight", "OnionKnight", "Cleric", "FellKnight", "DivineKnight", "Templar", "SteelGiant", "Astrologer", "GameHunter", "SkyPirate", "Netherseer", "Skyseer", "Soldier", "HolyKnight", "Machinist", "ArkKnight", "Princess", "Dragonkin", "SwordSaint", "GallantKnight", "Celebrant", "Nightblade", "Sorcerer", "WhiteKnight", "Assassin", "RuneKnight", "SoulCollector" },
+  JobOrder = { "Squire", "Chemist", "Knight", "Archer", "WhiteMage", "BlackMage", "Monk", "Thief", "TimeMage", "Mystic", "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Arithmetician", "Bard", "Dancer", "Mime", "DarkKnight", "OnionKnight", "Cleric", "FellKnight", "DivineKnight", "Templar", "SteelGiant", "Astrologer", "GameHunter", "SkyPirate", "Netherseer", "Skyseer", "Soldier", "HolyKnight", "Machinist", "ArkKnight", "Princess", "Dragonkin", "SwordSaint", "GallantKnight", "Celebrant", "Nightblade", "Sorcerer", "WhiteKnight", "Assassin", "RuneKnight", "SoulCollector", "Peddler" },
   Abilities = {
     Focus = {
       Id = "Focus",
@@ -7275,8 +7303,182 @@ return {
       },
       Fft = "A Soul Collector support (no FFT original).",
     },
+    LaceratingTrap = {
+      Id = "LaceratingTrap",
+      Job = "Peddler",
+      Type = "Action",
+      Name = "Lacerating Trap",
+      Cost = 0,
+      Order = 412,
+      Description = "Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or is Bleeding for 3 turns. The trap lasts until it springs or a long rest. Known from the start.",
+      Grants = {
+        Spells = { "Target_FFTJ_LaceratingTrap" },
+      },
+      Fft = "Fell Seal Lacerating Trap (8 MP): Bleed and end the turn of an enemy that steps on it.",
+    },
+    ImmobilizingTrap = {
+      Id = "ImmobilizingTrap",
+      Job = "Peddler",
+      Type = "Action",
+      Name = "Immobilizing Trap",
+      Cost = 375,
+      Order = 413,
+      Description = "Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or can't move for 2 turns. The trap lasts until it springs or a long rest.",
+      Grants = {
+        Spells = { "Target_FFTJ_ImmobilizingTrap" },
+      },
+      Fft = "Fell Seal Immobilizing Trap (8 MP): Root and end the turn of an enemy that steps on it.",
+    },
+    ItemPotency = {
+      Id = "ItemPotency",
+      Job = "Peddler",
+      Type = "Support",
+      Name = "Item Potency",
+      Cost = 500,
+      Order = 414,
+      Description = "Items you use are twice as potent: the healing of your Chemist potion skills (Potion, Hi-Potion, X-Potion, also their thrown, spell-slot and Patented Usage forms) and of BG3 healing potions you drink or throw is rolled twice; your thrown acid vials, Smokepowder bombs and spore grenades deal their damage twice; your Alchemist's Fire burns twice as long.",
+      Grants = {
+        Passives = { "FFTJ_ItemPotency", "FFTJ_ItemPotency_Heal" },
+      },
+      Fft = "Fell Seal Item Potency: items have double the normal potency.",
+    },
+    PainfulTrap = {
+      Id = "PainfulTrap",
+      Job = "Peddler",
+      Type = "Action",
+      Name = "Painful Trap",
+      Cost = 500,
+      Order = 415,
+      Description = "Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it loses half of its current hit points (no save) and ends its turn at once. The trap lasts until it springs or a long rest.",
+      Grants = {
+        Spells = { "Target_FFTJ_PainfulTrap" },
+      },
+      Fft = "Fell Seal Painful Trap (10 MP): damage for 1/2 of current HP and end the turn of an enemy that steps on it.",
+    },
+    QuickFingers = {
+      Id = "QuickFingers",
+      Job = "Peddler",
+      Type = "Support",
+      Name = "Quick Fingers",
+      Cost = 375,
+      Order = 416,
+      Description = "+1 bonus action every turn (like the Thief's Fast Hands).",
+      Grants = {
+        Passives = { "FFTJ_QuickFingers" },
+      },
+      Fft = "Fell Seal Quick Fingers: situational commands (Open, Gather, Climb, Activate...) cost no action.",
+    },
+    AlluringTrap = {
+      Id = "AlluringTrap",
+      Job = "Peddler",
+      Type = "Action",
+      Name = "Alluring Trap",
+      Cost = 625,
+      Order = 417,
+      Description = "Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or is Charmed for 3 turns: it fights on your side on its own (you don't control it). Bosses are immune to the charm. The trap lasts until it springs or a long rest.",
+      Grants = {
+        Spells = { "Target_FFTJ_AlluringTrap" },
+      },
+      Fft = "Fell Seal Alluring Trap (12 MP): Charm and end the turn of an enemy that steps on it.",
+    },
+    CriticalQuicken = {
+      Id = "CriticalQuicken",
+      Job = "Peddler",
+      Type = "Reaction",
+      Name = "Critical: Quicken",
+      Cost = 560,
+      Order = 418,
+      Description = "When damage leaves you at 20% of your hit points or less, you get an extra action on your next turn. Once per short rest. (The same effect as the Time Mage's Critical: Quick.)",
+      Grants = {
+        Passives = { "FFTJ_CriticalQuick" },
+      },
+      Fft = "Fell Seal Critical: Quicken: an immediate turn when HP is critical after taking damage.",
+    },
+    CriticalExpertise = {
+      Id = "CriticalExpertise",
+      Job = "Peddler",
+      Type = "Action",
+      Name = "Critical Expertise",
+      Cost = 375,
+      Order = 419,
+      Description = "You or an ally within 3 m scores a critical hit on a roll of 19 or 20 for 3 turns. Once per short rest.",
+      Grants = {
+        Spells = { "Target_FFTJ_CriticalExpertise" },
+      },
+      Fft = "Fell Seal Critical Expertise (6 MP): CRIT Up on the target.",
+    },
+    SalesPitch = {
+      Id = "SalesPitch",
+      Job = "Peddler",
+      Type = "Action",
+      Name = "Sales Pitch",
+      Cost = 625,
+      Order = 420,
+      Description = "You and every ally within 3 m are Hasted for 3 turns (BG3's Haste: an extra action, +2 AC, more movement, then a turn of lethargy). No concentration. Once per long rest.",
+      Grants = {
+        Spells = { "Shout_FFTJ_SalesPitch" },
+      },
+      Fft = "Fell Seal Sales Pitch (12 MP): Haste in a small area around you.",
+    },
+    PatentedUsage = {
+      Id = "PatentedUsage",
+      Job = "Peddler",
+      Type = "Action",
+      Name = "Patented Usage",
+      Cost = 1000,
+      Order = 421,
+      Description = "A menu of the Chemist item skills you have learned (Potion, Hi-Potion, X-Potion, Antidote, Eye Drops, Echo Herbs, Remedy; not Phoenix Down, Ether or Elixir), used on everyone within 3 m of a point up to 4.5 m away (enemies too). Each item once per short rest (X-Potion once per long rest).",
+      Grants = {
+        Spells = { "Shout_FFTJ_PatentedUsage" },
+      },
+      Fft = "Fell Seal Patented Usage (14 MP): the selected item is used on a small area (not Phoenix Ashes or Mana Stone).",
+      PerLearned = {
+        {
+          Learned = "Potion",
+          Grants = {
+            Spells = { "Target_FFTJ_Potion_Patented" },
+          },
+        },
+        {
+          Learned = "HiPotion",
+          Grants = {
+            Spells = { "Target_FFTJ_HiPotion_Patented" },
+          },
+        },
+        {
+          Learned = "XPotion",
+          Grants = {
+            Spells = { "Target_FFTJ_XPotion_Patented" },
+          },
+        },
+        {
+          Learned = "Antidote",
+          Grants = {
+            Spells = { "Target_FFTJ_Antidote_Patented" },
+          },
+        },
+        {
+          Learned = "EyeDrops",
+          Grants = {
+            Spells = { "Target_FFTJ_EyeDrops_Patented" },
+          },
+        },
+        {
+          Learned = "EchoHerbs",
+          Grants = {
+            Spells = { "Target_FFTJ_EchoHerbs_Patented" },
+          },
+        },
+        {
+          Learned = "Remedy",
+          Grants = {
+            Spells = { "Target_FFTJ_Remedy_Patented" },
+          },
+        },
+      },
+    },
   },
-  AbilityOrder = { "Focus", "Rush", "ThrowStone", "Salve", "CounterTackle", "EquipAxes", "EvasiveStance", "JPBoost", "Movement1", "Potion", "HiPotion", "XPotion", "Ether", "Elixir", "Antidote", "EyeDrops", "EchoHerbs", "Remedy", "PhoenixDown", "AutoPotion", "ThrowItems", "TreasureHunter", "ChemicalMixup", "ChemicalBurns", "FulminateFlask", "Saturation", "CausticFlask", "UnstableFlask", "RendArmor", "RendWeapon", "RendSpeed", "RendPower", "RendMagick", "Parry", "EquipHeavyArmor", "EquipShields", "EquipSwords", "Aim1", "Aim2", "Aim3", "Aim4", "Aim5", "Aim7", "Aim10", "Aim20", "SpeedSurge", "ArchersBane", "EquipCrossbows", "Concentration", "Jump1", "Cure", "Cura", "Curaga", "Raise", "Arise", "Reraise", "Regen", "Protect", "Shell", "Esuna", "Holy", "Regenerate", "MagickDefenseBoost", "Fire", "Fira", "Firaga", "Thunder", "Thundara", "Thundaga", "Blizzard", "Blizzara", "Blizzaga", "Poison", "Death", "Flare", "MagickCounter", "MagickBoost", "Cyclone", "Pummel", "Aurablast", "Shockwave", "DoomFist", "Purification", "Chakra", "Revive", "CriticalRecoverHP", "Counter", "FirstStrike", "Brawler", "Lifefont", "StealGil", "StealHeart", "StealHelm", "StealArmor", "StealShield", "StealWeapon", "StealAccessory", "StealEXP", "Vigilance", "GilSnapper", "StickyFingers", "Poach", "Movement2", "Jump2", "Haste", "Hasteja", "Slow", "Slowja", "Stop", "Immobilize", "Float", "Reflect", "Quick", "Gravity", "Graviga", "Meteor", "CriticalQuick", "ManaShield", "Swiftspell", "Teleport", "Levitate", "Umbra", "Empowerment", "Invigoration", "Belief", "Disbelief", "Corruption", "Quiescence", "Fervor", "Trepidation", "Delirium", "Harmony", "Hesitation", "Repose", "Induration", "AbsorbMP", "DefenseBoost", "IgnoreWeather", "Manafont", "Sinkhole", "Torrent", "Tanglevine", "Contortion", "Tremor", "WindSlash", "WillOTheWisp", "Quicksand", "Sandstorm", "Snowstorm", "WindBlast", "MagmaSurge", "NaturesWrath", "AttackBoost", "IgnoreTerrain", "Lavawalking", "HorizontalJump1", "HorizontalJump2", "HorizontalJump3", "HorizontalJump4", "HorizontalJump7", "VerticalJump2", "VerticalJump3", "VerticalJump4", "VerticalJump5", "VerticalJump6", "VerticalJump7", "VerticalJump8", "Dragonheart", "EquipPolearms", "IgnoreElevation", "Moogle", "Shiva", "Ramuh", "Ifrit", "Titan", "Golem", "Carbuncle", "Bahamut", "Odin", "Leviathan", "Salamander", "Sylph", "Faerie", "Lich", "Cyclops", "CriticalRecoverMP", "HalveMP", "Entice", "Stall", "Praise", "Intimidate", "Preach", "Enlighten", "Condemn", "Defraud", "Insult", "MimicDarlavon", "Earplugs", "EquipGuns", "Tame", "BeastTongue", "Ashura", "Kotetsu", "BizenOsafune", "Murasame", "AmeNoMurakumo", "Kiyomori", "Muramasa", "KikuIchimonji", "Masamune", "Chirijiraden", "Bonecrusher", "Shirahadori", "EquipKatana", "Doublehand", "Swim", "ThrowShuriken", "ThrowBombs", "ThrowDaggers", "ThrowSwords", "ThrowFlails", "ThrowKatana", "ThrowNinjaBlades", "ThrowAxes", "ThrowPolearms", "ThrowPoles", "ThrowKnightsSwords", "ThrowBooks", "Vanish", "Reflexes", "DualWield", "Waterwalking", "TargetCT", "TargetLevel", "TargetEXP", "TargetElevation", "Prime", "MultipleOf5", "MultipleOf4", "MultipleOf3", "CupOfLife", "Soulbind", "EXPBoost", "AccrueEXP", "AccrueJP", "SeraphSong", "LifesAnthem", "RousingMelody", "BattleChant", "MagickalRefrain", "NamelessSong", "Finale", "MagickSurge", "FaithSurge", "MovementPlus3", "Fly", "WitchHunt", "MincingMinuet", "SlowDance", "Polka", "HeathenFrolic", "ForbiddenDance", "LastWaltz", "StrengthSurge", "BraverySurge", "JumpPlus3", "DancerFly", "SanguineSword", "InfernalStrike", "CrushingBlow", "AbyssalBlade", "UnholySacrifice", "HPBoost", "Vehemence", "DarkKnightMovementPlus3", "DarkKnightJumpPlus3", "ClericCure", "ClericCura", "ClericCuraga", "ClericCuraja", "ClericRaise", "ClericArise", "ClericReraise", "ClericRegen", "ClericProtect", "ClericProtectja", "ClericShell", "ClericShellja", "ClericWall", "ClericEsuna", "ClericHoly", "Dispelna", "Shadowblade", "Duskblade", "CrushArmor", "CrushHelm", "CrushWeapon", "CrushAccessory", "SpellbladeBlind", "SpellbladeSyphon", "SpellbladeDrain", "SpellbladeFaith", "SpellbladeDoubt", "SpellbladeZombie", "SpellbladeSilence", "SpellbladeBerserk", "SpellbladeChicken", "SpellbladeConfuse", "SpellbladeDispel", "SpellbladeDisable", "SpellbladeSleep", "SpellbladeBreak", "Destroy", "Compress", "Dispose", "Pulverize", "CelestialStasis", "Barrage", "PlunderGil", "PlunderHeart", "PlunderHelm", "PlunderArmor", "PlunderShield", "PlunderWeapon", "PlunderAccessory", "PlunderEXP", "GameHunterFocus", "GameHunterRush", "GameHunterThrowStone", "GameHunterSalve", "HeavensWrath", "SkyAshura", "AdamantineBlade", "Maelstrom", "CelestialVoid", "Divinity", "HellsWrath", "NetherAshura", "NetherBlade", "NetherMaelstrom", "CorporealVoid", "Impiety", "Braver", "CrossSlash", "BladeBurst", "Ascension", "Meteorain", "FinishingTouch", "Omnislash", "CherryBlossom", "JudgmentBlade", "CleansingStrike", "NorthswainsStrike", "HallowedBolt", "DivineRuination", "LegShot", "ArmShot", "SealEvil", "ArkKnightAshura", "ArkKnightKotetsu", "ArkKnightBizenOsafune", "ArkKnightMurasame", "ArkKnightAmeNoMurakumo", "ArkKnightKiyomori", "ArkKnightMuramasa", "ArkKnightKikuIchimonji", "ArkKnightMasamune", "ArkKnightChirijiraden", "Magicksap", "Speedsap", "Powersap", "Mindsap", "BloodDrain", "PrincessCure", "PrincessCura", "PrincessCuraga", "PrincessCuraja", "PrincessRaise", "PrincessArise", "PrincessReraise", "PrincessRegen", "PrincessProtect", "PrincessProtectja", "PrincessShell", "PrincessShellja", "PrincessWall", "PrincessEsuna", "PrincessHoly", "IceBreath", "FireBreath", "ThunderBreath", "DragonsCharm", "DragonsGift", "DragonsMight", "DragonsSpeed", "HolyBreath", "SwordSaintJudgmentBlade", "SwordSaintCleansingStrike", "SwordSaintNorthswainsStrike", "SwordSaintHallowedBolt", "SwordSaintDivineRuination", "SwordSaintCrushArmor", "SwordSaintCrushHelm", "SwordSaintCrushWeapon", "SwordSaintCrushAccessory", "SwordSaintShadowblade", "SwordSaintDuskblade", "SoulBrand", "SoulIncarnation", "FeralVigor", "DeepReserves" },
+  AbilityOrder = { "Focus", "Rush", "ThrowStone", "Salve", "CounterTackle", "EquipAxes", "EvasiveStance", "JPBoost", "Movement1", "Potion", "HiPotion", "XPotion", "Ether", "Elixir", "Antidote", "EyeDrops", "EchoHerbs", "Remedy", "PhoenixDown", "AutoPotion", "ThrowItems", "TreasureHunter", "ChemicalMixup", "ChemicalBurns", "FulminateFlask", "Saturation", "CausticFlask", "UnstableFlask", "RendArmor", "RendWeapon", "RendSpeed", "RendPower", "RendMagick", "Parry", "EquipHeavyArmor", "EquipShields", "EquipSwords", "Aim1", "Aim2", "Aim3", "Aim4", "Aim5", "Aim7", "Aim10", "Aim20", "SpeedSurge", "ArchersBane", "EquipCrossbows", "Concentration", "Jump1", "Cure", "Cura", "Curaga", "Raise", "Arise", "Reraise", "Regen", "Protect", "Shell", "Esuna", "Holy", "Regenerate", "MagickDefenseBoost", "Fire", "Fira", "Firaga", "Thunder", "Thundara", "Thundaga", "Blizzard", "Blizzara", "Blizzaga", "Poison", "Death", "Flare", "MagickCounter", "MagickBoost", "Cyclone", "Pummel", "Aurablast", "Shockwave", "DoomFist", "Purification", "Chakra", "Revive", "CriticalRecoverHP", "Counter", "FirstStrike", "Brawler", "Lifefont", "StealGil", "StealHeart", "StealHelm", "StealArmor", "StealShield", "StealWeapon", "StealAccessory", "StealEXP", "Vigilance", "GilSnapper", "StickyFingers", "Poach", "Movement2", "Jump2", "Haste", "Hasteja", "Slow", "Slowja", "Stop", "Immobilize", "Float", "Reflect", "Quick", "Gravity", "Graviga", "Meteor", "CriticalQuick", "ManaShield", "Swiftspell", "Teleport", "Levitate", "Umbra", "Empowerment", "Invigoration", "Belief", "Disbelief", "Corruption", "Quiescence", "Fervor", "Trepidation", "Delirium", "Harmony", "Hesitation", "Repose", "Induration", "AbsorbMP", "DefenseBoost", "IgnoreWeather", "Manafont", "Sinkhole", "Torrent", "Tanglevine", "Contortion", "Tremor", "WindSlash", "WillOTheWisp", "Quicksand", "Sandstorm", "Snowstorm", "WindBlast", "MagmaSurge", "NaturesWrath", "AttackBoost", "IgnoreTerrain", "Lavawalking", "HorizontalJump1", "HorizontalJump2", "HorizontalJump3", "HorizontalJump4", "HorizontalJump7", "VerticalJump2", "VerticalJump3", "VerticalJump4", "VerticalJump5", "VerticalJump6", "VerticalJump7", "VerticalJump8", "Dragonheart", "EquipPolearms", "IgnoreElevation", "Moogle", "Shiva", "Ramuh", "Ifrit", "Titan", "Golem", "Carbuncle", "Bahamut", "Odin", "Leviathan", "Salamander", "Sylph", "Faerie", "Lich", "Cyclops", "CriticalRecoverMP", "HalveMP", "Entice", "Stall", "Praise", "Intimidate", "Preach", "Enlighten", "Condemn", "Defraud", "Insult", "MimicDarlavon", "Earplugs", "EquipGuns", "Tame", "BeastTongue", "Ashura", "Kotetsu", "BizenOsafune", "Murasame", "AmeNoMurakumo", "Kiyomori", "Muramasa", "KikuIchimonji", "Masamune", "Chirijiraden", "Bonecrusher", "Shirahadori", "EquipKatana", "Doublehand", "Swim", "ThrowShuriken", "ThrowBombs", "ThrowDaggers", "ThrowSwords", "ThrowFlails", "ThrowKatana", "ThrowNinjaBlades", "ThrowAxes", "ThrowPolearms", "ThrowPoles", "ThrowKnightsSwords", "ThrowBooks", "Vanish", "Reflexes", "DualWield", "Waterwalking", "TargetCT", "TargetLevel", "TargetEXP", "TargetElevation", "Prime", "MultipleOf5", "MultipleOf4", "MultipleOf3", "CupOfLife", "Soulbind", "EXPBoost", "AccrueEXP", "AccrueJP", "SeraphSong", "LifesAnthem", "RousingMelody", "BattleChant", "MagickalRefrain", "NamelessSong", "Finale", "MagickSurge", "FaithSurge", "MovementPlus3", "Fly", "WitchHunt", "MincingMinuet", "SlowDance", "Polka", "HeathenFrolic", "ForbiddenDance", "LastWaltz", "StrengthSurge", "BraverySurge", "JumpPlus3", "DancerFly", "SanguineSword", "InfernalStrike", "CrushingBlow", "AbyssalBlade", "UnholySacrifice", "HPBoost", "Vehemence", "DarkKnightMovementPlus3", "DarkKnightJumpPlus3", "ClericCure", "ClericCura", "ClericCuraga", "ClericCuraja", "ClericRaise", "ClericArise", "ClericReraise", "ClericRegen", "ClericProtect", "ClericProtectja", "ClericShell", "ClericShellja", "ClericWall", "ClericEsuna", "ClericHoly", "Dispelna", "Shadowblade", "Duskblade", "CrushArmor", "CrushHelm", "CrushWeapon", "CrushAccessory", "SpellbladeBlind", "SpellbladeSyphon", "SpellbladeDrain", "SpellbladeFaith", "SpellbladeDoubt", "SpellbladeZombie", "SpellbladeSilence", "SpellbladeBerserk", "SpellbladeChicken", "SpellbladeConfuse", "SpellbladeDispel", "SpellbladeDisable", "SpellbladeSleep", "SpellbladeBreak", "Destroy", "Compress", "Dispose", "Pulverize", "CelestialStasis", "Barrage", "PlunderGil", "PlunderHeart", "PlunderHelm", "PlunderArmor", "PlunderShield", "PlunderWeapon", "PlunderAccessory", "PlunderEXP", "GameHunterFocus", "GameHunterRush", "GameHunterThrowStone", "GameHunterSalve", "HeavensWrath", "SkyAshura", "AdamantineBlade", "Maelstrom", "CelestialVoid", "Divinity", "HellsWrath", "NetherAshura", "NetherBlade", "NetherMaelstrom", "CorporealVoid", "Impiety", "Braver", "CrossSlash", "BladeBurst", "Ascension", "Meteorain", "FinishingTouch", "Omnislash", "CherryBlossom", "JudgmentBlade", "CleansingStrike", "NorthswainsStrike", "HallowedBolt", "DivineRuination", "LegShot", "ArmShot", "SealEvil", "ArkKnightAshura", "ArkKnightKotetsu", "ArkKnightBizenOsafune", "ArkKnightMurasame", "ArkKnightAmeNoMurakumo", "ArkKnightKiyomori", "ArkKnightMuramasa", "ArkKnightKikuIchimonji", "ArkKnightMasamune", "ArkKnightChirijiraden", "Magicksap", "Speedsap", "Powersap", "Mindsap", "BloodDrain", "PrincessCure", "PrincessCura", "PrincessCuraga", "PrincessCuraja", "PrincessRaise", "PrincessArise", "PrincessReraise", "PrincessRegen", "PrincessProtect", "PrincessProtectja", "PrincessShell", "PrincessShellja", "PrincessWall", "PrincessEsuna", "PrincessHoly", "IceBreath", "FireBreath", "ThunderBreath", "DragonsCharm", "DragonsGift", "DragonsMight", "DragonsSpeed", "HolyBreath", "SwordSaintJudgmentBlade", "SwordSaintCleansingStrike", "SwordSaintNorthswainsStrike", "SwordSaintHallowedBolt", "SwordSaintDivineRuination", "SwordSaintCrushArmor", "SwordSaintCrushHelm", "SwordSaintCrushWeapon", "SwordSaintCrushAccessory", "SwordSaintShadowblade", "SwordSaintDuskblade", "SoulBrand", "SoulIncarnation", "FeralVigor", "DeepReserves", "LaceratingTrap", "ImmobilizingTrap", "ItemPotency", "PainfulTrap", "QuickFingers", "AlluringTrap", "CriticalQuicken", "CriticalExpertise", "SalesPitch", "PatentedUsage" },
   AbilitiesByJob = {
     Squire = { "Focus", "Rush", "ThrowStone", "Salve", "CounterTackle", "EquipAxes", "EvasiveStance", "JPBoost", "Movement1" },
     Chemist = { "Potion", "HiPotion", "XPotion", "Ether", "Elixir", "Antidote", "EyeDrops", "EchoHerbs", "Remedy", "PhoenixDown", "AutoPotion", "ThrowItems", "TreasureHunter", "ChemicalMixup", "ChemicalBurns", "FulminateFlask", "Saturation", "CausticFlask", "UnstableFlask" },
@@ -7318,6 +7520,7 @@ return {
     Dragonkin = { "IceBreath", "FireBreath", "ThunderBreath", "DragonsCharm", "DragonsGift", "DragonsMight", "DragonsSpeed", "HolyBreath" },
     SwordSaint = { "SwordSaintJudgmentBlade", "SwordSaintCleansingStrike", "SwordSaintNorthswainsStrike", "SwordSaintHallowedBolt", "SwordSaintDivineRuination", "SwordSaintCrushArmor", "SwordSaintCrushHelm", "SwordSaintCrushWeapon", "SwordSaintCrushAccessory", "SwordSaintShadowblade", "SwordSaintDuskblade" },
     SoulCollector = { "SoulBrand", "SoulIncarnation", "FeralVigor", "DeepReserves" },
+    Peddler = { "LaceratingTrap", "ImmobilizingTrap", "ItemPotency", "PainfulTrap", "QuickFingers", "AlluringTrap", "CriticalQuicken", "CriticalExpertise", "SalesPitch", "PatentedUsage" },
   },
   Badges = {
     Cleric = {
@@ -8725,6 +8928,34 @@ return {
       Spell = "Shout_FFTJ_SoulIncarnation_Echo",
       Ability = "SoulIncarnation",
     },
+    Target_FFTJ_LaceratingTrap = {
+      Spell = "Target_FFTJ_LaceratingTrap_Echo",
+      Ability = "LaceratingTrap",
+    },
+    Target_FFTJ_ImmobilizingTrap = {
+      Spell = "Target_FFTJ_ImmobilizingTrap_Echo",
+      Ability = "ImmobilizingTrap",
+    },
+    Target_FFTJ_PainfulTrap = {
+      Spell = "Target_FFTJ_PainfulTrap_Echo",
+      Ability = "PainfulTrap",
+    },
+    Target_FFTJ_AlluringTrap = {
+      Spell = "Target_FFTJ_AlluringTrap_Echo",
+      Ability = "AlluringTrap",
+    },
+    Target_FFTJ_CriticalExpertise = {
+      Spell = "Target_FFTJ_CriticalExpertise_Echo",
+      Ability = "CriticalExpertise",
+    },
+    Shout_FFTJ_SalesPitch = {
+      Spell = "Shout_FFTJ_SalesPitch_Echo",
+      Ability = "SalesPitch",
+    },
+    Shout_FFTJ_PatentedUsage = {
+      Spell = "Shout_FFTJ_PatentedUsage_Echo",
+      Ability = "PatentedUsage",
+    },
   },
   ArithMagicks = {
     Cure = "Target_FFTJ_Cure_Arith",
@@ -8883,6 +9114,7 @@ return {
       GilSnapperShare = 1.0,
       GravityShare = 0.25,
       GravigaShare = 0.5,
+      PainfulTrapShare = 0.5,
       EXPBoostShare = 0.25,
       AccrueEXPPerLevel = 5,
       AccrueJPPerTurn = 10,
@@ -9040,6 +9272,7 @@ return {
     ["Abilities.FulminateBurningTurns"] = "Fulminate Flask on a Burning target: turns of Burning on enemies in the burst.",
     ["Abilities.GravityShare"] = "Gravity: share of the target's maximum HP taken (FFT: 0.25).",
     ["Abilities.GravigaShare"] = "Graviga: share of the target's maximum HP taken (FFT: 0.5).",
+    ["Abilities.PainfulTrapShare"] = "Painful Trap (Peddler): share of the current HP an enemy that springs it loses (Fell Seal: 0.5).",
     XPPollMs = "How often (game-time ms) XP is checked for the XP share.",
     ["Telemetry.Enabled"] = "Write per-fight and per-rest numbers to the telemetry file.",
     ["Telemetry.File"] = "Telemetry file, relative to the Script Extender folder.",
@@ -9052,7 +9285,7 @@ return {
     Change = "Shout_FFTJ_ChangeJob",
     Secondary = "Shout_FFTJ_SecondaryJob",
     Clear = "Shout_FFTJ_SecondaryJob_None",
-    Jobs = { "Squire", "Chemist", "Knight", "Archer", "WhiteMage", "BlackMage", "Monk", "Thief", "TimeMage", "Mystic", "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Arithmetician", "Bard", "Dancer", "Mime", "DarkKnight", "OnionKnight", "Cleric", "FellKnight", "DivineKnight", "Templar", "SteelGiant", "Astrologer", "GameHunter", "SkyPirate", "Netherseer", "Skyseer", "Soldier", "HolyKnight", "Machinist", "ArkKnight", "Princess", "Dragonkin", "SwordSaint" },
+    Jobs = { "Squire", "Chemist", "Knight", "Archer", "WhiteMage", "BlackMage", "Monk", "Thief", "TimeMage", "Mystic", "Geomancer", "Dragoon", "Summoner", "Orator", "Samurai", "Ninja", "Arithmetician", "Bard", "Dancer", "Mime", "DarkKnight", "OnionKnight", "Cleric", "FellKnight", "DivineKnight", "Templar", "SteelGiant", "Astrologer", "GameHunter", "SkyPirate", "Netherseer", "Skyseer", "Soldier", "HolyKnight", "Machinist", "ArkKnight", "Princess", "Dragonkin", "SwordSaint", "Peddler" },
     Regular = {
       Squire = true,
       Chemist = true,
@@ -9076,6 +9309,7 @@ return {
       Mime = true,
       DarkKnight = true,
       OnionKnight = true,
+      Peddler = true,
     },
     Primary = {
       Squire = "Shout_FFTJ_ChangeJob_Squire",
@@ -9117,6 +9351,7 @@ return {
       Princess = "Shout_FFTJ_ChangeJob_Princess",
       Dragonkin = "Shout_FFTJ_ChangeJob_Dragonkin",
       SwordSaint = "Shout_FFTJ_ChangeJob_SwordSaint",
+      Peddler = "Shout_FFTJ_ChangeJob_Peddler",
     },
     SecondaryOf = {
       Squire = "Shout_FFTJ_SecondaryJob_Squire",
@@ -9158,6 +9393,7 @@ return {
       Princess = "Shout_FFTJ_SecondaryJob_Princess",
       Dragonkin = "Shout_FFTJ_SecondaryJob_Dragonkin",
       SwordSaint = "Shout_FFTJ_SecondaryJob_SwordSaint",
+      Peddler = "Shout_FFTJ_SecondaryJob_Peddler",
     },
     LockedSuffix = "_Locked",
     LearnFrom = {
@@ -9198,6 +9434,7 @@ return {
       Princess = "Shout_FFTJ_LearnFrom_Princess",
       Dragonkin = "Shout_FFTJ_LearnFrom_Dragonkin",
       SwordSaint = "Shout_FFTJ_LearnFrom_SwordSaint",
+      Peddler = "Shout_FFTJ_LearnFrom_Peddler",
     },
     Learn = {
       Focus = "Shout_FFTJ_Learn_Focus",
@@ -9607,6 +9844,16 @@ return {
       SwordSaintCrushAccessory = "Shout_FFTJ_Learn_SwordSaintCrushAccessory",
       SwordSaintShadowblade = "Shout_FFTJ_Learn_SwordSaintShadowblade",
       SwordSaintDuskblade = "Shout_FFTJ_Learn_SwordSaintDuskblade",
+      LaceratingTrap = "Shout_FFTJ_Learn_LaceratingTrap",
+      ImmobilizingTrap = "Shout_FFTJ_Learn_ImmobilizingTrap",
+      ItemPotency = "Shout_FFTJ_Learn_ItemPotency",
+      PainfulTrap = "Shout_FFTJ_Learn_PainfulTrap",
+      QuickFingers = "Shout_FFTJ_Learn_QuickFingers",
+      AlluringTrap = "Shout_FFTJ_Learn_AlluringTrap",
+      CriticalQuicken = "Shout_FFTJ_Learn_CriticalQuicken",
+      CriticalExpertise = "Shout_FFTJ_Learn_CriticalExpertise",
+      SalesPitch = "Shout_FFTJ_Learn_SalesPitch",
+      PatentedUsage = "Shout_FFTJ_Learn_PatentedUsage",
     },
     HaveHandle = {
       Squire = "h126a1692g761cg5aa6g8b61g193010cacb65",
@@ -9648,6 +9895,7 @@ return {
       Princess = "ha78fb020gfa8fg5ce6g9a5dg19a6a95036e2",
       Dragonkin = "hd0f7007bg0c48g58eegadefg5ae4aefd1f2c",
       SwordSaint = "h4ebe560eg7193g50aeg88fdg35e35227860f",
+      Peddler = "hf2624f51g035cg59b4g8c5bgb196b77e0b34",
     },
   },
   StatCast = {
@@ -9947,6 +10195,13 @@ return {
       Target_FFTJ_DragonsSpeed = true,
       Zone_FFTJ_HolyBreath = true,
       Target_FFTJ_SoulBrand = true,
+      Target_FFTJ_LaceratingTrap = true,
+      Target_FFTJ_ImmobilizingTrap = true,
+      Target_FFTJ_PainfulTrap = true,
+      Target_FFTJ_AlluringTrap = true,
+      Target_FFTJ_CriticalExpertise = true,
+      Shout_FFTJ_SalesPitch = true,
+      Shout_FFTJ_PatentedUsage = true,
       Target_FFTJ_MartialStrike = true,
       Shout_FFTJ_Focus_Echo = true,
       Target_FFTJ_Rush_Echo = true,
@@ -10229,6 +10484,13 @@ return {
       Target_FFTJ_DragonsSpeed_Echo = true,
       Zone_FFTJ_HolyBreath_Echo = true,
       Target_FFTJ_SoulBrand_Echo = true,
+      Target_FFTJ_LaceratingTrap_Echo = true,
+      Target_FFTJ_ImmobilizingTrap_Echo = true,
+      Target_FFTJ_PainfulTrap_Echo = true,
+      Target_FFTJ_AlluringTrap_Echo = true,
+      Target_FFTJ_CriticalExpertise_Echo = true,
+      Shout_FFTJ_SalesPitch_Echo = true,
+      Shout_FFTJ_PatentedUsage_Echo = true,
     },
     Default = {
       Projectile_FFTJ_ChemicalMixup = "Intelligence",
@@ -10248,6 +10510,9 @@ return {
     },
     Statuses = {
       FFTJ_FULMINATE_BLAST = true,
+      FFTJ_TRAP_LACERATE = true,
+      FFTJ_TRAP_IMMOBILIZE = true,
+      FFTJ_TRAP_ALLURE = true,
       FFTJ_FULMINATE_BLAST_2 = true,
       FFTJ_FULMINATE_BLAST_3 = true,
       FFTJ_FULMINATE_BLAST_4 = true,

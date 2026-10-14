@@ -774,6 +774,12 @@ function Rules.DesiredGrants(data, char, cfg)
             local ab = data.Abilities[aid]
             if ab.Type == "Action" and Rules.IsLearned(char, aid) then
                 add(Rules.GrantsFor(data, char, ab, cfg, active))
+                -- Patented Usage (Peddler): one area form per Chemist item the character learned, from any job
+                for _, e in ipairs(ab.PerLearned or {}) do
+                    if Rules.IsLearned(char, e.Learned) then
+                        add(e.Grants)
+                    end
+                end
             end
         end
     end

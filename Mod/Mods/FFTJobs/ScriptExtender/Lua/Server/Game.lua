@@ -122,6 +122,27 @@ function Game:ApplyStatus(guid, status, duration)
     end)
 end
 
+-- A status with its source and length in seconds (6 per turn; 0 = only its on-apply effects).
+function Game:ApplyStatusFrom(guid, status, seconds, source)
+    self:Try("ApplyStatus", function()
+        Osi.ApplyStatus(guid, status, seconds, 1, source or guid)
+    end)
+end
+
+-- Ends the creature's turn in a fight (Osiris EndTurn; vanilla calls it on the creature whose turn it is).
+function Game:EndTurn(guid)
+    self:Try("EndTurn", function()
+        Osi.EndTurn(guid)
+    end)
+end
+
+-- The owner of a summon or summoned item (Osiris GetOwner), nil if none.
+function Game:OwnerOf(guid)
+    return Util.Guid(self:Try("GetOwner", function()
+        return Osi.GetOwner(guid)
+    end))
+end
+
 function Game:Entity(guid)
     return self:Try("Ext.Entity.Get", function()
         return Ext.Entity.Get(guid)

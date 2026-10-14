@@ -109,3 +109,14 @@ Death|a pale floating skull with a dark scythe in violet mist, deep indigo backg
 Flare|a dazzling sphere of white-hot light exploding outward, deep indigo background
 MagickCounter|a crackling violet bolt of magic bouncing back off a mirror-like ward, deep indigo background
 MagickBoost|a glowing violet crystal orb radiating arcane power, deep indigo background
+# Peddler (Fell Seal job, 2026-10-14): saddle brown background
+Job_Peddler|a travelling merchant's overstuffed leather backpack with hanging pots, potion bottles and a coiled rope, saddle brown background
+LaceratingTrap|a steel jaw trap with jagged blood-red serrated teeth half hidden in grass, saddle brown background
+ImmobilizingTrap|a snare of thick rope and iron chains wrapped around a boot, frosty blue glints, saddle brown background
+ItemPotency|two corked potion bottles glowing twice as bright, golden sparkles bursting from them, saddle brown background
+PainfulTrap|a bed of sharp iron caltrops crackling with yellow lightning, saddle brown background
+QuickFingers|a deft gloved hand flicking a spinning coin and a small key between its fingers, motion blur, saddle brown background
+AlluringTrap|a heart-shaped pink lure glowing in a hidden pit, sweet pink mist, saddle brown background
+CriticalExpertise|a merchant's magnifying glass over a gleaming gemstone with a red crosshair, saddle brown background
+SalesPitch|a merchant's open hand presenting a glowing bottle, golden speed lines and coins swirling around it, saddle brown background
+PatentedUsage|a brass mechanical sprayer misting healing potion in a wide glowing cloud, saddle brown background

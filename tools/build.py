@@ -20,6 +20,7 @@ import scaling  # job skills scale with the highest ability (damage, heals)
 import upcast  # Chemist skills cast with higher spell slots
 import menu_gen  # job menus in BG3's own UI (spell containers)
 import statcast  # job skills hit and set save DCs with the highest ability
+import peddler  # Peddler (Fell Seal): trap items, Item Potency's healing
 import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.path when this script runs
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -185,6 +186,14 @@ def validate(jobs_doc, config_doc, strings_doc):
                         errors.append(f"ability {a['id']}: variant condition on unknown ability {val}")
                     elif key not in ("primaryJob", "equippedEffect", "equipped", "learned"):
                         errors.append(f"ability {a['id']}: unknown variant condition {key}")
+        # extra grants, one per other ability the character has learned (Patented Usage: area forms of the learned
+        # Chemist items)
+        for e in a.get("perLearned", []):
+            if e.get("learned") not in ab_ids:
+                errors.append(f"ability {a['id']}: perLearned on unknown ability {e.get('learned')}")
+            for kind in e.get("grants", {}):
+                if kind not in GRANT_KINDS:
+                    errors.append(f"ability {a['id']}: bad perLearned grant kind {kind}")
     defaults = config_doc["defaults"]
     for jid in defaults["Rules"]["StartingUnlocked"]:
         if not job_by_id.get(jid, {}).get("implemented"):
@@ -336,6 +345,10 @@ def build_lua(jobs_doc, config_doc, statcast_data=None):
                 "When": {"AnyOf": [{k[0].upper() + k[1:]: val for k, val in c.items()} for c in v["when"]["anyOf"]]},
                 "Grants": {k.capitalize(): val for k, val in v["grants"].items()},
             } for v in a["variants"]]
+        if a.get("perLearned"):
+            # Rules.DesiredGrants: added while the ability is in use, for each listed ability the character learned
+            entry["PerLearned"] = [{"Learned": e["learned"], "Grants": {k.capitalize(): val for k, val in e["grants"].items()}}
+                                   for e in a["perLearned"]]
         abilities[a["id"]] = entry
         by_job[a["job"]].append(a["id"])
     echo = {sid: {"Spell": sid + ECHO_SUFFIX, "Ability": aid} for sid, aid in echo_spells(jobs_doc).items()}
@@ -782,6 +795,12 @@ def build_stats(jobs_doc, strings_doc):
         outputs[STATS_OUT / name] = out
         entries += parse_stats(out, name)
     try:
+        potency = peddler.potency_stats(entries)  # after the upcast levels and Echo twins it covers
+    except ValueError as e:
+        raise BuildError(str(e))
+    outputs[STATS_OUT / peddler.FILE] = potency
+    entries += parse_stats(potency, peddler.FILE)
+    try:
         cast_text, cast_statuses, cast_lua = statcast.build(jobs_doc, entries, ECHO_SUFFIX)
     except ValueError as e:
         raise BuildError(str(e))
@@ -829,7 +848,7 @@ def check_stats(jobs_doc, entries):
             errors.append(f"{e['name']}: no type")
     wanted = {JOB_BOARD_SPELL: "SpellData", TRAINING_SPELL: "SpellData"}
     for a in jobs_doc["abilities"]:
-        for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])]:
+        for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])] + [e["grants"] for e in a.get("perLearned", [])]:
             for sid in g.get("spells", []):
                 wanted[sid] = "SpellData"
             for pid in g.get("passives", []):
@@ -919,6 +938,10 @@ def main(argv):
                 used.add(key)
                 return handle_for(key)
             outputs[ROOT_TEMPLATES] = souls_gen.root_template(souls_doc, codex_handle)
+        def trap_handle(key):
+            used.add(key)
+            return handle_for(key)
+        outputs[ROOT_TEMPLATES] = peddler.add_templates(outputs.get(ROOT_TEMPLATES), trap_handle)
         outputs[LOCA_OUT] = build_loca(table, used)
         md, js = refs_outputs(refs)
         outputs[REFS_MD] = md

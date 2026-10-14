@@ -110,6 +110,10 @@
     "status.FFTJ_STRENGTH_SURGE.desc": "+2 damage with weapon attacks.",
     "status.FFTJ_BRAVERY_SURGE.name": "Bravery Surge",
     "status.FFTJ_BRAVERY_SURGE.desc": "+1 to attack rolls.",
+    "status.FFTJ_TRAP_ROOTED.name": "Rooted",
+    "status.FFTJ_TRAP_ROOTED.desc": "Caught in a Peddler's trap: can't move.",
+    "status.FFTJ_CRIT_EXPERTISE.name": "Critical Expertise",
+    "status.FFTJ_CRIT_EXPERTISE.desc": "Scores a critical hit on a roll of 19 or 20.",
 
     "Beastmaster.Name": "Beastmaster",
     "Beastmaster.Desc": "Allied beasts, familiars and summons within 6 m of you get +1 to attack rolls and +1 damage. (FFT: gives nearby monsters a hidden ability.)",

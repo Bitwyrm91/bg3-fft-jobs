@@ -468,6 +468,13 @@ function Mocks.Install()
         GetMaxHitpoints = function(g)
             return char(g).maxHp
         end,
+        EndTurn = function(g)
+            rec("EndTurn", g)
+        end,
+        -- summons and summoned items (Peddler traps): world.owners[guid] = the summoner's GUID
+        GetOwner = function(g)
+            return world.owners and world.owners[g]
+        end,
         UseSpell = function(caster, spell, target)
             rec("UseSpell", caster, spell, target)
             world.usedSpells[#world.usedSpells + 1] = { caster, spell, target }

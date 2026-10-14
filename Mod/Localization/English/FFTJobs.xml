@@ -36,6 +36,9 @@
   <content contentuid="hfa0f97e8g640ag59a0g9ff1gdd6b22cd888a" version="1">Costs your action and bonus action. Ranged weapon attack that deals 3d8 extra damage. Once per short rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h81d22b49gf29dg53cdg8cf0g0e8e3d0bcfb5" version="1">Echo: Aim +7</content>
   <content contentuid="h89c80f25g4aa3g5eddgad68gf455002b3156" version="1">Aim +7</content>
+  <content contentuid="h854b1ad6g1c5cg5970gbe77gc6a2bdcb76c6" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or is Charmed for 3 turns: it fights on your side on its own (you don't control it). Bosses are immune to the charm. The trap lasts until it springs or a long rest.</content>
+  <content contentuid="h524d42bdgc389g5b48gb2d6g91d06616fcdf" version="1">Echo: Alluring Trap</content>
+  <content contentuid="h8af4c048gbc6eg56f4gaee0g8cb819f73606" version="1">Alluring Trap</content>
   <content contentuid="h44fb5d8cgd009g537aga38cgcca739e32b31" version="1">Enemies within 3 m of you take 4d6 cold damage and are Slowed for 2 turns (Constitution save: half damage, not slowed). Once per short rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h947892e0gda38g5fd9ga484g3fb2f6626eb2" version="1">Echo: Ame-no-Murakumo</content>
   <content contentuid="h23272f7egd9aeg5b08g8b29gf003a2f2009b" version="1">Ame-no-Murakumo</content>
@@ -193,8 +196,12 @@
   <content contentuid="h62cad20fgade6g548eg8eb2g259d19ec905f" version="1">Counter</content>
   <content contentuid="h1a71ccd6g4cd9g5551g8786g12f72fa03ccc" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 1.5 m.</content>
   <content contentuid="hbd3262cbgcf79g5852ga81fg1a3dcffe6fe4" version="1">Counter Tackle</content>
+  <content contentuid="h5a248256ga3d4g59c0g891agac6510937b0c" version="1">You or an ally within 3 m scores a critical hit on a roll of 19 or 20 for 3 turns. Once per short rest.</content>
+  <content contentuid="hb92ac211g9c82g5455g8eddg60d162f14d48" version="1">Echo: Critical Expertise</content>
+  <content contentuid="h10f0fda2g596cg5d80gaf04g9202971dbda6" version="1">Critical Expertise</content>
   <content contentuid="hbedbfb92g2b67g52d0g973bg74805f008b74" version="1">When damage leaves you at 20% of your hit points or less, you get an extra action on your next turn. Once per short rest.</content>
   <content contentuid="h8a22b598g75afg57f6g87afg0cc5c5e0fcb0" version="1">Critical: Quick</content>
+  <content contentuid="hc26915cdg2686g5fe5ga9f2g6970189c7dec" version="1">Critical: Quicken</content>
   <content contentuid="h40a1faefg40acg579ega585g6796fc9cb7f6" version="1">When damage leaves you at 20% of your hit points or less, you regain half your maximum hit points. Once per long rest.</content>
   <content contentuid="h7f1c4995ge642g57adgbd42g2508eee55eae" version="1">Critical: Recover HP</content>
   <content contentuid="h6301a4bag9d6bg52c4gb239gc84bb48c790a" version="1">When damage leaves you at 20% of your hit points or less, you regain all your level 1 spell slots. Once per long rest.</content>
@@ -489,6 +496,9 @@
   <content contentuid="h69ef04b6gc8aag515fg9ab8g4c129fd2daf3" version="1">An enemy within 18 m makes a Strength save or can't move for 2 turns (it can still act; it repeats the save each turn).</content>
   <content contentuid="hc770c25cg7722g5aefgaf2dgef43206c1929" version="1">Echo: Immobilize</content>
   <content contentuid="hb76229abg33f1g5fecg9ff4ga5310282ecc5" version="1">Immobilize</content>
+  <content contentuid="h705c023bg2a62g54b6gafc8gff3f01c766f4" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or can't move for 2 turns. The trap lasts until it springs or a long rest.</content>
+  <content contentuid="hf8527c22g7216g5cb2gafbagf0189ee0592a" version="1">Echo: Immobilizing Trap</content>
+  <content contentuid="h1d556510gf2a5g5508gad34g0633afecc760" version="1">Immobilizing Trap</content>
   <content contentuid="h2f43098cgbb79g58e4ga64bg0e3e45a6f94f" version="1">4 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 bludgeoning (earth) damage each. Once per long rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="he0f76291g042eg5a6eg9010geca0bcf88525" version="1">Echo: Impiety</content>
   <content contentuid="h5d55c1b7g7c43g553aga6feg283322bdbf26" version="1">Impiety</content>
@@ -509,6 +519,8 @@
   <content contentuid="h5bb05789g8476g5214g9062gf08e8b0be839" version="1">Ranged spell attack against a creature within 18 m: 3d6 necrotic damage, and you regain half the damage dealt. Once per short rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="hb3ed0dc3g47a3g54e4g9b56gcb0becb65032" version="1">Echo: Invigoration</content>
   <content contentuid="hb4d99739g1740g5458ga973g2c016a679d77" version="1">Invigoration</content>
+  <content contentuid="hdf316b1bg59fag59d5g8a30g7f450fef2f6d" version="1">Items you use are twice as potent: the healing of your Chemist potion skills (Potion, Hi-Potion, X-Potion, also their thrown, spell-slot and Patented Usage forms) and of BG3 healing potions you drink or throw is rolled twice; your thrown acid vials, Smokepowder bombs and spore grenades deal their damage twice; your Alchemist's Fire burns twice as long.</content>
+  <content contentuid="hcbcb4c46g2c6eg5ca5g99afg9c8722920b36" version="1">Item Potency</content>
   <content contentuid="h3c36efb8g46f9g5183gb087g0bcd82fc476a" version="1">Earn 20% more JP.</content>
   <content contentuid="h472dd1e3g69feg5a34gbb87gc9330e40dd28" version="1">JP Boost</content>
   <content contentuid="hd4d55c9dg202ag5b8dg91eeg78ac6b22c1ce" version="1">Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 radiant, and the target makes a Constitution save or is Stopped for 1 turn (bosses shrug it off). Once per short rest. Damage and healing add your highest ability modifier.</content>
@@ -529,6 +541,9 @@
   <content contentuid="h028eb348gabbbg5c00gac86gc52c30ac0115" version="1">Enemies within 3 m of you take 3d6 necrotic damage (Constitution save for half). Once per short rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h62cf3050g0dd4g58f4gbac0gbc348eb5cade" version="1">Echo: Kotetsu</content>
   <content contentuid="h7b43b592g7087g5b47g9ef8g7711dd0e79bb" version="1">Kotetsu</content>
+  <content contentuid="h71f2c6c7g2d8fg5becga5cag4ea13a06faaf" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or is Bleeding for 3 turns. The trap lasts until it springs or a long rest. Known from the start.</content>
+  <content contentuid="hb7ae02c0ge676g52edgbc23g81634159d540" version="1">Echo: Lacerating Trap</content>
+  <content contentuid="hf744833fga837g5d21g9cc0g3e7fe3d6997f" version="1">Lacerating Trap</content>
   <content contentuid="hae3f7e07g314eg5f68g87f6geaa1354bc255" version="1">The ultimate dance: enemies within 9 m of you make a Wisdom save or lose their actions and bonus actions next turn (Disable). Once per long rest.</content>
   <content contentuid="hb3aa2d31g68b0g59b8gad34g337b8381de8b" version="1">Echo: Last Waltz</content>
   <content contentuid="he072ccd1g3a3cg5332gae3eg0a7c6ed43bf5" version="1">Last Waltz</content>
@@ -640,8 +655,14 @@
   <content contentuid="hfc7d10bagee49g5d60g9d93gacddc570de99" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage twice over + 6d8 slashing. Once per long rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="hc3c9bf7eg99fbg5267g9977gf891a36cd418" version="1">Echo: Omnislash</content>
   <content contentuid="h20c2d3adgc654g58abgbb52gb5aa8e00b008" version="1">Omnislash</content>
+  <content contentuid="h0bc15e51g7220g57a3ga7efga8d9ccb552b3" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it loses half of its current hit points (no save) and ends its turn at once. The trap lasts until it springs or a long rest.</content>
+  <content contentuid="h37cc6f4eg3041g5c70gb200gf5f0b5775289" version="1">Echo: Painful Trap</content>
+  <content contentuid="h9f17bea1g37b3g5d54ga710g421fa92e0def" version="1">Painful Trap</content>
   <content contentuid="h4ce1e541gae91g5abag9d00gd485952aca38" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2.</content>
   <content contentuid="h767a6ba2g34a0g5ab4ga421g9217d79c3ca7" version="1">Parry</content>
+  <content contentuid="h505bfdd6g4e2ag58bdgae71gd88553b06675" version="1">A menu of the Chemist item skills you have learned (Potion, Hi-Potion, X-Potion, Antidote, Eye Drops, Echo Herbs, Remedy; not Phoenix Down, Ether or Elixir), used on everyone within 3 m of a point up to 4.5 m away (enemies too). Each item once per short rest (X-Potion once per long rest).</content>
+  <content contentuid="h07ca26dfga253g5ad3g89bcgff7642000c1c" version="1">Echo: Patented Usage</content>
+  <content contentuid="hf129e99bg563bg563cg8d28g0e6595c36504" version="1">Patented Usage</content>
   <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion. Costs a level 1 spell slot.</content>
   <content contentuid="h34821d13ge6d4g54e8gb02eg62231b581eef" version="1">Echo: Phoenix Down</content>
   <content contentuid="h0d97b2aegc290g5cdbgb478g11d37f703126" version="1">Phoenix Down</content>
@@ -725,6 +746,8 @@
   <content contentuid="hffda8bd3g52f2g53c5gbfb3g8dfb7a685254" version="1">Another ally within 18 m gets an extra action on its next turn (BG3 cannot give it a turn right away). Once per long rest.</content>
   <content contentuid="h6b5a27eagd518g525dga21fg9823076a1e32" version="1">Echo: Quick</content>
   <content contentuid="hd156b48dgc6feg5683gb844g4e56f0d45de4" version="1">Quick</content>
+  <content contentuid="h158f68d2g2a86g57d5g8c0dga2b201bf5231" version="1">+1 bonus action every turn (like the Thief's Fast Hands).</content>
+  <content contentuid="hd1c46356g4192g5dc9g8b88gbac6ee0e9647" version="1">Quick Fingers</content>
   <content contentuid="h2cb240e6gdf2fg51eag86f9g35da08b83817" version="1">Only while you stand in mud, blood, acid or poison. Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 10 chance of being Doomed (dies after 3 turns; bosses are immune). Damage and healing add your highest ability modifier.</content>
   <content contentuid="h829991f5g504dg514dgaa35gfd988b81f22e" version="1">Echo: Quicksand</content>
   <content contentuid="h416d3d75gff06g5f37gaa56g95b65eb7546b" version="1">Quicksand</content>
@@ -788,6 +811,9 @@
   <content contentuid="h848bed46gc1e4g5aa9g889ag747c33a43f34" version="1">Enemies within 5 m of a point up to 18 m away take 6d8 fire damage (Dexterity save for half). Allies are spared. Once per long rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="hb9d5fa36gc699g5ed5g928cg8998b5414139" version="1">Echo: Salamander</content>
   <content contentuid="ha0338a88g65d2g51f5gabf8ga1dd11bf59d6" version="1">Salamander</content>
+  <content contentuid="hfb968588g3b92g5f0bga4fcgd7424f9551fb" version="1">You and every ally within 3 m are Hasted for 3 turns (BG3's Haste: an extra action, +2 AC, more movement, then a turn of lethargy). No concentration. Once per long rest.</content>
+  <content contentuid="h5c13f2d9g253bg555dgb523g20f7b865bee2" version="1">Echo: Sales Pitch</content>
+  <content contentuid="h132cbccfg0d29g5855g9b15ge67c8c34275b" version="1">Sales Pitch</content>
   <content contentuid="ha9916fc8g295bg5fcbg980aga22476868438" version="1">Touch an ally to end Blinded, Poisoned and Silenced.</content>
   <content contentuid="h3aa1abe6g0ac4g5ae1gba66g77d306c29273" version="1">Echo: Salve</content>
   <content contentuid="hc97a5f6ag22afg5394g97dcgc0d4c94cc049" version="1">Salve</content>
@@ -1182,6 +1208,10 @@
   <content contentuid="hb2acc83bgf81fg5829gbbc1g37901130fa0b" version="1">Orator Mastery</content>
   <content contentuid="ha0ba8523gcbf6g590egbde3g24b62899052b" version="1">Talks foes into switching sides, sleeping, raging or dying; Beast Tongue is always on. Equipment: daggers, hand crossbows, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h7984f2d6ge108g5205gb8eege6aa1b6e71c3" version="1">Job: Orator</content>
+  <content contentuid="h5c2feddegde23g592dg9f18g70a1189d18b7" version="1">+5 maximum hit points and +3 initiative. Earned by mastering Peddler; kept after changing jobs.</content>
+  <content contentuid="ha6f7d120g1618g5289ga669g5850fa30aa23" version="1">Peddler Mastery</content>
+  <content contentuid="ha565c79ag5c16g5c3egbb70g06550b68ffb7" version="1">Relying on their wits, Peddlers stay out of direct combat: they set clever traps and get the most out of items (Fell Seal's Peddler). Equipment: daggers, handaxes, battleaxes, hand crossbows, light crossbows, heavy crossbows, light armour, shields (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h258c2a90ge335g58c3g93ceg864fabba9728" version="1">Job: Peddler</content>
   <content contentuid="h9ed13087gb791g50cegabb8gefb2b83b30f3" version="1">+2 to Persuasion checks. Earned by mastering Princess; kept after changing jobs.</content>
   <content contentuid="h6028c7f7ga336g52ddga339g6d290a2c2c6e" version="1">Princess Mastery</content>
   <content contentuid="hd5b783cag7e30g5a22g8868ga646ed8db4a3" version="1">Ovelia's job. Holy Magicks: the White Magicks and the group magicks (Curaja, Protectja, Shellja, Wall), learned again here. While Princess is your job, every spell you cast that restores hit points also restores 1d6 of yours (Royal Grace). Equipment: quarterstaffs, daggers, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
@@ -1251,6 +1281,7 @@
   <content contentuid="hb3440e34ge2deg5a9fga14ag5f7e5f889fe3" version="1">Ranged weapon attack that deals 2d6 extra damage. Action: usable while this is your job or secondary skill set. Cost: 250 JP.</content>
   <content contentuid="h0425f2e6g4170g5c06gb6a3gcb39217c54f3" version="1">Costs your action and bonus action. Ranged weapon attack that deals 2d8 extra damage. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="h41555f20g0bd6g55afgb6b9gef96ba435335" version="1">Costs your action and bonus action. Ranged weapon attack that deals 3d8 extra damage. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 400 JP.</content>
+  <content contentuid="h11cd09d6ga948g57a3g8e05g9986856e9040" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or is Charmed for 3 turns: it fights on your side on its own (you don't control it). Bosses are immune to the charm. The trap lasts until it springs or a long rest. Action: usable while this is your job or secondary skill set. Cost: 625 JP.</content>
   <content contentuid="hdb746fceg291fg5c17gb2b9gb34735dd7e81" version="1">Enemies within 3 m of you take 4d6 cold damage and are Slowed for 2 turns (Constitution save: half damage, not slowed). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="hdc416d3dga870g57a5gbdebg626f9fa9b056" version="1">End Poisoned. Thrown like Potion. Action: usable while this is your job or secondary skill set. Cost: 70 JP.</content>
   <content contentuid="h7c36ca67gfa9ag58e1g9534g9e4df1a472a1" version="1">Piercing damage you take is reduced by 3. Reaction: equip it in the reaction slot (Job Board). Cost: 450 JP.</content>
@@ -1319,7 +1350,9 @@
   <content contentuid="h883f6293g932dg5e1aga36egc0c91d3a105c" version="1">A creature within 18 m makes a Constitution save or turns Undead for 3 turns: it can't regain hit points and is vulnerable to radiant damage. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="h48337efbg1c23g5651gb52ag6bba61517a35" version="1">Reaction: when an enemy hits you with a melee attack, strike back with your weapon or fists. Reaction: equip it in the reaction slot (Job Board). Cost: 300 JP.</content>
   <content contentuid="h0e1723e1g8eaeg5e93g904eg1e522152f3f8" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 1.5 m. Reaction: equip it in the reaction slot (Job Board). Cost: 180 JP.</content>
+  <content contentuid="h49cbdf0ag69e0g52ddg8636gf72a3244bb57" version="1">You or an ally within 3 m scores a critical hit on a roll of 19 or 20 for 3 turns. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 375 JP.</content>
   <content contentuid="h94ffab9cge2f1g5e94g96cdg530d8fc9af4e" version="1">When damage leaves you at 20% of your hit points or less, you get an extra action on your next turn. Once per short rest. Reaction: equip it in the reaction slot (Job Board). Cost: 800 JP.</content>
+  <content contentuid="h935f68d5g1f57g5638g8775gb95ef8b3c17a" version="1">When damage leaves you at 20% of your hit points or less, you get an extra action on your next turn. Once per short rest. (The same effect as the Time Mage's Critical: Quick.) Reaction: equip it in the reaction slot (Job Board). Cost: 560 JP.</content>
   <content contentuid="hadf6c16fg5e88g5260ga462g82b09d84d362" version="1">When damage leaves you at 20% of your hit points or less, you regain half your maximum hit points. Once per long rest. Reaction: equip it in the reaction slot (Job Board). Cost: 500 JP.</content>
   <content contentuid="h92795345g9f65g595fga8f6g95ff61da899d" version="1">When damage leaves you at 20% of your hit points or less, you regain all your level 1 spell slots. Once per long rest. Reaction: equip it in the reaction slot (Job Board). Cost: 400 JP.</content>
   <content contentuid="hab7fe945gb592g5a6eg881dgce50a37eb62a" version="1">A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 3d8 slashing. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
@@ -1423,12 +1456,14 @@
   <content contentuid="h7f0cafd3gc202g5706g93ebge8e9d6160e71" version="1">Difficult terrain (water, mud, ice, vines, ...) doesn't slow you. Passive: equip it in a passive slot (Job Board). Cost: 220 JP.</content>
   <content contentuid="h05d9af8dga83fg5351ga519g1733247d5875" version="1">You ignore difficult terrain (mud, water, ice, webs). Passive: equip it in a passive slot (Job Board). Cost: 200 JP.</content>
   <content contentuid="h04a60346gd60cg5590gb9e8gd5b86695beb8" version="1">An enemy within 18 m makes a Strength save or can't move for 2 turns (it can still act; it repeats the save each turn). Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
+  <content contentuid="hc8501fddg6e50g50edg8351gd40f263a6f81" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or can't move for 2 turns. The trap lasts until it springs or a long rest. Action: usable while this is your job or secondary skill set. Cost: 375 JP.</content>
   <content contentuid="hfcce5781g5ef1g52f4gba9egb1fb4b778fa4" version="1">4 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 bludgeoning (earth) damage each. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 600 JP.</content>
   <content contentuid="he1069b54gf9d4g597cg8c83g909a982e0e9c" version="1">A creature within 18 m makes a Constitution save or is Petrified for 2 turns (incapacitated, resistant to all damage). Bosses are immune. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 600 JP.</content>
   <content contentuid="heef565f2g0fa5g59abga170ga38c7d4d5a80" version="1">Melee weapon attack; on a hit the target has -2 to spell attack rolls and spell save DC for 2 turns and you regain a level 1 spell slot. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h7052f676g5b86g5eecgbce8ga3b168146a23" version="1">A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: no spells, 2 more damage, -2 AC. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="h759ee2aeg5068g5d04ga726g76761cfe2cf8" version="1">A foe within 18 m makes a Charisma save or is Baned for 3 turns (-1d4 to attack rolls and saving throws; FFT lowers Bravery). Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
   <content contentuid="ha1df25f1g5f1cg5d03g9b85g331fd53b784a" version="1">Ranged spell attack against a creature within 18 m: 3d6 necrotic damage, and you regain half the damage dealt. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 350 JP.</content>
+  <content contentuid="h946c54feg9cd5g506cgbfcag2e37251d31aa" version="1">Items you use are twice as potent: the healing of your Chemist potion skills (Potion, Hi-Potion, X-Potion, also their thrown, spell-slot and Patented Usage forms) and of BG3 healing potions you drink or throw is rolled twice; your thrown acid vials, Smokepowder bombs and spore grenades deal their damage twice; your Alchemist's Fire burns twice as long. Passive: equip it in a passive slot (Job Board). Cost: 500 JP.</content>
   <content contentuid="h7441db5agd1afg554ega149gdf99719637f4" version="1">Earn 20% more JP. Passive: equip it in a passive slot (Job Board). Cost: 250 JP.</content>
   <content contentuid="h63585614g0453g57acga959gca37579b6184" version="1">Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 radiant, and the target makes a Constitution save or is Stopped for 1 turn (bosses shrug it off). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
   <content contentuid="h538a96dbgd2ddg55fcg9e7cgcfb9649e4a9f" version="1">+3 m jump distance. Passive: equip it in a passive slot (Job Board). Cost: 200 JP.</content>
@@ -1437,6 +1472,7 @@
   <content contentuid="he2a56b0cg7134g5661g9a75gf13ab33ec874" version="1">Enemies in a 12 m line from you take 6d8 slashing damage (Dexterity save for half). Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 800 JP.</content>
   <content contentuid="h0aeb843ag53c6g575fgbd6eg326c50eda827" version="1">You and allies within 3 m of you gain Protect (+2 AC) and Shell (advantage on saves against spells) for 3 turns. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 600 JP.</content>
   <content contentuid="hb46493edg8b4eg5c1bgb9bbg69a174a806c4" version="1">Enemies within 3 m of you take 3d6 necrotic damage (Constitution save for half). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
+  <content contentuid="h6c5f2479g19a8g533fg8c2ag6b7925402e3d" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it ends its turn at once and makes a Dexterity saving throw or is Bleeding for 3 turns. The trap lasts until it springs or a long rest. Known from the start. Action: usable while this is your job or secondary skill set. Cost: 0 JP.</content>
   <content contentuid="hff7955fcgfa6dg53ecga9b1g1eaab2e4fd18" version="1">The ultimate dance: enemies within 9 m of you make a Wisdom save or lose their actions and bonus actions next turn (Disable). Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
   <content contentuid="ha79f60adg3a40g526fg982fg2cccebd75fc5" version="1">Walk on lava: it doesn't set you ablaze or slow you. Passive: equip it in a passive slot (Job Board). Cost: 150 JP.</content>
   <content contentuid="hd8f99f95gf4bbg583dga6afg9fd8c0c82b25" version="1">Ranged weapon attack at the legs: your weapon's damage, and the target makes a Strength save against your manoeuvre DC or is Immobilized for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
@@ -1478,7 +1514,9 @@
   <content contentuid="h7c8b8103g0fffg5537g8b95gb2c27d3acb41" version="1">Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 4d8 radiant (FFT's chance of instant KO is left out: it could end scripted boss fights). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h132f6f4fg8955g50c0gb56cgb3bed3bddc7c" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 900 JP.</content>
   <content contentuid="h92156b0bg1a0cg5294gbf46g1e5be1fd851c" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage twice over + 6d8 slashing. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 1200 JP.</content>
+  <content contentuid="he2e044a2gee60g554agb007gc13022b5b280" version="1">Level 1 spell slot, once per short rest. Hide a trap on the ground up to 4.5 m away. The first enemy that steps on it loses half of its current hit points (no save) and ends its turn at once. The trap lasts until it springs or a long rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="hbda087d8g3316g5730g81b6g0cece795c0e8" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2. Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
+  <content contentuid="h9c48d1d7g28f5g511ega94cgcf2daef7b677" version="1">A menu of the Chemist item skills you have learned (Potion, Hi-Potion, X-Potion, Antidote, Eye Drops, Echo Herbs, Remedy; not Phoenix Down, Ether or Elixir), used on everyone within 3 m of a point up to 4.5 m away (enemies too). Each item once per short rest (X-Potion once per long rest). Action: usable while this is your job or secondary skill set. Cost: 1000 JP.</content>
   <content contentuid="hd0d691c6ga562g5285ga7e4g5de8984ab8ec" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion. Costs a level 1 spell slot. Action: usable while this is your job or secondary skill set. Cost: 90 JP.</content>
   <content contentuid="hc6279e23gf241g5930gb19cgcb372ed76562" version="1">Melee weapon attack: your weapon's damage, and one of the enemy's accessories goes into your inventory. Story items can't be taken. Action: usable while this is your job or secondary skill set. Cost: 600 JP.</content>
   <content contentuid="h99f68b17ga854g581cgb7c5g41df057cc911" version="1">Melee weapon attack: your weapon's damage, and the enemy's body armour goes into your inventory. Story items can't be taken. Action: usable while this is your job or secondary skill set. Cost: 550 JP.</content>
@@ -1516,6 +1554,7 @@
   <content contentuid="h6e9df8e9gcdc9g54f9g8848ga200cd172446" version="1">Two quick unarmed strikes at a creature in melee range: each hit deals 1d6 + your unarmed attack modifier bludgeoning. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="h7b61a88agddb1g572cgbf20gaf42cdac5be5" version="1">You and allies within 3 m are cured of blindness, poison, disease, paralysis, silence, sleep, confusion, fear and charm. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
   <content contentuid="h72a0b558ge33cg5b96g8c41gee05883a6fc5" version="1">Another ally within 18 m gets an extra action on its next turn (BG3 cannot give it a turn right away). Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 900 JP.</content>
+  <content contentuid="h2ca4dca5g3c91g501ega7efgecb5bee64046" version="1">+1 bonus action every turn (like the Thief's Fast Hands). Passive: equip it in a passive slot (Job Board). Cost: 375 JP.</content>
   <content contentuid="h7cb3011eg8abbg500dgb6f0g8ec44c6ca03a" version="1">Only while you stand in mud, blood, acid or poison. Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 10 chance of being Doomed (dies after 3 turns; bosses are immune). Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h0448f2f1g3605g505bgb79eg1ae160ef3dbd" version="1">A creature within 18 m makes a Wisdom save or is Silenced for 2 turns (no spells with a verbal component). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 170 JP.</content>
   <content contentuid="he5b99ee4ga61fg5d3aga30cg73a931246c46" version="1">Revive a dead ally with 1 HP. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
@@ -1536,6 +1575,7 @@
   <content contentuid="h76738cf6g8358g55cfg8d76g013a4e1f5664" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +3 m movement. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
   <content contentuid="h508587a7g20f6g5d49g9bb1gfaac6a7d5d45" version="1">Melee weapon attack that also pushes the target 2 m. Action: usable while this is your job or secondary skill set. Cost: 80 JP.</content>
   <content contentuid="hb057a582gab01g50feg870dg9d0a57ac675e" version="1">Enemies within 5 m of a point up to 18 m away take 6d8 fire damage (Dexterity save for half). Allies are spared. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 860 JP.</content>
+  <content contentuid="h741ca7b1g2b97g587bgb76dg207e5c7a07eb" version="1">You and every ally within 3 m are Hasted for 3 turns (BG3's Haste: an extra action, +2 AC, more movement, then a turn of lethargy). No concentration. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 625 JP.</content>
   <content contentuid="hb02488f1g3d35g59baga9c8g122c5a2e3c0c" version="1">Touch an ally to end Blinded, Poisoned and Silenced. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h5754e7bbg1f73g5548g8046gb685a7284e3f" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Blinded for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="hdeacd52cge2ccg5b31gbddcgfdeebd163010" version="1">Melee weapon attack that heals you for half the damage it deals. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
@@ -1673,6 +1713,7 @@
   <content contentuid="h6d7f1d73gc100g52deg9d3dgdc695591bf0c" version="1">Netherseer JP: open the Job Board once to refresh.</content>
   <content contentuid="he97d162fg5c4fg5a84gbbd5gd8fb93379849" version="1">Ninja JP: open the Job Board once to refresh.</content>
   <content contentuid="h08e9d990ge2bfg5e09g8872g499a8b3a116f" version="1">Orator JP: open the Job Board once to refresh.</content>
+  <content contentuid="hf2624f51g035cg59b4g8c5bgb196b77e0b34" version="1">Peddler JP: open the Job Board once to refresh.</content>
   <content contentuid="ha78fb020gfa8fg5ce6g9a5dg19a6a95036e2" version="1">Princess JP: open the Job Board once to refresh.</content>
   <content contentuid="hee85478bg5e16g5a1dg9e03ga0802a49cceb" version="1">Samurai JP: open the Job Board once to refresh.</content>
   <content contentuid="hff4d53cega138g5979gb2d8g1e20f9e977e9" version="1">Sky Pirate JP: open the Job Board once to refresh.</content>
@@ -1738,6 +1779,8 @@
   <content contentuid="h20189b05g5b8ag5fc1gb251g9b674d070064" version="1">Onion Knight</content>
   <content contentuid="h04fed3e8g48a4g5debg86d0g4d5d2cc48e66" version="1">Talks foes into switching sides, sleeping, raging or dying; Beast Tongue is always on. Makes Orator this character's job.</content>
   <content contentuid="h123224f4g5a9bg55d6g87a2gca311f76ddd0" version="1">Orator</content>
+  <content contentuid="h95339b24g0b05g5a35g9eebg6519bb119ff0" version="1">Relying on their wits, Peddlers stay out of direct combat: they set clever traps and get the most out of items (Fell Seal's Peddler). Makes Peddler this character's job.</content>
+  <content contentuid="h19933434g86c6g546egaeaeg75173f84175d" version="1">Peddler</content>
   <content contentuid="hadaebd58ge6a1g5021gb05dg410fc94b8f84" version="1">Ovelia's job. Holy Magicks: the White Magicks and the group magicks (Curaja, Protectja, Shellja, Wall), learned again here. While Princess is your job, every spell you cast that restores hit points also restores 1d6 of yours (Royal Grace). Makes Princess this character's job.</content>
   <content contentuid="hb1880e01g23e0g5dbbgb245gd19351fd22e7" version="1">Princess</content>
   <content contentuid="h5d09dd6bg7042g5d66gbd3ag6db249502804" version="1">Draws out the spirits of legendary blades (Iaido): bursts around you that cut down enemies or shield your allies. Makes Samurai this character's job.</content>
@@ -1812,6 +1855,8 @@
   <content contentuid="h8166fe9bg4d24g5bb3g87f1g9b313ab8d94b" version="1">Learn: Ninja</content>
   <content contentuid="h41488150g4eabg5c09g9173ga7cf26d76954" version="1">Spend Orator JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
   <content contentuid="ha0d3213cg8c4eg5cdbg95e5g329e8fcc4daa" version="1">Learn: Orator</content>
+  <content contentuid="h7fd96e6egb97cg574cgb34cg4e24aba25e91" version="1">Spend Peddler JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
+  <content contentuid="h6ab111e4g561cg58c7gbd92ge5ca9d7937eb" version="1">Learn: Peddler</content>
   <content contentuid="h97ef7275gb7b5g53e4g836fgc1813c56a8ff" version="1">Spend Princess JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
   <content contentuid="h67585370g22cbg59b4gbc26g5927eb8e30da" version="1">Learn: Princess</content>
   <content contentuid="hb5f2962eg3748g59bbga9d8g6676a858eb71" version="1">Spend Samurai JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
@@ -1854,6 +1899,7 @@
   <content contentuid="h3d065142g6fbdg502bg96fdg136ada939a9e" version="1">Locked job. Needs: Archer Lv4, Thief Lv5, Geomancer Lv2.</content>
   <content contentuid="hff7b85ebge1ffg56b2gbf5ag93819c680606" version="1">Locked job. Needs: Squire Lv6, Chemist Lv6.</content>
   <content contentuid="hbdeae5c9g6cd9g5ba1ga758g31e6d682abc6" version="1">Locked job. Needs: Mystic Lv3.</content>
+  <content contentuid="h23ab7016g14d3g5b1ag97bag451bdce630c4" version="1">Locked job. Needs: Archer Lv5.</content>
   <content contentuid="h858d6f19gf801g51cega818g338d91c24c27" version="1">Locked job. Needs: Knight Lv4, Monk Lv5, Dragoon Lv2.</content>
   <content contentuid="h38c8dcb3gddddg54c7ga54cgff893a3cd6d5" version="1">Locked job. Needs: nothing.</content>
   <content contentuid="h5a594830g3d7cg5a41gafcagb90a46e2bd3f" version="1">Locked job. Needs: Time Mage Lv3.</content>
@@ -1913,6 +1959,8 @@
   <content contentuid="hf216b5c9gcca7g530ag9b3fg1db5f1d60372" version="1">Onion Knight (Onion Knight)</content>
   <content contentuid="hfa7b9c39gfd76g5c45g9b0fgd97d81965500" version="1">Use Orator's learned actions as the secondary skill set.</content>
   <content contentuid="hcfe6007ag1953g529ag9e38ge72b7ea4c00c" version="1">Speechcraft (Orator)</content>
+  <content contentuid="h31dec602g4d07g5bd1g860cg07c3bf60bb2f" version="1">Use Peddler's learned actions as the secondary skill set.</content>
+  <content contentuid="h337058fbg2c41g59f3g90a4g80c2e5a9b466" version="1">Peddle (Peddler)</content>
   <content contentuid="hfe36544cg5b6ag54b4g87e0g4882eabf5e47" version="1">Use Princess's learned actions as the secondary skill set.</content>
   <content contentuid="h82f67b5dgb5a1g53dcgbcbegf590a42503c3" version="1">Holy Magicks (Princess)</content>
   <content contentuid="h2a0faeaag1119g5d32g851cgd9ea743affaa" version="1">Use Samurai's learned actions as the secondary skill set.</content>
@@ -2836,6 +2884,8 @@
   <content contentuid="h9b4d070bgc3ecg5722ga438gf8f1063905be" version="1">Berserk</content>
   <content contentuid="h8e19df2aga343g5182g98bcgd135eecf8550" version="1">+1 to attack rolls.</content>
   <content contentuid="h21c0628bgf118g5056gb057g3bece934a5a0" version="1">Bravery Surge</content>
+  <content contentuid="h1e75445cg903cg5e75g80c3gbe342a674cfe" version="1">Scores a critical hit on a roll of 19 or 20.</content>
+  <content contentuid="hc803c138g5780g5153gbda3g756cc94986c8" version="1">Critical Expertise</content>
   <content contentuid="he7566c3cg79b7g5445gbf18g886356d85112" version="1">At the start of each turn: a 1 in 10 chance each of being Blinded, Silenced, Poisoned or Slowed.</content>
   <content contentuid="h7ee591c9g4362g5f6egbf09gef56fd504293" version="1">Disadvantage on Intelligence, Wisdom and Charisma saving throws while the dance lasts.</content>
   <content contentuid="hf821aadbg44aeg5e86g950bg30f84b8e3180" version="1">Takes 1d4 psychic damage at the start of each turn while the dance lasts.</content>
@@ -2908,6 +2958,8 @@
   <content contentuid="h44938cb4gb504g590dg9054gb2843eb9a0d8" version="1">Tamed</content>
   <content contentuid="hac786be0ga724g56c4g85c3ga90e804d785b" version="1">Turned into a harmless critter by Geomancy (FFT's Toad; BG3 has sheep, not toads) until this ends.</content>
   <content contentuid="h68404a7dg6ddag5e2fga861ga14e81c3224f" version="1">Toad</content>
+  <content contentuid="h9b8f0fc7g0f29g55dag973cg4e28318436ad" version="1">Caught in a Peddler's trap: can't move.</content>
+  <content contentuid="h83985af8g4973g5acagad81gb807544d0645" version="1">Rooted</content>
   <content contentuid="he63564cagebefg5ac4g96c1g0534831cb2d1" version="1">Can't regain hit points; vulnerable to radiant damage.</content>
   <content contentuid="h3376eb1fg0cdbg5ed9gbe2ag62cc8adf62c9" version="1">Undead</content>
   <content contentuid="hd04dc240gf265g5850gaf34g722d3cf533f8" version="1">Invisible: attacking or casting a spell ends it; being hit does not.</content>
