@@ -126,6 +126,11 @@ def refs(entry):
             n = ident(split_args(a)[0])
             if n:
                 out.append(("passive", n))
+        for func, kind in (("HasPassive", "passive"), ("SpellId", "spell")):
+            for a in args_of(val, func):
+                n = ident(split_args(a)[0])
+                if n:
+                    out.append((kind, n))
         for a in args_of(val, "LevelMapValue"):
             n = ident(a)
             if n:

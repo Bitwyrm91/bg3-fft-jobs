@@ -277,6 +277,13 @@ RequirementConditions HasStatus). Test `brawler_die_grows_with_character_level`.
 check_refs (the vanilla passive name `MartialArts_DextrousAttacks` is a guess, used only to skip the bonus for BG3
 Monks; RollBonus with a max() formula). Unverified in game: all of it.
 
+**1.0.0.65 (2026-10-14, local session, NOT packaged or seen in game): local checks of 1.0.0.62-64.**
+validate_vanilla, check_refs and check_souls (local vanilla data) were clean for 1.0.0.62-64, but a manual look found
+the Monk's guessed vanilla passive name wrong: `MartialArts_DextrousAttacks` -> `MartialArts_DextrousUnarmedAttacks`
+(vanilla: `MonkWeaponAttackOverride()` when `IsDexterityGreaterThanStrength()`). `RollBonus(Attack,max(...))` is a
+vanilla form (`RollBonus(SavingThrow, max(1, Cause.CharismaModifier))`), kept. tools/check_refs.py now also checks
+names inside `HasPassive('...')` and `SpellId('...')` (it caught this one).
+
 ## Open questions for the user
 
 - MP: abilities use cooldowns instead of an FFT MP pool. An MP resource (a custom `ActionResourceDefinition`) is possible later. Wanted?

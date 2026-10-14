@@ -357,15 +357,15 @@ data "Boosts" "CharacterUnarmedDamage(1d10);IF(IsMeleeUnarmedAttack()):RollBonus
 
 // NWP 21, Monk innate. BG3 Monk's Dextrous Attacks without its armour rule: the Dex-over-Str difference is added to
 // unarmed attack and damage rolls (Agonizing Blast's DamageBonus(max(0,...)) form), skipped for a BG3 Monk whose
-// unarmed hits already use Dexterity (VALIDATE: the vanilla passive name). Bonus Unarmed Strike: an unarmed attack
-// (not the strike itself) opens Target_FFTJ_MartialStrike for this turn.
+// unarmed hits already use Dexterity (vanilla MartialArts_DextrousUnarmedAttacks). Bonus Unarmed Strike: an unarmed
+// attack (not the strike itself) opens Target_FFTJ_MartialStrike for this turn.
 new entry "FFTJ_MartialArts"
 type "PassiveData"
 data "DisplayName" "{{str:MartialArts.Name}}"
 data "Description" "{{str:MartialArts.Desc}}"
 data "Icon" "Action_Monk_FlurryOfBlows"
 data "Properties" "Highlighted"
-data "Boosts" "IF(IsMeleeUnarmedAttack() and not HasPassive('MartialArts_DextrousAttacks')):RollBonus(Attack,max(0,DexterityModifier-StrengthModifier));IF(IsMeleeUnarmedAttack() and not HasPassive('MartialArts_DextrousAttacks')):DamageBonus(max(0,DexterityModifier-StrengthModifier))"
+data "Boosts" "IF(IsMeleeUnarmedAttack() and not HasPassive('MartialArts_DextrousUnarmedAttacks')):RollBonus(Attack,max(0,DexterityModifier-StrengthModifier));IF(IsMeleeUnarmedAttack() and not HasPassive('MartialArts_DextrousUnarmedAttacks')):DamageBonus(max(0,DexterityModifier-StrengthModifier))"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsMeleeUnarmedAttack() and not SpellId('Target_FFTJ_MartialStrike')"
 data "StatsFunctors" "ApplyStatus(SELF,FFTJ_MARTIAL_ARTS,100,1)"
