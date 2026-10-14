@@ -18,6 +18,13 @@ When the user says "NWP", this is the list:
    learned.
 4. **Keep improving the Job Board** (Future changes 1 and 10 below: dropdown groups; the progress bar is already gone).
 5. **Soul Collector development PAUSED** (Future changes 4, 5, 8 wait: JP-cost forms, form strength).
+6. **NEW BG3 BASE CLASS: the WoW Warlock** (user, 2026-10-13: "NWP - create a WoW warlock as a base class in BG3"; a
+   SEPARATE mod, not part of FFTJobs; WoW-style, not D&D, under a new cool name). How BG3 classes are built:
+   `C:\Users\berus\GameModding\notes\BG3_CLASS_MODS.md` (from the user's Death Knight / Succubus / Blood Mage mods).
+   Spell ideas, numbers and demon models come from the DOS2 Warlock (memory "warlock-mod",
+   C:\Users\berus\DOS2Modding\mods\Warlock, tools\warlock-spells.ps1). Ask design questions first (name, subclasses,
+   soul shards as a custom resource, spells per level).
+7. **Job system tied into BG3 levels/classes** (brainstorm of 2026-10-13 in the chat: options A-D; user to pick).
 Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
 Fell Seal source.
 
