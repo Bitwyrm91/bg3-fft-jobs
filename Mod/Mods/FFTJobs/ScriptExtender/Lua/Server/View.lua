@@ -111,6 +111,7 @@ function View.Char(svc, guid)
             entry.MasteryPerk = Rules.HasMasteryPerk(data, cfg, char, jobId)
             entry.Icon = svc.Game:StatIcon(firstGrant(job.Innate))
             local list = {}
+            local new = 0
             for _, aid in ipairs(data.AbilitiesByJob[jobId]) do
                 local ab = data.Abilities[aid]
                 local learned = Rules.IsLearned(char, aid)
@@ -118,8 +119,12 @@ function View.Char(svc, guid)
                 local slot = ab.Type ~= "Action" and Rules.SlotOf(char, aid) or nil
                 local equipped = slot ~= nil
                 local alwaysOn = Rules.IsAlwaysOn(data, cfg, char, aid)
+                if canLearn and not learned then
+                    new = new + 1
+                end
                 list[#list + 1] = {
                     Id = aid, Name = ab.Name, Type = ab.Type, Cost = ab.Cost, Description = ab.Description,
+                    Job = jobId, JobName = job.Name,
                     Fft = ab.Fft,
                     Icon = svc.Game:StatIcon(firstGrant(ab.Grants)),
                     Learned = learned, CanLearn = canLearn, Reason = (not canLearn and not learned) and reason or nil,
@@ -133,6 +138,8 @@ function View.Char(svc, guid)
                 }
             end
             v.Abilities[jobId] = list
+            -- abilities this character can learn right now (the board's "(N new)" hints)
+            entry.NewCount = new
         end
         v.Jobs[#v.Jobs + 1] = entry
     end
@@ -187,6 +194,39 @@ function View.Arith(svc, char)
     return { Magicks = list(magicks, arith.Magick), Numbers = list(numbers, arith.Number) }
 end
 
+-- Abilities a character can learn right now, over every job (the Party tab's "New" column).
+function View.NewCount(data, char)
+    local n = 0
+    for _, jobId in ipairs(data.JobOrder) do
+        if data.Jobs[jobId].Implemented and Rules.IsUnlocked(char, jobId) then
+            for _, aid in ipairs(data.AbilitiesByJob[jobId] or {}) do
+                if Rules.CanLearn(data, char, aid) then
+                    n = n + 1
+                end
+            end
+        end
+    end
+    return n
+end
+
+-- One party member in a line: the character buttons and the Party tab.
+function View.Summary(svc, guid)
+    local data = svc.Data
+    local char = svc.State:Get(guid)
+    local js = char.Jobs[char.Primary] or {}
+    local function name(id)
+        local ab = id and data.Abilities[id]
+        return ab and ab.Name or nil
+    end
+    return {
+        Guid = guid, Name = char.Name or guid, Job = data.Jobs[char.Primary].Name,
+        Level = Rules.JobLevel(js.Earned or 0, svc:Cfg().JobLevels.Thresholds), Unspent = js.Unspent or 0,
+        Secondary = char.Secondary and data.Jobs[char.Secondary] and data.Jobs[char.Secondary].Name or nil,
+        Reaction = name(char.Reaction), Passive1 = name(char.Passive1), Passive2 = name(char.Passive2),
+        NewCount = View.NewCount(data, char),
+    }
+end
+
 function View.Build(svc, selected)
     local view = {
         Chars = {},
@@ -199,8 +239,7 @@ function View.Build(svc, selected)
         return view
     end
     for _, guid in ipairs(svc.State:Guids()) do
-        local char = svc.State:Get(guid)
-        view.Chars[#view.Chars + 1] = { Guid = guid, Name = char.Name or guid, Job = svc.Data.Jobs[char.Primary].Name }
+        view.Chars[#view.Chars + 1] = View.Summary(svc, guid)
     end
     table.sort(view.Chars, function(a, b)
         return Util.Normalize(a.Name) < Util.Normalize(b.Name)

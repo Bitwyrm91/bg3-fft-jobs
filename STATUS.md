@@ -14,8 +14,8 @@ Mender skills, JP above the head), pushed; vanilla checks clean; **1.0.0.71 PACK
 C:\Users\berus\GameModding\backups). Nothing of 1.0.0.62-71 seen in game yet (PLAYTEST.md lists what to check).
 `main` = this branch (fast-forwarded from 1.0.0.61 and pushed on the user's word, 2026-10-14). Pacing self-test fails
 since 1.0.0.70 (7 of 20, target 8): user accepted.
-**1.0.0.72 (Strange Fluid, NWP 20) is on this branch, local only: NOT pushed, NOT packaged or installed** (the PC still
-runs 1.0.0.71; `main` is still 1.0.0.71).
+**1.0.0.72 (Strange Fluid, NWP 20) and 1.0.0.73 (Job Board pages, NWP 4) are on this branch, local only: NOT pushed,
+NOT packaged or installed** (the PC still runs 1.0.0.71; `main` is still 1.0.0.71).
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
 
@@ -30,6 +30,9 @@ When the user says "NWP", this is the list:
    unlocks and dual wield, how combo points work in BG3 (an action resource?), what happens to saves with Ninja
    learned.
 4. **Keep improving the Job Board** (Future changes 1 and 10 below: dropdown groups, built in 1.0.0.61; the progress bar is already gone).
+   **1.0.0.73 (not seen in game):** Jobs / Passives / Party pages, "(N new)" hints. Not picked yet (user, 2026-10-14):
+   ability filter + sort, job tree ("leads to"), loadout summary, remember the last job page per character, a hotkey.
+   The board always stays as the backup, even if NWP 23 is built (user).
 5. **Soul Collector development PAUSED** (Future changes 4, 5, 8 wait: JP-cost forms, form strength). Its job is left out of the hotbar job menus of 1.0.0.55 (user: "anything related to soul devourer should be for NWP").
 6. **NEW BG3 BASE CLASS: the WoW Warlock** (user, 2026-10-13: "NWP - create a WoW warlock as a base class in BG3"; a
    SEPARATE mod, not part of FFTJobs; WoW-style, not D&D, under a new cool name). How BG3 classes are built:
@@ -146,6 +149,16 @@ When the user says "NWP", this is the list:
     may now paint icons for the new skills (tools/generate_icon_art.ps1, art/icons/subjects.txt; only with BG3 closed).
     How it was built: see the 1.0.0.66 entry below (trophy look = vanilla `LOOT_Underdark_Fang_A`, plain loot, not
     an alchemy ingredient; retired abilities = `leftOut` entries with `retired`, not a separate list).
+23. **Jobs in BG3's own UI, e.g. a new tab on the inventory/character screen** (user, 2026-10-14: "if it's ever
+    possible ... that would be pretty cool"; the Job Board stays as the backup). Research (1.0.0.73 session): the
+    user's ImpUI (Patch 8, "NOT MAINTAINED") only ships edited copies of vanilla XAML pages (CharacterCreation,
+    LevelUp, Respec, Henchmen, Notification, AlwaysOnTopOverlay; extract with Divine `extract-package`), no tabs, no
+    script data. Route: override the vanilla character/inventory XAML page (extract it from the game's GUI pak first)
+    with a Jobs tab bound to an SE Noesis view model (`Ext.UI.RegisterType("FFTJ_...", props, wrappedType)` +
+    `Ext.UI.Instantiate(type, page.DataContext)`, Commands via `:SetHandler`; SE v33: UI access inside
+    `Ext.UI.Defer`), keeping the job logic on the server. Risks: clashes with any mod overriding the same page, breaks
+    on game patches, big. Mods to study: Better Character and Party Panels (Nexus 1580, needs ImpUI), Inventory
+    Expanded (Nexus 22267, SE + MCM, its own menus). Ask before downloading anything.
 
 **Queue (user, 2026-10-14, after 1.0.0.64):** Ranger (22) built in 1.0.0.66 (a local session on the user's second
 Claude account; a parallel "Wizard" session builds a Fell Seal Wizard job in the worktree bg3-fft-jobs-wizard, branch
@@ -438,6 +451,22 @@ of a random kind only; no Catalyst, no level dice, no Saturation. Icon painted o
 still 7 of 20 (accepted since 1.0.0.70). Unverified in game: all of it; especially a status-granted OnAttack passive
 firing for the coated character, `IsWeaponAttack()` for ranged hits, StatusApplied for a 0-turn status applied from
 a passive, Magic Weapon's animation at 9 m without IsMelee.
+
+**1.0.0.73 (2026-10-14, local session, worktree bg3-fft-jobs-board, NOT packaged or seen in game): NWP 4, Job
+Board pages.** User's picks: learnable-now hints, a Passives page ("equipping passives from jobs you have unlocked
+is very annoying ... a passives tab ... where you can easily equip from the skills that you've learned"), a party
+overview. Client/JobBoard.lua: page buttons Jobs / Passives / Party (`JobBoard.Tab`, own buttons like the groups,
+kept while the game runs); `JobBoard:AbilityAction` (Learn/Equip/Replace/Unequip, shared by the job page and the
+Passives page; Replace and reaction Equip carry a "Replaces <name>" tooltip); `RenderPassives` (learned
+Reaction/Support/Movement of every job, grouped by type, + "N more you can learn now"); `RenderParty` (a name =
+select that character + Jobs page). Tile label "(N new)", group button "- N new", tile tooltip line. Server/View.lua:
+per-job `NewCount`, `Job`/`JobName` on each ability row, `View.Summary` (Chars entries: Level, Unspent, Secondary,
+Reaction, Passive1/2, NewCount via `View.NewCount`). tests/test_ui.lua (+3), 235 tests. Unverified in game: the
+7-column Party table width, the page buttons' tint. Research (user asked): ImpUI (installed) is XAML-only page
+overrides (no new tabs, no script data); a Jobs tab in BG3's own character/inventory screen would need our own copy
+of that vanilla XAML page + an SE Noesis view model (`Ext.UI.RegisterType`/`Instantiate`, wrap the page's
+DataContext; SE v33 needs `Ext.UI.Defer`), clashing with any other mod that overrides the same page. Noted as NWP 23;
+the Job Board stays as the backup either way (user).
 
 ## Open questions for the user
 

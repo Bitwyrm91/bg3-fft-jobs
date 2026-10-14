@@ -315,4 +315,90 @@ function S.arithmeticks_picker_on_the_board(w, T, Mocks)
     T.eq(arith.Numbers[1].Name, "Target Level")
 end
 
+function S.tiles_and_groups_show_abilities_to_learn_now(w, T, Mocks)
+    local svc = T.boot(w)
+    local _, View = setup()
+    svc:AddManualJP(T.TAV, 600, "Squire")
+    local v = View.Build(svc, T.TAV)
+    local squire = v.Char.Jobs[1]
+    T.eq(squire.Id, "Squire")
+    T.truthy(squire.NewCount > 0, "600 Squire JP buys something")
+    T.eq(v.Char.Jobs[2].NewCount, 0, "no Chemist JP, nothing new")
+    local tav
+    for _, ch in ipairs(v.Chars) do
+        if ch.Guid == T.TAV then
+            tav = ch
+        end
+    end
+    T.truthy(tav.NewCount >= squire.NewCount, "the party line counts every job")
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local win = w.windows[1]
+    local group = findFirst(Mocks, win, "[+] Jobs (")
+    T.contains(group.Label, " new##", "the closed group says there is something to learn")
+    group.OnClick(group)
+    local tile = findFirst(Mocks, win, "Squire Lv")
+    T.contains(tile.Label, "(" .. squire.NewCount .. " new)##tileSquire", "the tile says how many")
+end
+
+function S.passives_page_equips_learned_passives_of_any_job(w, T, Mocks)
+    local svc = T.boot(w)
+    svc:AddManualJP(T.TAV, 600, "Squire")
+    for _, id in ipairs({ "CounterTackle", "EvasiveStance", "EquipAxes" }) do
+        T.truthy(svc:Learn(T.TAV, id))
+    end
+    T.truthy(svc:SetPrimary(T.TAV, "Chemist"), "Squire's supports need a slot once Squire is not the job")
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local win = w.windows[1]
+    local tab = findFirst(Mocks, win, "Passives##tabPassives")
+    T.truthy(tab, "a Passives page button")
+    tab.OnClick(tab)
+    local shown = texts(Mocks, win)
+    T.contains(shown, "Passives you have learned")
+    T.contains(shown, "Reactions (1)")
+    T.contains(shown, "Support (2)")
+    T.contains(shown, "Movement (0)")
+    T.contains(shown, "Evasive Stance")
+    T.falsy(findFirst(Mocks, win, "[+] Jobs ("), "no job grid on this page")
+    local equip = findFirst(Mocks, win, "Equip##equipEvasiveStance")
+    T.truthy(equip)
+    equip.OnClick(equip)
+    T.eq(svc.State:Get(T.TAV).Passive1, "EvasiveStance")
+    T.contains(texts(Mocks, win), "Passives you have learned", "the page stays open after equipping")
+    equip = findFirst(Mocks, win, "Equip##equipCounterTackle")
+    equip.OnClick(equip)
+    T.eq(svc.State:Get(T.TAV).Reaction, "CounterTackle")
+    T.truthy(findFirst(Mocks, win, "Unequip##unequipEvasiveStance"), "equipped rows offer Unequip")
+    equip = findFirst(Mocks, win, "Equip##equipEquipAxes")
+    equip.OnClick(equip)
+    T.eq(svc.State:Get(T.TAV).Passive2, "EquipAxes")
+    local seen = {}
+    for _, b in ipairs(buttons(Mocks, win)) do
+        T.falsy(seen[b.Label], "duplicate button id " .. b.Label)
+        seen[b.Label] = true
+    end
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    T.contains(texts(Mocks, win), "Passives you have learned", "the board reopens on the same page")
+end
+
+function S.party_page_lists_everyone_and_opens_a_character(w, T, Mocks)
+    local svc = T.boot(w)
+    svc:AddManualJP(T.TAV, 600, "Squire")
+    T.truthy(svc:Learn(T.TAV, "CounterTackle"))
+    T.truthy(svc:Equip(T.TAV, "CounterTackle"))
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local win = w.windows[1]
+    local tab = findFirst(Mocks, win, "Party##tabParty")
+    tab.OnClick(tab)
+    local shown = texts(Mocks, win)
+    T.contains(shown, "Chemist Lv1", "Shadowheart's job")
+    T.contains(shown, "Counter Tackle", "Tav's reaction")
+    T.contains(shown, "New = abilities")
+    local sh = findFirst(Mocks, win, "Shadowheart##party")
+    T.truthy(sh, "a button per character")
+    sh.OnClick(sh)
+    shown = texts(Mocks, win)
+    T.contains(shown, "Chemist, job level 1", "Shadowheart is selected")
+    T.truthy(findFirst(Mocks, win, "[+] Jobs ("), "and her Jobs page is open")
+end
+
 return S

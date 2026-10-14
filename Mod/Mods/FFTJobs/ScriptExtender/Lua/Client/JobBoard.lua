@@ -17,6 +17,10 @@ JobBoard.OpenChannel = "FFTJ_Open"
 -- Fell Seal slots: one reaction slot, two free passive slots (support or movement abilities).
 local SLOTS = { "Reaction", "Passive1", "Passive2" }
 local SLOT_LABELS = { Reaction = "Reaction", Passive1 = "Passive 1", Passive2 = "Passive 2" }
+-- Pages (user, 2026-10-14): the job grid, every learned passive in one place, the whole party in a table. Own
+-- buttons instead of an IMGUI tab bar, for the same reason as the job groups (the board is rebuilt on every click).
+local TABS = { "Jobs", "Passives", "Party" }
+local PASSIVE_TYPES = { { "Reaction", "Reactions" }, { "Support", "Support" }, { "Movement", "Movement" } }
 local GRID_COLUMNS = 4
 local WRAP = 760 -- px: long texts wrap here instead of running off the window
 local TIP_WRAP = 460
@@ -71,6 +75,8 @@ function JobBoard.New(imgui, request, log)
     self.Message = nil
     -- job groups shown as dropdowns; all start closed (user, 2026-10-14) and stay as clicked while the game runs
     self.OpenGroups = {}
+    -- the page on show (TABS); kept while the game runs, like the open groups
+    self.Tab = "Jobs"
     return self
 end
 
@@ -203,6 +209,9 @@ local function tileLabel(j)
     if j.Mastered then
         label = label .. " *"
     end
+    if (j.NewCount or 0) > 0 then
+        label = label .. " (" .. j.NewCount .. " new)"
+    end
     return label
 end
 
@@ -239,6 +248,10 @@ local function tileTooltip(j)
     else
         lines[#lines + 1] = string.format("Level %d, %s JP to spend, %d/%d abilities learned.", j.Level,
             Util.Num(j.Unspent), j.LearnedCount, j.Total)
+        if (j.NewCount or 0) > 0 then
+            lines[#lines + 1] = string.format("%d %s you can learn now.", j.NewCount,
+                j.NewCount == 1 and "ability" or "abilities")
+        end
     end
     if j.Equip then
         lines[#lines + 1] = "Equipment while it is your job: " .. j.Equip .. "."
@@ -322,6 +335,9 @@ function JobBoard:RenderHeader(root, view, c)
     text(help, "Open a job group with its [+] button, then pick a job tile to see its abilities. Learn abilities with that job's JP. Actions work while their job "
         .. "is your job or your secondary skill set. A reaction goes in the reaction slot; support and movement "
         .. "abilities go in either passive slot.", nil, WRAP)
+    text(help, "\"(2 new)\" on a tile or a group = abilities you can learn right now. The Passives page lists every "
+        .. "reaction, support and movement ability this character has learned, from any job, to equip in one click. "
+        .. "The Party page shows everyone's job, slots and JP side by side.", nil, WRAP)
     if c.AlwaysOnTypes and #c.AlwaysOnTypes > 0 then
         text(help, "Learned " .. string.lower(table.concat(c.AlwaysOnTypes, " and ")) .. " abilities of your job work "
             .. "without a slot, so the slots stay free for other jobs' abilities.", nil, WRAP)
@@ -354,7 +370,12 @@ end
 
 function JobBoard:RenderTiles(root, title, group, id, jobs, c)
     local open = self.OpenGroups[group] and true or false
-    local toggle = button(root, (open and "[-] " or "[+] ") .. title .. " (" .. #jobs .. ")", "group" .. group, false,
+    local new = 0
+    for _, j in ipairs(jobs) do
+        new = new + (j.NewCount or 0)
+    end
+    local label = (open and "[-] " or "[+] ") .. title .. " (" .. #jobs .. ")" .. (new > 0 and (" - " .. new .. " new") or "")
+    local toggle = button(root, label, "group" .. group, false,
         function()
             self.OpenGroups[group] = not open
             self:Render(self.View)
@@ -472,28 +493,132 @@ function JobBoard:RenderJob(root, c, j)
         local status, color = abilityStatus(a)
         local statusText = text(row:AddCell(), status, color)
         addTooltip(statusText, a.Reason and { a.Reason } or tip)
-        local cell = row:AddCell()
-        if not a.Learned and a.CanLearn then
-            button(cell, "Learn", "learn" .. a.Id, false, function()
-                self:Send("Learn", { Ability = a.Id })
+        self:AbilityAction(row:AddCell(), c, a)
+    end
+end
+
+-- The Learn / Equip / Replace / Unequip button of an ability row (job page and Passives page).
+function JobBoard:AbilityAction(cell, c, a)
+    if not a.Learned and a.CanLearn then
+        button(cell, "Learn", "learn" .. a.Id, false, function()
+            self:Send("Learn", { Ability = a.Id })
+        end)
+    elseif a.Learned and a.Type ~= "Action" and not a.Equipped and not a.AlwaysOn then
+        if a.Type == "Reaction" or c.PassiveFree then
+            local b = button(cell, "Equip", "equip" .. a.Id, false, function()
+                self:Send("Equip", { Ability = a.Id })
             end)
-        elseif a.Learned and a.Type ~= "Action" and not a.Equipped and not a.AlwaysOn then
-            if a.Type == "Reaction" or c.PassiveFree then
-                button(cell, "Equip", "equip" .. a.Id, false, function()
-                    self:Send("Equip", { Ability = a.Id })
+            if a.Type == "Reaction" and c.Reaction then
+                addTooltip(b, "Replaces " .. c.Reaction.Name)
+            end
+        else
+            -- both passive slots are full: pick the one to replace
+            for n = 1, 2 do
+                local b = button(cell, "Replace " .. n, "equip" .. n .. a.Id, n > 1, function()
+                    self:Send("Equip", { Ability = a.Id, Slot = tostring(n) })
                 end)
-            else
-                -- both passive slots are full: pick the one to replace
-                for n = 1, 2 do
-                    button(cell, "Replace " .. n, "equip" .. n .. a.Id, n > 1, function()
-                        self:Send("Equip", { Ability = a.Id, Slot = tostring(n) })
-                    end)
+                local held = c["Passive" .. n]
+                addTooltip(b, "Replaces " .. (held and held.Name or ("passive " .. n)))
+            end
+        end
+    elseif a.Equipped then
+        button(cell, "Unequip", "unequip" .. a.Id, false, function()
+            self:Send("Unequip", { Slot = a.Slot })
+        end)
+    end
+end
+
+-- Every learned reaction, support and movement ability of the character, from any job, ready to equip (user,
+-- 2026-10-14: equipping from each job's page meant scrolling to it every time).
+function JobBoard:RenderPassives(root, c)
+    style(root:AddSeparatorText("Passives you have learned"), "Text", TEXT.Gold)
+    text(root, "Reaction, support and movement abilities from every job. Equipped ones work whatever your job is.",
+        TEXT.Dim, WRAP)
+    local learnable = 0
+    for _, kind in ipairs(PASSIVE_TYPES) do
+        local rows = {}
+        for _, j in ipairs(c.Jobs) do
+            for _, a in ipairs((c.Abilities or {})[j.Id] or {}) do
+                if a.Type == kind[1] then
+                    if a.Learned then
+                        rows[#rows + 1] = a
+                    elseif a.CanLearn then
+                        learnable = learnable + 1
+                    end
                 end
             end
-        elseif a.Equipped then
-            button(cell, "Unequip", "unequip" .. a.Id, false, function()
-                self:Send("Unequip", { Slot = a.Slot })
-            end)
+        end
+        text(root, string.format("%s (%d)", kind[2], #rows), TEXT.Gold)
+        if #rows == 0 then
+            text(root, "   None learned yet.", TEXT.Dim)
+        else
+            local t = root:AddTable("FFTJ_Passives" .. kind[1], 5)
+            t.ShowHeader = true
+            for _, h in ipairs({ "", "Ability", "Job", "Status", "" }) do
+                t:AddColumn(h)
+            end
+            for _, a in ipairs(rows) do
+                local row = t:AddRow()
+                icon(row:AddCell(), a.Icon)
+                addTooltip(row:AddCell():AddText(a.Name), { a.Description })
+                row:AddCell():AddText(a.JobName or "")
+                local status, color = abilityStatus(a)
+                text(row:AddCell(), status, color)
+                self:AbilityAction(row:AddCell(), c, a)
+            end
+        end
+    end
+    if learnable > 0 then
+        text(root, string.format("%d more you can learn now: see the (new) jobs on the Jobs page.", learnable),
+            TEXT.Note, WRAP)
+    end
+end
+
+-- The whole party side by side; a name opens that character's Jobs page.
+function JobBoard:RenderParty(root, view)
+    style(root:AddSeparatorText("Party"), "Text", TEXT.Gold)
+    local t = root:AddTable("FFTJ_Party", 7)
+    t.ShowHeader = true
+    for _, h in ipairs({ "Character", "Job", "Secondary", "Reaction", "Passives", "Job JP", "New" }) do
+        t:AddColumn(h)
+    end
+    for i, ch in ipairs(view.Chars or {}) do
+        local row = t:AddRow()
+        local b = button(row:AddCell(), ch.Name, "party" .. i, false, function()
+            self.SelectedJob = nil
+            self.Message = nil
+            self.Tab = "Jobs"
+            self:Send("View", { Char = ch.Guid })
+        end)
+        if ch.Guid == view.Selected then
+            tint(b, TILE.Job)
+        end
+        row:AddCell():AddText(ch.Level and (ch.Job .. " Lv" .. ch.Level) or ch.Job)
+        text(row:AddCell(), ch.Secondary or "-", ch.Secondary and nil or TEXT.Dim)
+        text(row:AddCell(), ch.Reaction or "-", ch.Reaction and nil or TEXT.Dim)
+        local passives = {}
+        for n = 1, 2 do
+            passives[#passives + 1] = ch["Passive" .. n]
+        end
+        text(row:AddCell(), #passives > 0 and table.concat(passives, ", ") or "-", #passives > 0 and nil or TEXT.Dim)
+        row:AddCell():AddText(Util.Num(ch.Unspent or 0))
+        local new = ch.NewCount or 0
+        text(row:AddCell(), tostring(new), new > 0 and TEXT.Good or TEXT.Dim)
+    end
+    text(root, "New = abilities that character can learn right now, in any job. Job JP = JP to spend in the current "
+        .. "job.", TEXT.Dim, WRAP)
+end
+
+-- Page buttons under the character's header; the open page is tinted.
+function JobBoard:RenderTabs(root)
+    for i, tab in ipairs(TABS) do
+        local b = button(root, tab, "tab" .. tab, i > 1, function()
+            self.Tab = tab
+            self:Render(self.View)
+        end)
+        if tab == self.Tab then
+            tint(b, TILE.Job)
+            style(b, "Text", TEXT.Gold)
         end
     end
 end
@@ -558,11 +683,18 @@ function JobBoard:Render(view)
         root:AddText(view.Message or "No party member is tracked yet.")
         return
     end
-    self:RenderGrid(root, c)
-    local jobId = self.SelectedJob or c.Primary.Id
-    for _, j in ipairs(c.Jobs) do
-        if j.Id == jobId then
-            self:RenderJob(root, c, j)
+    self:RenderTabs(root)
+    if self.Tab == "Passives" then
+        self:RenderPassives(root, c)
+    elseif self.Tab == "Party" then
+        self:RenderParty(root, view)
+    else
+        self:RenderGrid(root, c)
+        local jobId = self.SelectedJob or c.Primary.Id
+        for _, j in ipairs(c.Jobs) do
+            if j.Id == jobId then
+                self:RenderJob(root, c, j)
+            end
         end
     end
     text(root, "Preset " .. tostring(view.Preset) .. ", JP multiplier x" .. Util.Num(view.Multiplier or 1) .. ".",

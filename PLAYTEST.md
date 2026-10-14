@@ -1,6 +1,25 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.72**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.73**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.73: Job Board pages, Passives page, "new" hints (NWP 4)
+
+- The board has three **page buttons** under the character's slots: **Jobs** (the grid and job details as before),
+  **Passives** and **Party**. The board reopens on the page you left (until the game closes).
+- **Passives page:** every reaction, support and movement ability this character has learned, from any job, in
+  three lists with Equip / Replace 1 / Replace 2 / Unequip buttons. No more scrolling to each job to equip. Hover
+  Replace to see which ability it swaps out.
+- **"(N new)" hints:** a job tile says "Squire Lv3 (2 new)" when that many abilities can be learned right now with
+  its JP; a closed group button says "[+] Jobs (22) - 5 new".
+- **Party page:** everyone's job and level, secondary, reaction, passives, JP to spend in the current job and how
+  many abilities they can learn now. Click a name to open that character's Jobs page.
+
+Please check:
+- The three page buttons show and switch; the open one is tinted.
+- Passives page: equip a support from a job that is not your current job; it shows "In passive 1" and works.
+- With both passive slots full, Replace 1 / Replace 2 swap the right one (hover tells which).
+- The "(N new)" numbers match what the job page offers to learn.
+- Party page: the table fits the window; clicking a name switches character.
 
 ## New in 1.0.0.72: Strange Fluid, a Chemist weapon coating (NWP 20)
 
