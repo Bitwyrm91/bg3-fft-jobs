@@ -14,7 +14,8 @@ Ext.Vars.RegisterModVariable(MOD_UUID, "State", {
 
 local Log = Ext.Require("Shared/Log.lua")
 local JobBoard = Ext.Require("Client/JobBoard.lua")
+local JobMenu = Ext.Require("Client/JobMenu.lua")
 
-FFTJ = { Board = JobBoard.Setup(MOD_UUID, Log) }
+FFTJ = { Board = JobBoard.Setup(MOD_UUID, Log), Menu = JobMenu.Setup(MOD_UUID, Log) }
 
 Log.Info("client side loaded; open the Job Board with its spell (server side loads with a save)")

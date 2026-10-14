@@ -395,12 +395,16 @@ end
 
 function S.grant_changes_are_logged(w, T)
     local svc = T.boot(w)
-    T.contains(w.prints, "Tav: added Shout_FFTJ_JPTraining, Shout_FFTJ_JobBoard, FFTJ_Job_Squire")
+    T.contains(w.prints, "Tav: added Shout_FFTJ_ChangeJob, ")
+    T.contains(w.prints, "Shout_FFTJ_JPTraining, Shout_FFTJ_JobBoard, Shout_FFTJ_LearnFrom_Squire, ")
+    T.contains(w.prints, ", FFTJ_Job_Squire")
     svc:AddManualJP(T.TAV, 300, "Squire")
     T.truthy(svc:Learn(T.TAV, "Focus"))
-    T.contains(w.prints, "Tav: added Shout_FFTJ_Focus")
+    -- learning Focus at 300 JP also reaches Squire Lv2 (Knight and Archer open: their ??? entries are replaced)
+    T.contains(w.prints, "Shout_FFTJ_ChangeJob_Knight, Shout_FFTJ_Focus, Shout_FFTJ_SecondaryJob_Archer")
     T.truthy(svc:SetPrimary(T.TAV, "Knight"))
-    T.contains(w.prints, "Tav: added FFTJ_Job_Knight; removed Shout_FFTJ_Focus, FFTJ_Job_Squire")
+    T.contains(w.prints, "Tav: added Shout_FFTJ_LearnFrom_Knight, ")
+    T.contains(w.prints, ", FFTJ_Job_Knight; removed Shout_FFTJ_Focus, Shout_FFTJ_LearnFrom_Squire, ")
 end
 
 function S.support_and_movement_slots_grant_passives(w, T)

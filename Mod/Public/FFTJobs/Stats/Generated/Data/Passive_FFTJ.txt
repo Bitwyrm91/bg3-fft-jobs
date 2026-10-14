@@ -1,3 +1,7 @@
+new entry "FFTJ_MenuLocked"
+type "PassiveData"
+data "Properties" "IsHidden"
+
 new entry "FFTJ_Job_Squire"
 type "PassiveData"
 data "DisplayName" "hb65980b3g8531g5fc9gabddgdcd5912f7558;1"

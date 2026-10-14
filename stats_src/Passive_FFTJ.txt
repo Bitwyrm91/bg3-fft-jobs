@@ -6,6 +6,11 @@
 // ---------------------------------------------------------------- current job markers
 // The main job's equipment (Fell Seal rule): {{prof:<Job>}} becomes the job's "equip" list from data/fft_jobs.json
 // as Proficiency() boosts. FFT's "Equip X" supports carry one of them to other jobs.
+// Never granted: the greyed "???" entries of the job menus (tools/menu_gen.py) require it, so they can't be cast.
+new entry "FFTJ_MenuLocked"
+type "PassiveData"
+data "Properties" "IsHidden"
+
 new entry "FFTJ_Job_Squire"
 type "PassiveData"
 data "DisplayName" "{{jobname:Squire}}"

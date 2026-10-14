@@ -271,12 +271,23 @@ function S.old_saves_move_support_and_movement_into_passive_slots(w, T)
     T.eq(char.Passive1, "Jump1")
 end
 
+-- the spells without the job menus (tools/menu_gen.py; tests/test_menu.lua)
+local function skills(d)
+    local out = {}
+    for id in pairs(d.Spells) do
+        if not (id:find("^Shout_FFTJ_ChangeJob") or id:find("^Shout_FFTJ_SecondaryJob") or id:find("^Shout_FFTJ_Learn")) then
+            out[id] = true
+        end
+    end
+    return out
+end
+
 function S.desired_grants_primary_secondary_slots(w, T)
     local Rules, Data = setup()
     local cfg = T.cfg()
     local char = Rules.NewChar(Data, cfg, "Squire")
     local d = Rules.DesiredGrants(Data, char)
-    T.eq(T.keys(d.Spells), "Shout_FFTJ_JobBoard")
+    T.eq(T.keys(skills(d)), "Shout_FFTJ_JobBoard")
     T.eq(T.keys(d.Passives), "FFTJ_Job_Squire")
     Rules.AddJP(Data, cfg, char, "Squire", 2000)
     Rules.AddJP(Data, cfg, char, "Chemist", 2000)
@@ -285,16 +296,16 @@ function S.desired_grants_primary_secondary_slots(w, T)
     end
     T.truthy(Rules.Learn(Data, char, "Potion"))
     d = Rules.DesiredGrants(Data, char)
-    T.eq(T.keys(d.Spells), "Shout_FFTJ_Focus,Shout_FFTJ_JobBoard,Target_FFTJ_Rush", "only primary actions; supports need a slot")
+    T.eq(T.keys(skills(d)), "Shout_FFTJ_Focus,Shout_FFTJ_JobBoard,Target_FFTJ_Rush", "only primary actions; supports need a slot")
     Rules.SetSecondary(Data, char, "Chemist")
     Rules.Equip(Data, char, "EvasiveStance")
     Rules.Equip(Data, char, "Movement1")
     d = Rules.DesiredGrants(Data, char)
-    T.eq(T.keys(d.Spells), "Shout_FFTJ_Defend,Shout_FFTJ_Focus,Shout_FFTJ_JobBoard,Target_FFTJ_Potion,Target_FFTJ_Rush")
+    T.eq(T.keys(skills(d)), "Shout_FFTJ_Defend,Shout_FFTJ_Focus,Shout_FFTJ_JobBoard,Target_FFTJ_Potion,Target_FFTJ_Rush")
     T.eq(T.keys(d.Passives), "FFTJ_Job_Squire,FFTJ_Movement1")
     Rules.SetPrimary(Data, char, "Chemist")
     d = Rules.DesiredGrants(Data, char)
-    T.eq(T.keys(d.Spells), "Shout_FFTJ_Defend,Shout_FFTJ_JobBoard,Target_FFTJ_Potion_Throw",
+    T.eq(T.keys(skills(d)), "Shout_FFTJ_Defend,Shout_FFTJ_JobBoard,Target_FFTJ_Potion_Throw",
         "Chemist primary throws items; Squire actions are gone with no secondary")
     T.eq(T.keys(d.Passives), "FFTJ_Job_Chemist,FFTJ_Movement1")
 end

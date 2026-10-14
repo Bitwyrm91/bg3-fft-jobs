@@ -25,7 +25,12 @@
       "FFTJ_SONG_BATTLE_FX",
       "FFTJ_STRENGTH_SURGE",
       "FFTJ_StrengthSurge",
-      "Shout_FFTJ_BattleChant"
+      "Shout_FFTJ_BattleChant",
+      "Shout_FFTJ_Learn_BattleChant",
+      "Shout_FFTJ_Learn_BraverySurge",
+      "Shout_FFTJ_Learn_FaithSurge",
+      "Shout_FFTJ_Learn_MagickSurge",
+      "Shout_FFTJ_Learn_StrengthSurge"
     ]
   },
   {
@@ -47,6 +52,8 @@
       "FFTJ_SONG_SERAPH",
       "FFTJ_SONG_SERAPH_FX",
       "Shout_FFTJ_Finale",
+      "Shout_FFTJ_Learn_Finale",
+      "Shout_FFTJ_Learn_SeraphSong",
       "Shout_FFTJ_SeraphSong"
     ]
   },
@@ -116,6 +123,8 @@
     "usedBy": [
       "FFTJ_Mastery_Soldier",
       "FFTJ_Mastery_SwordSaint",
+      "Shout_FFTJ_Learn_CrossSlash",
+      "Shout_FFTJ_Learn_Omnislash",
       "Zone_FFTJ_CrossSlash",
       "Zone_FFTJ_Omnislash"
     ]
@@ -127,7 +136,10 @@
       "FFTJ_Mastery_Machinist",
       "Projectile_FFTJ_ArmShot",
       "Projectile_FFTJ_LegShot",
-      "Projectile_FFTJ_SealEvil"
+      "Projectile_FFTJ_SealEvil",
+      "Shout_FFTJ_Learn_ArmShot",
+      "Shout_FFTJ_Learn_LegShot",
+      "Shout_FFTJ_Learn_SealEvil"
     ]
   },
   {
@@ -146,6 +158,10 @@
     "id": "Action_DisarmingAttack_Melee",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_CrushAccessory",
+      "Shout_FFTJ_Learn_CrushWeapon",
+      "Shout_FFTJ_Learn_SwordSaintCrushAccessory",
+      "Shout_FFTJ_Learn_SwordSaintCrushWeapon",
       "Zone_FFTJ_CrushAccessory",
       "Zone_FFTJ_CrushWeapon"
     ]
@@ -154,6 +170,12 @@
     "id": "Action_DivineStrike_Radiant_Ranged",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_CleansingStrike",
+      "Shout_FFTJ_Learn_JudgmentBlade",
+      "Shout_FFTJ_Learn_NorthswainsStrike",
+      "Shout_FFTJ_Learn_SwordSaintCleansingStrike",
+      "Shout_FFTJ_Learn_SwordSaintJudgmentBlade",
+      "Shout_FFTJ_Learn_SwordSaintNorthswainsStrike",
       "Zone_FFTJ_CleansingStrike",
       "Zone_FFTJ_JudgmentBlade",
       "Zone_FFTJ_NorthswainsStrike"
@@ -164,6 +186,7 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_SkyPirate",
+      "Shout_FFTJ_Learn_Barrage",
       "Target_FFTJ_Barrage"
     ]
   },
@@ -174,6 +197,8 @@
       "FFTJ_SOUL_Harpy_F1",
       "FFTJ_SOUL_Harpy_F3",
       "FFTJ_SOUL_Harpy_F5",
+      "Shout_FFTJ_Learn_DancerFly",
+      "Shout_FFTJ_Learn_Fly",
       "Shout_FFTJ_Soul_Harpy_F1",
       "Shout_FFTJ_Soul_Harpy_F3",
       "Shout_FFTJ_Soul_Harpy_F5"
@@ -312,11 +337,21 @@
     ]
   },
   {
+    "id": "Action_Monk_FistOfUnbrokenAir",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Aurablast"
+    ]
+  },
+  {
     "id": "Action_Monk_FlurryOfBlows",
     "kind": "icon",
     "usedBy": [
       "FFTJ_Counter",
-      "Interrupt_FFTJ_Counter"
+      "Interrupt_FFTJ_Counter",
+      "Shout_FFTJ_Learn_Brawler",
+      "Shout_FFTJ_Learn_Counter",
+      "Shout_FFTJ_Learn_Pummel"
     ]
   },
   {
@@ -330,13 +365,29 @@
       "FFTJ_Reflexes",
       "FFTJ_SONG_ROUSING",
       "FFTJ_SONG_ROUSING_FX",
+      "Shout_FFTJ_Learn_AccrueEXP",
+      "Shout_FFTJ_Learn_AccrueJP",
+      "Shout_FFTJ_Learn_DarkKnightJumpPlus3",
+      "Shout_FFTJ_Learn_DarkKnightMovementPlus3",
+      "Shout_FFTJ_Learn_JumpPlus3",
+      "Shout_FFTJ_Learn_MovementPlus3",
+      "Shout_FFTJ_Learn_Reflexes",
+      "Shout_FFTJ_Learn_RousingMelody",
       "Shout_FFTJ_RousingMelody"
+    ]
+  },
+  {
+    "id": "Action_Monk_StunningStrike",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_DoomFist"
     ]
   },
   {
     "id": "Action_Monster_Bulette_Bite",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Destroy",
       "Target_FFTJ_Destroy"
     ]
   },
@@ -356,13 +407,15 @@
     "id": "Action_Monster_ElementalEarth_MultiAttack",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_AttackBoost"
+      "FFTJ_AttackBoost",
+      "Shout_FFTJ_Learn_AttackBoost"
     ]
   },
   {
     "id": "Action_Monster_ElementalEarth_SeismicStrike",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Tremor",
       "Target_FFTJ_Tremor"
     ]
   },
@@ -370,6 +423,7 @@
     "id": "Action_Monster_ElementalEarth_Slam",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Sinkhole",
       "Target_FFTJ_Sinkhole"
     ]
   },
@@ -377,6 +431,7 @@
     "id": "Action_Monster_ElementalLava_CreateLava",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_MagmaSurge",
       "Target_FFTJ_MagmaSurge"
     ]
   },
@@ -384,6 +439,7 @@
     "id": "Action_Monster_GiantEagle_StrongWind",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_WindBlast",
       "Target_FFTJ_WindBlast"
     ]
   },
@@ -431,6 +487,18 @@
       "FFTJ_SOUL_Grym_F3",
       "FFTJ_SOUL_Grym_F5",
       "FFTJ_VerticalJump2",
+      "Shout_FFTJ_Learn_HorizontalJump1",
+      "Shout_FFTJ_Learn_HorizontalJump2",
+      "Shout_FFTJ_Learn_HorizontalJump3",
+      "Shout_FFTJ_Learn_HorizontalJump4",
+      "Shout_FFTJ_Learn_HorizontalJump7",
+      "Shout_FFTJ_Learn_VerticalJump2",
+      "Shout_FFTJ_Learn_VerticalJump3",
+      "Shout_FFTJ_Learn_VerticalJump4",
+      "Shout_FFTJ_Learn_VerticalJump5",
+      "Shout_FFTJ_Learn_VerticalJump6",
+      "Shout_FFTJ_Learn_VerticalJump7",
+      "Shout_FFTJ_Learn_VerticalJump8",
       "Shout_FFTJ_Soul_Grym_F1",
       "Shout_FFTJ_Soul_Grym_F3",
       "Shout_FFTJ_Soul_Grym_F5"
@@ -452,6 +520,7 @@
     "id": "Action_Monster_MudMephit_DeathBurst_Chosen",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Quicksand",
       "Target_FFTJ_Quicksand"
     ]
   },
@@ -528,6 +597,13 @@
     ]
   },
   {
+    "id": "Action_Multiattack_WhirlwindAttack",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Cyclone"
+    ]
+  },
+  {
     "id": "Action_Paladin_AuraOfCourage",
     "kind": "icon",
     "usedBy": [
@@ -587,6 +663,10 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_DivineKnight",
+      "Shout_FFTJ_Learn_CrushArmor",
+      "Shout_FFTJ_Learn_CrushHelm",
+      "Shout_FFTJ_Learn_SwordSaintCrushArmor",
+      "Shout_FFTJ_Learn_SwordSaintCrushHelm",
       "Zone_FFTJ_CrushArmor",
       "Zone_FFTJ_CrushHelm"
     ]
@@ -596,6 +676,10 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_SteelGiant",
+      "Shout_FFTJ_Learn_Ascension",
+      "Shout_FFTJ_Learn_BladeBurst",
+      "Shout_FFTJ_Learn_Braver",
+      "Shout_FFTJ_Learn_Compress",
       "Target_FFTJ_Compress",
       "Zone_FFTJ_Ascension",
       "Zone_FFTJ_BladeBurst",
@@ -630,13 +714,15 @@
     "id": "Action_StarryForm_Chalice",
     "kind": "icon",
     "usedBy": [
-      "Shout_FFTJ_CelestialStasis"
+      "Shout_FFTJ_CelestialStasis",
+      "Shout_FFTJ_Learn_CelestialStasis"
     ]
   },
   {
     "id": "Action_Topple",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Pulverize",
       "Target_FFTJ_Pulverize"
     ]
   },
@@ -667,10 +753,18 @@
     ]
   },
   {
+    "id": "GenericIcon_Intent_Utility",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_GameHunterThrowStone"
+    ]
+  },
+  {
     "id": "Item_BOOK_GEN_Book_A",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowBooks"
+      "Projectile_FFTJ_ThrowBooks",
+      "Shout_FFTJ_Learn_ThrowBooks"
     ]
   },
   {
@@ -678,7 +772,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Int_ChemicalMixup",
-      "Projectile_FFTJ_ChemicalMixup"
+      "Projectile_FFTJ_ChemicalMixup",
+      "Shout_FFTJ_Learn_ChemicalMixup"
     ]
   },
   {
@@ -687,7 +782,9 @@
     "usedBy": [
       "FFTJ_Int_UnstableFlask",
       "Projectile_FFTJ_ThrowBombs",
-      "Projectile_FFTJ_UnstableFlask"
+      "Projectile_FFTJ_UnstableFlask",
+      "Shout_FFTJ_Learn_ThrowBombs",
+      "Shout_FFTJ_Learn_UnstableFlask"
     ]
   },
   {
@@ -695,7 +792,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Int_ChemicalBurns",
-      "Projectile_FFTJ_ChemicalBurns"
+      "Projectile_FFTJ_ChemicalBurns",
+      "Shout_FFTJ_Learn_ChemicalBurns"
     ]
   },
   {
@@ -703,14 +801,16 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Int_FulminateFlask",
-      "Projectile_FFTJ_FulminateFlask"
+      "Projectile_FFTJ_FulminateFlask",
+      "Shout_FFTJ_Learn_FulminateFlask"
     ]
   },
   {
     "id": "Item_LOOT_Alchemy_Machine_Flask_A",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Saturation"
+      "FFTJ_Saturation",
+      "Shout_FFTJ_Learn_Saturation"
     ]
   },
   {
@@ -718,77 +818,95 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Int_CausticFlask",
-      "Projectile_FFTJ_CausticFlask"
+      "Projectile_FFTJ_CausticFlask",
+      "Shout_FFTJ_Learn_CausticFlask"
     ]
   },
   {
     "id": "Item_WPN_HUM_Dagger_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowDaggers"
+      "Projectile_FFTJ_ThrowDaggers",
+      "Shout_FFTJ_Learn_ThrowDaggers"
     ]
   },
   {
     "id": "Item_WPN_HUM_Dart_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowShuriken"
+      "Projectile_FFTJ_ThrowShuriken",
+      "Shout_FFTJ_Learn_ThrowShuriken"
     ]
   },
   {
     "id": "Item_WPN_HUM_Flail_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowFlails"
+      "Projectile_FFTJ_ThrowFlails",
+      "Shout_FFTJ_Learn_ThrowFlails"
     ]
   },
   {
     "id": "Item_WPN_HUM_Greatsword_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowKnightsSwords"
+      "Projectile_FFTJ_ThrowKnightsSwords",
+      "Shout_FFTJ_Learn_ThrowKnightsSwords"
     ]
   },
   {
     "id": "Item_WPN_HUM_Handaxe_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowAxes"
+      "Projectile_FFTJ_ThrowAxes",
+      "Shout_FFTJ_Learn_ThrowAxes"
     ]
   },
   {
     "id": "Item_WPN_HUM_Longsword_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowSwords"
+      "Projectile_FFTJ_ThrowSwords",
+      "Shout_FFTJ_Learn_ThrowSwords"
     ]
   },
   {
     "id": "Item_WPN_HUM_Quarterstaff_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowPoles"
+      "Projectile_FFTJ_ThrowPoles",
+      "Shout_FFTJ_Learn_ThrowPoles"
     ]
   },
   {
     "id": "Item_WPN_HUM_Scimitar_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowKatana"
+      "Projectile_FFTJ_ThrowKatana",
+      "Shout_FFTJ_Learn_ThrowKatana"
     ]
   },
   {
     "id": "Item_WPN_HUM_Shortsword_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowNinjaBlades"
+      "Projectile_FFTJ_ThrowNinjaBlades",
+      "Shout_FFTJ_Learn_ThrowNinjaBlades"
     ]
   },
   {
     "id": "Item_WPN_HUM_Spear_A_0",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowPolearms"
+      "Projectile_FFTJ_ThrowPolearms",
+      "Shout_FFTJ_Learn_ThrowPolearms"
+    ]
+  },
+  {
+    "id": "PassiveFeature_BookOfAncientSecrets",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_SecondaryJob"
     ]
   },
   {
@@ -797,7 +915,8 @@
     "usedBy": [
       "FFTJ_Concentration",
       "FFTJ_Mastery_GameHunter",
-      "FFTJ_Poach"
+      "FFTJ_Poach",
+      "Shout_FFTJ_Learn_Poach"
     ]
   },
   {
@@ -825,7 +944,62 @@
       "FFTJ_Job_Templar",
       "FFTJ_Mastery_OnionKnight",
       "FFTJ_OnionKnight_5",
-      "FFTJ_Vigilance"
+      "FFTJ_Vigilance",
+      "Shout_FFTJ_ChangeJob_ArkKnight",
+      "Shout_FFTJ_ChangeJob_Astrologer",
+      "Shout_FFTJ_ChangeJob_Cleric",
+      "Shout_FFTJ_ChangeJob_DivineKnight",
+      "Shout_FFTJ_ChangeJob_Dragonkin",
+      "Shout_FFTJ_ChangeJob_FellKnight",
+      "Shout_FFTJ_ChangeJob_GameHunter",
+      "Shout_FFTJ_ChangeJob_HolyKnight",
+      "Shout_FFTJ_ChangeJob_Machinist",
+      "Shout_FFTJ_ChangeJob_Netherseer",
+      "Shout_FFTJ_ChangeJob_OnionKnight",
+      "Shout_FFTJ_ChangeJob_Princess",
+      "Shout_FFTJ_ChangeJob_SkyPirate",
+      "Shout_FFTJ_ChangeJob_Skyseer",
+      "Shout_FFTJ_ChangeJob_Soldier",
+      "Shout_FFTJ_ChangeJob_SteelGiant",
+      "Shout_FFTJ_ChangeJob_SwordSaint",
+      "Shout_FFTJ_ChangeJob_Templar",
+      "Shout_FFTJ_LearnFrom_ArkKnight",
+      "Shout_FFTJ_LearnFrom_Astrologer",
+      "Shout_FFTJ_LearnFrom_Cleric",
+      "Shout_FFTJ_LearnFrom_DivineKnight",
+      "Shout_FFTJ_LearnFrom_Dragonkin",
+      "Shout_FFTJ_LearnFrom_FellKnight",
+      "Shout_FFTJ_LearnFrom_GameHunter",
+      "Shout_FFTJ_LearnFrom_HolyKnight",
+      "Shout_FFTJ_LearnFrom_Machinist",
+      "Shout_FFTJ_LearnFrom_Netherseer",
+      "Shout_FFTJ_LearnFrom_Princess",
+      "Shout_FFTJ_LearnFrom_SkyPirate",
+      "Shout_FFTJ_LearnFrom_Skyseer",
+      "Shout_FFTJ_LearnFrom_Soldier",
+      "Shout_FFTJ_LearnFrom_SteelGiant",
+      "Shout_FFTJ_LearnFrom_SwordSaint",
+      "Shout_FFTJ_LearnFrom_Templar",
+      "Shout_FFTJ_Learn_DefenseBoost",
+      "Shout_FFTJ_Learn_Vigilance",
+      "Shout_FFTJ_SecondaryJob_ArkKnight",
+      "Shout_FFTJ_SecondaryJob_Astrologer",
+      "Shout_FFTJ_SecondaryJob_Cleric",
+      "Shout_FFTJ_SecondaryJob_DivineKnight",
+      "Shout_FFTJ_SecondaryJob_Dragonkin",
+      "Shout_FFTJ_SecondaryJob_FellKnight",
+      "Shout_FFTJ_SecondaryJob_GameHunter",
+      "Shout_FFTJ_SecondaryJob_HolyKnight",
+      "Shout_FFTJ_SecondaryJob_Machinist",
+      "Shout_FFTJ_SecondaryJob_Netherseer",
+      "Shout_FFTJ_SecondaryJob_OnionKnight",
+      "Shout_FFTJ_SecondaryJob_Princess",
+      "Shout_FFTJ_SecondaryJob_SkyPirate",
+      "Shout_FFTJ_SecondaryJob_Skyseer",
+      "Shout_FFTJ_SecondaryJob_Soldier",
+      "Shout_FFTJ_SecondaryJob_SteelGiant",
+      "Shout_FFTJ_SecondaryJob_SwordSaint",
+      "Shout_FFTJ_SecondaryJob_Templar"
     ]
   },
   {
@@ -834,7 +1008,17 @@
     "usedBy": [
       "FFTJ_Doublehand",
       "FFTJ_EquipPolearms",
-      "FFTJ_Vehemence"
+      "FFTJ_Vehemence",
+      "Shout_FFTJ_Learn_Doublehand",
+      "Shout_FFTJ_Learn_EquipPolearms",
+      "Shout_FFTJ_Learn_Vehemence"
+    ]
+  },
+  {
+    "id": "PassiveFeature_FightingStyle_TwoWeaponFighting",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_DualWield"
     ]
   },
   {
@@ -862,7 +1046,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_GilSnapper",
-      "FFTJ_StickyFingers"
+      "FFTJ_StickyFingers",
+      "Shout_FFTJ_Learn_GilSnapper",
+      "Shout_FFTJ_Learn_StickyFingers"
     ]
   },
   {
@@ -873,7 +1059,19 @@
       "FFTJ_IgnoreWeather",
       "FFTJ_Lifefont",
       "FFTJ_Manafont",
-      "FFTJ_Movement2"
+      "FFTJ_Movement2",
+      "Shout_FFTJ_Learn_IgnoreTerrain",
+      "Shout_FFTJ_Learn_IgnoreWeather",
+      "Shout_FFTJ_Learn_Lifefont",
+      "Shout_FFTJ_Learn_Manafont",
+      "Shout_FFTJ_Learn_Movement2"
+    ]
+  },
+  {
+    "id": "PassiveFeature_PactOfTheTome",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_ChangeJob"
     ]
   },
   {
@@ -881,7 +1079,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_FirstStrike",
-      "Interrupt_FFTJ_FirstStrike"
+      "Interrupt_FFTJ_FirstStrike",
+      "Shout_FFTJ_Learn_FirstStrike"
     ]
   },
   {
@@ -889,14 +1088,17 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_IgnoreElevation",
-      "FFTJ_Jump2"
+      "FFTJ_Jump2",
+      "Shout_FFTJ_Learn_IgnoreElevation",
+      "Shout_FFTJ_Learn_Jump2"
     ]
   },
   {
     "id": "PassiveFeature_ThoughtShield_PsychicResistance",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Earplugs"
+      "FFTJ_Earplugs",
+      "Shout_FFTJ_Learn_Earplugs"
     ]
   },
   {
@@ -905,7 +1107,15 @@
     "usedBy": [
       "FFTJ_FeralVigor",
       "FFTJ_HPBoost",
-      "FFTJ_OnionKnight_8"
+      "FFTJ_OnionKnight_8",
+      "Shout_FFTJ_Learn_HPBoost"
+    ]
+  },
+  {
+    "id": "PassiveFeature_UncannyDodge",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Shirahadori"
     ]
   },
   {
@@ -1011,6 +1221,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_CriticalQuick",
+      "Shout_FFTJ_Learn_CriticalQuick",
+      "Shout_FFTJ_Learn_Quick",
       "Target_FFTJ_Quick"
     ]
   },
@@ -1018,7 +1230,16 @@
     "id": "Skill_Fighter_SecondWind",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_CriticalRecoverHP"
+      "FFTJ_CriticalRecoverHP",
+      "Shout_FFTJ_Learn_CriticalRecoverHP",
+      "Shout_FFTJ_Learn_GameHunterFocus"
+    ]
+  },
+  {
+    "id": "Skill_Warlock_DismissPactWeapon",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_SecondaryJob_None"
     ]
   },
   {
@@ -1037,14 +1258,69 @@
     "id": "Spell_Abjuration_Aid",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_GOLEM"
+      "FFTJ_GOLEM",
+      "Shout_FFTJ_Learn_Carbuncle",
+      "Shout_FFTJ_Learn_Golem"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_ArcaneLock",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_ChangeJob_Archer_Locked",
+      "Shout_FFTJ_ChangeJob_Arithmetician_Locked",
+      "Shout_FFTJ_ChangeJob_Bard_Locked",
+      "Shout_FFTJ_ChangeJob_BlackMage_Locked",
+      "Shout_FFTJ_ChangeJob_Chemist_Locked",
+      "Shout_FFTJ_ChangeJob_Dancer_Locked",
+      "Shout_FFTJ_ChangeJob_DarkKnight_Locked",
+      "Shout_FFTJ_ChangeJob_Dragoon_Locked",
+      "Shout_FFTJ_ChangeJob_Geomancer_Locked",
+      "Shout_FFTJ_ChangeJob_Knight_Locked",
+      "Shout_FFTJ_ChangeJob_Mime_Locked",
+      "Shout_FFTJ_ChangeJob_Monk_Locked",
+      "Shout_FFTJ_ChangeJob_Mystic_Locked",
+      "Shout_FFTJ_ChangeJob_Ninja_Locked",
+      "Shout_FFTJ_ChangeJob_OnionKnight_Locked",
+      "Shout_FFTJ_ChangeJob_Orator_Locked",
+      "Shout_FFTJ_ChangeJob_Samurai_Locked",
+      "Shout_FFTJ_ChangeJob_Squire_Locked",
+      "Shout_FFTJ_ChangeJob_Summoner_Locked",
+      "Shout_FFTJ_ChangeJob_Thief_Locked",
+      "Shout_FFTJ_ChangeJob_TimeMage_Locked",
+      "Shout_FFTJ_ChangeJob_WhiteMage_Locked",
+      "Shout_FFTJ_SecondaryJob_Archer_Locked",
+      "Shout_FFTJ_SecondaryJob_Arithmetician_Locked",
+      "Shout_FFTJ_SecondaryJob_Bard_Locked",
+      "Shout_FFTJ_SecondaryJob_BlackMage_Locked",
+      "Shout_FFTJ_SecondaryJob_Chemist_Locked",
+      "Shout_FFTJ_SecondaryJob_Dancer_Locked",
+      "Shout_FFTJ_SecondaryJob_DarkKnight_Locked",
+      "Shout_FFTJ_SecondaryJob_Dragoon_Locked",
+      "Shout_FFTJ_SecondaryJob_Geomancer_Locked",
+      "Shout_FFTJ_SecondaryJob_Knight_Locked",
+      "Shout_FFTJ_SecondaryJob_Mime_Locked",
+      "Shout_FFTJ_SecondaryJob_Monk_Locked",
+      "Shout_FFTJ_SecondaryJob_Mystic_Locked",
+      "Shout_FFTJ_SecondaryJob_Ninja_Locked",
+      "Shout_FFTJ_SecondaryJob_OnionKnight_Locked",
+      "Shout_FFTJ_SecondaryJob_Orator_Locked",
+      "Shout_FFTJ_SecondaryJob_Samurai_Locked",
+      "Shout_FFTJ_SecondaryJob_Squire_Locked",
+      "Shout_FFTJ_SecondaryJob_Summoner_Locked",
+      "Shout_FFTJ_SecondaryJob_Thief_Locked",
+      "Shout_FFTJ_SecondaryJob_TimeMage_Locked",
+      "Shout_FFTJ_SecondaryJob_WhiteMage_Locked"
     ]
   },
   {
     "id": "Spell_Abjuration_DeathWard",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Dragonheart"
+      "FFTJ_Dragonheart",
+      "Shout_FFTJ_Learn_ClericReraise",
+      "Shout_FFTJ_Learn_Dragonheart",
+      "Shout_FFTJ_Learn_PrincessReraise"
     ]
   },
   {
@@ -1052,6 +1328,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_Templar",
+      "Shout_FFTJ_Learn_Harmony",
+      "Shout_FFTJ_Learn_SpellbladeDispel",
       "Zone_FFTJ_SpellbladeDispel"
     ]
   },
@@ -1067,6 +1345,13 @@
       "FFTJ_Reflect_Counter",
       "Interrupt_FFTJ_ManaShield",
       "Shout_FFTJ_Kiyomori",
+      "Shout_FFTJ_Learn_AbsorbMP",
+      "Shout_FFTJ_Learn_ArkKnightKiyomori",
+      "Shout_FFTJ_Learn_CriticalRecoverMP",
+      "Shout_FFTJ_Learn_HalveMP",
+      "Shout_FFTJ_Learn_Kiyomori",
+      "Shout_FFTJ_Learn_ManaShield",
+      "Shout_FFTJ_Learn_Reflect",
       "Target_FFTJ_Reflect"
     ]
   },
@@ -1074,13 +1359,25 @@
     "id": "Spell_Abjuration_GreaterRestoration",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Mastery_Cleric"
+      "FFTJ_Mastery_Cleric",
+      "Shout_FFTJ_Learn_Dispelna"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_LesserRestoration",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_ClericEsuna",
+      "Shout_FFTJ_Learn_GameHunterSalve",
+      "Shout_FFTJ_Learn_PrincessEsuna"
     ]
   },
   {
     "id": "Spell_Abjuration_ProtectionFromEnergy",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_ClericShellja",
+      "Shout_FFTJ_Learn_PrincessShellja",
       "Shout_FFTJ_Shellja"
     ]
   },
@@ -1088,6 +1385,8 @@
     "id": "Spell_Abjuration_Sanctuary",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_ClericWall",
+      "Shout_FFTJ_Learn_PrincessWall",
       "Target_FFTJ_Wall"
     ]
   },
@@ -1095,6 +1394,12 @@
     "id": "Spell_Abjuration_ShieldOfFaith",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_ClericProtect",
+      "Shout_FFTJ_Learn_ClericProtectja",
+      "Shout_FFTJ_Learn_ClericShell",
+      "Shout_FFTJ_Learn_PrincessProtect",
+      "Shout_FFTJ_Learn_PrincessProtectja",
+      "Shout_FFTJ_Learn_PrincessShell",
       "Shout_FFTJ_Protectja"
     ]
   },
@@ -1102,6 +1407,7 @@
     "id": "Spell_CircleOfDeath",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_UnholySacrifice",
       "Shout_FFTJ_UnholySacrifice"
     ]
   },
@@ -1122,7 +1428,17 @@
     "kind": "icon",
     "usedBy": [
       "Shout_FFTJ_AbyssalBlade",
-      "Shout_FFTJ_Kotetsu"
+      "Shout_FFTJ_Kotetsu",
+      "Shout_FFTJ_Learn_AbyssalBlade",
+      "Shout_FFTJ_Learn_ArkKnightKotetsu",
+      "Shout_FFTJ_Learn_Kotetsu"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_CallLightning_Activate",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Ramuh"
     ]
   },
   {
@@ -1130,6 +1446,9 @@
     "kind": "icon",
     "usedBy": [
       "Shout_FFTJ_Ashura",
+      "Shout_FFTJ_Learn_ArkKnightAshura",
+      "Shout_FFTJ_Learn_Ashura",
+      "Shout_FFTJ_Learn_CherryBlossom",
       "Target_FFTJ_CherryBlossom"
     ]
   },
@@ -1138,7 +1457,16 @@
     "kind": "icon",
     "usedBy": [
       "Projectile_FFTJ_Divinity",
-      "Projectile_FFTJ_Impiety"
+      "Projectile_FFTJ_Impiety",
+      "Shout_FFTJ_Learn_Divinity",
+      "Shout_FFTJ_Learn_Impiety"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_Entangled",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Immobilize"
     ]
   },
   {
@@ -1164,13 +1492,16 @@
     "id": "Spell_Conjuration_FogCloud",
     "kind": "icon",
     "usedBy": [
-      "Shout_FFTJ_AmeNoMurakumo"
+      "Shout_FFTJ_AmeNoMurakumo",
+      "Shout_FFTJ_Learn_AmeNoMurakumo",
+      "Shout_FFTJ_Learn_ArkKnightAmeNoMurakumo"
     ]
   },
   {
     "id": "Spell_Conjuration_GraspingVine",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Tanglevine",
       "Target_FFTJ_Tanglevine"
     ]
   },
@@ -1196,6 +1527,13 @@
       "Shout_FFTJ_Soul_KuoToa_F1",
       "Shout_FFTJ_Soul_KuoToa_F3",
       "Shout_FFTJ_Soul_KuoToa_F5"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_MistyStep",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Teleport"
     ]
   },
   {
@@ -1226,6 +1564,7 @@
     "id": "Spell_Conjuration_SleetStorm",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Snowstorm",
       "Target_FFTJ_Snowstorm"
     ]
   },
@@ -1244,6 +1583,17 @@
       "Shout_FFTJ_Arith_MultipleOf4",
       "Shout_FFTJ_Arith_MultipleOf5",
       "Shout_FFTJ_Arith_Prime",
+      "Shout_FFTJ_Learn_EXPBoost",
+      "Shout_FFTJ_Learn_MagickalRefrain",
+      "Shout_FFTJ_Learn_MultipleOf3",
+      "Shout_FFTJ_Learn_MultipleOf4",
+      "Shout_FFTJ_Learn_MultipleOf5",
+      "Shout_FFTJ_Learn_Preach",
+      "Shout_FFTJ_Learn_Prime",
+      "Shout_FFTJ_Learn_TargetCT",
+      "Shout_FFTJ_Learn_TargetEXP",
+      "Shout_FFTJ_Learn_TargetElevation",
+      "Shout_FFTJ_Learn_TargetLevel",
       "Shout_FFTJ_MagickalRefrain",
       "Target_FFTJ_Preach"
     ]
@@ -1257,11 +1607,20 @@
     ]
   },
   {
+    "id": "Spell_Divination_SpeakWithAnimals",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_BeastTongue"
+    ]
+  },
+  {
     "id": "Spell_Enchantment_Bane",
     "kind": "icon",
     "usedBy": [
       "FFTJ_DANCE_POLKA",
       "FFTJ_DANCE_POLKA_FX",
+      "Shout_FFTJ_Learn_Intimidate",
+      "Shout_FFTJ_Learn_Polka",
       "Shout_FFTJ_Polka",
       "Target_FFTJ_Intimidate"
     ]
@@ -1273,6 +1632,8 @@
       "FFTJ_FAITH",
       "FFTJ_SONG_NAMELESS",
       "FFTJ_SONG_NAMELESS_FX",
+      "Shout_FFTJ_Learn_NamelessSong",
+      "Shout_FFTJ_Learn_Praise",
       "Shout_FFTJ_NamelessSong",
       "Target_FFTJ_Praise"
     ]
@@ -1282,6 +1643,7 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_ATHEIST",
+      "Shout_FFTJ_Learn_Enlighten",
       "Target_FFTJ_Enlighten"
     ]
   },
@@ -1289,6 +1651,9 @@
     "id": "Spell_Enchantment_CharmPerson",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_DragonsCharm",
+      "Shout_FFTJ_Learn_PlunderHeart",
+      "Shout_FFTJ_Learn_StealHeart",
       "Target_FFTJ_DragonsCharm"
     ]
   },
@@ -1299,6 +1664,11 @@
       "FFTJ_DANCE_FROLIC",
       "FFTJ_DANCE_FROLIC_FX",
       "Shout_FFTJ_HeathenFrolic",
+      "Shout_FFTJ_Learn_ArkKnightMuramasa",
+      "Shout_FFTJ_Learn_Delirium",
+      "Shout_FFTJ_Learn_HeathenFrolic",
+      "Shout_FFTJ_Learn_Muramasa",
+      "Shout_FFTJ_Learn_SpellbladeConfuse",
       "Shout_FFTJ_Muramasa",
       "Zone_FFTJ_SpellbladeConfuse"
     ]
@@ -1311,6 +1681,10 @@
       "FFTJ_DANCE_FORBIDDEN_FX",
       "Shout_FFTJ_ForbiddenDance",
       "Shout_FFTJ_LastWaltz",
+      "Shout_FFTJ_Learn_Fervor",
+      "Shout_FFTJ_Learn_ForbiddenDance",
+      "Shout_FFTJ_Learn_LastWaltz",
+      "Shout_FFTJ_Learn_SpellbladeBerserk",
       "Zone_FFTJ_SpellbladeBerserk"
     ]
   },
@@ -1320,6 +1694,10 @@
     "usedBy": [
       "Projectile_FFTJ_CelestialVoid",
       "Projectile_FFTJ_CorporealVoid",
+      "Shout_FFTJ_Learn_CelestialVoid",
+      "Shout_FFTJ_Learn_CorporealVoid",
+      "Shout_FFTJ_Learn_Empowerment",
+      "Shout_FFTJ_Learn_SpellbladeSyphon",
       "Zone_FFTJ_SpellbladeSyphon"
     ]
   },
@@ -1328,13 +1706,22 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_TAMED",
-      "FFTJ_Tame"
+      "FFTJ_Tame",
+      "Shout_FFTJ_Learn_Tame"
+    ]
+  },
+  {
+    "id": "Spell_Enchantment_DominatePerson",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Entice"
     ]
   },
   {
     "id": "Spell_Enchantment_Friends",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Defraud",
       "Target_FFTJ_Defraud"
     ]
   },
@@ -1342,6 +1729,9 @@
     "id": "Spell_Enchantment_Heroism",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Belief",
+      "Shout_FFTJ_Learn_DragonsMight",
+      "Shout_FFTJ_Learn_SpellbladeFaith",
       "Target_FFTJ_DragonsMight",
       "Zone_FFTJ_SpellbladeFaith"
     ]
@@ -1350,6 +1740,8 @@
     "id": "Spell_Enchantment_Hex",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_SpellbladeChicken",
+      "Shout_FFTJ_Learn_Trepidation",
       "Zone_FFTJ_SpellbladeChicken"
     ]
   },
@@ -1357,13 +1749,16 @@
     "id": "Spell_Enchantment_HoldMonster",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_STOP"
+      "FFTJ_STOP",
+      "Shout_FFTJ_Learn_Stop"
     ]
   },
   {
     "id": "Spell_Enchantment_HoldPerson",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Hesitation",
+      "Shout_FFTJ_Learn_SpellbladeDisable",
       "Zone_FFTJ_SpellbladeDisable"
     ]
   },
@@ -1371,6 +1766,9 @@
     "id": "Spell_Enchantment_Sleep",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_MimicDarlavon",
+      "Shout_FFTJ_Learn_Repose",
+      "Shout_FFTJ_Learn_SpellbladeSleep",
       "Target_FFTJ_MimicDarlavon",
       "Zone_FFTJ_SpellbladeSleep"
     ]
@@ -1381,8 +1779,34 @@
     "usedBy": [
       "FFTJ_DANCE_MINUET",
       "FFTJ_DANCE_MINUET_FX",
+      "Shout_FFTJ_Learn_Insult",
+      "Shout_FFTJ_Learn_MincingMinuet",
       "Shout_FFTJ_MincingMinuet",
       "Target_FFTJ_Insult"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_BurningHands",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_FireBreath"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_ConeOfCold",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_IceBreath"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_CureWounds",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_ClericCure",
+      "Shout_FFTJ_Learn_ClericRegen",
+      "Shout_FFTJ_Learn_PrincessCure",
+      "Shout_FFTJ_Learn_PrincessRegen"
     ]
   },
   {
@@ -1390,6 +1814,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_Dragonkin",
+      "Shout_FFTJ_Learn_DivineRuination",
+      "Shout_FFTJ_Learn_HolyBreath",
+      "Shout_FFTJ_Learn_SwordSaintDivineRuination",
       "Zone_FFTJ_DivineRuination",
       "Zone_FFTJ_HolyBreath"
     ]
@@ -1398,14 +1825,23 @@
     "id": "Spell_Evocation_DestructiveWave",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Bonecrusher"
+      "FFTJ_Bonecrusher",
+      "Shout_FFTJ_Learn_Bonecrusher"
     ]
   },
   {
     "id": "Spell_Evocation_EldritchBlast",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_Dispose"
+      "Projectile_FFTJ_Dispose",
+      "Shout_FFTJ_Learn_Dispose"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_FaerieFire",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_WillOTheWisp"
     ]
   },
   {
@@ -1413,13 +1849,29 @@
     "kind": "icon",
     "usedBy": [
       "Shout_FFTJ_Chirijiraden",
+      "Shout_FFTJ_Learn_ArkKnightChirijiraden",
+      "Shout_FFTJ_Learn_Chirijiraden",
+      "Shout_FFTJ_Learn_Ifrit",
+      "Shout_FFTJ_Learn_Meteor",
+      "Shout_FFTJ_Learn_Meteorain",
+      "Shout_FFTJ_Learn_Salamander",
       "Target_FFTJ_Meteorain"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_GuidingBolt",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_ClericHoly",
+      "Shout_FFTJ_Learn_PrincessHoly"
     ]
   },
   {
     "id": "Spell_Evocation_GustOfWind",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Sandstorm",
+      "Shout_FFTJ_Learn_Shockwave",
       "Target_FFTJ_Sandstorm"
     ]
   },
@@ -1427,7 +1879,37 @@
     "id": "Spell_Evocation_HealingWord",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_DragonsGift",
       "Target_FFTJ_DragonsGift"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_IceStorm",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Leviathan",
+      "Shout_FFTJ_Learn_Shiva"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_LightningBolt",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_ArkKnightKikuIchimonji",
+      "Shout_FFTJ_Learn_KikuIchimonji",
+      "Shout_FFTJ_Learn_ThunderBreath"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_MassCureWounds",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_ClericCura",
+      "Shout_FFTJ_Learn_ClericCuraga",
+      "Shout_FFTJ_Learn_Faerie",
+      "Shout_FFTJ_Learn_Moogle",
+      "Shout_FFTJ_Learn_PrincessCura",
+      "Shout_FFTJ_Learn_PrincessCuraga"
     ]
   },
   {
@@ -1437,7 +1919,21 @@
       "FFTJ_CupOfLife",
       "FFTJ_SONG_LIFE",
       "FFTJ_SONG_LIFE_FX",
+      "Shout_FFTJ_Learn_ArkKnightMurasame",
+      "Shout_FFTJ_Learn_ClericCuraja",
+      "Shout_FFTJ_Learn_CupOfLife",
+      "Shout_FFTJ_Learn_LifesAnthem",
+      "Shout_FFTJ_Learn_Murasame",
+      "Shout_FFTJ_Learn_PrincessCuraja",
       "Shout_FFTJ_LifesAnthem"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_PrayerOfHealing",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Chakra",
+      "Shout_FFTJ_Learn_Purification"
     ]
   },
   {
@@ -1445,7 +1941,9 @@
     "kind": "icon",
     "usedBy": [
       "Projectile_FFTJ_Maelstrom",
-      "Projectile_FFTJ_NetherMaelstrom"
+      "Projectile_FFTJ_NetherMaelstrom",
+      "Shout_FFTJ_Learn_Maelstrom",
+      "Shout_FFTJ_Learn_NetherMaelstrom"
     ]
   },
   {
@@ -1453,7 +1951,20 @@
     "kind": "icon",
     "usedBy": [
       "Projectile_FFTJ_NetherAshura",
-      "Projectile_FFTJ_SkyAshura"
+      "Projectile_FFTJ_SkyAshura",
+      "Shout_FFTJ_Learn_NetherAshura",
+      "Shout_FFTJ_Learn_SkyAshura"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_Shatter",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Bahamut",
+      "Shout_FFTJ_Learn_Cyclops",
+      "Shout_FFTJ_Learn_Odin",
+      "Shout_FFTJ_Learn_Sylph",
+      "Shout_FFTJ_Learn_Titan"
     ]
   },
   {
@@ -1462,7 +1973,9 @@
     "usedBy": [
       "FFTJ_Mastery_Netherseer",
       "Projectile_FFTJ_AdamantineBlade",
-      "Projectile_FFTJ_NetherBlade"
+      "Projectile_FFTJ_NetherBlade",
+      "Shout_FFTJ_Learn_AdamantineBlade",
+      "Shout_FFTJ_Learn_NetherBlade"
     ]
   },
   {
@@ -1472,6 +1985,10 @@
       "FFTJ_Mastery_Skyseer",
       "Projectile_FFTJ_HeavensWrath",
       "Projectile_FFTJ_HellsWrath",
+      "Shout_FFTJ_Learn_HallowedBolt",
+      "Shout_FFTJ_Learn_HeavensWrath",
+      "Shout_FFTJ_Learn_HellsWrath",
+      "Shout_FFTJ_Learn_SwordSaintHallowedBolt",
       "Zone_FFTJ_HallowedBolt"
     ]
   },
@@ -1503,7 +2020,8 @@
     "id": "Spell_Illusion_Invisibility",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Vanish"
+      "FFTJ_Vanish",
+      "Shout_FFTJ_Learn_Vanish"
     ]
   },
   {
@@ -1511,7 +2029,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Job_Mime",
-      "FFTJ_Mastery_Mime"
+      "FFTJ_Mastery_Mime",
+      "Shout_FFTJ_ChangeJob_Mime",
+      "Shout_FFTJ_SecondaryJob_Mime"
     ]
   },
   {
@@ -1522,6 +2042,11 @@
       "FFTJ_DANCE_WITCH_FX",
       "FFTJ_DEAFENED",
       "Shout_FFTJ_BizenOsafune",
+      "Shout_FFTJ_Learn_ArkKnightBizenOsafune",
+      "Shout_FFTJ_Learn_BizenOsafune",
+      "Shout_FFTJ_Learn_Quiescence",
+      "Shout_FFTJ_Learn_SpellbladeSilence",
+      "Shout_FFTJ_Learn_WitchHunt",
       "Shout_FFTJ_WitchHunt",
       "Target_FFTJ_Quiescence",
       "Zone_FFTJ_SpellbladeSilence"
@@ -1582,6 +2107,7 @@
       "FFTJ_SOUL_Redcap_F1",
       "FFTJ_SOUL_Redcap_F3",
       "FFTJ_SOUL_Redcap_F5",
+      "Shout_FFTJ_Learn_SpellbladeDoubt",
       "Shout_FFTJ_Soul_Redcap_F1",
       "Shout_FFTJ_Soul_Redcap_F3",
       "Shout_FFTJ_Soul_Redcap_F5",
@@ -1593,6 +2119,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Soulbind",
+      "Shout_FFTJ_Learn_Condemn",
+      "Shout_FFTJ_Learn_Disbelief",
+      "Shout_FFTJ_Learn_Soulbind",
       "Target_FFTJ_Condemn"
     ]
   },
@@ -1601,6 +2130,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Mastery_DarkKnight",
+      "Shout_FFTJ_Learn_CrushingBlow",
+      "Shout_FFTJ_Learn_Lich",
       "Target_FFTJ_CrushingBlow"
     ]
   },
@@ -1608,6 +2139,8 @@
     "id": "Spell_Necromancy_Blindness",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_SpellbladeBlind",
+      "Shout_FFTJ_Learn_Umbra",
       "Zone_FFTJ_SpellbladeBlind"
     ]
   },
@@ -1628,6 +2161,8 @@
     "id": "Spell_Necromancy_Contagion_SlimyDoom",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Corruption",
+      "Shout_FFTJ_Learn_SpellbladeZombie",
       "Zone_FFTJ_SpellbladeZombie"
     ]
   },
@@ -1650,6 +2185,9 @@
       "FFTJ_SOUL_Gut_F1",
       "FFTJ_SOUL_Gut_F3",
       "FFTJ_SOUL_Gut_F5",
+      "Shout_FFTJ_Learn_Duskblade",
+      "Shout_FFTJ_Learn_InfernalStrike",
+      "Shout_FFTJ_Learn_SwordSaintDuskblade",
       "Shout_FFTJ_Soul_Gut_F1",
       "Shout_FFTJ_Soul_Gut_F3",
       "Shout_FFTJ_Soul_Gut_F5",
@@ -1661,6 +2199,10 @@
     "id": "Spell_Necromancy_RayOfInfeeblement",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Magicksap",
+      "Shout_FFTJ_Learn_Mindsap",
+      "Shout_FFTJ_Learn_Powersap",
+      "Shout_FFTJ_Learn_Speedsap",
       "Zone_FFTJ_Magicksap",
       "Zone_FFTJ_Mindsap",
       "Zone_FFTJ_Powersap",
@@ -1680,12 +2222,32 @@
     ]
   },
   {
+    "id": "Spell_Necromancy_Revivify",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_ClericArise",
+      "Shout_FFTJ_Learn_ClericRaise",
+      "Shout_FFTJ_Learn_PrincessArise",
+      "Shout_FFTJ_Learn_PrincessRaise",
+      "Shout_FFTJ_Learn_Revive"
+    ]
+  },
+  {
     "id": "Spell_Necromancy_VampiricTouch",
     "kind": "icon",
     "usedBy": [
       "FFTJ_Job_DarkKnight",
       "FFTJ_Mastery_ArkKnight",
       "FFTJ_Mastery_FellKnight",
+      "Shout_FFTJ_ChangeJob_DarkKnight",
+      "Shout_FFTJ_LearnFrom_DarkKnight",
+      "Shout_FFTJ_Learn_BloodDrain",
+      "Shout_FFTJ_Learn_Invigoration",
+      "Shout_FFTJ_Learn_SanguineSword",
+      "Shout_FFTJ_Learn_Shadowblade",
+      "Shout_FFTJ_Learn_SpellbladeDrain",
+      "Shout_FFTJ_Learn_SwordSaintShadowblade",
+      "Shout_FFTJ_SecondaryJob_DarkKnight",
       "Target_FFTJ_BloodDrain",
       "Target_FFTJ_SanguineSword",
       "Zone_FFTJ_Shadowblade",
@@ -1696,7 +2258,9 @@
     "id": "Spell_Transmutation_CreateWater",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Waterwalking"
+      "FFTJ_Waterwalking",
+      "Shout_FFTJ_Learn_Torrent",
+      "Shout_FFTJ_Learn_Waterwalking"
     ]
   },
   {
@@ -1745,6 +2309,10 @@
     "id": "Spell_Transmutation_FleshToStone",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_Contortion",
+      "Shout_FFTJ_Learn_FinishingTouch",
+      "Shout_FFTJ_Learn_Induration",
+      "Shout_FFTJ_Learn_SpellbladeBreak",
       "Target_FFTJ_Contortion",
       "Zone_FFTJ_FinishingTouch",
       "Zone_FFTJ_SpellbladeBreak"
@@ -1768,8 +2336,21 @@
     "usedBy": [
       "FFTJ_SWIFTSPELL",
       "FFTJ_Swiftspell",
+      "Shout_FFTJ_Learn_ArkKnightMasamune",
+      "Shout_FFTJ_Learn_DragonsSpeed",
+      "Shout_FFTJ_Learn_Haste",
+      "Shout_FFTJ_Learn_Hasteja",
+      "Shout_FFTJ_Learn_Masamune",
+      "Shout_FFTJ_Learn_Swiftspell",
       "Shout_FFTJ_Masamune",
       "Target_FFTJ_DragonsSpeed"
+    ]
+  },
+  {
+    "id": "Spell_Transmutation_Levitate",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Float"
     ]
   },
   {
@@ -1790,6 +2371,10 @@
     "usedBy": [
       "FFTJ_DANCE_SLOW",
       "FFTJ_DANCE_SLOW_FX",
+      "Shout_FFTJ_Learn_Slow",
+      "Shout_FFTJ_Learn_SlowDance",
+      "Shout_FFTJ_Learn_Slowja",
+      "Shout_FFTJ_Learn_Stall",
       "Shout_FFTJ_SlowDance",
       "Target_FFTJ_Stall"
     ]
@@ -1810,6 +2395,7 @@
     "id": "Spell_Transmutation_WindWalk",
     "kind": "icon",
     "usedBy": [
+      "Shout_FFTJ_Learn_WindSlash",
       "Target_FFTJ_WindSlash"
     ]
   },
@@ -1817,14 +2403,16 @@
     "id": "Spell_WallOfThorns",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_NaturesWrath"
+      "FFTJ_NaturesWrath",
+      "Shout_FFTJ_Learn_NaturesWrath"
     ]
   },
   {
     "id": "Status_BurningLava",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Lavawalking"
+      "FFTJ_Lavawalking",
+      "Shout_FFTJ_Learn_Lavawalking"
     ]
   },
   {
@@ -1862,7 +2450,16 @@
     "id": "Status_Wet",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Swim"
+      "FFTJ_Swim",
+      "Shout_FFTJ_Learn_Swim"
+    ]
+  },
+  {
+    "id": "TadpoleSuperPower_BlackHole",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_Graviga",
+      "Shout_FFTJ_Learn_Gravity"
     ]
   },
   {
@@ -1875,6 +2472,27 @@
       "Shout_FFTJ_Soul_Bulette_B1",
       "Shout_FFTJ_Soul_Bulette_B3",
       "Shout_FFTJ_Soul_Bulette_B5"
+    ]
+  },
+  {
+    "id": "Target_MainHandAttack",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_GameHunterRush",
+      "Shout_FFTJ_Learn_PlunderAccessory",
+      "Shout_FFTJ_Learn_PlunderArmor",
+      "Shout_FFTJ_Learn_PlunderEXP",
+      "Shout_FFTJ_Learn_PlunderGil",
+      "Shout_FFTJ_Learn_PlunderHelm",
+      "Shout_FFTJ_Learn_PlunderShield",
+      "Shout_FFTJ_Learn_PlunderWeapon",
+      "Shout_FFTJ_Learn_StealAccessory",
+      "Shout_FFTJ_Learn_StealArmor",
+      "Shout_FFTJ_Learn_StealEXP",
+      "Shout_FFTJ_Learn_StealGil",
+      "Shout_FFTJ_Learn_StealHelm",
+      "Shout_FFTJ_Learn_StealShield",
+      "Shout_FFTJ_Learn_StealWeapon"
     ]
   },
   {
@@ -1985,7 +2603,8 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_FLOAT",
-      "FFTJ_Levitate"
+      "FFTJ_Levitate",
+      "Shout_FFTJ_Learn_Levitate"
     ]
   },
   {

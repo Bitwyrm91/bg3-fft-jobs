@@ -396,6 +396,11 @@ function Service:OnCastedSpell(caster, spell)
         self:OpenBoard(guid)
         return
     end
+    local menu = self:MenuSpells()[spell]
+    if menu then
+        self:OnMenuSpell(guid, menu)
+        return
+    end
     -- Soul Incarnation is free outside a fight (PHASE2.md item 16): the Wild Shape charge comes back. Only the form
     -- spells (Shout_FFTJ_Soul_<Type>_<B|F><tier>), not the form skills that share the prefix.
     if type(spell) == "string" and spell:find("^Shout_FFTJ_Soul_%a+_[BF][135]$") and not self.Game:IsInCombat(guid) then
@@ -819,6 +824,7 @@ function Service:PollXP()
 end
 
 function Service:StartXPPoll()
+    self.LastMenuJP = nil -- the client gets the JP lines again after a load
     self.PollGeneration = self.PollGeneration + 1
     local generation = self.PollGeneration
     local function tick()
@@ -826,6 +832,7 @@ function Service:StartXPPoll()
             return
         end
         self.Log.Safe("XP poll", self.PollXP, self)
+        self.Log.Safe("menu JP", self.PushMenuJP, self)
         self.WaitFor(math.max(250, self:Cfg().XPPollMs), tick)
     end
     self.WaitFor(math.max(250, self:Cfg().XPPollMs), tick)
@@ -1274,6 +1281,88 @@ function Service:SetDisabled(disabled)
             .. "!fft_enable turns it back on."
     end
     return true, "Job system enabled again"
+end
+
+---------------------------------------------------------------- job menus in BG3's own UI (tools/menu_gen.py)
+
+-- spell id -> {Kind = "Primary"|"Secondary"|"Learn"|"Locked"|"Menu", Id = job or ability id}
+function Service:MenuSpells()
+    if self.MenuIndex == nil then
+        local idx, m = {}, self.Data.JobMenu
+        if m then
+            idx[m.Change] = { Kind = "Menu" }
+            idx[m.Secondary] = { Kind = "Menu" }
+            idx[m.Clear] = { Kind = "Secondary" }
+            for jobId, sp in pairs(m.Primary) do
+                idx[sp] = { Kind = "Primary", Id = jobId }
+                idx[sp .. m.LockedSuffix] = { Kind = "Locked", Id = jobId }
+            end
+            for jobId, sp in pairs(m.SecondaryOf) do
+                idx[sp] = { Kind = "Secondary", Id = jobId }
+                idx[sp .. m.LockedSuffix] = { Kind = "Locked", Id = jobId }
+            end
+            for _, sp in pairs(m.LearnFrom) do
+                idx[sp] = { Kind = "Menu" }
+            end
+            for aid, sp in pairs(m.Learn) do
+                idx[sp] = { Kind = "Learn", Id = aid }
+            end
+        end
+        self.MenuIndex = idx
+    end
+    return self.MenuIndex
+end
+
+-- A menu entry was cast: the same actions as the Job Board buttons; the result (or the refusal) is a notification.
+function Service:OnMenuSpell(guid, entry)
+    local ok, msg
+    if entry.Kind == "Primary" then
+        ok, msg = self:SetPrimary(guid, entry.Id)
+    elseif entry.Kind == "Secondary" then
+        ok, msg = self:SetSecondary(guid, entry.Id)
+    elseif entry.Kind == "Learn" then
+        ok, msg = self:Learn(guid, entry.Id)
+    elseif entry.Kind == "Locked" then
+        ok, msg = false, string.format("%s is still locked (%s)", self.Data.Jobs[entry.Id].Name,
+            Rules.RequirementText(self.Data, entry.Id))
+    else
+        return false
+    end
+    if msg then
+        self:Notify(guid, (ok and "" or "Not done: ") .. msg)
+    end
+    return ok, msg
+end
+
+-- Unspent JP per party member and job with a Learn menu, for the tooltip line the client rewrites
+-- (Client/JobMenu.lua); sent when it changed, checked on the XP poll tick.
+function Service:MenuJP()
+    local m = self.Data.JobMenu
+    local chars, sig = {}, {}
+    for _, guid in ipairs(self.State:Guids()) do
+        local char = self.State:Get(guid)
+        local jp = {}
+        for _, jobId in ipairs(Util.SortedKeys(m.LearnFrom)) do
+            local js = char.Jobs and char.Jobs[jobId]
+            if js and Rules.IsUnlocked(char, jobId) then
+                jp[jobId] = js.Unspent or 0
+                sig[#sig + 1] = guid .. jobId .. tostring(jp[jobId])
+            end
+        end
+        chars[guid] = { Name = char.Name or "", JP = jp }
+    end
+    return { Chars = chars }, table.concat(sig, ";")
+end
+
+function Service:PushMenuJP()
+    if not (self.Ready and self.OnMenuJP and self.Data.JobMenu) then
+        return
+    end
+    local payload, sig = self:MenuJP()
+    if sig ~= self.LastMenuJP then
+        self.LastMenuJP = sig
+        self.OnMenuJP(payload)
+    end
 end
 
 function Service:OpenBoard(guid)

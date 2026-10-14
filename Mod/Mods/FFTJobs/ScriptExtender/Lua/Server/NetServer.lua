@@ -7,6 +7,7 @@ local NetServer = {}
 
 NetServer.RequestChannel = "FFTJ_Board"
 NetServer.OpenChannel = "FFTJ_Open"
+NetServer.MenuJPChannel = "FFTJ_MenuJP" -- unspent JP for the Learn menus' tooltip line (Client/JobMenu.lua)
 
 -- Pure request handler: {Op, Char, Job, Ability, Slot} -> {Ok, Message, View}
 function NetServer.Handle(svc, req)
@@ -49,6 +50,10 @@ function NetServer.Register(svc, net, modUuid, log)
     end
     local request = net.CreateChannel(modUuid, NetServer.RequestChannel)
     local open = net.CreateChannel(modUuid, NetServer.OpenChannel)
+    local menuJP = net.CreateChannel(modUuid, NetServer.MenuJPChannel)
+    svc.OnMenuJP = function(payload)
+        menuJP:Broadcast(payload)
+    end
     request:SetRequestHandler(function(data, user)
         local reply
         log.Safe("Job Board request", function()

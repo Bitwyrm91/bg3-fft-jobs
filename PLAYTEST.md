@@ -1,6 +1,19 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.54**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.55**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.55: jobs and learning from the hotbar (BG3's own menus)
+
+Three new kinds of hotbar icon open a pop-up menu like Wild Shape's (the Job Board still works as before):
+- **Change Job**: one entry per job. Locked regular jobs show as a greyed **???** (hover: what unlocks it);
+  special jobs appear once this character unlocks them. Soul Collector stays on the Job Board for now.
+- **Secondary Skill Set**: the same list, plus **No Secondary**.
+- **Learn: <job>**: one for your job and one for your secondary. Each entry is an ability you haven't learned,
+  with its JP cost in the tooltip and a line "<name> has N <job> JP to spend". Not enough JP or in combat: a
+  notification says why. Learned abilities leave the list.
+
+Please check: do the menus open and show the job emblems / ability icons? Do the child entries also land on the
+hotbar by themselves (they should not)? Does the "has N JP" line update when you switch character or earn JP?
 
 ## New in 1.0.0.54: Caustic Flask, Unstable Flask (Chemist)
 

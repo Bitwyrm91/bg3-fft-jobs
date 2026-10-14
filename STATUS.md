@@ -17,14 +17,14 @@ When the user says "NWP", this is the list:
    unlocks and dual wield, how combo points work in BG3 (an action resource?), what happens to saves with Ninja
    learned.
 4. **Keep improving the Job Board** (Future changes 1 and 10 below: dropdown groups; the progress bar is already gone).
-5. **Soul Collector development PAUSED** (Future changes 4, 5, 8 wait: JP-cost forms, form strength).
+5. **Soul Collector development PAUSED** (Future changes 4, 5, 8 wait: JP-cost forms, form strength). Its job is left out of the hotbar job menus of 1.0.0.55 (user: "anything related to soul devourer should be for NWP").
 6. **NEW BG3 BASE CLASS: the WoW Warlock** (user, 2026-10-13: "NWP - create a WoW warlock as a base class in BG3"; a
    SEPARATE mod, not part of FFTJobs; WoW-style, not D&D, under a new cool name). How BG3 classes are built:
    `C:\Users\berus\GameModding\notes\BG3_CLASS_MODS.md` (from the user's Death Knight / Succubus / Blood Mage mods).
    Spell ideas, numbers and demon models come from the DOS2 Warlock (memory "warlock-mod",
    C:\Users\berus\DOS2Modding\mods\Warlock, tools\warlock-spells.ps1). Ask design questions first (name, subclasses,
    soul shards as a custom resource, spells per level).
-7. **Change jobs and learn abilities through BG3's own UI** (user, 2026-10-13: "I'd love that"). MCM (option A) does NOT
+7. **[BUILT in 1.0.0.55, not seen in game] Change jobs and learn abilities through BG3's own UI** (user, 2026-10-13: "I'd love that"). MCM (option A) does NOT
    do it: it is drawn with the same SE IMGUI as our Job Board (settings only). Native route = spell containers (the
    flyout menus of Wild Shape / Chromatic Orb): a "Change Job" container with one subspell per job (locked ones greyed
    out by RequirementConditions on a hidden FFTJ_JobOpen_<Job> passive, or refused by Lua), the same for "Secondary
@@ -191,6 +191,22 @@ Fell Seal source.
 **1.0.0.53 (2026-10-13, user design, NOT seen in game):** Catalyst (Abilities.MixupCatalystAt 2), Saturation passive (FFTJ_SATURATE_* +1 turn on the shortest other effect, once per throw), Fulminate fire hits everyone (user rule: area effects hit allies unless specified), HitEffect 41de42e1 (Fireball/Alchemist fire). **Intelligence:** the three flasks are granted by hidden passives FFTJ_Int_<Ability> with `UnlockSpell(<spell>,,,,Intelligence)` (slot spell: `AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf`), RangedSpellAttack; Fulminate save DC `CalculateSpellDC(Ability.Intelligence, context.Source)`. Damage dice unchanged (cantrip-style 5/10). Unverified in game: UnlockSpell via an Osiris-added passive, the DC inside a status.
 
 **1.0.0.54 (2026-10-13, user design, NOT seen in game):** Chemist Caustic Flask + Unstable Flask (Effects.Bursts / Effects.FlaskBurst, config Abilities.FlaskBurstRadius 1.5; recharge statuses FFTJ_CAUSTIC_CD/FFTJ_UNSTABLE_CD 2 turns; Intelligence via FFTJ_Int_*). User dropped the Chain Reaction idea (never built); Catalyst + Saturation stay. Chemist: 19 abilities, 4990 JP.
+
+**1.0.0.55 (NWP item 7, 2026-10-14, installed, NOT seen in game): job menus in BG3's own UI.** tools/menu_gen.py
+(called by build.py) writes Spell_FFTJ_Menu.txt (569 entries): containers Shout_FFTJ_ChangeJob / Shout_FFTJ_SecondaryJob
+(+ _None) / Shout_FFTJ_LearnFrom_<Job>, children join by SpellContainerID (the Soul Incarnation pattern; containers list
+nothing). User's answers: regular jobs (no group + WotL) always listed, locked ones as greyed "???" (`_Locked` twin,
+RequirementConditions on the never-granted passive FFTJ_MenuLocked, tooltip = requirement); special jobs only once
+unlocked; Soul Collector left out (NWP); Learn menus for job + secondary only; not enough JP = refused with a
+notification. Rules.AddMenuGrants (in DesiredGrants), Service:MenuSpells / OnMenuSpell (before JP awarding, so menu
+casts earn nothing) / MenuJP + PushMenuJP (XP poll tick, sent on change over channel FFTJ_MenuJP), Client/JobMenu.lua
+rewrites each job's ExtraDescription string (`menu.have.<Job>`) with the controlled character's JP via
+Ext.Loca.UpdateTranslatedString (controlled character = ClientControl component; both unverified, pcall'd).
+Learn entry icons = the ability's icon, resolved through our entries and data/vanilla_icons.json
+(`python tools/menu_gen.py --vanilla-icons` after new vanilla parents). tests/test_menu.lua (5 tests), 184 tests.
+Backup of 1.0.0.54: git tag `backup-1.0.0.54-before-menus`, pak in C:\Users\berus\GameModding\backups.
+Unverified in game: container children staying off the hotbar, the order of entries (alphabetical by spell id, as
+granted), greyed look of the ??? entries, the JP line refresh.
 
 **Next (2026-10-13 evening, after 1.0.0.44; weekly usage 75%, the user stops this mod at ~90%):** the user's playtest of an early game (Act 1): the 1.0.0.22-44 badges, special jobs and the Soul Collector (PLAYTEST.md "New in" sections list what to watch; read the newest SE runtime log first). Then, if usage allows: enemy jobs for Act 1 (first check in game that the AI casts spells added with AddSpell, PHASE2.md item 24), Act 2-3 souls, the 7 extra special jobs (docs/SPECIAL_JOBS.md, last section), the Soul Codex as a real item (custom root template). Helper tools: `tools/jobtool.py`, `tools/release.py`; soul data in `data/souls.json` (`tools/souls_gen.py`).
 

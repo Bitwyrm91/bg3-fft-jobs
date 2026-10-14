@@ -801,7 +801,47 @@ function Rules.DesiredGrants(data, char, cfg)
             end
         end
     end
+    Rules.AddMenuGrants(data, char, desired)
     return desired
+end
+
+-- Job menus in BG3's own UI (tools/menu_gen.py): the Change Job and Secondary Skill Set entries per job (open; a
+-- greyed "???" for a locked regular job; nothing for a locked special job) and the Learn menus of the job and the
+-- secondary, holding the abilities not learned yet (a menu with nothing left to learn is not granted).
+function Rules.AddMenuGrants(data, char, desired)
+    local m = data.JobMenu
+    if not m then
+        return
+    end
+    local spells = desired.Spells
+    spells[m.Change] = true
+    spells[m.Secondary] = true
+    spells[m.Clear] = true
+    for _, jobId in ipairs(m.Jobs) do
+        if Rules.IsUnlocked(char, jobId) then
+            spells[m.Primary[jobId]] = true
+            spells[m.SecondaryOf[jobId]] = true
+        elseif m.Regular[jobId] then
+            spells[m.Primary[jobId] .. m.LockedSuffix] = true
+            spells[m.SecondaryOf[jobId] .. m.LockedSuffix] = true
+        end
+    end
+    local seen = {}
+    for _, jobId in ipairs({ char.Primary or false, char.Secondary or false }) do
+        if jobId and not seen[jobId] and m.LearnFrom[jobId] and Rules.IsUnlocked(char, jobId) then
+            seen[jobId] = true
+            local any = false
+            for _, aid in ipairs(data.AbilitiesByJob[jobId] or {}) do
+                if m.Learn[aid] and not Rules.IsLearned(char, aid) then
+                    spells[m.Learn[aid]] = true
+                    any = true
+                end
+            end
+            if any then
+                spells[m.LearnFrom[jobId]] = true
+            end
+        end
+    end
 end
 
 ---------------------------------------------------------------- lookups from user input

@@ -16,12 +16,13 @@ import sys
 import uuid
 from pathlib import Path
 
+import menu_gen  # job menus in BG3's own UI (spell containers)
 import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.path when this script runs
 
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.54"
+MOD_VERSION = "1.0.0.55"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -358,6 +359,7 @@ def build_lua(jobs_doc, config_doc):
         "PresetOrder": list(config_doc["presets"].keys()),
         "DefaultPreset": config_doc["defaultPreset"],
         "ConfigHelp": config_doc.get("help", {}),
+        "JobMenu": menu_gen.lua_data(jobs_doc, handle_for),
     }
     souls_doc = souls_gen.load()
     if souls_doc:
@@ -399,6 +401,7 @@ def string_table(jobs_doc, strings_doc):
                                                         f"{j['name']}; kept after changing jobs.")
     for k, v in strings_doc["strings"].items():
         table[f"str.{k}"] = v
+    table.update(menu_gen.strings(jobs_doc))
     souls_doc = souls_gen.load()
     if souls_doc:
         table.update(souls_gen.strings(souls_doc))
@@ -766,9 +769,18 @@ def build_stats(jobs_doc, strings_doc):
         for name, out in souls_gen.stats(souls_doc, soul_handle).items():
             outputs[STATS_OUT / name] = out
             entries += parse_stats(out, name)
+    def menu_handle(key):
+        if key not in table:
+            raise BuildError(f"menus: unknown string {key}")
+        used.add(key)
+        return handle_for(key) + ";1"
+    menu_text, menu_keys = menu_gen.stats(jobs_doc, entries, menu_handle)
+    outputs[STATS_OUT / menu_gen.SPELL_FILE] = menu_text
+    entries += parse_stats(menu_text, menu_gen.SPELL_FILE)
     art = set(art_keys())
     if art:
         keys = icon_keys(jobs_doc, entries)
+        keys.update(menu_keys)
         entries = []
         for path in list(outputs):
             outputs[path] = inject_icons(outputs[path], keys, art)
