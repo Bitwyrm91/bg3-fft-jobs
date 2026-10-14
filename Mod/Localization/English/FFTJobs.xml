@@ -638,7 +638,7 @@
   <content contentuid="h20c2d3adgc654g58abgbb52gb5aa8e00b008" version="1">Omnislash</content>
   <content contentuid="h4ce1e541gae91g5abag9d00gd485952aca38" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2.</content>
   <content contentuid="h767a6ba2g34a0g5ab4ga421g9217d79c3ca7" version="1">Parry</content>
-  <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion.</content>
+  <content contentuid="hce2ab33fg46ddg5458ga9dcg2a37aa1cd87a" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion. Costs a level 1 spell slot.</content>
   <content contentuid="h34821d13ge6d4g54e8gb02eg62231b581eef" version="1">Echo: Phoenix Down</content>
   <content contentuid="h0d97b2aegc290g5cdbgb478g11d37f703126" version="1">Phoenix Down</content>
   <content contentuid="h914620adgc9d0g50cdgb020gd41ab2528fae" version="1">Melee weapon attack: your weapon's damage, and one of the enemy's accessories goes into your inventory. Story items can't be taken.</content>
@@ -1474,7 +1474,7 @@
   <content contentuid="h132f6f4fg8955g50c0gb56cgb3bed3bddc7c" version="1">Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 900 JP.</content>
   <content contentuid="h92156b0bg1a0cg5294gbf46g1e5be1fd851c" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage twice over + 6d8 slashing. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 1200 JP.</content>
   <content contentuid="hbda087d8g3316g5730g81b6g0cece795c0e8" version="1">Slashing, piercing and bludgeoning damage you take is reduced by 2. Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
-  <content contentuid="hd0d691c6ga562g5285ga7e4g5de8984ab8ec" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion. Action: usable while this is your job or secondary skill set. Cost: 90 JP.</content>
+  <content contentuid="hd0d691c6ga562g5285ga7e4g5de8984ab8ec" version="1">Revive a dead ally with 1 HP. Once per short rest. Thrown like Potion. Costs a level 1 spell slot. Action: usable while this is your job or secondary skill set. Cost: 90 JP.</content>
   <content contentuid="hc6279e23gf241g5930gb19cgcb372ed76562" version="1">Melee weapon attack: your weapon's damage, and one of the enemy's accessories goes into your inventory. Story items can't be taken. Action: usable while this is your job or secondary skill set. Cost: 600 JP.</content>
   <content contentuid="h99f68b17ga854g581cgb7c5g41df057cc911" version="1">Melee weapon attack: your weapon's damage, and the enemy's body armour goes into your inventory. Story items can't be taken. Action: usable while this is your job or secondary skill set. Cost: 550 JP.</content>
   <content contentuid="h5d7cf51fg9f4dg5809g842bgf0181e0265fb" version="1">Melee weapon attack: your weapon's damage, and you gain experience (10 times the creature's level; once per creature). Action: usable while this is your job or secondary skill set. Cost: 350 JP.</content>

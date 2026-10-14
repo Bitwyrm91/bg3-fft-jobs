@@ -1,6 +1,13 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.56**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.57**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.57: Phoenix Down costs a spell slot, throw animations
+
+- **Phoenix Down** now also costs a level 1 spell slot (still once per short rest). Characters without spell slots
+  can't use it.
+- **Throw Stone, Chemical Mixup and the flasks** (Fulminate, Caustic, Unstable) use the normal throw animation.
+  They borrowed a goblin's rock throw, which has no animation for player characters.
 
 ## New in 1.0.0.56: Poison and Acid hurt, skills scale with your best stat
 

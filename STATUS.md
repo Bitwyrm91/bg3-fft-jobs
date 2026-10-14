@@ -229,6 +229,11 @@ Fell Seal source.
 **1.0.0.55 (NWP item 7, 2026-10-14, installed, NOT seen in game): job menus in BG3's own UI.** tools/menu_gen.py
 
 **1.0.0.56 (2026-10-14, installed only with BG3 closed, NOT seen in game): user's "changes to make NOW" after the
+
+**1.0.0.57 (2026-10-14, not seen in game):** Phoenix Down = Level 1 + `SpellSlotsGroup:1:1:1` on top of its
+OncePerShortRest (user). No throw animation (user's MP playtest): Throw Stone and Chemical Mixup used
+Projectile_FOR_GnomeGoblin_ThrowRock, whose SpellAnimation fills one slot with a goblin-only animation, so player
+characters showed none; both now carry vanilla Throw_Throw's SpellAnimation (the flasks inherit it from Mixup).
 first multiplayer playtest of 1.0.0.55.** (1) Poisoned/Acid tick 1d4 (user: whole game) via Lua, not a stats
 override: Effects.OnTurnStarted deals damage to any creature with the exact status POISONED/ACID at its turn start
 (vanilla children like POTION_OF_POISON / CAMP_DAISY_SICK would inherit a stats TickFunctors); config
