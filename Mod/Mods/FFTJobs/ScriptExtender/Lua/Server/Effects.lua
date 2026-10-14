@@ -80,6 +80,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         Effects.GravityHit(svc, source, target, Effects.Gravity[status])
     elseif status == "FFTJ_CHEM_MIXUP" then
         Effects.ChemicalMixup(svc, source, target)
+    elseif Effects.Bursts[status] then
+        Effects.FlaskBurst(svc, source, target, Effects.Bursts[status])
     elseif status == "FFTJ_FULMINATE" then
         Effects.Fulminate(svc, source, target)
     elseif status == "FFTJ_CHEM_BURNS" then
@@ -322,6 +324,55 @@ function Effects.ChemicalBurns(svc, caster, target)
     svc.Log.Info(string.format("Chemical Burns: %d effects on %s, %d damage, spread to %d", n, name(svc, target),
         total, spread))
     return n, total, spread
+end
+
+-- Caustic Flask / Unstable Flask (Chemist, custom cantrips): a burst around the target (allies too). Everyone caught
+-- gets the flask's effect (not applied again if they already have it) and its damage; anyone who already had `If`
+-- also gets `Adds`. Burning's own on-apply 1d4 fire counts as the first damage die.
+Effects.Bursts = {
+    FFTJ_CAUSTIC = { Name = "Caustic Flask", Type = "Acid", Status = "ACID", If = "BLEEDING", Adds = "POISONED" },
+    FFTJ_UNSTABLE = { Name = "Unstable Flask", Type = "Fire", Status = "BURNING", If = "POISONED", Adds = "ACID" },
+}
+
+local function hasNamed(has, status)
+    for i, a in ipairs(Effects.Mixup) do
+        if a.Status == status then
+            return has[i] ~= nil
+        end
+    end
+    return false
+end
+
+function Effects.FlaskBurst(svc, caster, target, def)
+    local cfg = svc:Cfg().Abilities
+    local radius, turns, dice = cfg.FlaskBurstRadius or 1.5, cfg.MixupStatusTurns or 2, mixupDice(svc, caster)
+    local hit = 0
+    for _, other in ipairs(svc.Game:AllCharacters()) do
+        local d = other == target and 0 or svc.Game:Distance(target, other)
+        if d and d <= radius and not svc.Game:IsDead(other) then
+            local has, n = afflictions(svc, other)
+            local already = hasNamed(has, def.Status)
+            local own = (def.Status == "BURNING" and not already) and dice - 1 or dice
+            if own > 0 then
+                svc.Game:ApplyDamage(other, rollDamage(svc, own), def.Type, caster)
+            end
+            local added = false
+            if not already then
+                afflict(svc, other, def.Status, turns, caster)
+                added = true
+            end
+            if hasNamed(has, def.If) and not hasNamed(has, def.Adds) then
+                afflict(svc, other, def.Adds, turns, caster)
+                added = true
+            end
+            if added and n > 0 then
+                saturate(svc, caster, other, has)
+            end
+            hit = hit + 1
+        end
+    end
+    svc.Log.Info(string.format("%s on %s: %d caught", def.Name, name(svc, target), hit))
+    return hit
 end
 
 -- Fulminate Flask (Chemist, custom): a tiny burst around the target; a Burning target makes it larger and sets

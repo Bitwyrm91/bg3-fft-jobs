@@ -111,6 +111,8 @@
   <content contentuid="h7fa0a2a3g15d6g5d3dg874bga064bbde3d05" version="1">You and allies within 6 m gain Reflect for 3 turns. Once per long rest.</content>
   <content contentuid="hf1f9ff33g2a11g5ec3gbc83geaa65a0008aa" version="1">Echo: Carbuncle</content>
   <content contentuid="h16398070g0d82g5a7bgb834g66994bc0ce29" version="1">Carbuncle</content>
+  <content contentuid="h51539f75gc00dg5e7cg96b5g40faa04d8f02" version="1">Cantrip. Throw a flask of acid at a creature up to 18 m away (spell attack with Intelligence). On a hit it splashes everyone within 1.5 m: 1d4 acid (2d4 at level 5, 3d4 at level 10) and Acid for 2 turns. Anyone already Bleeding is also Poisoned: the acid seeps into the open wounds. Recharges in 2 turns.</content>
+  <content contentuid="hacc9ffbfgb618g54acgae9dgb9e4788df720" version="1">Caustic Flask</content>
   <content contentuid="h9f4a3824gf49bg5b4dga6c0g37d3b1f71c07" version="1">Every foe within 12 m makes a Wisdom save or is Stopped, Immobilized and Disabled for 1 turn (bosses shrug off Stop). Once per long rest.</content>
   <content contentuid="h405c6ea3g5391g5efbga8dcg5448bc855631" version="1">Echo: Celestial Stasis</content>
   <content contentuid="h1a1e37dag74e6g52beg8646gf0d80b6d0c27" version="1">Celestial Stasis</content>
@@ -978,6 +980,8 @@
   <content contentuid="h9f071ff7g22f1g59ecgb88bga3824584e187" version="1">Costs a quarter of your maximum hit points (never your last one). Everyone else within 5 m of you, allies too, takes 8d8 necrotic damage and is Slowed for 2 turns (Constitution save for half damage and no Slow). Once per long rest.</content>
   <content contentuid="he30e30fcg0d8ag5207g9675g47b86a64f13f" version="1">Echo: Unholy Sacrifice</content>
   <content contentuid="h6a954544g9f39g5d43g82bagc778205529b8" version="1">Unholy Sacrifice</content>
+  <content contentuid="hdd4dddd2g8ba9g51a3gb66cg6e5cc3c72091" version="1">Cantrip. Throw a volatile flask at a creature up to 18 m away (spell attack with Intelligence). On a hit it explodes over everyone within 1.5 m: they start Burning for 2 turns (catching fire deals its usual 1d4 fire; 2d4 in all at level 5, 3d4 at level 10). Anyone already Poisoned also gets Acid: the heat boils the poison. Recharges in 2 turns.</content>
+  <content contentuid="hc209f18age35ag5c74g8a0agd28e736fb7f0" version="1">Unstable Flask</content>
   <content contentuid="h529057b6gc9d4g5653gb7acgcde2982263fa" version="1">When a weapon attack hits you, you turn invisible for up to 2 turns (it ends when you attack or cast). Once per combat.</content>
   <content contentuid="h81695ff6ge8c2g5291g9ca4gb0ae62d060ae" version="1">Vanish</content>
   <content contentuid="h590572fag1a39g5362g8f90g7c517f48468c" version="1">Your weapon attacks deal an extra 1d6 necrotic damage, but you have -2 AC.</content>

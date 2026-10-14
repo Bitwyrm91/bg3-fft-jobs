@@ -685,7 +685,9 @@
     "id": "Item_GRN_Bomb_A",
     "kind": "icon",
     "usedBy": [
-      "Projectile_FFTJ_ThrowBombs"
+      "FFTJ_Int_UnstableFlask",
+      "Projectile_FFTJ_ThrowBombs",
+      "Projectile_FFTJ_UnstableFlask"
     ]
   },
   {
@@ -709,6 +711,14 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Saturation"
+    ]
+  },
+  {
+    "id": "Item_LOOT_Alchemy_Myconid_Grenade_Earth",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Int_CausticFlask",
+      "Projectile_FFTJ_CausticFlask"
     ]
   },
   {

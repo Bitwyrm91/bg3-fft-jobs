@@ -214,6 +214,41 @@ function S.fulminate_flask_bursts_tiny_and_grows_on_a_burning_target(w, T)
     T.truthy(w.chars[T.TAV].statuses.BURNING, "and catches fire like everyone in it")
 end
 
+function S.caustic_flask_splashes_acid_and_poisons_open_wounds(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 1
+    w.chars[T.TAV].x = 5
+    local gob = enemy(w)
+    local near = w.newChar("88888888-8888-4888-8888-888888888888", { name = "Goblin 2", party = false, x = 1.2, hp = 20, maxHp = 20 })
+    local far = w.newChar("99999999-9999-4999-8999-999999999999", { name = "Goblin 3", party = false, x = 3, hp = 20, maxHp = 20 })
+    afflicted(w, GOB, { BLEEDING = 2 })
+    applied(w, GOB, "FFTJ_CAUSTIC", T.TAV)
+    T.truthy(gob.statuses.ACID)
+    T.truthy(gob.statuses.POISONED, "bleeding: the acid seeps in")
+    T.eq(gob.hp, 36, "1d4 acid")
+    T.truthy(near.statuses.ACID, "1.2 m is in the splash")
+    T.eq(near.statuses.POISONED, nil, "not bleeding: acid only")
+    T.eq(far.statuses.ACID, nil)
+end
+
+function S.unstable_flask_burns_and_boils_poison_into_acid(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 5
+    w.chars[T.TAV].x = 5
+    local gob = enemy(w)
+    local near = w.newChar("88888888-8888-4888-8888-888888888888", { name = "Goblin 2", party = false, x = 1, hp = 20, maxHp = 20 })
+    afflicted(w, GOB, { POISONED = 2 })
+    afflicted(w, "88888888-8888-4888-8888-888888888888", { BURNING = 1 })
+    applied(w, GOB, "FFTJ_UNSTABLE", T.TAV)
+    T.truthy(gob.statuses.BURNING)
+    T.truthy(gob.statuses.ACID, "poisoned: the heat boils it")
+    T.eq(gob.hp, 36, "level 5 = 2 dice; catching fire is the first, the flask adds one")
+    T.eq(near.statusTurns.BURNING, 1, "already burning: not applied again")
+    T.eq(near.hp, 12, "so the flask deals both dice itself")
+end
+
 function S.gravity_takes_a_share_of_max_hp(w, T)
     T.boot(w)
     local gob = enemy(w)

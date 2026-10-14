@@ -800,3 +800,23 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 data "OnApplyFunctors" "SetStatusDuration(BLEEDING,1,Add)"
+
+new entry "FFTJ_CAUSTIC"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_CAUSTIC_CD"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_UNSTABLE"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
+new entry "FFTJ_UNSTABLE_CD"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"

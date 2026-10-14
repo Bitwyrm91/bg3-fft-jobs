@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.53**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.54**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.54: Caustic Flask, Unstable Flask (Chemist)
+
+- Cantrips, 200 JP each, 2-turn recharge, spell attack with Intelligence, 1.5 m burst (allies too), 1d4 scaling at 5/10.
+- **Caustic Flask:** Acid; anyone already Bleeding also gets Poisoned.
+- **Unstable Flask:** Burning (its own 1d4 counts as the first die); anyone already Poisoned also gets Acid. Not applied again to those already burning.
 
 ## New in 1.0.0.53: Chemist stacking + Intelligence
 
