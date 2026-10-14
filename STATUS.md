@@ -112,7 +112,7 @@ Fell Seal source.
     potions, White Magicks Cure line, Cleric/Princess copies, Salve, Chakra, etc.) against BG3 potions/Cure Wounds.
 7. **GitHub:** pushed up to 1.0.0.60 on 2026-10-14 (user: "publish zip"; earlier 1.0.0.55 + tag backup-1.0.0.54-before-menus) at the user's request
    ("publish everything to github"); no GitHub release. Otherwise still no push / release until the user says so
-   (NWP item 8 may change that). The repo is private. Tester zip: Documents\1Claude\FFTJobs-1.0.0.55-test.zip.
+   (NWP item 8 may change that). The repo is private. Tester zip: Documents\1Claude\FFTJobs-1.0.0.60-test.zip.
 
 **State (2026-10-12, local run):** Part B is done up to the in-game playtest. Built, installed and enabled on the user's PC; at the main menu the mod loads, its client script runs without errors and all 100 stats entries are in the game. **Not seen in an actual game yet** (no save loaded, nothing cast): the server side, JP, the Job Board, every ability. Next: the user's playtest (`PLAYTEST.md`), then fix what they report, then the other 14 jobs.
 
