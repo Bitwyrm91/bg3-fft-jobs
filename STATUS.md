@@ -12,7 +12,8 @@ pending locally except the in-game checks listed in PLAYTEST.md (1.0.0.55-60).
 Mender skills, JP above the head), pushed; vanilla checks clean; **1.0.0.71 PACKAGED AND INSTALLED** on the user's PC
 (BG3 closed; Mods\FFTJobs.pak hash = build; both modsettings.lsx entries at 1.0.0.71; backup of the 1.0.0.61 pak in
 C:\Users\berus\GameModding\backups). Nothing of 1.0.0.62-71 seen in game yet (PLAYTEST.md lists what to check).
-`main` is still 1.0.0.61 (never merged). Pacing self-test fails since 1.0.0.70 (7 of 20, target 8): user accepted.
+`main` = this branch (fast-forwarded from 1.0.0.61 and pushed on the user's word, 2026-10-14). Pacing self-test fails
+since 1.0.0.70 (7 of 20, target 8): user accepted.
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
 
