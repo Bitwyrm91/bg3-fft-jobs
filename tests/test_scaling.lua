@@ -73,6 +73,7 @@ function S.job_skills_add_the_highest_modifier_items_stay_flat(w, T, Mocks)
     T.contains(entry(text, "Target_FFTJ_Potion"), 'RegainHitPoints(1d4+2)"', "Chemist items: flat")
     T.falsy(entry(text, "Target_FFTJ_HiPotion"):find("max(", 1, true), "Chemist items: flat")
     T.falsy(entry(text, "Target_FFTJ_Rush"):find(best, 1, true), "weapon damage keeps the weapon's ability")
+    T.contains(entry(text, "Projectile_FFTJ_ChemicalMixup"), "IsSpell", "flasks take Metamagic (Twinned)")
 end
 
 return S

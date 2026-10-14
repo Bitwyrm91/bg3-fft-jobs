@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.58**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.59**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.59: Metamagic on Chemist flasks
+
+- Chemical Mixup, Caustic, Unstable, Fulminate Flask and Chemical Burns count as spells now, so Sorcerer Metamagic
+  works on them: Twinned (a second target), Quickened, Distant, Subtle. Heightened/Careful/Extended probably not
+  (their saves and effects run in the mod's script). Side effect: Counterspell and anti-magic can affect them.
 
 ## New in 1.0.0.58: Chemist casts with higher spell slots
 
