@@ -24,7 +24,14 @@ When the user says "NWP", this is the list:
    Spell ideas, numbers and demon models come from the DOS2 Warlock (memory "warlock-mod",
    C:\Users\berus\DOS2Modding\mods\Warlock, tools\warlock-spells.ps1). Ask design questions first (name, subclasses,
    soul shards as a custom resource, spells per level).
-7. **Job system tied into BG3 levels/classes** (brainstorm of 2026-10-13 in the chat: options A-D; user to pick).
+7. **Change jobs and learn abilities through BG3's own UI** (user, 2026-10-13: "I'd love that"). MCM (option A) does NOT
+   do it: it is drawn with the same SE IMGUI as our Job Board (settings only). Native route = spell containers (the
+   flyout menus of Wild Shape / Chromatic Orb): a "Change Job" container with one subspell per job (locked ones greyed
+   out by RequirementConditions on a hidden FFTJ_JobOpen_<Job> passive, or refused by Lua), the same for "Secondary
+   Skill Set", and per-job "Learn" containers whose subspells are the abilities (JP cost in the tooltip; dynamic text
+   via `Ext.Loca.UpdateTranslatedString`). Casting = Service:SetPrimary / Learn. Optional extras: level-up screen
+   picks (Progression selectors added at runtime) and Job Mastery feats. The Job Board stays for overview at first.
+   User's budget for it: ~5% weekly; weekly was 89% when asked, so it waits for a fresh session after the reset.
 Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
 Fell Seal source.
 
