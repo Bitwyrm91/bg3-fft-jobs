@@ -568,4 +568,24 @@ function S.onion_knight_grows_with_job_level_and_rests_its_slots(w, T)
     T.truthy(d.Passives.FFTJ_Mastery_OnionKnight, "the mastery perk stays")
 end
 
+-- NWP 21: Brawler's extra die follows the character level; Martial Arts and its bonus strike are Monk innates.
+function S.brawler_die_grows_with_character_level(w, T)
+    local Rules, Data = setup()
+    local cfg = T.cfg()
+    local char = Rules.NewChar(Data, cfg, "Squire")
+    char.Primary = "Monk"
+    local d = Rules.DesiredGrants(Data, char)
+    T.truthy(d.Passives.FFTJ_Brawler, "level 1: 1d6")
+    T.truthy(d.Passives.FFTJ_MartialArts, "Martial Arts is innate")
+    T.truthy(d.Spells.Target_FFTJ_MartialStrike, "the bonus strike is granted")
+    char.Level = 5
+    d = Rules.DesiredGrants(Data, char)
+    T.falsy(d.Passives.FFTJ_Brawler, "replaced at 5")
+    T.truthy(d.Passives.FFTJ_Brawler_5, "level 5: 1d8")
+    char.Level = 9
+    d = Rules.DesiredGrants(Data, char)
+    T.truthy(d.Passives.FFTJ_Brawler_9, "level 9: 1d10")
+    T.falsy(d.Passives.FFTJ_Brawler_5, "only the highest tier")
+end
+
 return S

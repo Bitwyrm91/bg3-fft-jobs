@@ -370,6 +370,17 @@ to one character per player (Game:UserOf), the host alone when no player is know
 channel sentTo, world.notified. tests/test_multiplayer.lua (7), 208 tests. Unverified in game: SendToClient with a
 character GUID, GetReservedUserID, ClientControl on a client in MP.
 
+**1.0.0.64 (2026-10-14, cloud session, NOT packaged or seen in game): NWP 21, Monk martial arts.** Brawler tiers
+`FFTJ_Brawler_5` (1d8) / `FFTJ_Brawler_9` (1d10) chosen by `Rules.LevelTiers` / `Rules.ApplyLevelTiers` from
+`char.Level` (kept by Service:Reconcile from Game:CharLevel; re-reconciled 1 s after a level-up when it changed).
+New Monk innate `FFTJ_MartialArts`: Dex-over-Str difference added to unarmed attack and damage rolls
+(`IF(IsMeleeUnarmedAttack() and not HasPassive('MartialArts_DextrousAttacks')):RollBonus(Attack,max(0,Dex-Str))` +
+`DamageBonus(...)`, no armour rule) and OnAttack `IsMeleeUnarmedAttack() and not SpellId('Target_FFTJ_MartialStrike')`
+-> FFTJ_MARTIAL_ARTS 1 turn, which opens innate `Target_FFTJ_MartialStrike` (Target_UnarmedAttack, BonusActionPoint,
+RequirementConditions HasStatus). Test `brawler_die_grows_with_character_level`. **Check locally:** validate_vanilla /
+check_refs (the vanilla passive name `MartialArts_DextrousAttacks` is a guess, used only to skip the bonus for BG3
+Monks; RollBonus with a max() formula). Unverified in game: all of it.
+
 **Next (2026-10-13 evening, after 1.0.0.44; weekly usage 75%, the user stops this mod at ~90%):** the user's playtest of an early game (Act 1): the 1.0.0.22-44 badges, special jobs and the Soul Collector (PLAYTEST.md "New in" sections list what to watch; read the newest SE runtime log first). Then, if usage allows: enemy jobs for Act 1 (first check in game that the AI casts spells added with AddSpell, PHASE2.md item 24), Act 2-3 souls, the 7 extra special jobs (docs/SPECIAL_JOBS.md, last section), the Soul Codex as a real item (custom root template). Helper tools: `tools/jobtool.py`, `tools/release.py`; soul data in `data/souls.json` (`tools/souls_gen.py`).
 
 **Special jobs: proposal written, NOT built (2026-10-13, scheduled run): `docs/SPECIAL_JOBS.md`** = the boss → badge table for the 17 special jobs (checked against the TIC tables `Job-en` / `JobCommand-en`: TIC calls Worker 8's job Automaton (WotL Steel Giant); Sky Pirate and Game Hunter are WotL only), proposed job levels, 7 more TIC special jobs to choose from, 5 open questions. The user approves before building.

@@ -162,6 +162,11 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 
+new entry "FFTJ_MARTIAL_ARTS"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
 new entry "FFTJ_DOOM"
 type "StatusData"
 using "LOW_BHAALTEMPLE_MARKEDFORMURDER"

@@ -5006,6 +5006,7 @@
     "id": "Target_UnarmedAttack",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_MartialStrike",
       "Target_FFTJ_Soul_AbsoluteSmite",
       "Target_FFTJ_Soul_AdhesiveBite",
       "Target_FFTJ_Soul_Bloodfeast",

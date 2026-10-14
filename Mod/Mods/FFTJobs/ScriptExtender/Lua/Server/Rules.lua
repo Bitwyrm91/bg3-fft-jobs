@@ -801,9 +801,34 @@ function Rules.DesiredGrants(data, char, cfg)
             end
         end
     end
+    Rules.ApplyLevelTiers(char, desired)
     Rules.AddMenuGrants(data, char, desired)
     Rules.StatCastGrants(data, char, cfg, desired)
     return desired
+end
+
+-- Passives that grow with the character level (NWP 21: Brawler's extra die 1d6, 1d8 at 5, 1d10 at 9): the highest
+-- tier reached replaces the base passive. char.Level is kept by Service:Reconcile (nil counts as level 1).
+Rules.LevelTiers = {
+    FFTJ_Brawler = { { Level = 5, Id = "FFTJ_Brawler_5" }, { Level = 9, Id = "FFTJ_Brawler_9" } },
+}
+
+function Rules.ApplyLevelTiers(char, desired)
+    local lvl = tonumber(char.Level) or 1
+    for base, tiers in pairs(Rules.LevelTiers) do
+        if desired.Passives[base] then
+            local id = base
+            for _, t in ipairs(tiers) do
+                if lvl >= t.Level then
+                    id = t.Id
+                end
+            end
+            if id ~= base then
+                desired.Passives[base] = nil
+                desired.Passives[id] = true
+            end
+        end
+    end
 end
 
 ---------------------------------------------------------------- the highest ability (NWP 18)

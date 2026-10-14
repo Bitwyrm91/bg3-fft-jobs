@@ -297,6 +297,12 @@ function Service:Reconcile(guid, repair)
     if char.BestStat == nil then
         self:UpdateBestStat(guid, char, "first look")
     end
+    -- the character level picks passive tiers (Rules.LevelTiers)
+    local lvl = self.Game:CharLevel(guid)
+    if type(lvl) == "number" and lvl ~= char.Level then
+        char.Level = lvl
+        self.State:MarkDirty()
+    end
     local desired
     if self:IsDisabled() then
         desired = { Spells = {}, Passives = {}, Statuses = {} }
@@ -981,7 +987,11 @@ function Service:OnLeveledUp(character)
     self:Reconcile(guid, true)
     self.WaitFor(Service.BEST_STAT_MS, function()
         local char = self.State:Get(guid)
-        if char and self:UpdateBestStat(guid, char, "level up") then
+        if not char then
+            return
+        end
+        local relevel = self.Game:CharLevel(guid) ~= char.Level
+        if self:UpdateBestStat(guid, char, "level up") or relevel then
             self:Reconcile(guid, false)
         end
     end)

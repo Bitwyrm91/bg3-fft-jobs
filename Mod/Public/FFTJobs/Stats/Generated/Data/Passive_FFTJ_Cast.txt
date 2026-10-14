@@ -8578,6 +8578,36 @@ type "PassiveData"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Target_FFTJ_SoulBrand,,,,Charisma)"
 
+new entry "FFTJ_Cast_Str_Target_FFTJ_MartialStrike"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_MartialStrike,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Target_FFTJ_MartialStrike"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_MartialStrike,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Target_FFTJ_MartialStrike"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_MartialStrike,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Target_FFTJ_MartialStrike"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_MartialStrike,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Target_FFTJ_MartialStrike"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_MartialStrike,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Target_FFTJ_MartialStrike"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_MartialStrike,,,,Charisma)"
+
 new entry "FFTJ_Cast_Str_Shout_FFTJ_Focus_Echo"
 type "PassiveData"
 data "Properties" "IsHidden"

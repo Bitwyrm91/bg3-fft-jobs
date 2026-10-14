@@ -116,7 +116,7 @@
   <content contentuid="haeb17162g34f0g585fg8e86g0739accb791d" version="1">Braver</content>
   <content contentuid="h19b50a7fg9a32g5dd5gaf00gf0a862d4b25b" version="1">When a weapon attack hits you, you get +1 to attack rolls for 10 turns.</content>
   <content contentuid="hb05081c1g37c9g5d25gbab3gab5e5f187e95" version="1">Bravery Surge</content>
-  <content contentuid="h71bbbd65gebe5g52eegba2eg32d2622e81a7" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage. Always on while Monk is your job.</content>
+  <content contentuid="h71bbbd65gebe5g52eegba2eg32d2622e81a7" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage (1d8 from character level 5, 1d10 from level 9). Always on while Monk is your job.</content>
   <content contentuid="h3a07239cgf1a1g5492g92a5g3ae451b18faf" version="1">Brawler</content>
   <content contentuid="h7fa0a2a3g15d6g5d3dg874bga064bbde3d05" version="1">You and allies within 6 m gain Reflect for 3 turns. Once per long rest.</content>
   <content contentuid="hf1f9ff33g2a11g5ec3gbc83geaa65a0008aa" version="1">Echo: Carbuncle</content>
@@ -1160,7 +1160,7 @@
   <content contentuid="hf69ff0e9g8091g5e6fg8141g4c755eee722b" version="1">Job: Mime</content>
   <content contentuid="h33504989gedbfg5244gac96g0a89c9731163" version="1">Unarmed strikes deal 1d4 more damage. Earned by mastering Monk; kept after changing jobs.</content>
   <content contentuid="h3b04dddfg8affg5790gbb33g0ce4ba74368b" version="1">Monk Mastery</content>
-  <content contentuid="h105a60a9g54abg5460gb839g66224908a2f5" version="1">Fights with bare fists (Brawler is always on); martial arts, healing and revival. Equipment: light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h105a60a9g54abg5460gb839g66224908a2f5" version="1">Fights with bare fists. Always on: Brawler (stronger unarmed strikes) and Martial Arts (unarmed hits use the higher of Strength and Dexterity; after an unarmed attack, a bonus-action unarmed strike). Martial arts, healing and revival. Equipment: light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="h94ac4639g69a8g5f33g8c4agbd0051ca5137" version="1">Job: Monk</content>
   <content contentuid="h09168a44g7ad3g57f5gbac6gff705d19dcfc" version="1">+1 to your spell save DC. Earned by mastering Mystic; kept after changing jobs.</content>
   <content contentuid="h725dd9d1g0434g596egb017g56997cab1387" version="1">Mystic Mastery</content>
@@ -1285,7 +1285,7 @@
   <content contentuid="hc0bed5c0g90abg504dg97b0gf17092bde622" version="1">When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest. Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
   <content contentuid="hade59e18gdbdbg55b3ga1d1gd39ca33e1877" version="1">A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 force. At will. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h3ab82419gc82bg5d65g886eg2acbad3d044a" version="1">When a weapon attack hits you, you get +1 to attack rolls for 10 turns. Reaction: equip it in the reaction slot (Job Board). Cost: 700 JP.</content>
-  <content contentuid="he5295b0egf3deg53b8g94ffg97ffbf6a18d6" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage. Always on while Monk is your job. Passive: equip it in a passive slot (Job Board). Cost: 200 JP.</content>
+  <content contentuid="he5295b0egf3deg53b8g94ffg97ffbf6a18d6" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage (1d8 from character level 5, 1d10 from level 9). Always on while Monk is your job. Passive: equip it in a passive slot (Job Board). Cost: 200 JP.</content>
   <content contentuid="h94570e00g2811g587bgb0b6g0822e2cb8908" version="1">You and allies within 6 m gain Reflect for 3 turns. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 350 JP.</content>
   <content contentuid="h19cbbd15gdbf6g5e36gbe2dgeee4b37d2e42" version="1">Cantrip, plus a spell-slot version (pick level 1-6 when you cast it) that rolls that many damage dice. Throw a flask of acid at a creature up to 18 m away (spell attack with your highest ability). On a hit it splashes everyone within 1.5 m: 1d4 acid (2d4 at level 5, 3d4 at level 10) and Acid for 2 turns. Anyone already Bleeding is also Poisoned: the acid seeps into the open wounds. Recharges in 2 turns. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
   <content contentuid="head53b22gdf6eg5ecega6faga3397ea5ab31" version="1">Every foe within 12 m makes a Wisdom save or is Stopped, Immobilized and Disabled for 1 turn (bosses shrug off Stop). Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 0 JP.</content>
@@ -1726,7 +1726,7 @@
   <content contentuid="ha70c049bg8ecbg59bbga1c8g68f2ae7cb292" version="1">Machinist</content>
   <content contentuid="hedd016d3g62b8g531fgb616ga82b3c77dddc" version="1">Mimics the party. Echo: at the start of your turn in a fight you get a copy of the last job ability an ally used since your previous turn, usable once this turn and free of its cooldown. Concentration (+2 to weapon attack rolls), Brawler (stronger unarmed strikes) and Beastmaster (allied beasts and summons within 6 m get +1 to attack rolls and damage) are always on. Makes Mime this character's job.</content>
   <content contentuid="h221a4116ga81eg503ag9ba7gc3614ebacae7" version="1">Mime</content>
-  <content contentuid="h5ac82ba6g9e12g5217ga54bg809c8a2994c4" version="1">Fights with bare fists (Brawler is always on); martial arts, healing and revival. Makes Monk this character's job.</content>
+  <content contentuid="h5ac82ba6g9e12g5217ga54bg809c8a2994c4" version="1">Fights with bare fists. Always on: Brawler (stronger unarmed strikes) and Martial Arts (unarmed hits use the higher of Strength and Dexterity; after an unarmed attack, a bonus-action unarmed strike). Martial arts, healing and revival. Makes Monk this character's job.</content>
   <content contentuid="ha1806aefg18c4g544fg9542gbeaf99c58aab" version="1">Monk</content>
   <content contentuid="h801dae84gc741g578bgad2cg1d5fb24d14d8" version="1">Afflicts mind and body: blindness, silence, sleep, confusion, stone, drains. Makes Mystic this character's job.</content>
   <content contentuid="h33126b44g7c47g59b5g8698ga98c5fe73de8" version="1">Mystic</content>
@@ -2803,6 +2803,10 @@
   <content contentuid="h2d2df22age88cg5dd7g8c19g9e4ce6bf69ac" version="1">Holy Magicks</content>
   <content contentuid="h61e62999g29d6g5fa9ga8a2g53d016799406" version="1">Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.</content>
   <content contentuid="h791b7347gcc1cg58fcg8bf0g9020b0704f2f" version="1">Job Board</content>
+  <content contentuid="hf146f2d8gef1dg5bc6gae40g94d62e71e310" version="1">While Monk is your job, your unarmed attacks use the higher of your Strength and Dexterity for attack and damage rolls (armour allowed), and after an unarmed attack you can make an unarmed strike as a bonus action that turn (Martial Strike).</content>
+  <content contentuid="hacb7628cga95ag5b9dgb10cg645531df49ff" version="1">Martial Arts</content>
+  <content contentuid="hed80980cg71f8g5c7cg950fgb723512965e5" version="1">Make an unarmed strike as a bonus action. Only after an unarmed attack this turn (Martial Arts).</content>
+  <content contentuid="h20c2df04g1ed5g5a30gae35g853f4293e6e7" version="1">Martial Strike</content>
   <content contentuid="h7445e45eg7f7bg5e2bgb9f1gc31502292f1d" version="1">While Game Hunter is your job, your weapon hits deal 1d6 extra damage to creatures that aren't humanoid.</content>
   <content contentuid="h117f3e9egd881g5877gbed1gaa59afc0c532" version="1">Monster Hunter</content>
   <content contentuid="h6463bb4cgcacag5820g858fg47ff9ec4e1fb" version="1">While Princess is your job, every spell you cast that restores hit points also restores 1d6 of yours.</content>

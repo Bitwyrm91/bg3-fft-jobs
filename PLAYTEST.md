@@ -1,6 +1,12 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.63**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.64**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+**Monk martial arts (NWP 21):**
+- Brawler's extra unarmed die grows with the character level: 1d6, 1d8 from level 5, 1d10 from level 9 (Monk, Mime, or Brawler slotted). The passive on the character sheet changes after the level-up.
+- Monk always has **Martial Arts**: unarmed attack and damage rolls use the higher of Strength and Dexterity (armour allowed). Check the attack roll tooltip of a Dex-heavy Monk punching.
+- After an unarmed attack, **Martial Strike** (bonus action, on the hotbar) lights up for that turn. Check it stays greyed before the first punch and works once after.
+- A BG3 Monk (class) in the FFT Monk job should NOT get double Dexterity.
 
 ## New in 1.0.0.63: multiplayer fixes
 

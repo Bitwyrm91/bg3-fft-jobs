@@ -173,6 +173,12 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 
+// Martial Arts: an unarmed attack this turn opens the bonus-action Martial Strike.
+new entry "FFTJ_MARTIAL_ARTS"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
 // Doom Fist: vanilla's "marked for murder" countdown (kills when it times out); bosses: the script removes it.
 new entry "FFTJ_DOOM"
 type "StatusData"

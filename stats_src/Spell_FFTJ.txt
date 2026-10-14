@@ -957,6 +957,17 @@ data "TooltipStatusApply" "ApplyStatus(FFTJ_DOOM,100,3)"
 data "DisplayName" "{{name:DoomFist}}"
 data "Description" "{{desc:DoomFist}}"
 
+// Martial Arts' Bonus Unarmed Strike (NWP 21): the plain unarmed attack for a bonus action, open after an unarmed
+// attack this turn (FFTJ_MARTIAL_ARTS from FFTJ_MartialArts).
+new entry "Target_FFTJ_MartialStrike"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_UnarmedAttack"
+data "UseCosts" "BonusActionPoint:1"
+data "RequirementConditions" "HasStatus('FFTJ_MARTIAL_ARTS')"
+data "DisplayName" "{{str:MartialStrike.Name}}"
+data "Description" "{{str:MartialStrike.Desc}}"
+
 // Prayer of Healing's shout around the caster ("Requirements" !Combat cleared).
 new entry "Shout_FFTJ_Purification"
 type "SpellData"
