@@ -1078,6 +1078,186 @@ type "PassiveData"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid,,,,Charisma)"
 
+new entry "FFTJ_Cast_Str_Target_FFTJ_GelatinousGoo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Target_FFTJ_GelatinousGoo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Target_FFTJ_GelatinousGoo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Target_FFTJ_GelatinousGoo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Target_FFTJ_GelatinousGoo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Target_FFTJ_GelatinousGoo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Shout_FFTJ_QuickToss"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Shout_FFTJ_QuickToss"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Shout_FFTJ_QuickToss"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Shout_FFTJ_QuickToss"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Shout_FFTJ_QuickToss"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Shout_FFTJ_QuickToss"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Shards"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Shards"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Shards"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Shards"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Shards"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Shards"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Fire"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Fire"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Fire"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Fire"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Fire"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Fire"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Poison"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Poison"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Poison"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Poison"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Poison"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Poison"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Acid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Acid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Acid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Acid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Acid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Acid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid,,,,Charisma)"
+
 new entry "FFTJ_Cast_Str_Target_FFTJ_RendArmor"
 type "PassiveData"
 data "Properties" "IsHidden"
@@ -10377,6 +10557,186 @@ new entry "FFTJ_Cast_Cha_Target_FFTJ_StrangeFluid_Echo"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid_Echo,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Target_FFTJ_GelatinousGoo_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Target_FFTJ_GelatinousGoo_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Target_FFTJ_GelatinousGoo_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Target_FFTJ_GelatinousGoo_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Target_FFTJ_GelatinousGoo_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Target_FFTJ_GelatinousGoo_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_GelatinousGoo_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Shout_FFTJ_QuickToss_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss_Echo,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Shout_FFTJ_QuickToss_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss_Echo,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Shout_FFTJ_QuickToss_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss_Echo,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Shout_FFTJ_QuickToss_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss_Echo,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Shout_FFTJ_QuickToss_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss_Echo,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Shout_FFTJ_QuickToss_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Shout_FFTJ_QuickToss_Echo,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Shards_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards_Echo,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Shards_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards_Echo,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Shards_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards_Echo,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Shards_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards_Echo,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Shards_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards_Echo,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Shards_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Shards_Echo,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Fire_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire_Echo,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Fire_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire_Echo,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Fire_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire_Echo,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Fire_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire_Echo,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Fire_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire_Echo,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Fire_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Fire_Echo,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Poison_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison_Echo,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Poison_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison_Echo,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Poison_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison_Echo,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Poison_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison_Echo,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Poison_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison_Echo,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Poison_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Poison_Echo,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Projectile_FFTJ_QuickToss_Acid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid_Echo,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Projectile_FFTJ_QuickToss_Acid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid_Echo,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Projectile_FFTJ_QuickToss_Acid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid_Echo,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Projectile_FFTJ_QuickToss_Acid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid_Echo,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Projectile_FFTJ_QuickToss_Acid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid_Echo,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Projectile_FFTJ_QuickToss_Acid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Projectile_FFTJ_QuickToss_Acid_Echo,,,,Charisma)"
 
 new entry "FFTJ_Cast_Str_Target_FFTJ_RendArmor_Echo"
 type "PassiveData"

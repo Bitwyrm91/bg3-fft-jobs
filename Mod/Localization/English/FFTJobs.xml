@@ -402,6 +402,9 @@
   <content contentuid="h5db7defbg93a0g510eg81a7gcab5c3ea2b09" version="1">Rush</content>
   <content contentuid="h232224d3g0e0dg57d1gabd0g82cc3d2893d0" version="1">Salve</content>
   <content contentuid="h3f57be7dg161dg5105gbacegd08d1e183127" version="1">Throw Stone</content>
+  <content contentuid="hf9bb4b5dg57c0g5a28g96b5g97bc73aa8a54" version="1">Level 1 spell slot. Throw a glob of gelatinous goo at a spot up to 18 m away: sticky goo (mud) covers the ground in a 5 m radius for 5 turns and slows everyone who moves through it (difficult terrain). Everyone in the area when it lands, allies too, makes a Constitution save or is Poisoned for 2 turns.</content>
+  <content contentuid="h4486814fg961fg50c8g8b4fg0cdb3ba8cd42" version="1">Echo: Gelatinous Goo</content>
+  <content contentuid="hc8771ab4g3a53g5643gb719g6b6963ee3549" version="1">Gelatinous Goo</content>
   <content contentuid="h6b8996c9gdb72g583ag8499g7489704b4f74" version="1">When you take damage, you gain that much gold.</content>
   <content contentuid="hbd201c8fgb6cbg5498g895dg3d98366281a2" version="1">Gil Snapper</content>
   <content contentuid="hfb8bec52gfb6dg57b5g9830g1fc844c301dc" version="1">You and allies within 6 m gain 15 temporary hit points (FFT's Golem blocks physical damage). Once per long rest.</content>
@@ -743,6 +746,9 @@
   <content contentuid="hd156b48dgc6feg5683gb844g4e56f0d45de4" version="1">Quick</content>
   <content contentuid="h158f68d2g2a86g57d5g8c0dga2b201bf5231" version="1">+1 bonus action every turn (like the Thief's Fast Hands).</content>
   <content contentuid="hd1c46356g4192g5dc9g8b88gbac6ee0e9647" version="1">Quick Fingers</content>
+  <content contentuid="h4c5a1238g0652g5bd7g80c2g2b211d8791a9" version="1">Bonus action. Pick a vial, like Chromatic Orb's element, then toss it at a creature up to 18 m away (spell attack with your highest ability). On a hit it deals 1d4 damage of its kind and adds its effect for 2 turns: glass shards (slashing) = Bleeding, fire = Burning, poison = Poisoned, acid = Acid. Damage and healing add your highest ability modifier.</content>
+  <content contentuid="h641f1e4fged79g5738gb037gb09f6f6f0a77" version="1">Echo: Quick Toss</content>
+  <content contentuid="hbb0a92c2g3d36g59c0g9b1fg980304547999" version="1">Quick Toss</content>
   <content contentuid="h2cb240e6gdf2fg51eag86f9g35da08b83817" version="1">Only while you stand in mud, blood, acid or poison. Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 10 chance of being Doomed (dies after 3 turns; bosses are immune). Damage and healing add your highest ability modifier.</content>
   <content contentuid="h829991f5g504dg514dgaa35gfd988b81f22e" version="1">Echo: Quicksand</content>
   <content contentuid="h416d3d75gff06g5f37gaa56g95b65eb7546b" version="1">Quicksand</content>
@@ -1742,6 +1748,7 @@
   <content contentuid="h3121a672g12fbg538ag990cg5d58567ba581" version="1">Melee weapon attack that also pushes the target 2 m. Action: usable while this is your job or secondary skill set. Cost: 80 JP.</content>
   <content contentuid="h1cdbe101gebe6g598cg87a7gd6a43854dce3" version="1">Touch an ally to end Blinded, Poisoned and Silenced. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="hfe4e0503g8a64g58e0gbeb1g06cedb588b3a" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 1 m push. Action: usable while this is your job or secondary skill set. Cost: 90 JP.</content>
+  <content contentuid="h9d4f62c5gb233g555fg8c22g689b853cf5e8" version="1">Level 1 spell slot. Throw a glob of gelatinous goo at a spot up to 18 m away: sticky goo (mud) covers the ground in a 5 m radius for 5 turns and slows everyone who moves through it (difficult terrain). Everyone in the area when it lands, allies too, makes a Constitution save or is Poisoned for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="hce38d9dcga106g59c6g9e2cg3f6e78f26d15" version="1">When you take damage, you gain that much gold. Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
   <content contentuid="hee23c2e6g69e1g59dag8bdagf95340aa0b3f" version="1">You and allies within 6 m gain 15 temporary hit points (FFT's Golem blocks physical damage). Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h613c8821gd863g58d8g8942gcb076b0b3cdd" version="1">Creatures within 3 m of a point up to 18 m away make a Constitution save or lose half of their maximum hit points (force). Bosses are immune. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 550 JP.</content>
@@ -1870,6 +1877,7 @@
   <content contentuid="h7b61a88agddb1g572cgbf20gaf42cdac5be5" version="1">You and allies within 3 m are cured of blindness, poison, disease, paralysis, silence, sleep, confusion, fear and charm. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
   <content contentuid="h72a0b558ge33cg5b96g8c41gee05883a6fc5" version="1">Another ally within 18 m gets an extra action on its next turn (BG3 cannot give it a turn right away). Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 900 JP.</content>
   <content contentuid="h2ca4dca5g3c91g501ega7efgecb5bee64046" version="1">+1 bonus action every turn (like the Thief's Fast Hands). Passive: equip it in a passive slot (Job Board). Cost: 375 JP.</content>
+  <content contentuid="hb25f4e78g193dg5e67g9ac1g17a2cb7d6d4e" version="1">Bonus action. Pick a vial, like Chromatic Orb's element, then toss it at a creature up to 18 m away (spell attack with your highest ability). On a hit it deals 1d4 damage of its kind and adds its effect for 2 turns: glass shards (slashing) = Bleeding, fire = Burning, poison = Poisoned, acid = Acid. Action: usable while this is your job or secondary skill set. Cost: 250 JP.</content>
   <content contentuid="h7cb3011eg8abbg500dgb6f0g8ec44c6ca03a" version="1">Only while you stand in mud, blood, acid or poison. Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 10 chance of being Doomed (dies after 3 turns; bosses are immune). Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h0448f2f1g3605g505bgb79eg1ae160ef3dbd" version="1">A creature within 18 m makes a Wisdom save or is Silenced for 2 turns (no spells with a verbal component). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 170 JP.</content>
   <content contentuid="haadec71bg1011g5cdeg87d5gbfa995a798d3" version="1">Shoot a 10 m line of arrows: everyone in it (allies too) takes your ranged weapon's damage, half on a successful Dexterity save. Action: usable while this is your job or secondary skill set. Cost: 625 JP.</content>
@@ -3245,6 +3253,14 @@
   <content contentuid="h5ca92615g9a80g5241g981fg624c00b75a09" version="1">Soul Collector Lv4</content>
   <content contentuid="hcea6b31dg955bg50e1g9e83g55898ad96028" version="1">Job level 7 as your job: two more Wild Shape charges.</content>
   <content contentuid="h80ddd138g2aaeg55d7g8fc9g31cc4013fced" version="1">Soul Collector Lv7</content>
+  <content contentuid="hef24c0f4gcb40g5f87gb07dgab5f88aa6499" version="1">Toss a vial of acid at a creature: on a hit, 1d4 acid damage and Acid for 2 turns.</content>
+  <content contentuid="h8182abb8g970cg5cecg85e4g4835ec6aaba6" version="1">Quick Toss: Acid</content>
+  <content contentuid="h250ef494gcd76g5557ga556g850bad7d2ec9" version="1">Toss a vial of liquid fire at a creature: on a hit, 1d4 fire damage and Burning for 2 turns.</content>
+  <content contentuid="hf84c49c4gc0e4g50dag8dd9g5e0ec379d1e7" version="1">Quick Toss: Fire</content>
+  <content contentuid="h541931dbgc8f9g5e47gba50gdd77685f67eb" version="1">Toss a vial of poison at a creature: on a hit, 1d4 poison damage and Poisoned for 2 turns.</content>
+  <content contentuid="hf56cd5bbg0f72g57bcgbdbeg9dc036728b53" version="1">Quick Toss: Poison</content>
+  <content contentuid="h918ca835g2466g59cdg9823g7890d0d193ae" version="1">Toss a vial of glass shards at a creature: on a hit, 1d4 slashing damage and Bleeding for 2 turns.</content>
+  <content contentuid="h1890aa68gdfb0g535cgb509gd0d034ae5c8f" version="1">Quick Toss: Glass Shards</content>
   <content contentuid="had726a2agfb25g5d1cg885ag9d4186f2fdd0" version="1">Can't cast spells; advantage on saving throws against spells.</content>
   <content contentuid="h321a4ad3gb0b5g5e21g8f0fga5411f5e76b2" version="1">Atheist</content>
   <content contentuid="ha4f203f8g9cfcg52e5g8f10ga73b48109897" version="1">Auto-Potion already triggered this turn.</content>

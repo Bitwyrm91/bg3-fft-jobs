@@ -175,6 +175,14 @@
     "Boon.Status.Name": "Boon",
     "Boon.Status.Desc": "Your next attack roll before the end of your next turn is a critical hit.",
     "status.FFTJ_STRANGE_FLUID.name": "Strange Fluid",
-    "status.FFTJ_STRANGE_FLUID.desc": "Weapon hits add a Chemist effect the target does not have yet (Burning, Acid, Poisoned or Bleeding, 2 turns) with 1d4 damage of its kind."
+    "status.FFTJ_STRANGE_FLUID.desc": "Weapon hits add a Chemist effect the target does not have yet (Burning, Acid, Poisoned or Bleeding, 2 turns) with 1d4 damage of its kind.",
+    "spell.QuickToss.Shards.name": "Quick Toss: Glass Shards",
+    "spell.QuickToss.Shards.desc": "Toss a vial of glass shards at a creature: on a hit, 1d4 slashing damage and Bleeding for 2 turns.",
+    "spell.QuickToss.Fire.name": "Quick Toss: Fire",
+    "spell.QuickToss.Fire.desc": "Toss a vial of liquid fire at a creature: on a hit, 1d4 fire damage and Burning for 2 turns.",
+    "spell.QuickToss.Poison.name": "Quick Toss: Poison",
+    "spell.QuickToss.Poison.desc": "Toss a vial of poison at a creature: on a hit, 1d4 poison damage and Poisoned for 2 turns.",
+    "spell.QuickToss.Acid.name": "Quick Toss: Acid",
+    "spell.QuickToss.Acid.desc": "Toss a vial of acid at a creature: on a hit, 1d4 acid damage and Acid for 2 turns."
   }
 }

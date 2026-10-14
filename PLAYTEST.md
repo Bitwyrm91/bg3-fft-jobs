@@ -1,6 +1,22 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.73**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.74**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.74: Chemist gets Gelatinous Goo and Quick Toss
+
+- **Gelatinous Goo** (Chemist, 300 JP): level 1 spell slot, an action. Throw goo at a spot up to 18 m away: mud
+  covers the ground in a 5 m radius for 5 turns (difficult terrain, slows everyone walking through it). Everyone in
+  the area when it lands, allies too, makes a Constitution save or is Poisoned for 2 turns (Poisoned also ticks 1d4).
+- **Quick Toss** (Chemist, 250 JP): a bonus action that opens a pick like Chromatic Orb: **Glass Shards** (slashing +
+  Bleeding), **Fire** (Burning), **Poison** (Poisoned), **Acid** (Acid). Then pick the target (up to 18 m, spell attack
+  with your highest ability). On a hit: 1d4 + your highest ability modifier of that kind and the effect for 2 turns.
+  No cooldown.
+
+Please check:
+- Gelatinous Goo: the mud patch appears and slows movement; enemies that fail the save get Poisoned; the slot is used.
+- Quick Toss: clicking it opens the four vials (not four separate hotbar icons); each costs the bonus action and adds
+  its effect on a hit; the throw animation plays.
+- A Mime echoing a Quick Toss vial gets a usable "Echo: Quick Toss".
 
 ## New in 1.0.0.73: Job Board pages, Passives page, "new" hints (NWP 4)
 

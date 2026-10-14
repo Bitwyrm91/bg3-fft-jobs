@@ -468,6 +468,20 @@ of that vanilla XAML page + an SE Noesis view model (`Ext.UI.RegisterType`/`Inst
 DataContext; SE v33 needs `Ext.UI.Defer`), clashing with any other mod that overrides the same page. Noted as NWP 23;
 the Job Board stays as the backup either way (user).
 
+**1.0.0.74 (2026-10-14, local session, worktree bg3-fft-jobs-board, packaged + installed, NOT seen in game): two new
+Chemist skills (user design).** My picks (user gave no numbers, change freely): Gelatinous Goo 300 JP, Quick Toss
+250 JP, both `castStat: Intelligence`. **Gelatinous Goo** = `Target_FFTJ_GelatinousGoo` using vanilla Target_Grease:
+level 1 slot, range 18, AreaRadius 5, `GROUND:CreateSurface(5,5,Mud)` (vanilla Mud = difficult terrain, used by
+vanilla spells), per-creature Con save -> POISONED 2 turns (Target + AreaRadius rolls per creature, vanilla Faerie
+Fire). **Quick Toss** = free container `Shout_FFTJ_QuickToss` (Peddler's Patented Usage pattern: IsLinkedSpellContainer,
+empty ContainerSpells) + four vials `Projectile_FFTJ_QuickToss_<Shards|Fire|Poison|Acid>` joining by SpellContainerID,
+all five granted by the ability; vials = Chemical Mixup's throw with `BonusActionPoint:1`, 1d4 (+ highest modifier via
+scaling.py) and BLEEDING/BURNING/POISONED/ACID for 2 turns. build.py Echo twins: a twin of a container entry gets
+`SpellContainerID ""` (the Mime has no container). Icons: vanilla (Grease, Chromatic Orb elements, Cloud of Daggers,
+GRN bomb); painted ones can come later (BG3 closed). Tests: pins Chemist 22 abilities / 5840 JP, menu 602; 235 tests;
+validate_vanilla + check_refs clean. Unverified in game: Mud slowing, the vials staying inside the flyout (not on the
+hotbar), the UnlockSpell'd children joining the container.
+
 ## Open questions for the user
 
 - MP: abilities use cooldowns instead of an FFT MP pool. An MP resource (a custom `ActionResourceDefinition`) is possible later. Wanted?

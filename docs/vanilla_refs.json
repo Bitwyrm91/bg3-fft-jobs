@@ -812,8 +812,10 @@
       "Projectile_FFTJ_UnstableFlask_4",
       "Projectile_FFTJ_UnstableFlask_5",
       "Projectile_FFTJ_UnstableFlask_6",
+      "Shout_FFTJ_Learn_QuickToss",
       "Shout_FFTJ_Learn_ThrowBombs",
-      "Shout_FFTJ_Learn_UnstableFlask"
+      "Shout_FFTJ_Learn_UnstableFlask",
+      "Shout_FFTJ_QuickToss"
     ]
   },
   {
@@ -967,7 +969,6 @@
       "FFTJ_QuickFingers",
       "Shout_FFTJ_ChangeJob_Peddler",
       "Shout_FFTJ_LearnFrom_Peddler",
-      "Shout_FFTJ_Learn_LaceratingTrap",
       "Shout_FFTJ_Learn_QuickFingers",
       "Shout_FFTJ_SecondaryJob_Peddler"
     ]
@@ -1454,6 +1455,13 @@
     ]
   },
   {
+    "id": "Spell_Abjuration_GlyphOfWarding_ExplosiveRunes_Fire",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_LaceratingTrap"
+    ]
+  },
+  {
     "id": "Spell_Abjuration_GlyphOfWarding_ExplosiveRunes_Lightning",
     "kind": "icon",
     "usedBy": [
@@ -1561,6 +1569,7 @@
     "id": "Spell_Conjuration_CloudOfDaggers",
     "kind": "icon",
     "usedBy": [
+      "Projectile_FFTJ_QuickToss_Shards",
       "Shout_FFTJ_Ashura",
       "Shout_FFTJ_Learn_ArkKnightAshura",
       "Shout_FFTJ_Learn_Ashura",
@@ -1622,6 +1631,14 @@
     "usedBy": [
       "Shout_FFTJ_Learn_Tanglevine",
       "Target_FFTJ_Tanglevine"
+    ]
+  },
+  {
+    "id": "Spell_Conjuration_Grease",
+    "kind": "icon",
+    "usedBy": [
+      "Shout_FFTJ_Learn_GelatinousGoo",
+      "Target_FFTJ_GelatinousGoo"
     ]
   },
   {
@@ -1909,6 +1926,27 @@
     "kind": "icon",
     "usedBy": [
       "Shout_FFTJ_Learn_FireBreath"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_ChromaticOrb_Acid",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_QuickToss_Acid"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_ChromaticOrb_Fire",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_QuickToss_Fire"
+    ]
+  },
+  {
+    "id": "Spell_Evocation_ChromaticOrb_Poison",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_QuickToss_Poison"
     ]
   },
   {
@@ -2820,7 +2858,8 @@
     "id": "ACID",
     "kind": "status",
     "usedBy": [
-      "Projectile_FFTJ_ChemicalBurns"
+      "Projectile_FFTJ_ChemicalBurns",
+      "Projectile_FFTJ_QuickToss_Acid"
     ]
   },
   {
@@ -2858,6 +2897,7 @@
       "FFTJ_TRAP_LACERATE_Str",
       "FFTJ_TRAP_LACERATE_Wis",
       "Projectile_FFTJ_ChemicalBurns",
+      "Projectile_FFTJ_QuickToss_Shards",
       "Target_FFTJ_Balm",
       "Target_FFTJ_LaceratingTrap",
       "Target_FFTJ_Soul_HookRend",
@@ -2918,6 +2958,7 @@
     "usedBy": [
       "Projectile_FFTJ_Blizzara",
       "Projectile_FFTJ_ChemicalBurns",
+      "Projectile_FFTJ_QuickToss_Fire",
       "Shout_FFTJ_Soul_LavaBurst",
       "Shout_FFTJ_Soul_Spark",
       "Target_FFTJ_Blizzaga",
@@ -3067,9 +3108,11 @@
       "Projectile_FFTJ_ChemicalBurns",
       "Projectile_FFTJ_CorporealVoid",
       "Projectile_FFTJ_Poison",
+      "Projectile_FFTJ_QuickToss_Poison",
       "Shout_FFTJ_Soul_SporeCloud",
       "Target_FFTJ_Antidote",
       "Target_FFTJ_Esuna",
+      "Target_FFTJ_GelatinousGoo",
       "Target_FFTJ_Remedy",
       "Target_FFTJ_Salve",
       "Target_FFTJ_Soul_ImpSting",
@@ -5041,6 +5084,7 @@
     "id": "Target_Grease",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_GelatinousGoo",
       "Target_FFTJ_Quicksand"
     ]
   },
