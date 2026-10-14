@@ -421,6 +421,9 @@ function Service:AddJP(guid, jobId, amount, source, combatId)
         if cfg.Notifications.JPGain then
             self.Log.Info(string.format("%s +%s JP %s (%s)", char.Name, Util.Num(res.Added), job.Name, source))
         end
+        if cfg.Notifications.JPOverhead and jobId == char.Primary then
+            self:FloatJP(guid, res.Added)
+        end
     end
     if res.LevelAfter > res.LevelBefore and cfg.Notifications.LevelUp then
         self:Notify(guid, string.format("%s: %s is now job level %d", char.Name, job.Name, res.LevelAfter))
@@ -437,6 +440,20 @@ function Service:AddJP(guid, jobId, amount, source, combatId)
         self:ShareJP(guid, char, jobId, amount, source, combatId)
     end
     return res
+end
+
+-- NWP 10: "+N JP" above the head (user: main job gains only). The text is the name of a hidden status, one per
+-- amount (tools/jpfloat.py); an active one is removed first so the same amount twice in a turn shows twice.
+function Service:FloatJP(guid, amount)
+    local f = self.Data.JPFloat
+    if not f or amount < 1 then
+        return
+    end
+    local status = f.Prefix .. Rules.JPFloatAmount(f, amount)
+    if self.Game:HasStatus(guid, status) then
+        self.Game:Remove("Statuses", guid, status)
+    end
+    self.Game:ApplyStatus(guid, status, self:Cfg().Notifications.JPOverheadSeconds or 6)
 end
 
 -- Shared learning: part of a JP gain also goes into the character's other jobs (Rules.SharedTargets). The shared

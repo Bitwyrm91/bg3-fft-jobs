@@ -21,13 +21,14 @@ import upcast  # Chemist skills cast with higher spell slots
 import menu_gen  # job menus in BG3's own UI (spell containers)
 import statcast  # job skills hit and set save DCs with the highest ability
 import peddler  # Peddler (Fell Seal): trap items, Item Potency's healing
+import jpfloat  # "+N JP" floating above the head (one hidden status per amount)
 import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.path when this script runs
 import smartcast  # Smart Casting (Wizard): area spells leave out allies while the caster has it
 
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.70"
+MOD_VERSION = "1.0.0.71"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -411,6 +412,8 @@ def build_lua(jobs_doc, config_doc, statcast_data=None):
         # Collect Trophy's items, smallest first (Effects.OnKilledBy picks one by the creature's level)
         "Trophies": [{"Id": t["id"], "Name": t["name"], "Template": t["template"]}
                      for t in jobs_doc.get("trophies", [])],
+        # tools/jpfloat.py: the "+N JP" statuses Service:FloatJP applies (Rules.JPFloatAmount)
+        "JPFloat": jpfloat.lua_data(),
     }
     souls_doc = souls_gen.load()
     if souls_doc:
@@ -457,6 +460,7 @@ def string_table(jobs_doc, strings_doc):
         table[f"item.trophy.{t['id']}.desc"] = t["desc"]
     table.update(menu_gen.strings(jobs_doc))
     table.update(upcast.strings(jobs_doc))
+    table.update(jpfloat.strings())
     souls_doc = souls_gen.load()
     if souls_doc:
         table.update(souls_gen.strings(souls_doc))
@@ -836,6 +840,14 @@ def build_stats(jobs_doc, strings_doc):
     for name, out in ((ECHO_FILE, echo_stats(jobs_doc, entries, used)), (ARITH_FILE, arith_stats(jobs_doc, used))):
         outputs[STATS_OUT / name] = out
         entries += parse_stats(out, name)
+    def jpfloat_handle(key):
+        if key not in table:
+            raise BuildError(f"jpfloat: unknown string {key}")
+        used.add(key)
+        return handle_for(key) + ";1"
+    out = jpfloat.stats(jpfloat_handle)
+    outputs[STATS_OUT / jpfloat.FILE] = out
+    entries += parse_stats(out, jpfloat.FILE)
     try:
         potency = peddler.potency_stats(entries)  # after the upcast levels and Echo twins it covers
     except ValueError as e:

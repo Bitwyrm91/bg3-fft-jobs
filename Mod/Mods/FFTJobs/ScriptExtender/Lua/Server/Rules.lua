@@ -410,6 +410,16 @@ function Rules.AddJP(data, cfg, char, jobId, amount)
     return result
 end
 
+-- The amount a "+N JP" float shows (tools/jpfloat.py makes FFTJ_JPGAIN_<N> for exactly these): exact up to
+-- f.Exact, then rounded to the nearest f.Step, at most f.Max.
+function Rules.JPFloatAmount(f, amount)
+    local n = math.floor(amount)
+    if n <= f.Exact then
+        return n
+    end
+    return math.min(math.floor((n + f.Step / 2) / f.Step) * f.Step, f.Max)
+end
+
 function Rules.ActionFormula(jp, jobLevel, charLevel)
     local a = jp.Action
     local value = a.Base + a.PerJobLevel * jobLevel
