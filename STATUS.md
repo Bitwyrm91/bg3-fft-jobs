@@ -52,7 +52,8 @@ When the user says "NWP", this is the list:
    so both run build.py before committing; binary icons (art/icons/*.jpg) can't be merged, so one side owns art.
    STATUS.md stays the handoff both agents read first.
 **NWP additions after the first multiplayer playtest of 1.0.0.55 (user, 2026-10-14; the user and a friend, MP):**
-9. **Learn menus: no way to see current JP** while learning from the hotbar menus (the "<name> has N <job> JP to
+9. **[SKIPPED by the user, 2026-10-14: "the JB is working fine"; half-done code parked on the local branch
+   `nwp-9-parked`, not built or tested]** **Learn menus: no way to see current JP** while learning from the hotbar menus (the "<name> has N <job> JP to
    spend" ExtraDescription line did not show or update). Ideas: JP in the Learn container's own name/description,
    or an overhead/notification line when a Learn menu opens.
 10. **Show JP gains above the head**, like the floating "+HP" numbers (research the Osiris/SE call for overhead
@@ -86,12 +87,42 @@ When the user says "NWP", this is the list:
     User: "continue with the normal list first". Open: clothes/robes (no armor proficiency) always allowed?; the
     Mime's empty list (FFT Mimes wear no weapons); cursed/story items that can't come off; check needs item fields
     (weapon proficiency group, ArmorType, shield) verified in game.
-20. **Chemist weapon coatings** (user idea: "toxins applied to weapons... enchant your allies' weapon"). Brainstorm in
+20. **[APPROVED 2026-10-14, build right after the Monk (21)] Chemist weapon coatings**, ONLY the Chemist's four
+    effects (user): Venom Oil = Poisoned, Naphtha Oil = Burning, Acid Etch = Acid, Glass Grit = Bleeding, plus
+    **Strange Fluid** (user's name and text: "You coat your weapon in a strange liquid and believe." = the Mixup Oil
+    effect: each hit adds one of the four effects the target lacks). Not chosen: Holy Water, Slumber Resin, Field
+    Alchemy. Estimate given: ~2-3%, 1-1.5 h. Original idea (user idea: "toxins applied to weapons... enchant your allies' weapon"). Brainstorm in
     chat, user to pick: Venom Oil (+1d4 poison, Poisoned on a failed Con save), Naphtha Oil (+1d4 fire, Burning), Acid
     Etch (+1d4 acid, Acid), Glass Grit (+1d4 slashing, Bleeding), Mixup Oil (each hit adds a missing Chemist effect),
     Holy Water (+1d6 radiant, double vs undead/fiends), Slumber Resin (first hit: Wis save or Asleep), Field Alchemy
     (support: +2 turns, area coat at slot 3+). Shared rules proposed: toss to an ally within 9 m, 3 turns, one coating
     per ally, saves vs your spell DC, free once per short rest + a spell-slot version with the 1-6 level picker.
+
+21. **[NEXT] FFT Monk martial arts** (user, 2026-10-14: "make sure monk deals increased dmg while unarmed"; it already
+    has Brawler = CharacterUnarmedDamage(1d6) + 1 to hit, mastery +1d4, unverified in game). User's picks: the extra
+    unarmed die grows with character level (1d6 -> 1d8 at 5 -> 1d10 at 9), unarmed hits use the higher of Str/Dex
+    (BG3 Monk's Dextrous Attacks), a bonus-action unarmed strike after attacking. ~1%.
+22. **Archer -> Ranger with Fell Seal's Ranger skills** (user, 2026-10-14; build after the coatings). User's answers:
+    keep the job id `Archer` (Thief, Ninja, GameHunter, SkyPirate, Machinist, Nightblade unlock through it), name
+    Ranger, skillset Survival; replace all 13 Archer abilities with the 10 Fell Seal ones (docs/NWP_FELLSEAL.md,
+    Ranger); JP = AP x 2.5 (Rooting Shot 0 = startLearned, Balm 250, Scout 500, Collect Pelt 500, Know Weakness 500,
+    Rain of Arrows 625, Evasion Up 500, Multishot 750, Countershot 625, Sniper Shot 1000; total 5250 ~ the Archer's
+    5300); saves that learned Archer skills get their JP refunded as unspent Ranger JP; gear bows, crossbows, light
+    armor (no axes); keep Equip Crossbows, ADD a new Equip Bows support (so other jobs can use bows), keep the mastery
+    perk (+1 ranged attack); Jump +1, Aim 1-20, Speed Surge, Archer's Bane, Concentration go. Proposed BG3 mapping
+    (user saw it, no objection; MP costs -> cooldowns): Rooting Shot = bow shot + can't move 1 turn on a failed save;
+    Balm = touch, removes Poisoned/Bleeding/Blinded/can't-move/Silenced/Asleep/weakened; Scout = reveal traps within
+    6 m + crit on 19-20 for 3 turns; Collect Pelt = weapon hit, a beast/monster killed by it gives a rare crafting item
+    and can't be revived, bosses immune (like Thief's Poach); Know Weakness = crit on 19-20; Rain of Arrows = weapon
+    damage in a line; Evasion Up = +1 AC; Multishot = weapon damage in a small area (hits allies too); Countershot =
+    reaction: shoot back when a ranged attack hits you; Sniper Shot = 3x weapon damage, self can't move until the
+    next turn, once per long rest. Mark the abilities `source: custom` / Fell Seal so tools/check_fft_data.py and the
+    TIC pacing data skip them; re-run the pacing self-test. Estimate given: ~4-6%, 2-3 h.
+
+**Queue (user, 2026-10-14):** Monk (21) -> coatings (20) -> Ranger (22) -> 7 (menu learn diagnostics) -> 10 (JP above
+the head) -> 8 (two-PC sync; CIC = Claude in Chrome) -> 4 (Job Board) -> 14 enemy jobs LAST. 19 (equipment limits,
+~2-3%) waits for the user's go. Session rules from the user: do NOT push or publish until the user says so (commit
+locally, tell the user about every change); tell the user when each item is done; usage estimate before each.
 
 Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
 Fell Seal source.

@@ -43,6 +43,25 @@ Starting ability: Blind Powder. Passives: Cautious Step, Dual Wield. Counter: Cr
 | Assassinate | 350 | 24 | 1-3, vert 8 | skill | 2.8x ATK physical at range; 50% each Poison, Bleed, Blind |
 | Dual Wield | 450 | | | passive | two weapons (or shields); skills don't get the 2nd weapon's attack |
 
+## Ranger (Fell Seal) — skill set "Survival" (pasted by the user on 2026-10-14; becomes our Archer, STATUS NWP 22)
+
+Requirements: Scoundrel 4 (ours keeps the Archer's unlock). Move 4, Jump 5, Swim. Equipment: axe, bow, crossbow, light
+armour (ours: no axes, user). Starting ability: Rooting Shot. Passives: Know Weakness, Evasion Up. Counter: Countershot.
+"Survivalists who have honed their skill in archery to deadly effect."
+
+| Ability | AP | MP | Range / area | Kind | Effect |
+|---|---|---|---|---|---|
+| Rooting Shot | 0 | 0 | weapon | skill | 0.85x ATK physical; 75% Root |
+| Balm | 100 | 6 | 0-1, vert 4 | skill | removes Poison, Bleed, Blind, Root, Mute, Cripple, Sleep, Weaken |
+| Scout | 200 | 6 | self, cross 13 | skill | reveals traps within 6; Crit Up on self |
+| Collect Pelt | 200 | 0 | weapon | skill | 0.8x ATK; killing blow on a monster gives a rare component; can't be raised this fight; bosses immune |
+| Know Weakness | 200 | | | passive | +25% critical hit chance |
+| Rain of Arrows | 250 | 0 | 1, vert 7; line 4 | skill | 0.9x ATK physical in a line |
+| Evasion Up | 200 | | | passive | +13% EVA |
+| Multishot | 300 | 0 | weapon; cross 3 | skill | 0.85x ATK physical in a small area |
+| Countershot | 250 | | | counter | counters ranged attacks/skills with a regular attack |
+| Sniper Shot | 400 | 36 | weapon | skill | 3.8x ATK physical; Root on self |
+
 Mapping notes for later: Fell Seal "Gunner 4" has no job here (closest: Machinist, a special job, or Archer);
 "Ranger" = Archer; Mirage ~ BG3 Blink/Mirror Image-style evade; Critical: X counters = our reaction slot with an
 HP-below-threshold trigger; Fell Seal MP costs → our cooldowns (no MP pool, user's rule).
