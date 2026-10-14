@@ -1,7 +1,7 @@
 # BG3 × FFT Job System — instructions for Claude
 
 Read first, every session: `STATUS.md` (handoff, newest versions at the top of each list, the "NWP" next-patch list,
-"Future changes"), then the project skill `.claude/skills/bg3-fft-jobs/SKILL.md` (how the mod is built, BG3 facts,
+"Future changes"; old version log: `docs/HISTORY.md`, only when needed), then the project skill `.claude/skills/bg3-fft-jobs/SKILL.md` (how the mod is built, BG3 facts,
 gotchas). Design background: `DESIGN.md`, `docs/PHASE2.md`, `docs/SPECIAL_JOBS.md`, `docs/SOUL_COLLECTOR_MAP.md`.
 
 ## How the user works (Bitwyrm91; plays BG3 on Windows, often multiplayer with a friend)
