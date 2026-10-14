@@ -162,6 +162,13 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 
+new entry "FFTJ_COUNTER_TACKLE_PUSH"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "Icon" "FFTJ_Icon_CounterTackle"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "Force(2)"
+
 new entry "FFTJ_ROOTED"
 type "StatusData"
 data "StatusType" "BOOST"

@@ -111,15 +111,18 @@ data "Properties" "Highlighted"
 data "Boosts" "RollBonus(MeleeSpellAttack,1);RollBonus(RangedSpellAttack,1)"
 
 // ---------------------------------------------------------------- reactions
-// Melee hit -> attacker takes 1d4 bludgeoning and is pushed 1.5 m.
+// Melee hit -> attacker takes 1d4 bludgeoning and is pushed 1.5 m. In OnDamaged the functors' target is the one who
+// was hit: SWAP turns them on the attacker (vanilla's melee-counter cloaks: DealDamage(SWAP, ...)); the push is a
+// status on the attacker whose OnApplyFunctors Force()s it away (vanilla BEE_KNOCKBACK). Before 1.0.0.67 this hit and
+// pushed the Squire itself.
 new entry "FFTJ_CounterTackle"
 type "PassiveData"
 data "DisplayName" "{{name:CounterTackle}}"
 data "Description" "{{desc:CounterTackle}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsMeleeAttack()"
-data "StatsFunctors" "DealDamage(1d4,Bludgeoning);Force(1.5)"
+data "Conditions" "IsMeleeAttack() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,1d4,Bludgeoning);ApplyStatus(SWAP,FFTJ_COUNTER_TACKLE_PUSH,100,1)"
 
 // Damaged -> heal 1d4+2, once per turn (the marker status blocks a second trigger).
 new entry "FFTJ_AutoPotion"
@@ -154,8 +157,8 @@ data "DisplayName" "{{name:MagickCounter}}"
 data "Description" "{{desc:MagickCounter}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsSpell()"
-data "StatsFunctors" "DealDamage(2d6,Force,Magical)"
+data "Conditions" "IsSpell() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,2d6,Force,Magical)"
 
 // ---------------------------------------------------------------- support
 new entry "FFTJ_EquipAxes"
@@ -503,8 +506,8 @@ data "Description" "{{desc:Reflect}}"
 data "Icon" "Spell_Abjuration_GlobeOfInvulnerability"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsSpell()"
-data "StatsFunctors" "DealDamage(2d6,Force,Magical)"
+data "Conditions" "IsSpell() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,2d6,Force,Magical)"
 
 // ---------------------------------------------------------------- Mystic
 new entry "FFTJ_AbsorbMP"

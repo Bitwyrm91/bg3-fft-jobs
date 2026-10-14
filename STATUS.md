@@ -317,6 +317,21 @@ Unverified in game: all of it; especially TemplateAddTo into a corpse's loot, th
 with a Stats link), ApplyStatus before DealDamage in SpellSuccess, Volley/Piercing Arrow parents for players, the
 Countershot interrupt with a bow, removed spells vanishing cleanly from old saves.
 
+**1.0.0.67 (2026-10-14, local session, NOT packaged or seen in game): Counter Tackle fix (user: "isn't working").**
+Logs: Shadowheart learned and slotted it in the 2026-10-14 00:2x MP session (Extender Runtime 2026-10-14 01-47-19,
+FFTJ_CounterTackle added) and still had it in the last one (05-05-00, 1.0.0.61); the log can't show passive effects.
+Cause: in an OnDamaged passive the functors' target is the one who was hit, so `DealDamage(1d4,...);Force(1.5)` hurt
+and pushed the Squire itself. Vanilla melee-counter items use `DealDamage(SWAP, ...)` + `not IsRedirectedDamage()`;
+there is no vanilla `Force(SWAP...)`, so the push is FFTJ_COUNTER_TACKLE_PUSH applied with SWAP (OnApplyFunctors
+Force(1.5), vanilla BEE_KNOCKBACK pattern). Same bug fixed in FFTJ_MagickCounter and FFTJ_Reflect_Counter (2d6 force
+on the caster). build.py check_stats now fails an OnDamaged DealDamage/Force without SWAP/SELF. **Pushes (user: Rush
+and Throw Stone knockback "never seemed to work"):** the generated stats matched vanilla's form (Force(2)/Force(1)
+after DealDamage, also common in vanilla), so the cause is not proven; changed to vanilla's weapon-push pattern
+(Pushing Attack: Force first, then the damage) with longer pushes: Rush Force(3), Throw Stone Force(2), Counter Tackle
+Force(2). Unverified in game: all pushes (if they still fail, test in game with the SE console:
+`Osi.ApplyStatus(<goblin>, 'FFTJ_COUNTER_TACKLE_PUSH', 6, 1, <host>)` shows whether Force works at all), the push
+direction (away from the defender), the push status firing on a re-hit in the same turn.
+
 ## Open questions for the user
 
 - MP: abilities use cooldowns instead of an FFT MP pool. An MP resource (a custom `ActionResourceDefinition`) is possible later. Wanted?

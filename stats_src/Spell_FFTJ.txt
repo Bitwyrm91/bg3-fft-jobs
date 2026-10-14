@@ -52,13 +52,14 @@ data "TooltipStatusApply" "ApplyStatus(FFTJ_FOCUS,100,10)"
 data "DisplayName" "{{name:Focus}}"
 data "Description" "{{desc:Focus}}"
 
-// Force(2) is the most common vanilla push form (checked 2026-10-12).
+// The push comes first and is 3 m, as in vanilla's weapon pushes (Pushing Attack: Force(5) before the damage); the
+// 2 m push after the damage of 1.0.0.66 and older never showed in game (user, 2026-10-14).
 new entry "Target_FFTJ_Rush"
 type "SpellData"
 data "SpellType" "Target"
 using "Target_MainHandAttack"
 data "Cooldown" ""
-data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);Force(2)"
+data "SpellSuccess" "Force(3);DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType)"
 data "DisplayName" "{{name:Rush}}"
 data "Description" "{{desc:Rush}}"
 
@@ -74,7 +75,7 @@ data "Level" "0"
 data "UseCosts" "ActionPoint:1"
 data "Cooldown" ""
 data "SpellRoll" "Attack(AttackType.RangedWeaponAttack)"
-data "SpellSuccess" "DealDamage(1d6,Bludgeoning);Force(1)"
+data "SpellSuccess" "Force(2);DealDamage(1d6,Bludgeoning)"
 data "SpellFail" ""
 data "SpellProperties" ""
 data "DamageType" "Bludgeoning"

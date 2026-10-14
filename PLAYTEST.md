@@ -1,6 +1,18 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.66**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.67**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.67: Counter Tackle fixed (and Magick Counter, Reflect)
+
+- **Counter Tackle** (Squire reaction) hit and pushed **your own character** instead of the attacker (your report;
+  Shadowheart had it slotted). Now the melee attacker takes 1d4 bludgeoning and is pushed 1.5 m.
+- Same mistake fixed in **Magick Counter** and **Reflect**: their 2d6 force now hits the spellcaster, not you.
+- **Rush** and **Throw Stone** pushes never showed (your report): the push now comes before the damage, the way
+  vanilla's Pushing Attack does it, and is longer: Rush 3 m, Throw Stone 2 m, Counter Tackle 2 m.
+
+Please check: slot Counter Tackle, let an enemy hit you in melee: the enemy takes the damage (combat log) and slides
+back; your HP only drops by the enemy's hit. Rush and Throw Stone a goblin: does it slide back 3 m / 2 m? If a push
+still never shows, tell me which target (size) and whether it was a hit.
 
 ## New in 1.0.0.66: the Archer is now the Ranger (Fell Seal, NWP 22)
 

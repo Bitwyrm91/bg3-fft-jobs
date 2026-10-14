@@ -169,7 +169,7 @@
   <content contentuid="hc0ea8c26g2145g5732g988fg99e79b387267" version="1">Corruption</content>
   <content contentuid="h5082bc81g7cbeg57d4g8169gbdf203426a8c" version="1">Reaction: when an enemy hits you with a melee attack, strike back with your weapon or fists.</content>
   <content contentuid="h62cad20fgade6g548eg8eb2g259d19ec905f" version="1">Counter</content>
-  <content contentuid="h1a71ccd6g4cd9g5551g8786g12f72fa03ccc" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 1.5 m.</content>
+  <content contentuid="h1a71ccd6g4cd9g5551g8786g12f72fa03ccc" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 2 m.</content>
   <content contentuid="hbd3262cbgcf79g5852ga81fg1a3dcffe6fe4" version="1">Counter Tackle</content>
   <content contentuid="h865e0984g74a4g5555gadfegf16e646880cf" version="1">Reaction: when an enemy's ranged attack hits you while you hold a bow or crossbow, shoot it back.</content>
   <content contentuid="hafa61354geca3g53fdg995dg389e1d2a9e67" version="1">Countershot</content>
@@ -773,7 +773,7 @@
   <content contentuid="h3bb6e9e6ga331g5da2g8d3dg0382296f8d60" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +3 m movement.</content>
   <content contentuid="h08260b29g4948g5dbag9cc1g2b68b92e58ad" version="1">Echo: Rousing Melody</content>
   <content contentuid="h7a8434fcg7ca4g5c17gb06cg157e9af314e8" version="1">Rousing Melody</content>
-  <content contentuid="h6a02edd4g776dg5ae4gbe92gb0a4ce3f3fc5" version="1">Melee weapon attack that also pushes the target 2 m.</content>
+  <content contentuid="h6a02edd4g776dg5ae4gbe92gb0a4ce3f3fc5" version="1">Melee weapon attack that also pushes the target 3 m.</content>
   <content contentuid="hf53ec954g32f1g5edbgbd3eg71ccdfb5baa2" version="1">Echo: Rush</content>
   <content contentuid="h27771a9dg0fcag5396gbf7eg0846d874e966" version="1">Rush</content>
   <content contentuid="h848bed46gc1e4g5aa9g889ag747c33a43f34" version="1">Enemies within 5 m of a point up to 18 m away take 6d8 fire damage (Dexterity save for half). Allies are spared. Once per long rest. Damage and healing add your highest ability modifier.</content>
@@ -990,7 +990,7 @@
   <content contentuid="h944ede37gebc4g5a12gb741gadbdd459c3fe" version="1">Hurl a shuriken at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
   <content contentuid="h58a1f3bcgfa6dg5a88g888agf2d2d92ec993" version="1">Echo: Throw Shuriken</content>
   <content contentuid="h2778707cgc969g5cbdg982fg74aefba63e0d" version="1">Throw Shuriken</content>
-  <content contentuid="h0d126babg8e22g59aeg821bgb859bb091661" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 1 m push. Damage and healing add your highest ability modifier.</content>
+  <content contentuid="h0d126babg8e22g59aeg821bgb859bb091661" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 2 m push. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h5324619ag6034g5869g8392gbab0bc2ad715" version="1">Echo: Throw Stone</content>
   <content contentuid="hf1a6958dg1c23g5653gad1ag356baa139a13" version="1">Throw Stone</content>
   <content contentuid="h56d50b83g0d8eg5b03gb867g35004ebeff2f" version="1">Hurl a sword at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.</content>
@@ -1311,7 +1311,7 @@
   <content contentuid="h9c7d1427gabe5g5ff6gb197gf76939496f6b" version="1">3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d4 psychic damage each, and each bolt has a 1 in 5 chance of each of Blinded, Silenced, Frightened and Poisoned for 2 turns. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h883f6293g932dg5e1aga36egc0c91d3a105c" version="1">A creature within 18 m makes a Constitution save or turns Undead for 3 turns: it can't regain hit points and is vulnerable to radiant damage. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="h48337efbg1c23g5651gb52ag6bba61517a35" version="1">Reaction: when an enemy hits you with a melee attack, strike back with your weapon or fists. Reaction: equip it in the reaction slot (Job Board). Cost: 300 JP.</content>
-  <content contentuid="h0e1723e1g8eaeg5e93g904eg1e522152f3f8" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 1.5 m. Reaction: equip it in the reaction slot (Job Board). Cost: 180 JP.</content>
+  <content contentuid="h0e1723e1g8eaeg5e93g904eg1e522152f3f8" version="1">When a melee attack hits you, the attacker takes 1d4 bludgeoning damage and is pushed 2 m. Reaction: equip it in the reaction slot (Job Board). Cost: 180 JP.</content>
   <content contentuid="h3f7060bcgf706g56ddg940dg0a9befda785f" version="1">Reaction: when an enemy's ranged attack hits you while you hold a bow or crossbow, shoot it back. Reaction: equip it in the reaction slot (Job Board). Cost: 625 JP.</content>
   <content contentuid="h94ffab9cge2f1g5e94g96cdg530d8fc9af4e" version="1">When damage leaves you at 20% of your hit points or less, you get an extra action on your next turn. Once per short rest. Reaction: equip it in the reaction slot (Job Board). Cost: 800 JP.</content>
   <content contentuid="hadf6c16fg5e88g5260ga462g82b09d84d362" version="1">When damage leaves you at 20% of your hit points or less, you regain half your maximum hit points. Once per long rest. Reaction: equip it in the reaction slot (Job Board). Cost: 500 JP.</content>
@@ -1532,7 +1532,7 @@
   <content contentuid="h77c80d9cg68fdg5c4ega66bg5f7e80ee3957" version="1">With a battle cry, bring a dead ally in melee range back to life with 2d8 hit points. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h64678b2ag1832g5d23g8a99g0c5367ce53a1" version="1">Ranged weapon attack. On a hit the target makes a Strength saving throw or can't move for 1 turn. Known from the start. Action: usable while this is your job or secondary skill set. Cost: 0 JP.</content>
   <content contentuid="h76738cf6g8358g55cfg8d76g013a4e1f5664" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +3 m movement. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
-  <content contentuid="h508587a7g20f6g5d49g9bb1gfaac6a7d5d45" version="1">Melee weapon attack that also pushes the target 2 m. Action: usable while this is your job or secondary skill set. Cost: 80 JP.</content>
+  <content contentuid="h508587a7g20f6g5d49g9bb1gfaac6a7d5d45" version="1">Melee weapon attack that also pushes the target 3 m. Action: usable while this is your job or secondary skill set. Cost: 80 JP.</content>
   <content contentuid="hb057a582gab01g50feg870dg9d0a57ac675e" version="1">Enemies within 5 m of a point up to 18 m away take 6d8 fire damage (Dexterity save for half). Allies are spared. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 860 JP.</content>
   <content contentuid="hb02488f1g3d35g59baga9c8g122c5a2e3c0c" version="1">Touch an ally to end Blinded, Poisoned and Silenced. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h5754e7bbg1f73g5548g8046gb685a7284e3f" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Blinded for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
@@ -1614,7 +1614,7 @@
   <content contentuid="h4836cdd3ge8f4g5bd5gb72fg1b4db2429460" version="1">Hurl a polearm at a creature up to 18 m away: it makes a Dexterity save or takes 1d10 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
   <content contentuid="hda42c997gabb1g5220g9612g55e810c38372" version="1">Hurl a pole at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 bludgeoning damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
   <content contentuid="h453520f5ge9dfg53ccg8a39g250a30b58b2c" version="1">Hurl a shuriken at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn. Action: usable while this is your job or secondary skill set. Cost: 50 JP.</content>
-  <content contentuid="hcbc81ff4gb207g50d1ga953g7fbb481b4f68" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 1 m push. Action: usable while this is your job or secondary skill set. Cost: 90 JP.</content>
+  <content contentuid="hcbc81ff4gb207g50d1ga953g7fbb481b4f68" version="1">Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 2 m push. Action: usable while this is your job or secondary skill set. Cost: 90 JP.</content>
   <content contentuid="hcfc5b4c0g0f0fg59dfg9aecga44097d2d0b5" version="1">Hurl a sword at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
   <content contentuid="h657a4fbfg53d3g5441ga752g736d22335961" version="1">6d6 lightning damage in a 4.5 m radius; Dexterity save for half. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="ha5b8d2aage6fbg540fga89fgf5627c837d25" version="1">3d6 lightning damage in a 3 m radius; Dexterity save for half. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>

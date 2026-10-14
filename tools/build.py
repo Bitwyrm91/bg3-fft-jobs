@@ -25,7 +25,7 @@ import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.pat
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.66"
+MOD_VERSION = "1.0.0.67"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -900,6 +900,13 @@ def check_stats(jobs_doc, entries):
                     add(st, "status", e["name"])
                 elif defined[st]["type"] != "StatusData":
                     errors.append(f"{e['name']}: {st} is used as a status but is {defined[st]['type']}")
+        # "when hit" effects: their functors target the one who was hit, so damage or a push meant for the attacker
+        # needs SWAP (Counter Tackle hurt the Squire itself until 1.0.0.67)
+        data = dict(e["data"])
+        if "OnDamaged" in data.get("StatsFunctorContext", "") and \
+                re.search(r"DealDamage\((?!\s*(SWAP|SELF)\b)|(?<![A-Za-z])Force\(", data.get("StatsFunctors", "")):
+            errors.append(f"{e['name']}: OnDamaged DealDamage/Force hits the one who was hit; write "
+                          "DealDamage(SWAP,...) for the attacker or DealDamage(SELF,...) on purpose")
     if errors:
         raise BuildError("stats errors:\n  " + "\n  ".join(errors))
     return refs

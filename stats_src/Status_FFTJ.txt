@@ -173,6 +173,13 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 
+// Counter Tackle's push on the attacker (vanilla BEE_KNOCKBACK: a hidden status that Force()s on apply).
+new entry "FFTJ_COUNTER_TACKLE_PUSH"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "Force(2)"
+
 // Ranger (NWP 22). Rooted: can't move (Rooting Shot, Sniper Shot on the shooter); Balm removes it.
 new entry "FFTJ_ROOTED"
 type "StatusData"
