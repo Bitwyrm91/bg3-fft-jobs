@@ -110,7 +110,7 @@ Fell Seal source.
 11. **Heals too strong for easy skills** (screenshot: Hi-Potion = Heal 4d4+4 once per short rest). User: make the
     potion/heal tiers small steps up; the strong versions should need a spell slot. Audit every heal (Chemist
     potions, White Magicks Cure line, Cleric/Princess copies, Salve, Chakra, etc.) against BG3 potions/Cure Wounds.
-7. **GitHub:** pushed up to 1.0.0.55 (+ tag backup-1.0.0.54-before-menus) on 2026-10-14 at the user's request
+7. **GitHub:** pushed up to 1.0.0.60 on 2026-10-14 (user: "publish zip"; earlier 1.0.0.55 + tag backup-1.0.0.54-before-menus) at the user's request
    ("publish everything to github"); no GitHub release. Otherwise still no push / release until the user says so
    (NWP item 8 may change that). The repo is private. Tester zip: Documents\1Claude\FFTJobs-1.0.0.55-test.zip.
 
@@ -235,6 +235,8 @@ Fell Seal source.
 **1.0.0.58 (2026-10-14, not seen in game): Chemist upcasting (user).** tools/upcast.py (build.py, before the Echo
 
 **1.0.0.59 (2026-10-14, not seen in game):** IsSpell on Projectile_FFTJ_ChemicalMixup (all flasks and upcasts inherit it) so Sorcerer Metamagic applies (user wants Twinned): vanilla TwinnedProjectileSpellCheck = single target, AreaRadius 0, SpellFlags.Spell, SpellType Projectile (CommonConditions.khn, now extracted to decompg3\scripts).
+
+**1.0.0.60 (2026-10-14):** JP Boost nerfed to +20% (config JP.Boost.Multiplier 1.5 -> 1.2, user); tests pin their own 1.5. Tester zip FFTJobs-1.0.0.60-test.zip (user asked).
 twins) writes Spell/Status_FFTJ_Upcast.txt: vanilla pattern `<root>_<N>` + RootSpellID + PowerLevel + level N slot.
 Flasks: level N applies `<STATUS>_<N>`, Effects.SplitLevel reads N (Mixup N-1 extra dice + max(catalyst, N) effects;
 Caustic/Unstable N-1 extra dice; Fulminate uses FFTJ_FULMINATE_BLAST_<N> = Nd6). Mixup/Caustic keep the free cantrip

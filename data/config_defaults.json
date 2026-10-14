@@ -37,7 +37,7 @@
       },
       "LongRest": 40,
       "Boost": {
-        "Multiplier": 1.5,
+        "Multiplier": 1.2,
         "Action": true,
         "Victory": true,
         "XP": true,
