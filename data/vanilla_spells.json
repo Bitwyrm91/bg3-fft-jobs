@@ -1,0 +1,759 @@
+{
+ "Projectile_ChromaticOrb_Acid": {
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:CreateSurface(2,2,Acid)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(2d8,Acid,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_ChromaticOrb_Fire": {
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt);GROUND:CreateSurface(2,2,Fire)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(2d8,Fire,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_ChromaticOrb_Lightning": {
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:SurfaceChange(Electrify);GROUND:CreateSurface(2,2,WaterElectrified)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(2d8,Lightning,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_ChromaticOrb_Poison": {
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:CreateSurface(2,2,Poison)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(2d8,Poison,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_ChromaticOrb_Thunder": {
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(3d8,Thunder,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_Disintegrate": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsHarmful;IsSpell",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(10d6+40,Force,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_EldritchBlast": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;AddFallDamageOnLand;DisplayDamageModifiers",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(1d10,Force,Magical);IF(HasPassive('RepellingBlast',context.Source)):Force(4.5)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_FOR_GnomeGoblin_ThrowRock": {
+  "AreaRadius": "0",
+  "ExplodeRadius": "0",
+  "SpellFlags": "HasHighGroundRangeExtension",
+  "SpellType": "Projectile",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_FallingRocks": {
+  "AreaRadius": "3",
+  "ExplodeRadius": "3",
+  "SpellFail": "Force(4, TargetToEntity);DealDamage((6d6)/2,Bludgeoning)",
+  "SpellFlags": "HasHighGroundRangeExtension;AddFallDamageOnLand;IsHarmful;CanAreaDamageEvade;ImmediateCast",
+  "SpellProperties": "",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, 12)",
+  "SpellSuccess": "Force(4, TargetToEntity);ApplyStatus(PRONE,100,1);DealDamage(6d6,Bludgeoning)",
+  "SpellType": "Projectile",
+  "TargetConditions": "Character() or Item()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_FireBolt": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(LevelMapValue(D10Cantrip),Fire,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_Fireball": {
+  "AreaRadius": "4",
+  "ExplodeRadius": "4",
+  "SpellFail": "DealDamage((8d6)/2,Fire,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;CanAreaDamageEvade",
+  "SpellProperties": "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC()) ",
+  "SpellSuccess": "DealDamage(8d6,Fire,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not (HasPassive('SculptSpells', context.Source) and Ally())",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_Fly": {
+  "SpellFlags": "IsJump;HasHighGroundRangeExtension;IgnoreVisionBlock;RangeIgnoreVerticalThreshold;Stealth;Invisible;CannotTargetCharacter;CannotTargetItems;NoAOEDamageOnLand",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Surface('SurfaceChasm')",
+  "VerbalIntent": "Utility"
+ },
+ "Projectile_GlyphOfWarding_Fire_Trap": {
+  "AreaRadius": "4",
+  "ExplodeRadius": "4",
+  "SpellFail": "DealDamage(5d8/2,Fire,Magical)",
+  "SpellFlags": "IsTrap;CanAreaDamageEvade;ImmediateCast;IsSpell",
+  "SpellProperties": "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, CalculateSpellDC(context.PreferredCastingAbility, GetSummoner(context.Source)))",
+  "SpellSuccess": "DealDamage(5d8,Fire,Magical)",
+  "SpellType": "Projectile"
+ },
+ "Projectile_GuidingBolt": {
+  "SpellFlags": "HasSomaticComponent;HasVerbalComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(4d6,Radiant,Magical); ApplyStatus(GUIDING_BOLT, 100, 2)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_IceKnife": {
+  "AreaRadius": "2",
+  "ExplodeRadius": "2",
+  "SpellFail": "TARGET:AOE:IF(not SavingThrow(Ability.Dexterity, SourceSpellDC())):DealDamage(2d6, Cold,Magical)",
+  "SpellFlags": "HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:SurfaceChange(Freeze);GROUND:SurfaceChange(Douse);RemoveStatus(BURNING);GROUND:CreateSurface(2,2,WaterFrozen)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "TARGET:DealDamage(1d10,Piercing);TARGET:AOE:IF(not SavingThrow(Ability.Dexterity, SourceSpellDC())):DealDamage(2d6, Cold,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_Javelin": {
+  "SpellFlags": "IsEnemySpell;IgnoreSilence;IsHarmful;AddFallDamageOnLand",
+  "SpellRoll": "Attack(AttackType.RangedUnarmedAttack)",
+  "SpellSuccess": "DealDamage(2d6+StrengthModifier,Piercing)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_Jump_Knockdown_AOE": {
+  "AreaRadius": "3",
+  "ExplodeRadius": "3",
+  "SpellFlags": "None",
+  "SpellRoll": "not SavingThrow(Ability.Strength, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(PRONE,100,2)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and Enemy() and not Dead()",
+  "VerbalIntent": "Utility"
+ },
+ "Projectile_MAG_Barbarian_BrutalLeap": {
+  "SpellFlags": "IsJump;AddFallDamageOnLand;HasHighGroundRangeExtension;IgnoreVisionBlock;Stealth;Invisible;CannotTargetCharacter;CannotTargetItems;Temporary",
+  "SpellProperties": "GROUND:CreateExplosion(Projectile_Jump_Knockdown_AOE)",
+  "SpellType": "Projectile",
+  "TargetConditions": "DistanceToTargetGreaterThan(2)",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_MagicMissile": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "DealDamage(1d4+1,Force,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_MainHandAttack": {
+  "SpellFail": "IF(HasStatus('YSRSLIDFWWADNIWHWIHLY')):SpawnExtraProjectiles(Projectile_MainHandAttack);ApplyStatus(YSRSLIDFWWADNIWHWIHLY_YWNK,100,1)",
+  "SpellFlags": "IsAttack;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;CanDualWield",
+  "SpellProperties": "GROUND:DealDamage(MainRangedWeapon, MainRangedWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand);IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);;CastOffhand[GROUND:DealDamage(OffhandRangedWeapon,OffhandRangedWeaponDamageType);GROUND:ExecuteWeaponFunctors(OffHand)]",
+  "SpellRoll": "Attack(AttackType.RangedWeaponAttack);CastOffhand[Attack(AttackType.RangedOffHandWeaponAttack)]",
+  "SpellSuccess": "DealDamage(max(1,MainRangedWeapon), MainRangedWeaponDamageType); ExecuteWeaponFunctors(MainHand);CastOffhand[DealDamage(OffhandRangedWeapon, OffhandRangedWeaponDamageType);ExecuteWeaponFunctors(OffHand)]",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_RayOfFrost": {
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:SurfaceChange(Freeze);GROUND:SurfaceChange(Douse)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(LevelMapValue(D8Cantrip),Cold,Magical);ApplyStatus(RAY_OF_FROST,100,1)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Projectile_ScorchingRay": {
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasSomaticComponent;HasVerbalComponent;RangeIgnoreVerticalThreshold;IsHarmful",
+  "SpellProperties": "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)",
+  "SpellRoll": "Attack(AttackType.RangedSpellAttack)",
+  "SpellSuccess": "DealDamage(2d6,Fire,Magical)",
+  "SpellType": "Projectile",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Shout_Aid": {
+  "AreaRadius": "9",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell",
+  "SpellProperties": "ApplyStatus(AID,100,-1)",
+  "SpellType": "Shout",
+  "TargetConditions": "Ally()",
+  "VerbalIntent": "Healing"
+ },
+ "Shout_ArmsOfHadar": {
+  "AreaRadius": "3",
+  "SpellFail": "DealDamage((2d6)/2, Necrotic,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Strength, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(2d6, Necrotic,Magical); ApplyStatus(ARMS_OF_HADAR,100,1)",
+  "SpellType": "Shout",
+  "TargetConditions": "(Character() or Tagged('FUNGUS')) and not Self()",
+  "VerbalIntent": "Damage"
+ },
+ "Shout_HealingWord_Mass": {
+  "AreaRadius": "18",
+  "SpellFlags": "HasVerbalComponent;IsSpell",
+  "SpellProperties": "RegainHitPoints(1d4+SpellCastingAbilityModifier)",
+  "SpellType": "Shout",
+  "TargetConditions": "Ally() and not Dead() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT')",
+  "VerbalIntent": "Healing"
+ },
+ "Shout_PrayerOfHealing": {
+  "AreaRadius": "9",
+  "SpellFlags": "HasVerbalComponent;IsSpell",
+  "SpellProperties": "RegainHitPoints(2d8+SpellCastingAbilityModifier)",
+  "SpellType": "Shout",
+  "TargetConditions": "Ally() and not Dead() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT')",
+  "VerbalIntent": "Healing"
+ },
+ "Shout_SecondWind": {
+  "SpellProperties": "RegainHitPoints(1d10+ClassLevel(Fighter))",
+  "SpellType": "Shout",
+  "TargetConditions": "Self()",
+  "VerbalIntent": "Healing"
+ },
+ "Shout_SongOfRest": {
+  "SpellFlags": "HasVerbalComponent",
+  "SpellProperties": "ShortRest()",
+  "SpellType": "Shout",
+  "TargetConditions": "Self()",
+  "VerbalIntent": "Healing"
+ },
+ "Shout_SpeakWithAnimals_Barbarian": {
+  "SpellFlags": "IsSpell;HasVerbalComponent;HasSomaticComponent",
+  "SpellProperties": "RemoveStatus(RAGE_TOTEM_WOLF_SPELL_UNLOCK);ApplyStatus(PETPAL,100,-1)",
+  "SpellType": "Shout",
+  "TargetConditions": "Self()",
+  "VerbalIntent": "Buff"
+ },
+ "Shout_Whirlwind": {
+  "AreaRadius": "2",
+  "SpellFlags": "IsMelee;IsHarmful",
+  "SpellRoll": "Attack(AttackType.MeleeWeaponAttack)",
+  "SpellSuccess": "DealDamage(max(1,MainMeleeWeapon), MainMeleeWeaponDamageType);ExecuteWeaponFunctors(MainHand)",
+  "SpellType": "Shout",
+  "TargetConditions": "Enemy() or Item()"
+ },
+ "Shout_WildShape": {
+  "SpellFlags": "IsLinkedSpellContainer",
+  "SpellType": "Shout",
+  "TargetConditions": "Self()",
+  "VerbalIntent": "Utility"
+ },
+ "Shout_WildShape_Badger": {
+  "SpellFlags": "HasSomaticComponent;UnavailableInDialogs",
+  "SpellProperties": "IF(not ClassLevelHigherOrEqualThan(4,'Druid')):ApplyStatus(WILDSHAPE_BADGER_PLAYER,100,-1);IF(ClassLevelHigherOrEqualThan(4,'Druid') and not ClassLevelHigherOrEqualThan(6,'Druid')):ApplyStatus(WILDSHAPE_BADGER_PLAYER_4,100,-1);IF(ClassLevelHigherOrEqualThan(6,'Druid') and not ClassLevelHigherOrEqualThan(8,'Druid')):ApplyStatus(WILDSHAPE_BADGER_PLAYER_6,100,-1);IF(ClassLevelHigherOrEqualThan(8,'Druid') and not ClassLevelHigherOrEqualThan(10,'Druid')):ApplyStatus(WILDSHAPE_BADGER_PLAYER_8,100,-1);IF(ClassLevelHigherOrEqualThan(10,'Druid')and not ClassLevelHigherOrEqualThan(12,'Druid')):ApplyStatus(WILDSHAPE_BADGER_PLAYER_10,100,-1);IF(ClassLevelHigherOrEqualThan(12,'Druid')):ApplyStatus(WILDSHAPE_BADGER_PLAYER_12,100,-1)",
+  "SpellType": "Shout",
+  "TargetConditions": "Self()",
+  "VerbalIntent": "Utility"
+ },
+ "Target_Bane": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;IsHarmful;IgnorePreviouslyPickedEntities",
+  "SpellRoll": "not SavingThrow(Ability.Charisma, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(BANE, 100, 10)",
+  "SpellType": "Target",
+  "TargetConditions": "not Dead() and not Ally() and Character()",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_BestowCurse": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;IsHarmful;IsMelee;IsLinkedSpellContainer",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC())",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Dead()",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_Blight": {
+  "SpellFail": "IF(not Tagged('PLANT')):DealDamage((8d8)/2,Necrotic,Magical);IF(Tagged('PLANT')):DealDamage(32,Necrotic,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell",
+  "SpellRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC(), false,Tagged('PLANT'))",
+  "SpellSuccess": "IF(not Tagged('PLANT')):DealDamage(8d8,Necrotic);IF(Tagged('PLANT')):DealDamage(64,Necrotic,Magical)",
+  "SpellType": "Target",
+  "TargetConditions": "(Character() or Tagged('FUNGUS')) and not Dead() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT')",
+  "VerbalIntent": "Damage"
+ },
+ "Target_Blindness": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "IsSpell;HasVerbalComponent;HasHighGroundRangeExtension;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(BLINDNESS,100,10)",
+  "SpellType": "Target",
+  "TargetConditions": "(Character() or Tagged('CANBEBLINDED')) and not Ally() and not IsImmuneToStatus('SG_Blinded') and not (not Player(context.Source) and IsCrowdControlled(context.Target))",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_CallLightning_LightningBolt": {
+  "AreaRadius": "2",
+  "SpellFail": "DealDamage((3d10)/2,Lightning,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;Temporary;CanAreaDamageEvade",
+  "SpellProperties": "GROUND:SurfaceChange(Electrify);RemoveStatus(SELF,SANCTUARY);RemoveStatus(SELF,SANCTUARY_TRANQUILITY);",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(3d10,Lightning,Magical)",
+  "SpellType": "Target",
+  "VerbalIntent": "Damage"
+ },
+ "Target_CharmPerson": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL_CHARM_SUBTLE, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;IgnorePreviouslyPickedEntities",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC(),AdvantageOnCharmPerson())",
+  "SpellSuccess": "ApplyStatus(CHARMED,100,10)",
+  "SpellType": "Target",
+  "TargetConditions": "not Item() and not Self() and Character() and Tagged('HUMANOID') and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) ",
+  "VerbalIntent": "Control"
+ },
+ "Target_Confusion": {
+  "AreaRadius": "6",
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC())",
+  "SpellSuccess": "AI_IGNORE:ApplyStatus(CONFUSION,100,3); AI_ONLY:ApplyStatus(PARALYZED,100,3)",
+  "SpellType": "Target",
+  "TargetConditions": "not Item() and not Dead() and not Ally()",
+  "VerbalIntent": "Control"
+ },
+ "Target_Contagion_SlimyDoom": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee",
+  "SpellRoll": "Attack(AttackType.MeleeSpellAttack)",
+  "SpellSuccess": "ApplyStatus(CONTAGION_SLIMY_DOOM_1,100,3)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Dead() ",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_CreateWater": {
+  "AreaRadius": "4",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;RangeIgnoreVerticalThreshold",
+  "SpellProperties": "ApplyStatus(WET,100, 3); GROUND:CreateSurface(4,0, Water);",
+  "SpellType": "Target",
+  "VerbalIntent": "Utility"
+ },
+ "Target_CrownOfMadness": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL_CHARM,100,0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsConcentration;IsSpell",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnCharmed())",
+  "SpellSuccess": "ApplyStatus(CROWN_OF_MADNESS,100,3)",
+  "SpellType": "Target",
+  "TargetConditions": "not Ally() and not Dead() and Tagged('HUMANOID') and not Tagged('UNDEAD')",
+  "VerbalIntent": "Control"
+ },
+ "Target_CureWounds": {
+  "SpellFlags": "HasVerbalComponent;IsSpell;HasHighGroundRangeExtension;IsMelee",
+  "SpellProperties": "RegainHitPoints(1d8+SpellCastingAbilityModifier)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Dead() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT')",
+  "VerbalIntent": "Healing"
+ },
+ "Target_CureWounds_Mass": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IgnorePreviouslyPickedEntities",
+  "SpellProperties": "RegainHitPoints(3d8+SpellCastingAbilityModifier)",
+  "SpellType": "Target",
+  "TargetConditions": "Ally() and not Dead() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT')",
+  "VerbalIntent": "Healing"
+ },
+ "Target_DeathWard": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee",
+  "SpellProperties": "ApplyStatus(DEATH_WARD,100,-1)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and Ally()",
+  "VerbalIntent": "Utility"
+ },
+ "Target_DispelMagic": {
+  "SpellFlags": "IsSpell;HasVerbalComponent;HasSomaticComponent",
+  "SpellType": "Target",
+  "TargetConditions": "Character() or Item()",
+  "VerbalIntent": "Control"
+ },
+ "Target_DissonantWhispers": {
+  "SpellFail": "DealDamage((3d6)/2,Psychic,Magical)",
+  "SpellFlags": "HasVerbalComponent;IsSpell;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnFrightened(), DisadvantageOnFrightened())",
+  "SpellSuccess": "DealDamage(3d6,Psychic,Magical);ApplyStatus(FRIGHTENED,100,2)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Self()",
+  "VerbalIntent": "Damage"
+ },
+ "Target_DominateBeast": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL_DOMINATED, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;HasHighGroundRangeExtension;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnCharmed())",
+  "SpellSuccess": "ApplyStatus(DOMINATE_BEAST,100,10)",
+  "SpellType": "Target",
+  "TargetConditions": "not Ally() and not Dead() and Tagged('BEAST') and not (Party(context.Target) and Party(context.Source))",
+  "VerbalIntent": "Control"
+ },
+ "Target_DominatePerson": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL_DOMINATED, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;HasHighGroundRangeExtension;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnCharmed())",
+  "SpellSuccess": "ApplyStatus(DOMINATE_PERSON,100,10);",
+  "SpellType": "Target",
+  "TargetConditions": "not Ally() and not Dead() and Tagged('HUMANOID') and not Tagged('UNDEAD') and not (Party(context.Target) and Party(context.Source))",
+  "VerbalIntent": "Control"
+ },
+ "Target_Entangle": {
+  "AreaRadius": "3",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentration;IsHarmful",
+  "SpellProperties": "GROUND:CreateSurface(3,10,Vines,true)",
+  "SpellType": "Target",
+  "TargetConditions": "not Grounded()",
+  "VerbalIntent": "Control"
+ },
+ "Target_FaerieFire": {
+  "AreaRadius": "6",
+  "SpellFlags": "IsSpell;HasVerbalComponent;IsConcentration;IsHarmful;RangeIgnoreVerticalThreshold",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(FAERIE_FIRE, 100, 10)",
+  "SpellType": "Target",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally()) and not Self()",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_FistOfUnbrokenAir": {
+  "SpellFail": "DealDamage((LevelMapValue(FistOfUnbrokenAir))/2,Bludgeoning)",
+  "SpellFlags": "IsHarmful;DisableBlood;AddFallDamageOnLand",
+  "SpellProperties": "ApplyStatus(SELF,MARTIAL_ARTS_BONUS_UNARMED_STRIKE,100,1)",
+  "SpellRoll": "not SavingThrow(Ability.Strength, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(LevelMapValue(FistOfUnbrokenAir),Bludgeoning);Force(6);ApplyStatus(PRONE,100,1)",
+  "SpellType": "Target"
+ },
+ "Target_FlameStrike": {
+  "AreaRadius": "3",
+  "SpellFail": "DealDamage(5d6/2,Fire);DealDamage(5d6/2,Radiant,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;CanAreaDamageEvade",
+  "SpellProperties": "GROUND:SurfaceChange(Ignite);",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(5d6,Fire);DealDamage(5d6,Radiant,Magical)",
+  "SpellType": "Target",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally())",
+  "VerbalIntent": "Damage"
+ },
+ "Target_FleshToStone": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(FLESH_TO_STONE_1,100,1,,,,,true)",
+  "SpellType": "Target",
+  "TargetConditions": "not Self() and not Dead() and not HasFleshToSToneCheck()",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_FlurryOfBlows": {
+  "SpellFlags": "IsMelee;IsHarmful;DisableBlood",
+  "SpellProperties": "IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);",
+  "SpellRoll": "Attack(AttackType.MeleeUnarmedAttack );Cast2[Attack(AttackType.MeleeUnarmedAttack )]",
+  "SpellSuccess": "DealDamage(UnarmedDamage , Bludgeoning);Cast2[DealDamage(UnarmedDamage , Bludgeoning)]",
+  "SpellType": "Target",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Target_GlyphOfWarding_Fire": {
+  "AreaRadius": "4",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;CannotTargetItems",
+  "SpellProperties": "GROUND:Summon(08f18dbc-f862-48c2-afcc-036f2e82b2a6,UntilLongRest,Projectile_AiHelper_Summon_Weak,,GlyphOfWardingStack,EXPLOSIVE_RUNES,,,,,true)",
+  "SpellType": "Target",
+  "VerbalIntent": "Damage"
+ },
+ "Target_Grease": {
+  "AreaRadius": "4",
+  "SpellFlags": "HasSomaticComponent;HasVerbalComponent;IsSpell;HasHighGroundRangeExtension;IsHarmful",
+  "SpellProperties": "GROUND:CreateSurface(4,10,Grease)",
+  "SpellType": "Target",
+  "TargetConditions": "not Item();",
+  "VerbalIntent": "Control"
+ },
+ "Target_GreaterRestoration": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee",
+  "SpellProperties": "RemoveStatus(SG_Charmed);RemoveStatus(SG_Petrified);RemoveStatus(SG_Cursed);RemoveStatus(SG_Stunned);",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Dead()",
+  "VerbalIntent": "Healing"
+ },
+ "Target_Haste": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell",
+  "SpellProperties": "ApplyStatus(HASTE,100,10)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and Ally() and not Dead()",
+  "VerbalIntent": "Buff"
+ },
+ "Target_Heroism": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;IsMelee;IgnorePreviouslyPickedEntities",
+  "SpellProperties": "ApplyStatus(HEROISM, 100, 10)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Enemy()",
+  "VerbalIntent": "Buff"
+ },
+ "Target_Hex": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;IsLinkedSpellContainer;IsHarmful",
+  "SpellType": "Target",
+  "TargetConditions": "Character()",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_HoldMonster": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;IsConcentration;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(HOLD_MONSTER,100,10)",
+  "SpellType": "Target",
+  "TargetConditions": "not Tagged('UNDEAD') and not Self() and not Dead() and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and Character()",
+  "VerbalIntent": "Control"
+ },
+ "Target_HoldPerson": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;IsConcentration;IsHarmful;IgnorePreviouslyPickedEntities",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(HOLD_PERSON,100,10)",
+  "SpellType": "Target",
+  "TargetConditions": "not Item() and not Self() and Character() and Tagged('HUMANOID') and not Tagged('UNDEAD') and not IsDowned() and not Dead() and not Ally() and not (not Player(context.Source) and IsCrowdControlled(context.Target))",
+  "VerbalIntent": "Control"
+ },
+ "Target_HuntersMark": {
+  "SpellFlags": "IsSpell;HasVerbalComponent;HasHighGroundRangeExtension;IsConcentration;IsHarmful",
+  "SpellProperties": "ApplyStatus(SELF,HUNTERS_MARK_OWNER,100,-1);ApplyStatus(HUNTERS_MARK,100,-1)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Self() and not (not Player(context.Source) and not Enemy()) and not HasStatus('DOWNED')",
+  "VerbalIntent": "Debuff"
+ },
+ "Target_HypnoticPattern": {
+  "AreaRadius": "9",
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL_CHARM, 100, 0)",
+  "SpellFlags": "HasSomaticComponent;IsConcentration;IsSpell",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnCharmed())",
+  "SpellSuccess": "ApplyStatus(HYPNOTIC_PATTERN,100,2)",
+  "SpellType": "Target",
+  "VerbalIntent": "Control"
+ },
+ "Target_IceStorm": {
+  "AreaRadius": "6",
+  "SpellFail": "DealDamage((2d8)/2,Bludgeoning,Magical);DealDamage((4d6)/2,Cold,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;CanAreaDamageEvade",
+  "SpellProperties": "GROUND:CreateSurface(6,2,WaterFrozen);GROUND:SurfaceChange(Freeze);GROUND:SurfaceChange(Douse);RemoveStatus(BURNING)",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(2d8,Bludgeoning,Magical);DealDamage(4d6,Cold,Magical)",
+  "SpellType": "Target",
+  "TargetConditions": "not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Target_LesserRestoration": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee",
+  "SpellProperties": "RemoveStatus(SG_Poisoned);RemoveStatus(SG_Disease);RemoveStatus(SG_Paralyzed);RemoveStatus(SG_Blinded);RemoveStatus(ASTARION_WEAK)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and (HasStatus('SG_Poisoned') or HasStatus('SG_Disease') or HasStatus('SG_Paralyzed') or HasStatus('SG_Blinded') or HasStatus('ASTARION_WEAK'))",
+  "VerbalIntent": "Healing"
+ },
+ "Target_Levitate": {
+  "SpellFlags": "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsConcentration",
+  "SpellRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(LEVITATE,100,1)",
+  "SpellType": "Target",
+  "VerbalIntent": "Utility"
+ },
+ "Target_MF_BlackHole": {
+  "AreaRadius": "9",
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "IsHarmful;DisableBlood;Wildshape",
+  "SpellProperties": "Force(-6,TargetToEntity,false,true);GROUND:ApplyStatus(SELF,MF_BLACK_HOLE_AURA,100,5);DealDamage(3d10+4, Force,Magical)",
+  "SpellRoll": "not SavingThrow(Ability.Intelligence, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(MF_BLACK_HOLE_SLOW,100,1)",
+  "SpellType": "Target",
+  "TargetConditions": "not Self() and not Ally()",
+  "VerbalIntent": "Control"
+ },
+ "Target_MainHandAttack": {
+  "SpellFlags": "IsAttack;IsMelee;IsHarmful;CanDualWield",
+  "SpellProperties": "GROUND:DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand);CastOffhand[GROUND:DealDamage(OffhandMeleeWeapon, OffhandMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(OffHand)];IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);",
+  "SpellRoll": "Attack(AttackType.MeleeWeaponAttack);CastOffhand[Attack(AttackType.MeleeOffHandWeaponAttack)]",
+  "SpellSuccess": "DealDamage(max(1,MainMeleeWeapon), MainMeleeWeaponDamageType);ExecuteWeaponFunctors(MainHand);CastOffhand[DealDamage(max(0,OffhandMeleeWeapon), OffhandMeleeWeaponDamageType);ExecuteWeaponFunctors(OffHand)]",
+  "SpellType": "Target",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Target_MistyStep": {
+  "SpellFlags": "HasVerbalComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold",
+  "SpellProperties": "GROUND:TeleportSource();",
+  "SpellType": "Target",
+  "TargetConditions": "CanStand('') and not Character() and not Self()",
+  "VerbalIntent": "Utility"
+ },
+ "Target_Shatter": {
+  "AreaRadius": "3",
+  "SpellFail": "DealDamage((3d8)/2,Thunder,Magical)",
+  "SpellFlags": "IsSpell;HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC(),false,IsInorganic())",
+  "SpellSuccess": "DealDamage(3d8,Thunder,Magical)",
+  "SpellType": "Target",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally())",
+  "VerbalIntent": "Damage"
+ },
+ "Target_ShieldOfFaith": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell",
+  "SpellProperties": "ApplyStatus(SHIELD_OF_FAITH,100,-1)",
+  "SpellType": "Target",
+  "TargetConditions": "Character()",
+  "VerbalIntent": "Buff"
+ },
+ "Target_Sleep": {
+  "SpellFlags": "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsHarmful;RangeIgnoreVerticalThreshold;IgnorePreviouslyPickedEntities",
+  "SpellProperties": "ApplyStatus(SLEEP,100,2)",
+  "SpellType": "Target",
+  "TargetConditions": "not HasHPMoreThan(24) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')",
+  "VerbalIntent": "Control"
+ },
+ "Target_Slow": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentration;IgnorePreviouslyPickedEntities",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(SLOW,100,10)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Ally()",
+  "VerbalIntent": "Control"
+ },
+ "Target_StunningStrike_Unarmed": {
+  "SpellFlags": "IsMelee;IsHarmful;DisableBlood",
+  "SpellProperties": "GROUND:DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand);CastOffhand[GROUND:DealDamage(OffhandMeleeWeapon, OffhandMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(OffHand)];IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);",
+  "SpellRoll": "Attack(AttackType.MeleeUnarmedAttack)",
+  "SpellSuccess": "IF(not SavingThrow(Ability.Constitution, ManeuverSaveDC())):ApplyStatus(STUNNED,100,1);DealDamage(UnarmedDamage , Bludgeoning)",
+  "SpellType": "Target",
+  "TargetConditions": "not Self() and not Dead() and not (not Player(context.Source) and HasStatus('SG_Stunned'))",
+  "VerbalIntent": "Control"
+ },
+ "Target_UnarmedAttack": {
+  "SpellFlags": "IsAttack;IsMelee;IsHarmful;DisableBlood",
+  "SpellProperties": "IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);",
+  "SpellRoll": "Attack(AttackType.MeleeUnarmedAttack)",
+  "SpellSuccess": "DealDamage(UnarmedDamage , Bludgeoning)",
+  "SpellType": "Target",
+  "TargetConditions": "not Self() and not Dead()",
+  "VerbalIntent": "Damage"
+ },
+ "Target_VampiricTouch": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee;IsConcentration;IsHarmful",
+  "SpellProperties": "ApplyStatus(SELF,VAMPIRIC_TOUCH,100,10)",
+  "SpellRoll": "Attack(AttackType.MeleeSpellAttack)",
+  "SpellSuccess": "DealDamage(3d6,Necrotic,Magical); RegainHitPoints(SELF,(DamageDone)/2)",
+  "SpellType": "Target",
+  "TargetConditions": "(Character() or Tagged('FUNGUS')) and not Self() and not Ally()",
+  "VerbalIntent": "Damage"
+ },
+ "Target_ViciousMockery": {
+  "SpellFail": "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D4Cantrip))/2,Psychic,Magical), IF(not HasPassive('PotentCantrip',context.Source)):ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)",
+  "SpellFlags": "IsSpell;HasVerbalComponent;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Wisdom, SourceSpellDC())",
+  "SpellSuccess": "ApplyStatus(VICIOUSMOCKERY,100,1);DealDamage(LevelMapValue(D4Cantrip),Psychic,Magical)",
+  "SpellType": "Target",
+  "TargetConditions": "Character() and not Ally()",
+  "VerbalIntent": "Damage"
+ },
+ "Target_Volley": {
+  "AreaRadius": "3",
+  "SpellFlags": "HasHighGroundRangeExtension;IsHarmful",
+  "SpellProperties": "GROUND:DealDamage(MainRangedWeapon, MainRangedWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand)",
+  "SpellRoll": "Attack(AttackType.RangedWeaponAttack)",
+  "SpellSuccess": "DealDamage(max(1,MainRangedWeapon), MainRangedWeaponDamageType); ExecuteWeaponFunctors(MainHand)",
+  "SpellType": "Target",
+  "TargetConditions": "not Self() and not Dead() and (not Ally() or Item())",
+  "VerbalIntent": "Damage"
+ },
+ "Teleportation_Revivify": {
+  "AreaRadius": "9",
+  "SpellFlags": "IsSpell;RangeIgnoreVerticalThreshold;HasVerbalComponent;HasSomaticComponent;IgnorePreviouslyPickedEntities;CannotTargetItems",
+  "SpellType": "Teleportation",
+  "TargetConditions": "not Character()",
+  "VerbalIntent": "Healing"
+ },
+ "Zone_ArcaneShot_PiercingArrow": {
+  "SpellFail": "DealDamage((MainRangedWeapon+1d6)/2, MainRangedWeaponDamageType);ExecuteWeaponFunctors(MainHand);",
+  "SpellFlags": "IsAttack;IsHarmful;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity,SourceSpellDC(10,context.Source,Ability.Intelligence))",
+  "SpellSuccess": "DealDamage(MainRangedWeapon+1d6, MainRangedWeaponDamageType);ExecuteWeaponFunctors(MainHand)",
+  "SpellType": "Zone",
+  "TargetConditions": "not Self() and not Dead() and Character()",
+  "VerbalIntent": "Damage"
+ },
+ "Zone_BurningHands": {
+  "SpellFail": "DealDamage(3d6/2, Fire,Magical)",
+  "SpellFlags": "HasSomaticComponent;HasVerbalComponent;IsSpell;IsHarmful;CanAreaDamageEvade",
+  "SpellProperties": "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt);TARGET:IF(Item()):ApplyStatus(BURNING,100,2);",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(3d6, Fire,Magical)",
+  "SpellType": "Zone",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally()) and not Tagged('INVISIBLE_HELPER')",
+  "VerbalIntent": "Damage"
+ },
+ "Zone_ColorSpray": {
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful",
+  "SpellProperties": "ApplyStatus(COLOR_SPRAY,100,1)",
+  "SpellType": "Zone",
+  "TargetConditions": "Character()",
+  "VerbalIntent": "Control"
+ },
+ "Zone_ConeOfCold": {
+  "SpellFail": "DealDamage((8d8)/2,Cold,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsHarmful;IsSpell",
+  "SpellProperties": "GROUND:SurfaceChange(Freeze);GROUND:SurfaceChange(Douse);RemoveStatus(BURNING)",
+  "SpellRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(8d8,Cold,Magical)",
+  "SpellType": "Zone",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally())  and not Tagged('INVISIBLE_HELPER')",
+  "VerbalIntent": "Damage"
+ },
+ "Zone_GustOfWind_Monk": {
+  "SpellFail": "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)",
+  "SpellFlags": "HasSomaticComponent;AddFallDamageOnLand",
+  "SpellProperties": "GROUND:SurfaceClearLayer(cloud);ApplyStatus(SELF,MARTIAL_ARTS_BONUS_UNARMED_STRIKE,100,1)",
+  "SpellRoll": "not SavingThrow(Ability.Strength, SourceSpellDC())",
+  "SpellSuccess": "Force(5); IF(not Item()):ApplyStatus(OFF_BALANCED,100,1)",
+  "SpellType": "Zone",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally()) and not Tagged('INVISIBLE_HELPER')",
+  "VerbalIntent": "Utility"
+ },
+ "Zone_LightningBolt": {
+  "SpellFail": "DealDamage((8d6)/2, Lightning,Magical)",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;CanAreaDamageEvade",
+  "SpellRoll": "not SavingThrow(Ability.Dexterity, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(8d6,Lightning,Magical)",
+  "SpellType": "Zone",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally()) and not Tagged('INVISIBLE_HELPER')",
+  "VerbalIntent": "Damage"
+ },
+ "Zone_Mag_WeaponAction_RazorGale": {
+  "SpellFail": "DealDamage((MainMeleeWeapon+ProficiencyBonus)/2, MainWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand)",
+  "SpellFlags": "IsHarmful;IsDefaultWeaponAction;CanAreaDamageEvade",
+  "SpellProperties": "GROUND:ExecuteWeaponFunctors(MainHand)",
+  "SpellRoll": "Attack(AttackType.MeleeWeaponAttack)",
+  "SpellSuccess": "DealDamage(MainMeleeWeapon+ProficiencyBonus, MainWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand)",
+  "SpellType": "Zone",
+  "TargetConditions": "(Character() or Item()) and not Self() and not Dead() and not Ally()",
+  "VerbalIntent": "Damage"
+ },
+ "Zone_Thunderwave": {
+  "SpellFail": "DealDamage((2d8)/2,Thunder,Magical);",
+  "SpellFlags": "HasVerbalComponent;HasSomaticComponent;IsSpell;AddFallDamageOnLand;IsHarmful",
+  "SpellRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC())",
+  "SpellSuccess": "DealDamage(2d8,Thunder,Magical);Force(8, OriginToTarget)",
+  "SpellType": "Zone",
+  "TargetConditions": "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally()) and not Tagged('INVISIBLE_HELPER')",
+  "VerbalIntent": "Damage"
+ }
+}

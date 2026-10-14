@@ -91,6 +91,8 @@
   <content contentuid="h80bc09cdg1329g54a8g8f20g81bd81a7c688" version="1">Blood Drain</content>
   <content contentuid="h2f1d6714gb0aeg5148g91b4g9b3ba6b04fde" version="1">When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest.</content>
   <content contentuid="hfd486fcag6401g5831g8fb0g531fb96a1c73" version="1">Bonecrusher</content>
+  <content contentuid="h08adb9dag180bg5652gb546g7ba2a6244f68" version="1">When you kill an enemy, your next attack roll (weapon or spell attack) before the end of your next turn is a critical hit. Spells with a saving throw can't be critical hits.</content>
+  <content contentuid="h84e93d95g8ffag57c6g88e1g6fb852494e79" version="1">Boon</content>
   <content contentuid="h92f523fdg6e23g509cga0c0gea023490c254" version="1">A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 force. At will. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h831ab94fgd333g562bga1cdg870c1cb3b261" version="1">Echo: Braver</content>
   <content contentuid="haeb17162g34f0g585fg8e86g0739accb791d" version="1">Braver</content>
@@ -289,6 +291,12 @@
   <content contentuid="haed26d8bg3e5ag5bf7g9158gedccf3ee215a" version="1">EXP Boost</content>
   <content contentuid="h211f263cg916ag5f1eg818dgdbca21ab39b9" version="1">Advantage on Wisdom saving throws (most talk skills and charms aim at Wisdom).</content>
   <content contentuid="hfc97151bg5353g544cg9af1g36488b3d2e08" version="1">Earplugs</content>
+  <content contentuid="h4f2268f5g24f7g5a84gacf6g3a20785eff44" version="1">Echo: Earth I / Thunder I</content>
+  <content contentuid="hc63fb675g841dg5ab8gbf59g6033434efc88" version="1">Earth I / Thunder I</content>
+  <content contentuid="h6ac77f4ag8c89g5061ga832g416e0a1c2773" version="1">Echo: Earth II / Thunder II</content>
+  <content contentuid="hb5370925ga970g56f6gbb9dga95cc4ab3b22" version="1">Earth II / Thunder II</content>
+  <content contentuid="h3a288b4cgf27fg50a4ga16ag57d77ccfe8af" version="1">Echo: Earth Locus / Thunder Locus</content>
+  <content contentuid="haf05043cg4a45g520cg9340g1da558912dfc" version="1">Earth Locus / Thunder Locus</content>
   <content contentuid="h80d37df8g55bfg572aga785gee17068f477e" version="1">End Silenced. Thrown like Potion.</content>
   <content contentuid="h788327a8ge250g5fd5gbbd7g6947c7a61046" version="1">Echo: Echo Herbs</content>
   <content contentuid="h85374d3ag6f46g5fabgb13cg8a809600d880" version="1">Echo Herbs</content>
@@ -787,6 +795,8 @@
   <content contentuid="hdcc3587egea0bg561eg9f3dg9d6ab06961e6" version="1">Death Ward: the next time the ally would drop to 0 HP, it drops to 1 HP instead. Once per long rest.</content>
   <content contentuid="heccdaa22g34d2g5592g91c1g39387583d58c" version="1">Echo: Reraise</content>
   <content contentuid="h71e8e3e2g2fdfg5017gbcf0gf0e0affac3ba" version="1">Reraise</content>
+  <content contentuid="ha23c1815g523eg50bagb66cg8f5a9c4e65ac" version="1">When an enemy's spell damages you, its caster takes half that damage back as force damage.</content>
+  <content contentuid="h81e6910cg25b8g59b4g858cg5721cf87fabd" version="1">Return Magic</content>
   <content contentuid="h0989f318g3adbg5418g93c8g0b8754d22878" version="1">With a battle cry, bring a dead ally in melee range back to life with 2d8 hit points. Once per short rest.</content>
   <content contentuid="hd9d900ebgdfedg5beagbe58g9eca4da30af6" version="1">Echo: Revive</content>
   <content contentuid="h80eefe59ge1b3g5eacgbbfeg21e56d55ea01" version="1">Revive</content>
@@ -857,6 +867,8 @@
   <content contentuid="he51e52aag246ag52d9g8287gb787766b3e0b" version="1">Every enemy within 4 m of a point up to 18 m away makes a Wisdom save or is Slowed for 3 turns (as Slow). Once per long rest.</content>
   <content contentuid="h0e1754edg20b1g55e4g9c4cg9b65f7241b07" version="1">Echo: Slowja</content>
   <content contentuid="h054094cag6411g5034g9138g8e1e1bb00af3" version="1">Slowja</content>
+  <content contentuid="he586900dgbfc5g58b9g934cgfbb23e1f70ed" version="1">Your area abilities from this mod (every job's, including the Chemist's flask bursts) leave out you and your allies, and your area healing and buffs leave out enemies. BG3's own spells are unchanged.</content>
+  <content contentuid="hb78b5bfage0a5g5ba3gb2dag7c2d2163e0bb" version="1">Smart Casting</content>
   <content contentuid="hd866a5deg63f8g5336gb7c1gd5cc02037521" version="1">Ranged weapon attack that deals triple weapon damage; you can't move until your next turn. Once per long rest.</content>
   <content contentuid="h20f21c2bg40c0g5771gb9cdg33de019485bf" version="1">Echo: Sniper Shot</content>
   <content contentuid="he9a8378fg7e92g5a64g8566gbe0d7d4fdb43" version="1">Sniper Shot</content>
@@ -1082,6 +1094,12 @@
   <content contentuid="h32a9a769g9a8eg5b0dg96c0g02c3283621bd" version="1">Vertical Jump ±8</content>
   <content contentuid="h6e493f4ag4c73g5a68g85a2g6ab47c8f9b8f" version="1">When a weapon attack damages you, you take the Defending stance: +2 AC until your next turn. Once per turn.</content>
   <content contentuid="h91769c6dg98b2g53dbg9434geb130914f2ed" version="1">Vigilance</content>
+  <content contentuid="h75446e4fgd2cfg52a5ga491ga7a54fb15fee" version="1">Echo: Water I / Fire I</content>
+  <content contentuid="hd08d441agde90g54d1g9990g79dc9960fb49" version="1">Water I / Fire I</content>
+  <content contentuid="h0cbd2e42ga110g50a3gb564gf0daf17610e9" version="1">Echo: Water II / Fire II</content>
+  <content contentuid="hfb6a40c0g37d7g5e8bga2ecg7029ad7b7e60" version="1">Water II / Fire II</content>
+  <content contentuid="hb7fc5479gb961g551dga8f9g67171c441470" version="1">Echo: Water Locus / Fire Locus</content>
+  <content contentuid="h837bbffcg9f1cg53bdgb989gbb67ceb3779b" version="1">Water Locus / Fire Locus</content>
   <content contentuid="haf2d9b79g11cdg541dgacd0gb0b6ba8d103d" version="1">Deep water doesn't slow you, and water never leaves you Wet.</content>
   <content contentuid="h1b80e3b9g62c3g54b8g894eg5421c2a70d52" version="1">Waterwalking</content>
   <content contentuid="h34b72f75g39c5g5b2bgbbf1g148cc5289758" version="1">Only in shadow or darkness, or while you stand in grease, oil or alcohol. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Wisdom save has a 1 in 4 chance of falling Asleep for 2 turns. Damage and healing add your highest ability modifier.</content>
@@ -1269,6 +1287,10 @@
   <content contentuid="h1062f6bfg6495g5f8aga4d9g041b98c04646" version="1">White Mage Mastery</content>
   <content contentuid="h0e9f7479g515cg5cfegb38eg2dbe82726e7c" version="1">Healing, revival and protection. Equipment: quarterstaffs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
   <content contentuid="hf12d1373g3fc7g5d45gb675g90d8be9f9bb8" version="1">Job: White Mage</content>
+  <content contentuid="hcb16cb0eg32d0g5cacgb7a4g2209c60f87e6" version="1">One extra level 1 spell slot. Earned by mastering Wizard; kept after changing jobs.</content>
+  <content contentuid="h1e196cbag5e54g5930ga3ebg7bdd22062616" version="1">Wizard Mastery</content>
+  <content contentuid="hd949b50cg2f92g5ec0ga4b9gbfccea0d7228" version="1">Spell-slingers who take out groups of foes with elemental magic (Fell Seal's Wizard): water, fire, earth and thunder in three tiers, Smart Casting to spare your allies, Boon after a kill. Unlocked at half the maximum job level as both Black Mage and White Mage (level 4). Equipment: quarterstaffs, clubs, light armour (proficiency while this is your job). Current FFT job. Change it on the Job Board.</content>
+  <content contentuid="h1a89f431gb100g5142ga7b3gff5c2a0f1c92" version="1">Job: Wizard</content>
   <content contentuid="h5eb40503g0bdfg5bcdg9638gc562bc913b45" version="1">When a spell damages you, you regain a level 1 spell slot. Once per short rest. Reaction: equip it in the reaction slot (Job Board). Cost: 250 JP.</content>
   <content contentuid="hbbba2268gbe61g520aga237g75001a6be82f" version="1">Costs a tenth of your maximum hit points (never your last one). Everyone else within 4.5 m of you, allies too, takes 3d8 necrotic damage, 6d8 if right next to you (Dexterity save for half). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 1000 JP.</content>
   <content contentuid="hac16a17ag92a6g5f73gb651g5a66f5e974f1" version="1">Gain 5 experience per character level at the start of each of your turns in a fight. Passive: equip it in a passive slot (Job Board). Cost: 400 JP.</content>
@@ -1307,6 +1329,7 @@
   <content contentuid="hccb3fb3bgdc55g582bgb650gc22bf33d8bd4" version="1">1d8 cold damage to a creature within 18 m, no attack roll. Action: usable while this is your job or secondary skill set. Cost: 50 JP.</content>
   <content contentuid="hd61261c3gd263g50c6g96bfg64223168faf6" version="1">Bite a creature next to you (melee weapon attack roll): 2d6 piercing + 2d6 necrotic damage, and you regain hit points equal to the damage dealt. Not against undead or constructs. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 0 JP.</content>
   <content contentuid="hc0bed5c0g90abg504dg97b0gf17092bde622" version="1">When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest. Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
+  <content contentuid="h1dfc5becgade4g552cgb29fga04a4635d3c3" version="1">When you kill an enemy, your next attack roll (weapon or spell attack) before the end of your next turn is a critical hit. Spells with a saving throw can't be critical hits. Passive: equip it in a passive slot (Job Board). Cost: 625 JP.</content>
   <content contentuid="hade59e18gdbdbg55b3ga1d1gd39ca33e1877" version="1">A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 force. At will. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h3ab82419gc82bg5d65g886eg2acbad3d044a" version="1">When a weapon attack hits you, you get +1 to attack rolls for 10 turns. Reaction: equip it in the reaction slot (Job Board). Cost: 700 JP.</content>
   <content contentuid="he5295b0egf3deg53b8g94ffg97ffbf6a18d6" version="1">Unarmed strikes get +1 to attack rolls and deal 1d6 more damage (1d8 from character level 5, 1d10 from level 9). Always on while Monk is your job. Passive: equip it in a passive slot (Job Board). Cost: 200 JP.</content>
@@ -1385,6 +1408,9 @@
   <content contentuid="hea428b2fg0524g51c1gaa39g1238df2cc9af" version="1">A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage, gives the target -2 to spell attack rolls and spell save DC for 2 turns and gives you back a level 1 spell slot. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h1c670fd1gf590g5111ga269gbd132895d161" version="1">Earn 25% more experience from fights. Passive: equip it in a passive slot (Job Board). Cost: 350 JP.</content>
   <content contentuid="hed3fd334g2db0g5998g8691g2117f852f295" version="1">Advantage on Wisdom saving throws (most talk skills and charms aim at Wisdom). Reaction: equip it in the reaction slot (Job Board). Cost: 300 JP.</content>
+  <content contentuid="hdc0049f1g7365g5f40gbc17g6fe9dc2240d5" version="1">Two area cantrips, Earth I (falling stones, bludgeoning) and Thunder I (lightning), plus spell-slot versions (pick level 1-6). Pick a spot up to 18 m away: everyone within 1.5 m (allies too) makes a Dexterity save; on a fail they take 1d6 damage (2d6 at level 5, 3d6 at level 10). Spell-slot versions: one more die than the slot level (2d6 at level 1), half damage on a successful save. Thunder hits Wet targets twice as hard. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
+  <content contentuid="h1ce36fa3gace7g587ega3c3g9a3491d7f844" version="1">Level 1 spell slot (higher slots: +1d6 per level). Earth II (bludgeoning) and Thunder II (lightning): everyone within 2 m of a spot up to 18 m away (allies too) takes 3d6 damage, half on a successful Dexterity save. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
+  <content contentuid="h1dcf8aebgf16ag5612g8c15g831dc547ed16" version="1">Level 2 spell slot (higher slots: +1d8 per level). A spell attack at one creature up to 18 m away: 4d8 bludgeoning (Earth Locus) or 4d8 lightning (Thunder Locus, twice as hard on a Wet target). Action: usable while this is your job or secondary skill set. Cost: 750 JP.</content>
   <content contentuid="hbd8efd90g6d55g5cc3g83dfg3f308ed947f3" version="1">End Silenced. Thrown like Potion. Action: usable while this is your job or secondary skill set. Cost: 120 JP.</content>
   <content contentuid="hf7062368g6c26g5104g8204g9411dd0915c6" version="1">Fully heal the target and restore one level 2 spell slot. Once per long rest. Thrown like Potion. Action: usable while this is your job or secondary skill set. Cost: 900 JP.</content>
   <content contentuid="h343234f2g69fag5ea2g8ad9g0b4b131d73e8" version="1">Drain a creature within 18 m: it makes a Wisdom save or takes 1d10 psychic damage, and you regain a level 1 spell slot (FFT absorbs MP). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
@@ -1568,6 +1594,7 @@
   <content contentuid="h0c2f7655g4c55g5557g8c07g415ba72a182a" version="1">Melee weapon attack that deals no damage; on a hit the target has disadvantage on attack rolls for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 400 JP.</content>
   <content contentuid="hc3acda6eg86b9g5106g8668g3b5dc827733a" version="1">A creature within 18 m makes a Wisdom save or falls Asleep for 2 turns (it wakes when damaged). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 350 JP.</content>
   <content contentuid="hd4cdefb0ged34g5643ga81bg51c6d6d245d2" version="1">Death Ward: the next time the ally would drop to 0 HP, it drops to 1 HP instead. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 1000 JP.</content>
+  <content contentuid="h0bd53dd1g7332g5a0fg8b37g51b321d73638" version="1">When an enemy's spell damages you, its caster takes half that damage back as force damage. Reaction: equip it in the reaction slot (Job Board). Cost: 500 JP.</content>
   <content contentuid="h77c80d9cg68fdg5c4ega66bg5f7e80ee3957" version="1">With a battle cry, bring a dead ally in melee range back to life with 2d8 hit points. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h64678b2ag1832g5d23g8a99g0c5367ce53a1" version="1">Ranged weapon attack. On a hit the target makes a Strength saving throw or can't move for 1 turn. Known from the start. Action: usable while this is your job or secondary skill set. Cost: 0 JP.</content>
   <content contentuid="h76738cf6g8358g55cfg8d76g013a4e1f5664" version="1">Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +3 m movement. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
@@ -1591,6 +1618,7 @@
   <content contentuid="he9c0f4bdg558fg51eag8bfeg2e13fb20c784" version="1">An enemy within 18 m makes a Wisdom save or is Slowed for 3 turns (BG3's Slow: -2 AC and Dexterity saves, half movement, no reactions; it repeats the save each turn). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 80 JP.</content>
   <content contentuid="h1cb47ed4g4723g5acdga665g774968f5a5a9" version="1">Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have 3 m less movement. Action: usable while this is your job or secondary skill set. Cost: 100 JP.</content>
   <content contentuid="h01771f5cgbf1bg597dgb630gfde42af49b8e" version="1">Every enemy within 4 m of a point up to 18 m away makes a Wisdom save or is Slowed for 3 turns (as Slow). Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 600 JP.</content>
+  <content contentuid="hdd99a396g24e4g5fe8g8e6ag6b39476a23fd" version="1">Your area abilities from this mod (every job's, including the Chemist's flask bursts) leave out you and your allies, and your area healing and buffs leave out enemies. BG3's own spells are unchanged. Passive: equip it in a passive slot (Job Board). Cost: 500 JP.</content>
   <content contentuid="h537e21d0g0809g5a6agb599g3fd6ad5df745" version="1">Ranged weapon attack that deals triple weapon damage; you can't move until your next turn. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 1000 JP.</content>
   <content contentuid="h7239b3bcg8524g5b85g881ag21b318366bd6" version="1">Only while you stand on ice. Enemies within 2 m of a point up to 18 m away take 1d6 cold damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Silenced for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h5ec84243g311ag5915ga5cbg7015cc153e8a" version="1">When a creature damages you, it takes 1d6 necrotic damage and you regain 1d6 hit points. Once per turn. Reaction: equip it in the reaction slot (Job Board). Cost: 300 JP.</content>
@@ -1678,6 +1706,9 @@
   <content contentuid="h288c3acegdad3g5d02gb538gdf23fc4981b6" version="1">Your Jump lands harder: 2d8 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts. Action: usable while this is your job or secondary skill set. Cost: 1000 JP.</content>
   <content contentuid="hc200baf3geedbg515egb27eg85c4699de3f7" version="1">Your Jump lands harder: 2d10 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts. Action: usable while this is your job or secondary skill set. Cost: 1500 JP.</content>
   <content contentuid="hb8455012ga2e6g5cd6ga553ge687520e7d6c" version="1">When a weapon attack damages you, you take the Defending stance: +2 AC until your next turn. Once per turn. Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
+  <content contentuid="h2a14e77ag5435g501ag98c3gea3aeec0133a" version="1">Two area cantrips, Water I (cold) and Fire I (fire), plus spell-slot versions (pick level 1-6). Pick a spot up to 18 m away: everyone within 1.5 m (allies too) makes a Dexterity save; on a fail they take 1d6 damage (2d6 at level 5, 3d6 at level 10), and Water I leaves them Wet for 2 turns (Wet: double cold and lightning damage, half fire damage). Spell-slot versions: one more die than the slot level (2d6 at level 1), half damage on a successful save. Known from the start. Action: usable while this is your job or secondary skill set. Cost: 0 JP.</content>
+  <content contentuid="h05ba92a4g6aa1g5671g864dg8bdb32cb14c5" version="1">Level 1 spell slot (higher slots: +1d6 per level). Water II (cold) and Fire II (fire): everyone within 2 m of a spot up to 18 m away (allies too) takes 3d6 damage, half on a successful Dexterity save; Water II leaves those who fail Wet for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
+  <content contentuid="h68c956b3ge6f9g5249g8a0bg8e2a804bf8bc" version="1">Level 2 spell slot (higher slots: +1d8 per level). A spell attack at one creature up to 18 m away: 4d8 cold (Water Locus, the target is also Wet for 2 turns) or 4d8 fire (Fire Locus). Action: usable while this is your job or secondary skill set. Cost: 750 JP.</content>
   <content contentuid="hfba30697ga502g5738ga4c4g89483cebf3b3" version="1">Deep water doesn't slow you, and water never leaves you Wet. Passive: equip it in a passive slot (Job Board). Cost: 420 JP.</content>
   <content contentuid="haacf1493gc284g590agbef4ged32c97c8c4e" version="1">Only in shadow or darkness, or while you stand in grease, oil or alcohol. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Wisdom save has a 1 in 4 chance of falling Asleep for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h14ad52d5g8ff9g52c4g852cg5121f565c7cc" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 thunder damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 4 chance of being Slowed for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
@@ -1726,6 +1757,7 @@
   <content contentuid="hb0c8ad92g132ag5771g8c7eg2fb2abfb0982" version="1">Thief JP: open the Job Board once to refresh.</content>
   <content contentuid="h938029cagef2eg566cga52egb60717dbbf03" version="1">Time Mage JP: open the Job Board once to refresh.</content>
   <content contentuid="h8057a058g041eg5e7ag9967g5a1f0878e7ea" version="1">White Mage JP: open the Job Board once to refresh.</content>
+  <content contentuid="hf6cb0121g013fg5b40g945fg0c2d16fcb3c5" version="1">Wizard JP: open the Job Board once to refresh.</content>
   <content contentuid="ha62e7f16ga46cg5f3ag85e5gb53b373bfe1c" version="1">Survivalists who honed their archery to deadly effect (Fell Seal's Ranger). Makes Ranger this character's job.</content>
   <content contentuid="hb1b4bb3bg8331g5c0eg9167g427284dc2cf6" version="1">Ranger</content>
   <content contentuid="h9c391456g17beg59bfgbe27g6bb2bc22a33f" version="1">Casts magick by numbers (Arithmeticks): load a learned White, Black or Time Mage or Mystic magick and a number (level, hit points, maximum hit points or distance) on the Job Board, then a rule (prime, multiple of 3, 4 or 5) casts it instantly and for free at every creature in the fight, friend or foe, whose number fits. Makes Arithmetician this character's job.</content>
@@ -1806,6 +1838,8 @@
   <content contentuid="h4966eabfgc246g586bga93ag48d2fc77f29f" version="1">Time Mage</content>
   <content contentuid="h0a6237e3ga090g5b44g8e2dg67601599cb11" version="1">Healing, revival and protection. Makes White Mage this character's job.</content>
   <content contentuid="hd4420fa8g1d48g540bgaec3gb696bcd2770c" version="1">White Mage</content>
+  <content contentuid="h7b1fd753g6c5fg5867g806ag676e638d8bb5" version="1">Spell-slingers who take out groups of foes with elemental magic (Fell Seal's Wizard): water, fire, earth and thunder in three tiers, Smart Casting to spare your allies, Boon after a kill. Unlocked at half the maximum job level as both Black Mage and White Mage (level 4). Makes Wizard this character's job.</content>
+  <content contentuid="hd4ded9ffg057cg574dgb8b4ge55f28b3431e" version="1">Wizard</content>
   <content contentuid="h285a5908g6225g5d7fg85beg7e14c8cb0b86" version="1">Spend Ranger JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
   <content contentuid="h123ac648g5a7cg50d8g87acg391c02df67f5" version="1">Learn: Ranger</content>
   <content contentuid="h50436b73g3a2eg5c0ag8ac0gc73d6bfa6f86" version="1">Spend Arithmetician JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
@@ -1882,6 +1916,8 @@
   <content contentuid="h1e1e9a0dg15ccg5b80g8994g9f67e56ccfe4" version="1">Learn: Time Mage</content>
   <content contentuid="hdbdfe97cgcf28g5c19g93bdg82d70fb9cc22" version="1">Spend White Mage JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
   <content contentuid="h1577204fg1276g5253gbe5fg5ab0d4e7effe" version="1">Learn: White Mage</content>
+  <content contentuid="h1d7c7421gf559g52d6gbaf3g46d41dde6c2f" version="1">Spend Wizard JP on its abilities. Learned ones leave this list; the Job Board shows them all.</content>
+  <content contentuid="h45224752g65d2g5983g9c10g42561eece4c4" version="1">Learn: Wizard</content>
   <content contentuid="ha9dc4701gaa9bg5cbdgb0f9gab7130f11a62" version="1">Locked job. Needs: Squire Lv2.</content>
   <content contentuid="he58f9d6fg5139g52eeg8d17g0f2e4a480d11" version="1">Locked job. Needs: White Mage Lv5, Black Mage Lv5, Time Mage Lv4, Mystic Lv4.</content>
   <content contentuid="hee577d09g2f30g568dg9cb0g057aa1a5fa4b" version="1">Locked job. Needs: Summoner Lv5, Orator Lv5.</content>
@@ -1905,6 +1941,7 @@
   <content contentuid="h545bf8d0g90c3g5986g9b01ge8000c1d1ec1" version="1">Locked job. Needs: Ranger Lv3.</content>
   <content contentuid="hd9635c1bgd35bg5d02ga30ag7f05789bbf40" version="1">Locked job. Needs: Black Mage Lv3.</content>
   <content contentuid="h9a90577egba65g56fdga4a7ge512f2081064" version="1">Locked job. Needs: Chemist Lv2.</content>
+  <content contentuid="h298cddfdg743eg5379ga98fg2694f6550dcf" version="1">Locked job. Needs: Black Mage Lv4, White Mage Lv4.</content>
   <content contentuid="he5ca55b2g9f40g5b78ga8dbg4614d119a125" version="1">???</content>
   <content contentuid="hd49a92a1gcecbg5ce7gaefdg4573448b3def" version="1">Use Ranger's learned actions as the secondary skill set.</content>
   <content contentuid="hb8f3980fgb2b3g5b3cg8b95g9dc1976eb162" version="1">Survival (Ranger)</content>
@@ -1986,6 +2023,8 @@
   <content contentuid="hf378cda5g8f29g5c90g8dc7g2031110e4c1f" version="1">Time Magicks (Time Mage)</content>
   <content contentuid="h3d739479g3957g5076ga36bgf6c5b5c92802" version="1">Use White Mage's learned actions as the secondary skill set.</content>
   <content contentuid="h66768765gf896g5525gbf5bg9f2cb46de3de" version="1">White Magicks (White Mage)</content>
+  <content contentuid="h8c6c6903gca70g543fg93adg715a320fc2c9" version="1">Use Wizard's learned actions as the secondary skill set.</content>
+  <content contentuid="hf4f41936g0e86g5a2fg8511g04bfa001b81f" version="1">Elementalism (Wizard)</content>
   <content contentuid="h3e64f00agb95cg559fg918bg6ac933f677d4" version="1">Pick a second job whose learned actions this character can also use.</content>
   <content contentuid="hfb780bafg01a8g5f52g972eg89fd0eb55a59" version="1">Secondary Skill Set</content>
   <content contentuid="h9e24cbf5gc765g5db5ga5cag96e4e3ffef6d" version="1">Take the form of Giant Badger (the BG3 creature; Giant Badger soul, 1+ devoured): its body, hit points and natural attacks, plus 4 hit points per level. Your gear and spells are put away until you return (Dismiss, or at 0 hit points). Its own natural attacks. Uses a Wild Shape charge.</content>
@@ -2844,6 +2883,8 @@
   <content contentuid="h20bd0224g1739g5ac2g8927g41cabc243d10" version="1">Zombie Touch</content>
   <content contentuid="h60a54324g3a68g5608g837bg2c8ae321bcfc" version="1">Allied beasts, familiars and summons within 6 m of you get +1 to attack rolls and +1 damage. (FFT: gives nearby monsters a hidden ability.)</content>
   <content contentuid="h5ada1bd3g8e0cg5349g8541g76ea85ca6c18" version="1">Beastmaster</content>
+  <content contentuid="hcc8c36e2g3cdbg5694g8263gea4e295b1b5e" version="1">Your next attack roll before the end of your next turn is a critical hit.</content>
+  <content contentuid="he27dd887gfa6bg59ebg918eg5c6490190ff8" version="1">Boon</content>
   <content contentuid="hfa4aaa53gc888g5426gb2dage287499b361f" version="1">+2 to weapon attack rolls.</content>
   <content contentuid="h92d88628gf80bg56e3gbcbcg23c1c67d1fcd" version="1">Concentration</content>
   <content contentuid="hb8a9afeegfa2bg5999gb3fag3ae17ba5a273" version="1">While Machinist is your job, your ranged weapon hits deal 1d4 extra damage.</content>
@@ -2866,6 +2907,38 @@
   <content contentuid="h8da033f2g7c62g5fb5g8c32gf522c746c65e" version="1">Steel Body</content>
   <content contentuid="hed88a027gf2b3g5541gbd6agd477f35f7c9e" version="1">Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.</content>
   <content contentuid="h188b0598gbe93g5c5dga252g5838ca4c297a" version="1">JP Training (test)</content>
+  <content contentuid="h8947ad7eg9496g5f57ga89bgf7e548fe6d1f" version="1">Cantrip. Stones fall on everyone within 1.5 m of a spot up to 18 m away (allies too); each makes a Dexterity save or takes 1d6 bludgeoning damage (2d6 at level 5, 3d6 at level 10) plus your highest ability modifier.</content>
+  <content contentuid="hac5dc593g637ag54e2g9b3dg1c1c5ffcfc58" version="1">Earth I</content>
+  <content contentuid="h7d90f4cfg5a75g56fdga025g7e7796a9d2b9" version="1">Level 1 spell slot (higher slots: +1d6 per level). Stones fall on everyone within 2 m of a spot up to 18 m away (allies too): 3d6 bludgeoning damage plus your highest ability modifier, half on a successful Dexterity save.</content>
+  <content contentuid="ha829624bg2738g56f8g88a5g23692c06f818" version="1">Earth II</content>
+  <content contentuid="hc36de187gba59g5bb1g81b6g6c67195655f5" version="1">Earth I with a spell slot (level 1-6): one more bludgeoning damage die than the slot level (2d6 at level 1) plus your highest ability modifier within 1.5 m, half on a successful Dexterity save.</content>
+  <content contentuid="h5ddf3096gc94ag5abfgb9b4gd91a2b5ff40b" version="1">Earth I (spell slot)</content>
+  <content contentuid="hadb3a4f7g4d95g55cdga8dfg37259bc99fc0" version="1">Level 2 spell slot (higher slots: +1d8 per level). Spell attack at one creature up to 18 m away: a falling boulder deals 4d8 bludgeoning damage plus your highest ability modifier.</content>
+  <content contentuid="hab2d2692g4a7bg55f9ga32egc5f1acfcd53b" version="1">Earth Locus</content>
+  <content contentuid="h8212c189g2dc3g512bgbc28gd26dbd7b94f0" version="1">Cantrip. Everyone within 1.5 m of a spot up to 18 m away (allies too) makes a Dexterity save; on a fail they take 1d6 fire damage (2d6 at level 5, 3d6 at level 10) plus your highest ability modifier.</content>
+  <content contentuid="h7338b320g0f8dg5674g8d2dg97f7278e92d3" version="1">Fire I</content>
+  <content contentuid="h59aed2bdg83f5g5b1agb63eg21f95451ff32" version="1">Level 1 spell slot (higher slots: +1d6 per level). Everyone within 2 m of a spot up to 18 m away (allies too) takes 3d6 fire damage plus your highest ability modifier, half on a successful Dexterity save.</content>
+  <content contentuid="h463f2346g8efag517ag9e43gbd02a06d90ad" version="1">Fire II</content>
+  <content contentuid="hee2a2571g002ag540bg8dc2gd48693f87283" version="1">Fire I with a spell slot (level 1-6): one more fire damage die than the slot level (2d6 at level 1) plus your highest ability modifier within 1.5 m, half on a successful Dexterity save.</content>
+  <content contentuid="h826fb19dg49f8g5ea4g88a8g82a53e5e559f" version="1">Fire I (spell slot)</content>
+  <content contentuid="h5a48a60bg7954g5e5dg9fe4gc4197640ab37" version="1">Level 2 spell slot (higher slots: +1d8 per level). Spell attack at one creature up to 18 m away: 4d8 fire damage plus your highest ability modifier.</content>
+  <content contentuid="h1bfad6ddgf351g5611g9350gc105eff7bc0c" version="1">Fire Locus</content>
+  <content contentuid="hd565affcg3e70g56b6g8764g091c95ececd8" version="1">Cantrip. Lightning strikes everyone within 1.5 m of a spot up to 18 m away (allies too); each makes a Dexterity save or takes 1d6 lightning damage (2d6 at level 5, 3d6 at level 10) plus your highest ability modifier. Wet targets take double.</content>
+  <content contentuid="h23af2e86gc885g5df1g8dc1g7a707999bfcf" version="1">Thunder I</content>
+  <content contentuid="h080435d8g6c42g5aafg9bacgeb945880a61c" version="1">Level 1 spell slot (higher slots: +1d6 per level). Lightning strikes everyone within 2 m of a spot up to 18 m away (allies too): 3d6 lightning damage plus your highest ability modifier, half on a successful Dexterity save. Wet targets take double.</content>
+  <content contentuid="h177c2aaagc4c6g5a67g8026gada1ee02f758" version="1">Thunder II</content>
+  <content contentuid="h30e43967gf61dg50a5ga5b3g70c1b6a56b2f" version="1">Thunder I with a spell slot (level 1-6): one more lightning damage die than the slot level (2d6 at level 1) plus your highest ability modifier within 1.5 m, half on a successful Dexterity save. Wet targets take double.</content>
+  <content contentuid="h615d78f0g5e08g5001gaaabg1dfc25ad49fa" version="1">Thunder I (spell slot)</content>
+  <content contentuid="h3d28d97cgb986g5787g810cg27e246dc4ec5" version="1">Level 2 spell slot (higher slots: +1d8 per level). Spell attack at one creature up to 18 m away: 4d8 lightning damage plus your highest ability modifier; a Wet target takes double.</content>
+  <content contentuid="h9308e140gf8dfg5d94g937bg538c2307019c" version="1">Thunder Locus</content>
+  <content contentuid="h0cd92839g3452g5c08gb7b0g2c2283d1551b" version="1">Cantrip. Everyone within 1.5 m of a spot up to 18 m away (allies too) makes a Dexterity save; on a fail they take 1d6 cold damage (2d6 at level 5, 3d6 at level 10) plus your highest ability modifier and are Wet for 2 turns (double cold and lightning damage, half fire damage).</content>
+  <content contentuid="h4288d85dge960g5317ga330g8366f84e4567" version="1">Water I</content>
+  <content contentuid="h721a0529gb1cfg5f76g9000g504abbbaa097" version="1">Level 1 spell slot (higher slots: +1d6 per level). Everyone within 2 m of a spot up to 18 m away (allies too) takes 3d6 cold damage plus your highest ability modifier, half on a successful Dexterity save; those who fail are Wet for 2 turns.</content>
+  <content contentuid="h361df1ddgbe53g55d6gb027gcb47d86ca5ac" version="1">Water II</content>
+  <content contentuid="h2fe61edeg4eebg5c81g9e26gd0e3c2653c25" version="1">Water I with a spell slot (level 1-6): one more cold damage die than the slot level (2d6 at level 1) plus your highest ability modifier within 1.5 m, half on a successful Dexterity save; those who fail are Wet for 2 turns.</content>
+  <content contentuid="he048297fgd017g57cbg824cga9cdcb9de951" version="1">Water I (spell slot)</content>
+  <content contentuid="hb0c57e15g3fb5g58a1gbf76gc201a68dabb9" version="1">Level 2 spell slot (higher slots: +1d8 per level). Spell attack at one creature up to 18 m away: 4d8 cold damage plus your highest ability modifier, and it is Wet for 2 turns.</content>
+  <content contentuid="h4f968f65g084dg51cdg898eg5e0a6fdd79a7" version="1">Water Locus</content>
   <content contentuid="h8468f582g8fceg579bg89e6g25b7e837ef1a" version="1">+1 AC and +1 to attack rolls while Onion Knight is your job.</content>
   <content contentuid="hd237365fg0923g562dgad5eg8c0c88e6c103" version="1">Onion Knight Lv5</content>
   <content contentuid="h456cb83eg3fd4g5354g8864g12a6c44c0a76" version="1">+2 to every ability score, +2 AC and +2 to attack rolls while Onion Knight is your job.</content>

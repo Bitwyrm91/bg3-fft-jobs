@@ -8,6 +8,8 @@
 --   Poach (Thief): a monster the poacher hit this turn pays out when it dies.
 --   Collect Trophy (Ranger): a monster it hit this turn leaves a sellable trophy in its loot when it dies.
 --   Abyssal Blade, Unholy Sacrifice (Dark Knight): the caster pays a share of its maximum HP (never the last one).
+--   Return Magic (Wizard): an enemy spell that hurts the wizard sends a share of its damage back as force damage.
+--   Smart Casting (Wizard): the flask bursts below leave out the caster and its allies (Effects.Spared).
 -- Every number is in the config (Abilities.*).
 local Rules = Ext.Require("Server/Rules.lua")
 
@@ -106,6 +108,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         svc.PoachMarks[target] = source
     elseif status == "FFTJ_TROPHY_MARK" and source then
         svc.TrophyMarks[target] = source
+    elseif status == Effects.RETURN_MAGIC and source then
+        Effects.ReturnMagicPending(svc, source, target).Marked = true
     end
 end
 
@@ -387,7 +391,7 @@ function Effects.FlaskBurst(svc, caster, target, def, level)
     local hit = 0
     for _, other in ipairs(svc.Game:AllCharacters()) do
         local d = other == target and 0 or svc.Game:Distance(target, other)
-        if d and d <= radius and not svc.Game:IsDead(other) then
+        if d and d <= radius and not svc.Game:IsDead(other) and not Effects.Spared(svc, caster, other) then
             local has, n = afflictions(svc, other)
             local already = hasNamed(has, def.Status)
             local own = (def.Status == "BURNING" and not already) and dice - 1 or dice
@@ -425,7 +429,7 @@ function Effects.Fulminate(svc, caster, target, level)
     local hit = 0
     for _, other in ipairs(svc.Game:AllCharacters()) do
         local d = other == target and 0 or svc.Game:Distance(target, other)
-        if d and d <= radius and not svc.Game:IsDead(other) then
+        if d and d <= radius and not svc.Game:IsDead(other) and not Effects.Spared(svc, caster, other) then
             afflict(svc, other, blast, 0, caster)
             if burning and other ~= target and not svc.Game:HasStatus(other, "BURNING") then
                 local has, n = afflictions(svc, other)
@@ -460,13 +464,61 @@ function Effects.OnCastedSpell(svc, caster, spell)
     end
 end
 
--- Osiris AttackedBy: Gil Snapper pays gold for the damage taken.
-function Effects.OnAttackedBy(svc, defender, amount)
+-- Smart Casting (Wizard support): while the caster has it, its area effects leave out itself and its allies.
+function Effects.Spared(svc, caster, other)
+    local char = caster and svc.State:Get(caster)
+    if not (char and char.Granted and char.Granted.Passives and char.Granted.Passives.FFTJ_SmartCasting) then
+        return false
+    end
+    return other == caster or svc.State:Get(other) ~= nil or svc.Game:IsAlly(caster, other)
+end
+
+-- Return Magic (Wizard reaction; Fell Seal's "Magic" counter): an enemy spell that damages the wizard sends a share
+-- of that damage back to its caster as force damage. The passive marks the caster (FFTJ_RETURN_MAGIC from the wizard)
+-- when a spell hurts the wizard; Osiris AttackedBy brings the damage. Both can come in either order and a spell may
+-- hit several times, so they are added up per caster for Abilities.ReturnMagicWindowMs, then settled once.
+Effects.RETURN_MAGIC = "FFTJ_RETURN_MAGIC"
+
+function Effects.ReturnMagicPending(svc, wizard, caster)
+    local key = wizard .. "|" .. caster
+    local p = svc.ReturnMagic[key]
+    if not p then
+        p = { Damage = 0, Marked = false }
+        svc.ReturnMagic[key] = p
+        svc.WaitFor(svc:Cfg().Abilities.ReturnMagicWindowMs or 400, function()
+            svc.ReturnMagic[key] = nil
+            Effects.ReturnMagicSettle(svc, wizard, caster, p)
+        end)
+    end
+    return p
+end
+
+function Effects.ReturnMagicSettle(svc, wizard, caster, p)
+    if not p.Marked or p.Damage <= 0 or svc.Game:IsDead(caster) or not svc.Game:IsEnemy(wizard, caster) then
+        return 0
+    end
+    local back = math.floor(p.Damage * (svc:Cfg().Abilities.ReturnMagicShare or 0.5))
+    if back < 1 then
+        return 0
+    end
+    svc.Game:ApplyDamage(caster, back, "Force", wizard)
+    tell(svc, wizard, string.format("%s returns the magic: %s takes %d force damage.", name(svc, wizard),
+        name(svc, caster), back))
+    return back
+end
+
+-- Osiris AttackedBy: Gil Snapper pays gold for the damage taken; Return Magic adds the damage up.
+function Effects.OnAttackedBy(svc, defender, amount, attacker)
     local char = defender and svc.State:Get(defender)
-    if not char or not (char.Granted and char.Granted.Passives and char.Granted.Passives.FFTJ_GilSnapper) then
+    local passives = char and char.Granted and char.Granted.Passives
+    if not passives or type(amount) ~= "number" or amount <= 0 then
         return
     end
-    if type(amount) ~= "number" or amount <= 0 then
+    if passives.FFTJ_ReturnMagic and attacker and attacker ~= defender then
+        local p = Effects.ReturnMagicPending(svc, defender, attacker)
+        p.Damage = p.Damage + amount
+    end
+    if not passives.FFTJ_GilSnapper then
         return
     end
     local gold = math.floor(amount * svc:Cfg().Abilities.GilSnapperShare)

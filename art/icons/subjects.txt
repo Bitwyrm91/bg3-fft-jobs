@@ -107,6 +107,24 @@ Death|a pale floating skull with a dark scythe in violet mist, deep indigo backg
 Flare|a dazzling sphere of white-hot light exploding outward, deep indigo background
 MagickCounter|a crackling violet bolt of magic bouncing back off a mirror-like ward, deep indigo background
 MagickBoost|a glowing violet crystal orb radiating arcane power, deep indigo background
+# Wizard (Fell Seal, 1.0.0.6x): obsidian black. Its abilities grant two spells each, so the keys are per spell (the
+# ability's "icons" field in data\fft_jobs.json); the tiers carry their number as a badge.
+Job_Wizard|a tall wizard's staff topped with four floating orbs of water, fire, stone and lightning, obsidian black background
+WaterI|a splash of swirling cold water droplets bursting outward, obsidian black background|I
+WaterII|a great crashing wave of icy water exploding in a ring, obsidian black background|II
+WaterLocus|a single focused spear of rushing water streaking forward, obsidian black background
+FireI|a small burst of orange flame flaring outward, obsidian black background|I
+FireII|a large roaring explosion of fire, obsidian black background|II
+FireLocus|a single streaking bolt of blazing orange fire with a long flaming tail, obsidian black background
+EarthI|a few jagged rocks tumbling down from above, obsidian black background|I
+EarthII|a heavy rain of boulders crashing onto cracked ground, obsidian black background|II
+EarthLocus|one enormous boulder plummeting from the sky, obsidian black background
+ThunderI|a small crackling burst of blue lightning, obsidian black background|I
+ThunderII|a storm of forked lightning striking the ground in a ring, obsidian black background|II
+ThunderLocus|a single thick bolt of lightning striking one point, obsidian black background
+SmartCasting|a wizard's open hand steering a fireball around a group of glowing friendly silhouettes, obsidian black background
+ReturnMagic|a violet magic bolt bouncing off a glowing rune shield back toward its source, obsidian black background
+Boon|a glowing golden star rising from a fallen enemy's shadow into a wizard's hand, obsidian black background
 # Peddler (Fell Seal job, 2026-10-14): saddle brown background
 Job_Peddler|a travelling merchant's overstuffed leather backpack with hanging pots, potion bottles and a coiled rope, saddle brown background
 LaceratingTrap|a steel jaw trap with jagged blood-red serrated teeth half hidden in grass, saddle brown background

@@ -343,6 +343,29 @@ Force(2). Unverified in game: all pushes (if they still fail, test in game with 
 `Osi.ApplyStatus(<goblin>, 'FFTJ_COUNTER_TACKLE_PUSH', 6, 1, <host>)` shows whether Force works at all), the push
 direction (away from the defender), the push status firing on a re-hit in the same turn.
 
+**1.0.0.68 (2026-10-14, local session in its own worktree `bg3-fft-jobs-wizard`, branch `claude/wizard-job`; NOT
+packaged or seen in game): the Fell Seal Wizard, a NEW job (user: "you will build the wizard class"; the user pasted
+the Fell Seal wiki page).** User's answers: new job beside the Black Mage (not a rework), unlocked at half the maximum
+job level as both Black Mage and White Mage (level 4 each); group "FellSeal" (like the Peddler session's job, shown in
+the main Jobs list); elements Water = cold + WET, Fire = fire, Earth = bludgeoning, Thunder = lightning; spell slots
+Chemist style (Tier I cantrips + `_Slot` roots with the 1-6 level picker, Tier II level 1, Locus level 2 spell
+attacks; tools/upcast.py DAMAGE_ROOTS adds dice per level); Smart Casting for every area ability of the mod;
+Magic counter = "Return Magic", half the damage back as force (Abilities.ReturnMagicShare 0.5, summed over
+ReturnMagicWindowMs 400: the passive's OnDamaged + IsSpell() marks the caster with SWAP, AttackedBy brings the
+amount); Boon = attack rolls only (FFTJ_BOON: CriticalHit(AttackRoll,Success,Always), RemoveEvents OnAttack, from a
+Dark One's Blessing-style OnDamage kill trigger); mastery = ActionResource(SpellSlot,1,1). JP = Fell Seal AP x 2.5:
+4625 in all, Water I / Fire I known from the start. New build step **tools/smartcast.py**: adds
+`not (HasPassive('FFTJ_SmartCasting', context.Source) and (Ally() or Self()))` (harmful) or `... and Enemy())`
+(helpful) to the TargetConditions of every area spell in our generated spell files except the hotbar menus (31 spells:
+Black Mage, Time Mage, Ranger, Dragoon breaths, Dark Knight, Wizard, Soul forms...), with vanilla carriers' fields from
+the new cache **data/vanilla_spells.json** (refresh locally: `python tools/smartcast.py --vanilla`; missing parents
+are skipped with a build warning); Effects.Spared does the same for the Chemist's Lua flask bursts (Caustic, Unstable,
+Fulminate). Abilities can now carry an `"icons"` map (spell -> art key) for per-spell pictures; upcast levels show
+their root's picture (also the Chemist's). 16 icons painted (obsidian black). Checks: build, 215 Lua tests, pacing
+self-test, validate_vanilla, check_refs all clean. Unverified in game: everything; especially Self()/HasPassive in
+TargetConditions sub-clauses, the SWAP status's causee in StatusApplied (Return Magic), Boon surviving the killing
+attack's own OnAttack, the Falling Rocks trap carrier's look for a player, Create Water as a damage carrier.
+
 ## Open questions for the user
 
 - MP: abilities use cooldowns instead of an FFT MP pool. An MP resource (a custom `ActionResourceDefinition`) is possible later. Wanted?
