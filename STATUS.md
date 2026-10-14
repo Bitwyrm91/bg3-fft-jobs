@@ -88,7 +88,18 @@ When the user says "NWP", this is the list:
     User: "continue with the normal list first". Open: clothes/robes (no armor proficiency) always allowed?; the
     Mime's empty list (FFT Mimes wear no weapons); cursed/story items that can't come off; check needs item fields
     (weapon proficiency group, ArmorType, shield) verified in game.
-20. **[APPROVED 2026-10-14, build right after the Monk (21)] Chemist weapon coatings**, ONLY the Chemist's four
+20. **[FINAL DESIGN 2026-10-14, NOT built; build in a FRESH session after the 5-hour reset] Chemist coating = ONE
+    coating, "Strange Fluid"** (user's name and text: "You coat your weapon in a strange liquid and believe."). User's
+    final answers (replace everything below): bonus action, once per short rest, 300 JP (Chemist, source custom); coat
+    yourself or an ally within 9 m; lasts 3 turns, EVERY weapon hit counts; each hit = Mixup's effect: 1d4 of a type
+    + its status (Burning/Acid/Poisoned/Bleeding, 2 turns), picking one the target does NOT have yet; WITHOUT Mixup's
+    four-effect bonus (no +1 die / +2 turns when all four are on). Build plan: Target spell -> status
+    FFTJ_STRANGE_FLUID (3 turns) with `data "Passives"` = an OnAttack passive (Poach's condition: weapon hit) that
+    applies a marker status to the target (source = the attacker); Effects.OnStatusApplied runs the Mixup pick
+    without the bonus (reuse Effects.afflictions/afflict/rollDamage); tests like the Mixup ones; icon on the GPU
+    (BG3 closed). Version: the next free number when it lands (Peddler session took 1.0.0.68, the Wizard takes the
+    next; check the branch head first).
+    Older notes: **Chemist weapon coatings**, ONLY the Chemist's four
     effects (user): Venom Oil = Poisoned, Naphtha Oil = Burning, Acid Etch = Acid, Glass Grit = Bleeding, plus
     **Strange Fluid** (user's name and text: "You coat your weapon in a strange liquid and believe." = the Mixup Oil
     effect: each hit adds one of the four effects the target lacks). Not chosen: Holy Water, Slumber Resin, Field
