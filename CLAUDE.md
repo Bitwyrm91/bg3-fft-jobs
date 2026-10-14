@@ -7,6 +7,8 @@ gotchas). Design background: `DESIGN.md`, `docs/PHASE2.md`, `docs/SPECIAL_JOBS.m
 ## How the user works (Bitwyrm91; plays BG3 on Windows, often multiplayer with a friend)
 - **Usage matters.** Before a change, say roughly how much usage it may take and how long; check usage after each
   step when a tool for it exists; stop and say so near the limit the user gave.
+- **Effort level:** find the task in `docs/EFFORT_GUIDE.md` and say in the first reply if the session's effort
+  should go up (or could go down) for it (user, 2026-10-14: "let me know early").
 - **Ask design questions before building** anything unclear, with AskUserQuestion (the user likes it). Give a
   recommended option first.
 - **Keep the chat short**: plain words, no long file dumps, no jargon walls.
