@@ -13,7 +13,7 @@ end
 local function statsEntries(Mocks)
     local entries = {}
     for _, file in ipairs({ "Spell_FFTJ.txt", "Passive_FFTJ.txt", "Status_FFTJ.txt", "Spell_FFTJ_Soul.txt",
-        "Status_FFTJ_Soul.txt" }) do
+        "Status_FFTJ_Soul.txt", "Spell_FFTJ_Upcast.txt", "Status_FFTJ_Upcast.txt" }) do
         local text = read(Mocks.Root .. "/Mod/Public/FFTJobs/Stats/Generated/Data/" .. file)
         local cur
         for line in text:gmatch("[^\n]+") do

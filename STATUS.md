@@ -231,6 +231,15 @@ Fell Seal source.
 **1.0.0.56 (2026-10-14, installed only with BG3 closed, NOT seen in game): user's "changes to make NOW" after the
 
 **1.0.0.57 (2026-10-14, not seen in game):** Phoenix Down = Level 1 + `SpellSlotsGroup:1:1:1` on top of its
+
+**1.0.0.58 (2026-10-14, not seen in game): Chemist upcasting (user).** tools/upcast.py (build.py, before the Echo
+twins) writes Spell/Status_FFTJ_Upcast.txt: vanilla pattern `<root>_<N>` + RootSpellID + PowerLevel + level N slot.
+Flasks: level N applies `<STATUS>_<N>`, Effects.SplitLevel reads N (Mixup N-1 extra dice + max(catalyst, N) effects;
+Caustic/Unstable N-1 extra dice; Fulminate uses FFTJ_FULMINATE_BLAST_<N> = Nd6). Mixup/Caustic keep the free cantrip
++ a `<root>_Slot` root at level 2 (unlocked by their Int passives with AddChildren); Unstable Flask + Chemical Burns
+now level 1 + slot (user); Fulminate variants 2-6. Potions: `<root>_Slot` level 1 = base dice + 1, +1 per level, no
+cooldown, granted with base and thrown variants. Unverified in game: the upcast picker for spells granted by
+AddSpell / UnlockSpell, Lua damage does not add the highest-stat modifier (scaling.py covers stats formulas only).
 OncePerShortRest (user). No throw animation (user's MP playtest): Throw Stone and Chemical Mixup used
 Projectile_FOR_GnomeGoblin_ThrowRock, whose SpellAnimation fills one slot with a goblin-only animation, so player
 characters showed none; both now carry vanilla Throw_Throw's SpellAnimation (the flasks inherit it from Mixup).

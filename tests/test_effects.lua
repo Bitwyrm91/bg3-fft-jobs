@@ -333,4 +333,33 @@ function S.kills_count_for_the_party_member_who_defeats_an_enemy(w, T)
     T.eq(svc.State:Get(T.TAV).Kills, 1, "only kills by the party count")
 end
 
+-- 1.0.0.58: higher spell slots (tools/upcast.py): the status suffix is the slot level.
+function S.chemical_mixup_with_a_level_3_slot_rolls_3_dice_and_adds_3_effects(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 1
+    local gob = enemy(w)
+    applied(w, GOB, "FFTJ_CHEM_MIXUP_3", T.TAV)
+    T.eq(gob.hp, 40 - 12, "3d4 at the highest roll")
+    local n = 0
+    for _, st in ipairs({ "BURNING", "ACID", "POISONED", "BLEEDING" }) do
+        n = n + (gob.statuses[st] and 1 or 0)
+    end
+    T.eq(n, 3, "three effects")
+end
+
+function S.flasks_and_fulminate_read_the_slot_level(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 1
+    local Effects = Ext.Require("Server/Effects.lua")
+    T.eq(select(2, Effects.SplitLevel("FFTJ_CAUSTIC_4")), 4)
+    T.eq(Effects.SplitLevel("FFTJ_FULMINATE_BLAST_2"), "FFTJ_FULMINATE_BLAST_2", "a stats status, not a Lua one")
+    local gob = enemy(w)
+    applied(w, GOB, "FFTJ_CAUSTIC_2", T.TAV)
+    T.eq(gob.hp, 40 - 8, "Caustic at level 2: 2d4")
+    applied(w, GOB, "FFTJ_FULMINATE_3", T.TAV)
+    T.truthy(gob.statuses.FFTJ_FULMINATE_BLAST_3, "level 3 blast (3d6 in its stats)")
+end
+
 return S

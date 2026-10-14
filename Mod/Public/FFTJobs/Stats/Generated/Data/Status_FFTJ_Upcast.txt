@@ -1,0 +1,104 @@
+new entry "FFTJ_CHEM_MIXUP_2"
+type "StatusData"
+using "FFTJ_CHEM_MIXUP"
+
+new entry "FFTJ_CHEM_MIXUP_3"
+type "StatusData"
+using "FFTJ_CHEM_MIXUP"
+
+new entry "FFTJ_CHEM_MIXUP_4"
+type "StatusData"
+using "FFTJ_CHEM_MIXUP"
+
+new entry "FFTJ_CHEM_MIXUP_5"
+type "StatusData"
+using "FFTJ_CHEM_MIXUP"
+
+new entry "FFTJ_CHEM_MIXUP_6"
+type "StatusData"
+using "FFTJ_CHEM_MIXUP"
+
+new entry "FFTJ_CAUSTIC_2"
+type "StatusData"
+using "FFTJ_CAUSTIC"
+
+new entry "FFTJ_CAUSTIC_3"
+type "StatusData"
+using "FFTJ_CAUSTIC"
+
+new entry "FFTJ_CAUSTIC_4"
+type "StatusData"
+using "FFTJ_CAUSTIC"
+
+new entry "FFTJ_CAUSTIC_5"
+type "StatusData"
+using "FFTJ_CAUSTIC"
+
+new entry "FFTJ_CAUSTIC_6"
+type "StatusData"
+using "FFTJ_CAUSTIC"
+
+new entry "FFTJ_UNSTABLE_2"
+type "StatusData"
+using "FFTJ_UNSTABLE"
+
+new entry "FFTJ_UNSTABLE_3"
+type "StatusData"
+using "FFTJ_UNSTABLE"
+
+new entry "FFTJ_UNSTABLE_4"
+type "StatusData"
+using "FFTJ_UNSTABLE"
+
+new entry "FFTJ_UNSTABLE_5"
+type "StatusData"
+using "FFTJ_UNSTABLE"
+
+new entry "FFTJ_UNSTABLE_6"
+type "StatusData"
+using "FFTJ_UNSTABLE"
+
+new entry "FFTJ_FULMINATE_2"
+type "StatusData"
+using "FFTJ_FULMINATE"
+
+new entry "FFTJ_FULMINATE_3"
+type "StatusData"
+using "FFTJ_FULMINATE"
+
+new entry "FFTJ_FULMINATE_4"
+type "StatusData"
+using "FFTJ_FULMINATE"
+
+new entry "FFTJ_FULMINATE_5"
+type "StatusData"
+using "FFTJ_FULMINATE"
+
+new entry "FFTJ_FULMINATE_6"
+type "StatusData"
+using "FFTJ_FULMINATE"
+
+new entry "FFTJ_FULMINATE_BLAST_2"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(2d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_3"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(3d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_4"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(4d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_5"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(5d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_6"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(6d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"

@@ -301,11 +301,11 @@ function S.desired_grants_primary_secondary_slots(w, T)
     Rules.Equip(Data, char, "EvasiveStance")
     Rules.Equip(Data, char, "Movement1")
     d = Rules.DesiredGrants(Data, char)
-    T.eq(T.keys(skills(d)), "Shout_FFTJ_Defend,Shout_FFTJ_Focus,Shout_FFTJ_JobBoard,Target_FFTJ_Potion,Target_FFTJ_Rush")
+    T.eq(T.keys(skills(d)), "Shout_FFTJ_Defend,Shout_FFTJ_Focus,Shout_FFTJ_JobBoard,Target_FFTJ_Potion,Target_FFTJ_Potion_Slot,Target_FFTJ_Rush")
     T.eq(T.keys(d.Passives), "FFTJ_Job_Squire,FFTJ_Movement1")
     Rules.SetPrimary(Data, char, "Chemist")
     d = Rules.DesiredGrants(Data, char)
-    T.eq(T.keys(skills(d)), "Shout_FFTJ_Defend,Shout_FFTJ_JobBoard,Target_FFTJ_Potion_Throw",
+    T.eq(T.keys(skills(d)), "Shout_FFTJ_Defend,Shout_FFTJ_JobBoard,Target_FFTJ_Potion_Slot,Target_FFTJ_Potion_Throw",
         "Chemist primary throws items; Squire actions are gone with no secondary")
     T.eq(T.keys(d.Passives), "FFTJ_Job_Chemist,FFTJ_Movement1")
 end

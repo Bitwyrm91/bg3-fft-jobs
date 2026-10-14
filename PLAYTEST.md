@@ -1,6 +1,18 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.57**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.58**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.58: Chemist casts with higher spell slots
+
+- **Chemical Mixup / Caustic Flask**: the free cantrip stays; a second "(spell slot)" version casts at level 2-6:
+  level N rolls N damage dice (Mixup also adds N effects).
+- **Unstable Flask** and **Chemical Burns** now cost a level 1 spell slot; Unstable and **Fulminate Flask** can be
+  cast higher: +1 damage die (Fulminate +1d6) per level.
+- **Potion / Hi-Potion / X-Potion**: the free version stays; a "(spell slot)" version heals one more die at level 1
+  and +1 die per level above (no cooldown).
+
+Please check: does the upcast picker appear (the slot-level buttons when you select the spell) and does a level 3
+Mixup roll 3 dice and add 3 effects?
 
 ## New in 1.0.0.57: Phoenix Down costs a spell slot, throw animations
 

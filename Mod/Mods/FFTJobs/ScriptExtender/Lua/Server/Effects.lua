@@ -61,10 +61,23 @@ local function name(svc, guid)
 end
 
 -- Osiris StatusApplied(object, status, causee): target = the creature, source = who applied the status.
+-- Flask statuses cast with a higher spell slot end in "_<level>" (tools/upcast.py): FFTJ_CHEM_MIXUP_3 = level 3.
+Effects.Upcast = { FFTJ_CHEM_MIXUP = true, FFTJ_CAUSTIC = true, FFTJ_UNSTABLE = true, FFTJ_FULMINATE = true }
+
+function Effects.SplitLevel(status)
+    local base, level = string.match(status or "", "^(.-)_(%d)$")
+    if base and Effects.Upcast[base] then
+        return base, tonumber(level)
+    end
+    return status, nil
+end
+
 function Effects.OnStatusApplied(svc, target, status, source)
     if not target then
         return
     end
+    local level
+    status, level = Effects.SplitLevel(status)
     if Effects.BossImmune[status] then
         if svc.Game:IsBoss(target) then
             svc.Game:Remove("Statuses", target, status)
@@ -79,11 +92,11 @@ function Effects.OnStatusApplied(svc, target, status, source)
     elseif Effects.Gravity[status] then
         Effects.GravityHit(svc, source, target, Effects.Gravity[status])
     elseif status == "FFTJ_CHEM_MIXUP" then
-        Effects.ChemicalMixup(svc, source, target)
+        Effects.ChemicalMixup(svc, source, target, level)
     elseif Effects.Bursts[status] then
-        Effects.FlaskBurst(svc, source, target, Effects.Bursts[status])
+        Effects.FlaskBurst(svc, source, target, Effects.Bursts[status], level)
     elseif status == "FFTJ_FULMINATE" then
-        Effects.Fulminate(svc, source, target)
+        Effects.Fulminate(svc, source, target, level)
     elseif status == "FFTJ_CHEM_BURNS" then
         Effects.ChemicalBurns(svc, source, target)
     elseif status == "FFTJ_POACH_MARK" and source then
@@ -268,10 +281,11 @@ local function saturate(svc, caster, target, has, skip)
     end
 end
 
-function Effects.ChemicalMixup(svc, caster, target)
+-- level (spell slot, nil = the free cantrip): level N rolls N - 1 more dice and adds up to N effects.
+function Effects.ChemicalMixup(svc, caster, target, level)
     local cfg = svc:Cfg().Abilities
     local has, n = afflictions(svc, target)
-    local dice, picks, extra = mixupDice(svc, caster), {}, ""
+    local dice, picks, extra = mixupDice(svc, caster) + math.max(0, (level or 1) - 1), {}, ""
     if n < #Effects.Mixup then
         local missing = {}
         for i = 1, #Effects.Mixup do
@@ -280,7 +294,7 @@ function Effects.ChemicalMixup(svc, caster, target)
             end
         end
         -- Catalyst: with MixupCatalystAt effects already on, two missing ones at once
-        local count = (n >= (cfg.MixupCatalystAt or 2)) and 2 or 1
+        local count = math.max((n >= (cfg.MixupCatalystAt or 2)) and 2 or 1, level or 1)
         for _ = 1, math.min(count, #missing) do
             local k = Effects.Roll(#missing)
             picks[#picks + 1] = Effects.Mixup[missing[k]]
@@ -361,9 +375,10 @@ local function hasNamed(has, status)
     return false
 end
 
-function Effects.FlaskBurst(svc, caster, target, def)
+function Effects.FlaskBurst(svc, caster, target, def, level)
     local cfg = svc:Cfg().Abilities
-    local radius, turns, dice = cfg.FlaskBurstRadius or 1.5, cfg.MixupStatusTurns or 2, mixupDice(svc, caster)
+    local radius, turns = cfg.FlaskBurstRadius or 1.5, cfg.MixupStatusTurns or 2
+    local dice = mixupDice(svc, caster) + math.max(0, (level or 1) - 1)
     local hit = 0
     for _, other in ipairs(svc.Game:AllCharacters()) do
         local d = other == target and 0 or svc.Game:Distance(target, other)
@@ -395,7 +410,8 @@ end
 
 -- Fulminate Flask (Chemist, custom): a tiny burst around the target; a Burning target makes it larger and sets
 -- everyone in it on fire (area effects hit allies too). Each creature caught gets FFTJ_FULMINATE_BLAST (damage + Constitution save, in the stats).
-function Effects.Fulminate(svc, caster, target)
+function Effects.Fulminate(svc, caster, target, level)
+    local blast = (level and level >= 2) and ("FFTJ_FULMINATE_BLAST_" .. level) or "FFTJ_FULMINATE_BLAST"
     local cfg = svc:Cfg().Abilities
     local burning = svc.Game:HasStatus(target, "BURNING")
     local radius = burning and (cfg.FulminateBurningRadius or 2) or (cfg.FulminateRadius or 1)
@@ -403,7 +419,7 @@ function Effects.Fulminate(svc, caster, target)
     for _, other in ipairs(svc.Game:AllCharacters()) do
         local d = other == target and 0 or svc.Game:Distance(target, other)
         if d and d <= radius and not svc.Game:IsDead(other) then
-            afflict(svc, other, "FFTJ_FULMINATE_BLAST", 0, caster)
+            afflict(svc, other, blast, 0, caster)
             if burning and other ~= target and not svc.Game:HasStatus(other, "BURNING") then
                 local has, n = afflictions(svc, other)
                 if n > 0 then
