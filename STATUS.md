@@ -2,6 +2,11 @@
 
 Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.md`.
 
+**Cloud handoff (2026-10-14):** the user continues in a Claude Code cloud session (their cloud usage). Start with
+`CLAUDE.md` (the user's rules, what the cloud can't do) and the project skill `.claude/skills/bg3-fft-jobs/SKILL.md`.
+State at handoff: 1.0.0.60 on `main`, installed on the user's PC, tester zip 1.0.0.60 made; nothing unverified is
+pending locally except the in-game checks listed in PLAYTEST.md (1.0.0.55-60).
+
 **Where the work is:** `main` (the cloud branch `claude/game-modding-research-setup-qgn88h` was merged on 2026-10-12).
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
