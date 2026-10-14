@@ -11,13 +11,27 @@ local function buttons(Mocks, window)
     end)
 end
 
-local function findButton(Mocks, window, prefix)
+local function findFirst(Mocks, window, prefix)
     for _, b in ipairs(buttons(Mocks, window)) do
         if string.sub(b.Label, 1, #prefix) == prefix then
             return b
         end
     end
     return nil
+end
+
+-- Job groups start closed: a tile not on show is looked for again with every group opened.
+local function findButton(Mocks, window, prefix)
+    local b = findFirst(Mocks, window, prefix)
+    if b or not prefix:find("##tile") then
+        return b
+    end
+    local toggle = findFirst(Mocks, window, "[+] ")
+    while toggle do
+        toggle.OnClick(toggle)
+        toggle = findFirst(Mocks, window, "[+] ")
+    end
+    return findFirst(Mocks, window, prefix)
 end
 
 local function texts(Mocks, window)
@@ -160,13 +174,32 @@ function S.board_has_fft_colours_and_job_emblems(w, T, Mocks)
     T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
     local win = w.windows[1]
     T.truthy(win.StyleColors and win.StyleColors.WindowBg, "the window gets FFT's blue")
+    local tile = findButton(Mocks, win, "Squire Lv1##tileSquire") -- opens the job groups
     local emblem = Mocks.FindWidgets(win, function(x)
         return x.Kind == "ImageButton" and x.Label == "##emblemSquire"
     end)[1]
     T.truthy(emblem, "the Squire tile shows its emblem")
-    local tile = findButton(Mocks, win, "Squire Lv1##tileSquire")
     T.truthy(tile.StyleColors and tile.StyleColors.Button, "tiles are coloured by state")
     T.truthy(tile.SameLine, "the label sits next to the emblem")
+end
+
+function S.job_groups_are_dropdowns_that_start_closed(w, T, Mocks)
+    T.boot(w)
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local win = w.windows[1]
+    T.falsy(findFirst(Mocks, win, "Squire Lv1##tileSquire"), "no tiles until a group is opened")
+    T.contains(texts(Mocks, win), "Squire - ", "your job's details still show")
+    local jobs = findFirst(Mocks, win, "[+] Jobs (")
+    T.truthy(jobs, "the Jobs group has a closed toggle")
+    T.truthy(findFirst(Mocks, win, "[+] Special jobs"), "special jobs are closed too")
+    jobs.OnClick(jobs)
+    T.truthy(findFirst(Mocks, win, "Squire Lv1##tileSquire"), "opening Jobs shows its tiles")
+    T.falsy(findFirst(Mocks, win, "Cleric"), "special jobs stay closed")
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local close = findFirst(Mocks, win, "[-] Jobs (")
+    T.truthy(close, "the open state survives reopening the board")
+    close.OnClick(close)
+    T.falsy(findFirst(Mocks, win, "Squire Lv1##tileSquire"), "closing hides the tiles again")
 end
 
 function S.tooltips_start_clear_of_the_cursor(w, T, Mocks)

@@ -242,6 +242,11 @@ Fell Seal source.
 **1.0.0.59 (2026-10-14, not seen in game):** IsSpell on Projectile_FFTJ_ChemicalMixup (all flasks and upcasts inherit it) so Sorcerer Metamagic applies (user wants Twinned): vanilla TwinnedProjectileSpellCheck = single target, AreaRadius 0, SpellFlags.Spell, SpellType Projectile (CommonConditions.khn, now extracted to decompg3\scripts).
 
 **1.0.0.60 (2026-10-14):** JP Boost nerfed to +20% (config JP.Boost.Multiplier 1.5 -> 1.2, user); tests pin their own 1.5. Tester zip FFTJobs-1.0.0.60-test.zip (user asked).
+
+**1.0.0.61 (2026-10-14):** Job Board groups (Jobs / Special jobs / Monster job) are dropdowns = Future changes 1 /
+NWP 4 (part): own toggle buttons "[+] <title> (N)" / "[-] ...", open state in `JobBoard.OpenGroups` (client, kept
+while the game runs, not saved), all start closed (user's pick). Not AddCollapsingHeader (board rebuilt on every
+click). Tests open groups through the toggles (test_ui findButton). Not seen in game.
 twins) writes Spell/Status_FFTJ_Upcast.txt: vanilla pattern `<root>_<N>` + RootSpellID + PowerLevel + level N slot.
 Flasks: level N applies `<STATUS>_<N>`, Effects.SplitLevel reads N (Mixup N-1 extra dice + max(catalyst, N) effects;
 Caustic/Unstable N-1 extra dice; Fulminate uses FFTJ_FULMINATE_BLAST_<N> = Nd6). Mixup/Caustic keep the free cantrip

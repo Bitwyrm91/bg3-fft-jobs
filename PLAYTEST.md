@@ -1,6 +1,15 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.60**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.61**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.61: job groups as dropdowns
+
+- On the Job Board, "Jobs", "Special jobs" and the "Monster job" are now dropdowns: a **[+] Jobs (22)** button opens
+  the group, **[-]** closes it. All groups start closed; the board remembers what you opened until the game closes.
+- Your selected job's details still show below while the groups are closed.
+
+Please check: do the [+]/[-] buttons open and close the groups, and do they stay as you left them after closing and
+reopening the board?
 
 ## New in 1.0.0.60: JP Boost +20%
 

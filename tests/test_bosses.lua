@@ -164,9 +164,10 @@ function S.special_jobs_have_their_own_section_on_the_board(w, T, Mocks)
     T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
     local win = w.windows[1]
     local found = Mocks.FindWidgets(win, function(x)
-        return x.Kind == "SeparatorText" and x.Label == "Special jobs: badges from bosses + job levels"
+        return x.Kind == "Button" and x.Label:find("^%[%+%] Special jobs: badges from bosses %+ job levels %(%d+%)")
     end)
     T.eq(#found, 1)
+    found[1].OnClick(found[1]) -- the group starts closed
     local tile
     for _, b in ipairs(Mocks.FindWidgets(win, function(x)
         return x.Kind == "Button" and x.Label == "Sword Saint (soon)##tileSwordSaint"

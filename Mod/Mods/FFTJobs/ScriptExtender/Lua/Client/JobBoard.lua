@@ -68,6 +68,8 @@ function JobBoard.New(imgui, request, log)
     self.View = nil
     self.SelectedJob = nil
     self.Message = nil
+    -- job groups shown as dropdowns; all start closed (user, 2026-10-14) and stay as clicked while the game runs
+    self.OpenGroups = {}
     return self
 end
 
@@ -309,7 +311,7 @@ function JobBoard:RenderHeader(root, view, c)
     if not ok or not help then
         help = root
     end
-    text(help, "Pick a job tile to see its abilities. Learn abilities with that job's JP. Actions work while their job "
+    text(help, "Open a job group with its [+] button, then pick a job tile to see its abilities. Learn abilities with that job's JP. Actions work while their job "
         .. "is your job or your secondary skill set. A reaction goes in the reaction slot; support and movement "
         .. "abilities go in either passive slot.", nil, WRAP)
     if c.AlwaysOnTypes and #c.AlwaysOnTypes > 0 then
@@ -323,24 +325,36 @@ function JobBoard:RenderHeader(root, view, c)
         .. "later update. Hover a tile or an ability for details.", nil, WRAP)
 end
 
--- Two grids: the FFT jobs (TIC and War of the Lions), then the special jobs that need a boss's badge.
+-- Grids as dropdowns (user, 2026-10-14): the FFT jobs (TIC and War of the Lions), the special jobs that need a
+-- boss's badge, the monster job. Own toggle buttons instead of AddCollapsingHeader: the board is rebuilt on every
+-- click, and whether SE v33's header keeps its open state across a rebuild is unverified.
 function JobBoard:RenderGrid(root, c)
     local main, special, soul = {}, {}, {}
     for _, j in ipairs(c.Jobs) do
         local list = (j.Group == "Special" and special) or (j.Group == "Soul" and soul) or main
         list[#list + 1] = j
     end
-    self:RenderTiles(root, "Jobs", "FFTJ_Grid", main, c)
+    self:RenderTiles(root, "Jobs", "Jobs", "FFTJ_Grid", main, c)
     if #special > 0 then
-        self:RenderTiles(root, "Special jobs: badges from bosses + job levels", "FFTJ_GridSpecial", special, c)
+        self:RenderTiles(root, "Special jobs: badges from bosses + job levels", "Special", "FFTJ_GridSpecial", special,
+            c)
     end
     if #soul > 0 then
-        self:RenderTiles(root, "Monster job: the Soul Codex opens it", "FFTJ_GridSoul", soul, c)
+        self:RenderTiles(root, "Monster job: the Soul Codex opens it", "Soul", "FFTJ_GridSoul", soul, c)
     end
 end
 
-function JobBoard:RenderTiles(root, title, id, jobs, c)
-    style(root:AddSeparatorText(title), "Text", TEXT.Gold)
+function JobBoard:RenderTiles(root, title, group, id, jobs, c)
+    local open = self.OpenGroups[group] and true or false
+    local toggle = button(root, (open and "[-] " or "[+] ") .. title .. " (" .. #jobs .. ")", "group" .. group, false,
+        function()
+            self.OpenGroups[group] = not open
+            self:Render(self.View)
+        end)
+    style(toggle, "Text", TEXT.Gold)
+    if not open then
+        return
+    end
     local grid = root:AddTable(id, GRID_COLUMNS)
     local row
     for i, j in ipairs(jobs) do
