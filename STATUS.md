@@ -88,7 +88,18 @@ When the user says "NWP", this is the list:
     User: "continue with the normal list first". Open: clothes/robes (no armor proficiency) always allowed?; the
     Mime's empty list (FFT Mimes wear no weapons); cursed/story items that can't come off; check needs item fields
     (weapon proficiency group, ArmorType, shield) verified in game.
-20. **[APPROVED 2026-10-14, build right after the Monk (21)] Chemist weapon coatings**, ONLY the Chemist's four
+20. **[FINAL DESIGN 2026-10-14, NOT built; build in a FRESH session after the 5-hour reset] Chemist coating = ONE
+    coating, "Strange Fluid"** (user's name and text: "You coat your weapon in a strange liquid and believe."). User's
+    final answers (replace everything below): bonus action, once per short rest, 300 JP (Chemist, source custom); coat
+    yourself or an ally within 9 m; lasts 3 turns, EVERY weapon hit counts; each hit = Mixup's effect: 1d4 of a type
+    + its status (Burning/Acid/Poisoned/Bleeding, 2 turns), picking one the target does NOT have yet; WITHOUT Mixup's
+    four-effect bonus (no +1 die / +2 turns when all four are on). Build plan: Target spell -> status
+    FFTJ_STRANGE_FLUID (3 turns) with `data "Passives"` = an OnAttack passive (Poach's condition: weapon hit) that
+    applies a marker status to the target (source = the attacker); Effects.OnStatusApplied runs the Mixup pick
+    without the bonus (reuse Effects.afflictions/afflict/rollDamage); tests like the Mixup ones; icon on the GPU
+    (BG3 closed). Version: the next free number when it lands (Peddler session took 1.0.0.68, the Wizard takes the
+    next; check the branch head first).
+    Older notes: **Chemist weapon coatings**, ONLY the Chemist's four
     effects (user): Venom Oil = Poisoned, Naphtha Oil = Burning, Acid Etch = Acid, Glass Grit = Bleeding, plus
     **Strange Fluid** (user's name and text: "You coat your weapon in a strange liquid and believe." = the Mixup Oil
     effect: each hit adds one of the four effects the target lacks). Not chosen: Holy Water, Slumber Resin, Field
@@ -103,7 +114,7 @@ When the user says "NWP", this is the list:
     has Brawler = CharacterUnarmedDamage(1d6) + 1 to hit, mastery +1d4, unverified in game). User's picks: the extra
     unarmed die grows with character level (1d6 -> 1d8 at 5 -> 1d10 at 9), unarmed hits use the higher of Str/Dex
     (BG3 Monk's Dextrous Attacks), a bonus-action unarmed strike after attacking. ~1%.
-22. **Archer -> Ranger with Fell Seal's Ranger skills** (user, 2026-10-14; build after the coatings). User's answers:
+22. **[BUILT in 1.0.0.66, not seen in game] Archer -> Ranger with Fell Seal's Ranger skills** (user, 2026-10-14). User's answers:
     keep the job id `Archer` (Thief, Ninja, GameHunter, SkyPirate, Machinist, Nightblade unlock through it), name
     Ranger, skillset Survival; replace all 13 Archer abilities with the 10 Fell Seal ones (docs/NWP_FELLSEAL.md,
     Ranger); JP = AP x 2.5 (Rooting Shot 0 = startLearned, Balm 250, Scout 500, Collect Pelt 500, Know Weakness 500,
@@ -119,9 +130,19 @@ When the user says "NWP", this is the list:
     reaction: shoot back when a ranged attack hits you; Sniper Shot = 3x weapon damage, self can't move until the
     next turn, once per long rest. Mark the abilities `source: custom` / Fell Seal so tools/check_fft_data.py and the
     TIC pacing data skip them; re-run the pacing self-test. Estimate given: ~4-6%, 2-3 h.
+    **More answers (user, 2026-10-14, local session; built in 1.0.0.66):** Collect Pelt is renamed **Collect Trophy**: a
+    beast/monster (not HUMANOID, like Poach) killed by it gives a valuable trophy item, no other effect, sells well:
+    three tiers by the creature's level, 1-4 = 75 gold, 5-8 = 150, 9+ = 300 (level bands in config); bosses immune;
+    the trophy is **lootable from the slain creature's body** (user), not put in the hunter's bag.
+    **Equip Bows** = 350 JP, proficiency with every bow AND crossbow; **Equip Crossbows is merged into it** (saves that
+    learned Equip Crossbows get Equip Bows learned, no refund) -> Ranger total 5600 JP. The user's GPU image generator
+    may now paint icons for the new skills (tools/generate_icon_art.ps1, art/icons/subjects.txt; only with BG3 closed).
+    How it was built: see the 1.0.0.66 entry below (trophy look = vanilla `LOOT_Underdark_Fang_A`, plain loot, not
+    an alchemy ingredient; retired abilities = `leftOut` entries with `retired`, not a separate list).
 
-**Queue (user, 2026-10-14, after 1.0.0.64):** Ranger (22) NEXT (a local session on the user's second Claude account)
--> coatings (20) -> 7 (menu learn diagnostics) -> 10 (JP above the head) -> 8 (two-PC sync; CIC = Claude in Chrome)
+**Queue (user, 2026-10-14, after 1.0.0.64):** Ranger (22) built in 1.0.0.66 (a local session on the user's second
+Claude account; a parallel "Wizard" session builds a Fell Seal Wizard job in the worktree bg3-fft-jobs-wizard, branch
+claude/wizard-job, as 1.0.0.67, with "Smart Casting": area abilities skip allies) -> coatings (20) -> 7 (menu learn diagnostics) -> 10 (JP above the head) -> 8 (two-PC sync; CIC = Claude in Chrome)
 -> 4 (Job Board) -> 14 enemy jobs LAST. 19 (equipment limits, ~2-3%) waits for the user's go; 9 skipped; Monk (21)
 built in 1.0.0.64. Session rules from the user: commit locally and tell the user about every commit; push only when
 the user says "push"; usage estimate before each item; tell the user when each item is done. Cost note: the Monk
@@ -283,6 +304,44 @@ the Monk's guessed vanilla passive name wrong: `MartialArts_DextrousAttacks` -> 
 (vanilla: `MonkWeaponAttackOverride()` when `IsDexterityGreaterThanStrength()`). `RollBonus(Attack,max(...))` is a
 vanilla form (`RollBonus(SavingThrow, max(1, Cause.CharismaModifier))`), kept. tools/check_refs.py now also checks
 names inside `HasPassive('...')` and `SpellId('...')` (it caught this one).
+
+**1.0.0.66 (2026-10-14, local session, NOT packaged or seen in game): NWP 22, Archer -> Ranger (Fell Seal).** Job id
+`Archer` kept (name Ranger, skillset Survival, `startLearned` RootingShot). 11 abilities, `source` custom +
+fellseal_ranger (check_fft_data.py now skips `custom`; the pacing sim uses the real costs, Ranger 5600 JP, self-test
+OK): Rooting Shot (Projectile_MainHandAttack + Trip Attack's save-in-SpellSuccess -> FFTJ_ROOTED =
+ActionResourceBlock(Movement)), Balm (on Target_FFTJ_Remedy), Scout (Shout on Shout_SecondWind, bonus action, short
+rest, FFTJ_SCOUTING = Skill(Perception,5) + ReduceCriticalAttackThreshold(1)), Collect Trophy (FFTJ_TROPHY_MARK applied
+BEFORE the damage so a killing shot carries it; Effects.CollectTrophy on KilledBy -> Game:TemplateAddTo(trophy,
+corpse); config Abilities.TrophyLevels [1,5,9]; bosses none), Know Weakness, Rain of Arrows (Zone on
+Zone_ArcaneShot_PiercingArrow, ActionPoint only), Evasion Up, Multishot (Target_Volley, AreaRadius 2, allies allowed),
+Countershot (Interrupt_FFTJ_Countershot: OnCastHit + IsRangedAttack + holding Ammunition, UseSpell(OBSERVER_SOURCE,
+Projectile_FFTJ_Countershot,...)), Sniper Shot (three DealDamage(MainRangedWeapon), self FFTJ_ROOTED 1, OncePerRest),
+Equip Bows (all bows + crossbows). Trophies: data/fft_jobs.json `trophies` + `trophyLook` -> build.py writes their
+Object stats (Object_FFTJ.txt: _LuxuryItem, ValueOverride 75/150/300, ObjectCategory cleared so random loot never
+rolls them) and root templates (RootTemplates/_merged.lsx now holds the Codex + 3 trophies; souls_gen.codex_attrs +
+build.templates_lsx). Retired: the 13 old abilities moved to `leftOut` with `retired` (+ `replacedBy` EquipBows for
+EquipCrossbows) -> Data.Retired -> `Rules.MigrateRetired` on load (refund to Unspent, Earned kept, slots cleared or
+swapped; Service:OnSessionLoaded, message at StartGameplay). Their stats entries are deleted (FFTJ_Concentration
+stays for the Mime, texts now {{str:Concentration.*}}). 11 icons painted on the local GPU (3 kept from seed 12), the
+13 old Archer pictures removed (atlas 90). Tests: 3 new (refund on load, MigrateRetired, trophies by level), 212.
+Unverified in game: all of it; especially TemplateAddTo into a corpse's loot, the trophy item (first root templates
+with a Stats link), ApplyStatus before DealDamage in SpellSuccess, Volley/Piercing Arrow parents for players, the
+Countershot interrupt with a bow, removed spells vanishing cleanly from old saves.
+
+**1.0.0.67 (2026-10-14, local session, NOT packaged or seen in game): Counter Tackle fix (user: "isn't working").**
+Logs: Shadowheart learned and slotted it in the 2026-10-14 00:2x MP session (Extender Runtime 2026-10-14 01-47-19,
+FFTJ_CounterTackle added) and still had it in the last one (05-05-00, 1.0.0.61); the log can't show passive effects.
+Cause: in an OnDamaged passive the functors' target is the one who was hit, so `DealDamage(1d4,...);Force(1.5)` hurt
+and pushed the Squire itself. Vanilla melee-counter items use `DealDamage(SWAP, ...)` + `not IsRedirectedDamage()`;
+there is no vanilla `Force(SWAP...)`, so the push is FFTJ_COUNTER_TACKLE_PUSH applied with SWAP (OnApplyFunctors
+Force(1.5), vanilla BEE_KNOCKBACK pattern). Same bug fixed in FFTJ_MagickCounter and FFTJ_Reflect_Counter (2d6 force
+on the caster). build.py check_stats now fails an OnDamaged DealDamage/Force without SWAP/SELF. **Pushes (user: Rush
+and Throw Stone knockback "never seemed to work"):** the generated stats matched vanilla's form (Force(2)/Force(1)
+after DealDamage, also common in vanilla), so the cause is not proven; changed to vanilla's weapon-push pattern
+(Pushing Attack: Force first, then the damage) with longer pushes: Rush Force(3), Throw Stone Force(2), Counter Tackle
+Force(2). Unverified in game: all pushes (if they still fail, test in game with the SE console:
+`Osi.ApplyStatus(<goblin>, 'FFTJ_COUNTER_TACKLE_PUSH', 6, 1, <host>)` shows whether Force works at all), the push
+direction (away from the defender), the push status firing on a re-hit in the same turn.
 
 ## Open questions for the user
 

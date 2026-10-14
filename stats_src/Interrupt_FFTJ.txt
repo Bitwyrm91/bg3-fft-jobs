@@ -47,3 +47,18 @@ data "Conditions" "IsAbleToReact(context.Observer) and Self(context.Target,conte
 data "Properties" "AdjustRoll(OBSERVER_OBSERVER,-(3d8))"
 data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:1"
 data "InterruptDefaultValue" "Ask;Enabled"
+
+// Countershot (Ranger): an enemy's ranged attack hits you while you hold a bow or crossbow -> a free ranged attack
+// back (Counter's trigger; UseSpell(OBSERVER_SOURCE, ...) as in vanilla's Counterspell interrupt).
+new entry "Interrupt_FFTJ_Countershot"
+type "InterruptData"
+data "DisplayName" "{{name:Countershot}}"
+data "Description" "{{desc:Countershot}}"
+data "Icon" "Action_HamstringShot"
+data "InterruptContext" "OnCastHit"
+data "InterruptContextScope" "Self"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and IsRangedAttack() and IsHit() and HasFunctor(StatsFunctorType.DealDamage) and not AnyEntityIsItem() and HasLastAttackTriggered() and WieldingWeapon('Ammunition', false, false, context.Observer) and not DistanceToEntityGreaterThan(18, context.ObserverPosition, context.Source)"
+data "Properties" "UseSpell(OBSERVER_SOURCE,Projectile_FFTJ_Countershot,true,true,true)"
+data "Cost" "ReactionActionPoint:1"
+data "InterruptDefaultValue" "Ask;Enabled"

@@ -95,7 +95,7 @@ def("fft_secondary", "<job|none> [who]  set the secondary skill set", function(s
     return result(svc:SetSecondary(guid, jobId))
 end)
 
-def("fft_learn", "<ability> [who]  learn an ability (write names without spaces: Aim1, XPotion, PhoenixDown)", function(svc, args)
+def("fft_learn", "<ability> [who]  learn an ability (write names without spaces: RootingShot, XPotion, PhoenixDown)", function(svc, args)
     local aid = Rules.FindAbility(svc.Data, args[1])
     if not aid then
         return { "Unknown ability " .. tostring(args[1]) }

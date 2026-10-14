@@ -111,15 +111,18 @@ data "Properties" "Highlighted"
 data "Boosts" "RollBonus(MeleeSpellAttack,1);RollBonus(RangedSpellAttack,1)"
 
 // ---------------------------------------------------------------- reactions
-// Melee hit -> attacker takes 1d4 bludgeoning and is pushed 1.5 m.
+// Melee hit -> attacker takes 1d4 bludgeoning and is pushed 1.5 m. In OnDamaged the functors' target is the one who
+// was hit: SWAP turns them on the attacker (vanilla's melee-counter cloaks: DealDamage(SWAP, ...)); the push is a
+// status on the attacker whose OnApplyFunctors Force()s it away (vanilla BEE_KNOCKBACK). Before 1.0.0.67 this hit and
+// pushed the Squire itself.
 new entry "FFTJ_CounterTackle"
 type "PassiveData"
 data "DisplayName" "{{name:CounterTackle}}"
 data "Description" "{{desc:CounterTackle}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsMeleeAttack()"
-data "StatsFunctors" "DealDamage(1d4,Bludgeoning);Force(1.5)"
+data "Conditions" "IsMeleeAttack() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,1d4,Bludgeoning);ApplyStatus(SWAP,FFTJ_COUNTER_TACKLE_PUSH,100,1)"
 
 // Damaged -> heal 1d4+2, once per turn (the marker status blocks a second trigger).
 new entry "FFTJ_AutoPotion"
@@ -138,21 +141,6 @@ data "Description" "{{desc:Parry}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "Boosts" "DamageReduction(Slashing,Flat,2);DamageReduction(Piercing,Flat,2);DamageReduction(Bludgeoning,Flat,2)"
 
-new entry "FFTJ_SpeedSurge"
-type "PassiveData"
-data "DisplayName" "{{name:SpeedSurge}}"
-data "Description" "{{desc:SpeedSurge}}"
-data "Icon" "PassiveFeature_Mobile_DashAcrossDifficultTerrain"
-data "StatsFunctorContext" "OnDamaged"
-data "StatsFunctors" "ApplyStatus(SELF,FFTJ_SPEED_SURGE,100,2)"
-
-new entry "FFTJ_ArchersBane"
-type "PassiveData"
-data "DisplayName" "{{name:ArchersBane}}"
-data "Description" "{{desc:ArchersBane}}"
-data "Icon" "PassiveFeature_FightingStyle_Archery"
-data "Boosts" "DamageReduction(Piercing,Flat,3)"
-
 new entry "FFTJ_Regenerate"
 type "PassiveData"
 data "DisplayName" "{{name:Regenerate}}"
@@ -169,8 +157,8 @@ data "DisplayName" "{{name:MagickCounter}}"
 data "Description" "{{desc:MagickCounter}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsSpell()"
-data "StatsFunctors" "DealDamage(2d6,Force,Magical)"
+data "Conditions" "IsSpell() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,2d6,Force,Magical)"
 
 // ---------------------------------------------------------------- support
 new entry "FFTJ_EquipAxes"
@@ -217,17 +205,40 @@ data "Description" "{{desc:EquipSwords}}"
 data "Icon" "PassiveFeature_FightingStyle_GreatWeaponFighting"
 data "Boosts" "Proficiency(Shortswords);Proficiency(Longswords);Proficiency(Greatswords)"
 
-new entry "FFTJ_EquipCrossbows"
+new entry "FFTJ_EquipBows"
 type "PassiveData"
-data "DisplayName" "{{name:EquipCrossbows}}"
-data "Description" "{{desc:EquipCrossbows}}"
+data "DisplayName" "{{name:EquipBows}}"
+data "Description" "{{desc:EquipBows}}"
 data "Icon" "PassiveFeature_FightingStyle_Archery"
-data "Boosts" "Proficiency(HandCrossbows);Proficiency(LightCrossbows);Proficiency(HeavyCrossbows)"
+data "Boosts" "Proficiency(Shortbows);Proficiency(Longbows);Proficiency(HandCrossbows);Proficiency(LightCrossbows);Proficiency(HeavyCrossbows)"
+
+// Ranger (NWP 22): Know Weakness = crits on 19-20 (Champion's Improved Critical Hit), Evasion Up = +1 AC,
+// Countershot unlocks its interrupt.
+new entry "FFTJ_KnowWeakness"
+type "PassiveData"
+data "DisplayName" "{{name:KnowWeakness}}"
+data "Description" "{{desc:KnowWeakness}}"
+data "Icon" "PassiveFeature_Sharpshooter_Bonuses"
+data "Boosts" "ReduceCriticalAttackThreshold(1)"
+
+new entry "FFTJ_EvasionUp"
+type "PassiveData"
+data "DisplayName" "{{name:EvasionUp}}"
+data "Description" "{{desc:EvasionUp}}"
+data "Icon" "PassiveFeature_MultiattackDefense"
+data "Boosts" "AC(1)"
+
+new entry "FFTJ_Countershot"
+type "PassiveData"
+data "DisplayName" "{{name:Countershot}}"
+data "Description" "{{desc:Countershot}}"
+data "Icon" "Action_HamstringShot"
+data "Boosts" "UnlockInterrupt(Interrupt_FFTJ_Countershot)"
 
 new entry "FFTJ_Concentration"
 type "PassiveData"
-data "DisplayName" "{{name:Concentration}}"
-data "Description" "{{desc:Concentration}}"
+data "DisplayName" "{{str:Concentration.Name}}"
+data "Description" "{{str:Concentration.Desc}}"
 data "Icon" "PassiveFeature_FightingStyle_Archery"
 data "Boosts" "RollBonus(MeleeWeaponAttack,2);RollBonus(RangedWeaponAttack,2)"
 
@@ -259,13 +270,6 @@ data "DisplayName" "{{name:TreasureHunter}}"
 data "Description" "{{desc:TreasureHunter}}"
 data "Icon" "PassiveFeature_Observant_Bonuses"
 data "Boosts" "Skill(Perception,2)"
-
-new entry "FFTJ_Jump1"
-type "PassiveData"
-data "DisplayName" "{{name:Jump1}}"
-data "Description" "{{desc:Jump1}}"
-data "Icon" "PassiveFeature_RemarkableAthlete_Jump"
-data "Boosts" "JumpMaxDistanceBonus(3)"
 
 // ================================================================ phase 2, batch 1 (2026-10-12)
 // ---------------------------------------------------------------- job markers (equipment from data/fft_jobs.json)
@@ -502,8 +506,8 @@ data "Description" "{{desc:Reflect}}"
 data "Icon" "Spell_Abjuration_GlobeOfInvulnerability"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsSpell()"
-data "StatsFunctors" "DealDamage(2d6,Force,Magical)"
+data "Conditions" "IsSpell() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,2d6,Force,Magical)"
 
 // ---------------------------------------------------------------- Mystic
 new entry "FFTJ_AbsorbMP"
@@ -690,7 +694,7 @@ new entry "FFTJ_EquipGuns"
 type "PassiveData"
 data "DisplayName" "{{name:EquipGuns}}"
 data "Description" "{{desc:EquipGuns}}"
-data "Icon" "FFTJ_Icon_EquipCrossbows"
+data "Icon" "FFTJ_Icon_EquipBows"
 data "Properties" "Highlighted"
 data "Boosts" "Proficiency(HandCrossbows);Proficiency(LightCrossbows)"
 
@@ -957,7 +961,7 @@ data "Boosts" "JumpMaxDistanceBonus(4.5)"
 
 // ---------------------------------------------------------------- Mime, phase 2 batch 3
 // Echo is server-side (Service: OfferEcho / TrackEcho) with the "_Echo" twins tools/build.py generates. The Mime has
-// no abilities of its own; its innate passives are Concentration (Archer), Brawler (Monk) and Beastmaster.
+// no abilities of its own; its innate passives are Concentration (the old Archer's), Brawler (Monk) and Beastmaster.
 new entry "FFTJ_Job_Mime"
 type "PassiveData"
 data "DisplayName" "{{jobname:Mime}}"

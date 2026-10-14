@@ -120,6 +120,33 @@ function S.old_saves_with_missing_fields_still_work(w, T, Mocks)
     T.eq(svc.State:Get(T.TAV).Jobs.Squire.Unspent, 13)
 end
 
+-- 1.0.0.66: the Archer became the Fell Seal Ranger; a save with Aim skills learned gets their JP back once.
+function S.old_archer_skills_are_refunded_on_load(w, T, Mocks)
+    T.party(w)
+    w.modVars.State = Mocks.Json.encode({
+        Schema = 1, Meta = { Disabled = false },
+        Chars = { [T.TAV] = { Name = "Tav", Primary = "Archer", Passive1 = "EquipCrossbows",
+            Unlocked = { Squire = true, Chemist = true, Archer = true },
+            Jobs = { Squire = { Earned = 300, Unspent = 0, Frac = 0, Learned = {} },
+                Archer = { Earned = 2000, Unspent = 40, Frac = 0,
+                    Learned = { Aim1 = true, Aim2 = true, EquipCrossbows = true } } } } },
+    })
+    local svc = T.boot(w, { noParty = true })
+    local char = svc.State:Get(T.TAV)
+    T.eq(char.Jobs.Archer.Unspent, 40 + 100 + 150, "Aim +1 and Aim +2 refunded")
+    T.eq(char.Jobs.Archer.Earned, 2000, "job level kept")
+    T.truthy(char.Jobs.Archer.Learned.EquipBows, "Equip Crossbows became Equip Bows")
+    T.truthy(char.Jobs.Archer.Learned.RootingShot, "the Ranger's starting skill")
+    T.eq(char.Passive1, "EquipBows", "still slotted")
+    T.contains(w.notifications, "Tav: 250 JP back in Ranger for skills it no longer has; now knows Equip Bows.")
+    local n = #w.notifications
+    w.fire("LevelGameplayStarted", "WLD_Main_A", 0)
+    w.tick()
+    for i = n + 1, #w.notifications do
+        T.falsy(string.find(w.notifications[i], "JP back", 1, true), "told once")
+    end
+end
+
 function S.mod_variable_registered_on_both_sides(w, T)
     T.boot(w)
     T.eq(#w.registeredVars, 2)

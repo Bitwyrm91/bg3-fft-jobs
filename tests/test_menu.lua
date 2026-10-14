@@ -118,7 +118,7 @@ function S.every_menu_spell_has_a_stats_entry(w, T, Mocks)
     for _, id in pairs(m.Learn) do
         check(id)
     end
-    T.eq(n, 584, "every generated entry is one the server can grant")
+    T.eq(n, 582, "every generated entry is one the server can grant")
 end
 
 return S

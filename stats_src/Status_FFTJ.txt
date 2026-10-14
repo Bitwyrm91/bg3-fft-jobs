@@ -173,6 +173,39 @@ type "StatusData"
 using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 
+// Counter Tackle's push on the attacker (vanilla BEE_KNOCKBACK: a hidden status that Force()s on apply).
+new entry "FFTJ_COUNTER_TACKLE_PUSH"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+data "OnApplyFunctors" "Force(2)"
+
+// Ranger (NWP 22). Rooted: can't move (Rooting Shot, Sniper Shot on the shooter); Balm removes it.
+new entry "FFTJ_ROOTED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_ROOTED.name}}"
+data "Description" "{{str:status.FFTJ_ROOTED.desc}}"
+data "Icon" "statIcons_Ensnared"
+data "StackId" "FFTJ_ROOTED"
+data "Boosts" "ActionResourceBlock(Movement)"
+
+// Scout: +5 Perception (spot traps) and crits on 19-20.
+new entry "FFTJ_SCOUTING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_SCOUTING.name}}"
+data "Description" "{{str:status.FFTJ_SCOUTING.desc}}"
+data "Icon" "PassiveFeature_DungeonDelver_Perception"
+data "StackId" "FFTJ_SCOUTING"
+data "Boosts" "Skill(Perception,5);ReduceCriticalAttackThreshold(1)"
+
+// Collect Trophy: lasts the hunter's turn, so a kill this turn can be traced to the hunter (Effects.OnKilledBy).
+new entry "FFTJ_TROPHY_MARK"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
 // Martial Arts: an unarmed attack this turn opens the bonus-action Martial Strike.
 new entry "FFTJ_MARTIAL_ARTS"
 type "StatusData"

@@ -26,7 +26,7 @@ import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.pat
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.65"
+MOD_VERSION = "1.0.0.67"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -194,6 +194,21 @@ def validate(jobs_doc, config_doc, strings_doc):
             for kind in e.get("grants", {}):
                 if kind not in GRANT_KINDS:
                     errors.append(f"ability {a['id']}: bad perLearned grant kind {kind}")
+    for e in jobs_doc.get("leftOut", []):
+        if not e.get("retired"):
+            continue
+        if e.get("id") in ab_ids or not e.get("id"):
+            errors.append(f"retired ability {e.get('id')}: needs an id that no current ability uses")
+        if e.get("job") not in job_by_id or not isinstance(e.get("cost"), int):
+            errors.append(f"retired ability {e.get('id')}: needs its job and JP cost (the refund)")
+        if e.get("replacedBy") and e["replacedBy"] not in ab_ids:
+            errors.append(f"retired ability {e['id']}: replacedBy {e['replacedBy']} is not an ability")
+    for t in jobs_doc.get("trophies", []):
+        if not (t.get("name") and t.get("desc") and t.get("stats") and isinstance(t.get("value"), int)
+                and re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", t.get("template", ""))):
+            errors.append(f"trophy {t.get('id')}: needs name, desc, stats, value and a template UUID")
+    if jobs_doc.get("trophies") and not jobs_doc.get("trophyLook"):
+        errors.append("trophies need trophyLook (the vanilla item whose look they borrow)")
     defaults = config_doc["defaults"]
     for jid in defaults["Rules"]["StartingUnlocked"]:
         if not job_by_id.get(jid, {}).get("implemented"):
@@ -381,6 +396,14 @@ def build_lua(jobs_doc, config_doc, statcast_data=None):
         "JobMenu": menu_gen.lua_data(jobs_doc, handle_for),
         # tools/statcast.py: the hidden FFTJ_Cast_<Stat>_<spell> passives (Rules.StatCastGrants)
         "StatCast": statcast_data or {},
+        # abilities taken out of a job (leftOut entries with "retired"): Rules.MigrateRetired refunds their JP to the
+        # job, or swaps in the "replacedBy" ability
+        "Retired": {e["id"]: {k: v for k, v in (("Job", e["job"]), ("Cost", e["cost"]),
+                                                ("ReplacedBy", e.get("replacedBy"))) if v is not None}
+                    for e in jobs_doc.get("leftOut", []) if e.get("retired")},
+        # Collect Trophy's items, smallest first (Effects.OnKilledBy picks one by the creature's level)
+        "Trophies": [{"Id": t["id"], "Name": t["name"], "Template": t["template"]}
+                     for t in jobs_doc.get("trophies", [])],
     }
     souls_doc = souls_gen.load()
     if souls_doc:
@@ -422,6 +445,9 @@ def string_table(jobs_doc, strings_doc):
                                                         f"{j['name']}; kept after changing jobs.")
     for k, v in strings_doc["strings"].items():
         table[f"str.{k}"] = v
+    for t in jobs_doc.get("trophies", []):
+        table[f"item.trophy.{t['id']}.name"] = t["name"]
+        table[f"item.trophy.{t['id']}.desc"] = t["desc"]
     table.update(menu_gen.strings(jobs_doc))
     table.update(upcast.strings(jobs_doc))
     souls_doc = souls_gen.load()
@@ -783,6 +809,10 @@ def build_stats(jobs_doc, strings_doc):
                 table[f"ability.{aid}.desc"] = table[f"ability.{aid}.desc"].rstrip() + scaling.NOTE
         outputs[STATS_OUT / src.name] = out
         entries += parse_stats(out, src.name)
+    if jobs_doc.get("trophies"):
+        out = trophy_stats(jobs_doc)
+        outputs[STATS_OUT / TROPHY_FILE] = out
+        entries += parse_stats(out, TROPHY_FILE)
     def upcast_handle(key):
         if key not in table:
             raise BuildError(f"upcast: unknown string {key}")
@@ -889,6 +919,13 @@ def check_stats(jobs_doc, entries):
                     add(st, "status", e["name"])
                 elif defined[st]["type"] != "StatusData":
                     errors.append(f"{e['name']}: {st} is used as a status but is {defined[st]['type']}")
+        # "when hit" effects: their functors target the one who was hit, so damage or a push meant for the attacker
+        # needs SWAP (Counter Tackle hurt the Squire itself until 1.0.0.67)
+        data = dict(e["data"])
+        if "OnDamaged" in data.get("StatsFunctorContext", "") and \
+                re.search(r"DealDamage\((?!\s*(SWAP|SELF)\b)|(?<![A-Za-z])Force\(", data.get("StatsFunctors", "")):
+            errors.append(f"{e['name']}: OnDamaged DealDamage/Force hits the one who was hit; write "
+                          "DealDamage(SWAP,...) for the attacker or DealDamage(SELF,...) on purpose")
     if errors:
         raise BuildError("stats errors:\n  " + "\n  ".join(errors))
     return refs
@@ -907,6 +944,49 @@ def refs_outputs(refs):
         md.append(f"| `{ref}` | {kind} | {', '.join(sorted(where))} |")
     js = [{"id": ref, "kind": kind, "usedBy": sorted(where)} for (ref, kind), where in rows]
     return "\n".join(md) + "\n", json.dumps(js, indent=2) + "\n"
+
+
+TROPHY_FILE = "Object_FFTJ.txt"
+
+
+def trophy_stats(jobs_doc):
+    """Object stats of Collect Trophy's items: vanilla's luxury loot (silverware sells for 10-30) with our value;
+    ObjectCategory cleared so random treasure never rolls them."""
+    out = []
+    for t in jobs_doc["trophies"]:
+        out += [f'new entry "{t["stats"]}"', 'type "Object"', 'using "_LuxuryItem"',
+                f'data "RootTemplate" "{t["template"]}"', f'data "ValueOverride" "{t["value"]}"',
+                'data "ObjectCategory" ""', 'data "Weight" "0.2"', ""]
+    return "\n".join(out[:-1]) + "\n"
+
+
+def trophy_attrs(jobs_doc, handle):
+    """Root template attributes of Collect Trophy's items (data/fft_jobs.json "trophies"): the look of the vanilla
+    "trophyLook" item, our Object stats entry (stats_src/Object_FFTJ.txt: value) and our name."""
+    return [[("Description", "TranslatedString", handle(f"item.trophy.{t['id']}.desc")),
+             ("DisplayName", "TranslatedString", handle(f"item.trophy.{t['id']}.name")),
+             ("LevelName", "FixedString", ""), ("MapKey", "FixedString", t["template"]),
+             ("Name", "LSString", "FFTJ_Trophy_" + t["id"]), ("ParentTemplateId", "FixedString", jobs_doc["trophyLook"]),
+             ("Stats", "FixedString", t["stats"]), ("Type", "FixedString", "item")]
+            for t in jobs_doc.get("trophies", [])]
+
+
+def templates_lsx(items):
+    """Public/<Mod>/RootTemplates/_merged.lsx with our item root templates, one attribute list each (packaging
+    converts it to .lsf)."""
+    lines = ['<?xml version="1.0" encoding="utf-8"?>', "<save>",
+             '\t<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />',
+             '\t<region id="Templates">', '\t\t<node id="Templates">', "\t\t\t<children>"]
+    for attrs in items:
+        lines.append('\t\t\t\t<node id="GameObjects">')
+        for a, t, v in attrs:
+            if t == "TranslatedString":
+                lines.append(f'\t\t\t\t\t<attribute id="{a}" type="{t}" handle="{v}" version="1" />')
+            else:
+                lines.append(f'\t\t\t\t\t<attribute id="{a}" type="{t}" value="{v}" />')
+        lines.append("\t\t\t\t</node>")
+    lines += ["\t\t\t</children>", "\t\t</node>", "\t</region>", "</save>"]
+    return "\n".join(lines) + "\n"
 
 
 def build_loca(table, used):
@@ -932,16 +1012,16 @@ def main(argv):
     if stats_outputs:
         refs = check_stats(jobs_doc, entries)
         outputs.update(stats_outputs)
-        souls_doc = souls_gen.load()
-        if souls_doc and souls_doc.get("codex"):
-            def codex_handle(key):
-                used.add(key)
-                return handle_for(key)
-            outputs[ROOT_TEMPLATES] = souls_gen.root_template(souls_doc, codex_handle)
-        def trap_handle(key):
+        def item_handle(key):
             used.add(key)
             return handle_for(key)
-        outputs[ROOT_TEMPLATES] = peddler.add_templates(outputs.get(ROOT_TEMPLATES), trap_handle)
+        items = trophy_attrs(jobs_doc, item_handle)
+        souls_doc = souls_gen.load()
+        if souls_doc and souls_doc.get("codex"):
+            items.insert(0, souls_gen.codex_attrs(souls_doc, item_handle))
+        if items:
+            outputs[ROOT_TEMPLATES] = templates_lsx(items)
+        outputs[ROOT_TEMPLATES] = peddler.add_templates(outputs.get(ROOT_TEMPLATES), item_handle)
         outputs[LOCA_OUT] = build_loca(table, used)
         md, js = refs_outputs(refs)
         outputs[REFS_MD] = md

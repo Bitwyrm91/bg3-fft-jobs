@@ -294,26 +294,15 @@ def stats(doc, H):
     return {SPELL_FILE: "\n".join(spells).rstrip("\n") + "\n", STATUS_FILE: "\n".join(statuses).rstrip("\n") + "\n"}
 
 
-def root_template(doc, handle):
-    """Public/<Mod>/RootTemplates/_merged.lsx with the Soul Codex item (packaging converts it to .lsf). handle(key)
-    -> a loca handle without the version (marks the string used)."""
+def codex_attrs(doc, handle):
+    """The Soul Codex item's root template attributes (tools/build.py templates_lsx writes them). handle(key) -> a
+    loca handle without the version (marks the string used)."""
     c = doc["codex"]
-    attrs = [("Description", "TranslatedString", handle("soul.codex.desc")),
-             ("DisplayName", "TranslatedString", handle("soul.codex.name")),
-             ("LevelName", "FixedString", ""), ("MapKey", "FixedString", c["template"]),
-             ("Name", "LSString", "FFTJ_SoulCodex"), ("ParentTemplateId", "FixedString", c["parent"]),
-             ("Type", "FixedString", "item"), ("maxStackAmount", "int32", "1")]
-    lines = ['<?xml version="1.0" encoding="utf-8"?>', "<save>",
-             '\t<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />',
-             '\t<region id="Templates">', '\t\t<node id="Templates">', "\t\t\t<children>",
-             '\t\t\t\t<node id="GameObjects">']
-    for a, t, v in attrs:
-        if t == "TranslatedString":
-            lines.append(f'\t\t\t\t\t<attribute id="{a}" type="{t}" handle="{v}" version="1" />')
-        else:
-            lines.append(f'\t\t\t\t\t<attribute id="{a}" type="{t}" value="{v}" />')
-    lines += ["\t\t\t\t</node>", "\t\t\t</children>", "\t\t</node>", "\t</region>", "</save>"]
-    return "\n".join(lines) + "\n"
+    return [("Description", "TranslatedString", handle("soul.codex.desc")),
+            ("DisplayName", "TranslatedString", handle("soul.codex.name")),
+            ("LevelName", "FixedString", ""), ("MapKey", "FixedString", c["template"]),
+            ("Name", "LSString", "FFTJ_SoulCodex"), ("ParentTemplateId", "FixedString", c["parent"]),
+            ("Type", "FixedString", "item"), ("maxStackAmount", "int32", "1")]
 
 
 def lua_data(doc):

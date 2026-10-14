@@ -1,6 +1,42 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.65**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.67**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.67: Counter Tackle fixed (and Magick Counter, Reflect)
+
+- **Counter Tackle** (Squire reaction) hit and pushed **your own character** instead of the attacker (your report;
+  Shadowheart had it slotted). Now the melee attacker takes 1d4 bludgeoning and is pushed 1.5 m.
+- Same mistake fixed in **Magick Counter** and **Reflect**: their 2d6 force now hits the spellcaster, not you.
+- **Rush** and **Throw Stone** pushes never showed (your report): the push now comes before the damage, the way
+  vanilla's Pushing Attack does it, and is longer: Rush 3 m, Throw Stone 2 m, Counter Tackle 2 m.
+
+Please check: slot Counter Tackle, let an enemy hit you in melee: the enemy takes the damage (combat log) and slides
+back; your HP only drops by the enemy's hit. Rush and Throw Stone a goblin: does it slide back 3 m / 2 m? If a push
+still never shows, tell me which target (size) and whether it was a hit.
+
+## New in 1.0.0.66: the Archer is now the Ranger (Fell Seal, NWP 22)
+
+- The Archer tile is now **Ranger** (same place, same unlock: Squire Lv2; Thief, Ninja and the others still unlock
+  through it). Its skill set **Survival** = Fell Seal's 10 Ranger skills + **Equip Bows**, all with new painted icons.
+  **Rooting Shot** is known as soon as the job is unlocked. Mastery perk unchanged (+1 to ranged weapon attacks).
+- **Old saves:** learned Aim, Speed Surge, Archer's Bane, Concentration and Jump +1 are gone; their JP comes back as
+  unspent Ranger JP (one message per character after loading). Equip Crossbows became Equip Bows. The Mime keeps
+  its Concentration.
+
+Please check (a bow or crossbow is needed for the shots):
+- After loading an old save: the "N JP back in Ranger" message, and the JP on the board.
+- **Rooting Shot**: on a hit the target may be **Rooted** (can't move next turn). **Balm** (touch, once per short rest)
+  removes Rooted, poison, bleeding, blindness, silence, sleep and weakening effects.
+- **Scout** (bonus action, once per short rest): the Scouting status (+5 Perception, critical hits on 19-20, 3 turns).
+- **Collect Trophy**: kill a beast or monster with it (or hit it and kill it that turn) -> a message, and a **Hunting
+  Trophy** to loot from the body. Sell it: Small 75 gold, Fine 150 (creature level 5+), Grand 300 (level 9+). Humanoids
+  give none; bosses say "too mighty".
+- **Rain of Arrows** (10 m line, Dexterity save for half) and **Multishot** (2 m area, an attack roll each) hit allies
+  too.
+- **Countershot** (reaction slot): an enemy's ranged attack hits you while you hold a bow -> a prompt to shoot back.
+- **Sniper Shot**: triple weapon damage, you can't move for the rest of the turn, once per long rest.
+- **Know Weakness** (crits on 19-20) and **Evasion Up** (+1 AC) in the passive slots; **Equip Bows** lets any job use
+  every bow and crossbow.
 
 ## New in 1.0.0.65: Monk fix (local data check)
 

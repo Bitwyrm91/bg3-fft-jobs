@@ -298,6 +298,48 @@ function S.poach_pays_for_a_marked_kill(w, T)
     T.contains(w.notifications, "Tav poached a trophy from Goblin worth 20 gold!")
 end
 
+-- TemplateAddTo calls with a trophy (the Soul Codex chest uses it too)
+local function trophyAdds(w)
+    local Data = Ext.Require("Shared/GeneratedData.lua")
+    local trophy = {}
+    for _, t in ipairs(Data.Trophies) do
+        trophy[t.Template] = true
+    end
+    local out = {}
+    for _, c in ipairs(w.osiCalls) do
+        if c[1] == "TemplateAddTo" and trophy[c[2]] then
+            out[#out + 1] = c
+        end
+    end
+    return out
+end
+
+function S.collect_trophy_leaves_loot_by_creature_level(w, T)
+    local svc = T.boot(w)
+    local Data = svc.Data
+    enemy(w, { level = 3 })
+    w.fire("KilledBy", "S_" .. GOB, "S_Player_" .. T.TAV, "S_Player_" .. T.TAV, 0)
+    T.eq(#trophyAdds(w), 0, "not marked: nothing")
+    applied(w, GOB, "FFTJ_TROPHY_MARK", T.TAV)
+    w.fire("KilledBy", "S_" .. GOB, "S_Player_" .. T.TAV, "S_Player_" .. T.TAV, 0)
+    local adds = trophyAdds(w)
+    T.eq(#adds, 1)
+    T.eq(adds[1][2], Data.Trophies[1].Template, "level 3: the small trophy")
+    T.eq(adds[1][3], GOB, "in the body's loot")
+    T.contains(w.notifications, "Tav brought down Goblin: a Small Hunting Trophy can be looted from the body.")
+    w.fire("KilledBy", "S_" .. GOB, "S_Player_" .. T.TAV, "S_Player_" .. T.TAV, 0)
+    T.eq(#trophyAdds(w), 1, "one trophy per mark")
+    w.chars[GOB].level = 9
+    applied(w, GOB, "FFTJ_TROPHY_MARK", T.TAV)
+    w.fire("KilledBy", "S_" .. GOB, "S_Player_" .. T.TAV, "S_Player_" .. T.TAV, 0)
+    T.eq(trophyAdds(w)[2][2], Data.Trophies[3].Template, "level 9: the grand trophy")
+    w.chars[GOB].boss = true
+    applied(w, GOB, "FFTJ_TROPHY_MARK", T.TAV)
+    w.fire("KilledBy", "S_" .. GOB, "S_Player_" .. T.TAV, "S_Player_" .. T.TAV, 0)
+    T.eq(#trophyAdds(w), 2, "bosses give none")
+    T.contains(w.notifications, "Goblin is too mighty to take a trophy from.")
+end
+
 function S.other_statuses_are_ignored(w, T)
     T.boot(w)
     local before = #w.osiCalls

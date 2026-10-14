@@ -6,6 +6,7 @@
 --   Bosses shrug off Doom, Stop and Stone, as in FFT.
 --   Gil Snapper (Thief): gold equal to the damage taken.
 --   Poach (Thief): a monster the poacher hit this turn pays out when it dies.
+--   Collect Trophy (Ranger): a monster it hit this turn leaves a sellable trophy in its loot when it dies.
 --   Abyssal Blade, Unholy Sacrifice (Dark Knight): the caster pays a share of its maximum HP (never the last one).
 -- Every number is in the config (Abilities.*).
 local Rules = Ext.Require("Server/Rules.lua")
@@ -103,6 +104,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         Effects.ChemicalBurns(svc, source, target)
     elseif status == "FFTJ_POACH_MARK" and source then
         svc.PoachMarks[target] = source
+    elseif status == "FFTJ_TROPHY_MARK" and source then
+        svc.TrophyMarks[target] = source
     end
 end
 
@@ -473,8 +476,40 @@ function Effects.OnAttackedBy(svc, defender, amount)
     end
 end
 
--- Osiris KilledBy: a creature marked by a poacher this turn pays out.
+-- The trophy for a creature of this level (data.Trophies, smallest first; config Abilities.TrophyLevels = the lowest
+-- creature level of each).
+function Effects.TrophyFor(svc, level)
+    local levels, pick = svc:Cfg().Abilities.TrophyLevels, nil
+    for i, t in ipairs(svc.Data.Trophies or {}) do
+        if (level or 1) >= (levels[i] or math.huge) then
+            pick = t
+        end
+    end
+    return pick
+end
+
+-- Collect Trophy (Ranger): a non-humanoid it hit this turn leaves a trophy in its loot when it dies; bosses don't.
+function Effects.CollectTrophy(svc, defender)
+    local hunter = defender and svc.TrophyMarks[defender]
+    if not hunter then
+        return
+    end
+    svc.TrophyMarks[defender] = nil
+    if svc.Game:IsBoss(defender) then
+        tell(svc, hunter, string.format("%s is too mighty to take a trophy from.", name(svc, defender)))
+        return
+    end
+    local trophy = Effects.TrophyFor(svc, svc.Game:CharLevel(defender))
+    if trophy then
+        svc.Game:TemplateAddTo(trophy.Template, defender, 1)
+        tell(svc, hunter, string.format("%s brought down %s: a %s can be looted from the body.", name(svc, hunter),
+            name(svc, defender), trophy.Name))
+    end
+end
+
+-- Osiris KilledBy: a creature marked by a poacher this turn pays out; one marked by Collect Trophy leaves a trophy.
 function Effects.OnKilledBy(svc, defender)
+    Effects.CollectTrophy(svc, defender)
     local poacher = defender and svc.PoachMarks[defender]
     if not poacher then
         return

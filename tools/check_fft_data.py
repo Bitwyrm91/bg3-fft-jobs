@@ -109,7 +109,10 @@ def main():
             entry = json.loads(line.strip().rstrip(","))
             if section == "jobs" and entry.get("group"):
                 other.add(entry["id"])
-            if (entry["id"] if section == "jobs" else entry.get("job")) not in other:
+            # abilities of our own or from Fell Seal (source "custom": Chemist flasks, the Ranger) are not in TIC
+            if "custom" in entry.get("source", []):
+                pass
+            elif (entry["id"] if section == "jobs" else entry.get("job")) not in other:
                 ok = check_job(entry) if section == "jobs" else check_ability(entry, section)
                 if ok and SOURCE_ID not in entry.setdefault("source", []):
                     entry["source"].insert(0, SOURCE_ID)

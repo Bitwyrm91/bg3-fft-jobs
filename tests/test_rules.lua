@@ -336,9 +336,11 @@ function S.find_job_and_ability_from_text(w, T)
     Data.Jobs.Arithmetician.Implemented = false
     T.eq(Rules.FindJob(Data, "arithmetician"), nil, "not implemented")
     T.eq(Rules.FindJob(Data, "time mage"), "TimeMage")
-    T.eq(Rules.FindAbility(Data, "Aim +1"), "Aim1")
+    T.eq(Rules.FindJob(Data, "ranger"), "Archer", "the Archer job is named Ranger")
+    T.eq(Rules.FindAbility(Data, "Rooting Shot"), "RootingShot")
     T.eq(Rules.FindAbility(Data, "x-potion"), "XPotion")
-    T.eq(Rules.FindAbility(Data, "archer's bane"), "ArchersBane")
+    T.eq(Rules.FindAbility(Data, "know weakness"), "KnowWeakness")
+    T.eq(Rules.FindAbility(Data, "Aim +1"), nil, "the Archer's Aim set is gone")
     T.eq(Rules.FindAbility(Data, ""), nil)
 end
 
@@ -425,15 +427,40 @@ function S.mastery_perk_follows_mastery(w, T)
     local char = Rules.NewChar(Data, cfg, "Squire")
     Rules.AddJP(Data, cfg, char, "Squire", 200) -- unlocks Archer
     Rules.AddJP(Data, cfg, char, "Archer", 9000)
+    T.truthy(Rules.IsLearned(char, "RootingShot"), "the Ranger starts with Rooting Shot")
     for _, aid in ipairs(Data.AbilitiesByJob.Archer) do
         T.falsy(Rules.DesiredGrants(Data, char, cfg).Passives.FFTJ_Mastery_Archer)
-        T.truthy(Rules.Learn(Data, char, aid))
+        if not Rules.IsLearned(char, aid) then
+            T.truthy(Rules.Learn(Data, char, aid))
+        end
     end
     T.truthy(Rules.IsMastered(Data, char, "Archer"))
     T.truthy(Rules.DesiredGrants(Data, char, cfg).Passives.FFTJ_Mastery_Archer, "granted while Squire is the job")
     T.truthy(Rules.HasMasteryPerk(Data, cfg, char, "Archer"))
     T.falsy(Rules.DesiredGrants(Data, char, T.cfg({ Rules = { MasteryPerks = false } })).Passives.FFTJ_Mastery_Archer)
     T.falsy(Rules.DesiredGrants(Data, char).Passives.FFTJ_Mastery_Archer, "without the config: off")
+end
+
+function S.retired_abilities_refund_their_jp(w, T)
+    local Rules, Data = setup()
+    local char = Rules.Normalize({ Primary = "Squire", Reaction = "SpeedSurge", Passive1 = "Concentration",
+        Passive2 = "EquipCrossbows", Jobs = { Archer = { Earned = 3000, Unspent = 50,
+        Learned = { Aim20 = true, Concentration = true, EquipCrossbows = true, Jump1 = true } } } })
+    local out = Rules.MigrateRetired(Data, char)
+    T.eq(#out, 1)
+    T.eq(out[1].Job, "Archer")
+    T.eq(out[1].Refund, 900 + 400 + 200)
+    T.eq(table.concat(out[1].Replaced, ","), "Equip Bows")
+    T.eq(char.Jobs.Archer.Unspent, 50 + 1500)
+    T.eq(char.Jobs.Archer.Earned, 3000)
+    T.falsy(char.Jobs.Archer.Learned.Aim20)
+    T.truthy(char.Jobs.Archer.Learned.EquipBows)
+    T.eq(char.Reaction, nil, "a retired reaction leaves its slot")
+    T.eq(char.Passive1, nil)
+    T.eq(char.Passive2, "EquipBows", "the replacement takes the slot")
+    T.eq(#Rules.MigrateRetired(Data, char), 0, "only once")
+    local mime = table.concat(Data.Jobs.Mime.Innate.Passives, ",")
+    T.truthy(string.find(mime, "FFTJ_Concentration", 1, true), "the Mime keeps Concentration")
 end
 
 -- Data with a made-up special job (not in the data): Test Knight needs the Test Knight Badge and Knight Lv3.

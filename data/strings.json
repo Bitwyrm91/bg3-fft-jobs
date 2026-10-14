@@ -129,6 +129,12 @@
     "passive.FFTJ_SoulCollector_7.name": "Soul Collector Lv7",
     "passive.FFTJ_SoulCollector_7.desc": "Job level 7 as your job: two more Wild Shape charges.",
     "status.FFTJ_DEAFENED.name": "Deafened",
-    "status.FFTJ_DEAFENED.desc": "Ears ringing from a blast: disadvantage on Concentration saves and no reactions."
+    "status.FFTJ_DEAFENED.desc": "Ears ringing from a blast: disadvantage on Concentration saves and no reactions.",
+    "Concentration.Name": "Concentration",
+    "Concentration.Desc": "+2 to weapon attack rolls.",
+    "status.FFTJ_ROOTED.name": "Rooted",
+    "status.FFTJ_ROOTED.desc": "Can't move.",
+    "status.FFTJ_SCOUTING.name": "Scouting",
+    "status.FFTJ_SCOUTING.desc": "+5 to Perception checks (spotting traps and hidden things); attacks score a critical hit on a roll of 19-20."
   }
 }

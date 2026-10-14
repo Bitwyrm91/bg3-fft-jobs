@@ -277,6 +277,14 @@
     ]
   },
   {
+    "id": "Action_HamstringShot",
+    "kind": "icon",
+    "usedBy": [
+      "Interrupt_FFTJ_Countershot",
+      "Projectile_FFTJ_Countershot"
+    ]
+  },
+  {
     "id": "Action_Imp_Invisibility",
     "kind": "icon",
     "usedBy": [
@@ -1115,6 +1123,7 @@
       "FFTJ_Lifefont",
       "FFTJ_Manafont",
       "FFTJ_Movement2",
+      "FFTJ_SPEED_SURGE",
       "Shout_FFTJ_Learn_IgnoreTerrain",
       "Shout_FFTJ_Learn_IgnoreWeather",
       "Shout_FFTJ_Learn_Lifefont",
@@ -2821,6 +2830,7 @@
       "FFTJ_TRAP_LACERATE_Str",
       "FFTJ_TRAP_LACERATE_Wis",
       "Projectile_FFTJ_ChemicalBurns",
+      "Target_FFTJ_Balm",
       "Target_FFTJ_LaceratingTrap",
       "Target_FFTJ_Soul_HookRend",
       "Target_FFTJ_Soul_TalonRake",
@@ -2914,10 +2924,24 @@
     ]
   },
   {
+    "id": "CRIPPLED",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Balm"
+    ]
+  },
+  {
     "id": "DEATH_WARD",
     "kind": "status",
     "usedBy": [
       "FFTJ_Dragonheart"
+    ]
+  },
+  {
+    "id": "ENSNARED",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Balm"
     ]
   },
   {
@@ -2955,6 +2979,13 @@
     "usedBy": [
       "Target_FFTJ_Harmony",
       "Zone_FFTJ_SpellbladeDispel"
+    ]
+  },
+  {
+    "id": "HAMSTRING",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Balm"
     ]
   },
   {
@@ -3055,6 +3086,13 @@
     ]
   },
   {
+    "id": "RAY_OF_ENFEEBLEMENT",
+    "kind": "status",
+    "usedBy": [
+      "Target_FFTJ_Balm"
+    ]
+  },
+  {
     "id": "RESURRECTING",
     "kind": "status",
     "usedBy": [
@@ -3125,6 +3163,7 @@
     "usedBy": [
       "Shout_FFTJ_Purification",
       "Shout_FFTJ_Soul_ChocoEsuna",
+      "Target_FFTJ_Balm",
       "Target_FFTJ_Dispelna",
       "Target_FFTJ_DragonsGift"
     ]
@@ -3207,6 +3246,7 @@
     "usedBy": [
       "Shout_FFTJ_Purification",
       "Shout_FFTJ_Soul_ChocoEsuna",
+      "Target_FFTJ_Balm",
       "Target_FFTJ_Dispelna",
       "Target_FFTJ_DragonsGift"
     ]
@@ -3216,6 +3256,7 @@
     "kind": "status",
     "usedBy": [
       "Shout_FFTJ_Purification",
+      "Target_FFTJ_Balm",
       "Target_FFTJ_Dispelna"
     ]
   },
@@ -3252,6 +3293,7 @@
       "Shout_FFTJ_BizenOsafune",
       "Shout_FFTJ_Purification",
       "Shout_FFTJ_Soul_GrandCross",
+      "Target_FFTJ_Balm",
       "Target_FFTJ_Dispelna",
       "Target_FFTJ_EchoHerbs",
       "Target_FFTJ_Esuna",
@@ -4136,6 +4178,15 @@
     ]
   },
   {
+    "id": "_LuxuryItem",
+    "kind": "using parent (Object)",
+    "usedBy": [
+      "FFTJ_Trophy_Fine",
+      "FFTJ_Trophy_Grand",
+      "FFTJ_Trophy_Small"
+    ]
+  },
+  {
     "id": "BlessedHealer",
     "kind": "using parent (PassiveData)",
     "usedBy": [
@@ -4332,17 +4383,13 @@
     "id": "Projectile_MainHandAttack",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Aim1",
-      "Projectile_FFTJ_Aim10",
-      "Projectile_FFTJ_Aim2",
-      "Projectile_FFTJ_Aim20",
-      "Projectile_FFTJ_Aim3",
-      "Projectile_FFTJ_Aim4",
-      "Projectile_FFTJ_Aim5",
-      "Projectile_FFTJ_Aim7",
       "Projectile_FFTJ_ArmShot",
+      "Projectile_FFTJ_CollectTrophy",
+      "Projectile_FFTJ_Countershot",
       "Projectile_FFTJ_LegShot",
-      "Projectile_FFTJ_SealEvil"
+      "Projectile_FFTJ_RootingShot",
+      "Projectile_FFTJ_SealEvil",
+      "Projectile_FFTJ_SniperShot"
     ]
   },
   {
@@ -4428,7 +4475,8 @@
       "Shout_FFTJ_Defend",
       "Shout_FFTJ_Focus",
       "Shout_FFTJ_JPTraining",
-      "Shout_FFTJ_JobBoard"
+      "Shout_FFTJ_JobBoard",
+      "Shout_FFTJ_Scout"
     ]
   },
   {
@@ -5180,6 +5228,13 @@
     ]
   },
   {
+    "id": "Target_Volley",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_Multishot"
+    ]
+  },
+  {
     "id": "Teleportation_Revivify",
     "kind": "using parent (SpellData)",
     "usedBy": [
@@ -5187,6 +5242,13 @@
       "Teleportation_FFTJ_PhoenixDown",
       "Teleportation_FFTJ_Raise",
       "Teleportation_FFTJ_Revive"
+    ]
+  },
+  {
+    "id": "Zone_ArcaneShot_PiercingArrow",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Zone_FFTJ_RainOfArrows"
     ]
   },
   {
