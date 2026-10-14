@@ -20,12 +20,14 @@ import scaling  # job skills scale with the highest ability (damage, heals)
 import upcast  # Chemist skills cast with higher spell slots
 import menu_gen  # job menus in BG3's own UI (spell containers)
 import statcast  # job skills hit and set save DCs with the highest ability
+import peddler  # Peddler (Fell Seal): trap items, Item Potency's healing
 import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.path when this script runs
+import smartcast  # Smart Casting (Wizard): area spells leave out allies while the caster has it
 
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.66"
+MOD_VERSION = "1.0.0.69"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -170,6 +172,12 @@ def validate(jobs_doc, config_doc, strings_doc):
             errors.append(f"ability {aid}: grants nothing")
         if not a.get("description"):
             errors.append(f"ability {aid}: no description")
+        # per-spell art (an ability that grants two spells, e.g. the Wizard's Water I / Fire I): spell -> art key
+        spells = {s for g in [a.get("grants", {})] + [v["grants"] for v in a.get("variants", [])]
+                  for s in g.get("spells", [])}
+        for sid, key in a.get("icons", {}).items():
+            if sid not in spells or not IDENT.match(key or ""):
+                errors.append(f"ability {aid}: icons maps {sid} (not one of its spells, or a bad key {key})")
         # the ability its spells cast with while the highest ability is not in use (tools/statcast.py)
         if "castStat" in a and a["castStat"] not in [name for name, _ in statcast.STATS]:
             errors.append(f"ability {aid}: castStat must be an ability name (Strength ... Charisma)")
@@ -185,6 +193,14 @@ def validate(jobs_doc, config_doc, strings_doc):
                         errors.append(f"ability {a['id']}: variant condition on unknown ability {val}")
                     elif key not in ("primaryJob", "equippedEffect", "equipped", "learned"):
                         errors.append(f"ability {a['id']}: unknown variant condition {key}")
+        # extra grants, one per other ability the character has learned (Patented Usage: area forms of the learned
+        # Chemist items)
+        for e in a.get("perLearned", []):
+            if e.get("learned") not in ab_ids:
+                errors.append(f"ability {a['id']}: perLearned on unknown ability {e.get('learned')}")
+            for kind in e.get("grants", {}):
+                if kind not in GRANT_KINDS:
+                    errors.append(f"ability {a['id']}: bad perLearned grant kind {kind}")
     for e in jobs_doc.get("leftOut", []):
         if not e.get("retired"):
             continue
@@ -351,6 +367,10 @@ def build_lua(jobs_doc, config_doc, statcast_data=None):
                 "When": {"AnyOf": [{k[0].upper() + k[1:]: val for k, val in c.items()} for c in v["when"]["anyOf"]]},
                 "Grants": {k.capitalize(): val for k, val in v["grants"].items()},
             } for v in a["variants"]]
+        if a.get("perLearned"):
+            # Rules.DesiredGrants: added while the ability is in use, for each listed ability the character learned
+            entry["PerLearned"] = [{"Learned": e["learned"], "Grants": {k.capitalize(): val for k, val in e["grants"].items()}}
+                                   for e in a["perLearned"]]
         abilities[a["id"]] = entry
         by_job[a["job"]].append(a["id"])
     echo = {sid: {"Spell": sid + ECHO_SUFFIX, "Ability": aid} for sid, aid in echo_spells(jobs_doc).items()}
@@ -568,9 +588,14 @@ def icon_keys(jobs_doc, entries):
         for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])]:
             for kind in GRANT_KINDS:
                 for sid in g.get(kind, []):
-                    keys.setdefault(sid, a["id"])
+                    keys.setdefault(sid, a.get("icons", {}).get(sid, a["id"]))
                     granted.append((sid, a["id"]))
     by_name = {e["name"]: e for e in entries}
+    # higher spell-slot levels (tools/upcast.py) show their root's picture
+    for e in entries:
+        root = next((v for k, v in e["data"] if k == "RootSpellID"), None)
+        if root in keys:
+            keys.setdefault(e["name"], keys[root])
     for sid, aid in granted:
         for _, value in by_name.get(sid, {}).get("data", []):
             for st in status_refs(value):
@@ -812,6 +837,12 @@ def build_stats(jobs_doc, strings_doc):
         outputs[STATS_OUT / name] = out
         entries += parse_stats(out, name)
     try:
+        potency = peddler.potency_stats(entries)  # after the upcast levels and Echo twins it covers
+    except ValueError as e:
+        raise BuildError(str(e))
+    outputs[STATS_OUT / peddler.FILE] = potency
+    entries += parse_stats(potency, peddler.FILE)
+    try:
         cast_text, cast_statuses, cast_lua = statcast.build(jobs_doc, entries, ECHO_SUFFIX)
     except ValueError as e:
         raise BuildError(str(e))
@@ -829,6 +860,17 @@ def build_stats(jobs_doc, strings_doc):
         for name, out in souls_gen.stats(souls_doc, soul_handle).items():
             outputs[STATS_OUT / name] = out
             entries += parse_stats(out, name)
+    spell_files = {path.name: path for path in outputs if path.name.startswith("Spell_")}
+    changed, missing, _ = smartcast.apply({name: outputs[path] for name, path in spell_files.items()})
+    if missing:
+        print(f"smartcast: {len(missing)} vanilla parents not in data/vanilla_spells.json, their spells are skipped "
+              f"(run python tools/smartcast.py --vanilla on the PC with the game data): {', '.join(missing[:5])}")
+    if changed:
+        for name, out in changed.items():
+            outputs[spell_files[name]] = out
+        entries = []
+        for path, out in outputs.items():
+            entries += parse_stats(out, path.name)
     def menu_handle(key):
         if key not in table:
             raise BuildError(f"menus: unknown string {key}")
@@ -859,7 +901,7 @@ def check_stats(jobs_doc, entries):
             errors.append(f"{e['name']}: no type")
     wanted = {JOB_BOARD_SPELL: "SpellData", TRAINING_SPELL: "SpellData"}
     for a in jobs_doc["abilities"]:
-        for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])]:
+        for g in [a["grants"]] + [v["grants"] for v in a.get("variants", [])] + [e["grants"] for e in a.get("perLearned", [])]:
             for sid in g.get("spells", []):
                 wanted[sid] = "SpellData"
             for pid in g.get("passives", []):
@@ -900,6 +942,13 @@ def check_stats(jobs_doc, entries):
                     add(st, "status", e["name"])
                 elif defined[st]["type"] != "StatusData":
                     errors.append(f"{e['name']}: {st} is used as a status but is {defined[st]['type']}")
+        # "when hit" effects: their functors target the one who was hit, so damage or a push meant for the attacker
+        # needs SWAP (Counter Tackle hurt the Squire itself until 1.0.0.67)
+        data = dict(e["data"])
+        if "OnDamaged" in data.get("StatsFunctorContext", "") and \
+                re.search(r"DealDamage\((?!\s*(SWAP|SELF)\b)|(?<![A-Za-z])Force\(", data.get("StatsFunctors", "")):
+            errors.append(f"{e['name']}: OnDamaged DealDamage/Force hits the one who was hit; write "
+                          "DealDamage(SWAP,...) for the attacker or DealDamage(SELF,...) on purpose")
     if errors:
         raise BuildError("stats errors:\n  " + "\n  ".join(errors))
     return refs
@@ -995,6 +1044,7 @@ def main(argv):
             items.insert(0, souls_gen.codex_attrs(souls_doc, item_handle))
         if items:
             outputs[ROOT_TEMPLATES] = templates_lsx(items)
+        outputs[ROOT_TEMPLATES] = peddler.add_templates(outputs.get(ROOT_TEMPLATES), item_handle)
         outputs[LOCA_OUT] = build_loca(table, used)
         md, js = refs_outputs(refs)
         outputs[REFS_MD] = md

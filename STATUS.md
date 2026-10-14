@@ -88,7 +88,18 @@ When the user says "NWP", this is the list:
     User: "continue with the normal list first". Open: clothes/robes (no armor proficiency) always allowed?; the
     Mime's empty list (FFT Mimes wear no weapons); cursed/story items that can't come off; check needs item fields
     (weapon proficiency group, ArmorType, shield) verified in game.
-20. **[APPROVED 2026-10-14, build right after the Monk (21)] Chemist weapon coatings**, ONLY the Chemist's four
+20. **[FINAL DESIGN 2026-10-14, NOT built; build in a FRESH session after the 5-hour reset] Chemist coating = ONE
+    coating, "Strange Fluid"** (user's name and text: "You coat your weapon in a strange liquid and believe."). User's
+    final answers (replace everything below): bonus action, once per short rest, 300 JP (Chemist, source custom); coat
+    yourself or an ally within 9 m; lasts 3 turns, EVERY weapon hit counts; each hit = Mixup's effect: 1d4 of a type
+    + its status (Burning/Acid/Poisoned/Bleeding, 2 turns), picking one the target does NOT have yet; WITHOUT Mixup's
+    four-effect bonus (no +1 die / +2 turns when all four are on). Build plan: Target spell -> status
+    FFTJ_STRANGE_FLUID (3 turns) with `data "Passives"` = an OnAttack passive (Poach's condition: weapon hit) that
+    applies a marker status to the target (source = the attacker); Effects.OnStatusApplied runs the Mixup pick
+    without the bonus (reuse Effects.afflictions/afflict/rollDamage); tests like the Mixup ones; icon on the GPU
+    (BG3 closed). Version: the next free number when it lands (Peddler session took 1.0.0.68, the Wizard takes the
+    next; check the branch head first).
+    Older notes: **Chemist weapon coatings**, ONLY the Chemist's four
     effects (user): Venom Oil = Poisoned, Naphtha Oil = Burning, Acid Etch = Acid, Glass Grit = Bleeding, plus
     **Strange Fluid** (user's name and text: "You coat your weapon in a strange liquid and believe." = the Mixup Oil
     effect: each hit adds one of the four effects the target lacks). Not chosen: Holy Water, Slumber Resin, Field
@@ -316,6 +327,59 @@ stays for the Mime, texts now {{str:Concentration.*}}). 11 icons painted on the 
 Unverified in game: all of it; especially TemplateAddTo into a corpse's loot, the trophy item (first root templates
 with a Stats link), ApplyStatus before DealDamage in SpellSuccess, Volley/Piercing Arrow parents for players, the
 Countershot interrupt with a bow, removed spells vanishing cleanly from old saves.
+
+**1.0.0.67 (2026-10-14, local session, NOT packaged or seen in game): Counter Tackle fix (user: "isn't working").**
+Logs: Shadowheart learned and slotted it in the 2026-10-14 00:2x MP session (Extender Runtime 2026-10-14 01-47-19,
+FFTJ_CounterTackle added) and still had it in the last one (05-05-00, 1.0.0.61); the log can't show passive effects.
+Cause: in an OnDamaged passive the functors' target is the one who was hit, so `DealDamage(1d4,...);Force(1.5)` hurt
+and pushed the Squire itself. Vanilla melee-counter items use `DealDamage(SWAP, ...)` + `not IsRedirectedDamage()`;
+there is no vanilla `Force(SWAP...)`, so the push is FFTJ_COUNTER_TACKLE_PUSH applied with SWAP (OnApplyFunctors
+Force(1.5), vanilla BEE_KNOCKBACK pattern). Same bug fixed in FFTJ_MagickCounter and FFTJ_Reflect_Counter (2d6 force
+on the caster). build.py check_stats now fails an OnDamaged DealDamage/Force without SWAP/SELF. **Pushes (user: Rush
+and Throw Stone knockback "never seemed to work"):** the generated stats matched vanilla's form (Force(2)/Force(1)
+after DealDamage, also common in vanilla), so the cause is not proven; changed to vanilla's weapon-push pattern
+(Pushing Attack: Force first, then the damage) with longer pushes: Rush Force(3), Throw Stone Force(2), Counter Tackle
+Force(2). Unverified in game: all pushes (if they still fail, test in game with the SE console:
+`Osi.ApplyStatus(<goblin>, 'FFTJ_COUNTER_TACKLE_PUSH', 6, 1, <host>)` shows whether Force works at all), the push
+direction (away from the defender), the push status firing on a re-hit in the same turn.
+
+**1.0.0.68 (2026-10-14, local session in its own worktree `bg3-fft-jobs-wizard`, branch `claude/wizard-job`; NOT
+packaged or seen in game): the Fell Seal Wizard, a NEW job (user: "you will build the wizard class"; the user pasted
+the Fell Seal wiki page).** User's answers: new job beside the Black Mage (not a rework), unlocked at half the maximum
+job level as both Black Mage and White Mage (level 4 each); group "FellSeal" (like the Peddler session's job, shown in
+the main Jobs list); elements Water = cold + WET, Fire = fire, Earth = bludgeoning, Thunder = lightning; spell slots
+Chemist style (Tier I cantrips + `_Slot` roots with the 1-6 level picker, Tier II level 1, Locus level 2 spell
+attacks; tools/upcast.py DAMAGE_ROOTS adds dice per level); Smart Casting for every area ability of the mod;
+Magic counter = "Return Magic", half the damage back as force (Abilities.ReturnMagicShare 0.5, summed over
+ReturnMagicWindowMs 400: the passive's OnDamaged + IsSpell() marks the caster with SWAP, AttackedBy brings the
+amount); Boon = attack rolls only (FFTJ_BOON: CriticalHit(AttackRoll,Success,Always), RemoveEvents OnAttack, from a
+Dark One's Blessing-style OnDamage kill trigger); mastery = ActionResource(SpellSlot,1,1). JP = Fell Seal AP x 2.5:
+4625 in all, Water I / Fire I known from the start. New build step **tools/smartcast.py**: adds
+`not (HasPassive('FFTJ_SmartCasting', context.Source) and (Ally() or Self()))` (harmful) or `... and Enemy())`
+(helpful) to the TargetConditions of every area spell in our generated spell files except the hotbar menus (31 spells:
+Black Mage, Time Mage, Ranger, Dragoon breaths, Dark Knight, Wizard, Soul forms...), with vanilla carriers' fields from
+the new cache **data/vanilla_spells.json** (refresh locally: `python tools/smartcast.py --vanilla`; missing parents
+are skipped with a build warning); Effects.Spared does the same for the Chemist's Lua flask bursts (Caustic, Unstable,
+Fulminate). Abilities can now carry an `"icons"` map (spell -> art key) for per-spell pictures; upcast levels show
+their root's picture (also the Chemist's). 16 icons painted (obsidian black). Checks: build, 215 Lua tests, pacing
+self-test, validate_vanilla, check_refs all clean. Unverified in game: everything; especially Self()/HasPassive in
+TargetConditions sub-clauses, the SWAP status's causee in StatusApplied (Return Magic), Boon surviving the killing
+attack's own OnAttack, the Falling Rocks trap carrier's look for a player, Create Water as a damage carrier.
+
+**1.0.0.69 (2026-10-14, local session, NOT seen in game): the Peddler, a new Fell Seal job (user).** Group `FellSeal`
+(shared with the Wizard: not a TIC job for pacing/check_fft_data; menu_gen REGULAR_GROUPS), unlock Archer 5, JP =
+Fell Seal AP x 2.5 (4935), user's picks: traps = level 1 slot + once per short rest, turn always ends, Dex save vs the
+owner's DC resists only the status; Quick Fingers = +1 bonus action; Alluring = Entice (fights on its own); Item
+Potency = Chemist potions + BG3 potions + grenades; Patented Usage = area forms of learned Chemist items (new ability
+field `perLearned`, Rules.DesiredGrants). Traps: Glyph of Warding pattern, tools/peddler.py writes 4 trap root
+templates (children of vanilla glyph traps, own Projectile parameter, 3 x 3 m Bounds) and FFTJ_ItemPotency_Heal
+(OnHeal, each Chemist potion spell's own RegainHitPoints again); Server/Peddler.lua: FFTJ_TRAP_SPRUNG_* -> effect
+status twin (Rules.CastStatus) from the owner (Osi.GetOwner, else the last layer), Osi.EndTurn during the creature's
+own turn (Service.ActiveTurn), Painful = config Abilities.PainfulTrapShare of current HP; BG3 potion twins
+(FFTJ_POTENT_*), Alchemist's Fire re-applied for 6 turns. Design record: docs/NWP_FELLSEAL.md (Peddler).
+tests/test_peddler.lua (7). Unverified in game: the trap items (constellation kept by a child template, trigger box,
+GetOwner on a summoned item, EndTurn), OnHeal + SpellId, potion causee, the Patented container. Icons: subjects.txt
+lines, not painted yet.
 
 ## Open questions for the user
 

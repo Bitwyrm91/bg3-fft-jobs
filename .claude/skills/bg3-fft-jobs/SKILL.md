@@ -24,12 +24,18 @@ Extender (SE v33 on the user's PC; IMGUI uses `SetColor`/`SetStyle`, not `SetSty
 - `tools/build.py` → generated (commit them): `Mod/Public/FFTJobs/Stats/Generated/Data/*.txt`,
   `Mod/Localization/English/FFTJobs.xml`, `Mod/Mods/FFTJobs/ScriptExtender/Lua/Shared/GeneratedData.lua`, icon atlas,
   root template. Generators it calls: `menu_gen.py` (hotbar job menus), `scaling.py` (+highest ability modifier on
-  job damage/heals; ManeuverSaveDC -> SourceSpellDC), `upcast.py` (Chemist spell-slot levels), `souls_gen.py`, Echo/Arith
-  twins, `statcast.py` (FFTJ_Cast_* passives, last, so it sees every spell).
+  job damage/heals; ManeuverSaveDC -> SourceSpellDC), `upcast.py` (Chemist/Wizard spell-slot levels), `souls_gen.py`, Echo/Arith
+  twins, `statcast.py` (FFTJ_Cast_* passives, last, so it sees every spell), `smartcast.py` (Smart Casting: adds
+  `HasPassive('FFTJ_SmartCasting', context.Source)` clauses to every area spell's TargetConditions, vanilla carriers'
+  fields from `data/vanilla_spells.json`, refreshed locally by `python tools/smartcast.py --vanilla`), `peddler.py`
+  (Peddler trap item root templates, Glyph of Warding children; the generated `FFTJ_ItemPotency_Heal`).
+- An ability may carry `"icons": {spell: artKey}` for per-spell pictures (the Wizard's paired spells); upcast
+  levels show their root's picture.
+- An ability may carry `"perLearned": [{learned, grants}]`: extra grants per other ability learned (Patented Usage).
 - Lua (`Mod/Mods/FFTJobs/ScriptExtender/Lua/`): `Server/Service.lua` (the hub: events, SetPrimary/Learn/Equip, JP,
   menus), `Rules.lua` (pure rules + `DesiredGrants`), `Grants.lua` (apply the difference), `Effects.lua` (Lua-driven
   ability effects: steal, Chemist flasks, Poison/Acid ticks), `Game.lua` (all Osiris/Ext calls, wrapped in Try),
-  `Bosses.lua` (boss badges), `Souls.lua`, `Commands.lua` (`!fft_*` console), `NetServer.lua` + `View.lua` +
+  `Bosses.lua` (boss badges), `Peddler.lua` (traps end the turn, Item Potency on BG3 potions), `Souls.lua`, `Commands.lua` (`!fft_*` console), `NetServer.lua` + `View.lua` +
   `Client/JobBoard.lua` (IMGUI Job Board), `Client/JobMenu.lua`, `State.lua` (mod vars), `Config.lua`.
 - Tests: `tests/*.lua` with mocks of Osiris/Ext (`tests/mocks.lua`), run by `tools/run_lua_tests.py` (lupa) or Lua 5.4.
 - Release: `tools/release.py <ver> --playtest a.md --status b.md`. Package/install (Windows only):

@@ -1,0 +1,114 @@
+// ---------------------------------------------------------------- Peddler (Fell Seal), 2026-10-14
+// A trap sprang on this creature (applied by the trap's projectile, Spell_FFTJ_Peddler.txt): Server/Peddler.lua ends
+// its turn and applies the trap's effect below with the trap owner as the source.
+new entry "FFTJ_TRAP_SPRUNG_LACERATING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{name:LaceratingTrap}}"
+data "Description" "{{desc:LaceratingTrap}}"
+data "StackId" "FFTJ_TRAP_SPRUNG_LACERATING"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "FFTJ_TRAP_SPRUNG_IMMOBILIZING"
+type "StatusData"
+using "FFTJ_TRAP_SPRUNG_LACERATING"
+data "StatusType" "BOOST"
+data "DisplayName" "{{name:ImmobilizingTrap}}"
+data "Description" "{{desc:ImmobilizingTrap}}"
+data "StackId" "FFTJ_TRAP_SPRUNG_IMMOBILIZING"
+
+new entry "FFTJ_TRAP_SPRUNG_PAINFUL"
+type "StatusData"
+using "FFTJ_TRAP_SPRUNG_LACERATING"
+data "StatusType" "BOOST"
+data "DisplayName" "{{name:PainfulTrap}}"
+data "Description" "{{desc:PainfulTrap}}"
+data "StackId" "FFTJ_TRAP_SPRUNG_PAINFUL"
+
+new entry "FFTJ_TRAP_SPRUNG_ALLURING"
+type "StatusData"
+using "FFTJ_TRAP_SPRUNG_LACERATING"
+data "StatusType" "BOOST"
+data "DisplayName" "{{name:AlluringTrap}}"
+data "Description" "{{desc:AlluringTrap}}"
+data "StackId" "FFTJ_TRAP_SPRUNG_ALLURING"
+
+// The trap effects: a Dexterity save against the owner's DC (applied by Peddler.lua with the owner as the source; the
+// Intelligence DC gets per-ability twins <status>_<Str|...> from tools/statcast.py, Rules.CastStatus picks the owner's).
+// The creature's turn has just ended, so the effects run one turn longer than they should matter.
+new entry "FFTJ_TRAP_LACERATE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{name:LaceratingTrap}}"
+data "Description" "{{desc:LaceratingTrap}}"
+data "StackId" "FFTJ_TRAP_LACERATE"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(BLEEDING,100,3)"
+
+new entry "FFTJ_TRAP_IMMOBILIZE"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "StatusType" "BOOST"
+data "DisplayName" "{{name:ImmobilizingTrap}}"
+data "Description" "{{desc:ImmobilizingTrap}}"
+data "StackId" "FFTJ_TRAP_IMMOBILIZE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_TRAP_ROOTED,100,2)"
+
+new entry "FFTJ_TRAP_ALLURE"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "StatusType" "BOOST"
+data "DisplayName" "{{name:AlluringTrap}}"
+data "Description" "{{desc:AlluringTrap}}"
+data "StackId" "FFTJ_TRAP_ALLURE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_ENTICED,100,3)"
+
+// Immobilizing Trap's Root: can't move (Fell Seal Root), no save to end it early.
+new entry "FFTJ_TRAP_ROOTED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_TRAP_ROOTED.name}}"
+data "Description" "{{str:status.FFTJ_TRAP_ROOTED.desc}}"
+data "Icon" "statIcons_Ensnared"
+data "StackId" "FFTJ_TRAP_ROOTED"
+data "Boosts" "ActionResourceBlock(Movement)"
+
+// Critical Expertise: Fell Seal CRIT Up.
+new entry "FFTJ_CRIT_EXPERTISE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_CRIT_EXPERTISE.name}}"
+data "Description" "{{str:status.FFTJ_CRIT_EXPERTISE.desc}}"
+data "Icon" "PassiveFeature_ImprovedCritical"
+data "StackId" "FFTJ_CRIT_EXPERTISE"
+data "Boosts" "ReduceCriticalAttackThreshold(1)"
+
+// Item Potency on BG3's own healing potions (drunk or thrown): Peddler.lua applies the matching twin right after the
+// potion's status when its user has Item Potency, so the potion's healing is rolled a second time.
+new entry "FFTJ_POTENT_HEALING"
+type "StatusData"
+using "POTION_OF_HEALING"
+data "StatusType" "BOOST"
+data "StackId" "FFTJ_POTENT_HEALING"
+data "OnApplyFunctors" "RegainHitPoints(2d4+2)"
+
+new entry "FFTJ_POTENT_HEALING_GREATER"
+type "StatusData"
+using "POTION_OF_HEALING_GREATER"
+data "StatusType" "BOOST"
+data "StackId" "FFTJ_POTENT_HEALING_GREATER"
+data "OnApplyFunctors" "RegainHitPoints(4d4+4)"
+
+new entry "FFTJ_POTENT_HEALING_SUPERIOR"
+type "StatusData"
+using "POTION_OF_HEALING_SUPERIOR"
+data "StatusType" "BOOST"
+data "StackId" "FFTJ_POTENT_HEALING_SUPERIOR"
+data "OnApplyFunctors" "RegainHitPoints(8d4+8)"
+
+new entry "FFTJ_POTENT_HEALING_SUPREME"
+type "StatusData"
+using "POTION_OF_HEALING_SUPREME"
+data "StatusType" "BOOST"
+data "StackId" "FFTJ_POTENT_HEALING_SUPREME"
+data "OnApplyFunctors" "RegainHitPoints(10d4+20)"

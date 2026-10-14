@@ -68,3 +68,80 @@ armour (ours: no axes, user). Starting ability: Rooting Shot. Passives: Know Wea
 Mapping notes for later: Fell Seal "Gunner 4" has no job here (closest: Machinist, a special job, or Archer);
 "Ranger" = Archer; Mirage ~ BG3 Blink/Mirror Image-style evade; Critical: X counters = our reaction slot with an
 HP-below-threshold trigger; Fell Seal MP costs → our cooldowns (no MP pool, user's rule).
+
+## Wizard (Fell Seal) — skill set "Elementalism" (pasted by the user on 2026-10-14; a NEW job beside the Black Mage)
+
+Requirements: Mender 2 (ours, user: half the maximum job level as both Black Mage and White Mage = level 4 each).
+Move 3, Jump 4. Equipment: rod, robe, light armour (ours: quarterstaffs, clubs, light armour, like the Black Mage).
+Starting ability: Water I / Fire I. Passives: Smart Casting, Boon. Counter: Magic. Mastery: MP+5, MND+5, RES+5 (ours:
+one extra level 1 spell slot, user). "These spell-slingers can take out large groups of enemies at once by unleashing
+destructive magic upon the battlefield." Base for Alchemystic, Druid, Fellblade, Gadgeteer, Vessel.
+
+| Ability | AP | MP | Range / area | Kind | Effect |
+|---|---|---|---|---|---|
+| Water I / Fire I | 0 | 8 | 0-3, vert 10; cross 3 | spell | 1x MND water/fire damage in a small area |
+| Earth I / Thunder I | 200 | 8 | 0-3, vert 10; cross 3 | spell | 1x MND earth/thunder damage in a small area |
+| Smart Casting | 200 | | | passive | offensive multi-target abilities skip allies, helpful ones skip enemies |
+| Water II / Fire II | 200 | 14 | 0-3, vert 14; cross 3 | spell | 1.5x MND water/fire damage in a small area |
+| Magic | 200 | | | counter | counters an offensive spell with a non-elemental version cast back at the attacker |
+| Earth II / Thunder II | 200 | 14 | 0-3, vert 14; cross 3 | spell | 1.5x MND earth/thunder damage in a small area |
+| Boon | 250 | | | passive | after felling an enemy, the next action is a guaranteed critical; wears off at the end of the next turn |
+| Water Locus / Fire Locus | 300 | 18 | 0-4, vert 18; single | spell | 2x MND water/fire damage to one target |
+| Earth Locus / Thunder Locus | 300 | 18 | 0-4, vert 18; single | spell | 2x MND earth/thunder damage to one target |
+
+Built (user's answers, 2026-10-14): JP = AP x 2.5 (Ranger rule): 0, 500, 500, 500, 500, 500, 625, 750, 750 = 4625.
+Group "FellSeal" (with the Peddler; shown in the main Jobs list). Elements: Water = cold + Wet, Fire = fire, Earth =
+bludgeoning, Thunder = lightning. Costs: Tier I cantrip + spell-slot version (level picker 1-6), Tier II level 1 slot,
+Locus level 2 slot (spell attacks), higher slots add dice. Smart Casting covers every area ability of the mod
+(tools/smartcast.py + Effects.Spared), not BG3's own spells. Magic -> "Return Magic": half the spell's damage back as
+force damage. Boon: attack rolls only (BG3 rules: saving-throw spells can't crit).
+
+## Peddler (Fell Seal) — skill set "Peddle" (pasted by the user on 2026-10-14; BUILT in 1.0.0.69, not seen in game)
+
+Requirements: Ranger 5 (ours: Archer job level 5). Move 3, Jump 5. Equipment: dagger, axe, crossbow, light armour,
+shield. Starting ability: Lacerating Trap. Passives: Quick Fingers, Item Potency. Counter: Critical: Quicken.
+Mastery bonus: HP/MP +5, SPD +3. "Relying on their wits, Peddlers prefer to stay out of direct combat. They set clever
+traps and know how to get the most bang for the buck out of items." Required for: Duelist (Peddler 3 + Reaver 3).
+
+| Ability | AP | MP | Range / area | Kind | Effect |
+|---|---|---|---|---|---|
+| Lacerating Trap | 0 | 8 | 1-3, vert 2 | skill | trap: Bleed + end the turn of an enemy that steps on it |
+| Immobilizing Trap | 150 | 8 | 1-3, vert 2 | skill | trap: Root + end turn |
+| Item Potency | 200 | | | passive | items have double potency |
+| Painful Trap | 200 | 10 | 1-3, vert 2 | skill | trap: damage 1/2 of current HP + end turn |
+| Quick Fingers | 150 | | | passive | situational commands (Open, Gather, Climb, Activate) cost no action |
+| Alluring Trap | 250 | 12 | 1-3, vert 2 | skill | trap: Charm + end turn |
+| Critical: Quicken | 225 | | | counter | an immediate turn when HP goes critical after damage |
+| Critical Expertise | 150 | 6 | 0-2, vert 2 | spell | CRIT Up on the target |
+| Sales Pitch | 250 | 12 | self, cross 3 | spell | Haste in a small area |
+| Patented Usage | 400 | 14 | 0-3, vert 6; cross 3 | skill | the selected item is used on a small area (not Phoenix Ashes / Mana Stone) |
+
+**BG3 mapping (user's answers, 2026-10-14):** job id `Peddler`, group `FellSeal` (a new group, shared with the Wizard
+session: not a TIC job for the pacing/TIC checks; listed with the regular jobs on the Job Board and menus), unlock
+Archer (Ranger) 5, JP = AP x 2.5 (Critical: Quicken 562.5 -> 560; total 4935), gear daggers, hand/battle axes, all
+crossbows, light armour, shields; mastery +5 max HP, +3 initiative.
+- **Traps** (user: the turn always ends; a Dexterity save resists only the status; once per short rest AND a level 1
+  spell slot each): 4.5 m range, the trap stays until it springs or a long rest. Built like Glyph of Warding: the spell
+  summons our trap item (root template = child of a vanilla glyph trap; tools/peddler.py), whose constellation fires
+  `Projectile_FFTJ_<Trap>_Trap` at the enemy; that marks it (FFTJ_TRAP_SPRUNG_*) and Server/Peddler.lua ends its turn
+  (Osi.EndTurn, only during its own turn) and applies FFTJ_TRAP_LACERATE / _IMMOBILIZE / _ALLURE (Dex save vs the
+  owner's DC: statcast per-ability twins) = Bleeding 3 turns / FFTJ_TRAP_ROOTED 2 turns / FFTJ_ENTICED 3 turns (the
+  Orator's Entice: fights on your side on its own, bosses immune). Painful Trap: config Abilities.PainfulTrapShare (0.5)
+  of current HP, piercing, no save, bosses too. Owner = Osi.GetOwner(trap item), else the last party member who laid
+  that trap.
+- **Quick Fingers** (user): +1 bonus action every turn (BG3 Thief's Fast Hands).
+- **Item Potency** (user: Chemist items + BG3 potions + grenades): FFTJ_ItemPotency_Heal (generated) rolls the healing
+  of every Chemist potion spell (Potion / Hi / X, thrown, slot levels, Echo, Patented) a second time (Disciple of Life
+  OnHeal pattern); BG3 healing potions drunk or thrown by the Peddler: a twin status heals again (Peddler.lua);
+  grenades: DamageBonus of the vanilla dice (Acid Vial 2d6 acid, Smokepowder bombs 3d4+9 force, spore grenades 2d4+1
+  poison); Alchemist's Fire: Burning 6 turns instead of 3 (re-applied by Peddler.lua). Fire/oil/poison/web grenades
+  only make surfaces: nothing to double.
+- **Critical: Quicken** = the Time Mage's Critical: Quick passive (FFTJ_CriticalQuick; the tooltip shows that name).
+- **Critical Expertise**: crit on 19-20 for 3 turns, you or an ally within 3 m, once per short rest.
+- **Sales Pitch**: Haste (3 turns, BG3 lethargy after) on you and allies within 3 m, once per long rest.
+- **Patented Usage** (user: area Chemist items): a container; per learned Chemist item (Potion, Hi-Potion, X-Potion,
+  Antidote, Eye Drops, Echo Herbs, Remedy) an area form: everyone within 3 m of a point up to 4.5 m away, enemies too;
+  each once per short rest (X-Potion long rest). New data field `perLearned` (Rules.DesiredGrants).
+- Unverified in game: all of it, above all the trap items (child templates keeping the glyph constellation, the 3 x 3 m
+  trigger box, GetOwner on a summoned item, EndTurn), OnHeal with SpellId on our potion spells, the potion twins'
+  causee, the container. Icons: art/icons/subjects.txt has the Peddler lines (paint them locally, BG3 closed).

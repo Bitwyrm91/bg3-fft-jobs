@@ -13,7 +13,8 @@ end
 local function statsEntries(Mocks)
     local entries = {}
     for _, file in ipairs({ "Spell_FFTJ.txt", "Passive_FFTJ.txt", "Status_FFTJ.txt", "Spell_FFTJ_Soul.txt",
-        "Status_FFTJ_Soul.txt", "Spell_FFTJ_Upcast.txt", "Status_FFTJ_Upcast.txt" }) do
+        "Status_FFTJ_Soul.txt", "Spell_FFTJ_Upcast.txt", "Status_FFTJ_Upcast.txt", "Spell_FFTJ_Peddler.txt",
+        "Passive_FFTJ_Peddler.txt", "Status_FFTJ_Peddler.txt", "Passive_FFTJ_Potency.txt" }) do
         local text = read(Mocks.Root .. "/Mod/Public/FFTJobs/Stats/Generated/Data/" .. file)
         local cur
         for line in text:gmatch("[^\n]+") do
@@ -51,6 +52,9 @@ function S.every_grant_has_a_stats_entry_of_the_right_type(w, T, Mocks)
         check(ab.Grants, id)
         for _, v in ipairs(ab.Variants or {}) do
             check(v.Grants, id .. " variant")
+        end
+        for _, e in ipairs(ab.PerLearned or {}) do
+            check(e.Grants, id .. " per learned " .. e.Learned)
         end
     end
     for id, job in pairs(Data.Jobs) do

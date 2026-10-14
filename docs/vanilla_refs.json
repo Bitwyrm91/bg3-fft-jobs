@@ -778,6 +778,14 @@
     ]
   },
   {
+    "id": "Item_CONS_Potion_Tribal_A_Greater",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_ItemPotency",
+      "Shout_FFTJ_Learn_ItemPotency"
+    ]
+  },
+  {
     "id": "Item_GRN_AcidBottle_A",
     "kind": "icon",
     "usedBy": [
@@ -836,7 +844,9 @@
     "kind": "icon",
     "usedBy": [
       "FFTJ_Saturation",
-      "Shout_FFTJ_Learn_Saturation"
+      "Shout_FFTJ_Learn_PatentedUsage",
+      "Shout_FFTJ_Learn_Saturation",
+      "Shout_FFTJ_PatentedUsage"
     ]
   },
   {
@@ -939,6 +949,20 @@
     "kind": "icon",
     "usedBy": [
       "Shout_FFTJ_SecondaryJob"
+    ]
+  },
+  {
+    "id": "PassiveFeature_FastHands",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_Job_Peddler",
+      "FFTJ_Mastery_Peddler",
+      "FFTJ_QuickFingers",
+      "Shout_FFTJ_ChangeJob_Peddler",
+      "Shout_FFTJ_LearnFrom_Peddler",
+      "Shout_FFTJ_Learn_LaceratingTrap",
+      "Shout_FFTJ_Learn_QuickFingers",
+      "Shout_FFTJ_SecondaryJob_Peddler"
     ]
   },
   {
@@ -1059,6 +1083,15 @@
     "usedBy": [
       "FFTJ_Mastery_Astrologer",
       "FFTJ_StarReading"
+    ]
+  },
+  {
+    "id": "PassiveFeature_ImprovedCritical",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_CRIT_EXPERTISE",
+      "Shout_FFTJ_Learn_CriticalExpertise",
+      "Target_FFTJ_CriticalExpertise"
     ]
   },
   {
@@ -1255,6 +1288,7 @@
     "usedBy": [
       "FFTJ_CriticalQuick",
       "Shout_FFTJ_Learn_CriticalQuick",
+      "Shout_FFTJ_Learn_CriticalQuicken",
       "Shout_FFTJ_Learn_Quick",
       "Target_FFTJ_Quick"
     ]
@@ -1326,12 +1360,14 @@
       "Shout_FFTJ_ChangeJob_Ninja_Locked",
       "Shout_FFTJ_ChangeJob_OnionKnight_Locked",
       "Shout_FFTJ_ChangeJob_Orator_Locked",
+      "Shout_FFTJ_ChangeJob_Peddler_Locked",
       "Shout_FFTJ_ChangeJob_Samurai_Locked",
       "Shout_FFTJ_ChangeJob_Squire_Locked",
       "Shout_FFTJ_ChangeJob_Summoner_Locked",
       "Shout_FFTJ_ChangeJob_Thief_Locked",
       "Shout_FFTJ_ChangeJob_TimeMage_Locked",
       "Shout_FFTJ_ChangeJob_WhiteMage_Locked",
+      "Shout_FFTJ_ChangeJob_Wizard_Locked",
       "Shout_FFTJ_SecondaryJob_Archer_Locked",
       "Shout_FFTJ_SecondaryJob_Arithmetician_Locked",
       "Shout_FFTJ_SecondaryJob_Bard_Locked",
@@ -1348,12 +1384,14 @@
       "Shout_FFTJ_SecondaryJob_Ninja_Locked",
       "Shout_FFTJ_SecondaryJob_OnionKnight_Locked",
       "Shout_FFTJ_SecondaryJob_Orator_Locked",
+      "Shout_FFTJ_SecondaryJob_Peddler_Locked",
       "Shout_FFTJ_SecondaryJob_Samurai_Locked",
       "Shout_FFTJ_SecondaryJob_Squire_Locked",
       "Shout_FFTJ_SecondaryJob_Summoner_Locked",
       "Shout_FFTJ_SecondaryJob_Thief_Locked",
       "Shout_FFTJ_SecondaryJob_TimeMage_Locked",
-      "Shout_FFTJ_SecondaryJob_WhiteMage_Locked"
+      "Shout_FFTJ_SecondaryJob_WhiteMage_Locked",
+      "Shout_FFTJ_SecondaryJob_Wizard_Locked"
     ]
   },
   {
@@ -1397,6 +1435,33 @@
       "Shout_FFTJ_Learn_ManaShield",
       "Shout_FFTJ_Learn_Reflect",
       "Target_FFTJ_Reflect"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_GlyphOfWarding_ExplosiveRunes_Cold",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_ImmobilizingTrap_Trap",
+      "Shout_FFTJ_Learn_ImmobilizingTrap",
+      "Target_FFTJ_ImmobilizingTrap"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_GlyphOfWarding_ExplosiveRunes_Lightning",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_PainfulTrap_Trap",
+      "Shout_FFTJ_Learn_PainfulTrap",
+      "Target_FFTJ_PainfulTrap"
+    ]
+  },
+  {
+    "id": "Spell_Abjuration_GlyphOfWarding_Sleep",
+    "kind": "icon",
+    "usedBy": [
+      "Projectile_FFTJ_AlluringTrap_Trap",
+      "Shout_FFTJ_Learn_AlluringTrap",
+      "Target_FFTJ_AlluringTrap"
     ]
   },
   {
@@ -1503,6 +1568,9 @@
       "Projectile_FFTJ_Divinity",
       "Projectile_FFTJ_Impiety",
       "Shout_FFTJ_Learn_Divinity",
+      "Shout_FFTJ_Learn_EarthThunder1",
+      "Shout_FFTJ_Learn_EarthThunder2",
+      "Shout_FFTJ_Learn_EarthThunderLocus",
       "Shout_FFTJ_Learn_Impiety"
     ]
   },
@@ -1987,7 +2055,8 @@
       "Projectile_FFTJ_Maelstrom",
       "Projectile_FFTJ_NetherMaelstrom",
       "Shout_FFTJ_Learn_Maelstrom",
-      "Shout_FFTJ_Learn_NetherMaelstrom"
+      "Shout_FFTJ_Learn_NetherMaelstrom",
+      "Shout_FFTJ_Learn_WaterFireLocus"
     ]
   },
   {
@@ -2304,6 +2373,8 @@
     "usedBy": [
       "FFTJ_Waterwalking",
       "Shout_FFTJ_Learn_Torrent",
+      "Shout_FFTJ_Learn_WaterFire1",
+      "Shout_FFTJ_Learn_WaterFire2",
       "Shout_FFTJ_Learn_Waterwalking"
     ]
   },
@@ -2385,8 +2456,10 @@
       "Shout_FFTJ_Learn_Haste",
       "Shout_FFTJ_Learn_Hasteja",
       "Shout_FFTJ_Learn_Masamune",
+      "Shout_FFTJ_Learn_SalesPitch",
       "Shout_FFTJ_Learn_Swiftspell",
       "Shout_FFTJ_Masamune",
+      "Shout_FFTJ_SalesPitch",
       "Target_FFTJ_DragonsSpeed"
     ]
   },
@@ -2555,7 +2628,8 @@
     "id": "statIcons_Ensnared",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_IMMOBILIZE"
+      "FFTJ_IMMOBILIZE",
+      "FFTJ_TRAP_ROOTED"
     ]
   },
   {
@@ -2769,8 +2843,16 @@
     "id": "BLEEDING",
     "kind": "status",
     "usedBy": [
+      "FFTJ_TRAP_LACERATE",
+      "FFTJ_TRAP_LACERATE_Cha",
+      "FFTJ_TRAP_LACERATE_Con",
+      "FFTJ_TRAP_LACERATE_Dex",
+      "FFTJ_TRAP_LACERATE_Int",
+      "FFTJ_TRAP_LACERATE_Str",
+      "FFTJ_TRAP_LACERATE_Wis",
       "Projectile_FFTJ_ChemicalBurns",
       "Target_FFTJ_Balm",
+      "Target_FFTJ_LaceratingTrap",
       "Target_FFTJ_Soul_HookRend",
       "Target_FFTJ_Soul_TalonRake",
       "Target_FFTJ_Soul_ThornLash"
@@ -2932,6 +3014,7 @@
     "kind": "status",
     "usedBy": [
       "Shout_FFTJ_Masamune",
+      "Shout_FFTJ_SalesPitch",
       "Target_FFTJ_Harmony",
       "Target_FFTJ_Haste",
       "Zone_FFTJ_SpellbladeDispel"
@@ -3289,8 +3372,26 @@
     "id": "WET",
     "kind": "status",
     "usedBy": [
+      "Projectile_FFTJ_WaterLocus",
+      "Projectile_FFTJ_WaterLocus_3",
+      "Projectile_FFTJ_WaterLocus_4",
+      "Projectile_FFTJ_WaterLocus_5",
+      "Projectile_FFTJ_WaterLocus_6",
       "Target_FFTJ_Leviathan",
-      "Target_FFTJ_Torrent"
+      "Target_FFTJ_Torrent",
+      "Target_FFTJ_WaterI",
+      "Target_FFTJ_WaterII",
+      "Target_FFTJ_WaterII_2",
+      "Target_FFTJ_WaterII_3",
+      "Target_FFTJ_WaterII_4",
+      "Target_FFTJ_WaterII_5",
+      "Target_FFTJ_WaterII_6",
+      "Target_FFTJ_WaterI_Slot",
+      "Target_FFTJ_WaterI_Slot_2",
+      "Target_FFTJ_WaterI_Slot_3",
+      "Target_FFTJ_WaterI_Slot_4",
+      "Target_FFTJ_WaterI_Slot_5",
+      "Target_FFTJ_WaterI_Slot_6"
     ]
   },
   {
@@ -4172,7 +4273,8 @@
     "id": "Projectile_ChromaticOrb_Lightning",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Thunder"
+      "Projectile_FFTJ_Thunder",
+      "Projectile_FFTJ_ThunderLocus"
     ]
   },
   {
@@ -4236,10 +4338,18 @@
     ]
   },
   {
+    "id": "Projectile_FallingRocks",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_EarthI"
+    ]
+  },
+  {
     "id": "Projectile_FireBolt",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Fire"
+      "Projectile_FFTJ_Fire",
+      "Projectile_FFTJ_FireLocus"
     ]
   },
   {
@@ -4248,6 +4358,7 @@
     "usedBy": [
       "Projectile_FFTJ_Fira",
       "Projectile_FFTJ_Firaga",
+      "Projectile_FFTJ_FireI",
       "Projectile_FFTJ_ThrowBombs"
     ]
   },
@@ -4256,6 +4367,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Projectile_FFTJ_Fly"
+    ]
+  },
+  {
+    "id": "Projectile_GlyphOfWarding_Fire_Trap",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Projectile_FFTJ_LaceratingTrap_Trap"
     ]
   },
   {
@@ -4327,7 +4445,8 @@
     "id": "Projectile_RayOfFrost",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Projectile_FFTJ_Blizzard"
+      "Projectile_FFTJ_Blizzard",
+      "Projectile_FFTJ_WaterLocus"
     ]
   },
   {
@@ -4342,7 +4461,8 @@
     "id": "Shout_Aid",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Shout_FFTJ_Golem"
+      "Shout_FFTJ_Golem",
+      "Shout_FFTJ_SalesPitch"
     ]
   },
   {
@@ -4760,7 +4880,8 @@
     "usedBy": [
       "Target_FFTJ_Ramuh",
       "Target_FFTJ_Thundaga",
-      "Target_FFTJ_Thundara"
+      "Target_FFTJ_Thundara",
+      "Target_FFTJ_ThunderI"
     ]
   },
   {
@@ -4788,7 +4909,8 @@
     "id": "Target_CreateWater",
     "kind": "using parent (SpellData)",
     "usedBy": [
-      "Target_FFTJ_Torrent"
+      "Target_FFTJ_Torrent",
+      "Target_FFTJ_WaterI"
     ]
   },
   {
@@ -4899,6 +5021,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Pummel"
+    ]
+  },
+  {
+    "id": "Target_GlyphOfWarding_Fire",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_LaceratingTrap"
     ]
   },
   {
@@ -5302,6 +5431,34 @@
     "kind": "using parent (StatusData)",
     "usedBy": [
       "FFTJ_TOAD"
+    ]
+  },
+  {
+    "id": "POTION_OF_HEALING",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_POTENT_HEALING"
+    ]
+  },
+  {
+    "id": "POTION_OF_HEALING_GREATER",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_POTENT_HEALING_GREATER"
+    ]
+  },
+  {
+    "id": "POTION_OF_HEALING_SUPERIOR",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_POTENT_HEALING_SUPERIOR"
+    ]
+  },
+  {
+    "id": "POTION_OF_HEALING_SUPREME",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_POTENT_HEALING_SUPREME"
     ]
   }
 ]

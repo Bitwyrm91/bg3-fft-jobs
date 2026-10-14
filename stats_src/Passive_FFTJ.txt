@@ -111,15 +111,18 @@ data "Properties" "Highlighted"
 data "Boosts" "RollBonus(MeleeSpellAttack,1);RollBonus(RangedSpellAttack,1)"
 
 // ---------------------------------------------------------------- reactions
-// Melee hit -> attacker takes 1d4 bludgeoning and is pushed 1.5 m.
+// Melee hit -> attacker takes 1d4 bludgeoning and is pushed 1.5 m. In OnDamaged the functors' target is the one who
+// was hit: SWAP turns them on the attacker (vanilla's melee-counter cloaks: DealDamage(SWAP, ...)); the push is a
+// status on the attacker whose OnApplyFunctors Force()s it away (vanilla BEE_KNOCKBACK). Before 1.0.0.67 this hit and
+// pushed the Squire itself.
 new entry "FFTJ_CounterTackle"
 type "PassiveData"
 data "DisplayName" "{{name:CounterTackle}}"
 data "Description" "{{desc:CounterTackle}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsMeleeAttack()"
-data "StatsFunctors" "DealDamage(1d4,Bludgeoning);Force(1.5)"
+data "Conditions" "IsMeleeAttack() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,1d4,Bludgeoning);ApplyStatus(SWAP,FFTJ_COUNTER_TACKLE_PUSH,100,1)"
 
 // Damaged -> heal 1d4+2, once per turn (the marker status blocks a second trigger).
 new entry "FFTJ_AutoPotion"
@@ -188,8 +191,8 @@ data "DisplayName" "{{name:MagickCounter}}"
 data "Description" "{{desc:MagickCounter}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsSpell()"
-data "StatsFunctors" "DealDamage(2d6,Force,Magical)"
+data "Conditions" "IsSpell() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,2d6,Force,Magical)"
 
 // ---------------------------------------------------------------- support
 new entry "FFTJ_EquipAxes"
@@ -537,8 +540,8 @@ data "Description" "{{desc:Reflect}}"
 data "Icon" "Spell_Abjuration_GlobeOfInvulnerability"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsSpell()"
-data "StatsFunctors" "DealDamage(2d6,Force,Magical)"
+data "Conditions" "IsSpell() and not IsRedirectedDamage()"
+data "StatsFunctors" "DealDamage(SWAP,2d6,Force,Magical)"
 
 // ---------------------------------------------------------------- Mystic
 new entry "FFTJ_AbsorbMP"
@@ -1618,3 +1621,51 @@ data "DisplayName" "{{name:UnstableFlask}}"
 data "Description" "{{desc:UnstableFlask}}"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Projectile_FFTJ_UnstableFlask,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Intelligence)"
+
+// ---------------------------------------------------------------- Wizard (Elementalism; Fell Seal, 1.0.0.67)
+new entry "FFTJ_Job_Wizard"
+type "PassiveData"
+data "DisplayName" "{{jobname:Wizard}}"
+data "Description" "{{jobdesc:Wizard}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "{{prof:Wizard}}"
+
+// One more level 1 spell slot (vanilla boost form: ActionResource(SpellSlot,<amount>,<level>)).
+new entry "FFTJ_Mastery_Wizard"
+type "PassiveData"
+data "DisplayName" "{{masteryname:Wizard}}"
+data "Description" "{{masterydesc:Wizard}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "Highlighted"
+data "Boosts" "ActionResource(SpellSlot,1,1)"
+
+// Smart Casting: a marker. tools/smartcast.py adds "not (HasPassive('FFTJ_SmartCasting', context.Source) and ...)" to
+// the TargetConditions of the mod's area spells (vanilla Sculpt Spells pattern); Server/Effects.lua spares allies in
+// the Lua-driven flask bursts.
+new entry "FFTJ_SmartCasting"
+type "PassiveData"
+data "DisplayName" "{{name:SmartCasting}}"
+data "Description" "{{desc:SmartCasting}}"
+data "Icon" "PassiveFeature_SculptSpells"
+
+// Boon: Dark One's Blessing's kill trigger (OnDamage with HasHPLessThan(1) and Enemy() and Character()).
+new entry "FFTJ_Boon"
+type "PassiveData"
+data "DisplayName" "{{name:Boon}}"
+data "Description" "{{desc:Boon}}"
+data "Icon" "PassiveFeature_DarkOnesBlessing"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "HasHPLessThan(1) and Enemy() and Character()"
+data "StatsFunctors" "ApplyStatus(SELF,FFTJ_BOON,100,2)"
+
+// Return Magic: a spell that damages the owner marks its caster (SWAP: in OnDamaged the plain target is the owner,
+// vanilla MAG_MeleeDebuff_*); Server/Effects.lua adds up the damage from Osiris AttackedBy and sends a share back.
+new entry "FFTJ_ReturnMagic"
+type "PassiveData"
+data "DisplayName" "{{name:ReturnMagic}}"
+data "Description" "{{desc:ReturnMagic}}"
+data "Icon" "Spell_Abjuration_Counterspell"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "IsSpell()"
+data "StatsFunctors" "ApplyStatus(SWAP,FFTJ_RETURN_MAGIC,100,0)"

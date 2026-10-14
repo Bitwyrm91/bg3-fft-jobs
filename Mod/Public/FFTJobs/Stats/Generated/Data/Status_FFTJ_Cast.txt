@@ -28,6 +28,96 @@ type "StatusData"
 using "FFTJ_FULMINATE_BLAST"
 data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
 
+new entry "FFTJ_TRAP_LACERATE_Str"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(BLEEDING,100,3)"
+
+new entry "FFTJ_TRAP_LACERATE_Dex"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(BLEEDING,100,3)"
+
+new entry "FFTJ_TRAP_LACERATE_Con"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(BLEEDING,100,3)"
+
+new entry "FFTJ_TRAP_LACERATE_Int"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(BLEEDING,100,3)"
+
+new entry "FFTJ_TRAP_LACERATE_Wis"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(BLEEDING,100,3)"
+
+new entry "FFTJ_TRAP_LACERATE_Cha"
+type "StatusData"
+using "FFTJ_TRAP_LACERATE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(BLEEDING,100,3)"
+
+new entry "FFTJ_TRAP_IMMOBILIZE_Str"
+type "StatusData"
+using "FFTJ_TRAP_IMMOBILIZE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_TRAP_ROOTED,100,2)"
+
+new entry "FFTJ_TRAP_IMMOBILIZE_Dex"
+type "StatusData"
+using "FFTJ_TRAP_IMMOBILIZE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_TRAP_ROOTED,100,2)"
+
+new entry "FFTJ_TRAP_IMMOBILIZE_Con"
+type "StatusData"
+using "FFTJ_TRAP_IMMOBILIZE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_TRAP_ROOTED,100,2)"
+
+new entry "FFTJ_TRAP_IMMOBILIZE_Int"
+type "StatusData"
+using "FFTJ_TRAP_IMMOBILIZE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_TRAP_ROOTED,100,2)"
+
+new entry "FFTJ_TRAP_IMMOBILIZE_Wis"
+type "StatusData"
+using "FFTJ_TRAP_IMMOBILIZE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_TRAP_ROOTED,100,2)"
+
+new entry "FFTJ_TRAP_IMMOBILIZE_Cha"
+type "StatusData"
+using "FFTJ_TRAP_IMMOBILIZE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_TRAP_ROOTED,100,2)"
+
+new entry "FFTJ_TRAP_ALLURE_Str"
+type "StatusData"
+using "FFTJ_TRAP_ALLURE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_ENTICED,100,3)"
+
+new entry "FFTJ_TRAP_ALLURE_Dex"
+type "StatusData"
+using "FFTJ_TRAP_ALLURE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_ENTICED,100,3)"
+
+new entry "FFTJ_TRAP_ALLURE_Con"
+type "StatusData"
+using "FFTJ_TRAP_ALLURE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_ENTICED,100,3)"
+
+new entry "FFTJ_TRAP_ALLURE_Int"
+type "StatusData"
+using "FFTJ_TRAP_ALLURE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_ENTICED,100,3)"
+
+new entry "FFTJ_TRAP_ALLURE_Wis"
+type "StatusData"
+using "FFTJ_TRAP_ALLURE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_ENTICED,100,3)"
+
+new entry "FFTJ_TRAP_ALLURE_Cha"
+type "StatusData"
+using "FFTJ_TRAP_ALLURE"
+data "OnApplyFunctors" "IF(not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_ENTICED,100,3)"
+
 new entry "FFTJ_FULMINATE_BLAST_2_Str"
 type "StatusData"
 using "FFTJ_FULMINATE_BLAST_2"

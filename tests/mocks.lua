@@ -358,6 +358,9 @@ function Mocks.Install()
         IsEnemy = function(x, y)
             return b(char(x).party ~= char(y).party)
         end,
+        IsAlly = function(x, y)
+            return b(char(x).party == char(y).party)
+        end,
         RemoveStatus = function(g, s)
             rec("RemoveStatus", g, s)
             char(g).statuses[s] = nil
@@ -471,6 +474,13 @@ function Mocks.Install()
         SetHitpoints = function(g, hp)
             rec("SetHitpoints", g, hp)
             char(g).hp = hp
+        end,
+        EndTurn = function(g)
+            rec("EndTurn", g)
+        end,
+        -- summons and summoned items (Peddler traps): world.owners[guid] = the summoner's GUID
+        GetOwner = function(g)
+            return world.owners and world.owners[g]
         end,
         UseSpell = function(caster, spell, target)
             rec("UseSpell", caster, spell, target)

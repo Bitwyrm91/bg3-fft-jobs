@@ -1,6 +1,72 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.66**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.69**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.69: the Peddler (new Fell Seal job)
+
+- **Peddler**, a new job (Fell Seal), unlocked at **Ranger (Archer) job level 5**, skill set **Peddle**. It uses
+  daggers, axes, crossbows, light armour and shields. Mastery: +5 HP and +3 initiative. Starts with Lacerating Trap.
+- **Traps** (Lacerating, Immobilizing, Painful, Alluring): each costs a level 1 spell slot and works once per short
+  rest. Place it up to 4.5 m away; it stays until an enemy steps on it or a long rest. The enemy that steps on it
+  **loses the rest of its turn**. A Dexterity save resists only the effect: Bleeding (3 turns), can't move (2 turns),
+  or fights on your side on its own (3 turns; bosses immune). Painful Trap takes **half its current HP**, no save.
+- **Item Potency**: Chemist potions and real BG3 healing potions you use heal twice; acid vials, Smokepowder bombs and
+  spore grenades you throw deal their damage twice; your Alchemist's Fire burns 6 turns instead of 3.
+- **Quick Fingers**: one more bonus action every turn. **Critical: Quicken**: the Time Mage's Critical: Quick (the
+  tooltip shows that name). **Critical Expertise**: you or an ally within 3 m crits on 19-20 for 3 turns.
+  **Sales Pitch**: Haste on you and allies within 3 m, once per long rest.
+- **Patented Usage**: a menu with an area version of each Chemist item you learned (Potion, Hi-Potion, X-Potion,
+  Antidote, Eye Drops, Echo Herbs, Remedy): everyone within 3 m of the spot, enemies too.
+
+Please check, traps first (the riskiest part, built like Glyph of Warding): place a trap in a goblin's path. Does it
+go off when the goblin walks in (and only then)? Does the goblin's turn end at once? Does the effect show (Bleeding,
+can't move, fighting for you; Painful: half its HP in the combat log)? Roughly how far from the trap does it trigger
+(should be about 1.5 m)? Then: drink a healing potion with Item Potency slotted (two heals?), and open Patented Usage
+with a Potion learned. Paste the newest Script Extender log if something does nothing.
+
+## New in 1.0.0.68: the Wizard (Fell Seal), a new job
+
+A new job, **Wizard** (skill set Elementalism), next to the Black Mage on the Job Board. It opens when a character
+reaches **level 4 as Black Mage and level 4 as White Mage**. Equipment: staffs, clubs, light armour.
+
+| Ability | JP | What it does |
+|---|---|---|
+| Water I / Fire I | known | two area cantrips (1.5 m, Dexterity save): 1d6 cold (target gets **Wet**) or fire; plus spell-slot versions |
+| Earth I / Thunder I | 500 | same, bludgeoning (falling stones) or lightning (double on Wet targets) |
+| Smart Casting | 500 | support: your area abilities from this mod, every job, leave out you and your allies |
+| Water II / Fire II | 500 | level 1 spell slot: 3d6 within 2 m, half on a save; higher slots +1d6 |
+| Return Magic | 500 | reaction: an enemy spell that hurts you sends half its damage back as force damage |
+| Earth II / Thunder II | 500 | level 1 spell slot, like Water II / Fire II |
+| Boon | 625 | support: after you kill an enemy, your next attack roll is a critical hit (until the end of your next turn) |
+| Water Locus / Fire Locus | 750 | level 2 spell slot, spell attack on one creature: 4d8; higher slots +1d8 |
+| Earth Locus / Thunder Locus | 750 | the same |
+
+Every damage roll adds your highest ability modifier. Wet: double cold and lightning damage, half fire damage, so
+Water then Thunder is the combo. The mastery perk is one extra level 1 spell slot.
+
+Please check:
+- Water I on a group: those who fail the save are Wet (status icon); a Thunder I on them next shows double damage.
+- Pick a spell-slot version (e.g. Fire I with a spell slot, or Water II): does BG3's level picker show levels 1-6, and
+  do higher levels roll more dice (tooltip)?
+- Slot **Smart Casting**, then cast Fire I / Water II (or Fira, a Chemist Caustic Flask) with an ally in the area:
+  the ally takes nothing. Without it, the ally is hit.
+- Slot **Return Magic** and let an enemy caster hit you with a spell: the caster takes half (combat log, and a party
+  message "... returns the magic ..."). Weapon hits don't trigger it.
+- Slot **Boon**, kill an enemy, then attack (weapon or Locus spell): it should be a critical hit. Tell me if Boon
+  disappears right after the kill without being used.
+- Earth I / Earth Locus borrow a trap's falling-rocks look: tell me if they show no animation.
+
+## New in 1.0.0.67: Counter Tackle fixed (and Magick Counter, Reflect)
+
+- **Counter Tackle** (Squire reaction) hit and pushed **your own character** instead of the attacker (your report;
+  Shadowheart had it slotted). Now the melee attacker takes 1d4 bludgeoning and is pushed 1.5 m.
+- Same mistake fixed in **Magick Counter** and **Reflect**: their 2d6 force now hits the spellcaster, not you.
+- **Rush** and **Throw Stone** pushes never showed (your report): the push now comes before the damage, the way
+  vanilla's Pushing Attack does it, and is longer: Rush 3 m, Throw Stone 2 m, Counter Tackle 2 m.
+
+Please check: slot Counter Tackle, let an enemy hit you in melee: the enemy takes the damage (combat log) and slides
+back; your HP only drops by the enemy's hit. Rush and Throw Stone a goblin: does it slide back 3 m / 2 m? If a push
+still never shows, tell me which target (size) and whether it was a hit.
 
 ## New in 1.0.0.66: the Archer is now the Ranger (Fell Seal, NWP 22)
 

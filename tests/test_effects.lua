@@ -345,6 +345,52 @@ function S.blessed_one_waits_for_the_heal_and_caps_at_max(w, T)
     T.eq(svc.BlessedWatch[T.TAV], nil)
 end
 
+-- Return Magic (Wizard): the passive marks the spell's caster, AttackedBy brings the damage; half goes back as force.
+local function hit(w, guid, attacker, amount)
+    w.fire("AttackedBy", "S_Player_" .. guid, "S_" .. attacker, "S_" .. attacker, "Fire", amount, "Attack", 0)
+end
+
+function S.return_magic_sends_half_of_a_spell_back(w, T)
+    local svc = T.boot(w)
+    local gob = enemy(w)
+    svc.State:Get(T.TAV).Granted.Passives.FFTJ_ReturnMagic = true
+    hit(w, T.TAV, GOB, 7)
+    applied(w, GOB, "FFTJ_RETURN_MAGIC", T.TAV)
+    hit(w, T.TAV, GOB, 4) -- a second hit of the same spell adds up
+    T.eq(gob.hp, 40, "settled after the window, not at once")
+    w.runTimers()
+    T.eq(gob.hp, 35, "half of 11, rounded down")
+    T.contains(w.notifications, "Tav returns the magic: Goblin takes 5 force damage.")
+end
+
+function S.return_magic_needs_the_spell_mark_and_the_passive(w, T)
+    local svc = T.boot(w)
+    local gob = enemy(w)
+    svc.State:Get(T.TAV).Granted.Passives.FFTJ_ReturnMagic = true
+    hit(w, T.TAV, GOB, 8) -- a weapon hit: no spell mark
+    w.runTimers()
+    T.eq(gob.hp, 40, "not a spell")
+    svc.State:Get(T.TAV).Granted.Passives.FFTJ_ReturnMagic = nil
+    hit(w, T.TAV, GOB, 8)
+    applied(w, GOB, "FFTJ_RETURN_MAGIC", T.TAV)
+    w.runTimers()
+    T.eq(gob.hp, 40, "without the passive the damage is not counted")
+end
+
+function S.smart_casting_spares_allies_in_flask_bursts(w, T)
+    local svc = T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].x = 1 -- the thrower stands in its own burst
+    local gob = enemy(w)
+    applied(w, GOB, "FFTJ_CAUSTIC", T.TAV)
+    T.truthy(w.chars[T.TAV].statuses.ACID, "without Smart Casting the burst hits its thrower")
+    w.chars[T.TAV].statuses.ACID, gob.statuses.ACID = nil, nil
+    svc.State:Get(T.TAV).Granted.Passives.FFTJ_SmartCasting = true
+    applied(w, GOB, "FFTJ_CAUSTIC", T.TAV)
+    T.eq(w.chars[T.TAV].statuses.ACID, nil, "Smart Casting: the thrower is left out")
+    T.truthy(gob.statuses.ACID, "the enemy is still hit")
+end
+
 function S.poach_pays_for_a_marked_kill(w, T)
     local svc = T.boot(w)
     enemy(w, { level = 4 })

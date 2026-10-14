@@ -5,6 +5,7 @@ local Grants = Ext.Require("Server/Grants.lua")
 local Effects = Ext.Require("Server/Effects.lua")
 local Bosses = Ext.Require("Server/Bosses.lua")
 local Souls = Ext.Require("Server/Souls.lua")
+local Peddler = Ext.Require("Server/Peddler.lua")
 
 local Service = {}
 Service.__index = Service
@@ -26,12 +27,16 @@ function Service.New(deps)
     self.PoachMarks = {} -- creature guid -> the poacher who hit it this turn (Effects.lua)
     self.TrophyMarks = {} -- creature guid -> the hunter whose Collect Trophy hit it this turn (Effects.lua)
     self.BlessedWatch = {} -- healed creature guid -> {Caster, Before = its HP, Seq, Spell}: Blessed One (Effects.lua)
+    self.ReturnMagic = {} -- "wizard|caster" -> spell damage being added up for Return Magic (Effects.lua)
     self.EchoSeq = 0 -- counts echoable job abilities used by the party (Mime)
     self.LastEcho = nil -- {Spell = echo twin, Ability, By = guid, Seq}
     self.EchoSeen = {} -- Mime guid -> EchoSeq when its last turn ended
     self.OnOpenBoard = nil -- set by NetServer
     self.SoulBranded = {} -- creature guid -> {By = brander, Gen}: Soul Brand on it (Souls.lua)
     self.PendingReconcile = {} -- guid -> repair flag: grant changes held while a Wild Shape / Soul form is active
+    self.ActiveTurn = nil -- the creature whose turn it is (a Peddler trap ends it)
+    self.TrapLayers = {} -- trap spell -> the party member who laid it last (Peddler.lua)
+    self.FireThrows = {} -- thrower guid -> {Done = {target = true}}: Alchemist's Fire with Item Potency
     return self
 end
 
@@ -560,6 +565,7 @@ function Service:OnCastedSpell(caster, spell)
     end
     self:TrackEcho(guid, char, spell)
     Effects.OnCastedSpell(self, guid, spell)
+    Peddler.OnCastedSpell(self, guid, spell)
     if string.sub(spell, -6) == "_Arith" then
         return -- Arithmeticks' own casts: the rule shout already counted
     end
@@ -658,6 +664,7 @@ end
 
 function Service:OnTurnStarted(object)
     local guid = Util.Guid(object)
+    self.ActiveTurn = guid
     self.TurnCasts[guid or ""] = 0
     if guid and self.Ready and not self:IsDisabled() then
         self.Log.Safe("status ticks", Effects.OnTurnStarted, self, guid)
@@ -683,6 +690,9 @@ end
 
 function Service:OnTurnEnded(object)
     local guid = Util.Guid(object)
+    if guid and self.ActiveTurn == guid then
+        self.ActiveTurn = nil
+    end
     local char = guid and self.State:Get(guid)
     if not self:IsMime(char) then
         return
@@ -1030,6 +1040,10 @@ function Service:OnStatusApplied(object, status, causee)
         Souls.OnStatusApplied(self, Util.Guid(object), status, Util.Guid(causee))
         return
     end
+    if Peddler.Handles(status) then
+        Peddler.OnStatusApplied(self, Util.Guid(object), status, Util.Guid(causee))
+        return
+    end
     if not Effects.Handles(status) then
         return
     end
@@ -1059,7 +1073,7 @@ end
 
 function Service:OnAttackedBy(defender, attackerOwner, attacker, damageType, damageAmount)
     if self.Ready and not self:IsDisabled() then
-        Effects.OnAttackedBy(self, Util.Guid(defender), damageAmount)
+        Effects.OnAttackedBy(self, Util.Guid(defender), damageAmount, Util.Guid(attacker) or Util.Guid(attackerOwner))
     end
 end
 
