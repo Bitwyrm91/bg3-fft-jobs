@@ -1,6 +1,22 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.62**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.63**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.63: multiplayer fixes
+
+*Built in a cloud session: not on your PC until it is packaged and installed there (both players need the same pak).*
+
+- **The Job Board opens only for the player who opened it** (before, it popped up on every player's screen).
+- **Each player changes only the characters they control.** Everyone can still look at every tab; changing
+  someone else's character says "... is controlled by another player". Allow everyone again with
+  `!fft_set Rules.EditOthersInMultiplayer true`.
+- **Party news** (a job unlocked for the party, a badge found) now reaches every player once, not only the host.
+
+Please check (with your friend):
+- When your friend opens the Job Board, does it open only on their screen?
+- Can your friend change their own character's job, and do they get the "controlled by another player" message on
+  yours?
+- When the party finds a badge, do both of you see the message?
 
 ## New in 1.0.0.62: job skills hit and set their DCs with your highest ability
 

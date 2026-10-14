@@ -59,7 +59,9 @@ When the user says "NWP", this is the list:
     text; maybe a short-lived status with the amount, or DisplayText).
 11. **New separate mod: skip the nautiloid**, start at level 2 on the beach.
 12. **Multiplayer support**: works in MP but "weird stuff". Fixed in 1.0.0.56: Dummy/Player tabs (character-creation
-    placeholders). Watch: per-client Job Board, notifications to the right player, JP line per client.
+    placeholders). **1.0.0.63 (not seen in game):** the Job Board opens only for the player who asked, each player
+    changes only the characters they control (user's pick), party news reaches every player. Still to watch: the JP
+    line per client (Learn menus, item 9).
 13. **Throw Stone: no animation when the friend uses it** (MP client). 1.0.0.57 gave it the player throw animation; not seen in game.
 14. **Enemies get jobs** (already planned, PHASE2.md).
 15. **Learn entries cast from the hotbar don't seem to work** (user: not a huge priority). Log of 2026-10-14 01:47 UTC
@@ -325,6 +327,17 @@ fixed by hand). tests/test_statcast.lua (9), 201 tests. Unverified in game: Stat
 ability on DCs/attack rolls, the level picker with AddChildren (user: Potion (spell slot) "did nothing" in 1.0.0.61,
 where it was added plainly), 3402 hidden passives' load time. Not covered: Arithmeticks twins (cast by the server
 without a spellbook entry), Lua-rolled flask damage still adds no highest modifier.
+
+**1.0.0.63 (2026-10-14, cloud session, NOT packaged or seen in game): NWP 12, multiplayer.** Job Board open goes to
+the caster's player only: `NetServer.SendTo` = `NetChannel:SendToClient(payload, characterGuid)` in a pcall, Broadcast
+if that fails. Ownership (user's pick: only the controlling player changes a character; config
+`Rules.EditOthersInMultiplayer`, default false): the client sends `From` = its ClientControl character
+(`JobBoard.Controlled`, via JobMenu.Controlled) with every board request; `Service:MayChange(from, guid)` compares
+`Game:UserOf` of both (`Osi.GetReservedUserID`, else the UserReservedFor component); an unknown player on either side
+allows it (single player). Views stay open to all. `Service:NotifyParty(text, preferred)`: party unlock / badge news
+to one character per player (Game:UserOf), the host alone when no player is known. Mocks: c.user, world.controlled,
+channel sentTo, world.notified. tests/test_multiplayer.lua (7), 208 tests. Unverified in game: SendToClient with a
+character GUID, GetReservedUserID, ClientControl on a client in MP.
 
 **Next (2026-10-13 evening, after 1.0.0.44; weekly usage 75%, the user stops this mod at ~90%):** the user's playtest of an early game (Act 1): the 1.0.0.22-44 badges, special jobs and the Soul Collector (PLAYTEST.md "New in" sections list what to watch; read the newest SE runtime log first). Then, if usage allows: enemy jobs for Act 1 (first check in game that the AI casts spells added with AddSpell, PHASE2.md item 24), Act 2-3 souls, the 7 extra special jobs (docs/SPECIAL_JOBS.md, last section), the Soul Codex as a real item (custom root template). Helper tools: `tools/jobtool.py`, `tools/release.py`; soul data in `data/souls.json` (`tools/souls_gen.py`).
 

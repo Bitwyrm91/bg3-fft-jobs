@@ -208,6 +208,22 @@ function Game:AbilityScores(guid)
     end)
 end
 
+-- The player (user id) a character is reserved for in multiplayer, or nil. UNVERIFIED IN GAME: Osiris
+-- GetReservedUserID, else the UserReservedFor component. Only compared with itself (Service:MayChange).
+function Game:UserOf(guid)
+    local id = self:Try("GetReservedUserID", function()
+        return Osi.GetReservedUserID(guid)
+    end)
+    if type(id) == "number" then
+        return id
+    end
+    local e = self:Entity(guid)
+    local comp = e and self:Try("UserReservedFor", function()
+        return e.UserReservedFor and e.UserReservedFor.UserID
+    end)
+    return type(comp) == "number" and comp or nil
+end
+
 function Game:TotalXP(guid)
     local e = self:Entity(guid)
     if not e then

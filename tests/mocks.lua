@@ -55,6 +55,8 @@ local function newChannel(world, name)
         end
     end
     function ch:SendToClient(data, user)
+        self.sentTo = self.sentTo or {}
+        self.sentTo[#self.sentTo + 1] = { data = data, user = user }
         self:Broadcast(data)
     end
     function ch:RequestToServer(data, cb)
@@ -132,7 +134,8 @@ function Mocks.Install()
         chars = {}, files = {}, prints = {}, notifications = {}, timers = {}, ticks = {}, listeners = {}, usedSpells = {},
         events = {}, commands = {}, stats = {}, loca = {}, modVars = {}, classUuids = {},
         serverChannels = {}, clientChannels = {}, windows = {}, host = nil, osiCalls = {}, side = "server",
-        items = {}, itemStats = {},
+        items = {}, itemStats = {}, notified = {},
+        controlled = nil, -- the client's ClientControl character
         defeated = {}, -- guid -> true: the story's DB_Defeated (boss badges)
         level = nil, -- Osi.GetRegion of the host
     }
@@ -249,6 +252,9 @@ function Mocks.Install()
                     for guid in pairs(world.chars) do
                         out[#out + 1] = { Uuid = { EntityUuid = guid } }
                     end
+                end
+                if name == "ClientControl" and world.controlled then
+                    out[#out + 1] = { Uuid = { EntityUuid = world.controlled } }
                 end
                 if name == "PartyMember" then
                     for guid, c in pairs(world.chars) do
@@ -392,6 +398,11 @@ function Mocks.Install()
         end,
         ShowNotification = function(g, text)
             world.notifications[#world.notifications + 1] = text
+            world.notified[#world.notified + 1] = { char = g, text = text }
+        end,
+        -- multiplayer: c.user = the player a character belongs to (nil = unknown, as in single player tests)
+        GetReservedUserID = function(g)
+            return char(g).user
         end,
         GetEquippedItem = function(g, slot)
             return char(g).equipment[slot]

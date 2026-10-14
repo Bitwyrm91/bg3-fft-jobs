@@ -17,6 +17,10 @@ function NetServer.Handle(svc, req)
     local op = req.Op
     if op == nil or op == "View" then
         ok = true
+    elseif not svc:MayChange(req.From, guid) then
+        local char = guid and svc.State:Get(guid)
+        ok, msg = false, string.format("%s is controlled by another player: only they can change it.",
+            char and char.Name or "That character")
     elseif op == "SetPrimary" then
         ok, msg = svc:SetPrimary(guid, req.Job)
     elseif op == "SetSecondary" then
@@ -43,6 +47,16 @@ function NetServer.Handle(svc, req)
 end
 
 -- net = Ext.Net (NetChannel API, SE v22+)
+-- To the client that controls guid (SE NetChannel:SendToClient takes a user id or a character); everyone if that
+-- fails. UNVERIFIED IN GAME.
+function NetServer.SendTo(channel, payload, guid, log)
+    local ok, err = pcall(channel.SendToClient, channel, payload, guid)
+    if not ok then
+        log.Warn("SendToClient failed (" .. tostring(err) .. "): sent to every player")
+        channel:Broadcast(payload)
+    end
+end
+
 function NetServer.Register(svc, net, modUuid, log)
     if not (net and net.CreateChannel) then
         log.Warn("Ext.Net.CreateChannel is missing (Script Extender too old?): the Job Board window is off, use !fft_ commands")
@@ -61,8 +75,9 @@ function NetServer.Register(svc, net, modUuid, log)
         end)
         return reply or { Ok = false, Message = "Server error, see the SE console" }
     end)
+    -- only the player who controls the character sees the board open (everyone did before; NWP 12)
     svc.OnOpenBoard = function(guid)
-        open:Broadcast({ Char = guid, View = View.Build(svc, guid) })
+        NetServer.SendTo(open, { Char = guid, View = View.Build(svc, guid) }, guid, log)
     end
     return true
 end

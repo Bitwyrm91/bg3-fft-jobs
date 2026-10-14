@@ -74,6 +74,9 @@ legacy, granted by nothing.
 - Playtest evidence = SE runtime logs (`%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\Script Extender Logs`, the user
   can paste/attach them); every grant change and board click is logged.
 - `ModCrashSanityCheck` folder: if the game is killed before the main menu, the next start drops all mods.
+- Multiplayer (1.0.0.63, unverified): the board opens with `NetServer.SendTo` (SendToClient + character GUID); board
+  requests carry `From` (the client's ClientControl character) and `Service:MayChange` compares `Game:UserOf`
+  (`Osi.GetReservedUserID`); party news via `Service:NotifyParty` (one character per player).
 
 ## Gotchas
 - Generated files must be committed and up to date (`tools/build.py --check` in the tests).

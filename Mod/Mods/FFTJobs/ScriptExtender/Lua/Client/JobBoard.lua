@@ -6,6 +6,7 @@
 -- installed SE v33 (seen in its DLL), SetStyleColor in newer ones; both are tried. Styling calls are protected, so an
 -- SE without one of them still shows the board.
 local Util = Ext.Require("Shared/Util.lua")
+local JobMenu = Ext.Require("Client/JobMenu.lua")
 
 local JobBoard = {}
 JobBoard.__index = JobBoard
@@ -96,9 +97,16 @@ function JobBoard:Open(view)
     self:Render(view)
 end
 
+-- The character this player controls (the ClientControl component, Client/JobMenu.lua), or nil.
+function JobBoard.Controlled()
+    local ok, guid = pcall(JobMenu.Controlled)
+    return ok and guid or nil
+end
+
 -- Sends {Op, Char, ...} to the server; the reply carries the new view.
 function JobBoard:Send(op, fields)
-    local req = { Op = op, Char = self.View and self.View.Selected }
+    -- From: the character this player controls, so the server lets each player change only their own (multiplayer)
+    local req = { Op = op, Char = self.View and self.View.Selected, From = JobBoard.Controlled() }
     for k, v in pairs(fields or {}) do
         req[k] = v
     end

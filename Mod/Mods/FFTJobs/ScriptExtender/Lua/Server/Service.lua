@@ -49,6 +49,50 @@ function Service:Notify(guid, text)
     end
 end
 
+-- News for the whole party (a job unlocked, a badge found): once per player in multiplayer, to one character each
+-- (preferred first, e.g. the one who earned it); the host alone when no player is known.
+function Service:NotifyParty(text, preferred)
+    local seen, targets = {}, {}
+    local function add(guid)
+        if not guid then
+            return
+        end
+        local user = self.Game:UserOf(guid)
+        if user ~= nil and not seen[user] then
+            seen[user] = true
+            targets[#targets + 1] = guid
+        end
+    end
+    add(preferred)
+    for _, guid in ipairs(self.Game:PartyMembers()) do
+        add(guid)
+    end
+    if #targets == 0 then
+        targets[1] = preferred or self.Game:HostCharacter()
+    end
+    self.Log.Info(text)
+    if self.Quiet then
+        return
+    end
+    for _, guid in ipairs(targets) do
+        self.Game:Notify(guid, text)
+    end
+end
+
+-- Multiplayer (user, 2026-10-14): a player changes only the characters they control; anyone may look. from = the
+-- requesting client's controlled character; unknown players allow it (single player, unreadable owners).
+function Service:MayChange(from, guid)
+    if self:Cfg().Rules.EditOthersInMultiplayer then
+        return true
+    end
+    from = Util.Guid(from)
+    if not from or not guid or from == guid then
+        return true
+    end
+    local a, b = self.Game:UserOf(from), self.Game:UserOf(guid)
+    return a == nil or b == nil or a == b
+end
+
 ---------------------------------------------------------------- lifecycle
 
 -- After a save is loaded (or a new game set up). Saved state is only read from here on.
@@ -1264,9 +1308,8 @@ function Service:AddBadge(badgeId, finder, reason)
     if reason then
         msg = reason .. " " .. msg
     end
-    local target = finder or self.Game:HostCharacter()
-    if target and cfg.Notifications.Unlock then
-        self:Notify(target, msg)
+    if cfg.Notifications.Unlock then
+        self:NotifyParty(msg, finder)
     else
         self.Log.Info(msg)
     end
