@@ -238,6 +238,9 @@ function Mocks.Install()
                     PartyMember = c.party and {} or nil,
                     Uuid = { EntityUuid = guid },
                     Data = { StatsId = c.stats },
+                    -- SE layout: indexed by AbilityId, None first (c.abilities = {Strength = n, ...})
+                    Stats = c.abilities and { Abilities = { 0, c.abilities.Strength, c.abilities.Dexterity,
+                        c.abilities.Constitution, c.abilities.Intelligence, c.abilities.Wisdom, c.abilities.Charisma } } or nil,
                 }
             end,
             GetAllEntitiesWithComponent = function(name)

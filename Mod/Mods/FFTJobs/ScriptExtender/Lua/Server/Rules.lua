@@ -802,7 +802,85 @@ function Rules.DesiredGrants(data, char, cfg)
         end
     end
     Rules.AddMenuGrants(data, char, desired)
+    Rules.StatCastGrants(data, char, cfg, desired)
     return desired
+end
+
+---------------------------------------------------------------- the highest ability (NWP 18)
+-- Job skills hit and set their save DCs with the character's highest ability: tools/statcast.py gives every job
+-- spell six hidden passives FFTJ_Cast_<Str|Dex|Con|Int|Wis|Cha>_<spell> (UnlockSpell with that ability), and the
+-- spell is granted through the one of char.BestStat instead of AddSpell. The best ability is chosen when the mod first
+-- meets the character and again after each level-up only (user), so gear never reshuffles the hotbar.
+
+Rules.Abilities = { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" }
+
+local function abilityModifier(score)
+    return math.floor((score - 10) / 2)
+end
+
+-- scores = {Strength = n, ...}. The highest score wins; the current ability stays while its modifier is still the
+-- best (two equal modifiers never swap). nil scores keep the current one.
+function Rules.BestStat(scores, current)
+    if type(scores) ~= "table" then
+        return current
+    end
+    local best, top
+    for _, name in ipairs(Rules.Abilities) do
+        local v = scores[name]
+        if type(v) == "number" and (top == nil or v > top) then
+            best, top = name, v
+        end
+    end
+    if best == nil then
+        return current
+    end
+    local cur = current and scores[current]
+    if type(cur) == "number" and abilityModifier(cur) >= abilityModifier(top) then
+        return current
+    end
+    return best
+end
+
+local function highestOn(cfg)
+    return cfg ~= nil and cfg.Rules ~= nil and cfg.Rules.HighestStatCasting == true
+end
+
+-- The ability a job spell casts with: the character's highest (Rules.HighestStatCasting) or else the spell's own
+-- (an ability's castStat: the Chemist flasks cast with Intelligence); nil = a plain AddSpell.
+function Rules.CastStat(data, char, cfg, spell)
+    local sc = data.StatCast
+    if not (sc and sc.Spells and sc.Spells[spell]) then
+        return nil
+    end
+    if highestOn(cfg) and char.BestStat and sc.Short[char.BestStat] then
+        return char.BestStat
+    end
+    return sc.Default and sc.Default[spell] or nil
+end
+
+function Rules.StatCastGrants(data, char, cfg, desired)
+    local sc = data.StatCast
+    if not (sc and sc.Spells) then
+        return
+    end
+    for _, spell in ipairs(Util.SortedKeys(desired.Spells)) do
+        local stat = Rules.CastStat(data, char, cfg, spell)
+        if stat and sc.Short[stat] then
+            desired.Spells[spell] = nil
+            desired.Passives[sc.Prefix .. sc.Short[stat] .. "_" .. spell] = true
+        end
+    end
+end
+
+-- A status with a fixed Intelligence DC that Lua applies (the Fulminate blast) has per-ability twins
+-- "<status>_<Str|...>": the caster's highest ability picks one; otherwise the status itself (Intelligence).
+function Rules.CastStatus(data, char, cfg, status)
+    local sc = data.StatCast
+    if sc and sc.Statuses and sc.Statuses[status] and char and highestOn(cfg) and char.BestStat
+        and sc.Short[char.BestStat] then
+        return status .. "_" .. sc.Short[char.BestStat]
+    end
+    return status
 end
 
 -- Job menus in BG3's own UI (tools/menu_gen.py): the Change Job and Secondary Skill Set entries per job (open; a

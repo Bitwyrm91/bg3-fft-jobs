@@ -181,6 +181,33 @@ function Game:CharLevel(guid)
     end) or 1
 end
 
+-- Ability scores with every bonus, {Strength = n, ...}, or nil. SE's Stats.Abilities is indexed by AbilityId with
+-- None first (7 entries: Strength is [2]); a 6-entry array is read from [1]. UNVERIFIED IN GAME.
+Game.ABILITY_NAMES = { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" }
+
+function Game:AbilityScores(guid)
+    local e = self:Entity(guid)
+    if not e then
+        return nil
+    end
+    return self:Try("Stats.Abilities", function()
+        local abilities = e.Stats and e.Stats.Abilities
+        if not abilities then
+            return nil
+        end
+        local offset = #abilities >= 7 and 1 or 0
+        local out = {}
+        for i, name in ipairs(Game.ABILITY_NAMES) do
+            local v = abilities[i + offset]
+            if type(v) ~= "number" or v < 1 or v > 40 then
+                return nil
+            end
+            out[name] = v
+        end
+        return out
+    end)
+end
+
 function Game:TotalXP(guid)
     local e = self:Entity(guid)
     if not e then

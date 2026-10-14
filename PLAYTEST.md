@@ -1,6 +1,29 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.61**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.62**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.62: job skills hit and set their DCs with your highest ability
+
+*Built in a cloud session: not on your PC until it is packaged and installed there.*
+
+- **Hit chance and save DCs now use your highest ability** (Str, Dex, Con, Int, Wis or Cha), like damage and
+  healing since 1.0.0.56. Weapon skills (Rush, Aim, ...) still hit with the weapon's stat; their saves use your
+  highest ability too.
+- **The highest ability is picked when the mod first sees a character and again after each level-up only**, so
+  gear and potions never shuffle your hotbar. When it changes you get a message ("... now use Strength, the highest
+  ability."). After a respec, type `!fft_beststat <name>` in the Script Extender console to check it again.
+- **Chemist:** Chemical Mixup and Caustic Flask keep their free version, and their spell-slot versions now start at
+  **level 1** with BG3's own level picker (1-6). The spell-slot versions now show their icons. The flasks follow
+  your highest ability too (not always Intelligence). A Mime can now echo the flasks.
+- Job skills are now given through hidden passives (one per skill). The first load may move your job skills on
+  the hotbar once.
+- Turn it off: `!fft_set Rules.HighestStatCasting false` (skills are added the old way; flasks use Intelligence).
+
+Please check:
+- Hover a job spell that rolls to hit (e.g. Fire) or forces a save (e.g. Rush's push, Fulminate's blind): does the
+  hit chance or the DC match your highest ability? `!fft_beststat <name>` shows which ability is in use.
+- Do your learned job skills still show up and cast? Does the hotbar keep them after a save and load?
+- Mixup / Caustic / Potion (spell slot): does clicking them let you pick the slot level?
 
 ## New in 1.0.0.61: job groups as dropdowns
 

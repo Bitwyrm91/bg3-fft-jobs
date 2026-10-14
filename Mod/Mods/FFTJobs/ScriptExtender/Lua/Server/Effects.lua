@@ -8,6 +8,8 @@
 --   Poach (Thief): a monster the poacher hit this turn pays out when it dies.
 --   Abyssal Blade, Unholy Sacrifice (Dark Knight): the caster pays a share of its maximum HP (never the last one).
 -- Every number is in the config (Abilities.*).
+local Rules = Ext.Require("Server/Rules.lua")
+
 local Effects = {}
 
 -- Spell -> the config key of the share of the caster's maximum HP it costs (an Echo of it costs the same).
@@ -410,8 +412,10 @@ end
 
 -- Fulminate Flask (Chemist, custom): a tiny burst around the target; a Burning target makes it larger and sets
 -- everyone in it on fire (area effects hit allies too). Each creature caught gets FFTJ_FULMINATE_BLAST (damage + Constitution save, in the stats).
+-- The save DC: the thrower's highest ability (the blast's per-ability twin, tools/statcast.py), else Intelligence.
 function Effects.Fulminate(svc, caster, target, level)
     local blast = (level and level >= 2) and ("FFTJ_FULMINATE_BLAST_" .. level) or "FFTJ_FULMINATE_BLAST"
+    blast = Rules.CastStatus(svc.Data, svc:GetChar(caster), svc:Cfg(), blast)
     local cfg = svc:Cfg().Abilities
     local burning = svc.Game:HasStatus(target, "BURNING")
     local radius = burning and (cfg.FulminateBurningRadius or 2) or (cfg.FulminateRadius or 1)

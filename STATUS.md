@@ -70,7 +70,26 @@ When the user says "NWP", this is the list:
 16. **Shadowheart's portrait changed** (screenshot: a short dark-haired woman with horns, not her own); the user wants
     "something sexy" for her portrait. Find out why it changed first (a mod? the MP save?).
 17. **Chemical Mixup: no throw animation** (at least in MP). Fixed with 13 in 1.0.0.57; not seen in game.
-18. **Highest-stat scaling step 2** (1.0.0.56 did damage + heals): hit chance and save DCs from the highest ability.
+18. **[BUILT in 1.0.0.62, not seen in game] Highest-stat scaling step 2** (1.0.0.56 did damage + heals): hit chance and save DCs
+    from the highest ability. User's answers (2026-10-14): weapon skills keep the weapon's stat to hit; the highest
+    ability is chosen again at level-up only. The Chemist flasks follow it too (general rule).
+
+**NWP additions (user, 2026-10-14, cloud session):**
+19. **Job equipment limits, FFT rules** (user: "If you're a knight, you should only be able to use knightly weapons").
+    User's answers: hard lock (gear the main job can't use comes off and can't go back on, with a message; a config
+    switch turns it off); weapons, shields AND armor; what counts = the main job's `equip` list (TIC "Usable
+    Equipment", already in data/fft_jobs.json) + the FFT "Equip X" supports slotted (EquipAxes, EquipSwords,
+    EquipShields, EquipHeavyArmor, EquipCrossbows, EquipPolearms, EquipGuns, EquipKatana; user: "be a White Mage but
+    use the Squire skill Equip Axes"); BG3 class proficiencies do NOT count. Estimate given: ~2-3% weekly, 1-1.5 h.
+    User: "continue with the normal list first". Open: clothes/robes (no armor proficiency) always allowed?; the
+    Mime's empty list (FFT Mimes wear no weapons); cursed/story items that can't come off; check needs item fields
+    (weapon proficiency group, ArmorType, shield) verified in game.
+20. **Chemist weapon coatings** (user idea: "toxins applied to weapons... enchant your allies' weapon"). Brainstorm in
+    chat, user to pick: Venom Oil (+1d4 poison, Poisoned on a failed Con save), Naphtha Oil (+1d4 fire, Burning), Acid
+    Etch (+1d4 acid, Acid), Glass Grit (+1d4 slashing, Bleeding), Mixup Oil (each hit adds a missing Chemist effect),
+    Holy Water (+1d6 radiant, double vs undead/fiends), Slumber Resin (first hit: Wis save or Asleep), Field Alchemy
+    (support: +2 turns, area coat at slot 3+). Shared rules proposed: toss to an ally within 9 m, 3 turns, one coating
+    per ally, saves vs your spell DC, free once per short rest + a spell-slot version with the 1-6 level picker.
 
 Samurai + Assassin data (pasted by the user): docs/NWP_FELLSEAL.md. Note: Fandom pages answered 402 to WebFetch before (2026-10-13); if they still do, try the browser pane or another
 Fell Seal source.
@@ -234,43 +253,6 @@ Fell Seal source.
 **1.0.0.54 (2026-10-13, user design, NOT seen in game):** Chemist Caustic Flask + Unstable Flask (Effects.Bursts / Effects.FlaskBurst, config Abilities.FlaskBurstRadius 1.5; recharge statuses FFTJ_CAUSTIC_CD/FFTJ_UNSTABLE_CD 2 turns; Intelligence via FFTJ_Int_*). User dropped the Chain Reaction idea (never built); Catalyst + Saturation stay. Chemist: 19 abilities, 4990 JP.
 
 **1.0.0.55 (NWP item 7, 2026-10-14, installed, NOT seen in game): job menus in BG3's own UI.** tools/menu_gen.py
-
-**1.0.0.56 (2026-10-14, installed only with BG3 closed, NOT seen in game): user's "changes to make NOW" after the
-
-**1.0.0.57 (2026-10-14, not seen in game):** Phoenix Down = Level 1 + `SpellSlotsGroup:1:1:1` on top of its
-
-**1.0.0.58 (2026-10-14, not seen in game): Chemist upcasting (user).** tools/upcast.py (build.py, before the Echo
-
-**1.0.0.59 (2026-10-14, not seen in game):** IsSpell on Projectile_FFTJ_ChemicalMixup (all flasks and upcasts inherit it) so Sorcerer Metamagic applies (user wants Twinned): vanilla TwinnedProjectileSpellCheck = single target, AreaRadius 0, SpellFlags.Spell, SpellType Projectile (CommonConditions.khn, now extracted to decompg3\scripts).
-
-**1.0.0.60 (2026-10-14):** JP Boost nerfed to +20% (config JP.Boost.Multiplier 1.5 -> 1.2, user); tests pin their own 1.5. Tester zip FFTJobs-1.0.0.60-test.zip (user asked).
-
-**1.0.0.61 (2026-10-14):** Job Board groups (Jobs / Special jobs / Monster job) are dropdowns = Future changes 1 /
-NWP 4 (part): own toggle buttons "[+] <title> (N)" / "[-] ...", open state in `JobBoard.OpenGroups` (client, kept
-while the game runs, not saved), all start closed (user's pick). Not AddCollapsingHeader (board rebuilt on every
-click). Tests open groups through the toggles (test_ui findButton). Not seen in game.
-twins) writes Spell/Status_FFTJ_Upcast.txt: vanilla pattern `<root>_<N>` + RootSpellID + PowerLevel + level N slot.
-Flasks: level N applies `<STATUS>_<N>`, Effects.SplitLevel reads N (Mixup N-1 extra dice + max(catalyst, N) effects;
-Caustic/Unstable N-1 extra dice; Fulminate uses FFTJ_FULMINATE_BLAST_<N> = Nd6). Mixup/Caustic keep the free cantrip
-+ a `<root>_Slot` root at level 2 (unlocked by their Int passives with AddChildren); Unstable Flask + Chemical Burns
-now level 1 + slot (user); Fulminate variants 2-6. Potions: `<root>_Slot` level 1 = base dice + 1, +1 per level, no
-cooldown, granted with base and thrown variants. Unverified in game: the upcast picker for spells granted by
-AddSpell / UnlockSpell, Lua damage does not add the highest-stat modifier (scaling.py covers stats formulas only).
-OncePerShortRest (user). No throw animation (user's MP playtest): Throw Stone and Chemical Mixup used
-Projectile_FOR_GnomeGoblin_ThrowRock, whose SpellAnimation fills one slot with a goblin-only animation, so player
-characters showed none; both now carry vanilla Throw_Throw's SpellAnimation (the flasks inherit it from Mixup).
-first multiplayer playtest of 1.0.0.55.** (1) Poisoned/Acid tick 1d4 (user: whole game) via Lua, not a stats
-override: Effects.OnTurnStarted deals damage to any creature with the exact status POISONED/ACID at its turn start
-(vanilla children like POTION_OF_POISON / CAMP_DAISY_SICK would inherit a stats TickFunctors); config
-Abilities.PoisonTickDie / AcidTickDie; the client appends a sentence to the vanilla tooltips (UpdateTranslatedString).
-(2) Highest-stat scaling step 1 = tools/scaling.py at build time: + max(max(max(Str,Dex),max(Con,Int)),max(Wis,Cha))
-modifier on 234 dice/LevelMapValue DealDamage/RegainHitPoints formulas of Spell_FFTJ.txt (not weapon/unarmed, not
-existing modifiers, not Chemist FFT items); descriptions of changed abilities get a sentence. Nested max() is
-unverified in game (vanilla has max() with expressions inside). Step 2 (hit chance + DCs) after the weekly reset.
-(3) Potion 1d4+2 (user's pick; items flat). (4) "Dummy"/"Player" Job Board tabs (MP character-creation placeholders,
-tracked at new-game start on SYS_CC_I): no tracking on SYS_CC_* levels, placeholders (name Dummy/Player, not in
-party or camp) are forgotten on load (Meta.Forgotten), new `!fft_forget <name|guid>`. tests/test_scaling.lua; 189
-tests. Backup of 1.0.0.55: C:\Users\berus\GameModding\backups\FFTJobs-1.0.0.55.pak.
 (called by build.py) writes Spell_FFTJ_Menu.txt (569 entries): containers Shout_FFTJ_ChangeJob / Shout_FFTJ_SecondaryJob
 (+ _None) / Shout_FFTJ_LearnFrom_<Job>, children join by SpellContainerID (the Soul Incarnation pattern; containers list
 nothing). User's answers: regular jobs (no group + WotL) always listed, locked ones as greyed "???" (`_Locked` twin,
@@ -285,6 +267,64 @@ Learn entry icons = the ability's icon, resolved through our entries and data/va
 Backup of 1.0.0.54: git tag `backup-1.0.0.54-before-menus`, pak in C:\Users\berus\GameModding\backups.
 Unverified in game: container children staying off the hotbar, the order of entries (alphabetical by spell id, as
 granted), greyed look of the ??? entries, the JP line refresh.
+
+**1.0.0.56 (2026-10-14, installed only with BG3 closed, NOT seen in game): user's "changes to make NOW" after the
+first multiplayer playtest of 1.0.0.55.** (1) Poisoned/Acid tick 1d4 (user: whole game) via Lua, not a stats
+override: Effects.OnTurnStarted deals damage to any creature with the exact status POISONED/ACID at its turn start
+(vanilla children like POTION_OF_POISON / CAMP_DAISY_SICK would inherit a stats TickFunctors); config
+Abilities.PoisonTickDie / AcidTickDie; the client appends a sentence to the vanilla tooltips (UpdateTranslatedString).
+(2) Highest-stat scaling step 1 = tools/scaling.py at build time: + max(max(max(Str,Dex),max(Con,Int)),max(Wis,Cha))
+modifier on 234 dice/LevelMapValue DealDamage/RegainHitPoints formulas of Spell_FFTJ.txt (not weapon/unarmed, not
+existing modifiers, not Chemist FFT items); descriptions of changed abilities get a sentence. Nested max() is
+unverified in game (vanilla has max() with expressions inside). Step 2 (hit chance + DCs) after the weekly reset.
+(3) Potion 1d4+2 (user's pick; items flat). (4) "Dummy"/"Player" Job Board tabs (MP character-creation placeholders,
+tracked at new-game start on SYS_CC_I): no tracking on SYS_CC_* levels, placeholders (name Dummy/Player, not in
+party or camp) are forgotten on load (Meta.Forgotten), new `!fft_forget <name|guid>`. tests/test_scaling.lua; 189
+tests. Backup of 1.0.0.55: C:\Users\berus\GameModding\backups\FFTJobs-1.0.0.55.pak.
+
+**1.0.0.57 (2026-10-14, not seen in game):** Phoenix Down = Level 1 + `SpellSlotsGroup:1:1:1` on top of its
+OncePerShortRest (user). No throw animation (user's MP playtest): Throw Stone and Chemical Mixup used
+Projectile_FOR_GnomeGoblin_ThrowRock, whose SpellAnimation fills one slot with a goblin-only animation, so player
+characters showed none; both now carry vanilla Throw_Throw's SpellAnimation (the flasks inherit it from Mixup).
+
+**1.0.0.58 (2026-10-14, not seen in game): Chemist upcasting (user).** tools/upcast.py (build.py, before the Echo
+twins) writes Spell/Status_FFTJ_Upcast.txt: vanilla pattern `<root>_<N>` + RootSpellID + PowerLevel + level N slot.
+Flasks: level N applies `<STATUS>_<N>`, Effects.SplitLevel reads N (Mixup N-1 extra dice + max(catalyst, N) effects;
+Caustic/Unstable N-1 extra dice; Fulminate uses FFTJ_FULMINATE_BLAST_<N> = Nd6). Mixup/Caustic keep the free cantrip
++ a `<root>_Slot` root at level 2 (unlocked by their Int passives with AddChildren); Unstable Flask + Chemical Burns
+now level 1 + slot (user); Fulminate variants 2-6. Potions: `<root>_Slot` level 1 = base dice + 1, +1 per level, no
+cooldown, granted with base and thrown variants. Unverified in game: the upcast picker for spells granted by
+AddSpell / UnlockSpell, Lua damage does not add the highest-stat modifier (scaling.py covers stats formulas only).
+
+**1.0.0.59 (2026-10-14, not seen in game):** IsSpell on Projectile_FFTJ_ChemicalMixup (all flasks and upcasts inherit it) so Sorcerer Metamagic applies (user wants Twinned): vanilla TwinnedProjectileSpellCheck = single target, AreaRadius 0, SpellFlags.Spell, SpellType Projectile (CommonConditions.khn, now extracted to decompg3\scripts).
+
+**1.0.0.60 (2026-10-14):** JP Boost nerfed to +20% (config JP.Boost.Multiplier 1.5 -> 1.2, user); tests pin their own 1.5. Tester zip FFTJobs-1.0.0.60-test.zip (user asked).
+
+**1.0.0.61 (2026-10-14):** Job Board groups (Jobs / Special jobs / Monster job) are dropdowns = Future changes 1 /
+NWP 4 (part): own toggle buttons "[+] <title> (N)" / "[-] ...", open state in `JobBoard.OpenGroups` (client, kept
+while the game runs, not saved), all start closed (user's pick). Not AddCollapsingHeader (board rebuilt on every
+click). Tests open groups through the toggles (test_ui findButton). Not seen in game.
+
+**1.0.0.62 (2026-10-14, cloud session, NOT packaged or seen in game): NWP 18, highest ability for hit chance and
+save DCs (user: weapon skills keep the weapon's stat; re-check at level-up only).** New `tools/statcast.py` (build.py,
+after the Echo/Arith twins): every job spell (ability grants and variants, jobs' innate/level/mastery spells) and its
+Echo twin get six hidden passives `FFTJ_Cast_<Str|Dex|Con|Int|Wis|Cha>_<spell>` = `UnlockSpell(<spell>,,,,<Ability>)`
+(slot spells: `AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf`), 3402 entries in Passive_FFTJ_Cast.txt; statuses with
+a fixed `CalculateSpellDC(Ability.Intelligence, context.Source)` (the Fulminate blasts) get per-ability twins
+(Status_FFTJ_Cast.txt, picked by Effects.Fulminate via Rules.CastStatus). `Rules.BestStat` (highest score; a tie in
+modifier keeps the current one), `Rules.StatCastGrants` (end of DesiredGrants: job spells -> the passive of
+`char.BestStat`), `Service:UpdateBestStat` (first Reconcile without a BestStat; LeveledUp + 1 s), `Game:AbilityScores`
+(SE `Stats.Abilities`, None first: Strength = [2]; UNVERIFIED), `!fft_beststat [who|all]`, config
+`Rules.HighestStatCasting` (true). scaling.py: ManeuverSaveDC() -> SourceSpellDC() at build time (51 lines of
+Spell_FFTJ.txt; souls untouched). Chemist flasks grant their spells now (`castStat: Intelligence` = their stat when
+the switch is off; FFTJ_Int_<X> kept as legacy for old saves); so they get Echo twins. upcast.py (user, same day):
+Mixup/Caustic slot roots start at level 1 (picker 1-6), slot roots and levels carry the base Icon (the playtest showed
+no icon on them). Grants on old saves: plain-added job spells are removed and the passives added on the first
+Reconcile (hotbar may move once). release.py: --status now goes after the whole newest entry (it split 1.0.0.55-61,
+fixed by hand). tests/test_statcast.lua (9), 201 tests. Unverified in game: Stats.Abilities indexing, the UnlockSpell
+ability on DCs/attack rolls, the level picker with AddChildren (user: Potion (spell slot) "did nothing" in 1.0.0.61,
+where it was added plainly), 3402 hidden passives' load time. Not covered: Arithmeticks twins (cast by the server
+without a spellbook entry), Lua-rolled flask damage still adds no highest modifier.
 
 **Next (2026-10-13 evening, after 1.0.0.44; weekly usage 75%, the user stops this mod at ~90%):** the user's playtest of an early game (Act 1): the 1.0.0.22-44 badges, special jobs and the Soul Collector (PLAYTEST.md "New in" sections list what to watch; read the newest SE runtime log first). Then, if usage allows: enemy jobs for Act 1 (first check in game that the AI casts spells added with AddSpell, PHASE2.md item 24), Act 2-3 souls, the 7 extra special jobs (docs/SPECIAL_JOBS.md, last section), the Soul Codex as a real item (custom root template). Helper tools: `tools/jobtool.py`, `tools/release.py`; soul data in `data/souls.json` (`tools/souls_gen.py`).
 

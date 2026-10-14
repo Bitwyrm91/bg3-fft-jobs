@@ -8,7 +8,10 @@ stats_src, so the Echo twins and grant checks see the new roots.
 - Flasks: damage comes from Lua (Server/Effects.lua) on the status the flask applies, so level N applies
   `<STATUS>_<N>` and Effects reads N: Mixup N dice and N effects, Caustic/Unstable N dice, Fulminate N d6 (its blast
   status `FFTJ_FULMINATE_BLAST_<N>`). Mixup and Caustic keep their free cantrip and get a slot root `<root>_Slot`
-  (level 2+, since level 1 would equal the cantrip); Unstable Flask and Fulminate Flask are level 1 spells (user).
+  at level 1 with BG3's own level picker for 1-6 (user, 2026-10-14: "keep the cantrip version and then add the level
+  1 version"); Unstable Flask and Fulminate Flask are level 1 spells (user).
+- Slot roots and their levels carry the base spell's Icon themselves (the playtest showed no icon on the Mixup and
+  Caustic slot versions, which only inherited it).
 - Potions (stats only): `<root>_Slot` level 1 = one more healing die than the free version, +1 die per level above;
   no cooldown (the slot is the cost); touch range like the base.
 """
@@ -20,8 +23,8 @@ MAX_LEVEL = 6
 SLOT = "SpellSlotsGroup:1:1:{}"
 # root spell -> (status it applies, field holding it, first slot level, separate slot root?)
 FLASKS = {
-    "Projectile_FFTJ_ChemicalMixup": ("FFTJ_CHEM_MIXUP", "SpellSuccess", 2, True),
-    "Projectile_FFTJ_CausticFlask": ("FFTJ_CAUSTIC", "SpellSuccess", 2, True),
+    "Projectile_FFTJ_ChemicalMixup": ("FFTJ_CHEM_MIXUP", "SpellSuccess", 1, True),
+    "Projectile_FFTJ_CausticFlask": ("FFTJ_CAUSTIC", "SpellSuccess", 1, True),
     "Projectile_FFTJ_UnstableFlask": ("FFTJ_UNSTABLE", "SpellSuccess", 2, False),
     "Projectile_FFTJ_FulminateFlask": ("FFTJ_FULMINATE", "SpellProperties", 2, False),
 }
@@ -48,8 +51,8 @@ def strings(jobs_doc):
     for root, aid in list(ABILITY_OF.items()) + [(r, a) for r, a in POTIONS.items()]:
         t[f"upcast.{aid}.name"] = f"{names[aid]} (spell slot)"
     t["upcast.ChemicalMixup.desc"] = ("Chemical Mixup with a spell slot: a level N slot rolls N damage dice and adds N "
-                                      "effects (level 2-6).")
-    t["upcast.CausticFlask.desc"] = "Caustic Flask with a spell slot: a level N slot rolls N damage dice (level 2-6)."
+                                      "effects (level 1-6).")
+    t["upcast.CausticFlask.desc"] = "Caustic Flask with a spell slot: a level N slot rolls N damage dice (level 1-6)."
     for aid in POTIONS.values():
         t[f"upcast.{aid}.desc"] = (f"{names[aid]} with a spell slot: one more healing die than the free one, and one "
                                    f"more per slot level above 1. No cooldown.")
@@ -60,10 +63,15 @@ def stats(entries_list, H):
     entries = {e["name"]: e for e in entries_list}
     spells, statuses = [], []
 
+    def icon(root):
+        value = _field(entries, root.removesuffix("_Slot"), "Icon")
+        return [f'data "Icon" "{value}"'] if value else []
+
     def variant(name, root, level, field, value, using=None, extra=()):
         spells.extend([f'new entry "{name}"', 'type "SpellData"', f'data "SpellType" "{_field(entries, root.removesuffix("_Slot"), "SpellType")}"',
                        f'using "{using or root}"', f'data "RootSpellID" "{root}"', f'data "PowerLevel" "{level}"',
-                       f'data "UseCosts" "ActionPoint:1;{SLOT.format(level)}"', f'data "{field}" "{value}"', *extra, ""])
+                       f'data "UseCosts" "ActionPoint:1;{SLOT.format(level)}"', f'data "{field}" "{value}"', *icon(root),
+                       *extra, ""])
 
     for root, (status, field, first, separate) in FLASKS.items():
         base = _field(entries, root, field)
@@ -77,7 +85,7 @@ def stats(entries_list, H):
             spells.extend([f'new entry "{top}"', 'type "SpellData"',
                            f'data "SpellType" "{_field(entries, root, "SpellType")}"', f'using "{root}"',
                            f'data "Level" "{first}"', f'data "UseCosts" "ActionPoint:1;{SLOT.format(first)}"',
-                           f'data "{field}" "{pat.sub(f"{status}_{first}", base)}"',
+                           f'data "{field}" "{pat.sub(f"{status}_{first}", base)}"', *icon(root),
                            f'data "DisplayName" "{H(f"upcast.{aid}.name")}"',
                            f'data "Description" "{H(f"upcast.{aid}.desc")}"', ""])
             levels = range(first + 1, MAX_LEVEL + 1)

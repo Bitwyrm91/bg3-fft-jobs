@@ -1512,6 +1512,9 @@ data "Description" "{{desc:Saturation}}"
 data "Icon" "Item_LOOT_Alchemy_Machine_Flask_A"
 data "Properties" "Highlighted"
 
+// LEGACY since 1.0.0.62, granted by nothing: the flasks come through tools/statcast.py's FFTJ_Cast_<Stat>_<spell>
+// passives now (highest ability; Intelligence when Rules.HighestStatCasting is off). Kept so saves that still hold
+// one can drop it cleanly (Grants.Apply removes it on load).
 // Chemist flasks cast with Intelligence (user, 2026-10-13: "scale like other caster classes, Intelligence"):
 // UnlockSpell's 5th argument sets the casting ability (vanilla: UnlockSpell(Projectile_ProduceFlame_Hurl,,,,Wisdom)).
 

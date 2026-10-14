@@ -299,6 +299,35 @@ def("fft_grants", "[who]  what the jobs grant now and whether the game has it (d
     return svc:DescribeGrants(guid)
 end)
 
+def("fft_beststat", "[who|all]  the ability job skills cast with; checks the highest ability again now (after a respec)", function(svc, args)
+    if not svc.Ready then
+        return { "The job system has not loaded yet" }
+    end
+    local guids
+    if Util.Normalize(args[1]) == "all" then
+        guids = svc.State:Guids()
+    else
+        local guid, err = who(svc, args[1])
+        if not guid then
+            return { err }
+        end
+        guids = { guid }
+    end
+    local out = {}
+    for _, guid in ipairs(guids) do
+        local char = svc.State:Get(guid)
+        if svc:UpdateBestStat(guid, char, "console") then
+            svc:Reconcile(guid, false)
+        end
+        out[#out + 1] = string.format("%s: job skills cast with %s", char.Name,
+            char.BestStat or "the game's default (ability scores not readable)")
+    end
+    if not svc:Cfg().Rules.HighestStatCasting then
+        out[#out + 1] = "Rules.HighestStatCasting is off: skills are added plainly (Chemist flasks: Intelligence)"
+    end
+    return out
+end)
+
 def("fft_forget", "<name|guid>  stop tracking characters with that exact name (e.g. Dummy) for good", function(svc, args)
     local key = table.concat(args, " ")
     if key == "" then

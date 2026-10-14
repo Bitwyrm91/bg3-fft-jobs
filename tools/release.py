@@ -66,6 +66,9 @@ def main(argv):
         para = Path(status).read_text(encoding="utf-8").strip()
         lines = read("STATUS.md").split("\n")
         last = max(i for i, ln in enumerate(lines) if re.match(r"\*\*1\.0\.0\.\d+", ln))
+        # after the whole newest entry, not its first line (that split multi-line entries before)
+        while last + 1 < len(lines) and lines[last + 1].strip():
+            last += 1
         lines[last + 1:last + 1] = ["", para]
         write("STATUS.md", "\n".join(lines))
 

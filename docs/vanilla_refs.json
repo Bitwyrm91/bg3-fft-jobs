@@ -773,6 +773,12 @@
     "usedBy": [
       "FFTJ_Int_ChemicalMixup",
       "Projectile_FFTJ_ChemicalMixup",
+      "Projectile_FFTJ_ChemicalMixup_Slot",
+      "Projectile_FFTJ_ChemicalMixup_Slot_2",
+      "Projectile_FFTJ_ChemicalMixup_Slot_3",
+      "Projectile_FFTJ_ChemicalMixup_Slot_4",
+      "Projectile_FFTJ_ChemicalMixup_Slot_5",
+      "Projectile_FFTJ_ChemicalMixup_Slot_6",
       "Shout_FFTJ_Learn_ChemicalMixup"
     ]
   },
@@ -783,6 +789,11 @@
       "FFTJ_Int_UnstableFlask",
       "Projectile_FFTJ_ThrowBombs",
       "Projectile_FFTJ_UnstableFlask",
+      "Projectile_FFTJ_UnstableFlask_2",
+      "Projectile_FFTJ_UnstableFlask_3",
+      "Projectile_FFTJ_UnstableFlask_4",
+      "Projectile_FFTJ_UnstableFlask_5",
+      "Projectile_FFTJ_UnstableFlask_6",
       "Shout_FFTJ_Learn_ThrowBombs",
       "Shout_FFTJ_Learn_UnstableFlask"
     ]
@@ -802,6 +813,11 @@
     "usedBy": [
       "FFTJ_Int_FulminateFlask",
       "Projectile_FFTJ_FulminateFlask",
+      "Projectile_FFTJ_FulminateFlask_2",
+      "Projectile_FFTJ_FulminateFlask_3",
+      "Projectile_FFTJ_FulminateFlask_4",
+      "Projectile_FFTJ_FulminateFlask_5",
+      "Projectile_FFTJ_FulminateFlask_6",
       "Shout_FFTJ_Learn_FulminateFlask"
     ]
   },
@@ -819,6 +835,12 @@
     "usedBy": [
       "FFTJ_Int_CausticFlask",
       "Projectile_FFTJ_CausticFlask",
+      "Projectile_FFTJ_CausticFlask_Slot",
+      "Projectile_FFTJ_CausticFlask_Slot_2",
+      "Projectile_FFTJ_CausticFlask_Slot_3",
+      "Projectile_FFTJ_CausticFlask_Slot_4",
+      "Projectile_FFTJ_CausticFlask_Slot_5",
+      "Projectile_FFTJ_CausticFlask_Slot_6",
       "Shout_FFTJ_Learn_CausticFlask"
     ]
   },

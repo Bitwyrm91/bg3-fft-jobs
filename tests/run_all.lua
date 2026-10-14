@@ -18,6 +18,7 @@ local SUITES = {
     "test_souls.lua",
     "test_menu.lua",
     "test_scaling.lua",
+    "test_statcast.lua",
 }
 
 local filter = arg and arg[1]

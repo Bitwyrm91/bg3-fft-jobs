@@ -222,6 +222,25 @@ end
 Service.FORM_STATUS = "WILDSHAPE_ACTIVE"
 Service.FORM_END_MS = 1000
 
+-- The ability job skills cast with (Rules.BestStat, NWP 18): read when the mod first meets the character and again
+-- after each level-up only (user: gear and potions never reshuffle the hotbar). Returns true when it changed.
+Service.BEST_STAT_MS = 1000 -- after LeveledUp, so the new ability scores are in
+
+function Service:UpdateBestStat(guid, char, why)
+    local best = Rules.BestStat(self.Game:AbilityScores(guid), char.BestStat)
+    if best == nil or best == char.BestStat then
+        return false
+    end
+    local old = char.BestStat
+    char.BestStat = best
+    self.State:MarkDirty()
+    self.Log.Info(string.format("%s: job skills cast with %s (%s)", char.Name or guid, best, why))
+    if old and self:Cfg().Rules.HighestStatCasting then
+        self:Notify(guid, string.format("%s's job skills now use %s, the highest ability.", char.Name or "", best))
+    end
+    return true
+end
+
 function Service:Reconcile(guid, repair)
     local char = self.State:Get(guid)
     if not char then
@@ -230,6 +249,9 @@ function Service:Reconcile(guid, repair)
     if self.Game:Has("Statuses", guid, Service.FORM_STATUS) then
         self.PendingReconcile[guid] = self.PendingReconcile[guid] or repair or false
         return
+    end
+    if char.BestStat == nil then
+        self:UpdateBestStat(guid, char, "first look")
     end
     local desired
     if self:IsDisabled() then
@@ -910,8 +932,15 @@ function Service:OnLeveledUp(character)
     if not self.Ready then
         return
     end
+    local guid = Util.Guid(character)
     self:PollXP()
-    self:Reconcile(Util.Guid(character), true)
+    self:Reconcile(guid, true)
+    self.WaitFor(Service.BEST_STAT_MS, function()
+        local char = self.State:Get(guid)
+        if char and self:UpdateBestStat(guid, char, "level up") then
+            self:Reconcile(guid, false)
+        end
+    end)
 end
 
 ---------------------------------------------------------------- job ability effects (Effects.lua)

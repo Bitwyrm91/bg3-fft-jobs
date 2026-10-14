@@ -1,0 +1,179 @@
+new entry "FFTJ_FULMINATE_BLAST_Str"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_Dex"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_Con"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_Int"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_Wis"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_Cha"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST"
+data "OnApplyFunctors" "DealDamage(1d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_2_Str"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_2"
+data "OnApplyFunctors" "DealDamage(2d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_2_Dex"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_2"
+data "OnApplyFunctors" "DealDamage(2d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_2_Con"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_2"
+data "OnApplyFunctors" "DealDamage(2d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_2_Int"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_2"
+data "OnApplyFunctors" "DealDamage(2d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_2_Wis"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_2"
+data "OnApplyFunctors" "DealDamage(2d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_2_Cha"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_2"
+data "OnApplyFunctors" "DealDamage(2d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_3_Str"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_3"
+data "OnApplyFunctors" "DealDamage(3d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_3_Dex"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_3"
+data "OnApplyFunctors" "DealDamage(3d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_3_Con"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_3"
+data "OnApplyFunctors" "DealDamage(3d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_3_Int"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_3"
+data "OnApplyFunctors" "DealDamage(3d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_3_Wis"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_3"
+data "OnApplyFunctors" "DealDamage(3d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_3_Cha"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_3"
+data "OnApplyFunctors" "DealDamage(3d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_4_Str"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_4"
+data "OnApplyFunctors" "DealDamage(4d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_4_Dex"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_4"
+data "OnApplyFunctors" "DealDamage(4d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_4_Con"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_4"
+data "OnApplyFunctors" "DealDamage(4d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_4_Int"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_4"
+data "OnApplyFunctors" "DealDamage(4d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_4_Wis"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_4"
+data "OnApplyFunctors" "DealDamage(4d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_4_Cha"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_4"
+data "OnApplyFunctors" "DealDamage(4d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_5_Str"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_5"
+data "OnApplyFunctors" "DealDamage(5d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_5_Dex"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_5"
+data "OnApplyFunctors" "DealDamage(5d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_5_Con"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_5"
+data "OnApplyFunctors" "DealDamage(5d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_5_Int"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_5"
+data "OnApplyFunctors" "DealDamage(5d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_5_Wis"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_5"
+data "OnApplyFunctors" "DealDamage(5d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_5_Cha"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_5"
+data "OnApplyFunctors" "DealDamage(5d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_6_Str"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_6"
+data "OnApplyFunctors" "DealDamage(6d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Strength, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_6_Dex"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_6"
+data "OnApplyFunctors" "DealDamage(6d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Dexterity, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_6_Con"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_6"
+data "OnApplyFunctors" "DealDamage(6d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Constitution, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_6_Int"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_6"
+data "OnApplyFunctors" "DealDamage(6d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Intelligence, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_6_Wis"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_6"
+data "OnApplyFunctors" "DealDamage(6d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Wisdom, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"
+
+new entry "FFTJ_FULMINATE_BLAST_6_Cha"
+type "StatusData"
+using "FFTJ_FULMINATE_BLAST_6"
+data "OnApplyFunctors" "DealDamage(6d6,Bludgeoning);IF(not SavingThrow(Ability.Constitution, CalculateSpellDC(Ability.Charisma, context.Source))):ApplyStatus(FFTJ_FULMINATE_STUNNED,100,0)"

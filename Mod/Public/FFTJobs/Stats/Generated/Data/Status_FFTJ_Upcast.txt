@@ -1,3 +1,7 @@
+new entry "FFTJ_CHEM_MIXUP_1"
+type "StatusData"
+using "FFTJ_CHEM_MIXUP"
+
 new entry "FFTJ_CHEM_MIXUP_2"
 type "StatusData"
 using "FFTJ_CHEM_MIXUP"
@@ -17,6 +21,10 @@ using "FFTJ_CHEM_MIXUP"
 new entry "FFTJ_CHEM_MIXUP_6"
 type "StatusData"
 using "FFTJ_CHEM_MIXUP"
+
+new entry "FFTJ_CAUSTIC_1"
+type "StatusData"
+using "FFTJ_CAUSTIC"
 
 new entry "FFTJ_CAUSTIC_2"
 type "StatusData"

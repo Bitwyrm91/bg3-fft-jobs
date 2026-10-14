@@ -1,6 +1,8 @@
 """Job skills scale with the character's highest ability (user, 2026-10-14: "make the abilities scale with the player's
 highest stat regardless if it's INT or whatever"). Step 1 (this file): the damage and healing formulas of our spells
-get + the highest ability modifier, at build time. Step 2 (after the weekly reset): hit chance and save DCs.
+get + the highest ability modifier, at build time. Step 2 (NWP 18): hit chance and save DCs follow each spell's casting
+ability, which tools/statcast.py sets to the highest one; here the Battle Master style ManeuverSaveDC() (Strength or
+Dexterity) becomes SourceSpellDC() so those DCs follow it too.
 
 Rules (build.py calls apply() on Spell_FFTJ.txt and Interrupt_FFTJ.txt; souls, menus and twins are left alone, the
 Echo/Arithmeticks twins inherit through `using`):
@@ -23,6 +25,7 @@ DICE = re.compile(r"\d*d\d+|LevelMapValue\(")
 DATA_RE = re.compile(r'^data "([^"]+)" "(.*)"$')
 ENTRY_RE = re.compile(r'^new entry "([^"]+)"')
 NOTE = " Damage and healing add your highest ability modifier."
+DC_FROM, DC_TO = "ManeuverSaveDC()", "SourceSpellDC()"
 
 
 def excluded_abilities(jobs_doc):
@@ -95,6 +98,8 @@ def apply(text, jobs_doc):
         m = ENTRY_RE.match(line)
         if m:
             entry = m.group(1)
+        if DC_FROM in line:
+            line = line.replace(DC_FROM, DC_TO)
         d = DATA_RE.match(line)
         if d and d.group(1) in FIELDS and by_entry.get(entry) not in skip:
             new, changed = scale_value(d.group(2))

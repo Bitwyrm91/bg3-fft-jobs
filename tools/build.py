@@ -19,12 +19,13 @@ from pathlib import Path
 import scaling  # job skills scale with the highest ability (damage, heals)
 import upcast  # Chemist skills cast with higher spell slots
 import menu_gen  # job menus in BG3's own UI (spell containers)
+import statcast  # job skills hit and set save DCs with the highest ability
 import souls_gen  # Soul Collector forms (data/souls.json); tools/ is on sys.path when this script runs
 
 ROOT = Path(__file__).resolve().parent.parent
 MOD_UUID = "3db7be3e-9387-4678-b172-044acc7ff0c2"
 MOD_FOLDER = "FFTJobs"
-MOD_VERSION = "1.0.0.61"
+MOD_VERSION = "1.0.0.62"
 JOB_BOARD_SPELL = "Shout_FFTJ_JobBoard"
 TRAINING_SPELL = "Shout_FFTJ_JPTraining"
 # Icons: art\icons\<key>.png -> icon FFTJ_Icon_<key> in our atlas (64 px cells, like vanilla Icons_Skills); the DDS
@@ -169,6 +170,9 @@ def validate(jobs_doc, config_doc, strings_doc):
             errors.append(f"ability {aid}: grants nothing")
         if not a.get("description"):
             errors.append(f"ability {aid}: no description")
+        # the ability its spells cast with while the highest ability is not in use (tools/statcast.py)
+        if "castStat" in a and a["castStat"] not in [name for name, _ in statcast.STATS]:
+            errors.append(f"ability {aid}: castStat must be an ability name (Strength ... Charisma)")
     for a in jobs_doc["abilities"]:
         for v in a.get("variants", []):
             for cond in v["when"].get("anyOf", []):
@@ -278,7 +282,7 @@ def unlock_req(r):
     return {"Job": r["job"], "Level": r["level"]}
 
 
-def build_lua(jobs_doc, config_doc):
+def build_lua(jobs_doc, config_doc, statcast_data=None):
     jobs = {}
     art = set(art_keys())
     for i, j in enumerate(jobs_doc["jobs"]):
@@ -362,6 +366,8 @@ def build_lua(jobs_doc, config_doc):
         "DefaultPreset": config_doc["defaultPreset"],
         "ConfigHelp": config_doc.get("help", {}),
         "JobMenu": menu_gen.lua_data(jobs_doc, handle_for),
+        # tools/statcast.py: the hidden FFTJ_Cast_<Stat>_<spell> passives (Rules.StatCastGrants)
+        "StatCast": statcast_data or {},
     }
     souls_doc = souls_gen.load()
     if souls_doc:
@@ -725,7 +731,7 @@ def build_stats(jobs_doc, strings_doc):
     outputs = {}
     entries = []
     if not STATS_SRC.is_dir():
-        return outputs, table, used, entries
+        return outputs, table, used, entries, None
     job_by_id = {j["id"]: j for j in jobs_doc["jobs"]}
     for src in sorted(STATS_SRC.glob("*.txt")):
 
@@ -775,6 +781,14 @@ def build_stats(jobs_doc, strings_doc):
     for name, out in ((ECHO_FILE, echo_stats(jobs_doc, entries, used)), (ARITH_FILE, arith_stats(jobs_doc, used))):
         outputs[STATS_OUT / name] = out
         entries += parse_stats(out, name)
+    try:
+        cast_text, cast_statuses, cast_lua = statcast.build(jobs_doc, entries, ECHO_SUFFIX)
+    except ValueError as e:
+        raise BuildError(str(e))
+    for name, out in ((statcast.FILE, cast_text), (statcast.STATUS_FILE, cast_statuses)):
+        if out:
+            outputs[STATS_OUT / name] = out
+            entries += parse_stats(out, name)
     souls_doc = souls_gen.load()
     if souls_doc:
         def soul_handle(key):
@@ -801,7 +815,7 @@ def build_stats(jobs_doc, strings_doc):
         for path in list(outputs):
             outputs[path] = inject_icons(outputs[path], keys, art)
             entries += parse_stats(outputs[path], path.name)
-    return outputs, table, used, entries
+    return outputs, table, used, entries, cast_lua
 
 
 def check_stats(jobs_doc, entries):
@@ -894,8 +908,8 @@ def main(argv):
     strings_doc = load_json("strings.json")
     validate(jobs_doc, config_doc, strings_doc)
 
-    outputs = {LUA_OUT: build_lua(jobs_doc, config_doc)}
-    stats_outputs, table, used, entries = build_stats(jobs_doc, strings_doc)
+    stats_outputs, table, used, entries, cast_lua = build_stats(jobs_doc, strings_doc)
+    outputs = {LUA_OUT: build_lua(jobs_doc, config_doc, cast_lua)}
     if stats_outputs:
         refs = check_stats(jobs_doc, entries)
         outputs.update(stats_outputs)

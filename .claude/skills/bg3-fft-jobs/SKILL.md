@@ -21,7 +21,8 @@ Extender (SE v33 on the user's PC; IMGUI uses `SetColor`/`SetStyle`, not `SetSty
 - `tools/build.py` → generated (commit them): `Mod/Public/FFTJobs/Stats/Generated/Data/*.txt`,
   `Mod/Localization/English/FFTJobs.xml`, `Mod/Mods/FFTJobs/ScriptExtender/Lua/Shared/GeneratedData.lua`, icon atlas,
   root template. Generators it calls: `menu_gen.py` (hotbar job menus), `scaling.py` (+highest ability modifier on
-  job damage/heals), `upcast.py` (Chemist spell-slot levels), `souls_gen.py`, Echo/Arith twins.
+  job damage/heals; ManeuverSaveDC -> SourceSpellDC), `upcast.py` (Chemist spell-slot levels), `souls_gen.py`, Echo/Arith
+  twins, `statcast.py` (FFTJ_Cast_* passives, last, so it sees every spell).
 - Lua (`Mod/Mods/FFTJobs/ScriptExtender/Lua/`): `Server/Service.lua` (the hub: events, SetPrimary/Learn/Equip, JP,
   menus), `Rules.lua` (pure rules + `DesiredGrants`), `Grants.lua` (apply the difference), `Effects.lua` (Lua-driven
   ability effects: steal, Chemist flasks, Poison/Acid ticks), `Game.lua` (all Osiris/Ext calls, wrapped in Try),
@@ -34,9 +35,13 @@ Extender (SE v33 on the user's PC; IMGUI uses `SetColor`/`SetStyle`, not `SetSty
 ## Grants
 A character's spells/passives/statuses = `Rules.DesiredGrants`; `Grants.Apply` adds/removes only what the mod
 granted (`char.Granted`). Primary job: innate passives + learned actions; secondary: learned actions; slots: reaction
-+ 2 passives; the main job's support/movement are always on; mastery perks kept. Chemist flasks are granted by hidden
-passives `FFTJ_Int_<X>` with `UnlockSpell(<spell>,,,,Intelligence)` (slot spells:
-`UnlockSpell(<spell>,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Intelligence)`); other spells by AddSpell.
++ 2 passives; the main job's support/movement are always on; mastery perks kept. Job spells (and Echo twins) are
+granted through hidden passives `FFTJ_Cast_<Str|Dex|Con|Int|Wis|Cha>_<spell>` (`tools/statcast.py`,
+`UnlockSpell(<spell>,,,,<Ability>)`; slot spells `UnlockSpell(<spell>,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,<Ability>)`)
+for `char.BestStat` (the highest ability, read on first sight and after level-ups only; `Rules.StatCastGrants`), so
+spell attacks and SourceSpellDC() use it. Off (`Rules.HighestStatCasting` false) or scores unreadable: plain AddSpell,
+except abilities with `castStat` (Chemist flasks: Intelligence). Menus, Job Board, souls: AddSpell. `FFTJ_Int_<X>` =
+legacy, granted by nothing.
 
 ## BG3 stats facts (verified against vanilla data)
 - Spell container: `SpellFlags IsLinkedSpellContainer`; a container shows EVERY `ContainerSpells` entry learned or
@@ -78,5 +83,5 @@ passives `FFTJ_Int_<X>` with `UnlockSpell(<spell>,,,,Intelligence)` (slot spells
 
 ## Open threads (see STATUS.md NWP)
 Hotbar menu entries never reached CastedSpell in the MP log (item 15); JP not visible in Learn menus (9); overhead JP
-text (10); highest-stat hit/DC step 2 (18); Fell Seal Samurai/Assassin, WoW Rogue for Ninja; enemy jobs; Soul
-Collector paused (forms too strong, JP-cost forms).
+text (10); job equipment limits (19); Fell Seal Samurai/Assassin, WoW Rogue for Ninja; enemy jobs; Soul Collector
+paused (forms too strong, JP-cost forms). Highest-ability hit/DC (18) is built in 1.0.0.62, unverified in game.
