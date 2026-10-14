@@ -8830,6 +8830,8 @@ return {
       Unlock = true,
       Mastered = true,
       JPGain = false,
+      JPOverhead = true,
+      JPOverheadSeconds = 6,
     },
     Badges = {
       FromBosses = true,
@@ -8985,6 +8987,8 @@ return {
     ["Notifications.Unlock"] = "Show a notification when a job unlocks.",
     ["Notifications.Mastered"] = "Show a notification when a job is mastered.",
     ["Notifications.JPGain"] = "Print every JP gain to the console (noisy).",
+    ["Notifications.JPOverhead"] = "Show \"+N JP\" above a character's head when its main job gains JP.",
+    ["Notifications.JPOverheadSeconds"] = "How long the hidden \"+N JP\" status stays on (6 = one turn; 0 = gone at once, if the text still shows).",
     ["Badges.FromBosses"] = "Special jobs: a boss's badge comes when the game counts the boss as defeated (killed, knocked out, surrendered, ...) or when the boss joins the party. Bosses beaten before the mod was installed count when the save loads. false = badges only through !fft_badge.",
     ["Badges.SparedBosses"] = "A boss the party met (fought or spoke with) and left alive gives its badge when the party moves on to a later act (spared bosses still give their badge). Commander Zhalk counts when you reach the shore.",
     ["Abilities.StealGilPerLevel"] = "Steal Gil: gold per level of the robbed creature.",
@@ -10294,6 +10298,12 @@ return {
       Name = "Grand Hunting Trophy",
       Template = "dc0360c7-6b03-5a11-b2c0-cff290a17e50",
     },
+  },
+  JPFloat = {
+    Prefix = "FFTJ_JPGAIN_",
+    Exact = 200,
+    Step = 10,
+    Max = 1000,
   },
   Souls = {
     Goblin = {
