@@ -67,19 +67,17 @@ EquipHeavyArmor|a full suit of polished silver plate armour standing upright, ro
 EquipShields|a large polished kite shield with a silver cross emblem, royal blue background
 EquipSwords|a longsword and a shortsword crossed point down, royal blue background
 
-Aim1|a longbow drawn with one arrow aimed along a single glowing sight line, forest green background|+1
-Aim2|a longbow drawn with two glowing golden rings around the arrowhead, forest green background|+2
-Aim3|a longbow drawn tight with three glowing golden rings around the arrowhead, forest green background|+3
-Aim4|a longbow at full draw with four bright golden rings and wind spiralling around the arrow, forest green background|+4
-Aim5|a glowing arrow on a drawn bow in front of a large golden crosshair, forest green background|+5
-Aim7|an arrow wrapped in swirling white wind leaving a bow string, forest green background|+7
-Aim10|a blazing arrow of golden light streaking forward, forest green background|+10
-Aim20|a huge radiant arrow piercing the centre of a bullseye in an explosion of light, forest green background|+20
-SpeedSurge|a hooded archer dashing sideways in a blur of green wind, forest green background
-ArchersBane|an arrow breaking in half against a raised leather forearm guard, splinters flying, forest green background
-EquipCrossbows|a heavy wooden crossbow loaded with a steel bolt, forest green background
-Concentration|a narrowed archer's eye with a glowing golden crosshair reflected in it, forest green background
-Jump1|a lightly armoured figure leaping high along a long curved arc of light, forest green background
+RootingShot|an arrow stuck in the earth as thick thorny roots burst up and coil around a wolf's legs, forest green background|seed=12
+Balm|a small clay pot of green herbal salve with a wooden spatula and fresh healing leaves, forest green background
+Scout|a hooded ranger crouching on a rocky ridge, shading the eyes and scanning a misty valley below, forest green background
+CollectTrophy|a mounted hunting trophy of a great wolf's skull and fangs on a wooden plaque, a hunting arrow across it, forest green background
+KnowWeakness|a glowing red weak point between the armoured scales of a huge beast, an arrowhead aimed at it, forest green background
+RainOfArrows|dozens of arrows falling from a stormy sky in one long straight line onto the ground, forest green background
+EvasionUp|a leather-clad ranger leaping sideways as an arrow whistles past, motion streaks, forest green background
+Multishot|three arrows fanning out at once from one drawn longbow, forest green background|seed=12
+Countershot|two arrows meeting head-on in mid-air, one splitting the other down its shaft, forest green background
+SniperShot|a single long arrow streaking far across a wide valley toward a tiny distant target, forest green background|seed=12
+EquipBows|a longbow and a crossbow crossed over a leather quiver full of arrows, forest green background
 
 Cure|soft white and green healing sparkles rising from two cupped hands, pale gold background
 Cura|a ring of healing light with gentle green sparkles spreading outward, pale gold background

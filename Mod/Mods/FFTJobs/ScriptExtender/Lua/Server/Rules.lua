@@ -88,6 +88,53 @@ function Rules.Normalize(char)
     return char
 end
 
+-- Abilities taken out of a job (data.Retired, e.g. the TIC Archer's Aim set in 1.0.0.66): a learned one is forgotten
+-- and its JP goes back to the job's unspent JP (earned JP, and so the job level, stay), or its ReplacedBy ability is
+-- learned instead (Equip Crossbows -> Equip Bows); a slotted one leaves its slot (or makes room for the replacement).
+-- Returns { {Job, Refund, Names, Replaced} ... } per job touched, empty when nothing changed.
+function Rules.MigrateRetired(data, char)
+    local byJob, found = {}, {}
+    for jobId, js in pairs(char.Jobs or {}) do
+        for aid in pairs(js.Learned or {}) do
+            if data.Retired and data.Retired[aid] then
+                found[#found + 1] = { JobId = jobId, Id = aid }
+            end
+        end
+    end
+    table.sort(found, function(a, b) return a.Id < b.Id end)
+    for _, f in ipairs(found) do
+        local old = data.Retired[f.Id]
+        char.Jobs[f.JobId].Learned[f.Id] = nil
+        local job = old.Job or f.JobId
+        local entry = byJob[job] or { Job = job, Refund = 0, Names = {}, Replaced = {} }
+        byJob[job] = entry
+        entry.Names[#entry.Names + 1] = f.Id
+        local new = old.ReplacedBy and data.Abilities[old.ReplacedBy]
+        if new then
+            Rules.EnsureJob(char, new.Job).Learned[new.Id] = true
+            entry.Replaced[#entry.Replaced + 1] = new.Name
+        else
+            local js = Rules.EnsureJob(char, job)
+            js.Unspent = js.Unspent + (old.Cost or 0)
+            entry.Refund = entry.Refund + (old.Cost or 0)
+        end
+    end
+    for _, slot in ipairs(Rules.Slots) do
+        local old = data.Retired and char[slot] and data.Retired[char[slot]]
+        if old then
+            local new = old.ReplacedBy and data.Abilities[old.ReplacedBy]
+            char[slot] = (new and Rules.SlotTypes[slot][new.Type]) and new.Id or nil
+        end
+    end
+    local out = {}
+    for _, jobId in ipairs(data.JobOrder) do
+        if byJob[jobId] then
+            out[#out + 1] = byJob[jobId]
+        end
+    end
+    return out
+end
+
 ---------------------------------------------------------------- levels and unlocks
 
 function Rules.JobLevel(earned, thresholds)

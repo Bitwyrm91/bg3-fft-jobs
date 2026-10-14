@@ -45,6 +45,9 @@ Starting ability: Blind Powder. Passives: Cautious Step, Dual Wield. Counter: Cr
 
 ## Ranger (Fell Seal) — skill set "Survival" (pasted by the user on 2026-10-14; becomes our Archer, STATUS NWP 22)
 
+Built in 1.0.0.66 (JP = AP x 2.5; Collect Pelt renamed Collect Trophy: a sellable trophy in the body's loot; Equip
+Bows added; BG3 mapping in STATUS.md, 1.0.0.66).
+
 Requirements: Scoundrel 4 (ours keeps the Archer's unlock). Move 4, Jump 5, Swim. Equipment: axe, bow, crossbow, light
 armour (ours: no axes, user). Starting ability: Rooting Shot. Passives: Know Weakness, Evasion Up. Counter: Countershot.
 "Survivalists who have honed their skill in archery to deadly effect."

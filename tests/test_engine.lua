@@ -248,7 +248,7 @@ function S.level_up_and_unlock_notifications(w, T)
     svc:AddManualJP(T.TAV, 200, "Squire")
     T.contains(w.notifications, "Tav: Squire is now job level 2")
     T.contains(w.notifications, "Tav unlocked the Knight job!")
-    T.contains(w.notifications, "Tav unlocked the Archer job!")
+    T.contains(w.notifications, "Tav unlocked the Ranger job!")
 end
 
 ---------------------------------------------------------------- Fell Seal rules (phase 2)

@@ -14,6 +14,36 @@
 					<attribute id="Type" type="FixedString" value="item" />
 					<attribute id="maxStackAmount" type="int32" value="1" />
 				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h5533ed3fgd692g5787g985cgc7a57bd8a898" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h13a2539ag07fag5951g940fga7880564b9e6" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="e7b360ab-5f98-538e-8ba9-b48db8771efc" />
+					<attribute id="Name" type="LSString" value="FFTJ_Trophy_Small" />
+					<attribute id="ParentTemplateId" type="FixedString" value="80169178-734d-48f0-9022-d3392a009c92" />
+					<attribute id="Stats" type="FixedString" value="FFTJ_Trophy_Small" />
+					<attribute id="Type" type="FixedString" value="item" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="ha2676775g4460g5f52gbc86ge20451bf6a83" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h0388ba67g2c75g5bdcg89c0g0ccbd61448cb" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="89ccf349-7889-58e6-88ac-6fc14afc7ddc" />
+					<attribute id="Name" type="LSString" value="FFTJ_Trophy_Fine" />
+					<attribute id="ParentTemplateId" type="FixedString" value="80169178-734d-48f0-9022-d3392a009c92" />
+					<attribute id="Stats" type="FixedString" value="FFTJ_Trophy_Fine" />
+					<attribute id="Type" type="FixedString" value="item" />
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="ha75f23a0g7032g51a3gaec9g1ec9b957f2ca" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h2e1fd313gcb3bg52d2g967fg25631b0d4d52" version="1" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="dc0360c7-6b03-5a11-b2c0-cff290a17e50" />
+					<attribute id="Name" type="LSString" value="FFTJ_Trophy_Grand" />
+					<attribute id="ParentTemplateId" type="FixedString" value="80169178-734d-48f0-9022-d3392a009c92" />
+					<attribute id="Stats" type="FixedString" value="FFTJ_Trophy_Grand" />
+					<attribute id="Type" type="FixedString" value="item" />
+				</node>
 			</children>
 		</node>
 	</region>

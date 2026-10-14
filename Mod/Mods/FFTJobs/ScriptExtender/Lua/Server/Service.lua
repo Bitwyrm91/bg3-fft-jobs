@@ -24,6 +24,7 @@ function Service.New(deps)
     self.NotTrackable = {} -- guid -> true: checked, not a party member (NPCs cast spells and enter combat too)
     self.PollGeneration = 0
     self.PoachMarks = {} -- creature guid -> the poacher who hit it this turn (Effects.lua)
+    self.TrophyMarks = {} -- creature guid -> the hunter whose Collect Trophy hit it this turn (Effects.lua)
     self.EchoSeq = 0 -- counts echoable job abilities used by the party (Mime)
     self.LastEcho = nil -- {Spell = echo twin, Ability, By = guid, Seq}
     self.EchoSeen = {} -- Mime guid -> EchoSeq when its last turn ended
@@ -106,7 +107,22 @@ function Service:OnSessionLoaded()
     self.State:Load()
     self.Ready = true
     local cfg = self:Cfg()
-    for _, char in pairs(self.State:Chars()) do
+    self.RetiredNews = {}
+    for guid, char in pairs(self.State:Chars()) do
+        for _, m in ipairs(Rules.MigrateRetired(self.Data, char)) do
+            self.State:MarkDirty()
+            local job = self.Data.Jobs[m.Job] and self.Data.Jobs[m.Job].Name or m.Job
+            local parts = {}
+            if m.Refund > 0 then
+                parts[#parts + 1] = string.format("%s JP back in %s for skills it no longer has", Util.Num(m.Refund), job)
+            end
+            if #m.Replaced > 0 then
+                parts[#parts + 1] = "now knows " .. table.concat(m.Replaced, ", ")
+            end
+            local text = string.format("%s: %s.", char.Name or guid, table.concat(parts, "; "))
+            self.Log.Info(text .. " (retired: " .. table.concat(m.Names, ", ") .. ")")
+            self.RetiredNews[#self.RetiredNews + 1] = { Guid = guid, Text = text }
+        end
         if #Rules.CheckUnlocks(self.Data, cfg, char) > 0 then
             self.State:MarkDirty()
         end
@@ -183,6 +199,11 @@ function Service:StartGameplay()
     self:ForgetPlaceholders()
     self:DiscoverParty()
     self:ReconcileAll(true)
+    -- JP refunds for abilities a job lost (Rules.MigrateRetired at load): told once, when the game can show it
+    for _, news in ipairs(self.RetiredNews or {}) do
+        self:Notify(news.Guid, news.Text)
+    end
+    self.RetiredNews = {}
     self:PollXP()
     self:StartXPPoll()
     -- boss badges: bosses the story counts as defeated (also before the mod was installed), then the act rule
