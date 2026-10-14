@@ -96,7 +96,7 @@ Locus level 2 slot (spell attacks), higher slots add dice. Smart Casting covers 
 (tools/smartcast.py + Effects.Spared), not BG3's own spells. Magic -> "Return Magic": half the spell's damage back as
 force damage. Boon: attack rolls only (BG3 rules: saving-throw spells can't crit).
 
-## Peddler (Fell Seal) — skill set "Peddle" (pasted by the user on 2026-10-14; BUILT on branch `peddler`, not seen in game)
+## Peddler (Fell Seal) — skill set "Peddle" (pasted by the user on 2026-10-14; BUILT in 1.0.0.69, not seen in game)
 
 Requirements: Ranger 5 (ours: Archer job level 5). Move 3, Jump 5. Equipment: dagger, axe, crossbow, light armour,
 shield. Starting ability: Lacerating Trap. Passives: Quick Fingers, Item Potency. Counter: Critical: Quicken.

@@ -366,6 +366,21 @@ self-test, validate_vanilla, check_refs all clean. Unverified in game: everythin
 TargetConditions sub-clauses, the SWAP status's causee in StatusApplied (Return Magic), Boon surviving the killing
 attack's own OnAttack, the Falling Rocks trap carrier's look for a player, Create Water as a damage carrier.
 
+**1.0.0.69 (2026-10-14, local session, NOT seen in game): the Peddler, a new Fell Seal job (user).** Group `FellSeal`
+(shared with the Wizard: not a TIC job for pacing/check_fft_data; menu_gen REGULAR_GROUPS), unlock Archer 5, JP =
+Fell Seal AP x 2.5 (4935), user's picks: traps = level 1 slot + once per short rest, turn always ends, Dex save vs the
+owner's DC resists only the status; Quick Fingers = +1 bonus action; Alluring = Entice (fights on its own); Item
+Potency = Chemist potions + BG3 potions + grenades; Patented Usage = area forms of learned Chemist items (new ability
+field `perLearned`, Rules.DesiredGrants). Traps: Glyph of Warding pattern, tools/peddler.py writes 4 trap root
+templates (children of vanilla glyph traps, own Projectile parameter, 3 x 3 m Bounds) and FFTJ_ItemPotency_Heal
+(OnHeal, each Chemist potion spell's own RegainHitPoints again); Server/Peddler.lua: FFTJ_TRAP_SPRUNG_* -> effect
+status twin (Rules.CastStatus) from the owner (Osi.GetOwner, else the last layer), Osi.EndTurn during the creature's
+own turn (Service.ActiveTurn), Painful = config Abilities.PainfulTrapShare of current HP; BG3 potion twins
+(FFTJ_POTENT_*), Alchemist's Fire re-applied for 6 turns. Design record: docs/NWP_FELLSEAL.md (Peddler).
+tests/test_peddler.lua (7). Unverified in game: the trap items (constellation kept by a child template, trigger box,
+GetOwner on a summoned item, EndTurn), OnHeal + SpellId, potion causee, the Patented container. Icons: subjects.txt
+lines, not painted yet.
+
 ## Open questions for the user
 
 - MP: abilities use cooldowns instead of an FFT MP pool. An MP resource (a custom `ActionResourceDefinition`) is possible later. Wanted?

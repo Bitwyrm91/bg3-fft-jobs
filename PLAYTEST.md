@@ -1,6 +1,28 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.68**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.69**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.69: the Peddler (new Fell Seal job)
+
+- **Peddler**, a new job (Fell Seal), unlocked at **Ranger (Archer) job level 5**, skill set **Peddle**. It uses
+  daggers, axes, crossbows, light armour and shields. Mastery: +5 HP and +3 initiative. Starts with Lacerating Trap.
+- **Traps** (Lacerating, Immobilizing, Painful, Alluring): each costs a level 1 spell slot and works once per short
+  rest. Place it up to 4.5 m away; it stays until an enemy steps on it or a long rest. The enemy that steps on it
+  **loses the rest of its turn**. A Dexterity save resists only the effect: Bleeding (3 turns), can't move (2 turns),
+  or fights on your side on its own (3 turns; bosses immune). Painful Trap takes **half its current HP**, no save.
+- **Item Potency**: Chemist potions and real BG3 healing potions you use heal twice; acid vials, Smokepowder bombs and
+  spore grenades you throw deal their damage twice; your Alchemist's Fire burns 6 turns instead of 3.
+- **Quick Fingers**: one more bonus action every turn. **Critical: Quicken**: the Time Mage's Critical: Quick (the
+  tooltip shows that name). **Critical Expertise**: you or an ally within 3 m crits on 19-20 for 3 turns.
+  **Sales Pitch**: Haste on you and allies within 3 m, once per long rest.
+- **Patented Usage**: a menu with an area version of each Chemist item you learned (Potion, Hi-Potion, X-Potion,
+  Antidote, Eye Drops, Echo Herbs, Remedy): everyone within 3 m of the spot, enemies too.
+
+Please check, traps first (the riskiest part, built like Glyph of Warding): place a trap in a goblin's path. Does it
+go off when the goblin walks in (and only then)? Does the goblin's turn end at once? Does the effect show (Bleeding,
+can't move, fighting for you; Painful: half its HP in the combat log)? Roughly how far from the trap does it trigger
+(should be about 1.5 m)? Then: drink a healing potion with Item Potency slotted (two heals?), and open Patented Usage
+with a Potion learned. Paste the newest Script Extender log if something does nothing.
 
 ## New in 1.0.0.68: the Wizard (Fell Seal), a new job
 
