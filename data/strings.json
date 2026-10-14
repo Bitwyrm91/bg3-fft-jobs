@@ -173,6 +173,8 @@
     "Wizard.ThunderLocus.Name": "Thunder Locus",
     "Wizard.ThunderLocus.Desc": "Level 2 spell slot (higher slots: +1d8 per level). Spell attack at one creature up to 18 m away: 4d8 lightning damage plus your highest ability modifier; a Wet target takes double.",
     "Boon.Status.Name": "Boon",
-    "Boon.Status.Desc": "Your next attack roll before the end of your next turn is a critical hit."
+    "Boon.Status.Desc": "Your next attack roll before the end of your next turn is a critical hit.",
+    "status.FFTJ_STRANGE_FLUID.name": "Strange Fluid",
+    "status.FFTJ_STRANGE_FLUID.desc": "Weapon hits add a Chemist effect the target does not have yet (Burning, Acid, Poisoned or Bleeding, 2 turns) with 1d4 damage of its kind."
   }
 }

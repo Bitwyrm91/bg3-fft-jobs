@@ -580,6 +580,13 @@
   "TargetConditions": "not Self() and not Ally()",
   "VerbalIntent": "Control"
  },
+ "Target_MagicWeapon": {
+  "SpellFlags": "IsSpell;HasVerbalComponent;HasSomaticComponent;IsConcentration;IsMelee",
+  "SpellProperties": "IF(Item()):ApplyStatus(MAGIC_WEAPON,100,-1);IF(not Item()):ApplyEquipmentStatus(MainHand,MAGIC_WEAPON,100,-1)",
+  "SpellType": "Target",
+  "TargetConditions": "Item() or (Ally() and HasWeaponInMainHand())",
+  "VerbalIntent": "Buff"
+ },
  "Target_MainHandAttack": {
   "SpellFlags": "IsAttack;IsMelee;IsHarmful;CanDualWield",
   "SpellProperties": "GROUND:DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand);CastOffhand[GROUND:DealDamage(OffhandMeleeWeapon, OffhandMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(OffHand)];IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);",

@@ -878,6 +878,25 @@ using "FFTJ_TECHNICAL"
 data "StatusType" "BOOST"
 data "OnApplyFunctors" "SetStatusDuration(BLEEDING,1,Add)"
 
+// Strange Fluid: the coating (3 turns) holds the hidden OnAttack passive (status "Passives": vanilla ArmorOfAgathys).
+// ApplyEffect = vanilla WEAPON_COATED_WITH_POISON's splash when a weapon is coated.
+new entry "FFTJ_STRANGE_FLUID"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "{{str:status.FFTJ_STRANGE_FLUID.name}}"
+data "Description" "{{str:status.FFTJ_STRANGE_FLUID.desc}}"
+data "Icon" "Item_GRN_Poison_vial_C"
+data "StackId" "FFTJ_STRANGE_FLUID"
+data "Passives" "FFTJ_StrangeFluid_Hit"
+data "ApplyEffect" "bfe864a5-bd15-4ddf-b4a3-3bbfc412afa1"
+data "SoundStart" "Misc_Status_Poison_MO"
+
+// A coated weapon hit this creature (source = the attacker): Effects.StrangeFluid adds the effect and the damage.
+new entry "FFTJ_STRANGE_FLUID_HIT"
+type "StatusData"
+using "FFTJ_TECHNICAL"
+data "StatusType" "BOOST"
+
 new entry "FFTJ_CAUSTIC"
 type "StatusData"
 using "FFTJ_TECHNICAL"

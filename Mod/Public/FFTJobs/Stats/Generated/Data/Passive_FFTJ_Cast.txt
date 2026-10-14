@@ -1048,6 +1048,36 @@ type "PassiveData"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Projectile_FFTJ_UnstableFlask,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Charisma)"
 
+new entry "FFTJ_Cast_Str_Target_FFTJ_StrangeFluid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Target_FFTJ_StrangeFluid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Target_FFTJ_StrangeFluid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Target_FFTJ_StrangeFluid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Target_FFTJ_StrangeFluid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Target_FFTJ_StrangeFluid"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid,,,,Charisma)"
+
 new entry "FFTJ_Cast_Str_Target_FFTJ_RendArmor"
 type "PassiveData"
 data "Properties" "IsHidden"
@@ -10317,6 +10347,36 @@ new entry "FFTJ_Cast_Cha_Projectile_FFTJ_UnstableFlask_Echo"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Projectile_FFTJ_UnstableFlask_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Target_FFTJ_StrangeFluid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid_Echo,,,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Target_FFTJ_StrangeFluid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid_Echo,,,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Target_FFTJ_StrangeFluid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid_Echo,,,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Target_FFTJ_StrangeFluid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid_Echo,,,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Target_FFTJ_StrangeFluid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid_Echo,,,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Target_FFTJ_StrangeFluid_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_StrangeFluid_Echo,,,,Charisma)"
 
 new entry "FFTJ_Cast_Str_Target_FFTJ_RendArmor_Echo"
 type "PassiveData"

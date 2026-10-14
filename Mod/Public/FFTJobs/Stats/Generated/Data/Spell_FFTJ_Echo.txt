@@ -236,6 +236,13 @@ using "Projectile_FFTJ_UnstableFlask"
 data "Cooldown" ""
 data "DisplayName" "h3bbeba1ag479fg53ccgbcfbg7bb4fe13bc6d;1"
 
+new entry "Target_FFTJ_StrangeFluid_Echo"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FFTJ_StrangeFluid"
+data "Cooldown" ""
+data "DisplayName" "he27ebab8gcd26g59b4gad03g6aeba4389b02;1"
+
 new entry "Target_FFTJ_RendArmor_Echo"
 type "SpellData"
 data "SpellType" "Target"

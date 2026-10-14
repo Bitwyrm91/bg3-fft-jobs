@@ -164,6 +164,31 @@ function S.chemical_mixup_on_all_four_rolls_more_and_lengthens_the_shortest(w, T
     T.eq(gob.statuses.FFTJ_MIXUP_EXTEND_BURNING, nil, "only the shortest")
 end
 
+function S.strange_fluid_hit_adds_one_missing_effect_without_mixup_extras(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    w.chars[T.TAV].level = 12 -- Mixup would roll 3 dice here; the coating stays at 1
+    local gob = enemy(w)
+    afflicted(w, GOB, { BURNING = 2, ACID = 2 })
+    applied(w, GOB, "FFTJ_STRANGE_FLUID_HIT", T.TAV)
+    T.eq(gob.hp, 36, "1d4, highest roll")
+    T.truthy(gob.statuses.BLEEDING, "the last missing one (highest roll)")
+    T.eq(gob.statuses.POISONED, nil, "one effect, no Catalyst at two")
+    T.eq(gob.statusTurns.BLEEDING, 2)
+    T.eq(gob.statusTurns.ACID, 2, "nothing lengthened")
+end
+
+function S.strange_fluid_hit_on_all_four_deals_the_damage_only(w, T)
+    T.boot(w)
+    fixedRoll(T)
+    local gob = enemy(w)
+    afflicted(w, GOB, { BURNING = 3, ACID = 1, POISONED = 2, BLEEDING = 2 })
+    applied(w, GOB, "FFTJ_STRANGE_FLUID_HIT", T.TAV)
+    T.eq(gob.hp, 36, "one die, no extra die on all four")
+    T.eq(gob.statuses.FFTJ_MIXUP_EXTEND_ACID, nil, "no lengthening")
+    T.eq(gob.statusTurns.ACID, 1)
+end
+
 function S.chemical_burns_lengthens_and_strikes_each_effect(w, T)
     T.boot(w)
     fixedRoll(T)

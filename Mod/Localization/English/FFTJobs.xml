@@ -964,6 +964,9 @@
   <content contentuid="hf16ab5ebgffc1g5577gb70bg7da9106c2c03" version="1">An enemy within 18 m makes a Wisdom save or is Stopped for 2 turns: it can't move or act, and melee hits on it are critical (it repeats the save each turn). Bosses are immune. Once per short rest.</content>
   <content contentuid="h8a3ad101gf341g518fg9174gd80065b9aff8" version="1">Echo: Stop</content>
   <content contentuid="hc2b529e5g1e94g55bag9a4dgcfdd6e55faeb" version="1">Stop</content>
+  <content contentuid="h47dad7d7g886cg5d10g943cg359d9989578b" version="1">You coat your weapon in a strange liquid and believe. Bonus action: coat your own weapon or an ally's within 9 m for 3 turns. Every weapon hit then adds one of the four Chemist effects the target does not have yet, for 2 turns, with 1d4 damage of its kind: fire = Burning, acid = Acid, poison = Poisoned, glass shards (slashing) = Bleeding. A target that already has all four takes the 1d4 only. Once per short rest.</content>
+  <content contentuid="he27ebab8gcd26g59b4gad03g6aeba4389b02" version="1">Echo: Strange Fluid</content>
+  <content contentuid="hb1cea4a6gc314g56c7g961cgee297b141206" version="1">Strange Fluid</content>
   <content contentuid="hb03c3d86g0669g50eeg9676g1a9b013b559c" version="1">When you take damage, you deal +2 damage with weapon attacks for 10 turns.</content>
   <content contentuid="h0a7e73c5gfe9ag5f05gb644g537f854a37ec" version="1">Strength Surge</content>
   <content contentuid="h8bfd65f2gf91ag581fg9540g6c24b3bbf48d" version="1">+2 to initiative, and in each fight the first spell you cast that costs an action costs a bonus action instead (FFT casts faster).</content>
@@ -1939,6 +1942,7 @@
   <content contentuid="hae70efadg45e7g5970gb5aeg68845477198d" version="1">Melee attack roll; on a hit you take the enemy's main weapon (melee first, otherwise ranged) into your inventory. Quest and story items can't be stolen. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 600 JP.</content>
   <content contentuid="h558a5e71gb912g519egbd72g1f3149273e02" version="1">Thrown weapons and objects deal no damage to you: you catch them (the caught item is not kept). Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
   <content contentuid="h83e10692g3fcbg59eeg9fdcg7bad556d4120" version="1">An enemy within 18 m makes a Wisdom save or is Stopped for 2 turns: it can't move or act, and melee hits on it are critical (it repeats the save each turn). Bosses are immune. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 350 JP.</content>
+  <content contentuid="hff45f54dge05eg5173ga365ged0a9e9a75c0" version="1">You coat your weapon in a strange liquid and believe. Bonus action: coat your own weapon or an ally's within 9 m for 3 turns. Every weapon hit then adds one of the four Chemist effects the target does not have yet, for 2 turns, with 1d4 damage of its kind: fire = Burning, acid = Acid, poison = Poisoned, glass shards (slashing) = Bleeding. A target that already has all four takes the 1d4 only. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="h904946f3gea83g51d4g96bdg10d4da8dbd4a" version="1">When you take damage, you deal +2 damage with weapon attacks for 10 turns. Reaction: equip it in the reaction slot (Job Board). Cost: 600 JP.</content>
   <content contentuid="hb2fdd5d7g7b21g5b3fgbe0cg4de4dc59fc4a" version="1">+2 to initiative, and in each fight the first spell you cast that costs an action costs a bonus action instead (FFT casts faster). Passive: equip it in a passive slot (Job Board). Cost: 1000 JP.</content>
   <content contentuid="h70dcb3a2gf46ag5334g8b66ga6a0b81eb6df" version="1">Deep water doesn't slow you. Passive: equip it in a passive slot (Job Board). Cost: 300 JP.</content>
@@ -3324,6 +3328,8 @@
   <content contentuid="h70739040g7725g5808g9391g633ddb19a3e1" version="1">Stone</content>
   <content contentuid="h71f52b98g29d9g53e2g934ag37da2f90cadb" version="1">Frozen in time: can't move or act; melee hits are critical. Repeats the Wisdom save each turn.</content>
   <content contentuid="h4d9c9a90g2469g56b8gbe17g69a307d9c623" version="1">Stop</content>
+  <content contentuid="h72fa5c0bg45fcg5ff2g8e46g4fa9ae0789b6" version="1">Weapon hits add a Chemist effect the target does not have yet (Burning, Acid, Poisoned or Bleeding, 2 turns) with 1d4 damage of its kind.</content>
+  <content contentuid="h0111a4a5gffb1g5ba5gbbfagae66e14d391e" version="1">Strange Fluid</content>
   <content contentuid="h830af21eg7a1fg5c34ga309g333619ff5fb3" version="1">+2 damage with weapon attacks.</content>
   <content contentuid="h7d0197bfgc40cg5a15g849agba3e459335e8" version="1">Strength Surge</content>
   <content contentuid="h1b5242a7gd130g5bc1g9800g8b27e64a7774" version="1">The next spell that costs an action costs a bonus action instead.</content>

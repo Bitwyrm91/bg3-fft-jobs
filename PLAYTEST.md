@@ -1,6 +1,25 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.71**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.72**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.72: Strange Fluid, a Chemist weapon coating (NWP 20)
+
+- **Strange Fluid** (Chemist action, 300 JP): "You coat your weapon in a strange liquid and believe." Bonus action,
+  once per short rest, no spell slot. Coat your own weapon or an ally's within 9 m for 3 turns.
+- While coated, **every weapon hit** (melee or ranged, each attack of Extra Attack too) adds one of the four Chemist
+  effects the target does not have yet, for 2 turns, with 1d4 damage of its kind: fire = Burning, acid = Acid,
+  poison = Poisoned, glass shards (slashing) = Bleeding. A target that already has all four takes the 1d4 only.
+- Unlike Chemical Mixup it never adds two at once, its damage does not grow with level, and there is no bonus on a
+  target with all four.
+- Config: `Abilities.StrangeFluidDice` (1), `Abilities.StrangeFluidStatusTurns` (2).
+
+Please check:
+- Learn it (Chemist), cast it on an ally 5-9 m away: the bonus action is used, "Strange Fluid" shows on the ally for
+  3 turns, the spell greys out until a short rest.
+- The coated ally hits an enemy with a weapon: an extra 1d4 hit and one of Burning/Acid/Poisoned/Bleeding appears.
+  Hit the same enemy again: a different effect is added each time.
+- A miss, a spell or an unarmed strike adds nothing.
+- If hits add nothing: send me the SE log (it writes "Strange Fluid: ..." for every hit it handles).
 
 ## New in 1.0.0.71: JP gains float above the head (NWP 10)
 

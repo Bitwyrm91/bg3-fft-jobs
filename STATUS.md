@@ -14,6 +14,8 @@ Mender skills, JP above the head), pushed; vanilla checks clean; **1.0.0.71 PACK
 C:\Users\berus\GameModding\backups). Nothing of 1.0.0.62-71 seen in game yet (PLAYTEST.md lists what to check).
 `main` = this branch (fast-forwarded from 1.0.0.61 and pushed on the user's word, 2026-10-14). Pacing self-test fails
 since 1.0.0.70 (7 of 20, target 8): user accepted.
+**1.0.0.72 (Strange Fluid, NWP 20) is on this branch, local only: NOT pushed, NOT packaged or installed** (the PC still
+runs 1.0.0.71; `main` is still 1.0.0.71).
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
 
@@ -93,7 +95,7 @@ When the user says "NWP", this is the list:
     User: "continue with the normal list first". Open: clothes/robes (no armor proficiency) always allowed?; the
     Mime's empty list (FFT Mimes wear no weapons); cursed/story items that can't come off; check needs item fields
     (weapon proficiency group, ArmorType, shield) verified in game.
-20. **[FINAL DESIGN 2026-10-14, NOT built; build in a FRESH session after the 5-hour reset] Chemist coating = ONE
+20. **[BUILT in 1.0.0.72, not seen in game] Chemist coating = ONE
     coating, "Strange Fluid"** (user's name and text: "You coat your weapon in a strange liquid and believe."). User's
     final answers (replace everything below): bonus action, once per short rest, 300 JP (Chemist, source custom); coat
     yourself or an ally within 9 m; lasts 3 turns, EVERY weapon hit counts; each hit = Mixup's effect: 1d4 of a type
@@ -147,7 +149,7 @@ When the user says "NWP", this is the list:
 
 **Queue (user, 2026-10-14, after 1.0.0.64):** Ranger (22) built in 1.0.0.66 (a local session on the user's second
 Claude account; a parallel "Wizard" session builds a Fell Seal Wizard job in the worktree bg3-fft-jobs-wizard, branch
-claude/wizard-job, as 1.0.0.67, with "Smart Casting": area abilities skip allies) -> coatings (20) -> 7 (menu learn diagnostics) -> 10 (JP above the head) -> 8 (two-PC sync; CIC = Claude in Chrome)
+claude/wizard-job, as 1.0.0.67, with "Smart Casting": area abilities skip allies) -> coatings (20, built in 1.0.0.72) -> 7 (menu learn diagnostics) -> 10 (JP above the head, built in 1.0.0.71) -> 8 (two-PC sync; CIC = Claude in Chrome)
 -> 4 (Job Board) -> 14 enemy jobs LAST. 19 (equipment limits, ~2-3%) waits for the user's go; 9 skipped; Monk (21)
 built in 1.0.0.64. Session rules from the user: commit locally and tell the user about every commit; push only when
 the user says "push"; usage estimate before each item; tell the user when each item is done. Cost note: the Monk
@@ -420,6 +422,22 @@ then applies it for `Notifications.JPOverheadSeconds` (6); switch `Notifications
 tests/test_jpfloat.lua (4), 216 tests; validate_vanilla and check_refs clean. Unverified in game: the overhead text
 itself (ForceOverhead on a status with no icon), whether a 0-second status would also show it, remove+apply in one
 frame showing twice.
+
+**1.0.0.72 (2026-10-14, local session in worktree `bg3-fft-jobs-fluid`, branch `claude/strange-fluid`; NOT packaged
+or seen in game): NWP 20, Chemist coating "Strange Fluid" (user's final design).** Ability `StrangeFluid` (Chemist
+Action, 300 JP, source custom; Chemist now 5290 JP, 20 abilities, menu 600 entries): `Target_FFTJ_StrangeFluid` using
+vanilla Target_MagicWeapon (Level 0, BonusActionPoint, OncePerShortRest, 9 m, `Character() and not Dead() and
+(Self() or Ally())`, no concentration/IsSpell/IsMelee) -> FFTJ_STRANGE_FLUID (3 turns, status `Passives` =
+hidden FFTJ_StrangeFluid_Hit: OnAttack, `IsWeaponAttack() and HasDamageEffectFlag(DamageFlags.Hit)` ->
+FFTJ_STRANGE_FLUID_HIT on TARGET, duration 0, Mixup's marker pattern; ApplyEffect from vanilla
+WEAPON_COATED_WITH_POISON) -> `Effects.StrangeFluid(svc, attacker, target)`: one effect the target lacks with
+`Abilities.StrangeFluidDice` (1) x MixupDie damage of its kind, `StrangeFluidStatusTurns` (2); all four on = damage
+of a random kind only; no Catalyst, no level dice, no Saturation. Icon painted on the local GPU
+(art/icons/StrangeFluid.jpg, atlas 107). data/vanilla_spells.json refreshed (Target_MagicWeapon). Tests: 2 new
+(test_effects), pinned counts updated; 232 tests, build --check, check_refs, validate_vanilla clean; pacing self-test
+still 7 of 20 (accepted since 1.0.0.70). Unverified in game: all of it; especially a status-granted OnAttack passive
+firing for the coated character, `IsWeaponAttack()` for ranged hits, StatusApplied for a 0-turn status applied from
+a passive, Magic Weapon's animation at 9 m without IsMelee.
 
 ## Open questions for the user
 

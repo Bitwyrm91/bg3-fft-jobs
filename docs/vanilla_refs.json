@@ -826,6 +826,13 @@
     ]
   },
   {
+    "id": "Item_GRN_Poison_vial_C",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_StrangeFluid_Hit"
+    ]
+  },
+  {
     "id": "Item_GRN_Sunflash_Grenade_A",
     "kind": "icon",
     "usedBy": [
@@ -5127,6 +5134,13 @@
     "kind": "using parent (SpellData)",
     "usedBy": [
       "Target_FFTJ_Gravity"
+    ]
+  },
+  {
+    "id": "Target_MagicWeapon",
+    "kind": "using parent (SpellData)",
+    "usedBy": [
+      "Target_FFTJ_StrangeFluid"
     ]
   },
   {

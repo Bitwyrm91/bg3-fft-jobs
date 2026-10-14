@@ -656,93 +656,100 @@
                     <attribute id="V2" type="float" value="0.37451172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThrowItems"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_StrangeFluid"/>
                     <attribute id="U1" type="float" value="0.81298828"/>
                     <attribute id="U2" type="float" value="0.87451172"/>
                     <attribute id="V1" type="float" value="0.31298828"/>
                     <attribute id="V2" type="float" value="0.37451172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThrowStone"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThrowItems"/>
                     <attribute id="U1" type="float" value="0.87548828"/>
                     <attribute id="U2" type="float" value="0.93701172"/>
                     <attribute id="V1" type="float" value="0.31298828"/>
                     <attribute id="V2" type="float" value="0.37451172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Thundaga"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThrowStone"/>
                     <attribute id="U1" type="float" value="0.93798828"/>
                     <attribute id="U2" type="float" value="0.99951172"/>
                     <attribute id="V1" type="float" value="0.31298828"/>
                     <attribute id="V2" type="float" value="0.37451172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Thundara"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Thundaga"/>
                     <attribute id="U1" type="float" value="0.00048828"/>
                     <attribute id="U2" type="float" value="0.06201172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Thunder"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Thundara"/>
                     <attribute id="U1" type="float" value="0.06298828"/>
                     <attribute id="U2" type="float" value="0.12451172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThunderI"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Thunder"/>
                     <attribute id="U1" type="float" value="0.12548828"/>
                     <attribute id="U2" type="float" value="0.18701172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThunderII"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThunderI"/>
                     <attribute id="U1" type="float" value="0.18798828"/>
                     <attribute id="U2" type="float" value="0.24951172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThunderLocus"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThunderII"/>
                     <attribute id="U1" type="float" value="0.25048828"/>
                     <attribute id="U2" type="float" value="0.31201172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_TreasureHunter"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_ThunderLocus"/>
                     <attribute id="U1" type="float" value="0.31298828"/>
                     <attribute id="U2" type="float" value="0.37451172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_WaterI"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_TreasureHunter"/>
                     <attribute id="U1" type="float" value="0.37548828"/>
                     <attribute id="U2" type="float" value="0.43701172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_WaterII"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_WaterI"/>
                     <attribute id="U1" type="float" value="0.43798828"/>
                     <attribute id="U2" type="float" value="0.49951172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_WaterLocus"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_WaterII"/>
                     <attribute id="U1" type="float" value="0.50048828"/>
                     <attribute id="U2" type="float" value="0.56201172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_XPotion"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_WaterLocus"/>
                     <attribute id="U1" type="float" value="0.56298828"/>
                     <attribute id="U2" type="float" value="0.62451172"/>
+                    <attribute id="V1" type="float" value="0.37548828"/>
+                    <attribute id="V2" type="float" value="0.43701172"/>
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_XPotion"/>
+                    <attribute id="U1" type="float" value="0.62548828"/>
+                    <attribute id="U2" type="float" value="0.68701172"/>
                     <attribute id="V1" type="float" value="0.37548828"/>
                     <attribute id="V2" type="float" value="0.43701172"/>
                 </node>

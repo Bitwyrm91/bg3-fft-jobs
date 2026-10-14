@@ -7,6 +7,7 @@
 --   Gil Snapper (Thief): gold equal to the damage taken.
 --   Poach (Thief): a monster the poacher hit this turn pays out when it dies.
 --   Collect Trophy (Ranger): a monster it hit this turn leaves a sellable trophy in its loot when it dies.
+--   Strange Fluid (Chemist): each weapon hit of a coated creature adds a Chemist effect the target lacks.
 --   Abyssal Blade, Unholy Sacrifice (Dark Knight): the caster pays a share of its maximum HP (never the last one).
 --   Blessed One (White Mage): a single-target heal on someone else heals the caster for half of it.
 --   Return Magic (Wizard): an enemy spell that hurts the wizard sends a share of its damage back as force damage.
@@ -105,6 +106,8 @@ function Effects.OnStatusApplied(svc, target, status, source)
         Effects.Fulminate(svc, source, target, level)
     elseif status == "FFTJ_CHEM_BURNS" then
         Effects.ChemicalBurns(svc, source, target)
+    elseif status == "FFTJ_STRANGE_FLUID_HIT" then
+        Effects.StrangeFluid(svc, source, target)
     elseif status == "FFTJ_POACH_MARK" and source then
         svc.PoachMarks[target] = source
     elseif status == "FFTJ_TROPHY_MARK" and source then
@@ -335,6 +338,29 @@ function Effects.ChemicalMixup(svc, caster, target, level)
     svc.Log.Info(string.format("Chemical Mixup: %s, %d %s damage to %s%s", pick.Word, damage, pick.Type,
         name(svc, target), extra))
     return pick, damage, picks
+end
+
+-- Strange Fluid (Chemist coating): every weapon hit of a coated creature = Mixup's pick without its extras (no
+-- Catalyst, no level dice, no bonus on all four): one effect the target lacks with damage of its kind; on a target
+-- with all four, the damage of a random kind only. The attacker is the source.
+function Effects.StrangeFluid(svc, attacker, target)
+    local cfg = svc:Cfg().Abilities
+    local has = afflictions(svc, target)
+    local missing = {}
+    for i = 1, #Effects.Mixup do
+        if not has[i] then
+            missing[#missing + 1] = i
+        end
+    end
+    local pick = Effects.Mixup[#missing > 0 and missing[Effects.Roll(#missing)] or Effects.Roll(#Effects.Mixup)]
+    local damage = rollDamage(svc, cfg.StrangeFluidDice or 1)
+    svc.Game:ApplyDamage(target, damage, pick.Type, attacker)
+    if #missing > 0 then
+        afflict(svc, target, pick.Status, cfg.StrangeFluidStatusTurns or 2, attacker)
+    end
+    svc.Log.Info(string.format("Strange Fluid: %s, %d %s damage to %s%s", pick.Word, damage, pick.Type,
+        name(svc, target), #missing > 0 and (", adds " .. pick.Status) or ""))
+    return pick, damage
 end
 
 function Effects.ChemicalBurns(svc, caster, target)

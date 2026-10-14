@@ -56,6 +56,7 @@ PhoenixDown|a single radiant red and gold phoenix feather glowing with embers, m
 AutoPotion|a corked potion bottle popping open by itself with healing liquid splashing upward, mossy green background
 ThrowItems|a hand tossing a spinning potion bottle high into the air, mossy green background
 TreasureHunter|a brass magnifying glass over an open treasure chest full of gleaming coins, mossy green background
+StrangeFluid|a sword blade dripping with a swirling strange liquid that shimmers green, orange and violet at once, mossy green background
 
 RendArmor|a sword blade cracking a steel breastplate with shards of metal flying, royal blue background
 RendWeapon|a sword blade shattering into flying steel fragments above its broken hilt, royal blue background
