@@ -249,7 +249,8 @@ function S.clicking_learn_and_equip(w, T, Mocks)
     T.truthy(tile, "Knight unlocked by 600 Squire JP")
     tile.OnClick(tile)
     T.contains(texts(Mocks, win), "Knight - Arts of War")
-    local setJob = findButton(Mocks, win, "Make job##jobKnight")
+    local setJob = findButton(Mocks, win, "Set job##jobKnight")
+    T.truthy(setJob, "the Knight tile has a Set job button")
     setJob.OnClick(setJob)
     T.eq(svc.State:Get(T.TAV).Primary, "Knight")
     T.contains(texts(Mocks, win), "Knight, job level 1")
@@ -315,7 +316,9 @@ function S.arithmeticks_picker_on_the_board(w, T, Mocks)
     T.eq(arith.Numbers[1].Name, "Target Level")
 end
 
-function S.tiles_and_groups_show_abilities_to_learn_now(w, T, Mocks)
+-- "(N new)" left the tiles and group buttons (user, 2026-10-14: it looked clickable); the count stays in the tile
+-- tooltip and on the Party page.
+function S.learnable_counts_only_in_tooltips_and_party_page(w, T, Mocks)
     local svc = T.boot(w)
     local _, View = setup()
     svc:AddManualJP(T.TAV, 600, "Squire")
@@ -334,10 +337,71 @@ function S.tiles_and_groups_show_abilities_to_learn_now(w, T, Mocks)
     T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
     local win = w.windows[1]
     local group = findFirst(Mocks, win, "[+] Jobs (")
-    T.contains(group.Label, " new##", "the closed group says there is something to learn")
+    T.falsy(group.Label:find("new", 1, true), "no count on the group button: " .. group.Label)
     group.OnClick(group)
     local tile = findFirst(Mocks, win, "Squire Lv")
-    T.contains(tile.Label, "(" .. squire.NewCount .. " new)##tileSquire", "the tile says how many")
+    T.falsy(tile.Label:find("new", 1, true), "no count on the tile: " .. tile.Label)
+    T.contains(texts(Mocks, tile.TooltipWidget), squire.NewCount .. " abilities you can learn now.")
+end
+
+-- One line per tile (user, 2026-10-14): emblem, name + level, Set job / Set subclass, JP to spend. The job panel
+-- below keeps the description, mastery perk and abilities; next level and equipment moved into the tile tooltip.
+function S.tiles_carry_jp_and_job_buttons(w, T, Mocks)
+    local svc = T.boot(w)
+    local _, View = setup()
+    svc:AddManualJP(T.TAV, 600, "Squire")
+    local squire = View.Build(svc, T.TAV).Char.Jobs[1]
+    T.cast(w, T.TAV, "Shout_FFTJ_JobBoard")
+    local win = w.windows[1]
+    local tile = findButton(Mocks, win, "Squire Lv" .. squire.Level .. "##tileSquire")
+    T.truthy(tile, "Squire tile")
+    local cell = tile.Parent
+    local function inCell(c, pred)
+        return Mocks.FindWidgets(c, pred)[1]
+    end
+    -- Tav's job: a "Your job" tag instead of the buttons, then the JP, all on the tile's line
+    local tag = inCell(cell, function(x)
+        return x.Kind == "Text" and x.Label == "Your job"
+    end)
+    T.truthy(tag and tag.SameLine, "Your job tag on the Squire tile")
+    T.falsy(findFirst(Mocks, win, "Set job##jobSquire"), "no Set job on the current job")
+    local jp = inCell(cell, function(x)
+        return x.Kind == "Text" and x.Label == string.format("%d JP", squire.Unspent)
+    end)
+    T.truthy(jp and jp.SameLine, "the JP to spend sits on the tile's line")
+    local tip = texts(Mocks, tile.TooltipWidget)
+    T.contains(tip, string.format("Level %d at %d JP earned (%d now).", squire.Level + 1, squire.NextAt, squire.Earned))
+    T.contains(tip, "Equipment while it is your job: ")
+    -- the job panel: no level/JP line, no buttons, no equipment line; description and mastery perk stay
+    local shown = texts(Mocks, win)
+    T.falsy(shown:find("JP earned", 1, true), "next level only in the tooltip")
+    T.falsy(shown:find("Equipment while it is your job", 1, true), "equipment only in the tooltip")
+    T.contains(shown, "Mastery perk: ")
+    T.falsy(findFirst(Mocks, win, "Make job"), "the old panel buttons are gone")
+    -- another unlocked job: both buttons and its JP; a locked one: neither
+    local chemist = findFirst(Mocks, win, "Set subclass##secChemist")
+    T.truthy(chemist and chemist.SameLine, "Set subclass on the Chemist tile")
+    T.truthy(findFirst(Mocks, win, "Set job##jobChemist"), "Set job on the Chemist tile")
+    T.falsy(findFirst(Mocks, win, "Set job##jobWhiteMage"), "no buttons on a locked tile")
+    chemist.OnClick(chemist)
+    T.eq(svc.State:Get(T.TAV).Secondary, "Chemist")
+    shown = texts(Mocks, win)
+    local sub = View.Build(svc, T.TAV).Char.Secondary
+    T.contains(shown, "Tav: subclass " .. sub.Skillset .. " (Chemist)", "the click's message says subclass")
+    T.contains(shown, "Subclass: " .. sub.Skillset .. " (Chemist)", "the header slot says subclass")
+    T.falsy(findFirst(Mocks, win, "Set subclass##secChemist"), "the subclass tile shows a tag instead")
+    T.truthy(Mocks.FindWidgets(win, function(x)
+        return x.Kind == "Text" and x.Label == "Your subclass"
+    end)[1], "Your subclass tag")
+    local setJob = findFirst(Mocks, win, "Set job##jobChemist")
+    setJob.OnClick(setJob)
+    T.eq(svc.State:Get(T.TAV).Primary, "Chemist")
+    -- every tile button has its own id
+    local seen = {}
+    for _, b in ipairs(buttons(Mocks, win)) do
+        T.falsy(seen[b.Label], "duplicate button id " .. b.Label)
+        seen[b.Label] = true
+    end
 end
 
 function S.passives_page_equips_learned_passives_of_any_job(w, T, Mocks)

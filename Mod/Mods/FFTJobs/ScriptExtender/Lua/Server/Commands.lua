@@ -80,7 +80,7 @@ def("fft_job", "<job> [who]  set the primary job", function(svc, args)
     return result(svc:SetPrimary(guid, jobId))
 end)
 
-def("fft_secondary", "<job|none> [who]  set the secondary skill set", function(svc, args)
+def("fft_secondary", "<job|none> [who]  set the subclass (secondary skill set)", function(svc, args)
     local jobId
     if Util.Normalize(args[1]) ~= "none" then
         jobId = Rules.FindJob(svc.Data, args[1])

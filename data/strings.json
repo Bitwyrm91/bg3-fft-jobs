@@ -19,7 +19,7 @@
     "MartialStrike.Desc": "Make an unarmed strike as a bonus action. Only after an unarmed attack this turn (Martial Arts).",
     "HolyMagicks.Desc": "While Cleric is your job, every spell you cast that restores hit points restores 1d6 more.",
     "JobBoard.Name": "Job Board",
-    "JobBoard.Desc": "Open the FFT Job Board: change jobs, learn abilities and set your secondary, reaction, support and movement slots. Free; does not use your turn.",
+    "JobBoard.Desc": "Open the FFT Job Board: change jobs, learn abilities and set your subclass, reaction, support and movement slots. Free; does not use your turn.",
     "JobPassive.Desc": "Current FFT job. Change it on the Job Board.",
     "Training.Name": "JP Training (test)",
     "Training.Desc": "Testing tool: every party member gets JP (1,000 by default) in each job they have unlocked, so you can try the jobs without grinding. Jobs it unlocks get JP from the next cast. Free; does not use your turn.",

@@ -1,8 +1,10 @@
 -- The Job Board window (SE IMGUI, client side). It only displays the view the server sends and forwards
 -- button clicks as requests; all rules run on the server.
 -- Layout (the user's choice, 2026-10-12): the character, a grid of every FFT job as coloured tiles, and the
--- selected job's details and abilities below, in FFT's blue menu colours. Widget names from the SE's IMGUI objects
--- (AddTable, AddIcon, AddImageButton, AddProgressBar, AddCollapsingHeader, TextWrapPos). Colours: SetColor in the
+-- selected job's details and abilities below, in FFT's blue menu colours. Each tile is one line (user, 2026-10-14):
+-- emblem, "White Mage Lv4", Set job / Set subclass, the JP to spend; its tooltip holds the next level, equipment and
+-- mastery perk, so the job panel keeps the description, the perk and the abilities. Widget names from the SE's IMGUI
+-- objects (AddTable, AddIcon, AddImageButton, AddProgressBar, AddCollapsingHeader, TextWrapPos). Colours: SetColor in the
 -- installed SE v33 (seen in its DLL), SetStyleColor in newer ones; both are tried. Styling calls are protected, so an
 -- SE without one of them still shows the board.
 local Util = Ext.Require("Shared/Util.lua")
@@ -209,9 +211,6 @@ local function tileLabel(j)
     if j.Mastered then
         label = label .. " *"
     end
-    if (j.NewCount or 0) > 0 then
-        label = label .. " (" .. j.NewCount .. " new)"
-    end
     return label
 end
 
@@ -240,7 +239,7 @@ local function tileTooltip(j)
     if j.IsPrimary then
         lines[#lines + 1] = "Your job."
     elseif j.IsSecondary then
-        lines[#lines + 1] = "Your secondary skill set."
+        lines[#lines + 1] = "Your subclass."
     end
     if not j.Unlocked then
         lines[#lines + 1] = (j.PartyUnlocked and "Unlocked by the party; you need " or "Locked: needs ")
@@ -248,6 +247,12 @@ local function tileTooltip(j)
     else
         lines[#lines + 1] = string.format("Level %d, %s JP to spend, %d/%d abilities learned.", j.Level,
             Util.Num(j.Unspent), j.LearnedCount, j.Total)
+        if j.NextAt then
+            lines[#lines + 1] = string.format("Level %d at %s JP earned (%s now).", j.Level + 1, Util.Num(j.NextAt),
+                Util.Num(j.Earned))
+        else
+            lines[#lines + 1] = "Top job level reached."
+        end
         if (j.NewCount or 0) > 0 then
             lines[#lines + 1] = string.format("%d %s you can learn now.", j.NewCount,
                 j.NewCount == 1 and "ability" or "abilities")
@@ -314,7 +319,7 @@ function JobBoard:RenderHeader(root, view, c)
             addTooltip(button(root, "x", id, true, onClear), "Clear this slot")
         end
     end
-    slot("Secondary", c.Secondary and (c.Secondary.Skillset .. " (" .. c.Secondary.Name .. ")") or nil, "clearsec",
+    slot("Subclass", c.Secondary and (c.Secondary.Skillset .. " (" .. c.Secondary.Name .. ")") or nil, "clearsec",
         function()
             self:Send("SetSecondary", { Job = "" })
         end)
@@ -332,12 +337,12 @@ function JobBoard:RenderHeader(root, view, c)
     if not ok or not help then
         help = root
     end
-    text(help, "Open a job group with its [+] button, then pick a job tile to see its abilities. Learn abilities with that job's JP. Actions work while their job "
-        .. "is your job or your secondary skill set. A reaction goes in the reaction slot; support and movement "
-        .. "abilities go in either passive slot.", nil, WRAP)
-    text(help, "\"(2 new)\" on a tile or a group = abilities you can learn right now. The Passives page lists every "
-        .. "reaction, support and movement ability this character has learned, from any job, to equip in one click. "
-        .. "The Party page shows everyone's job, slots and JP side by side.", nil, WRAP)
+    text(help, "Open a job group with its [+] button. Each tile shows the job's level and JP to spend, with Set job "
+        .. "and Set subclass buttons; click a job's name to see its abilities. Learn abilities with that job's JP. "
+        .. "Actions work while their job is your job or your subclass. A reaction goes in the reaction slot; support "
+        .. "and movement abilities go in either passive slot.", nil, WRAP)
+    text(help, "The Passives page lists every reaction, support and movement ability this character has learned, from "
+        .. "any job, to equip in one click. The Party page shows everyone's job, slots and JP side by side.", nil, WRAP)
     if c.AlwaysOnTypes and #c.AlwaysOnTypes > 0 then
         text(help, "Learned " .. string.lower(table.concat(c.AlwaysOnTypes, " and ")) .. " abilities of your job work "
             .. "without a slot, so the slots stay free for other jobs' abilities.", nil, WRAP)
@@ -346,7 +351,8 @@ function JobBoard:RenderHeader(root, view, c)
         .. "to learn from it or take it. Mastering a job (every ability learned) gives a small permanent perk.", nil,
         WRAP)
     text(help, "Tiles: bright blue = your job, gold = mastered (*), teal = unlocked, grey = locked, dark = coming in a "
-        .. "later update. Hover a tile or an ability for details.", nil, WRAP)
+        .. "later update. Hover a tile for its next job level, equipment and mastery perk, or an ability for details.",
+        nil, WRAP)
 end
 
 -- Grids as dropdowns (user, 2026-10-14): the FFT jobs (TIC and War of the Lions), the special jobs that need a
@@ -370,11 +376,7 @@ end
 
 function JobBoard:RenderTiles(root, title, group, id, jobs, c)
     local open = self.OpenGroups[group] and true or false
-    local new = 0
-    for _, j in ipairs(jobs) do
-        new = new + (j.NewCount or 0)
-    end
-    local label = (open and "[-] " or "[+] ") .. title .. " (" .. #jobs .. ")" .. (new > 0 and (" - " .. new .. " new") or "")
+    local label = (open and "[-] " or "[+] ") .. title .. " (" .. #jobs .. ")"
     local toggle = button(root, label, "group" .. group, false,
         function()
             self.OpenGroups[group] = not open
@@ -418,7 +420,35 @@ function JobBoard:RenderTiles(root, title, group, id, jobs, c)
             style(b, "Border", TEXT.Gold)
         end
         addTooltip(b, lines)
+        self:RenderTileActions(cell, j)
     end
+end
+
+-- The rest of a tile's line (user, 2026-10-14: use the space between the tiles instead of the job panel): Set job and
+-- Set subclass, or what the job already is for this character, then the JP to spend. Unlocked jobs only.
+function JobBoard:RenderTileActions(cell, j)
+    if not (j.Built and j.Unlocked) then
+        return
+    end
+    if j.IsPrimary then
+        text(cell, "Your job", TEXT.Good).SameLine = true
+    else
+        addTooltip(button(cell, "Set job", "job" .. j.Id, true, function()
+            self:Send("SetPrimary", { Job = j.Id })
+        end), "Make " .. j.Name .. " this character's job.")
+        if j.IsSecondary then
+            text(cell, "Your subclass", TEXT.Good).SameLine = true
+        else
+            addTooltip(button(cell, "Set subclass", "sec" .. j.Id, true, function()
+                self:Send("SetSecondary", { Job = j.Id })
+            end), "Use " .. j.Name .. "'s learned actions" .. ((j.Skillset or "") ~= "" and (" (" .. j.Skillset .. ")")
+                or "") .. " next to your job.")
+        end
+    end
+    -- gold like the "+N JP" that floats above the head; dim when there is nothing to spend
+    local jp = text(cell, Util.Num(j.Unspent or 0) .. " JP", (j.Unspent or 0) > 0 and TEXT.Gold or TEXT.Dim)
+    jp.SameLine = true
+    addTooltip(jp, j.Name .. " JP to spend.")
 end
 
 function JobBoard:RenderJob(root, c, j)
@@ -433,36 +463,10 @@ function JobBoard:RenderJob(root, c, j)
         end
         return
     end
+    -- level, JP, Set job / Set subclass sit on the tile; next level and equipment in its tooltip (user, 2026-10-14)
     if not j.Unlocked then
         text(root, (j.PartyUnlocked and "Unlocked by the party; you need " or "Locked: needs ")
             .. (j.Missing or j.Requirements) .. ".", TEXT.Note, WRAP)
-    else
-        local status = string.format("Level %d - %s JP to spend", j.Level, Util.Num(j.Unspent))
-        if j.IsPrimary then
-            status = status .. " - your job"
-        elseif j.IsSecondary then
-            status = status .. " - your secondary"
-        end
-        text(root, status)
-        if j.NextAt then
-            text(root, string.format("Level %d at %s JP earned (%s now)", j.Level + 1, Util.Num(j.NextAt),
-                Util.Num(j.Earned)), TEXT.Dim)
-        else
-            text(root, "Top job level reached.", TEXT.Dim)
-        end
-        if not j.IsPrimary then
-            button(root, "Make job", "job" .. j.Id, false, function()
-                self:Send("SetPrimary", { Job = j.Id })
-            end)
-            if not j.IsSecondary then
-                button(root, "Make secondary", "sec" .. j.Id, true, function()
-                    self:Send("SetSecondary", { Job = j.Id })
-                end)
-            end
-        end
-    end
-    if j.Equip then
-        text(root, "Equipment while it is your job: " .. j.Equip .. ".", nil, WRAP)
     end
     if j.Mastery then
         text(root, j.Mastered and ("Mastered! Perk: " .. j.Mastery) or ("Mastery perk: " .. j.Mastery),
@@ -569,8 +573,8 @@ function JobBoard:RenderPassives(root, c)
         end
     end
     if learnable > 0 then
-        text(root, string.format("%d more you can learn now: see the (new) jobs on the Jobs page.", learnable),
-            TEXT.Note, WRAP)
+        text(root, string.format("%d more you can learn now: hover the tiles on the Jobs page to see which jobs.",
+            learnable), TEXT.Note, WRAP)
     end
 end
 
@@ -579,7 +583,7 @@ function JobBoard:RenderParty(root, view)
     style(root:AddSeparatorText("Party"), "Text", TEXT.Gold)
     local t = root:AddTable("FFTJ_Party", 7)
     t.ShowHeader = true
-    for _, h in ipairs({ "Character", "Job", "Secondary", "Reaction", "Passives", "Job JP", "New" }) do
+    for _, h in ipairs({ "Character", "Job", "Subclass", "Reaction", "Passives", "Job JP", "New" }) do
         t:AddColumn(h)
     end
     for i, ch in ipairs(view.Chars or {}) do

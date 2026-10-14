@@ -373,7 +373,7 @@ end
 function Service:DescribeGrants(guid)
     local char = self.State:Get(guid)
     local data = self.Data
-    local lines = { string.format("%s: job %s, secondary %s", char.Name, data.Jobs[char.Primary].Name,
+    local lines = { string.format("%s: job %s, subclass %s", char.Name, data.Jobs[char.Primary].Name,
         char.Secondary and data.Jobs[char.Secondary].Name or "-") }
     local desired = self:IsDisabled() and { Spells = {}, Passives = {}, Statuses = {} }
         or Rules.DesiredGrants(data, char, self:Cfg())
@@ -1225,7 +1225,7 @@ function Service:SetSecondary(guid, jobId)
     if not char then
         return false, err
     end
-    local block = self:CombatBlock(guid, "SlotsOutOfCombatOnly", "change the secondary skill set")
+    local block = self:CombatBlock(guid, "SlotsOutOfCombatOnly", "change the subclass")
     if block then
         return false, block
     end
@@ -1236,10 +1236,10 @@ function Service:SetSecondary(guid, jobId)
     self.State:MarkDirty()
     self:Reconcile(guid, false)
     if jobId == nil then
-        return true, char.Name .. ": secondary skill set cleared"
+        return true, char.Name .. ": subclass cleared"
     end
     local job = self.Data.Jobs[jobId]
-    return true, string.format("%s: secondary skill set %s (%s)%s", char.Name, job.Skillset, job.Name,
+    return true, string.format("%s: subclass %s (%s)%s", char.Name, job.Skillset, job.Name,
         usableText(self:LearnedActions(char, jobId)))
 end
 
@@ -1271,7 +1271,7 @@ function Service:Learn(guid, abilityId)
     elseif ab.Job == char.Primary or ab.Job == char.Secondary then
         parts[#parts + 1] = string.format("Added to %s's spells.", char.Name)
     else
-        parts[#parts + 1] = string.format("To use it, make %s %s's job or secondary.", job.Name, char.Name)
+        parts[#parts + 1] = string.format("To use it, make %s %s's job or subclass.", job.Name, char.Name)
     end
     if info.Mastered then
         local perk = Rules.HasMasteryPerk(self.Data, cfg, char, ab.Job) and job.Mastery.Description or nil
@@ -1614,7 +1614,7 @@ function Service:SummaryLine(guid)
     local data = self.Data
     local js = char.Jobs[char.Primary] or {}
     local secondary = char.Secondary and data.Jobs[char.Secondary] and data.Jobs[char.Secondary].Skillset or "-"
-    return string.format("%s: %s Lv%d (%s JP to spend) | Secondary %s | Reaction %s | Passive 1 %s | Passive 2 %s",
+    return string.format("%s: %s Lv%d (%s JP to spend) | Subclass %s | Reaction %s | Passive 1 %s | Passive 2 %s",
         char.Name, data.Jobs[char.Primary].Name, Rules.GetJobLevel(cfg, char, char.Primary), Util.Num(js.Unspent or 0),
         secondary, slotText(data, char, "Reaction"), slotText(data, char, "Passive1"), slotText(data, char, "Passive2"))
 end

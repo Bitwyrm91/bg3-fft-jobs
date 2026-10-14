@@ -484,6 +484,25 @@ GRN bomb); painted ones can come later (BG3 closed). Tests: pins Chemist 22 abil
 validate_vanilla + check_refs clean. Unverified in game: Mud slowing, the vials staying inside the flyout (not on the
 hotbar), the UnlockSpell'd children joining the container.
 
+**1.0.0.75 (2026-10-14, local session in worktree `bg3-fft-jobs-tiles`, branch `claude/board-tiles`; NOT packaged or
+seen in game): Job Board tiles carry the JP and the job buttons (user).** User's picks: one line per tile = emblem,
+"<Job> Lv<N>" (+ " *" mastered), **Set job** / **Set subclass** (was Make job / Make secondary in the job panel), the
+JP to spend ("1048 JP", TEXT.Gold, dim at 0; tooltip "<Job> JP to spend."); the current job shows a "Your job" tag
+instead of both buttons, the subclass a "Your subclass" tag instead of Set subclass; locked/soon tiles show only the
+name (`JobBoard:RenderTileActions`). "(N new)" removed from tile labels and group buttons (user: "confusing, makes me
+want to click on it"); the count stays in the tile tooltip and the Party page New column. Job panel (user: keep the
+description and the mastery perk): no level/JP line, no buttons, no equipment line; the tile tooltip gained "Level N at
+X JP earned (Y now)." / "Top job level reached." (equipment and mastery were already there). **Wording rule (user,
+2026-10-14): player-facing text calls the secondary skill set a "subclass"** (board, Service/Rules messages, console
+help text, hotbar menus via tools/menu_gen.py: "Change Subclass", "No Subclass", Learn tooltips' Action line, config
+help lines, JobBoard.Desc); code, ops (`SetSecondary`), spell ids and `!fft_secondary` keep "Secondary". Only
+FFTJobs.xml + GeneratedData.lua regenerated (no stats file changed). Tests: test_ui
+`learnable_counts_only_in_tooltips_and_party_page` (was tiles_and_groups_show_abilities_to_learn_now) and
+`tiles_carry_jp_and_job_buttons`, command tests reworded; 236 tests, build --check, validate_vanilla, check_refs clean;
+pacing self-test still 7 of 20 (accepted since 1.0.0.70). Unverified in game: the tile line's width in the user's
+window (4 tiles per row; long names + 5-digit JP need ~540 px per column at the user's scale), the text baseline
+next to the buttons.
+
 ## Open questions for the user
 
 - MP: abilities use cooldowns instead of an FFT MP pool. An MP resource (a custom `ActionResourceDefinition`) is possible later. Wanted?

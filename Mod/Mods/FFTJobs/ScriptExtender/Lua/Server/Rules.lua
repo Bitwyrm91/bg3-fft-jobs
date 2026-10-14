@@ -638,7 +638,7 @@ function Rules.Equip(data, char, abilityId, slot)
         return false, "Unknown ability " .. tostring(abilityId)
     end
     if ab.Type == "Action" then
-        return false, ab.Name .. " is an action ability: it is used through the primary or secondary skill set"
+        return false, ab.Name .. " is an action ability: it is used through your job or subclass"
     end
     if not Rules.IsLearned(char, abilityId) then
         return false, ab.Name .. " is not learned yet"

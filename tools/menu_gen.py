@@ -1,6 +1,6 @@
 """Job menus in BG3's own UI (NWP item 7): spell containers on the hotbar, generated from data/fft_jobs.json.
 
-- Change Job (Shout_FFTJ_ChangeJob) and Secondary Skill Set (Shout_FFTJ_SecondaryJob): one entry per job. Like Soul
+- Change Job (Shout_FFTJ_ChangeJob) and Change Subclass (Shout_FFTJ_SecondaryJob): one entry per job. Like Soul
   Incarnation, the containers list nothing (a container shows every ContainerSpells entry, learned or not); the
   server grants each entry, which joins its container by SpellContainerID. Regular jobs (no group, or WotL) are always
   listed: open ones by name, locked ones as a greyed "???" entry whose tooltip says what unlocks the job (user,
@@ -40,7 +40,7 @@ ICONS = {CHANGE: "PassiveFeature_PactOfTheTome", SECONDARY: "PassiveFeature_Book
          CLEAR: "Skill_Warlock_DismissPactWeapon", "locked": "Spell_Abjuration_ArcaneLock",
          "fallback": "Skill_Wizard_LearnSpell"}
 GRANT_KINDS = ("spells", "passives", "statuses")
-TYPE_TEXT = {"Action": "Action: usable while this is your job or secondary skill set.",
+TYPE_TEXT = {"Action": "Action: usable while this is your job or subclass.",
              "Reaction": "Reaction: equip it in the reaction slot (Job Board).",
              "Support": "Passive: equip it in a passive slot (Job Board).",
              "Movement": "Passive: equip it in a passive slot (Job Board)."}
@@ -76,10 +76,10 @@ def strings(jobs_doc):
     t = {"menu.change.name": "Change Job",
          "menu.change.desc": "Pick this character's job. Locked jobs show as ???; hover one to see what unlocks it. "
                              "Out of combat only (config).",
-         "menu.secondary.name": "Secondary Skill Set",
-         "menu.secondary.desc": "Pick a second job whose learned actions this character can also use.",
-         "menu.clear.name": "No Secondary",
-         "menu.clear.desc": "Clears the secondary skill set.",
+         "menu.secondary.name": "Change Subclass",
+         "menu.secondary.desc": "Pick a subclass: a second job whose learned actions this character can also use.",
+         "menu.clear.name": "No Subclass",
+         "menu.clear.desc": "Clears the subclass.",
          "menu.locked.name": "???"}
     for j in menu_jobs(jobs_doc):
         jid, name = j["id"], j["name"]
@@ -87,7 +87,7 @@ def strings(jobs_doc):
         t[f"menu.job.{jid}.name"] = name
         t[f"menu.job.{jid}.desc"] = f"{j.get('description', '')} Makes {name} this character's job.".strip()
         t[f"menu.sec.{jid}.name"] = f"{j.get('skillset') or name} ({name})"
-        t[f"menu.sec.{jid}.desc"] = f"Use {name}'s learned actions as the secondary skill set."
+        t[f"menu.sec.{jid}.desc"] = f"Use {name}'s learned actions as the subclass."
         t[f"menu.locked.{jid}.desc"] = f"Locked job. Needs: {need}."
         t[f"menu.learn.{jid}.name"] = f"Learn: {name}"
         t[f"menu.learn.{jid}.desc"] = (f"Spend {name} JP on its abilities. Learned ones leave this list; "

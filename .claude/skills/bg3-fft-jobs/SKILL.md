@@ -100,6 +100,8 @@ legacy, granted by nothing.
 - Write files with LF (`.gitattributes`); Python on Windows writes CRLF unless `newline="\n"`.
 - Tooltip placeholders like `[1]` are whole phrases: never add "damage"/"metres" after them.
 - FFT data sources: The Ivalice Chronicles game tables (local), Caves of Narshe for WotL; Fandom often returns 402.
+- Wording (user, 2026-10-14): player-facing text calls the secondary skill set the **subclass** (board, messages,
+  hotbar menus, tooltips); code, request ops (`SetSecondary`), spell ids and `!fft_secondary` keep "Secondary".
 
 ## Open threads (see STATUS.md NWP)
 Hotbar menu entries never reached CastedSpell in the MP log (item 15); JP not visible in Learn menus (9); overhead JP

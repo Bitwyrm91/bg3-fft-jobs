@@ -1,6 +1,29 @@
 # Playtesting the FFT job system
 
-Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.74**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+Updated 2026-10-13. **Already installed on your PC:** the Script Extender, the mod (`Mods\FFTJobs.pak`, **version 1.0.0.75**: the Summoner, the Dragoon, a new Job Board layout with FFT colours and job emblems, four new jobs and the Fell Seal rules below, on top of the painted icons, the element looks and the **JP Training** test spell) and its entry at the end of your load order.
+
+## New in 1.0.0.75: Job Board tiles carry the JP and the job buttons; "secondary" is now "subclass"
+
+- **Each job tile is one line:** emblem, **White Mage Lv4**, **Set job**, **Set subclass**, then the JP to spend
+  (**1048 JP**, gold; grey at 0). Your current job's tile says **Your job** instead of the buttons; your subclass's
+  tile says **Your subclass** next to Set job. Locked and "soon" tiles show only the name.
+- **"(N new)" is gone** from the tiles and the group buttons ("[+] Jobs (22)"). Hovering a tile still says how many
+  abilities you can learn now; the Party page keeps its New column.
+- **Job panel (click a job's name):** only the description, the mastery perk and the abilities table. The old
+  "Level 4 - 1048 JP to spend" line and the Make job / Make secondary buttons are gone (now on the tile).
+- **Hover a tile** for the rest: level, JP to spend, abilities learned, **next level** ("Level 5 at 1100 JP earned
+  (1048 now)"), how many you can learn now, equipment and the mastery perk.
+- **"Subclass" everywhere:** the secondary skill set is called the subclass on the board (header slot, tooltips,
+  help, Party page column), in the messages after a click, in the hotbar menus (**Change Subclass**, **No Subclass**,
+  Learn tooltips: "usable while this is your job or subclass") and in the Job Board spell's tooltip. The console
+  command stays `!fft_secondary`.
+
+Please check:
+- Open the Jobs group: every unlocked tile fits on one line (name, Set job, Set subclass, JP) without the JP being
+  cut off, also for long names (Arithmetician, Onion Knight) and in a smaller board window.
+- Set job / Set subclass on a tile work and the board refreshes (the clicked tile shows Your job / Your subclass).
+- The text after the buttons lines up with the button labels (same height).
+- The hotbar menu says Change Subclass / No Subclass.
 
 ## New in 1.0.0.74: Chemist gets Gelatinous Goo and Quick Toss
 
