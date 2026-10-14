@@ -20,8 +20,8 @@ backup of the 1.0.0.71 pak in C:\Users\berus\GameModding\backups). `main` = this
 in game yet (PLAYTEST.md).
 **1.0.0.75 (Job Board tiles: JP + Set job / Set subclass on each tile, "subclass" wording) is PACKAGED AND
 INSTALLED** (2026-10-14 15:09, BG3 closed; installed pak hash = build; both modsettings.lsx entries at 1.0.0.75;
-backup of the 1.0.0.74 pak in C:\Users\berus\GameModding\backups). Committed on this branch, NOT pushed (`main` and
-origin stay at 1.0.0.74 until the user says push). Not seen in game.
+backup of the 1.0.0.74 pak in C:\Users\berus\GameModding\backups). Pushed on this branch (user: "push", 2026-10-14);
+`main` stays at 1.0.0.74 (not fast-forwarded). Not seen in game.
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
 
