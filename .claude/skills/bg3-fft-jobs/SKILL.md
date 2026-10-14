@@ -64,12 +64,20 @@ legacy, granted by nothing.
 - Icons: atlas lsx `Public/FFTJobs/GUI/*.lsx` + DDS + TextureBank; per-icon tooltip DDS 380 px; borrowed vanilla icons
   confuse players, so abilities have own art (`art/icons`, generated locally).
 - Never ship a custom Alignment file or anything overriding vanilla factions (crashed saves in the DOS2 mod).
+- Passive contexts: `OnDamaged` SELF = the owner (MAG_ChargedLightning cloak: "when the wearer takes damage");
+  `OnAttacked` the owner is the default target and context.Target, SELF = the attacker (ArmorOfAgathys `_ATTACKER`
+  effect, FireShield). The attacker as target: SWAP (`DealDamage(SWAP,...)`, Hellish Rebuke `UseSpell(SWAP,...)`).
+  When unsure, apply a status to the owner and test inside its OnApplyFunctors with `context.Target` (Mana Font).
+- Empty level 1 slot: `HasPassive('UnlockedSpellSlotLevel1') and not HasActionResource('SpellSlot',100,1,true)`,
+  refill `RestoreResource(SpellSlot,1,1)` (Target_BolsteringMagic_SpellSlot1). Stay-up-instead-of-downed (Death Ward,
+  Rebirth): boost `DownedStatus(X_DOWNED,prio)`, X_DOWNED = StatusType DOWNED healing in its OnApplyFunctors.
 
 ## Script Extender facts
 - `Osi.DB_IsPlayer` does not exist in BG3; party = `Osi.DB_Players` + entities with `PartyMember`.
 - Character creation runs on level `SYS_CC_I`: placeholders "Dummy"/"Player" exist there; nothing is tracked there.
 - Osiris events used: CastedSpell/5, StatusApplied/4, StatusRemoved, TurnStarted/TurnEnded, CombatStarted/Ended,
-  LevelGameplayStarted, AttackedBy/7, KilledBy/4, Died, TemplateAddedTo/4, DialogActorJoined, CharacterJoinedParty.
+  LevelGameplayStarted, AttackedBy/7, KilledBy/4, Died, TemplateAddedTo/4, DialogActorJoined, CharacterJoinedParty,
+  UsingSpellOnTarget/6 + HitpointsChanged/2 (Blessed One; `Osi.SetHitpoints` heals from Lua, no number pops up).
 - Calls: `Osi.AddSpell`, `Osi.ApplyStatus(t, s, seconds, force, source)` (6 s per turn), `Osi.ApplyDamage(t, n,
   type, source)`, `Osi.HasActiveStatus`, `Osi.GetStatusTurns`, `Osi.IsPartyMember(g, includeCamp)`, `Osi.UseSpell`,
   `Osi.CreateAt`, `Osi.GetPosition`, `Ext.Net.CreateChannel` (client/server messages), `Ext.Loca.UpdateTranslatedString`.

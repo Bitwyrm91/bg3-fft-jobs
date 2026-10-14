@@ -138,14 +138,48 @@ data "Description" "{{desc:Parry}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "Boosts" "DamageReduction(Slashing,Flat,2);DamageReduction(Piercing,Flat,2);DamageReduction(Bludgeoning,Flat,2)"
 
-new entry "FFTJ_Regenerate"
+// Renew (Fell Seal Mender, replaces Regenerate): hits through OnDamaged (SELF = the one damaged, as vanilla's
+// MAG_ChargedLightning_ChargeOnTakeDamage_Cloak_Passive), misses through the hidden OnAttacked twin below.
+new entry "FFTJ_Renew"
 type "PassiveData"
-data "DisplayName" "{{name:Regenerate}}"
-data "Description" "{{desc:Regenerate}}"
+data "DisplayName" "{{name:Renew}}"
+data "Description" "{{desc:Renew}}"
 data "Icon" "PassiveFeature_FightingStyle_Defense"
 data "StatsFunctorContext" "OnDamaged"
 data "Conditions" "not HasStatus('FFTJ_REGEN')"
 data "StatsFunctors" "ApplyStatus(SELF,FFTJ_REGEN,100,3)"
+
+// OnAttacked: the owner is context.Target and the default target, SELF is the attacker (vanilla ArmorOfAgathys,
+// FireShield_Warm, MAG_Githborn_MagicEating_HalfPlate_Passive).
+new entry "FFTJ_Renew_Miss"
+type "PassiveData"
+data "DisplayName" "{{name:Renew}}"
+data "Description" "{{desc:Renew}}"
+data "Icon" "PassiveFeature_FightingStyle_Defense"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnAttacked"
+data "Conditions" "IsMiss() and not Self() and not HasStatus('FFTJ_REGEN', context.Target)"
+data "StatsFunctors" "ApplyStatus(FFTJ_REGEN,100,3)"
+
+// Mana Font (Fell Seal Mender, made a counter): the empty-slot check runs in FFTJ_MANAFONT_CHECK, where the owner is
+// the status's target without doubt; FFTJ_MANAFONT_USED (1 turn) = once per round.
+new entry "FFTJ_WhiteMageManaFont"
+type "PassiveData"
+data "DisplayName" "{{name:WhiteMageManaFont}}"
+data "Description" "{{desc:WhiteMageManaFont}}"
+data "Icon" "Skill_Wizard_ArcaneRecovery"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "not HasStatus('FFTJ_MANAFONT_USED')"
+data "StatsFunctors" "ApplyStatus(SELF,FFTJ_MANAFONT_CHECK,100,0)"
+
+// Blessed One (Fell Seal Mender): Lua (Effects.BlessedOneCast / BlessedOneHealed) heals the caster for half of what a
+// single-target heal on someone else restored.
+new entry "FFTJ_BlessedOne"
+type "PassiveData"
+data "DisplayName" "{{name:BlessedOne}}"
+data "Description" "{{desc:BlessedOne}}"
+data "Icon" "GenericIcon_Intent_Healing"
+data "Properties" "Highlighted"
 
 // Spell damage -> the caster takes 2d6 force.
 new entry "FFTJ_MagickCounter"

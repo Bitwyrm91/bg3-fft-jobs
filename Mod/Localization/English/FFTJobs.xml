@@ -71,6 +71,8 @@
   <content contentuid="hac75f317g1e4ag5f97ga0a6g3f6d0e9e647a" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 force, and 3d8 more force while you are below half your hit points (FFT: damage grows with the HP you've lost). Once per short rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h338ea0f9g206dg577fg9e4cg38bd4baa9595" version="1">Echo: Blade Burst</content>
   <content contentuid="h3c9b98e9gd458g5123ga1d1g13e42da5cfc8" version="1">Blade Burst</content>
+  <content contentuid="h0cefec07g46c7g5e80gb06dgc328bc66abc6" version="1">When you heal another creature with a single-target healing spell or ability, you regain half the hit points it got back.</content>
+  <content contentuid="hee7b0066g6803g5ff7g95f4ga28d81d5c8c0" version="1">Blessed One</content>
   <content contentuid="h4c5f7993g505cg5e7bgbf89gcc30cc7f5df2" version="1">Arithmeticks: Blizzaga</content>
   <content contentuid="h9bc71ca4gd076g5b96ga3e0g5d84488f41b0" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h5ef078feg248eg50b4g9b3bg9a885f59fdd6" version="1">Echo: Blizzaga</content>
@@ -726,6 +728,10 @@
   <content contentuid="h5a6c5491g0da0g59c8g833dg914ec2cb9682" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 lightning damage (Dexterity save for half). Allies are spared. Once per short rest. Damage and healing add your highest ability modifier.</content>
   <content contentuid="h7df0228cga9f7g55d1g95b7gf6c851326326" version="1">Echo: Ramuh</content>
   <content contentuid="hd7a480dcgd327g5557g953eg6b080c972b3b" version="1">Ramuh</content>
+  <content contentuid="h63d19750g51e1g50edgac78gf41d6efe54f9" version="1">Arithmeticks: Rebirth</content>
+  <content contentuid="h2fc317f8gbddag5b22gb7a9gc859837ebba8" version="1">Level 2 spell slot. A creature within 18 m gets Rebirth for 2 turns: the next time it would drop to 0 hit points, it stays up with a quarter of its hit points instead, and Rebirth ends.</content>
+  <content contentuid="h8482d89cg9f97g58f6ga5f4g488f05454835" version="1">Echo: Rebirth</content>
+  <content contentuid="h40eb4711g1231g5080gb425gafb11c0d00ac" version="1">Rebirth</content>
   <content contentuid="h9e7aba39g7a02g5902gab54g833bafe05aca" version="1">Arithmeticks: Reflect</content>
   <content contentuid="h3d6e9f1bgee98g51a1g8473g8cd1bd401c8e" version="1">An ally within 18 m is shielded for 3 turns: it takes half damage from spells, and a caster whose spell damages it takes 2d6 force damage. BG3 cannot bounce the spell itself. Once per short rest.</content>
   <content contentuid="h97900e83gc61eg5878g98c7g74389dcb4e81" version="1">Echo: Reflect</content>
@@ -736,8 +742,6 @@
   <content contentuid="hefd05e9eg70beg544cg936bg9ebb565ec2b7" version="1">The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn.</content>
   <content contentuid="hba83ad34g60eeg5e71g95bag1ad572c4bb62" version="1">Echo: Regen</content>
   <content contentuid="he94fec03g65ecg5dfaga674g0f5441824d27" version="1">Regen</content>
-  <content contentuid="hd42c1273ga1cbg5ebcgb0b3g26ffd5415a8f" version="1">When you take damage, you gain Regen for 3 turns (1d4+1 HP per turn) unless you already have it.</content>
-  <content contentuid="h8dda2a1dg02e3g5d8fgb59dg6f4e537bbc08" version="1">Regenerate</content>
   <content contentuid="ha6a17edbg1948g58ccg8f97gbba4adf5be52" version="1">End Poisoned, Blinded, Silenced and Frightened. Once per short rest. Thrown like Potion.</content>
   <content contentuid="hb266b28aga28ag514cgbef2g9307155c9f28" version="1">Echo: Remedy</content>
   <content contentuid="h24dfac7cg8d71g5083gbd4ag15d8e5e491d2" version="1">Remedy</content>
@@ -756,6 +760,8 @@
   <content contentuid="hd40315a4g3c6dg5661g9ca0g7331681105f5" version="1">Melee weapon attack that deals no damage; on a hit the target has disadvantage on attack rolls for 2 turns.</content>
   <content contentuid="hec6285eag2d85g53e3g9fc9gbd72a91c2d4a" version="1">Echo: Rend Weapon</content>
   <content contentuid="hf58e2652ga999g5f4ag98e0g734323a86e63" version="1">Rend Weapon</content>
+  <content contentuid="h682d078dgb786g56a3ga9c0g65a43907f0c4" version="1">When you take damage, or an attack against you misses, you gain Regen for 3 turns (1d4+1 HP at the start of each turn) unless you already have it.</content>
+  <content contentuid="h6b96fc5dg1ca5g59adgb5c8gf7581854371a" version="1">Renew</content>
   <content contentuid="h6b7e44cagc303g5f4dgbc60gd2aa5ee2b4b7" version="1">Arithmeticks: Repose</content>
   <content contentuid="hfe753f71g2c5ag5e5fg8385g03c542bd04e9" version="1">A creature within 18 m makes a Wisdom save or falls Asleep for 2 turns (it wakes when damaged). Once per short rest.</content>
   <content contentuid="h57867e50g8233g5971ga1dfg12f7cc80f075" version="1">Echo: Repose</content>
@@ -1058,6 +1064,8 @@
   <content contentuid="h91769c6dg98b2g53dbg9434geb130914f2ed" version="1">Vigilance</content>
   <content contentuid="haf2d9b79g11cdg541dgacd0gb0b6ba8d103d" version="1">Deep water doesn't slow you, and water never leaves you Wet.</content>
   <content contentuid="h1b80e3b9g62c3g54b8g894eg5421c2a70d52" version="1">Waterwalking</content>
+  <content contentuid="he1c6fb2dgdc6bg52c6g862fg6207e5eff65a" version="1">When you take damage and one of your level 1 spell slots is empty, you get it back. Once per round.</content>
+  <content contentuid="h078b7c25g982ag5296ga874g078d6858340a" version="1">Mana Font</content>
   <content contentuid="h34b72f75g39c5g5b2bgbbf1g148cc5289758" version="1">Only in shadow or darkness, or while you stand in grease, oil or alcohol. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Wisdom save has a 1 in 4 chance of falling Asleep for 2 turns. Damage and healing add your highest ability modifier.</content>
   <content contentuid="hd1d0c8fbg9e3ag53d5gb1d5gd7d0ca6ee1eb" version="1">Echo: Will-o'-the-Wisp</content>
   <content contentuid="hc08c15b4g29e8g516cgafb3gd709ba9c6a0a" version="1">Will-o'-the-Wisp</content>
@@ -1271,6 +1279,7 @@
   <content contentuid="h5e2a6e75geb4eg5884gb14bgdce03a1351fd" version="1">A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, but -2 to saving throws (strengthen an ally's magic, or soften an enemy). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 400 JP.</content>
   <content contentuid="h9075d50cgbe0dg545bgade3g412b92f6a22a" version="1">Enemies within 3 m of you take 3d6 psychic damage and are Silenced for 1 turn (Wisdom save: half damage, no silence; FFT drains MP). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="hacd660acgeb74g5200g8aceg01188ec7e350" version="1">A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 force, and 3d8 more force while you are below half your hit points (FFT: damage grows with the HP you've lost). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 250 JP.</content>
+  <content contentuid="hcd84516bg2075g5d62g8875g11194f2886f4" version="1">When you heal another creature with a single-target healing spell or ability, you regain half the hit points it got back. Passive: equip it in a passive slot (Job Board). Cost: 440 JP.</content>
   <content contentuid="h3152fb28ga50dg5ed9g87a1gc3e69194d8bc" version="1">6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
   <content contentuid="h534f12bcga4d3g589fg9030g169179ebe22e" version="1">3d6 cold damage in a 3 m radius; Dexterity save for half. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
   <content contentuid="hccb3fb3bgdc55g582bgb650gc22bf33d8bd4" version="1">1d8 cold damage to a creature within 18 m, no attack roll. Action: usable while this is your job or secondary skill set. Cost: 50 JP.</content>
@@ -1517,16 +1526,17 @@
   <content contentuid="haadec71bg1011g5cdeg87d5gbfa995a798d3" version="1">Shoot a 10 m line of arrows: everyone in it (allies too) takes your ranged weapon's damage, half on a successful Dexterity save. Action: usable while this is your job or secondary skill set. Cost: 625 JP.</content>
   <content contentuid="he5b99ee4ga61fg5d3aga30cg73a931246c46" version="1">Revive a dead ally with 1 HP. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
   <content contentuid="hee2f26b7gf7bcg5f8dg8a90g9f6f534525d7" version="1">Enemies within 3 m of a point up to 18 m away take 4d6 lightning damage (Dexterity save for half). Allies are spared. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 200 JP.</content>
+  <content contentuid="h79b1ca50g7815g51eaga00cgd2023bbe2000" version="1">Level 2 spell slot. A creature within 18 m gets Rebirth for 2 turns: the next time it would drop to 0 hit points, it stays up with a quarter of its hit points instead, and Rebirth ends. Action: usable while this is your job or secondary skill set. Cost: 875 JP.</content>
   <content contentuid="he30646b9g7602g5e3agbfaag26afe4d55afa" version="1">An ally within 18 m is shielded for 3 turns: it takes half damage from spells, and a caster whose spell damages it takes 2d6 force damage. BG3 cannot bounce the spell itself. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 300 JP.</content>
   <content contentuid="hbb27a575gce91g5e11g91dag342e7b2b20d6" version="1">+1 AC and advantage on Dexterity saving throws. Reaction: equip it in the reaction slot (Job Board). Cost: 400 JP.</content>
   <content contentuid="h2ec8c0abg775dg5d01gafa5g975d1ab8451c" version="1">The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn. Action: usable while this is your job or secondary skill set. Cost: 350 JP.</content>
-  <content contentuid="ha6d1c93egd5d7g54aag9962gf397632812a6" version="1">When you take damage, you gain Regen for 3 turns (1d4+1 HP per turn) unless you already have it. Reaction: equip it in the reaction slot (Job Board). Cost: 400 JP.</content>
   <content contentuid="he0879667ge9e0g5972gaa12gb1b763e72542" version="1">End Poisoned, Blinded, Silenced and Frightened. Once per short rest. Thrown like Potion. Action: usable while this is your job or secondary skill set. Cost: 700 JP.</content>
   <content contentuid="hf94c7b8fgd700g5b3eg9af9g23854440220b" version="1">Melee weapon attack that deals no damage; on a hit the target has -2 AC for 3 turns. Action: usable while this is your job or secondary skill set. Cost: 400 JP.</content>
   <content contentuid="hfa4e2e60ga921g5462g98eagabc26d91d7a8" version="1">Melee weapon attack that deals no damage; on a hit the target has -2 spell save DC and -2 to spell attack rolls for 3 turns. Action: usable while this is your job or secondary skill set. Cost: 250 JP.</content>
   <content contentuid="h36cb3cc2gd829g50d7g91a6g94a7b11a7052" version="1">Melee weapon attack that deals no damage; on a hit the target deals 2 less damage for 3 turns. Action: usable while this is your job or secondary skill set. Cost: 250 JP.</content>
   <content contentuid="h7a38a57eg596ag5bb2ga060g9ec0c0b8b5bf" version="1">Melee weapon attack that deals no damage; on a hit the target has -3 m movement for 3 turns. Action: usable while this is your job or secondary skill set. Cost: 250 JP.</content>
   <content contentuid="h0c2f7655g4c55g5557g8c07g415ba72a182a" version="1">Melee weapon attack that deals no damage; on a hit the target has disadvantage on attack rolls for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 400 JP.</content>
+  <content contentuid="h91464344g2b23g59e9gab5cg932489db4dda" version="1">When you take damage, or an attack against you misses, you gain Regen for 3 turns (1d4+1 HP at the start of each turn) unless you already have it. Reaction: equip it in the reaction slot (Job Board). Cost: 500 JP.</content>
   <content contentuid="hc3acda6eg86b9g5106g8668g3b5dc827733a" version="1">A creature within 18 m makes a Wisdom save or falls Asleep for 2 turns (it wakes when damaged). Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 350 JP.</content>
   <content contentuid="hd4cdefb0ged34g5643ga81bg51c6d6d245d2" version="1">Death Ward: the next time the ally would drop to 0 HP, it drops to 1 HP instead. Once per long rest. Action: usable while this is your job or secondary skill set. Cost: 1000 JP.</content>
   <content contentuid="h77c80d9cg68fdg5c4ega66bg5f7e80ee3957" version="1">With a battle cry, bring a dead ally in melee range back to life with 2d8 hit points. Once per short rest. Action: usable while this is your job or secondary skill set. Cost: 500 JP.</content>
@@ -1639,6 +1649,7 @@
   <content contentuid="hc200baf3geedbg515egb27eg85c4699de3f7" version="1">Your Jump lands harder: 2d10 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts. Action: usable while this is your job or secondary skill set. Cost: 1500 JP.</content>
   <content contentuid="hb8455012ga2e6g5cd6ga553ge687520e7d6c" version="1">When a weapon attack damages you, you take the Defending stance: +2 AC until your next turn. Once per turn. Reaction: equip it in the reaction slot (Job Board). Cost: 200 JP.</content>
   <content contentuid="hfba30697ga502g5738ga4c4g89483cebf3b3" version="1">Deep water doesn't slow you, and water never leaves you Wet. Passive: equip it in a passive slot (Job Board). Cost: 420 JP.</content>
+  <content contentuid="h2764e551g23ceg55b6gb786g4662ce5fedf0" version="1">When you take damage and one of your level 1 spell slots is empty, you get it back. Once per round. Reaction: equip it in the reaction slot (Job Board). Cost: 440 JP.</content>
   <content contentuid="haacf1493gc284g590agbef4ged32c97c8c4e" version="1">Only in shadow or darkness, or while you stand in grease, oil or alcohol. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Wisdom save has a 1 in 4 chance of falling Asleep for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h14ad52d5g8ff9g52c4g852cg5121f565c7cc" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 thunder damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 4 chance of being Slowed for 2 turns. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
   <content contentuid="h0e49e3a1g26e6g5880gbb86g3cb3183c720c" version="1">Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 4 chance of being Disabled (no actions) for 1 turn. Action: usable while this is your job or secondary skill set. Cost: 150 JP.</content>
@@ -2865,10 +2876,14 @@
   <content contentuid="hefcc5bdega8a1g50ccg9014gec0e6196f422" version="1">Immobilize</content>
   <content contentuid="h4af99c3aga873g5183ga3fdgcd2551826c5a" version="1">+1 to spell attack rolls and spell save DC.</content>
   <content contentuid="hdaed2399geb66g539eg97eeg6e5a29019fb3" version="1">Magick Surge</content>
+  <content contentuid="h582eead9g8225g53a4gba69g8899ba82207c" version="1">Mana Font already gave back a spell slot this round.</content>
+  <content contentuid="hf781cbc0gfed1g517ag8d96g6b63dff09cb0" version="1">Mana Font Used</content>
   <content contentuid="hda2ce899ga8deg5eaaga615gdfd2f03e4ffb" version="1">+2 AC.</content>
   <content contentuid="h0e16631cg257cg5438g9283g28c99ab90b53" version="1">Protect</content>
   <content contentuid="h16db5dabg9690g57f7g8d7eg6e3f19cc1fba" version="1">An extra action this turn.</content>
   <content contentuid="ha183378fgffc3g59e7gb20cg27f7ed9a1b03" version="1">Quick</content>
+  <content contentuid="h8226a613g0cc2g5be3g9883g42b7a6257c78" version="1">The next time this creature would drop to 0 hit points, it stays up with a quarter of its hit points instead.</content>
+  <content contentuid="hb92e3905g0a3cg57e2ga500g36e81d1f0ce7" version="1">Rebirth</content>
   <content contentuid="h2a74ea10gc6aag5254ga07eg695bb9a4e113" version="1">Takes half damage from spells; a caster whose spell deals damage takes 2d6 force damage.</content>
   <content contentuid="hba70dbc2g2079g55b9g9348g7bbda09ce6ff" version="1">Reflect</content>
   <content contentuid="ha74d551ega43cg57d2gbe33gfb71e9a106ee" version="1">Regains 1d4+1 HP at the start of each turn.</content>

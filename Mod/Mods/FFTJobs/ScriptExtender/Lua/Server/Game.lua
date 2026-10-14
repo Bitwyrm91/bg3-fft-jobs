@@ -491,6 +491,44 @@ function Game:ApplyDamage(guid, amount, damageType, source)
     end)
 end
 
+-- A single-target heal (Blessed One): VerbalIntent Healing, cast at one creature (Target or Projectile, no area, at
+-- most one target; vanilla Mass Cure Wounds and our Cura have AmountOfTargets above 1). False when unreadable.
+function Game:IsSingleTargetHeal(spellId)
+    self.HealCache = self.HealCache or {}
+    local cached = self.HealCache[spellId]
+    if cached ~= nil then
+        return cached
+    end
+    local stat = self:Try("Ext.Stats.Get heal", function()
+        local s = Ext.Stats.Get(spellId, nil, false)
+        return s and { Intent = s.VerbalIntent, Type = s.SpellType, Area = s.AreaRadius, Targets = s.AmountOfTargets }
+    end)
+    local ok = false
+    if stat and tostring(stat.Intent) == "Healing" and (stat.Type == "Target" or stat.Type == "Projectile") then
+        local area, targets = tonumber(stat.Area) or 0, tonumber(stat.Targets)
+        ok = area <= 0 and (not targets or targets <= 1)
+    end
+    self.HealCache[spellId] = ok
+    return ok
+end
+
+-- Restores hit points from Lua (no healing number pops up): never above the maximum, never to a downed or dead
+-- creature. Returns the hit points actually restored.
+function Game:Heal(guid, amount)
+    local hp, max = self:Hitpoints(guid), self:MaxHitpoints(guid)
+    if not hp or not max or hp <= 0 or amount <= 0 then
+        return 0
+    end
+    local target = math.min(max, hp + amount)
+    if target <= hp then
+        return 0
+    end
+    self:Try("SetHitpoints", function()
+        Osi.SetHitpoints(guid, target)
+    end)
+    return target - hp
+end
+
 ---------------------------------------------------------------- Arithmeticks (Service:CastArithmeticks)
 
 function Game:Distance(a, b)

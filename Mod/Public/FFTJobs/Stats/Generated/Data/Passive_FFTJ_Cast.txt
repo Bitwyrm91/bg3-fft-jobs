@@ -1738,6 +1738,36 @@ type "PassiveData"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Projectile_FFTJ_Holy,,,,Charisma)"
 
+new entry "FFTJ_Cast_Str_Target_FFTJ_Rebirth"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Target_FFTJ_Rebirth"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Target_FFTJ_Rebirth"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Target_FFTJ_Rebirth"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Target_FFTJ_Rebirth"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Target_FFTJ_Rebirth"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Charisma)"
+
 new entry "FFTJ_Cast_Str_Projectile_FFTJ_Fire"
 type "PassiveData"
 data "Properties" "IsHidden"
@@ -10287,6 +10317,36 @@ new entry "FFTJ_Cast_Cha_Projectile_FFTJ_Holy_Echo"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "Boosts" "UnlockSpell(Projectile_FFTJ_Holy_Echo,,,,Charisma)"
+
+new entry "FFTJ_Cast_Str_Target_FFTJ_Rebirth_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Strength)"
+
+new entry "FFTJ_Cast_Dex_Target_FFTJ_Rebirth_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Dexterity)"
+
+new entry "FFTJ_Cast_Con_Target_FFTJ_Rebirth_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Constitution)"
+
+new entry "FFTJ_Cast_Int_Target_FFTJ_Rebirth_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Intelligence)"
+
+new entry "FFTJ_Cast_Wis_Target_FFTJ_Rebirth_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Wisdom)"
+
+new entry "FFTJ_Cast_Cha_Target_FFTJ_Rebirth_Echo"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "UnlockSpell(Target_FFTJ_Rebirth_Echo,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,Charisma)"
 
 new entry "FFTJ_Cast_Str_Projectile_FFTJ_Fire_Echo"
 type "PassiveData"

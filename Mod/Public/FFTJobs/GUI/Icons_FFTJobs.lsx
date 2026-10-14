@@ -488,49 +488,49 @@
                     <attribute id="V2" type="float" value="0.31201172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Regenerate"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Remedy"/>
                     <attribute id="U1" type="float" value="0.31298828"/>
                     <attribute id="U2" type="float" value="0.37451172"/>
                     <attribute id="V1" type="float" value="0.25048828"/>
                     <attribute id="V2" type="float" value="0.31201172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Remedy"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendArmor"/>
                     <attribute id="U1" type="float" value="0.37548828"/>
                     <attribute id="U2" type="float" value="0.43701172"/>
                     <attribute id="V1" type="float" value="0.25048828"/>
                     <attribute id="V2" type="float" value="0.31201172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendArmor"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendMagick"/>
                     <attribute id="U1" type="float" value="0.43798828"/>
                     <attribute id="U2" type="float" value="0.49951172"/>
                     <attribute id="V1" type="float" value="0.25048828"/>
                     <attribute id="V2" type="float" value="0.31201172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendMagick"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendPower"/>
                     <attribute id="U1" type="float" value="0.50048828"/>
                     <attribute id="U2" type="float" value="0.56201172"/>
                     <attribute id="V1" type="float" value="0.25048828"/>
                     <attribute id="V2" type="float" value="0.31201172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendPower"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendSpeed"/>
                     <attribute id="U1" type="float" value="0.56298828"/>
                     <attribute id="U2" type="float" value="0.62451172"/>
                     <attribute id="V1" type="float" value="0.25048828"/>
                     <attribute id="V2" type="float" value="0.31201172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendSpeed"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendWeapon"/>
                     <attribute id="U1" type="float" value="0.62548828"/>
                     <attribute id="U2" type="float" value="0.68701172"/>
                     <attribute id="V1" type="float" value="0.25048828"/>
                     <attribute id="V2" type="float" value="0.31201172"/>
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_RendWeapon"/>
+                    <attribute id="MapKey" type="FixedString" value="FFTJ_Icon_Renew"/>
                     <attribute id="U1" type="float" value="0.68798828"/>
                     <attribute id="U2" type="float" value="0.74951172"/>
                     <attribute id="V1" type="float" value="0.25048828"/>

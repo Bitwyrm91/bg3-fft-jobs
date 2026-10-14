@@ -468,6 +468,10 @@ function Mocks.Install()
         GetMaxHitpoints = function(g)
             return char(g).maxHp
         end,
+        SetHitpoints = function(g, hp)
+            rec("SetHitpoints", g, hp)
+            char(g).hp = hp
+        end,
         UseSpell = function(caster, spell, target)
             rec("UseSpell", caster, spell, target)
             world.usedSpells[#world.usedSpells + 1] = { caster, spell, target }

@@ -397,6 +397,13 @@ using "Projectile_FFTJ_Holy"
 data "Cooldown" ""
 data "DisplayName" "h1fef834fge3b9g52b0g97b0g359749d0aea6;1"
 
+new entry "Target_FFTJ_Rebirth_Echo"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FFTJ_Rebirth"
+data "Cooldown" ""
+data "DisplayName" "h8482d89cg9f97g58f6ga5f4g488f05454835;1"
+
 new entry "Projectile_FFTJ_Fire_Echo"
 type "SpellData"
 data "SpellType" "Projectile"

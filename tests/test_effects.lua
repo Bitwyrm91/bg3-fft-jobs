@@ -286,6 +286,65 @@ function S.gil_snapper_pays_for_damage_taken(w, T)
     T.eq(w.chars[T.TAV].gold, 7)
 end
 
+-- Blessed One: spell stats as SE returns them (Ext.Stats.Get mock reads w.itemStats)
+local function healStats(w)
+    w.itemStats.Target_FFTJ_Cure = { VerbalIntent = "Healing", SpellType = "Target", AreaRadius = 0, AmountOfTargets = "" }
+    w.itemStats.Target_FFTJ_Cura = { VerbalIntent = "Healing", SpellType = "Target", AreaRadius = 0, AmountOfTargets = "3" }
+    w.itemStats.Shout_HealingWord_Mass = { VerbalIntent = "Healing", SpellType = "Shout", AreaRadius = 9 }
+    w.itemStats.Projectile_FireBolt = { VerbalIntent = "Damage", SpellType = "Projectile", AreaRadius = 0 }
+end
+
+local function healCast(w, caster, target, spell, gain)
+    w.fire("UsingSpellOnTarget", "S_Player_" .. caster, "S_Player_" .. target, spell, "Target", "Life", 1)
+    w.chars[target].hp = w.chars[target].hp + gain
+    w.fire("HitpointsChanged", "S_Player_" .. target, 50.0)
+end
+
+function S.blessed_one_heals_the_healer_for_half(w, T)
+    local svc = T.boot(w)
+    healStats(w)
+    w.chars[T.TAV].hp, w.chars[T.SHART].hp = 10, 5
+    healCast(w, T.SHART, T.TAV, "Target_FFTJ_Cure", 9)
+    T.eq(w.chars[T.SHART].hp, 5, "only with Blessed One")
+    svc.State:Get(T.SHART).Granted.Passives.FFTJ_BlessedOne = true
+    w.chars[T.TAV].hp = 10
+    healCast(w, T.SHART, T.TAV, "Target_FFTJ_Cure", 9)
+    T.eq(w.chars[T.SHART].hp, 5 + 4, "half of 9, rounded down")
+    T.eq(next(svc.BlessedWatch), nil, "done waiting")
+end
+
+function S.blessed_one_only_counts_single_target_heals_on_others(w, T)
+    local svc = T.boot(w)
+    healStats(w)
+    svc.State:Get(T.SHART).Granted.Passives.FFTJ_BlessedOne = true
+    w.chars[T.TAV].hp, w.chars[T.SHART].hp = 10, 5
+    healCast(w, T.SHART, T.TAV, "Target_FFTJ_Cura", 9)
+    healCast(w, T.SHART, T.TAV, "Shout_HealingWord_Mass", 9)
+    healCast(w, T.SHART, T.TAV, "Projectile_FireBolt", 9)
+    T.eq(w.chars[T.SHART].hp, 5, "group heals and other spells don't count")
+    healCast(w, T.SHART, T.SHART, "Target_FFTJ_Cure", 9)
+    T.eq(w.chars[T.SHART].hp, 14, "healing yourself gives nothing more")
+end
+
+function S.blessed_one_waits_for_the_heal_and_caps_at_max(w, T)
+    local svc = T.boot(w)
+    healStats(w)
+    svc.State:Get(T.SHART).Granted.Passives.FFTJ_BlessedOne = true
+    w.chars[T.TAV].hp, w.chars[T.SHART].hp = 10, 19
+    w.fire("UsingSpellOnTarget", "S_Player_" .. T.SHART, "S_Player_" .. T.TAV, "Target_FFTJ_Cure", "Target", "Life", 1)
+    w.chars[T.TAV].hp = 8
+    w.fire("HitpointsChanged", "S_Player_" .. T.TAV, 40.0)
+    T.truthy(svc.BlessedWatch[T.TAV], "damage first: still waiting")
+    w.chars[T.TAV].hp = 18
+    w.fire("HitpointsChanged", "S_Player_" .. T.TAV, 90.0)
+    T.eq(w.chars[T.SHART].hp, 20, "+4 capped at max HP 20")
+    -- a heal that never lands is forgotten after Abilities.BlessedOneWaitMs
+    w.fire("UsingSpellOnTarget", "S_Player_" .. T.SHART, "S_Player_" .. T.TAV, "Target_FFTJ_Cure", "Target", "Life", 1)
+    T.truthy(svc.BlessedWatch[T.TAV])
+    w.runTimers()
+    T.eq(svc.BlessedWatch[T.TAV], nil)
+end
+
 function S.poach_pays_for_a_marked_kill(w, T)
     local svc = T.boot(w)
     enemy(w, { level = 4 })

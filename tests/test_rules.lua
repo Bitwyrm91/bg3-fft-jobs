@@ -463,6 +463,23 @@ function S.retired_abilities_refund_their_jp(w, T)
     T.truthy(string.find(mime, "FFTJ_Concentration", 1, true), "the Mime keeps Concentration")
 end
 
+function S.regenerate_becomes_renew(w, T)
+    local Rules, Data = setup()
+    local char = Rules.Normalize({ Primary = "WhiteMage", Reaction = "Regenerate", Jobs = { WhiteMage = {
+        Earned = 2000, Unspent = 30, Learned = { Cure = true, Regenerate = true } } } })
+    local out = Rules.MigrateRetired(Data, char)
+    T.eq(#out, 1)
+    T.eq(out[1].Refund, 0, "no refund: Renew is learned instead")
+    T.eq(table.concat(out[1].Replaced, ","), "Renew")
+    T.truthy(char.Jobs.WhiteMage.Learned.Renew)
+    T.falsy(char.Jobs.WhiteMage.Learned.Regenerate)
+    T.eq(char.Jobs.WhiteMage.Unspent, 30)
+    T.eq(char.Reaction, "Renew", "Renew takes the reaction slot")
+    local grants = Rules.DesiredGrants(Data, char)
+    T.truthy(grants.Passives.FFTJ_Renew)
+    T.truthy(grants.Passives.FFTJ_Renew_Miss, "misses trigger it too")
+end
+
 -- Data with a made-up special job (not in the data): Test Knight needs the Test Knight Badge and Knight Lv3.
 local function badgeData(Data)
     local Util = Ext.Require("Shared/Util.lua")

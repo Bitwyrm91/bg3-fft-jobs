@@ -757,7 +757,9 @@
     "id": "GenericIcon_Intent_Healing",
     "kind": "icon",
     "usedBy": [
-      "FFTJ_Mastery_Princess"
+      "FFTJ_BlessedOne",
+      "FFTJ_Mastery_Princess",
+      "Shout_FFTJ_Learn_BlessedOne"
     ]
   },
   {
@@ -1286,6 +1288,16 @@
     ]
   },
   {
+    "id": "Skill_Wizard_ArcaneRecovery",
+    "kind": "icon",
+    "usedBy": [
+      "FFTJ_MANAFONT_CHECK",
+      "FFTJ_MANAFONT_USED",
+      "FFTJ_WhiteMageManaFont",
+      "Shout_FFTJ_Learn_WhiteMageManaFont"
+    ]
+  },
+  {
     "id": "Spell_Abjuration_Aid",
     "kind": "icon",
     "usedBy": [
@@ -1351,7 +1363,8 @@
       "FFTJ_Dragonheart",
       "Shout_FFTJ_Learn_ClericReraise",
       "Shout_FFTJ_Learn_Dragonheart",
-      "Shout_FFTJ_Learn_PrincessReraise"
+      "Shout_FFTJ_Learn_PrincessReraise",
+      "Shout_FFTJ_Learn_Rebirth"
     ]
   },
   {
@@ -4811,6 +4824,7 @@
     "id": "Target_DeathWard",
     "kind": "using parent (SpellData)",
     "usedBy": [
+      "Target_FFTJ_Rebirth",
       "Target_FFTJ_Reraise"
     ]
   },
@@ -5232,6 +5246,20 @@
     "kind": "using parent (StatusData)",
     "usedBy": [
       "FFTJ_SONG_NAMELESS_FX"
+    ]
+  },
+  {
+    "id": "DEATH_WARD",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_REBIRTH"
+    ]
+  },
+  {
+    "id": "DEATH_WARD_DOWNED",
+    "kind": "using parent (StatusData)",
+    "usedBy": [
+      "FFTJ_REBIRTH_DOWNED"
     ]
   },
   {

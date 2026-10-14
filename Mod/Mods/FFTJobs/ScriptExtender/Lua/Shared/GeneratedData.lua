@@ -2496,18 +2496,57 @@ return {
       },
       Fft = "Strong holy-element attack.",
     },
-    Regenerate = {
-      Id = "Regenerate",
+    Rebirth = {
+      Id = "Rebirth",
+      Job = "WhiteMage",
+      Type = "Action",
+      Name = "Rebirth",
+      Cost = 875,
+      Order = 60,
+      Description = "Level 2 spell slot. A creature within 18 m gets Rebirth for 2 turns: the next time it would drop to 0 hit points, it stays up with a quarter of its hit points instead, and Rebirth ends.",
+      Grants = {
+        Spells = { "Target_FFTJ_Rebirth" },
+      },
+      Fft = "Fell Seal Rebirth (24 MP): the target automatically comes back to life after falling. Here: 2 turns, level 2 spell slot, 25% HP (user).",
+    },
+    Renew = {
+      Id = "Renew",
       Job = "WhiteMage",
       Type = "Reaction",
-      Name = "Regenerate",
-      Cost = 400,
-      Order = 60,
-      Description = "When you take damage, you gain Regen for 3 turns (1d4+1 HP per turn) unless you already have it.",
+      Name = "Renew",
+      Cost = 500,
+      Order = 61,
+      Description = "When you take damage, or an attack against you misses, you gain Regen for 3 turns (1d4+1 HP at the start of each turn) unless you already have it.",
       Grants = {
-        Passives = { "FFTJ_Regenerate" },
+        Passives = { "FFTJ_Renew", "FFTJ_Renew_Miss" },
       },
-      Fft = "PS1 Regenerator: Regen when hit.",
+      Fft = "Fell Seal Renew (counter): grants Renew (HP every turn) after being targeted by any damaging offensive action. Replaces the PS1 Regenerator (Regenerate) here.",
+    },
+    WhiteMageManaFont = {
+      Id = "WhiteMageManaFont",
+      Job = "WhiteMage",
+      Type = "Reaction",
+      Name = "Mana Font",
+      Cost = 440,
+      Order = 62,
+      Description = "When you take damage and one of your level 1 spell slots is empty, you get it back. Once per round.",
+      Grants = {
+        Passives = { "FFTJ_WhiteMageManaFont" },
+      },
+      Fft = "Fell Seal Mana Font (passive: 1 MP per step taken), made a counter here (user): refills an empty level 1 spell slot when hit. Not the Mystic's Manafont.",
+    },
+    BlessedOne = {
+      Id = "BlessedOne",
+      Job = "WhiteMage",
+      Type = "Support",
+      Name = "Blessed One",
+      Cost = 440,
+      Order = 63,
+      Description = "When you heal another creature with a single-target healing spell or ability, you regain half the hit points it got back.",
+      Grants = {
+        Passives = { "FFTJ_BlessedOne" },
+      },
+      Fft = "Fell Seal Blessed One: a single-target heal on someone else heals the caster for 0.5x the amount.",
     },
     MagickDefenseBoost = {
       Id = "MagickDefenseBoost",
@@ -2515,7 +2554,7 @@ return {
       Type = "Support",
       Name = "Magick Defense Boost",
       Cost = 400,
-      Order = 61,
+      Order = 64,
       Description = "+1 to all saving throws.",
       Grants = {
         Passives = { "FFTJ_MagickDefenseBoost" },
@@ -2528,7 +2567,7 @@ return {
       Type = "Action",
       Name = "Fire",
       Cost = 50,
-      Order = 62,
+      Order = 65,
       Description = "1d8 fire damage to a creature within 18 m, no attack roll.",
       Grants = {
         Spells = { "Projectile_FFTJ_Fire" },
@@ -2541,7 +2580,7 @@ return {
       Type = "Action",
       Name = "Fira",
       Cost = 200,
-      Order = 63,
+      Order = 66,
       Description = "3d6 fire damage in a 3 m radius; Dexterity save for half. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Fira" },
@@ -2554,7 +2593,7 @@ return {
       Type = "Action",
       Name = "Firaga",
       Cost = 500,
-      Order = 64,
+      Order = 67,
       Description = "6d6 fire damage in a 4.5 m radius; Dexterity save for half. Once per long rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Firaga" },
@@ -2567,7 +2606,7 @@ return {
       Type = "Action",
       Name = "Thunder",
       Cost = 50,
-      Order = 65,
+      Order = 68,
       Description = "1d8 lightning damage to a creature within 18 m, no attack roll.",
       Grants = {
         Spells = { "Projectile_FFTJ_Thunder" },
@@ -2580,7 +2619,7 @@ return {
       Type = "Action",
       Name = "Thundara",
       Cost = 200,
-      Order = 66,
+      Order = 69,
       Description = "3d6 lightning damage in a 3 m radius; Dexterity save for half. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Thundara" },
@@ -2593,7 +2632,7 @@ return {
       Type = "Action",
       Name = "Thundaga",
       Cost = 500,
-      Order = 67,
+      Order = 70,
       Description = "6d6 lightning damage in a 4.5 m radius; Dexterity save for half. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Thundaga" },
@@ -2606,7 +2645,7 @@ return {
       Type = "Action",
       Name = "Blizzard",
       Cost = 50,
-      Order = 68,
+      Order = 71,
       Description = "1d8 cold damage to a creature within 18 m, no attack roll.",
       Grants = {
         Spells = { "Projectile_FFTJ_Blizzard" },
@@ -2619,7 +2658,7 @@ return {
       Type = "Action",
       Name = "Blizzara",
       Cost = 200,
-      Order = 69,
+      Order = 72,
       Description = "3d6 cold damage in a 3 m radius; Dexterity save for half. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Blizzara" },
@@ -2632,7 +2671,7 @@ return {
       Type = "Action",
       Name = "Blizzaga",
       Cost = 500,
-      Order = 70,
+      Order = 73,
       Description = "6d6 cold damage in a 4.5 m radius; Dexterity save for half. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Blizzaga" },
@@ -2645,7 +2684,7 @@ return {
       Type = "Action",
       Name = "Poison",
       Cost = 150,
-      Order = 71,
+      Order = 74,
       Description = "1d6 poison damage to a creature within 18 m; it is Poisoned for 2 turns unless it succeeds a Constitution save.",
       Grants = {
         Spells = { "Projectile_FFTJ_Poison" },
@@ -2658,7 +2697,7 @@ return {
       Type = "Action",
       Name = "Death",
       Cost = 600,
-      Order = 72,
+      Order = 75,
       Description = "8d10 necrotic damage to a creature within 18 m; Constitution save for half. Undead and constructs cannot be targeted. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Death" },
@@ -2671,7 +2710,7 @@ return {
       Type = "Action",
       Name = "Flare",
       Cost = 1000,
-      Order = 73,
+      Order = 76,
       Description = "10d10 force damage to a creature within 18 m, no attack roll. Once per long rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Flare" },
@@ -2684,7 +2723,7 @@ return {
       Type = "Reaction",
       Name = "Magick Counter",
       Cost = 800,
-      Order = 74,
+      Order = 77,
       Description = "When a spell damages you, its caster takes 2d6 force damage.",
       Grants = {
         Passives = { "FFTJ_MagickCounter" },
@@ -2697,7 +2736,7 @@ return {
       Type = "Support",
       Name = "Magick Boost",
       Cost = 400,
-      Order = 75,
+      Order = 78,
       Description = "+1 spell save DC and +1 to spell attack rolls.",
       Grants = {
         Passives = { "FFTJ_MagickBoost" },
@@ -2710,7 +2749,7 @@ return {
       Type = "Action",
       Name = "Cyclone",
       Cost = 150,
-      Order = 76,
+      Order = 79,
       Description = "Spin and strike every enemy within 2 m: an unarmed attack roll against each, 1d8 + your unarmed attack modifier bludgeoning on a hit. FFT also hits allies; here only enemies.",
       Grants = {
         Spells = { "Shout_FFTJ_Cyclone" },
@@ -2723,7 +2762,7 @@ return {
       Type = "Action",
       Name = "Pummel",
       Cost = 300,
-      Order = 77,
+      Order = 80,
       Description = "Two quick unarmed strikes at a creature in melee range: each hit deals 1d6 + your unarmed attack modifier bludgeoning.",
       Grants = {
         Spells = { "Target_FFTJ_Pummel" },
@@ -2736,7 +2775,7 @@ return {
       Type = "Action",
       Name = "Aurablast",
       Cost = 300,
-      Order = 78,
+      Order = 81,
       Description = "Hurl your fighting spirit at a creature up to 9 m away: ranged unarmed attack roll, 1d10 + your unarmed attack modifier force damage.",
       Grants = {
         Spells = { "Target_FFTJ_Aurablast" },
@@ -2749,7 +2788,7 @@ return {
       Type = "Action",
       Name = "Shockwave",
       Cost = 600,
-      Order = 79,
+      Order = 82,
       Description = "A shockwave tears through the ground in a 12 m line: creatures in it make a Dexterity save (your Strength/Dexterity DC), taking 3d8 bludgeoning and falling prone on a failure, half damage on a success. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Shockwave" },
@@ -2762,7 +2801,7 @@ return {
       Type = "Action",
       Name = "Doom Fist",
       Cost = 300,
-      Order = 80,
+      Order = 83,
       Description = "Unarmed strike at a pressure point: on a hit, the creature makes a Constitution save (your Strength/Dexterity DC) or is Doomed, and dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_DoomFist" },
@@ -2775,7 +2814,7 @@ return {
       Type = "Action",
       Name = "Purification",
       Cost = 200,
-      Order = 81,
+      Order = 84,
       Description = "You and allies within 3 m are cured of blindness, poison, disease, paralysis, silence, sleep, confusion, fear and charm. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Purification" },
@@ -2788,7 +2827,7 @@ return {
       Type = "Action",
       Name = "Chakra",
       Cost = 350,
-      Order = 82,
+      Order = 85,
       Description = "You and allies within 3 m regain 2d6 + your unarmed attack modifier hit points and one level 1 spell slot (FFT restores MP). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Chakra" },
@@ -2801,7 +2840,7 @@ return {
       Type = "Action",
       Name = "Revive",
       Cost = 500,
-      Order = 83,
+      Order = 86,
       Description = "With a battle cry, bring a dead ally in melee range back to life with 2d8 hit points. Once per short rest.",
       Grants = {
         Spells = { "Teleportation_FFTJ_Revive" },
@@ -2814,7 +2853,7 @@ return {
       Type = "Reaction",
       Name = "Critical: Recover HP",
       Cost = 500,
-      Order = 84,
+      Order = 87,
       Description = "When damage leaves you at 20% of your hit points or less, you regain half your maximum hit points. Once per long rest.",
       Grants = {
         Passives = { "FFTJ_CriticalRecoverHP" },
@@ -2827,7 +2866,7 @@ return {
       Type = "Reaction",
       Name = "Counter",
       Cost = 300,
-      Order = 85,
+      Order = 88,
       Description = "Reaction: when an enemy hits you with a melee attack, strike back with your weapon or fists.",
       Grants = {
         Passives = { "FFTJ_Counter" },
@@ -2840,7 +2879,7 @@ return {
       Type = "Reaction",
       Name = "First Strike",
       Cost = 1300,
-      Order = 86,
+      Order = 89,
       Description = "Reaction: when an enemy moves into your melee reach, attack it first (like Polearm Master, with any weapon or fists). BG3 cannot cancel the enemy's own attack.",
       Grants = {
         Passives = { "FFTJ_FirstStrike" },
@@ -2853,7 +2892,7 @@ return {
       Type = "Support",
       Name = "Brawler",
       Cost = 200,
-      Order = 87,
+      Order = 90,
       Description = "Unarmed strikes get +1 to attack rolls and deal 1d6 more damage (1d8 from character level 5, 1d10 from level 9). Always on while Monk is your job.",
       Grants = {
         Passives = { "FFTJ_Brawler" },
@@ -2866,7 +2905,7 @@ return {
       Type = "Movement",
       Name = "Lifefont",
       Cost = 300,
-      Order = 88,
+      Order = 91,
       Description = "When you move, regain 1d6 hit points. Once per turn.",
       Grants = {
         Passives = { "FFTJ_Lifefont" },
@@ -2879,7 +2918,7 @@ return {
       Type = "Action",
       Name = "Steal Gil",
       Cost = 10,
-      Order = 89,
+      Order = 92,
       Description = "Melee attack roll; on a hit you pocket gold: 10 times the creature's level. Each creature can be robbed of gold once.",
       Grants = {
         Spells = { "Target_FFTJ_StealGil" },
@@ -2892,7 +2931,7 @@ return {
       Type = "Action",
       Name = "Steal Heart",
       Cost = 150,
-      Order = 90,
+      Order = 93,
       Description = "A creature up to 9 m away makes a Wisdom save (your Strength/Dexterity DC) or is Charmed for 2 turns: it can't harm you. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_StealHeart" },
@@ -2905,7 +2944,7 @@ return {
       Type = "Action",
       Name = "Steal Helm",
       Cost = 350,
-      Order = 91,
+      Order = 94,
       Description = "Melee attack roll; on a hit you take the enemy's headwear into your inventory. Quest and story items can't be stolen.",
       Grants = {
         Spells = { "Target_FFTJ_StealHelm" },
@@ -2918,7 +2957,7 @@ return {
       Type = "Action",
       Name = "Steal Armor",
       Cost = 450,
-      Order = 92,
+      Order = 95,
       Description = "Melee attack roll; on a hit you take the enemy's body armour into your inventory. Quest and story items can't be stolen. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_StealArmor" },
@@ -2931,7 +2970,7 @@ return {
       Type = "Action",
       Name = "Steal Shield",
       Cost = 350,
-      Order = 93,
+      Order = 96,
       Description = "Melee attack roll; on a hit you take the enemy's shield into your inventory. Quest and story items can't be stolen.",
       Grants = {
         Spells = { "Target_FFTJ_StealShield" },
@@ -2944,7 +2983,7 @@ return {
       Type = "Action",
       Name = "Steal Weapon",
       Cost = 600,
-      Order = 94,
+      Order = 97,
       Description = "Melee attack roll; on a hit you take the enemy's main weapon (melee first, otherwise ranged) into your inventory. Quest and story items can't be stolen. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_StealWeapon" },
@@ -2957,7 +2996,7 @@ return {
       Type = "Action",
       Name = "Steal Accessory",
       Cost = 500,
-      Order = 95,
+      Order = 98,
       Description = "Melee attack roll; on a hit you take one of the enemy's accessories (amulet, ring, cloak, gloves or boots) into your inventory. Quest and story items can't be stolen.",
       Grants = {
         Spells = { "Target_FFTJ_StealAccessory" },
@@ -2970,7 +3009,7 @@ return {
       Type = "Action",
       Name = "Steal EXP",
       Cost = 250,
-      Order = 96,
+      Order = 99,
       Description = "Melee attack roll; on a hit you gain experience: 10 times the creature's level (BG3 creatures don't lose any). Each creature can be robbed of experience once.",
       Grants = {
         Spells = { "Target_FFTJ_StealEXP" },
@@ -2983,7 +3022,7 @@ return {
       Type = "Reaction",
       Name = "Vigilance",
       Cost = 200,
-      Order = 97,
+      Order = 100,
       Description = "When a weapon attack damages you, you take the Defending stance: +2 AC until your next turn. Once per turn.",
       Grants = {
         Passives = { "FFTJ_Vigilance" },
@@ -2996,7 +3035,7 @@ return {
       Type = "Reaction",
       Name = "Gil Snapper",
       Cost = 200,
-      Order = 98,
+      Order = 101,
       Description = "When you take damage, you gain that much gold.",
       Grants = {
         Passives = { "FFTJ_GilSnapper" },
@@ -3009,7 +3048,7 @@ return {
       Type = "Reaction",
       Name = "Sticky Fingers",
       Cost = 200,
-      Order = 99,
+      Order = 102,
       Description = "Thrown weapons and objects deal no damage to you: you catch them (the caught item is not kept).",
       Grants = {
         Passives = { "FFTJ_StickyFingers" },
@@ -3022,7 +3061,7 @@ return {
       Type = "Support",
       Name = "Poach",
       Cost = 200,
-      Order = 100,
+      Order = 103,
       Description = "When a beast or monster (not a humanoid) you hit with a weapon this turn dies, you take a trophy worth 5 times its level in gold.",
       Grants = {
         Passives = { "FFTJ_Poach" },
@@ -3035,7 +3074,7 @@ return {
       Type = "Movement",
       Name = "Movement +2",
       Cost = 560,
-      Order = 101,
+      Order = 104,
       Description = "+6 m movement speed.",
       Grants = {
         Passives = { "FFTJ_Movement2" },
@@ -3048,7 +3087,7 @@ return {
       Type = "Movement",
       Name = "Jump +2",
       Cost = 500,
-      Order = 102,
+      Order = 105,
       Description = "Jump 6 m farther.",
       Grants = {
         Passives = { "FFTJ_Jump2" },
@@ -3061,7 +3100,7 @@ return {
       Type = "Action",
       Name = "Haste",
       Cost = 100,
-      Order = 103,
+      Order = 106,
       Description = "An ally within 18 m is Hasted for 3 turns (BG3's Haste: an extra action, +2 AC, more movement, then a turn of lethargy). No concentration. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Haste" },
@@ -3074,7 +3113,7 @@ return {
       Type = "Action",
       Name = "Hasteja",
       Cost = 600,
-      Order = 104,
+      Order = 107,
       Description = "Every ally within 4 m of a point up to 18 m away is Hasted for 3 turns (as Haste). Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Hasteja" },
@@ -3087,7 +3126,7 @@ return {
       Type = "Action",
       Name = "Slow",
       Cost = 80,
-      Order = 105,
+      Order = 108,
       Description = "An enemy within 18 m makes a Wisdom save or is Slowed for 3 turns (BG3's Slow: -2 AC and Dexterity saves, half movement, no reactions; it repeats the save each turn). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Slow" },
@@ -3100,7 +3139,7 @@ return {
       Type = "Action",
       Name = "Slowja",
       Cost = 600,
-      Order = 106,
+      Order = 109,
       Description = "Every enemy within 4 m of a point up to 18 m away makes a Wisdom save or is Slowed for 3 turns (as Slow). Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Slowja" },
@@ -3113,7 +3152,7 @@ return {
       Type = "Action",
       Name = "Stop",
       Cost = 350,
-      Order = 107,
+      Order = 110,
       Description = "An enemy within 18 m makes a Wisdom save or is Stopped for 2 turns: it can't move or act, and melee hits on it are critical (it repeats the save each turn). Bosses are immune. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Stop" },
@@ -3126,7 +3165,7 @@ return {
       Type = "Action",
       Name = "Immobilize",
       Cost = 100,
-      Order = 108,
+      Order = 111,
       Description = "An enemy within 18 m makes a Strength save or can't move for 2 turns (it can still act; it repeats the save each turn).",
       Grants = {
         Spells = { "Target_FFTJ_Immobilize" },
@@ -3139,7 +3178,7 @@ return {
       Type = "Action",
       Name = "Float",
       Cost = 200,
-      Order = 109,
+      Order = 112,
       Description = "An ally within 18 m floats for 3 turns: it can't be knocked prone and ignores difficult terrain.",
       Grants = {
         Spells = { "Target_FFTJ_Float" },
@@ -3152,7 +3191,7 @@ return {
       Type = "Action",
       Name = "Reflect",
       Cost = 300,
-      Order = 110,
+      Order = 113,
       Description = "An ally within 18 m is shielded for 3 turns: it takes half damage from spells, and a caster whose spell damages it takes 2d6 force damage. BG3 cannot bounce the spell itself. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Reflect" },
@@ -3165,7 +3204,7 @@ return {
       Type = "Action",
       Name = "Quick",
       Cost = 900,
-      Order = 111,
+      Order = 114,
       Description = "Another ally within 18 m gets an extra action on its next turn (BG3 cannot give it a turn right away). Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Quick" },
@@ -3178,7 +3217,7 @@ return {
       Type = "Action",
       Name = "Gravity",
       Cost = 250,
-      Order = 112,
+      Order = 115,
       Description = "Creatures within 2 m of a point up to 18 m away make a Constitution save or lose a quarter of their maximum hit points (force). Bosses are immune. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Gravity" },
@@ -3191,7 +3230,7 @@ return {
       Type = "Action",
       Name = "Graviga",
       Cost = 550,
-      Order = 113,
+      Order = 116,
       Description = "Creatures within 3 m of a point up to 18 m away make a Constitution save or lose half of their maximum hit points (force). Bosses are immune. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Graviga" },
@@ -3204,7 +3243,7 @@ return {
       Type = "Action",
       Name = "Meteor",
       Cost = 900,
-      Order = 114,
+      Order = 117,
       Description = "A meteor smashes into a point up to 18 m away: creatures within 5 m take 5d8 bludgeoning and 5d8 fire damage (Dexterity save for half). Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Meteor" },
@@ -3217,7 +3256,7 @@ return {
       Type = "Reaction",
       Name = "Critical: Quick",
       Cost = 800,
-      Order = 115,
+      Order = 118,
       Description = "When damage leaves you at 20% of your hit points or less, you get an extra action on your next turn. Once per short rest.",
       Grants = {
         Passives = { "FFTJ_CriticalQuick" },
@@ -3230,7 +3269,7 @@ return {
       Type = "Reaction",
       Name = "Mana Shield",
       Cost = 400,
-      Order = 116,
+      Order = 119,
       Description = "Reaction: when you would take damage, spend a level 1 spell slot to reduce it by 3d8 (FFT takes the damage from MP).",
       Grants = {
         Passives = { "FFTJ_ManaShield" },
@@ -3243,7 +3282,7 @@ return {
       Type = "Support",
       Name = "Swiftspell",
       Cost = 1000,
-      Order = 117,
+      Order = 120,
       Description = "+2 to initiative, and in each fight the first spell you cast that costs an action costs a bonus action instead (FFT casts faster).",
       Grants = {
         Passives = { "FFTJ_Swiftspell" },
@@ -3256,7 +3295,7 @@ return {
       Type = "Movement",
       Name = "Teleport",
       Cost = 3000,
-      Order = 118,
+      Order = 121,
       Description = "Bonus action, once per turn: teleport to a spot you can see up to 9 m away (Misty Step without a spell slot).",
       Grants = {
         Spells = { "Target_FFTJ_Teleport" },
@@ -3269,7 +3308,7 @@ return {
       Type = "Movement",
       Name = "Levitate",
       Cost = 540,
-      Order = 119,
+      Order = 122,
       Description = "You always float: you can't be knocked prone and you ignore difficult terrain.",
       Grants = {
         Passives = { "FFTJ_Levitate" },
@@ -3282,7 +3321,7 @@ return {
       Type = "Action",
       Name = "Umbra",
       Cost = 100,
-      Order = 120,
+      Order = 123,
       Description = "A creature within 18 m makes a Constitution save or is Blinded for 2 turns (it repeats the save each turn).",
       Grants = {
         Spells = { "Target_FFTJ_Umbra" },
@@ -3295,7 +3334,7 @@ return {
       Type = "Action",
       Name = "Empowerment",
       Cost = 200,
-      Order = 121,
+      Order = 124,
       Description = "Drain a creature within 18 m: it makes a Wisdom save or takes 1d10 psychic damage, and you regain a level 1 spell slot (FFT absorbs MP). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Empowerment" },
@@ -3308,7 +3347,7 @@ return {
       Type = "Action",
       Name = "Invigoration",
       Cost = 350,
-      Order = 122,
+      Order = 125,
       Description = "Ranged spell attack against a creature within 18 m: 3d6 necrotic damage, and you regain half the damage dealt. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Invigoration" },
@@ -3321,7 +3360,7 @@ return {
       Type = "Action",
       Name = "Belief",
       Cost = 400,
-      Order = 123,
+      Order = 126,
       Description = "A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, but -2 to saving throws (strengthen an ally's magic, or soften an enemy). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Belief" },
@@ -3334,7 +3373,7 @@ return {
       Type = "Action",
       Name = "Disbelief",
       Cost = 400,
-      Order = 124,
+      Order = 127,
       Description = "A creature within 18 m makes a Wisdom save or becomes an Atheist for 2 turns: it can't cast spells and has advantage on saving throws against spells. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Disbelief" },
@@ -3347,7 +3386,7 @@ return {
       Type = "Action",
       Name = "Corruption",
       Cost = 300,
-      Order = 125,
+      Order = 128,
       Description = "A creature within 18 m makes a Constitution save or turns Undead for 3 turns: it can't regain hit points and is vulnerable to radiant damage. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Corruption" },
@@ -3360,7 +3399,7 @@ return {
       Type = "Action",
       Name = "Quiescence",
       Cost = 170,
-      Order = 126,
+      Order = 129,
       Description = "A creature within 18 m makes a Wisdom save or is Silenced for 2 turns (no spells with a verbal component). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Quiescence" },
@@ -3373,7 +3412,7 @@ return {
       Type = "Action",
       Name = "Fervor",
       Cost = 400,
-      Order = 127,
+      Order = 130,
       Description = "A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: it can't cast spells, deals 2 more damage and has -2 AC. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Fervor" },
@@ -3386,7 +3425,7 @@ return {
       Type = "Action",
       Name = "Trepidation",
       Cost = 200,
-      Order = 128,
+      Order = 131,
       Description = "A creature within 18 m makes a Wisdom save or is Frightened of you for 2 turns (FFT lowers Bravery).",
       Grants = {
         Spells = { "Target_FFTJ_Trepidation" },
@@ -3399,7 +3438,7 @@ return {
       Type = "Action",
       Name = "Delirium",
       Cost = 400,
-      Order = 129,
+      Order = 132,
       Description = "A creature within 18 m makes a Wisdom save or is Confused for 2 turns (it repeats the save each turn). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Delirium" },
@@ -3412,7 +3451,7 @@ return {
       Type = "Action",
       Name = "Harmony",
       Cost = 800,
-      Order = 130,
+      Order = 133,
       Description = "Strip a creature within 18 m of its blessings: Haste, Bless, Aid, Heroism, Shield of Faith, Barkskin, Stoneskin, Blur, Protection from Evil and Good, Freedom of Movement, Sanctuary, Longstrider, Invisibility, and this mod's Protect, Shell, Regen, Focus, Faith, Reflect, Float and Quick. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Harmony" },
@@ -3425,7 +3464,7 @@ return {
       Type = "Action",
       Name = "Hesitation",
       Cost = 100,
-      Order = 131,
+      Order = 134,
       Description = "A creature within 18 m makes a Wisdom save or is Disabled for 1 turn: no actions or bonus actions (it can still move).",
       Grants = {
         Spells = { "Target_FFTJ_Hesitation" },
@@ -3438,7 +3477,7 @@ return {
       Type = "Action",
       Name = "Repose",
       Cost = 350,
-      Order = 132,
+      Order = 135,
       Description = "A creature within 18 m makes a Wisdom save or falls Asleep for 2 turns (it wakes when damaged). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Repose" },
@@ -3451,7 +3490,7 @@ return {
       Type = "Action",
       Name = "Induration",
       Cost = 600,
-      Order = 133,
+      Order = 136,
       Description = "A creature within 18 m makes a Constitution save or is Petrified for 2 turns (incapacitated, resistant to all damage). Bosses are immune. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Induration" },
@@ -3464,7 +3503,7 @@ return {
       Type = "Reaction",
       Name = "Absorb MP",
       Cost = 250,
-      Order = 134,
+      Order = 137,
       Description = "When a spell damages you, you regain a level 1 spell slot. Once per short rest.",
       Grants = {
         Passives = { "FFTJ_AbsorbMP" },
@@ -3477,7 +3516,7 @@ return {
       Type = "Support",
       Name = "Defense Boost",
       Cost = 400,
-      Order = 135,
+      Order = 138,
       Description = "+1 AC.",
       Grants = {
         Passives = { "FFTJ_DefenseBoost" },
@@ -3490,7 +3529,7 @@ return {
       Type = "Movement",
       Name = "Ignore Weather",
       Cost = 200,
-      Order = 136,
+      Order = 139,
       Description = "You ignore difficult terrain (mud, water, ice, webs).",
       Grants = {
         Passives = { "FFTJ_IgnoreWeather" },
@@ -3503,7 +3542,7 @@ return {
       Type = "Movement",
       Name = "Manafont",
       Cost = 350,
-      Order = 137,
+      Order = 140,
       Description = "When you move, you regain a level 1 spell slot. Once per short rest.",
       Grants = {
         Passives = { "FFTJ_Manafont" },
@@ -3516,7 +3555,7 @@ return {
       Type = "Action",
       Name = "Sinkhole",
       Cost = 150,
-      Order = 138,
+      Order = 141,
       Description = "Only on plain ground (no surface under you). Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 4 chance of being Immobilized for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_Sinkhole" },
@@ -3529,7 +3568,7 @@ return {
       Type = "Action",
       Name = "Torrent",
       Cost = 150,
-      Order = 139,
+      Order = 142,
       Description = "Only while you stand in water or are Wet (rain counts). Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11) and are Wet; it can't be dodged. One that fails a Strength save has a 1 in 4 chance of being turned into a critter for 1 turn (Toad; in BG3 a sheep).",
       Grants = {
         Spells = { "Target_FFTJ_Torrent" },
@@ -3542,7 +3581,7 @@ return {
       Type = "Action",
       Name = "Tanglevine",
       Cost = 150,
-      Order = 140,
+      Order = 143,
       Description = "Only while you stand in vines, overgrowth or webs. Enemies within 2 m of a point up to 18 m away take 1d6 piercing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 10 chance of being Stopped for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_Tanglevine" },
@@ -3555,7 +3594,7 @@ return {
       Type = "Action",
       Name = "Contortion",
       Cost = 150,
-      Order = 141,
+      Order = 144,
       Description = "Only in shadow or darkness. Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 10 chance of being turned to Stone for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_Contortion" },
@@ -3568,7 +3607,7 @@ return {
       Type = "Action",
       Name = "Tremor",
       Cost = 150,
-      Order = 142,
+      Order = 145,
       Description = "Only on plain ground (no surface under you). Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 4 chance of being Confused for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_Tremor" },
@@ -3581,7 +3620,7 @@ return {
       Type = "Action",
       Name = "Wind Slash",
       Cost = 150,
-      Order = 143,
+      Order = 146,
       Description = "Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 4 chance of being Disabled (no actions) for 1 turn.",
       Grants = {
         Spells = { "Target_FFTJ_WindSlash" },
@@ -3594,7 +3633,7 @@ return {
       Type = "Action",
       Name = "Will-o'-the-Wisp",
       Cost = 150,
-      Order = 144,
+      Order = 147,
       Description = "Only in shadow or darkness, or while you stand in grease, oil or alcohol. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Wisdom save has a 1 in 4 chance of falling Asleep for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_WillOTheWisp" },
@@ -3607,7 +3646,7 @@ return {
       Type = "Action",
       Name = "Quicksand",
       Cost = 150,
-      Order = 145,
+      Order = 148,
       Description = "Only while you stand in mud, blood, acid or poison. Enemies within 2 m of a point up to 18 m away take 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 10 chance of being Doomed (dies after 3 turns; bosses are immune).",
       Grants = {
         Spells = { "Target_FFTJ_Quicksand" },
@@ -3620,7 +3659,7 @@ return {
       Type = "Action",
       Name = "Sandstorm",
       Cost = 150,
-      Order = 146,
+      Order = 149,
       Description = "Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 slashing damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Blinded for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_Sandstorm" },
@@ -3633,7 +3672,7 @@ return {
       Type = "Action",
       Name = "Snowstorm",
       Cost = 150,
-      Order = 147,
+      Order = 150,
       Description = "Only while you stand on ice. Enemies within 2 m of a point up to 18 m away take 1d6 cold damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Constitution save has a 1 in 4 chance of being Silenced for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_Snowstorm" },
@@ -3646,7 +3685,7 @@ return {
       Type = "Action",
       Name = "Wind Blast",
       Cost = 150,
-      Order = 148,
+      Order = 151,
       Description = "Only in sunlight. Enemies within 2 m of a point up to 18 m away take 1d6 thunder damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Strength save has a 1 in 4 chance of being Slowed for 2 turns.",
       Grants = {
         Spells = { "Target_FFTJ_WindBlast" },
@@ -3659,7 +3698,7 @@ return {
       Type = "Action",
       Name = "Magma Surge",
       Cost = 150,
-      Order = 149,
+      Order = 152,
       Description = "Only while you stand in fire or lava. Enemies within 2 m of a point up to 18 m away take 1d6 fire damage (2d6 from level 5, 3d6 from level 11); it can't be dodged. One that fails a Dexterity save has a 1 in 10 chance of being struck down at the end of its next turn (Doom 1; bosses are immune).",
       Grants = {
         Spells = { "Target_FFTJ_MagmaSurge" },
@@ -3672,7 +3711,7 @@ return {
       Type = "Reaction",
       Name = "Nature's Wrath",
       Cost = 300,
-      Order = 150,
+      Order = 153,
       Description = "When a weapon attack hits you, the ground strikes back: the attacker takes 1d6 bludgeoning damage (2d6 from level 5, 3d6 from level 11). Once per turn.",
       Grants = {
         Passives = { "FFTJ_NaturesWrath" },
@@ -3685,7 +3724,7 @@ return {
       Type = "Support",
       Name = "Attack Boost",
       Cost = 400,
-      Order = 151,
+      Order = 154,
       Description = "+2 damage with weapon attacks.",
       Grants = {
         Passives = { "FFTJ_AttackBoost" },
@@ -3698,7 +3737,7 @@ return {
       Type = "Movement",
       Name = "Ignore Terrain",
       Cost = 220,
-      Order = 152,
+      Order = 155,
       Description = "Difficult terrain (water, mud, ice, vines, ...) doesn't slow you.",
       Grants = {
         Passives = { "FFTJ_IgnoreTerrain" },
@@ -3711,7 +3750,7 @@ return {
       Type = "Movement",
       Name = "Lavawalking",
       Cost = 150,
-      Order = 153,
+      Order = 156,
       Description = "Walk on lava: it doesn't set you ablaze or slow you.",
       Grants = {
         Passives = { "FFTJ_Lavawalking" },
@@ -3724,7 +3763,7 @@ return {
       Type = "Action",
       Name = "Horizontal Jump +1",
       Cost = 150,
-      Order = 154,
+      Order = 157,
       Description = "Jump: leap up to 6 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.",
       Grants = {
         Spells = { "Projectile_FFTJ_Jump1" },
@@ -3758,7 +3797,7 @@ return {
       Type = "Action",
       Name = "Horizontal Jump +2",
       Cost = 350,
-      Order = 155,
+      Order = 158,
       Description = "Jump: leap up to 7.5 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.",
       Grants = {
         Spells = { "Projectile_FFTJ_Jump2" },
@@ -3789,7 +3828,7 @@ return {
       Type = "Action",
       Name = "Horizontal Jump +3",
       Cost = 550,
-      Order = 156,
+      Order = 159,
       Description = "Jump: leap up to 9 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.",
       Grants = {
         Spells = { "Projectile_FFTJ_Jump3" },
@@ -3817,7 +3856,7 @@ return {
       Type = "Action",
       Name = "Horizontal Jump +4",
       Cost = 800,
-      Order = 157,
+      Order = 160,
       Description = "Jump: leap up to 12 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.",
       Grants = {
         Spells = { "Projectile_FFTJ_Jump4" },
@@ -3842,7 +3881,7 @@ return {
       Type = "Action",
       Name = "Horizontal Jump +7",
       Cost = 1100,
-      Order = 158,
+      Order = 161,
       Description = "Jump: leap up to 18 m (action, once per turn) and land on the enemies around that spot: each makes a Dexterity save (your Strength/Dexterity DC) or takes your weapon's damage and falls prone (half damage on a save). Only your best Horizontal Jump counts.",
       Grants = {
         Spells = { "Projectile_FFTJ_Jump7" },
@@ -3855,7 +3894,7 @@ return {
       Type = "Action",
       Name = "Vertical Jump ±2",
       Cost = 100,
-      Order = 159,
+      Order = 162,
       Description = "Your Jump lands harder: 1d4 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.",
       Grants = {
         Passives = { "FFTJ_VerticalJump2" },
@@ -3895,7 +3934,7 @@ return {
       Type = "Action",
       Name = "Vertical Jump ±3",
       Cost = 250,
-      Order = 160,
+      Order = 163,
       Description = "Your Jump lands harder: 1d6 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.",
       Grants = {
         Passives = { "FFTJ_VerticalJump3" },
@@ -3932,7 +3971,7 @@ return {
       Type = "Action",
       Name = "Vertical Jump ±4",
       Cost = 400,
-      Order = 161,
+      Order = 164,
       Description = "Your Jump lands harder: 1d8 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.",
       Grants = {
         Passives = { "FFTJ_VerticalJump4" },
@@ -3966,7 +4005,7 @@ return {
       Type = "Action",
       Name = "Vertical Jump ±5",
       Cost = 550,
-      Order = 162,
+      Order = 165,
       Description = "Your Jump lands harder: 1d10 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.",
       Grants = {
         Passives = { "FFTJ_VerticalJump5" },
@@ -3997,7 +4036,7 @@ return {
       Type = "Action",
       Name = "Vertical Jump ±6",
       Cost = 700,
-      Order = 163,
+      Order = 166,
       Description = "Your Jump lands harder: 2d6 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.",
       Grants = {
         Passives = { "FFTJ_VerticalJump6" },
@@ -4025,7 +4064,7 @@ return {
       Type = "Action",
       Name = "Vertical Jump ±7",
       Cost = 1000,
-      Order = 164,
+      Order = 167,
       Description = "Your Jump lands harder: 2d8 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.",
       Grants = {
         Passives = { "FFTJ_VerticalJump7" },
@@ -4050,7 +4089,7 @@ return {
       Type = "Action",
       Name = "Vertical Jump ±8",
       Cost = 1500,
-      Order = 165,
+      Order = 168,
       Description = "Your Jump lands harder: 2d10 extra piercing damage to each enemy it hits (BG3 has no tile heights to reach, so the height becomes force). Only your best Vertical Jump counts.",
       Grants = {
         Passives = { "FFTJ_VerticalJump8" },
@@ -4063,7 +4102,7 @@ return {
       Type = "Reaction",
       Name = "Dragonheart",
       Cost = 600,
-      Order = 166,
+      Order = 169,
       Description = "When a weapon attack damages you, you gain Death Ward (the next blow that would drop you to 0 HP leaves you at 1 instead; FFT gives Reraise). Once per long rest.",
       Grants = {
         Passives = { "FFTJ_Dragonheart" },
@@ -4076,7 +4115,7 @@ return {
       Type = "Support",
       Name = "Equip Polearms",
       Cost = 400,
-      Order = 167,
+      Order = 170,
       Description = "Proficiency with spears, pikes, glaives, halberds and tridents, whatever your job.",
       Grants = {
         Passives = { "FFTJ_EquipPolearms" },
@@ -4089,7 +4128,7 @@ return {
       Type = "Movement",
       Name = "Ignore Elevation",
       Cost = 700,
-      Order = 168,
+      Order = 171,
       Description = "Jump 6 m farther and take no falling damage.",
       Grants = {
         Passives = { "FFTJ_IgnoreElevation" },
@@ -4102,7 +4141,7 @@ return {
       Type = "Action",
       Name = "Moogle",
       Cost = 110,
-      Order = 169,
+      Order = 172,
       Description = "Up to 4 allies within 18 m regain 2d8 hit points. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Moogle" },
@@ -4115,7 +4154,7 @@ return {
       Type = "Action",
       Name = "Shiva",
       Cost = 200,
-      Order = 170,
+      Order = 173,
       Description = "Enemies within 3 m of a point up to 18 m away take 4d6 cold damage (Dexterity save for half). Allies are spared. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Shiva" },
@@ -4128,7 +4167,7 @@ return {
       Type = "Action",
       Name = "Ramuh",
       Cost = 200,
-      Order = 171,
+      Order = 174,
       Description = "Enemies within 3 m of a point up to 18 m away take 4d6 lightning damage (Dexterity save for half). Allies are spared. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Ramuh" },
@@ -4141,7 +4180,7 @@ return {
       Type = "Action",
       Name = "Ifrit",
       Cost = 200,
-      Order = 172,
+      Order = 175,
       Description = "Enemies within 3 m of a point up to 18 m away take 4d6 fire damage (Dexterity save for half). Allies are spared. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Ifrit" },
@@ -4154,7 +4193,7 @@ return {
       Type = "Action",
       Name = "Titan",
       Cost = 220,
-      Order = 173,
+      Order = 176,
       Description = "Enemies within 3 m of a point up to 18 m away take 4d6 bludgeoning damage and fall prone (Dexterity save for half, no prone). Allies are spared. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Titan" },
@@ -4167,7 +4206,7 @@ return {
       Type = "Action",
       Name = "Golem",
       Cost = 500,
-      Order = 174,
+      Order = 177,
       Description = "You and allies within 6 m gain 15 temporary hit points (FFT's Golem blocks physical damage). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Golem" },
@@ -4180,7 +4219,7 @@ return {
       Type = "Action",
       Name = "Carbuncle",
       Cost = 350,
-      Order = 175,
+      Order = 178,
       Description = "You and allies within 6 m gain Reflect for 3 turns. Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Carbuncle" },
@@ -4193,7 +4232,7 @@ return {
       Type = "Action",
       Name = "Bahamut",
       Cost = 1000,
-      Order = 176,
+      Order = 179,
       Description = "Mega Flare: enemies within 5 m of a point up to 18 m away take 8d8 force damage (Dexterity save for half). Allies are spared. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Bahamut" },
@@ -4206,7 +4245,7 @@ return {
       Type = "Action",
       Name = "Odin",
       Cost = 900,
-      Order = 177,
+      Order = 180,
       Description = "Zantetsuken: enemies within 4 m of a point up to 18 m away take 6d10 slashing damage (Constitution save for half; FFT kills outright). Allies are spared. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Odin" },
@@ -4219,7 +4258,7 @@ return {
       Type = "Action",
       Name = "Leviathan",
       Cost = 860,
-      Order = 178,
+      Order = 181,
       Description = "A tidal wave: enemies within 5 m of a point up to 18 m away take 5d8 bludgeoning damage and are soaked (Wet: weak to cold and lightning; Dexterity save for half, not wet). Allies are spared. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Leviathan" },
@@ -4232,7 +4271,7 @@ return {
       Type = "Action",
       Name = "Salamander",
       Cost = 860,
-      Order = 179,
+      Order = 182,
       Description = "Enemies within 5 m of a point up to 18 m away take 6d8 fire damage (Dexterity save for half). Allies are spared. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Salamander" },
@@ -4245,7 +4284,7 @@ return {
       Type = "Action",
       Name = "Sylph",
       Cost = 400,
-      Order = 180,
+      Order = 183,
       Description = "Enemies within 3 m of a point up to 18 m away take 3d6 thunder damage and are Silenced for 2 turns (Constitution save for half, no silence). Allies are spared. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Sylph" },
@@ -4258,7 +4297,7 @@ return {
       Type = "Action",
       Name = "Faerie",
       Cost = 400,
-      Order = 181,
+      Order = 184,
       Description = "Up to 6 allies within 18 m regain 4d8 hit points. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Faerie" },
@@ -4271,7 +4310,7 @@ return {
       Type = "Action",
       Name = "Lich",
       Cost = 600,
-      Order = 182,
+      Order = 185,
       Description = "Enemies within 4 m of a point up to 18 m away take 4d10 necrotic damage (Constitution save for half). Allies are spared. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Lich" },
@@ -4284,7 +4323,7 @@ return {
       Type = "Action",
       Name = "Cyclops",
       Cost = 1000,
-      Order = 183,
+      Order = 186,
       Description = "Enemies within 5 m of a point up to 18 m away take 7d10 bludgeoning damage (Dexterity save for half). Allies are spared. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Cyclops" },
@@ -4297,7 +4336,7 @@ return {
       Type = "Reaction",
       Name = "Critical: Recover MP",
       Cost = 400,
-      Order = 184,
+      Order = 187,
       Description = "When damage leaves you at 20% of your hit points or less, you regain all your level 1 spell slots. Once per long rest.",
       Grants = {
         Passives = { "FFTJ_CriticalRecoverMP" },
@@ -4310,7 +4349,7 @@ return {
       Type = "Support",
       Name = "Halve MP",
       Cost = 1000,
-      Order = 185,
+      Order = 188,
       Description = "When you finish a short rest, you regain one level 1 and one level 2 spell slot (FFT halves MP costs).",
       Grants = {
         Passives = { "FFTJ_HalveMP" },
@@ -4323,7 +4362,7 @@ return {
       Type = "Action",
       Name = "Entice",
       Cost = 100,
-      Order = 186,
+      Order = 189,
       Description = "A foe within 18 m makes a Wisdom save or switches sides for 2 turns (4 with Tame), fighting for you on its own. Bosses are immune. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Entice" },
@@ -4350,7 +4389,7 @@ return {
       Type = "Action",
       Name = "Stall",
       Cost = 100,
-      Order = 187,
+      Order = 190,
       Description = "A creature within 18 m makes a Wisdom save or loses its actions and bonus actions next turn (it can still move; FFT resets its CT). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Stall" },
@@ -4363,7 +4402,7 @@ return {
       Type = "Action",
       Name = "Praise",
       Cost = 200,
-      Order = 188,
+      Order = 191,
       Description = "An ally within 18 m is Blessed for 3 turns (+1d4 to attack rolls and saving throws; FFT raises Bravery).",
       Grants = {
         Spells = { "Target_FFTJ_Praise" },
@@ -4376,7 +4415,7 @@ return {
       Type = "Action",
       Name = "Intimidate",
       Cost = 200,
-      Order = 189,
+      Order = 192,
       Description = "A foe within 18 m makes a Charisma save or is Baned for 3 turns (-1d4 to attack rolls and saving throws; FFT lowers Bravery).",
       Grants = {
         Spells = { "Target_FFTJ_Intimidate" },
@@ -4389,7 +4428,7 @@ return {
       Type = "Action",
       Name = "Preach",
       Cost = 200,
-      Order = 190,
+      Order = 193,
       Description = "A creature within 18 m gains Faith for 3 turns: +2 to spell attack rolls and spell save DC, -2 to saving throws.",
       Grants = {
         Spells = { "Target_FFTJ_Preach" },
@@ -4402,7 +4441,7 @@ return {
       Type = "Action",
       Name = "Enlighten",
       Cost = 200,
-      Order = 191,
+      Order = 194,
       Description = "A creature within 18 m makes a Wisdom save or becomes an Atheist for 2 turns: no spells, advantage on saving throws against spells.",
       Grants = {
         Spells = { "Target_FFTJ_Enlighten" },
@@ -4415,7 +4454,7 @@ return {
       Type = "Action",
       Name = "Condemn",
       Cost = 500,
-      Order = 192,
+      Order = 195,
       Description = "A creature within 18 m makes a Constitution save or is Doomed: it dies when Doom runs out after 3 turns. Bosses are immune. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Condemn" },
@@ -4428,7 +4467,7 @@ return {
       Type = "Action",
       Name = "Defraud",
       Cost = 100,
-      Order = 193,
+      Order = 196,
       Description = "A foe within 9 m makes a Wisdom save or hands over gold: 10 times its level (once per creature, shared with Steal Gil).",
       Grants = {
         Spells = { "Target_FFTJ_Defraud" },
@@ -4441,7 +4480,7 @@ return {
       Type = "Action",
       Name = "Insult",
       Cost = 300,
-      Order = 194,
+      Order = 197,
       Description = "A creature within 18 m makes a Wisdom save or goes Berserk for 2 turns: no spells, 2 more damage, -2 AC. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Insult" },
@@ -4454,7 +4493,7 @@ return {
       Type = "Action",
       Name = "Mimic Darlavon",
       Cost = 300,
-      Order = 195,
+      Order = 198,
       Description = "A dull lecture: enemies within 3 m of a point up to 18 m away make a Wisdom save or fall Asleep for 2 turns (they wake when damaged). Allies are spared. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_MimicDarlavon" },
@@ -4467,7 +4506,7 @@ return {
       Type = "Reaction",
       Name = "Earplugs",
       Cost = 300,
-      Order = 196,
+      Order = 199,
       Description = "Advantage on Wisdom saving throws (most talk skills and charms aim at Wisdom).",
       Grants = {
         Passives = { "FFTJ_Earplugs" },
@@ -4480,7 +4519,7 @@ return {
       Type = "Support",
       Name = "Equip Guns",
       Cost = 800,
-      Order = 197,
+      Order = 200,
       Description = "Proficiency with hand crossbows and light crossbows (BG3 has no guns), whatever your job.",
       Grants = {
         Passives = { "FFTJ_EquipGuns" },
@@ -4493,7 +4532,7 @@ return {
       Type = "Support",
       Name = "Tame",
       Cost = 500,
-      Order = 198,
+      Order = 201,
       Description = "Gives the Tame action: a beast or monster (not a humanoid) at 25% of its hit points or less makes a Wisdom save or fights for you for the rest of the fight. Bosses are immune. Once per short rest. Entice also lasts 4 turns.",
       Grants = {
         Spells = { "Target_FFTJ_Tame" },
@@ -4508,7 +4547,7 @@ return {
       Type = "Support",
       Name = "Beast Tongue",
       Cost = 100,
-      Order = 199,
+      Order = 202,
       Description = "You can Speak with Animals at will. Always on while Orator is your job. (FFT: talk skills work on monsters; here they always do.)",
       Grants = {
         Spells = { "Shout_FFTJ_BeastTongue" },
@@ -4521,7 +4560,7 @@ return {
       Type = "Action",
       Name = "Ashura",
       Cost = 100,
-      Order = 200,
+      Order = 203,
       Description = "Enemies within 3 m of you make a Dexterity save or take 1d8 slashing damage (2d8 from level 5, 3d8 from level 11).",
       Grants = {
         Spells = { "Shout_FFTJ_Ashura" },
@@ -4534,7 +4573,7 @@ return {
       Type = "Action",
       Name = "Kotetsu",
       Cost = 200,
-      Order = 201,
+      Order = 204,
       Description = "Enemies within 3 m of you take 3d6 necrotic damage (Constitution save for half). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Kotetsu" },
@@ -4547,7 +4586,7 @@ return {
       Type = "Action",
       Name = "Bizen Osafune",
       Cost = 300,
-      Order = 202,
+      Order = 205,
       Description = "Enemies within 3 m of you take 3d6 psychic damage and are Silenced for 1 turn (Wisdom save: half damage, no silence; FFT drains MP). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_BizenOsafune" },
@@ -4560,7 +4599,7 @@ return {
       Type = "Action",
       Name = "Murasame",
       Cost = 400,
-      Order = 203,
+      Order = 206,
       Description = "You and allies within 3 m of you regain 2d8 hit points. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Murasame" },
@@ -4573,7 +4612,7 @@ return {
       Type = "Action",
       Name = "Ame-no-Murakumo",
       Cost = 500,
-      Order = 204,
+      Order = 207,
       Description = "Enemies within 3 m of you take 4d6 cold damage and are Slowed for 2 turns (Constitution save: half damage, not slowed). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_AmeNoMurakumo" },
@@ -4586,7 +4625,7 @@ return {
       Type = "Action",
       Name = "Kiyomori",
       Cost = 600,
-      Order = 205,
+      Order = 208,
       Description = "You and allies within 3 m of you gain Protect (+2 AC) and Shell (advantage on saves against spells) for 3 turns. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Kiyomori" },
@@ -4599,7 +4638,7 @@ return {
       Type = "Action",
       Name = "Muramasa",
       Cost = 700,
-      Order = 206,
+      Order = 209,
       Description = "Enemies within 3 m of you take 4d8 necrotic damage. On a failed Wisdom save they are Confused for 2 turns, with a 1 in 10 chance of Doom (bosses are immune); on a success they take half. Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Muramasa" },
@@ -4612,7 +4651,7 @@ return {
       Type = "Action",
       Name = "Kiku-ichimonji",
       Cost = 800,
-      Order = 207,
+      Order = 210,
       Description = "Enemies in a 12 m line from you take 6d8 slashing damage (Dexterity save for half). Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_KikuIchimonji" },
@@ -4625,7 +4664,7 @@ return {
       Type = "Action",
       Name = "Masamune",
       Cost = 900,
-      Order = 208,
+      Order = 211,
       Description = "You and allies within 3 m of you gain Regen for 3 turns and Haste for 2 (an extra action, +2 AC, double movement; lethargic for a turn afterwards, as in BG3). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Masamune" },
@@ -4638,7 +4677,7 @@ return {
       Type = "Action",
       Name = "Chirijiraden",
       Cost = 1000,
-      Order = 209,
+      Order = 212,
       Description = "A ring of blue flame: enemies within 5 m of you take 8d6 fire damage (Dexterity save for half). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Chirijiraden" },
@@ -4651,7 +4690,7 @@ return {
       Type = "Reaction",
       Name = "Bonecrusher",
       Cost = 200,
-      Order = 210,
+      Order = 213,
       Description = "When a hit leaves you at 25% of your hit points or less, you strike back: the attacker takes 4d10 slashing damage. Once per short rest.",
       Grants = {
         Passives = { "FFTJ_Bonecrusher" },
@@ -4664,7 +4703,7 @@ return {
       Type = "Reaction",
       Name = "Shirahadori",
       Cost = 700,
-      Order = 211,
+      Order = 214,
       Description = "When an attack hits you, use your reaction to take half damage (like Uncanny Dodge; switch it on or off on your passives bar).",
       Grants = {
         Passives = { "FFTJ_Shirahadori" },
@@ -4677,7 +4716,7 @@ return {
       Type = "Support",
       Name = "Equip Katana",
       Cost = 400,
-      Order = 212,
+      Order = 215,
       Description = "Proficiency with longswords and scimitars (BG3 has no katanas), whatever your job.",
       Grants = {
         Passives = { "FFTJ_EquipKatana" },
@@ -4690,7 +4729,7 @@ return {
       Type = "Support",
       Name = "Doublehand",
       Cost = 900,
-      Order = 213,
+      Order = 216,
       Description = "+2 damage with versatile weapons (longswords, spears, quarterstaffs, ...) held in both hands.",
       Grants = {
         Passives = { "FFTJ_Doublehand" },
@@ -4703,7 +4742,7 @@ return {
       Type = "Movement",
       Name = "Swim",
       Cost = 300,
-      Order = 214,
+      Order = 217,
       Description = "Deep water doesn't slow you.",
       Grants = {
         Passives = { "FFTJ_Swim" },
@@ -4716,7 +4755,7 @@ return {
       Type = "Action",
       Name = "Throw Shuriken",
       Cost = 50,
-      Order = 215,
+      Order = 218,
       Description = "Hurl a shuriken at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowShuriken" },
@@ -4729,7 +4768,7 @@ return {
       Type = "Action",
       Name = "Throw Bombs",
       Cost = 70,
-      Order = 216,
+      Order = 219,
       Description = "Hurl a bomb at a point up to 18 m away: enemies within 2 m of it take 2d6 fire damage (Dexterity save for half). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowBombs" },
@@ -4742,7 +4781,7 @@ return {
       Type = "Action",
       Name = "Throw Daggers",
       Cost = 100,
-      Order = 217,
+      Order = 220,
       Description = "Hurl a dagger at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowDaggers" },
@@ -4755,7 +4794,7 @@ return {
       Type = "Action",
       Name = "Throw Swords",
       Cost = 100,
-      Order = 218,
+      Order = 221,
       Description = "Hurl a sword at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowSwords" },
@@ -4768,7 +4807,7 @@ return {
       Type = "Action",
       Name = "Throw Flails",
       Cost = 100,
-      Order = 219,
+      Order = 222,
       Description = "Hurl a flail at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 bludgeoning damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowFlails" },
@@ -4781,7 +4820,7 @@ return {
       Type = "Action",
       Name = "Throw Katana",
       Cost = 100,
-      Order = 220,
+      Order = 223,
       Description = "Hurl a katana at a creature up to 18 m away: it makes a Dexterity save or takes 1d10 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowKatana" },
@@ -4794,7 +4833,7 @@ return {
       Type = "Action",
       Name = "Throw Ninja Blades",
       Cost = 100,
-      Order = 221,
+      Order = 224,
       Description = "Hurl a ninja blade at a creature up to 18 m away: it makes a Dexterity save or takes 1d8 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowNinjaBlades" },
@@ -4807,7 +4846,7 @@ return {
       Type = "Action",
       Name = "Throw Axes",
       Cost = 120,
-      Order = 222,
+      Order = 225,
       Description = "Hurl an axe at a creature up to 18 m away: it makes a Dexterity save or takes 1d10 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowAxes" },
@@ -4820,7 +4859,7 @@ return {
       Type = "Action",
       Name = "Throw Polearms",
       Cost = 100,
-      Order = 223,
+      Order = 226,
       Description = "Hurl a polearm at a creature up to 18 m away: it makes a Dexterity save or takes 1d10 piercing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowPolearms" },
@@ -4833,7 +4872,7 @@ return {
       Type = "Action",
       Name = "Throw Poles",
       Cost = 100,
-      Order = 224,
+      Order = 227,
       Description = "Hurl a pole at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 bludgeoning damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowPoles" },
@@ -4846,7 +4885,7 @@ return {
       Type = "Action",
       Name = "Throw Knight's Swords",
       Cost = 100,
-      Order = 225,
+      Order = 228,
       Description = "Hurl a knight's sword at a creature up to 18 m away: it makes a Dexterity save or takes 2d6 slashing damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowKnightsSwords" },
@@ -4859,7 +4898,7 @@ return {
       Type = "Action",
       Name = "Throw Books",
       Cost = 100,
-      Order = 226,
+      Order = 229,
       Description = "Hurl a book at a creature up to 18 m away: it makes a Dexterity save or takes 1d6 force damage + your Strength or Dexterity modifier (whichever is higher). No item is used up. Once per turn.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowBooks" },
@@ -4872,7 +4911,7 @@ return {
       Type = "Reaction",
       Name = "Vanish",
       Cost = 1000,
-      Order = 227,
+      Order = 230,
       Description = "When a weapon attack hits you, you turn invisible for up to 2 turns (it ends when you attack or cast). Once per combat.",
       Grants = {
         Passives = { "FFTJ_Vanish" },
@@ -4885,7 +4924,7 @@ return {
       Type = "Reaction",
       Name = "Reflexes",
       Cost = 400,
-      Order = 228,
+      Order = 231,
       Description = "+1 AC and advantage on Dexterity saving throws.",
       Grants = {
         Passives = { "FFTJ_Reflexes" },
@@ -4898,7 +4937,7 @@ return {
       Type = "Support",
       Name = "Dual Wield",
       Cost = 1000,
-      Order = 229,
+      Order = 232,
       Description = "Fight with a weapon in each hand like a Ninja: you add your ability modifier to off-hand damage (Two-Weapon Fighting) and can dual-wield weapons that aren't light. Always on while Ninja is your job.",
       Grants = {
         Passives = { "FFTJ_DualWield" },
@@ -4911,7 +4950,7 @@ return {
       Type = "Movement",
       Name = "Waterwalking",
       Cost = 420,
-      Order = 230,
+      Order = 233,
       Description = "Deep water doesn't slow you, and water never leaves you Wet.",
       Grants = {
         Passives = { "FFTJ_Waterwalking" },
@@ -4924,7 +4963,7 @@ return {
       Type = "Action",
       Name = "Target CT",
       Cost = 250,
-      Order = 231,
+      Order = 234,
       Description = "Arithmeticks number: a creature's current hit points (FFT: CT, which changes every turn). Load it on the Job Board (Arithmetician job): the rule buttons then use it.",
       Grants = {
         Passives = { "FFTJ_Arith_TargetCT" },
@@ -4937,7 +4976,7 @@ return {
       Type = "Action",
       Name = "Target Level",
       Cost = 350,
-      Order = 232,
+      Order = 235,
       Description = "Arithmeticks number: a creature's level. Load it on the Job Board (Arithmetician job): the rule buttons then use it.",
       Grants = {
         Passives = { "FFTJ_Arith_TargetLevel" },
@@ -4950,7 +4989,7 @@ return {
       Type = "Action",
       Name = "Target EXP",
       Cost = 200,
-      Order = 233,
+      Order = 236,
       Description = "Arithmeticks number: a creature's maximum hit points (FFT: EXP). Load it on the Job Board (Arithmetician job): the rule buttons then use it.",
       Grants = {
         Passives = { "FFTJ_Arith_TargetEXP" },
@@ -4963,7 +5002,7 @@ return {
       Type = "Action",
       Name = "Target Elevation",
       Cost = 250,
-      Order = 234,
+      Order = 237,
       Description = "Arithmeticks number: a creature's distance from you in whole metres (FFT: the height it stands at). Load it on the Job Board (Arithmetician job): the rule buttons then use it.",
       Grants = {
         Passives = { "FFTJ_Arith_TargetElevation" },
@@ -4976,7 +5015,7 @@ return {
       Type = "Action",
       Name = "Prime",
       Cost = 300,
-      Order = 235,
+      Order = 238,
       Description = "Arithmeticks rule: instantly cast your loaded magick, free, at every creature in the fight (allies too, as in FFT) whose loaded number is a prime number (2, 3, 5, 7, 11, 13, ...). Load the magick and the number on the Job Board.",
       Grants = {
         Spells = { "Shout_FFTJ_Arith_Prime" },
@@ -4989,7 +5028,7 @@ return {
       Type = "Action",
       Name = "Multiple of 5",
       Cost = 200,
-      Order = 236,
+      Order = 239,
       Description = "Arithmeticks rule: instantly cast your loaded magick, free, at every creature in the fight (allies too, as in FFT) whose loaded number is a multiple of 5. Load the magick and the number on the Job Board.",
       Grants = {
         Spells = { "Shout_FFTJ_Arith_MultipleOf5" },
@@ -5002,7 +5041,7 @@ return {
       Type = "Action",
       Name = "Multiple of 4",
       Cost = 400,
-      Order = 237,
+      Order = 240,
       Description = "Arithmeticks rule: instantly cast your loaded magick, free, at every creature in the fight (allies too, as in FFT) whose loaded number is a multiple of 4. Load the magick and the number on the Job Board.",
       Grants = {
         Spells = { "Shout_FFTJ_Arith_MultipleOf4" },
@@ -5015,7 +5054,7 @@ return {
       Type = "Action",
       Name = "Multiple of 3",
       Cost = 600,
-      Order = 238,
+      Order = 241,
       Description = "Arithmeticks rule: instantly cast your loaded magick, free, at every creature in the fight (allies too, as in FFT) whose loaded number is a multiple of 3. Load the magick and the number on the Job Board.",
       Grants = {
         Spells = { "Shout_FFTJ_Arith_MultipleOf3" },
@@ -5028,7 +5067,7 @@ return {
       Type = "Reaction",
       Name = "Cup of Life",
       Cost = 200,
-      Order = 239,
+      Order = 242,
       Description = "When you regain hit points, allies within 6 m of you regain 1d4 hit points. Once per turn.",
       Grants = {
         Passives = { "FFTJ_CupOfLife" },
@@ -5041,7 +5080,7 @@ return {
       Type = "Reaction",
       Name = "Soulbind",
       Cost = 300,
-      Order = 240,
+      Order = 243,
       Description = "When a creature damages you, it takes 1d6 necrotic damage and you regain 1d6 hit points. Once per turn.",
       Grants = {
         Passives = { "FFTJ_Soulbind" },
@@ -5054,7 +5093,7 @@ return {
       Type = "Support",
       Name = "EXP Boost",
       Cost = 350,
-      Order = 241,
+      Order = 244,
       Description = "Earn 25% more experience from fights.",
       Grants = {
         Passives = { "FFTJ_EXPBoost" },
@@ -5068,7 +5107,7 @@ return {
       Type = "Movement",
       Name = "Accrue EXP",
       Cost = 400,
-      Order = 242,
+      Order = 245,
       Description = "Gain 5 experience per character level at the start of each of your turns in a fight.",
       Grants = {
         Passives = { "FFTJ_AccrueEXP" },
@@ -5082,7 +5121,7 @@ return {
       Type = "Movement",
       Name = "Accrue JP",
       Cost = 400,
-      Order = 243,
+      Order = 246,
       Description = "Gain 10 JP for your job at the start of each of your turns in a fight.",
       Grants = {
         Passives = { "FFTJ_AccrueJP" },
@@ -5096,7 +5135,7 @@ return {
       Type = "Action",
       Name = "Seraph Song",
       Cost = 100,
-      Order = 244,
+      Order = 247,
       Description = "Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get back a level 1 spell slot (once each per song). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_SeraphSong" },
@@ -5109,7 +5148,7 @@ return {
       Type = "Action",
       Name = "Life's Anthem",
       Cost = 100,
-      Order = 245,
+      Order = 248,
       Description = "Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you regain 1d4 hit points at the start of each of their turns. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_LifesAnthem" },
@@ -5122,7 +5161,7 @@ return {
       Type = "Action",
       Name = "Rousing Melody",
       Cost = 100,
-      Order = 246,
+      Order = 249,
       Description = "Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +3 m movement.",
       Grants = {
         Spells = { "Shout_FFTJ_RousingMelody" },
@@ -5135,7 +5174,7 @@ return {
       Type = "Action",
       Name = "Battle Chant",
       Cost = 100,
-      Order = 247,
+      Order = 250,
       Description = "Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +1 to attack rolls and +1 damage.",
       Grants = {
         Spells = { "Shout_FFTJ_BattleChant" },
@@ -5148,7 +5187,7 @@ return {
       Type = "Action",
       Name = "Magickal Refrain",
       Cost = 100,
-      Order = 248,
+      Order = 251,
       Description = "Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you get +1 to spell attack rolls and spell save DC.",
       Grants = {
         Spells = { "Shout_FFTJ_MagickalRefrain" },
@@ -5161,7 +5200,7 @@ return {
       Type = "Action",
       Name = "Nameless Song",
       Cost = 100,
-      Order = 249,
+      Order = 252,
       Description = "Sing for up to 3 turns (concentration; one song or dance at a time): you and allies within 9 m of you are Blessed (+1d4 to attack rolls and saving throws).",
       Grants = {
         Spells = { "Shout_FFTJ_NamelessSong" },
@@ -5174,7 +5213,7 @@ return {
       Type = "Action",
       Name = "Finale",
       Cost = 100,
-      Order = 250,
+      Order = 253,
       Description = "The ultimate song: allies within 9 m of you get an extra action on their next turn (Quick). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Finale" },
@@ -5187,7 +5226,7 @@ return {
       Type = "Reaction",
       Name = "Magick Surge",
       Cost = 500,
-      Order = 251,
+      Order = 254,
       Description = "When you take damage, you get +1 to spell attack rolls and spell save DC for 10 turns.",
       Grants = {
         Passives = { "FFTJ_MagickSurge" },
@@ -5200,7 +5239,7 @@ return {
       Type = "Reaction",
       Name = "Faith Surge",
       Cost = 700,
-      Order = 252,
+      Order = 255,
       Description = "When a spell damages you, you gain Faith for 3 turns (+2 to spell attack rolls and spell save DC, -2 to saving throws).",
       Grants = {
         Passives = { "FFTJ_FaithSurge" },
@@ -5213,7 +5252,7 @@ return {
       Type = "Movement",
       Name = "Movement +3",
       Cost = 1000,
-      Order = 253,
+      Order = 256,
       Description = "+4.5 m movement.",
       Grants = {
         Passives = { "FFTJ_MovementPlus3" },
@@ -5226,7 +5265,7 @@ return {
       Type = "Movement",
       Name = "Fly",
       Cost = 900,
-      Order = 254,
+      Order = 257,
       Description = "Gives the Fly action: fly to a spot up to 18 m away; it uses half that distance of movement.",
       Grants = {
         Spells = { "Projectile_FFTJ_Fly" },
@@ -5239,7 +5278,7 @@ return {
       Type = "Action",
       Name = "Witch Hunt",
       Cost = 100,
-      Order = 255,
+      Order = 258,
       Description = "Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you get -2 to spell save DC and spell attack rolls (FFT drains MP).",
       Grants = {
         Spells = { "Shout_FFTJ_WitchHunt" },
@@ -5252,7 +5291,7 @@ return {
       Type = "Action",
       Name = "Mincing Minuet",
       Cost = 100,
-      Order = 256,
+      Order = 259,
       Description = "Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you take 1d4 psychic damage at the start of each of their turns.",
       Grants = {
         Spells = { "Shout_FFTJ_MincingMinuet" },
@@ -5265,7 +5304,7 @@ return {
       Type = "Action",
       Name = "Slow Dance",
       Cost = 100,
-      Order = 257,
+      Order = 260,
       Description = "Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have 3 m less movement.",
       Grants = {
         Spells = { "Shout_FFTJ_SlowDance" },
@@ -5278,7 +5317,7 @@ return {
       Type = "Action",
       Name = "Polka",
       Cost = 100,
-      Order = 258,
+      Order = 261,
       Description = "Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you deal 2 less damage.",
       Grants = {
         Spells = { "Shout_FFTJ_Polka" },
@@ -5291,7 +5330,7 @@ return {
       Type = "Action",
       Name = "Heathen Frolic",
       Cost = 100,
-      Order = 259,
+      Order = 262,
       Description = "Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have disadvantage on Intelligence, Wisdom and Charisma saving throws.",
       Grants = {
         Spells = { "Shout_FFTJ_HeathenFrolic" },
@@ -5304,7 +5343,7 @@ return {
       Type = "Action",
       Name = "Forbidden Dance",
       Cost = 100,
-      Order = 260,
+      Order = 263,
       Description = "Dance for up to 3 turns (concentration; one song or dance at a time): enemies within 9 m of you have, at the start of each of their turns, a 1 in 10 chance each of being Blinded, Silenced, Poisoned or Slowed for 1 turn.",
       Grants = {
         Spells = { "Shout_FFTJ_ForbiddenDance" },
@@ -5317,7 +5356,7 @@ return {
       Type = "Action",
       Name = "Last Waltz",
       Cost = 100,
-      Order = 261,
+      Order = 264,
       Description = "The ultimate dance: enemies within 9 m of you make a Wisdom save or lose their actions and bonus actions next turn (Disable). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_LastWaltz" },
@@ -5330,7 +5369,7 @@ return {
       Type = "Reaction",
       Name = "Strength Surge",
       Cost = 600,
-      Order = 262,
+      Order = 265,
       Description = "When you take damage, you deal +2 damage with weapon attacks for 10 turns.",
       Grants = {
         Passives = { "FFTJ_StrengthSurge" },
@@ -5343,7 +5382,7 @@ return {
       Type = "Reaction",
       Name = "Bravery Surge",
       Cost = 700,
-      Order = 263,
+      Order = 266,
       Description = "When a weapon attack hits you, you get +1 to attack rolls for 10 turns.",
       Grants = {
         Passives = { "FFTJ_BraverySurge" },
@@ -5356,7 +5395,7 @@ return {
       Type = "Movement",
       Name = "Jump +3",
       Cost = 600,
-      Order = 264,
+      Order = 267,
       Description = "Jump 4.5 m farther.",
       Grants = {
         Passives = { "FFTJ_JumpPlus3" },
@@ -5369,7 +5408,7 @@ return {
       Type = "Movement",
       Name = "Fly",
       Cost = 900,
-      Order = 265,
+      Order = 268,
       Description = "Gives the Fly action: fly to a spot up to 18 m away; it uses half that distance of movement.",
       Grants = {
         Spells = { "Projectile_FFTJ_Fly" },
@@ -5382,7 +5421,7 @@ return {
       Type = "Action",
       Name = "Sanguine Sword",
       Cost = 500,
-      Order = 266,
+      Order = 269,
       Description = "Melee weapon attack that heals you for half the damage it deals.",
       Grants = {
         Spells = { "Target_FFTJ_SanguineSword" },
@@ -5395,7 +5434,7 @@ return {
       Type = "Action",
       Name = "Infernal Strike",
       Cost = 500,
-      Order = 267,
+      Order = 270,
       Description = "Melee weapon attack; on a hit the target has -2 to spell attack rolls and spell save DC for 2 turns and you regain a level 1 spell slot. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_InfernalStrike" },
@@ -5408,7 +5447,7 @@ return {
       Type = "Action",
       Name = "Crushing Blow",
       Cost = 300,
-      Order = 268,
+      Order = 271,
       Description = "Melee weapon attack that adds 1d8 necrotic damage; on a hit the target makes a Constitution save or is Stopped for 1 turn (bosses are immune). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_CrushingBlow" },
@@ -5421,7 +5460,7 @@ return {
       Type = "Action",
       Name = "Abyssal Blade",
       Cost = 1000,
-      Order = 269,
+      Order = 272,
       Description = "Costs a tenth of your maximum hit points (never your last one). Everyone else within 4.5 m of you, allies too, takes 3d8 necrotic damage, 6d8 if right next to you (Dexterity save for half). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_AbyssalBlade" },
@@ -5434,7 +5473,7 @@ return {
       Type = "Action",
       Name = "Unholy Sacrifice",
       Cost = 1200,
-      Order = 270,
+      Order = 273,
       Description = "Costs a quarter of your maximum hit points (never your last one). Everyone else within 5 m of you, allies too, takes 8d8 necrotic damage and is Slowed for 2 turns (Constitution save for half damage and no Slow). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_UnholySacrifice" },
@@ -5447,7 +5486,7 @@ return {
       Type = "Support",
       Name = "HP Boost",
       Cost = 2000,
-      Order = 271,
+      Order = 274,
       Description = "+20% maximum hit points.",
       Grants = {
         Passives = { "FFTJ_HPBoost" },
@@ -5460,7 +5499,7 @@ return {
       Type = "Support",
       Name = "Vehemence",
       Cost = 400,
-      Order = 272,
+      Order = 275,
       Description = "Your weapon attacks deal an extra 1d6 necrotic damage, but you have -2 AC.",
       Grants = {
         Passives = { "FFTJ_Vehemence" },
@@ -5473,7 +5512,7 @@ return {
       Type = "Movement",
       Name = "Movement +3",
       Cost = 1000,
-      Order = 273,
+      Order = 276,
       Description = "+4.5 m movement.",
       Grants = {
         Passives = { "FFTJ_MovementPlus3" },
@@ -5486,7 +5525,7 @@ return {
       Type = "Movement",
       Name = "Jump +3",
       Cost = 1000,
-      Order = 274,
+      Order = 277,
       Description = "Jump 4.5 m farther.",
       Grants = {
         Passives = { "FFTJ_JumpPlus3" },
@@ -5499,7 +5538,7 @@ return {
       Type = "Action",
       Name = "Cure",
       Cost = 50,
-      Order = 275,
+      Order = 278,
       Description = "Heal a creature within 18 m for 1d8+3. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Cure" },
@@ -5512,7 +5551,7 @@ return {
       Type = "Action",
       Name = "Cura",
       Cost = 180,
-      Order = 276,
+      Order = 279,
       Description = "Heal up to 3 allies for 2d8+3. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Cura" },
@@ -5525,7 +5564,7 @@ return {
       Type = "Action",
       Name = "Curaga",
       Cost = 450,
-      Order = 277,
+      Order = 280,
       Description = "Heal up to 4 allies for 4d8+4. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Curaga" },
@@ -5538,7 +5577,7 @@ return {
       Type = "Action",
       Name = "Curaja",
       Cost = 800,
-      Order = 278,
+      Order = 281,
       Description = "Heal yourself and every ally within 9 m for 5d8+5. Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Curaja" },
@@ -5551,7 +5590,7 @@ return {
       Type = "Action",
       Name = "Raise",
       Cost = 200,
-      Order = 279,
+      Order = 282,
       Description = "Revive a dead ally with 1 HP. Once per short rest.",
       Grants = {
         Spells = { "Teleportation_FFTJ_Raise" },
@@ -5564,7 +5603,7 @@ return {
       Type = "Action",
       Name = "Arise",
       Cost = 600,
-      Order = 280,
+      Order = 283,
       Description = "Revive a dead ally and heal it for 4d8. Once per long rest.",
       Grants = {
         Spells = { "Teleportation_FFTJ_Arise" },
@@ -5577,7 +5616,7 @@ return {
       Type = "Action",
       Name = "Reraise",
       Cost = 1000,
-      Order = 281,
+      Order = 284,
       Description = "Death Ward: the next time the ally would drop to 0 HP, it drops to 1 HP instead. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Reraise" },
@@ -5590,7 +5629,7 @@ return {
       Type = "Action",
       Name = "Regen",
       Cost = 350,
-      Order = 282,
+      Order = 285,
       Description = "The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Regen" },
@@ -5603,7 +5642,7 @@ return {
       Type = "Action",
       Name = "Protect",
       Cost = 70,
-      Order = 283,
+      Order = 286,
       Description = "The target gets +2 AC for 5 turns. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Protect" },
@@ -5616,7 +5655,7 @@ return {
       Type = "Action",
       Name = "Protectja",
       Cost = 600,
-      Order = 284,
+      Order = 287,
       Description = "Protect (+2 AC) on yourself and every ally within 9 m for 5 turns. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Protectja" },
@@ -5629,7 +5668,7 @@ return {
       Type = "Action",
       Name = "Shell",
       Cost = 70,
-      Order = 285,
+      Order = 288,
       Description = "The target has advantage on saving throws against spells for 5 turns. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Shell" },
@@ -5642,7 +5681,7 @@ return {
       Type = "Action",
       Name = "Shellja",
       Cost = 600,
-      Order = 286,
+      Order = 289,
       Description = "Shell (advantage on saving throws against spells) on yourself and every ally within 9 m for 5 turns. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Shellja" },
@@ -5655,7 +5694,7 @@ return {
       Type = "Action",
       Name = "Wall",
       Cost = 400,
-      Order = 287,
+      Order = 290,
       Description = "Protect and Shell together on a creature within 18 m for 5 turns. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Wall" },
@@ -5668,7 +5707,7 @@ return {
       Type = "Action",
       Name = "Esuna",
       Cost = 300,
-      Order = 288,
+      Order = 291,
       Description = "End Poisoned, Blinded, Silenced and Frightened on a creature within 18 m. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Esuna" },
@@ -5681,7 +5720,7 @@ return {
       Type = "Action",
       Name = "Holy",
       Cost = 600,
-      Order = 289,
+      Order = 292,
       Description = "4d10 radiant damage to a creature within 18 m, no attack roll. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Holy" },
@@ -5694,7 +5733,7 @@ return {
       Type = "Action",
       Name = "Dispelna",
       Cost = 0,
-      Order = 290,
+      Order = 293,
       Description = "End every ailment on a creature within 18 m: poisoned, diseased, blinded, charmed, frightened, paralysed, petrified, stunned, asleep, confused, cursed and silenced, and FFT's Doom, Stop, Immobilize, Berserk, Disable, Stone, Toad and Undead. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Dispelna" },
@@ -5707,7 +5746,7 @@ return {
       Type = "Action",
       Name = "Shadowblade",
       Cost = 100,
-      Order = 291,
+      Order = 294,
       Description = "A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and heals you for half the damage dealt.",
       Grants = {
         Spells = { "Zone_FFTJ_Shadowblade" },
@@ -5720,7 +5759,7 @@ return {
       Type = "Action",
       Name = "Duskblade",
       Cost = 500,
-      Order = 292,
+      Order = 295,
       Description = "A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage, gives the target -2 to spell attack rolls and spell save DC for 2 turns and gives you back a level 1 spell slot. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Duskblade" },
@@ -5733,7 +5772,7 @@ return {
       Type = "Action",
       Name = "Crush Armor",
       Cost = 200,
-      Order = 293,
+      Order = 296,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's body armour off; it falls to the ground.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushArmor" },
@@ -5746,7 +5785,7 @@ return {
       Type = "Action",
       Name = "Crush Helm",
       Cost = 400,
-      Order = 294,
+      Order = 297,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's headwear off; it falls to the ground.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushHelm" },
@@ -5759,7 +5798,7 @@ return {
       Type = "Action",
       Name = "Crush Weapon",
       Cost = 500,
-      Order = 295,
+      Order = 298,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's weapon out of its hand; it falls to the ground. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushWeapon" },
@@ -5772,7 +5811,7 @@ return {
       Type = "Action",
       Name = "Crush Accessory",
       Cost = 800,
-      Order = 296,
+      Order = 299,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks one of the target's accessories off (amulet, ring, cloak, gloves or boots); it falls to the ground. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushAccessory" },
@@ -5785,7 +5824,7 @@ return {
       Type = "Action",
       Name = "Blind",
       Cost = 50,
-      Order = 297,
+      Order = 300,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save or is Blinded for 2 turns.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeBlind" },
@@ -5798,7 +5837,7 @@ return {
       Type = "Action",
       Name = "Syphon",
       Cost = 100,
-      Order = 298,
+      Order = 301,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and you regain a level 1 spell slot (FFT absorbs MP). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeSyphon" },
@@ -5811,7 +5850,7 @@ return {
       Type = "Action",
       Name = "Drain",
       Cost = 180,
-      Order = 299,
+      Order = 302,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and it also takes 2d6 necrotic damage and you regain half the damage dealt. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeDrain" },
@@ -5824,7 +5863,7 @@ return {
       Type = "Action",
       Name = "Faith",
       Cost = 200,
-      Order = 300,
+      Order = 303,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target gains Faith for 3 turns (-2 to its saving throws, +2 to its own spell attacks and DC).",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeFaith" },
@@ -5837,7 +5876,7 @@ return {
       Type = "Action",
       Name = "Doubt",
       Cost = 200,
-      Order = 301,
+      Order = 304,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or becomes an Atheist for 2 turns (no spells). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeDoubt" },
@@ -5850,7 +5889,7 @@ return {
       Type = "Action",
       Name = "Zombie",
       Cost = 150,
-      Order = 302,
+      Order = 305,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save or turns Undead for 3 turns (no healing, vulnerable to radiant damage). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeZombie" },
@@ -5863,7 +5902,7 @@ return {
       Type = "Action",
       Name = "Silence",
       Cost = 90,
-      Order = 303,
+      Order = 306,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Silenced for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeSilence" },
@@ -5876,7 +5915,7 @@ return {
       Type = "Action",
       Name = "Berserk",
       Cost = 200,
-      Order = 304,
+      Order = 307,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or goes Berserk for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeBerserk" },
@@ -5889,7 +5928,7 @@ return {
       Type = "Action",
       Name = "Chicken",
       Cost = 500,
-      Order = 305,
+      Order = 308,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Frightened for 2 turns (FFT lowers Bravery).",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeChicken" },
@@ -5902,7 +5941,7 @@ return {
       Type = "Action",
       Name = "Confuse",
       Cost = 200,
-      Order = 306,
+      Order = 309,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Confused for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeConfuse" },
@@ -5915,7 +5954,7 @@ return {
       Type = "Action",
       Name = "Dispel",
       Cost = 300,
-      Order = 307,
+      Order = 310,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target loses its blessings (Haste, Bless, Aid, Heroism, Shield of Faith, Barkskin, Stoneskin, Blur, ... as the Mystic's Harmony). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeDispel" },
@@ -5928,7 +5967,7 @@ return {
       Type = "Action",
       Name = "Disable",
       Cost = 50,
-      Order = 308,
+      Order = 311,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or is Disabled for 1 turn (no actions or bonus actions).",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeDisable" },
@@ -5941,7 +5980,7 @@ return {
       Type = "Action",
       Name = "Sleep",
       Cost = 170,
-      Order = 309,
+      Order = 312,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Wisdom save or falls Asleep for 2 turns (it wakes when damaged). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeSleep" },
@@ -5954,7 +5993,7 @@ return {
       Type = "Action",
       Name = "Break",
       Cost = 300,
-      Order = 310,
+      Order = 313,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save or is Petrified for 2 turns; bosses are immune. Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_SpellbladeBreak" },
@@ -5967,7 +6006,7 @@ return {
       Type = "Action",
       Name = "Destroy",
       Cost = 0,
-      Order = 311,
+      Order = 314,
       Description = "Melee weapon attack: your weapon's damage. Recoil: you take force damage equal to a quarter of the damage dealt.",
       Grants = {
         Spells = { "Target_FFTJ_Destroy" },
@@ -5980,7 +6019,7 @@ return {
       Type = "Action",
       Name = "Compress",
       Cost = 0,
-      Order = 312,
+      Order = 315,
       Description = "Melee weapon attack: your weapon's damage + 2d8 bludgeoning. Recoil: a third of the damage dealt.",
       Grants = {
         Spells = { "Target_FFTJ_Compress" },
@@ -5993,7 +6032,7 @@ return {
       Type = "Action",
       Name = "Dispose",
       Cost = 0,
-      Order = 313,
+      Order = 316,
       Description = "Ranged weapon attack against a creature within 18 m: 4d8 force damage. Recoil: half the damage dealt. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Dispose" },
@@ -6006,7 +6045,7 @@ return {
       Type = "Action",
       Name = "Pulverize",
       Cost = 0,
-      Order = 314,
+      Order = 317,
       Description = "Melee weapon attack: your weapon's damage + 4d8 bludgeoning, and the target is knocked prone (Strength save against your manoeuvre DC). Recoil: half the damage dealt. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Pulverize" },
@@ -6019,7 +6058,7 @@ return {
       Type = "Action",
       Name = "Celestial Stasis",
       Cost = 0,
-      Order = 315,
+      Order = 318,
       Description = "Every foe within 12 m makes a Wisdom save or is Stopped, Immobilized and Disabled for 1 turn (bosses shrug off Stop). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_CelestialStasis" },
@@ -6032,7 +6071,7 @@ return {
       Type = "Action",
       Name = "Barrage",
       Cost = 1200,
-      Order = 316,
+      Order = 319,
       Description = "Melee weapon attack that strikes four times, each strike dealing half your weapon's damage (one attack roll for all four). Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Barrage" },
@@ -6045,7 +6084,7 @@ return {
       Type = "Action",
       Name = "Plunder Gil",
       Cost = 0,
-      Order = 317,
+      Order = 320,
       Description = "Melee weapon attack: your weapon's damage, and you pocket gold (10 times the creature's level; once per creature).",
       Grants = {
         Spells = { "Target_FFTJ_PlunderGil" },
@@ -6058,7 +6097,7 @@ return {
       Type = "Action",
       Name = "Plunder Heart",
       Cost = 250,
-      Order = 318,
+      Order = 321,
       Description = "A creature up to 9 m away makes a Wisdom save (your Strength/Dexterity DC) or is Charmed for 2 turns: it can't harm you.",
       Grants = {
         Spells = { "Target_FFTJ_PlunderHeart" },
@@ -6071,7 +6110,7 @@ return {
       Type = "Action",
       Name = "Plunder Helm",
       Cost = 450,
-      Order = 319,
+      Order = 322,
       Description = "Melee weapon attack: your weapon's damage, and the enemy's headwear goes into your inventory. Story items can't be taken.",
       Grants = {
         Spells = { "Target_FFTJ_PlunderHelm" },
@@ -6084,7 +6123,7 @@ return {
       Type = "Action",
       Name = "Plunder Armor",
       Cost = 550,
-      Order = 320,
+      Order = 323,
       Description = "Melee weapon attack: your weapon's damage, and the enemy's body armour goes into your inventory. Story items can't be taken.",
       Grants = {
         Spells = { "Target_FFTJ_PlunderArmor" },
@@ -6097,7 +6136,7 @@ return {
       Type = "Action",
       Name = "Plunder Shield",
       Cost = 450,
-      Order = 321,
+      Order = 324,
       Description = "Melee weapon attack: your weapon's damage, and the enemy's shield goes into your inventory. Story items can't be taken.",
       Grants = {
         Spells = { "Target_FFTJ_PlunderShield" },
@@ -6110,7 +6149,7 @@ return {
       Type = "Action",
       Name = "Plunder Weapon",
       Cost = 750,
-      Order = 322,
+      Order = 325,
       Description = "Melee weapon attack: your weapon's damage, and the enemy's main weapon goes into your inventory. Story items can't be taken.",
       Grants = {
         Spells = { "Target_FFTJ_PlunderWeapon" },
@@ -6123,7 +6162,7 @@ return {
       Type = "Action",
       Name = "Plunder Accessory",
       Cost = 600,
-      Order = 323,
+      Order = 326,
       Description = "Melee weapon attack: your weapon's damage, and one of the enemy's accessories goes into your inventory. Story items can't be taken.",
       Grants = {
         Spells = { "Target_FFTJ_PlunderAccessory" },
@@ -6136,7 +6175,7 @@ return {
       Type = "Action",
       Name = "Plunder EXP",
       Cost = 350,
-      Order = 324,
+      Order = 327,
       Description = "Melee weapon attack: your weapon's damage, and you gain experience (10 times the creature's level; once per creature).",
       Grants = {
         Spells = { "Target_FFTJ_PlunderEXP" },
@@ -6149,7 +6188,7 @@ return {
       Type = "Action",
       Name = "Focus",
       Cost = 300,
-      Order = 325,
+      Order = 328,
       Description = "Bonus action. +1 to attack rolls and +1 damage for 10 turns.",
       Grants = {
         Spells = { "Shout_FFTJ_Focus" },
@@ -6162,7 +6201,7 @@ return {
       Type = "Action",
       Name = "Rush",
       Cost = 80,
-      Order = 326,
+      Order = 329,
       Description = "Melee weapon attack that also pushes the target 2 m.",
       Grants = {
         Spells = { "Target_FFTJ_Rush" },
@@ -6175,7 +6214,7 @@ return {
       Type = "Action",
       Name = "Throw Stone",
       Cost = 90,
-      Order = 327,
+      Order = 330,
       Description = "Throw a stone at a target up to 18 m away: 1d6 bludgeoning and a 1 m push.",
       Grants = {
         Spells = { "Projectile_FFTJ_ThrowStone" },
@@ -6188,7 +6227,7 @@ return {
       Type = "Action",
       Name = "Salve",
       Cost = 150,
-      Order = 328,
+      Order = 331,
       Description = "Touch an ally to end Blinded, Poisoned and Silenced.",
       Grants = {
         Spells = { "Target_FFTJ_Salve" },
@@ -6201,7 +6240,7 @@ return {
       Type = "Action",
       Name = "Heaven's Wrath",
       Cost = 0,
-      Order = 329,
+      Order = 332,
       Description = "2 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d6 lightning damage each. At will.",
       Grants = {
         Spells = { "Projectile_FFTJ_HeavensWrath" },
@@ -6214,7 +6253,7 @@ return {
       Type = "Action",
       Name = "Ashura",
       Cost = 200,
-      Order = 330,
+      Order = 333,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 fire damage each. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_SkyAshura" },
@@ -6227,7 +6266,7 @@ return {
       Type = "Action",
       Name = "Adamantine Blade",
       Cost = 300,
-      Order = 331,
+      Order = 334,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 thunder (wind) damage each. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_AdamantineBlade" },
@@ -6240,7 +6279,7 @@ return {
       Type = "Action",
       Name = "Maelstrom",
       Cost = 400,
-      Order = 332,
+      Order = 335,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 cold (water) damage each. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Maelstrom" },
@@ -6253,7 +6292,7 @@ return {
       Type = "Action",
       Name = "Celestial Void",
       Cost = 500,
-      Order = 333,
+      Order = 336,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d4 psychic damage each, and each bolt has a 1 in 5 chance of each of Blinded, Silenced, Frightened and Poisoned for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_CelestialVoid" },
@@ -6266,7 +6305,7 @@ return {
       Type = "Action",
       Name = "Divinity",
       Cost = 600,
-      Order = 334,
+      Order = 337,
       Description = "4 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 bludgeoning (earth) damage each. Once per long rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Divinity" },
@@ -6279,7 +6318,7 @@ return {
       Type = "Action",
       Name = "Hell's Wrath",
       Cost = 0,
-      Order = 335,
+      Order = 338,
       Description = "2 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d8 lightning damage each. At will.",
       Grants = {
         Spells = { "Projectile_FFTJ_HellsWrath" },
@@ -6292,7 +6331,7 @@ return {
       Type = "Action",
       Name = "Nether Ashura",
       Cost = 200,
-      Order = 336,
+      Order = 339,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 fire damage each. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_NetherAshura" },
@@ -6305,7 +6344,7 @@ return {
       Type = "Action",
       Name = "Nether Blade",
       Cost = 300,
-      Order = 337,
+      Order = 340,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 thunder (wind) damage each. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_NetherBlade" },
@@ -6318,7 +6357,7 @@ return {
       Type = "Action",
       Name = "Nether Maelstrom",
       Cost = 400,
-      Order = 338,
+      Order = 341,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 cold (water) damage each. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_NetherMaelstrom" },
@@ -6331,7 +6370,7 @@ return {
       Type = "Action",
       Name = "Corporeal Void",
       Cost = 500,
-      Order = 339,
+      Order = 342,
       Description = "3 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d4 psychic damage each, and each bolt has a 1 in 5 chance of each of Blinded, Silenced, Frightened and Poisoned for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_CorporealVoid" },
@@ -6344,7 +6383,7 @@ return {
       Type = "Action",
       Name = "Impiety",
       Cost = 600,
-      Order = 340,
+      Order = 343,
       Description = "4 bolts that each hit a creature you pick within 18 m (the same one more than once if you like), no attack roll: 1d10 bludgeoning (earth) damage each. Once per long rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Impiety" },
@@ -6357,7 +6396,7 @@ return {
       Type = "Action",
       Name = "Braver",
       Cost = 150,
-      Order = 341,
+      Order = 344,
       Description = "A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 force. At will.",
       Grants = {
         Spells = { "Zone_FFTJ_Braver" },
@@ -6370,7 +6409,7 @@ return {
       Type = "Action",
       Name = "Cross Slash",
       Cost = 200,
-      Order = 342,
+      Order = 345,
       Description = "A burst of blade energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 3d8 slashing. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_CrossSlash" },
@@ -6383,7 +6422,7 @@ return {
       Type = "Action",
       Name = "Blade Burst",
       Cost = 250,
-      Order = 343,
+      Order = 346,
       Description = "A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 force, and 3d8 more force while you are below half your hit points (FFT: damage grows with the HP you've lost). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_BladeBurst" },
@@ -6396,7 +6435,7 @@ return {
       Type = "Action",
       Name = "Ascension",
       Cost = 800,
-      Order = 344,
+      Order = 347,
       Description = "A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d10 force, and 4d10 more force if the target is below half its hit points (FFT: damage grows with the HP it has lost). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Ascension" },
@@ -6409,7 +6448,7 @@ return {
       Type = "Action",
       Name = "Meteorain",
       Cost = 600,
-      Order = 345,
+      Order = 348,
       Description = "Meteorites rain on a spot within 18 m: every creature within 4 m takes 3d10 bludgeoning and 2d6 fire damage (Dexterity save against your manoeuvre DC for half). Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Meteorain" },
@@ -6422,7 +6461,7 @@ return {
       Type = "Action",
       Name = "Finishing Touch",
       Cost = 700,
-      Order = 346,
+      Order = 349,
       Description = "Blade energy that flies 9 m: each foe in the line makes a Constitution save against your manoeuvre DC or is Stopped for 1 turn, and one in four of those is also turned to Stone for 2 turns (bosses shrug off both). Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_FinishingTouch" },
@@ -6435,7 +6474,7 @@ return {
       Type = "Action",
       Name = "Omnislash",
       Cost = 1200,
-      Order = 347,
+      Order = 350,
       Description = "A burst of blade energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage twice over + 6d8 slashing. Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Omnislash" },
@@ -6448,7 +6487,7 @@ return {
       Type = "Action",
       Name = "Cherry Blossom",
       Cost = 1500,
-      Order = 348,
+      Order = 351,
       Description = "The mightiest Limit: every creature within 6 m of a spot within 18 m takes 10d8 slashing damage (Dexterity save against your manoeuvre DC for half). Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_CherryBlossom" },
@@ -6461,7 +6500,7 @@ return {
       Type = "Action",
       Name = "Judgment Blade",
       Cost = 100,
-      Order = 349,
+      Order = 352,
       Description = "Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 radiant, and the target makes a Constitution save or is Stopped for 1 turn (bosses shrug it off). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_JudgmentBlade" },
@@ -6474,7 +6513,7 @@ return {
       Type = "Action",
       Name = "Cleansing Strike",
       Cost = 400,
-      Order = 350,
+      Order = 353,
       Description = "Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 radiant, and the target makes a Constitution save or is Doomed (it falls when the count ends; bosses shrug it off). Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_CleansingStrike" },
@@ -6487,7 +6526,7 @@ return {
       Type = "Action",
       Name = "Northswain's Strike",
       Cost = 500,
-      Order = 351,
+      Order = 354,
       Description = "Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 4d8 radiant (FFT's chance of instant KO is left out: it could end scripted boss fights). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_NorthswainsStrike" },
@@ -6500,7 +6539,7 @@ return {
       Type = "Action",
       Name = "Hallowed Bolt",
       Cost = 700,
-      Order = 352,
+      Order = 355,
       Description = "Holy energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 radiant + 2d8 lightning, and the target makes a Wisdom save or is Silenced for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_HallowedBolt" },
@@ -6513,7 +6552,7 @@ return {
       Type = "Action",
       Name = "Divine Ruination",
       Cost = 800,
-      Order = 353,
+      Order = 356,
       Description = "Holy energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 3d8 radiant, and the target makes a Wisdom save or is Confused for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_DivineRuination" },
@@ -6526,7 +6565,7 @@ return {
       Type = "Action",
       Name = "Leg Shot",
       Cost = 200,
-      Order = 354,
+      Order = 357,
       Description = "Ranged weapon attack at the legs: your weapon's damage, and the target makes a Strength save against your manoeuvre DC or is Immobilized for 2 turns.",
       Grants = {
         Spells = { "Projectile_FFTJ_LegShot" },
@@ -6539,7 +6578,7 @@ return {
       Type = "Action",
       Name = "Arm Shot",
       Cost = 300,
-      Order = 355,
+      Order = 358,
       Description = "Ranged weapon attack at the arms: your weapon's damage, and the target makes a Constitution save against your manoeuvre DC or is Disabled for 1 turn (no actions or bonus actions). Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_ArmShot" },
@@ -6552,7 +6591,7 @@ return {
       Type = "Action",
       Name = "Seal Evil",
       Cost = 200,
-      Order = 356,
+      Order = 359,
       Description = "Ranged weapon attack at the cursed soul: your weapon's damage, and an undead target (or one turned Undead) makes a Constitution save against your manoeuvre DC or is turned to Stone for 2 turns (bosses shrug it off). Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_SealEvil" },
@@ -6565,7 +6604,7 @@ return {
       Type = "Action",
       Name = "Ashura",
       Cost = 100,
-      Order = 357,
+      Order = 360,
       Description = "Enemies within 3 m of you make a Dexterity save or take 1d8 slashing damage (2d8 from level 5, 3d8 from level 11).",
       Grants = {
         Spells = { "Shout_FFTJ_Ashura" },
@@ -6578,7 +6617,7 @@ return {
       Type = "Action",
       Name = "Kotetsu",
       Cost = 200,
-      Order = 358,
+      Order = 361,
       Description = "Enemies within 3 m of you take 3d6 necrotic damage (Constitution save for half). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Kotetsu" },
@@ -6591,7 +6630,7 @@ return {
       Type = "Action",
       Name = "Bizen Osafune",
       Cost = 300,
-      Order = 359,
+      Order = 362,
       Description = "Enemies within 3 m of you take 3d6 psychic damage and are Silenced for 1 turn (Wisdom save: half damage, no silence; FFT drains MP). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_BizenOsafune" },
@@ -6604,7 +6643,7 @@ return {
       Type = "Action",
       Name = "Murasame",
       Cost = 400,
-      Order = 360,
+      Order = 363,
       Description = "You and allies within 3 m of you regain 2d8 hit points. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Murasame" },
@@ -6617,7 +6656,7 @@ return {
       Type = "Action",
       Name = "Ame-no-Murakumo",
       Cost = 500,
-      Order = 361,
+      Order = 364,
       Description = "Enemies within 3 m of you take 4d6 cold damage and are Slowed for 2 turns (Constitution save: half damage, not slowed). Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_AmeNoMurakumo" },
@@ -6630,7 +6669,7 @@ return {
       Type = "Action",
       Name = "Kiyomori",
       Cost = 600,
-      Order = 362,
+      Order = 365,
       Description = "You and allies within 3 m of you gain Protect (+2 AC) and Shell (advantage on saves against spells) for 3 turns. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Kiyomori" },
@@ -6643,7 +6682,7 @@ return {
       Type = "Action",
       Name = "Muramasa",
       Cost = 700,
-      Order = 363,
+      Order = 366,
       Description = "Enemies within 3 m of you take 4d8 necrotic damage. On a failed Wisdom save they are Confused for 2 turns, with a 1 in 10 chance of Doom (bosses are immune); on a success they take half. Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Muramasa" },
@@ -6656,7 +6695,7 @@ return {
       Type = "Action",
       Name = "Kiku-ichimonji",
       Cost = 800,
-      Order = 364,
+      Order = 367,
       Description = "Enemies in a 12 m line from you take 6d8 slashing damage (Dexterity save for half). Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_KikuIchimonji" },
@@ -6669,7 +6708,7 @@ return {
       Type = "Action",
       Name = "Masamune",
       Cost = 900,
-      Order = 365,
+      Order = 368,
       Description = "You and allies within 3 m of you gain Regen for 3 turns and Haste for 2 (an extra action, +2 AC, double movement; lethargic for a turn afterwards, as in BG3). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Masamune" },
@@ -6682,7 +6721,7 @@ return {
       Type = "Action",
       Name = "Chirijiraden",
       Cost = 1000,
-      Order = 366,
+      Order = 369,
       Description = "A ring of blue flame: enemies within 5 m of you take 8d6 fire damage (Dexterity save for half). Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Chirijiraden" },
@@ -6695,7 +6734,7 @@ return {
       Type = "Action",
       Name = "Magicksap",
       Cost = 0,
-      Order = 367,
+      Order = 370,
       Description = "A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target makes a Constitution save against your manoeuvre DC or is Silenced for 2 turns (FFT drains its MP). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Magicksap" },
@@ -6708,7 +6747,7 @@ return {
       Type = "Action",
       Name = "Speedsap",
       Cost = 0,
-      Order = 368,
+      Order = 371,
       Description = "A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target has -3 m movement for 10 turns (FFT: for the battle). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Speedsap" },
@@ -6721,7 +6760,7 @@ return {
       Type = "Action",
       Name = "Powersap",
       Cost = 0,
-      Order = 369,
+      Order = 372,
       Description = "A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target deals 2 less damage for 10 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Powersap" },
@@ -6734,7 +6773,7 @@ return {
       Type = "Action",
       Name = "Mindsap",
       Cost = 0,
-      Order = 370,
+      Order = 373,
       Description = "A ruinous slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and the target has -2 to spell attack rolls and spell save DC for 10 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Mindsap" },
@@ -6747,7 +6786,7 @@ return {
       Type = "Action",
       Name = "Blood Drain",
       Cost = 0,
-      Order = 371,
+      Order = 374,
       Description = "Bite a creature next to you (melee weapon attack roll): 2d6 piercing + 2d6 necrotic damage, and you regain hit points equal to the damage dealt. Not against undead or constructs. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_BloodDrain" },
@@ -6760,7 +6799,7 @@ return {
       Type = "Action",
       Name = "Cure",
       Cost = 50,
-      Order = 372,
+      Order = 375,
       Description = "Heal a creature within 18 m for 1d8+3. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Cure" },
@@ -6773,7 +6812,7 @@ return {
       Type = "Action",
       Name = "Cura",
       Cost = 180,
-      Order = 373,
+      Order = 376,
       Description = "Heal up to 3 allies for 2d8+3. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Cura" },
@@ -6786,7 +6825,7 @@ return {
       Type = "Action",
       Name = "Curaga",
       Cost = 450,
-      Order = 374,
+      Order = 377,
       Description = "Heal up to 4 allies for 4d8+4. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Curaga" },
@@ -6799,7 +6838,7 @@ return {
       Type = "Action",
       Name = "Curaja",
       Cost = 800,
-      Order = 375,
+      Order = 378,
       Description = "Heal yourself and every ally within 9 m for 5d8+5. Once per long rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Curaja" },
@@ -6812,7 +6851,7 @@ return {
       Type = "Action",
       Name = "Raise",
       Cost = 200,
-      Order = 376,
+      Order = 379,
       Description = "Revive a dead ally with 1 HP. Once per short rest.",
       Grants = {
         Spells = { "Teleportation_FFTJ_Raise" },
@@ -6825,7 +6864,7 @@ return {
       Type = "Action",
       Name = "Arise",
       Cost = 600,
-      Order = 377,
+      Order = 380,
       Description = "Revive a dead ally and heal it for 4d8. Once per long rest.",
       Grants = {
         Spells = { "Teleportation_FFTJ_Arise" },
@@ -6838,7 +6877,7 @@ return {
       Type = "Action",
       Name = "Reraise",
       Cost = 1000,
-      Order = 378,
+      Order = 381,
       Description = "Death Ward: the next time the ally would drop to 0 HP, it drops to 1 HP instead. Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_Reraise" },
@@ -6851,7 +6890,7 @@ return {
       Type = "Action",
       Name = "Regen",
       Cost = 350,
-      Order = 379,
+      Order = 382,
       Description = "The target regains 1d4+1 HP at the start of each of its turns for 5 turns. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Regen" },
@@ -6864,7 +6903,7 @@ return {
       Type = "Action",
       Name = "Protect",
       Cost = 70,
-      Order = 380,
+      Order = 383,
       Description = "The target gets +2 AC for 5 turns. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Protect" },
@@ -6877,7 +6916,7 @@ return {
       Type = "Action",
       Name = "Protectja",
       Cost = 600,
-      Order = 381,
+      Order = 384,
       Description = "Protect (+2 AC) on yourself and every ally within 9 m for 5 turns. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Protectja" },
@@ -6890,7 +6929,7 @@ return {
       Type = "Action",
       Name = "Shell",
       Cost = 70,
-      Order = 382,
+      Order = 385,
       Description = "The target has advantage on saving throws against spells for 5 turns. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Shell" },
@@ -6903,7 +6942,7 @@ return {
       Type = "Action",
       Name = "Shellja",
       Cost = 600,
-      Order = 383,
+      Order = 386,
       Description = "Shell (advantage on saving throws against spells) on yourself and every ally within 9 m for 5 turns. Once per short rest.",
       Grants = {
         Spells = { "Shout_FFTJ_Shellja" },
@@ -6916,7 +6955,7 @@ return {
       Type = "Action",
       Name = "Wall",
       Cost = 400,
-      Order = 384,
+      Order = 387,
       Description = "Protect and Shell together on a creature within 18 m for 5 turns. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_Wall" },
@@ -6929,7 +6968,7 @@ return {
       Type = "Action",
       Name = "Esuna",
       Cost = 300,
-      Order = 385,
+      Order = 388,
       Description = "End Poisoned, Blinded, Silenced and Frightened on a creature within 18 m. Once per turn.",
       Grants = {
         Spells = { "Target_FFTJ_Esuna" },
@@ -6942,7 +6981,7 @@ return {
       Type = "Action",
       Name = "Holy",
       Cost = 600,
-      Order = 386,
+      Order = 389,
       Description = "4d10 radiant damage to a creature within 18 m, no attack roll. Once per short rest.",
       Grants = {
         Spells = { "Projectile_FFTJ_Holy" },
@@ -6955,7 +6994,7 @@ return {
       Type = "Action",
       Name = "Ice Breath",
       Cost = 0,
-      Order = 387,
+      Order = 390,
       Description = "Breathe a cone of freezing air: everything in it takes 2d8 cold damage (Dexterity save against your manoeuvre DC for half). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_IceBreath" },
@@ -6968,7 +7007,7 @@ return {
       Type = "Action",
       Name = "Fire Breath",
       Cost = 0,
-      Order = 388,
+      Order = 391,
       Description = "Breathe a cone of flame: 3d6 fire damage (Dexterity save for half). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_FireBreath" },
@@ -6981,7 +7020,7 @@ return {
       Type = "Action",
       Name = "Thunder Breath",
       Cost = 0,
-      Order = 389,
+      Order = 392,
       Description = "Breathe a 12 m line of lightning: 2d8 lightning damage (Dexterity save for half). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_ThunderBreath" },
@@ -6994,7 +7033,7 @@ return {
       Type = "Action",
       Name = "Dragon's Charm",
       Cost = 300,
-      Order = 390,
+      Order = 393,
       Description = "A creature that isn't humanoid (dragons, beasts, monsters) within 18 m makes a Wisdom save or fights on your side for 2 turns; bosses shrug it off. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_DragonsCharm" },
@@ -7007,7 +7046,7 @@ return {
       Type = "Action",
       Name = "Dragon's Gift",
       Cost = 300,
-      Order = 391,
+      Order = 394,
       Description = "Give of your own life: you lose 1d8 hit points, and an ally within 18 m regains 3d8 hit points and is cured of being poisoned, blinded, frightened and diseased. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_DragonsGift" },
@@ -7020,7 +7059,7 @@ return {
       Type = "Action",
       Name = "Dragon's Might",
       Cost = 400,
-      Order = 392,
+      Order = 395,
       Description = "An ally within 18 m gets Strength Surge, Magick Surge and Speed Surge for 3 turns. Once per short rest.",
       Grants = {
         Spells = { "Target_FFTJ_DragonsMight" },
@@ -7033,7 +7072,7 @@ return {
       Type = "Action",
       Name = "Dragon's Speed",
       Cost = 400,
-      Order = 393,
+      Order = 396,
       Description = "Warp time for an ally within 18 m: it gets the Time Mage's Quick (an extra action on its next turn). Once per long rest.",
       Grants = {
         Spells = { "Target_FFTJ_DragonsSpeed" },
@@ -7046,7 +7085,7 @@ return {
       Type = "Action",
       Name = "Holy Breath",
       Cost = 900,
-      Order = 394,
+      Order = 397,
       Description = "Breathe divine power in a wide cone: 6d8 radiant damage (Dexterity save for half). Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_HolyBreath" },
@@ -7059,7 +7098,7 @@ return {
       Type = "Action",
       Name = "Judgment Blade",
       Cost = 100,
-      Order = 395,
+      Order = 398,
       Description = "Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 1d8 radiant, and the target makes a Constitution save or is Stopped for 1 turn (bosses shrug it off). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_JudgmentBlade" },
@@ -7072,7 +7111,7 @@ return {
       Type = "Action",
       Name = "Cleansing Strike",
       Cost = 400,
-      Order = 396,
+      Order = 399,
       Description = "Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 radiant, and the target makes a Constitution save or is Doomed (it falls when the count ends; bosses shrug it off). Once per long rest.",
       Grants = {
         Spells = { "Zone_FFTJ_CleansingStrike" },
@@ -7085,7 +7124,7 @@ return {
       Type = "Action",
       Name = "Northswain's Strike",
       Cost = 500,
-      Order = 397,
+      Order = 400,
       Description = "Holy energy that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 4d8 radiant (FFT's chance of instant KO is left out: it could end scripted boss fights). Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_NorthswainsStrike" },
@@ -7098,7 +7137,7 @@ return {
       Type = "Action",
       Name = "Hallowed Bolt",
       Cost = 700,
-      Order = 398,
+      Order = 401,
       Description = "Holy energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 2d8 radiant + 2d8 lightning, and the target makes a Wisdom save or is Silenced for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_HallowedBolt" },
@@ -7111,7 +7150,7 @@ return {
       Type = "Action",
       Name = "Divine Ruination",
       Cost = 800,
-      Order = 399,
+      Order = 402,
       Description = "Holy energy that flies 9 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage + 3d8 radiant, and the target makes a Wisdom save or is Confused for 2 turns. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_DivineRuination" },
@@ -7124,7 +7163,7 @@ return {
       Type = "Action",
       Name = "Crush Armor",
       Cost = 200,
-      Order = 400,
+      Order = 403,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's body armour off; it falls to the ground.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushArmor" },
@@ -7137,7 +7176,7 @@ return {
       Type = "Action",
       Name = "Crush Helm",
       Cost = 400,
-      Order = 401,
+      Order = 404,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's headwear off; it falls to the ground.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushHelm" },
@@ -7150,7 +7189,7 @@ return {
       Type = "Action",
       Name = "Crush Weapon",
       Cost = 500,
-      Order = 402,
+      Order = 405,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks the target's weapon out of its hand; it falls to the ground. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushWeapon" },
@@ -7163,7 +7202,7 @@ return {
       Type = "Action",
       Name = "Crush Accessory",
       Cost = 800,
-      Order = 403,
+      Order = 406,
       Description = "A slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and knocks one of the target's accessories off (amulet, ring, cloak, gloves or boots); it falls to the ground. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_CrushAccessory" },
@@ -7176,7 +7215,7 @@ return {
       Type = "Action",
       Name = "Shadowblade",
       Cost = 100,
-      Order = 404,
+      Order = 407,
       Description = "A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage and heals you for half the damage dealt.",
       Grants = {
         Spells = { "Zone_FFTJ_Shadowblade" },
@@ -7189,7 +7228,7 @@ return {
       Type = "Action",
       Name = "Duskblade",
       Cost = 500,
-      Order = 405,
+      Order = 408,
       Description = "A dark slash that flies 6 m: a melee weapon attack against each foe in the line. A hit deals your weapon's damage, gives the target -2 to spell attack rolls and spell save DC for 2 turns and gives you back a level 1 spell slot. Once per short rest.",
       Grants = {
         Spells = { "Zone_FFTJ_Duskblade" },
@@ -7202,7 +7241,7 @@ return {
       Type = "Action",
       Name = "Soul Brand",
       Cost = 0,
-      Order = 406,
+      Order = 409,
       Description = "Bonus action. Brand a creature within 18 m for 1 turn: it can't be resisted. If it dies while branded (by anyone's hand), the party devours its soul and learns its forms (Soul Incarnation). No cooldown.",
       Grants = {
         Spells = { "Target_FFTJ_SoulBrand" },
@@ -7215,7 +7254,7 @@ return {
       Type = "Action",
       Name = "Soul Incarnation",
       Cost = 0,
-      Order = 407,
+      Order = 410,
       Description = "Bonus action, a Wild Shape charge (2 per short rest): take a form from the Soul Codex. Every devoured soul type gives two forms, the creature itself and an FFT monster; 3 and 5 souls of a type make its forms stronger. Your level scales the form.",
       Grants = {
         Spells = { "Shout_FFTJ_SoulIncarnation" },
@@ -7229,7 +7268,7 @@ return {
       Type = "Support",
       Name = "Feral Vigor",
       Cost = 400,
-      Order = 408,
+      Order = 411,
       Description = "+1 maximum hit point per level, in every form and out of it.",
       Grants = {
         Passives = { "FFTJ_FeralVigor" },
@@ -7242,7 +7281,7 @@ return {
       Type = "Support",
       Name = "Deep Reserves",
       Cost = 700,
-      Order = 409,
+      Order = 412,
       Description = "One more Wild Shape charge for Soul Incarnation (or Wild Shape).",
       Grants = {
         Passives = { "FFTJ_DeepReserves" },
@@ -7250,13 +7289,13 @@ return {
       Fft = "A Soul Collector support (no FFT original).",
     },
   },
-  AbilityOrder = { "Focus", "Rush", "ThrowStone", "Salve", "CounterTackle", "EquipAxes", "EvasiveStance", "JPBoost", "Movement1", "Potion", "HiPotion", "XPotion", "Ether", "Elixir", "Antidote", "EyeDrops", "EchoHerbs", "Remedy", "PhoenixDown", "AutoPotion", "ThrowItems", "TreasureHunter", "ChemicalMixup", "ChemicalBurns", "FulminateFlask", "Saturation", "CausticFlask", "UnstableFlask", "RendArmor", "RendWeapon", "RendSpeed", "RendPower", "RendMagick", "Parry", "EquipHeavyArmor", "EquipShields", "EquipSwords", "RootingShot", "Balm", "Scout", "CollectTrophy", "KnowWeakness", "RainOfArrows", "EvasionUp", "Multishot", "Countershot", "SniperShot", "EquipBows", "Cure", "Cura", "Curaga", "Raise", "Arise", "Reraise", "Regen", "Protect", "Shell", "Esuna", "Holy", "Regenerate", "MagickDefenseBoost", "Fire", "Fira", "Firaga", "Thunder", "Thundara", "Thundaga", "Blizzard", "Blizzara", "Blizzaga", "Poison", "Death", "Flare", "MagickCounter", "MagickBoost", "Cyclone", "Pummel", "Aurablast", "Shockwave", "DoomFist", "Purification", "Chakra", "Revive", "CriticalRecoverHP", "Counter", "FirstStrike", "Brawler", "Lifefont", "StealGil", "StealHeart", "StealHelm", "StealArmor", "StealShield", "StealWeapon", "StealAccessory", "StealEXP", "Vigilance", "GilSnapper", "StickyFingers", "Poach", "Movement2", "Jump2", "Haste", "Hasteja", "Slow", "Slowja", "Stop", "Immobilize", "Float", "Reflect", "Quick", "Gravity", "Graviga", "Meteor", "CriticalQuick", "ManaShield", "Swiftspell", "Teleport", "Levitate", "Umbra", "Empowerment", "Invigoration", "Belief", "Disbelief", "Corruption", "Quiescence", "Fervor", "Trepidation", "Delirium", "Harmony", "Hesitation", "Repose", "Induration", "AbsorbMP", "DefenseBoost", "IgnoreWeather", "Manafont", "Sinkhole", "Torrent", "Tanglevine", "Contortion", "Tremor", "WindSlash", "WillOTheWisp", "Quicksand", "Sandstorm", "Snowstorm", "WindBlast", "MagmaSurge", "NaturesWrath", "AttackBoost", "IgnoreTerrain", "Lavawalking", "HorizontalJump1", "HorizontalJump2", "HorizontalJump3", "HorizontalJump4", "HorizontalJump7", "VerticalJump2", "VerticalJump3", "VerticalJump4", "VerticalJump5", "VerticalJump6", "VerticalJump7", "VerticalJump8", "Dragonheart", "EquipPolearms", "IgnoreElevation", "Moogle", "Shiva", "Ramuh", "Ifrit", "Titan", "Golem", "Carbuncle", "Bahamut", "Odin", "Leviathan", "Salamander", "Sylph", "Faerie", "Lich", "Cyclops", "CriticalRecoverMP", "HalveMP", "Entice", "Stall", "Praise", "Intimidate", "Preach", "Enlighten", "Condemn", "Defraud", "Insult", "MimicDarlavon", "Earplugs", "EquipGuns", "Tame", "BeastTongue", "Ashura", "Kotetsu", "BizenOsafune", "Murasame", "AmeNoMurakumo", "Kiyomori", "Muramasa", "KikuIchimonji", "Masamune", "Chirijiraden", "Bonecrusher", "Shirahadori", "EquipKatana", "Doublehand", "Swim", "ThrowShuriken", "ThrowBombs", "ThrowDaggers", "ThrowSwords", "ThrowFlails", "ThrowKatana", "ThrowNinjaBlades", "ThrowAxes", "ThrowPolearms", "ThrowPoles", "ThrowKnightsSwords", "ThrowBooks", "Vanish", "Reflexes", "DualWield", "Waterwalking", "TargetCT", "TargetLevel", "TargetEXP", "TargetElevation", "Prime", "MultipleOf5", "MultipleOf4", "MultipleOf3", "CupOfLife", "Soulbind", "EXPBoost", "AccrueEXP", "AccrueJP", "SeraphSong", "LifesAnthem", "RousingMelody", "BattleChant", "MagickalRefrain", "NamelessSong", "Finale", "MagickSurge", "FaithSurge", "MovementPlus3", "Fly", "WitchHunt", "MincingMinuet", "SlowDance", "Polka", "HeathenFrolic", "ForbiddenDance", "LastWaltz", "StrengthSurge", "BraverySurge", "JumpPlus3", "DancerFly", "SanguineSword", "InfernalStrike", "CrushingBlow", "AbyssalBlade", "UnholySacrifice", "HPBoost", "Vehemence", "DarkKnightMovementPlus3", "DarkKnightJumpPlus3", "ClericCure", "ClericCura", "ClericCuraga", "ClericCuraja", "ClericRaise", "ClericArise", "ClericReraise", "ClericRegen", "ClericProtect", "ClericProtectja", "ClericShell", "ClericShellja", "ClericWall", "ClericEsuna", "ClericHoly", "Dispelna", "Shadowblade", "Duskblade", "CrushArmor", "CrushHelm", "CrushWeapon", "CrushAccessory", "SpellbladeBlind", "SpellbladeSyphon", "SpellbladeDrain", "SpellbladeFaith", "SpellbladeDoubt", "SpellbladeZombie", "SpellbladeSilence", "SpellbladeBerserk", "SpellbladeChicken", "SpellbladeConfuse", "SpellbladeDispel", "SpellbladeDisable", "SpellbladeSleep", "SpellbladeBreak", "Destroy", "Compress", "Dispose", "Pulverize", "CelestialStasis", "Barrage", "PlunderGil", "PlunderHeart", "PlunderHelm", "PlunderArmor", "PlunderShield", "PlunderWeapon", "PlunderAccessory", "PlunderEXP", "GameHunterFocus", "GameHunterRush", "GameHunterThrowStone", "GameHunterSalve", "HeavensWrath", "SkyAshura", "AdamantineBlade", "Maelstrom", "CelestialVoid", "Divinity", "HellsWrath", "NetherAshura", "NetherBlade", "NetherMaelstrom", "CorporealVoid", "Impiety", "Braver", "CrossSlash", "BladeBurst", "Ascension", "Meteorain", "FinishingTouch", "Omnislash", "CherryBlossom", "JudgmentBlade", "CleansingStrike", "NorthswainsStrike", "HallowedBolt", "DivineRuination", "LegShot", "ArmShot", "SealEvil", "ArkKnightAshura", "ArkKnightKotetsu", "ArkKnightBizenOsafune", "ArkKnightMurasame", "ArkKnightAmeNoMurakumo", "ArkKnightKiyomori", "ArkKnightMuramasa", "ArkKnightKikuIchimonji", "ArkKnightMasamune", "ArkKnightChirijiraden", "Magicksap", "Speedsap", "Powersap", "Mindsap", "BloodDrain", "PrincessCure", "PrincessCura", "PrincessCuraga", "PrincessCuraja", "PrincessRaise", "PrincessArise", "PrincessReraise", "PrincessRegen", "PrincessProtect", "PrincessProtectja", "PrincessShell", "PrincessShellja", "PrincessWall", "PrincessEsuna", "PrincessHoly", "IceBreath", "FireBreath", "ThunderBreath", "DragonsCharm", "DragonsGift", "DragonsMight", "DragonsSpeed", "HolyBreath", "SwordSaintJudgmentBlade", "SwordSaintCleansingStrike", "SwordSaintNorthswainsStrike", "SwordSaintHallowedBolt", "SwordSaintDivineRuination", "SwordSaintCrushArmor", "SwordSaintCrushHelm", "SwordSaintCrushWeapon", "SwordSaintCrushAccessory", "SwordSaintShadowblade", "SwordSaintDuskblade", "SoulBrand", "SoulIncarnation", "FeralVigor", "DeepReserves" },
+  AbilityOrder = { "Focus", "Rush", "ThrowStone", "Salve", "CounterTackle", "EquipAxes", "EvasiveStance", "JPBoost", "Movement1", "Potion", "HiPotion", "XPotion", "Ether", "Elixir", "Antidote", "EyeDrops", "EchoHerbs", "Remedy", "PhoenixDown", "AutoPotion", "ThrowItems", "TreasureHunter", "ChemicalMixup", "ChemicalBurns", "FulminateFlask", "Saturation", "CausticFlask", "UnstableFlask", "RendArmor", "RendWeapon", "RendSpeed", "RendPower", "RendMagick", "Parry", "EquipHeavyArmor", "EquipShields", "EquipSwords", "RootingShot", "Balm", "Scout", "CollectTrophy", "KnowWeakness", "RainOfArrows", "EvasionUp", "Multishot", "Countershot", "SniperShot", "EquipBows", "Cure", "Cura", "Curaga", "Raise", "Arise", "Reraise", "Regen", "Protect", "Shell", "Esuna", "Holy", "Rebirth", "Renew", "WhiteMageManaFont", "BlessedOne", "MagickDefenseBoost", "Fire", "Fira", "Firaga", "Thunder", "Thundara", "Thundaga", "Blizzard", "Blizzara", "Blizzaga", "Poison", "Death", "Flare", "MagickCounter", "MagickBoost", "Cyclone", "Pummel", "Aurablast", "Shockwave", "DoomFist", "Purification", "Chakra", "Revive", "CriticalRecoverHP", "Counter", "FirstStrike", "Brawler", "Lifefont", "StealGil", "StealHeart", "StealHelm", "StealArmor", "StealShield", "StealWeapon", "StealAccessory", "StealEXP", "Vigilance", "GilSnapper", "StickyFingers", "Poach", "Movement2", "Jump2", "Haste", "Hasteja", "Slow", "Slowja", "Stop", "Immobilize", "Float", "Reflect", "Quick", "Gravity", "Graviga", "Meteor", "CriticalQuick", "ManaShield", "Swiftspell", "Teleport", "Levitate", "Umbra", "Empowerment", "Invigoration", "Belief", "Disbelief", "Corruption", "Quiescence", "Fervor", "Trepidation", "Delirium", "Harmony", "Hesitation", "Repose", "Induration", "AbsorbMP", "DefenseBoost", "IgnoreWeather", "Manafont", "Sinkhole", "Torrent", "Tanglevine", "Contortion", "Tremor", "WindSlash", "WillOTheWisp", "Quicksand", "Sandstorm", "Snowstorm", "WindBlast", "MagmaSurge", "NaturesWrath", "AttackBoost", "IgnoreTerrain", "Lavawalking", "HorizontalJump1", "HorizontalJump2", "HorizontalJump3", "HorizontalJump4", "HorizontalJump7", "VerticalJump2", "VerticalJump3", "VerticalJump4", "VerticalJump5", "VerticalJump6", "VerticalJump7", "VerticalJump8", "Dragonheart", "EquipPolearms", "IgnoreElevation", "Moogle", "Shiva", "Ramuh", "Ifrit", "Titan", "Golem", "Carbuncle", "Bahamut", "Odin", "Leviathan", "Salamander", "Sylph", "Faerie", "Lich", "Cyclops", "CriticalRecoverMP", "HalveMP", "Entice", "Stall", "Praise", "Intimidate", "Preach", "Enlighten", "Condemn", "Defraud", "Insult", "MimicDarlavon", "Earplugs", "EquipGuns", "Tame", "BeastTongue", "Ashura", "Kotetsu", "BizenOsafune", "Murasame", "AmeNoMurakumo", "Kiyomori", "Muramasa", "KikuIchimonji", "Masamune", "Chirijiraden", "Bonecrusher", "Shirahadori", "EquipKatana", "Doublehand", "Swim", "ThrowShuriken", "ThrowBombs", "ThrowDaggers", "ThrowSwords", "ThrowFlails", "ThrowKatana", "ThrowNinjaBlades", "ThrowAxes", "ThrowPolearms", "ThrowPoles", "ThrowKnightsSwords", "ThrowBooks", "Vanish", "Reflexes", "DualWield", "Waterwalking", "TargetCT", "TargetLevel", "TargetEXP", "TargetElevation", "Prime", "MultipleOf5", "MultipleOf4", "MultipleOf3", "CupOfLife", "Soulbind", "EXPBoost", "AccrueEXP", "AccrueJP", "SeraphSong", "LifesAnthem", "RousingMelody", "BattleChant", "MagickalRefrain", "NamelessSong", "Finale", "MagickSurge", "FaithSurge", "MovementPlus3", "Fly", "WitchHunt", "MincingMinuet", "SlowDance", "Polka", "HeathenFrolic", "ForbiddenDance", "LastWaltz", "StrengthSurge", "BraverySurge", "JumpPlus3", "DancerFly", "SanguineSword", "InfernalStrike", "CrushingBlow", "AbyssalBlade", "UnholySacrifice", "HPBoost", "Vehemence", "DarkKnightMovementPlus3", "DarkKnightJumpPlus3", "ClericCure", "ClericCura", "ClericCuraga", "ClericCuraja", "ClericRaise", "ClericArise", "ClericReraise", "ClericRegen", "ClericProtect", "ClericProtectja", "ClericShell", "ClericShellja", "ClericWall", "ClericEsuna", "ClericHoly", "Dispelna", "Shadowblade", "Duskblade", "CrushArmor", "CrushHelm", "CrushWeapon", "CrushAccessory", "SpellbladeBlind", "SpellbladeSyphon", "SpellbladeDrain", "SpellbladeFaith", "SpellbladeDoubt", "SpellbladeZombie", "SpellbladeSilence", "SpellbladeBerserk", "SpellbladeChicken", "SpellbladeConfuse", "SpellbladeDispel", "SpellbladeDisable", "SpellbladeSleep", "SpellbladeBreak", "Destroy", "Compress", "Dispose", "Pulverize", "CelestialStasis", "Barrage", "PlunderGil", "PlunderHeart", "PlunderHelm", "PlunderArmor", "PlunderShield", "PlunderWeapon", "PlunderAccessory", "PlunderEXP", "GameHunterFocus", "GameHunterRush", "GameHunterThrowStone", "GameHunterSalve", "HeavensWrath", "SkyAshura", "AdamantineBlade", "Maelstrom", "CelestialVoid", "Divinity", "HellsWrath", "NetherAshura", "NetherBlade", "NetherMaelstrom", "CorporealVoid", "Impiety", "Braver", "CrossSlash", "BladeBurst", "Ascension", "Meteorain", "FinishingTouch", "Omnislash", "CherryBlossom", "JudgmentBlade", "CleansingStrike", "NorthswainsStrike", "HallowedBolt", "DivineRuination", "LegShot", "ArmShot", "SealEvil", "ArkKnightAshura", "ArkKnightKotetsu", "ArkKnightBizenOsafune", "ArkKnightMurasame", "ArkKnightAmeNoMurakumo", "ArkKnightKiyomori", "ArkKnightMuramasa", "ArkKnightKikuIchimonji", "ArkKnightMasamune", "ArkKnightChirijiraden", "Magicksap", "Speedsap", "Powersap", "Mindsap", "BloodDrain", "PrincessCure", "PrincessCura", "PrincessCuraga", "PrincessCuraja", "PrincessRaise", "PrincessArise", "PrincessReraise", "PrincessRegen", "PrincessProtect", "PrincessProtectja", "PrincessShell", "PrincessShellja", "PrincessWall", "PrincessEsuna", "PrincessHoly", "IceBreath", "FireBreath", "ThunderBreath", "DragonsCharm", "DragonsGift", "DragonsMight", "DragonsSpeed", "HolyBreath", "SwordSaintJudgmentBlade", "SwordSaintCleansingStrike", "SwordSaintNorthswainsStrike", "SwordSaintHallowedBolt", "SwordSaintDivineRuination", "SwordSaintCrushArmor", "SwordSaintCrushHelm", "SwordSaintCrushWeapon", "SwordSaintCrushAccessory", "SwordSaintShadowblade", "SwordSaintDuskblade", "SoulBrand", "SoulIncarnation", "FeralVigor", "DeepReserves" },
   AbilitiesByJob = {
     Squire = { "Focus", "Rush", "ThrowStone", "Salve", "CounterTackle", "EquipAxes", "EvasiveStance", "JPBoost", "Movement1" },
     Chemist = { "Potion", "HiPotion", "XPotion", "Ether", "Elixir", "Antidote", "EyeDrops", "EchoHerbs", "Remedy", "PhoenixDown", "AutoPotion", "ThrowItems", "TreasureHunter", "ChemicalMixup", "ChemicalBurns", "FulminateFlask", "Saturation", "CausticFlask", "UnstableFlask" },
     Knight = { "RendArmor", "RendWeapon", "RendSpeed", "RendPower", "RendMagick", "Parry", "EquipHeavyArmor", "EquipShields", "EquipSwords" },
     Archer = { "RootingShot", "Balm", "Scout", "CollectTrophy", "KnowWeakness", "RainOfArrows", "EvasionUp", "Multishot", "Countershot", "SniperShot", "EquipBows" },
-    WhiteMage = { "Cure", "Cura", "Curaga", "Raise", "Arise", "Reraise", "Regen", "Protect", "Shell", "Esuna", "Holy", "Regenerate", "MagickDefenseBoost" },
+    WhiteMage = { "Cure", "Cura", "Curaga", "Raise", "Arise", "Reraise", "Regen", "Protect", "Shell", "Esuna", "Holy", "Rebirth", "Renew", "WhiteMageManaFont", "BlessedOne", "MagickDefenseBoost" },
     BlackMage = { "Fire", "Fira", "Firaga", "Thunder", "Thundara", "Thundaga", "Blizzard", "Blizzara", "Blizzaga", "Poison", "Death", "Flare", "MagickCounter", "MagickBoost" },
     Monk = { "Cyclone", "Pummel", "Aurablast", "Shockwave", "DoomFist", "Purification", "Chakra", "Revive", "CriticalRecoverHP", "Counter", "FirstStrike", "Brawler", "Lifefont" },
     Thief = { "StealGil", "StealHeart", "StealHelm", "StealArmor", "StealShield", "StealWeapon", "StealAccessory", "StealEXP", "Vigilance", "GilSnapper", "StickyFingers", "Poach", "Movement2", "Jump2" },
@@ -7798,6 +7837,10 @@ return {
     Projectile_FFTJ_Holy = {
       Spell = "Projectile_FFTJ_Holy_Echo",
       Ability = "Holy",
+    },
+    Target_FFTJ_Rebirth = {
+      Spell = "Target_FFTJ_Rebirth_Echo",
+      Ability = "Rebirth",
     },
     Projectile_FFTJ_Fire = {
       Spell = "Projectile_FFTJ_Fire_Echo",
@@ -8706,6 +8749,7 @@ return {
     Shell = "Target_FFTJ_Shell_Arith",
     Esuna = "Target_FFTJ_Esuna_Arith",
     Holy = "Projectile_FFTJ_Holy_Arith",
+    Rebirth = "Target_FFTJ_Rebirth_Arith",
     Fire = "Projectile_FFTJ_Fire_Arith",
     Fira = "Projectile_FFTJ_Fira_Arith",
     Firaga = "Projectile_FFTJ_Firaga_Arith",
@@ -8852,6 +8896,8 @@ return {
       PoachGoldPerLevel = 5,
       TrophyLevels = { 1, 5, 9 },
       GilSnapperShare = 1.0,
+      BlessedOneShare = 0.5,
+      BlessedOneWaitMs = 5000,
       GravityShare = 0.25,
       GravigaShare = 0.5,
       EXPBoostShare = 0.25,
@@ -8999,6 +9045,8 @@ return {
     ["Abilities.PoachGoldPerLevel"] = "Poach: trophy gold per level of the poached creature.",
     ["Abilities.TrophyLevels"] = "Collect Trophy (Ranger): the lowest creature level for each trophy, smallest first (Small 75 gold, Fine 150, Grand 300; the values are in data/fft_jobs.json trophies).",
     ["Abilities.GilSnapperShare"] = "Gil Snapper: gold per point of damage taken.",
+    ["Abilities.BlessedOneShare"] = "Blessed One (White Mage): share of the hit points a single-target heal on someone else restored that the healer regains.",
+    ["Abilities.BlessedOneWaitMs"] = "Blessed One: how long (ms) after the heal is cast its hit points may still land and count.",
     ["Abilities.MixupDie"] = "Chemical Mixup: damage die (1 die, +1 at each level in MixupDiceLevels).",
     ["Abilities.MixupDiceLevels"] = "Chemical Mixup: character levels that add a die (cantrip scaling).",
     ["Abilities.MixupStatusTurns"] = "Chemical Mixup: turns the matching effect (Burning/Acid/Poisoned/Bleeding) lasts.",
@@ -9231,7 +9279,10 @@ return {
       Shell = "Shout_FFTJ_Learn_Shell",
       Esuna = "Shout_FFTJ_Learn_Esuna",
       Holy = "Shout_FFTJ_Learn_Holy",
-      Regenerate = "Shout_FFTJ_Learn_Regenerate",
+      Rebirth = "Shout_FFTJ_Learn_Rebirth",
+      Renew = "Shout_FFTJ_Learn_Renew",
+      WhiteMageManaFont = "Shout_FFTJ_Learn_WhiteMageManaFont",
+      BlessedOne = "Shout_FFTJ_Learn_BlessedOne",
       MagickDefenseBoost = "Shout_FFTJ_Learn_MagickDefenseBoost",
       Fire = "Shout_FFTJ_Learn_Fire",
       Fira = "Shout_FFTJ_Learn_Fira",
@@ -9689,6 +9740,7 @@ return {
       Target_FFTJ_Shell = true,
       Target_FFTJ_Esuna = true,
       Projectile_FFTJ_Holy = true,
+      Target_FFTJ_Rebirth = true,
       Projectile_FFTJ_Fire = true,
       Projectile_FFTJ_Fira = true,
       Projectile_FFTJ_Firaga = true,
@@ -9974,6 +10026,7 @@ return {
       Target_FFTJ_Shell_Echo = true,
       Target_FFTJ_Esuna_Echo = true,
       Projectile_FFTJ_Holy_Echo = true,
+      Target_FFTJ_Rebirth_Echo = true,
       Projectile_FFTJ_Fire_Echo = true,
       Projectile_FFTJ_Fira_Echo = true,
       Projectile_FFTJ_Firaga_Echo = true,
@@ -10276,6 +10329,11 @@ return {
     Jump1 = {
       Job = "Archer",
       Cost = 200,
+    },
+    Regenerate = {
+      Job = "WhiteMage",
+      Cost = 400,
+      ReplacedBy = "Renew",
     },
   },
   Trophies = {

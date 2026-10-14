@@ -25,6 +25,7 @@ function Service.New(deps)
     self.PollGeneration = 0
     self.PoachMarks = {} -- creature guid -> the poacher who hit it this turn (Effects.lua)
     self.TrophyMarks = {} -- creature guid -> the hunter whose Collect Trophy hit it this turn (Effects.lua)
+    self.BlessedWatch = {} -- healed creature guid -> {Caster, Before = its HP, Seq, Spell}: Blessed One (Effects.lua)
     self.EchoSeq = 0 -- counts echoable job abilities used by the party (Mime)
     self.LastEcho = nil -- {Spell = echo twin, Ability, By = guid, Seq}
     self.EchoSeen = {} -- Mime guid -> EchoSeq when its last turn ended
@@ -1059,6 +1060,19 @@ end
 function Service:OnAttackedBy(defender, attackerOwner, attacker, damageType, damageAmount)
     if self.Ready and not self:IsDisabled() then
         Effects.OnAttackedBy(self, Util.Guid(defender), damageAmount)
+    end
+end
+
+function Service:OnUsingSpellOnTarget(caster, target, spell)
+    if self.Ready and not self:IsDisabled() then
+        Effects.BlessedOneCast(self, Util.Guid(caster), Util.Guid(target), spell)
+    end
+end
+
+-- Fires for every HP change of every creature: only a creature Blessed One waits on does any work.
+function Service:OnHitpointsChanged(object)
+    if self.Ready and next(self.BlessedWatch) ~= nil then
+        Effects.BlessedOneHealed(self, Util.Guid(object))
     end
 end
 

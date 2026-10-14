@@ -90,7 +90,10 @@ Protect|a translucent golden dome of light with a hexagon pattern, pale gold bac
 Shell|a translucent blue sphere of light covered in swirling runes, pale gold background
 Esuna|a white dove made of light spreading its wings as dark motes of sickness scatter away, pale gold background
 Holy|a blinding white starburst of holy light with radiant beams, pale gold background
-Regenerate|a glowing heart wrapped in a vine of fresh green leaves, pale gold background
+Rebirth|a golden phoenix feather glowing inside a ring of white flame, pale gold background
+Renew|a glowing heart wrapped in a vine of fresh green leaves, pale gold background
+WhiteMageManaFont|a small fountain of glowing blue mana bubbling up from a cracked white stone, pale gold background
+BlessedOne|two hands of light, one giving a glow of healing to the other while a soft halo shines back on the giver, pale gold background
 MagickDefenseBoost|a glowing white rune of warding hovering above an open palm, pale gold background
 
 Fire|close-up of one blazing fireball hovering above an outstretched open hand, deep indigo background

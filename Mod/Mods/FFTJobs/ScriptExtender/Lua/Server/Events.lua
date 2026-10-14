@@ -28,6 +28,9 @@ Events.Osiris = {
     { "StatusRemoved", 4, "OnStatusRemoved" },
     -- the Soul Codex item taken (Souls.lua); arity from the story goals (_GLOBAL_ItemEvents.txt)
     { "TemplateAddedTo", 4, "OnTemplateAddedTo" },
+    -- Blessed One (Effects.lua); arities from the story goals (UsingSpellOnTarget/6, HitpointsChanged/2)
+    { "UsingSpellOnTarget", 6, "OnUsingSpellOnTarget" },
+    { "HitpointsChanged", 2, "OnHitpointsChanged" },
 }
 
 function Events.Register(svc, log)

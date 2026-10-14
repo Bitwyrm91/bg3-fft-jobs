@@ -8,6 +8,7 @@
 --   Poach (Thief): a monster the poacher hit this turn pays out when it dies.
 --   Collect Trophy (Ranger): a monster it hit this turn leaves a sellable trophy in its loot when it dies.
 --   Abyssal Blade, Unholy Sacrifice (Dark Knight): the caster pays a share of its maximum HP (never the last one).
+--   Blessed One (White Mage): a single-target heal on someone else heals the caster for half of it.
 -- Every number is in the config (Abilities.*).
 local Rules = Ext.Require("Server/Rules.lua")
 
@@ -473,6 +474,54 @@ function Effects.OnAttackedBy(svc, defender, amount)
     if gold > 0 then
         svc.Game:AddGold(defender, gold)
         svc.Log.Info(string.format("%s snapped up %d gold (Gil Snapper)", char.Name or defender, gold))
+    end
+end
+
+-- Blessed One (White Mage, Fell Seal Mender): Osiris UsingSpellOnTarget, a single-target heal cast at someone else.
+-- The target's HP now is remembered; the first rise of it (Osiris HitpointsChanged) within Abilities.BlessedOneWaitMs
+-- is the heal, and the caster regains Abilities.BlessedOneShare of it.
+function Effects.BlessedOneCast(svc, caster, target, spell)
+    if not caster or not target or caster == target or type(spell) ~= "string" then
+        return
+    end
+    local char = svc.State:Get(caster)
+    if not (char and char.Granted and char.Granted.Passives and char.Granted.Passives.FFTJ_BlessedOne) then
+        return
+    end
+    if not svc.Game:IsSingleTargetHeal(spell) then
+        return
+    end
+    local before = svc.Game:Hitpoints(target)
+    if type(before) ~= "number" then
+        return
+    end
+    svc.BlessedSeq = (svc.BlessedSeq or 0) + 1
+    local seq = svc.BlessedSeq
+    svc.BlessedWatch[target] = { Caster = caster, Before = before, Seq = seq, Spell = spell }
+    svc.WaitFor(svc:Cfg().Abilities.BlessedOneWaitMs, function()
+        local w = svc.BlessedWatch[target]
+        if w and w.Seq == seq then
+            svc.BlessedWatch[target] = nil
+            svc.Log.Info(string.format("Blessed One: %s on %s restored no hit points in time", spell, name(svc, target)))
+        end
+    end)
+end
+
+function Effects.BlessedOneHealed(svc, target)
+    local w = target and svc.BlessedWatch[target]
+    if not w then
+        return
+    end
+    local now = svc.Game:Hitpoints(target)
+    if type(now) ~= "number" or now <= w.Before then
+        return -- not the heal yet (or damage first): keep waiting
+    end
+    svc.BlessedWatch[target] = nil
+    local share = math.floor((now - w.Before) * svc:Cfg().Abilities.BlessedOneShare)
+    local healed = share > 0 and svc.Game:Heal(w.Caster, share) or 0
+    if healed > 0 then
+        svc.Log.Info(string.format("%s regained %d HP (Blessed One: %s healed %s for %d)", name(svc, w.Caster), healed,
+            w.Spell, name(svc, target), now - w.Before))
     end
 end
 
