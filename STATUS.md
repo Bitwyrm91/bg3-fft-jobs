@@ -18,6 +18,10 @@ since 1.0.0.70 (7 of 20, target 8): user accepted.
 pushed on this branch; 1.0.0.74 is PACKAGED AND INSTALLED** (2026-10-14, BG3 closed; installed pak hash = build;
 backup of the 1.0.0.71 pak in C:\Users\berus\GameModding\backups). `main` = this branch too (fast-forwarded to 1.0.0.74 and pushed, as the user asked, 2026-10-14). None of 1.0.0.72-74 seen
 in game yet (PLAYTEST.md).
+**1.0.0.75 (Job Board tiles: JP + Set job / Set subclass on each tile, "subclass" wording) is PACKAGED AND
+INSTALLED** (2026-10-14 15:09, BG3 closed; installed pak hash = build; both modsettings.lsx entries at 1.0.0.75;
+backup of the 1.0.0.74 pak in C:\Users\berus\GameModding\backups). Committed on this branch, NOT pushed (`main` and
+origin stay at 1.0.0.74 until the user says push). Not seen in game.
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
 
@@ -484,8 +488,8 @@ GRN bomb); painted ones can come later (BG3 closed). Tests: pins Chemist 22 abil
 validate_vanilla + check_refs clean. Unverified in game: Mud slowing, the vials staying inside the flyout (not on the
 hotbar), the UnlockSpell'd children joining the container.
 
-**1.0.0.75 (2026-10-14, local session in worktree `bg3-fft-jobs-tiles`, branch `claude/board-tiles`; NOT packaged or
-seen in game): Job Board tiles carry the JP and the job buttons (user).** User's picks: one line per tile = emblem,
+**1.0.0.75 (2026-10-14, local session in worktree `bg3-fft-jobs-tiles`, branch `claude/board-tiles`; packaged +
+installed, NOT seen in game): Job Board tiles carry the JP and the job buttons (user).** User's picks: one line per tile = emblem,
 "<Job> Lv<N>" (+ " *" mastered), **Set job** / **Set subclass** (was Make job / Make secondary in the job panel), the
 JP to spend ("1048 JP", TEXT.Gold, dim at 0; tooltip "<Job> JP to spend."); the current job shows a "Your job" tag
 instead of both buttons, the subclass a "Your subclass" tag instead of Set subclass; locked/soon tiles show only the
