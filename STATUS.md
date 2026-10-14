@@ -7,8 +7,12 @@ Handoff between sessions. Read this first, then `BRIEF.md` (Part B) and `DESIGN.
 State at handoff: 1.0.0.60 on `main`, installed on the user's PC, tester zip 1.0.0.60 made; nothing unverified is
 pending locally except the in-game checks listed in PLAYTEST.md (1.0.0.55-60).
 
-**Where the work is:** GitHub branch `claude/game-modding-research-setup-qgn88h` = `main` (1.0.0.61) + 1.0.0.62-1.0.0.64
-(pushed 2026-10-14 at the user's request; not merged, not packaged, never checked against vanilla data). `main` is 1.0.0.61.
+**Where the work is (2026-10-14 10:14):** GitHub branch `claude/game-modding-research-setup-qgn88h` = `main`
+(1.0.0.61) + 1.0.0.62-1.0.0.71 (Highest-stat hit/DCs, multiplayer, Monk, Ranger, Counter Tackle fix, Wizard, Peddler,
+Mender skills, JP above the head), pushed; vanilla checks clean; **1.0.0.71 PACKAGED AND INSTALLED** on the user's PC
+(BG3 closed; Mods\FFTJobs.pak hash = build; both modsettings.lsx entries at 1.0.0.71; backup of the 1.0.0.61 pak in
+C:\Users\berus\GameModding\backups). Nothing of 1.0.0.62-71 seen in game yet (PLAYTEST.md lists what to check).
+`main` is still 1.0.0.61 (never merged). Pacing self-test fails since 1.0.0.70 (7 of 20, target 8): user accepted.
 
 ## Next week's patch — "NWP" (user, 2026-10-13; notes only, nothing started)
 
